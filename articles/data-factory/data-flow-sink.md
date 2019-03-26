@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371132"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438625"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformação do Coletor de Fluxo de Dados de Mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Opções de coletor](media/data-flow/windows1.png "coletor 1")
+![Opções de coletor](media/data-flow/sink1.png "coletor 1")
 
 Após a conclusão da transformação de fluxo de dados, você pode coletar os dados transformados em um conjunto de dados de destino. Na Transformação do Coletor, você pode escolher a definição de conjunto de dados que deseja usar para os dados de saída de destino. Você pode ter quantas Transformações do Coletor seu fluxo de dados exigir.
 

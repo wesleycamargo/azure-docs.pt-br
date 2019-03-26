@@ -1,5 +1,5 @@
 ---
-title: Exemplos de consulta simples – Azure Search
+title: Exemplos de consulta usando a sintaxe de pesquisa "simples" - Azure Search
 description: Exemplos de consulta simples para pesquisa de texto completo, pesquisa de filtro, pesquisa geográfica, pesquisa facetada e outras cadeias de caracteres de consulta usadas para consultar um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136471"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439101"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exemplos de consulta de sintaxe simples para criar consultas no Azure Search
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "simples" no Azure Search
 
 A [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca o analisador de consulta padrão para executar consultas de pesquisa de texto completo em um índice do Azure Search. O analisador de consultas simples é rápido e lida com cenários comuns no Azure Search, incluindo pesquisa de texto completo, pesquisa filtrada e facetada e pesquisa geográfica. Neste artigo, percorra exemplos demonstrando as operações de consulta disponíveis ao usar a sintaxe simples.
 
@@ -55,7 +55,9 @@ A composição de URL possui os elementos a seguir:
 
 ## <a name="send-your-first-query"></a>Enviar a primeira consulta
 
-Como uma etapa de verificação, cole a solicitação a seguir no GET e clique em **Enviar**. Os resultados são retornados como documentos JSON detalhados. Você pode copiar e colar essa URL no primeiro exemplo abaixo.
+Como uma etapa de verificação, cole a solicitação a seguir no GET e clique em **Enviar**. Os resultados são retornados como documentos JSON detalhados. Documentos inteiros são retornados, que permite que você veja todos os campos e todos os valores.
+
+Cole essa URL em um cliente REST como uma etapa de validação e exibir a estrutura do documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Para consultas interativas, não é necessário especificar nada: simples é o p
 Este primeiro exemplo não é específico do analisador, mas nós o conduzimos para introduzir o primeiro conceito de consulta fundamental: contenção. Este exemplo abrange a execução da consulta e a resposta para apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é Postman ou Search Explorer. 
 
 Por uma questão de brevidade, a consulta direciona apenas o campo *business_title* e especifica que somente os títulos da empresa sejam retornados. A sintaxe é **searchFields** para restringir a execução da consulta apenas ao campo business_title e **selecione** para especificar quais campos são incluídos na resposta.
+
+### <a name="partial-query-string"></a>Cadeia de caracteres de consulta parcial
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Aqui está a mesma consulta com vários campos em uma lista delimitada por vírgulas.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>URL completa
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

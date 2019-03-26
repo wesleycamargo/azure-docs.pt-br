@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834043"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438930"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Azure Application Insights com o conector para o Microsoft Flow
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá a criar um fluxo que usa o algoritmo de cluster
 
     ![Selecione programar em build](./media/automate-with-flow/2schedule.png)
 
-1. No a **intervalo** , digite **1**e, nas **frequência** caixa, selecione **dia**.
+1. No **intervalo** , digite **1**e, nas **frequência** caixa, selecione **dia**.
 2. Clique em **nova etapa**
 
     ![Configurar a agenda de recorrência com frequência e o intervalo de inserção](./media/automate-with-flow/3schedulerecurrence.png)

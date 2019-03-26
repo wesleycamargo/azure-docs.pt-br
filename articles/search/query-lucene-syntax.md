@@ -4,7 +4,7 @@ description: Referência para a sintaxe completa do Lucene, conforme usado no Az
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107178"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438046"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Você pode escrever consultas no Azure Search com base na sintaxe avançada do [Analisador de Consultas do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do Analisador de Consultas do Lucene é [implementada intacta no Azure Search](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas na Pesquisa do Azure por meio das expressões `$filter`. 
@@ -35,7 +35,7 @@ Defina o parâmetro de pesquisa `queryType` para especificar qual análise usar.
 
 <a name="bkmk_example"></a> 
 
-## <a name="example-showing-full-syntax"></a>Exemplo exibindo a sintaxe completa
+### <a name="example-showing-full-syntax"></a>Exemplo exibindo a sintaxe completa
 
 O exemplo a seguir localiza os documentos no índice usando a sintaxe de consulta do Lucene, que fica evidente no parâmetro `queryType=full`. Essa consulta retorna hotéis onde o campo de categoria contém o termo "orçamento" e todos os campos pesquisáveis com a frase "renovado recentemente". Os documentos com a frase "renovado recentemente" apresentam uma classificação superior como um resultado do valor de aumento de termo (3).  
 
@@ -60,50 +60,6 @@ Para ver mais exemplos, confira [Exemplos de sintaxe de consulta do Lucene para 
 
 > [!NOTE]  
 >  O Azure Search também oferece suporte à [Sintaxe de Consulta Simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada na pesquisa direta de palavras-chave.  
-
-
-##  <a name="bkmk_fields"></a> Consultas com escopo de campo  
- Você pode especificar uma construção `fieldname:searchterm` para definir uma operação de consulta em campo, em que o campo é uma palavra única e o termo de pesquisa também é uma frase ou uma palavra única, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
-
-- gênero:jazz NÃO histórico  
-
-- artistas:("Miles Davis" "John Coltrane")
-
-  Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo `artists`.  
-
-  O campo especificado em `fieldname:searchterm` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
-
-##  <a name="bkmk_fuzzy"></a> Pesquisa difusa  
- Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  
-
- Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
-
- A pesquisa difusa só pode ser aplicada aos termos, não frases. A pesquisa difusa pode expandir um termo até o máximo de 50 termos que atendem aos critérios de distância.
-
-##  <a name="bkmk_proximity"></a> Pesquisa por proximidade  
- As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "hotel" e "aeroporto" em cinco palavras uma da outra em um documento.  
-
-
-##  <a name="bkmk_termboost"></a> Aumento de termos  
- O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Isso é diferente dos perfis de pontuação, já que os perfis de pontuação aumentam determinados campos, em vez de termos específicos.  
-
-O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontuação que aumente as correspondências em um determinado campo, como *gênero* no [exemplo de índice de loja de música](index-add-scoring-profiles.md#bkmk_ex). O aumento de termos pode ser usado para melhorar a posição de determinados termos de pesquisa. Por exemplo, `rock^2 electronic` aumentará os documentos que contêm os termos de pesquisa no campo gênero, à frente de outros campos pesquisáveis no índice. Além disso, os documentos com o termo de pesquisa *rock* serão mais bem classificados do que o outro termo de pesquisa *eletrônico* como resultado do valor de aumento de termo (2).  
-
- Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. Você também pode aumentar as frases. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,20).  
-
-##  <a name="bkmk_regex"></a> Pesquisa com expressão regular  
- Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
-
- Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`.  As pesquisas com expressões regulares são comparadas com palavras individuais.   
-
-##  <a name="bkmk_wildcard"></a> Pesquisa com curinga  
- Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.  
-
- Por exemplo, para localizar documentos que contêm as palavras com o prefixo "anota", como "anotações" ou "bloco de anotações", especifique "anota*".  
-
-> [!NOTE]  
->  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
->  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
 ##  <a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
  Os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe do Lucene.  
@@ -139,19 +95,19 @@ O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um 
 ### <a name="searchmode-parameter-considerations"></a>Considerações sobre parâmetros de SearchMode  
  O impacto de `searchMode` nas consultas, conforme descrito na [Sintaxe de consulta simples no Azure Search](query-simple-syntax.md), aplica-se igualmente à sintaxe de consultas do Lucene. Ou seja, `searchMode` em conjunto com operadores NOT pode levar a resultados de consulta que podem parecer incomuns se você não for claro nas implicações sobre como definir o parâmetro. Se você mantiver o padrão, `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que "Nova Iorque" NOT "Seattle" retornará todas as cidades que não sejam Seattle.  
 
-##  <a name="bkmk_boolean"></a> Operadores boolianos  
+##  <a name="bkmk_boolean"></a> Operadores boolianos (AND, OR, NOT) 
  Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.  
 
-#### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
+### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
 
 O operador OR é uma barra vertical ou um caractere de pipe. Por exemplo: `wifi || luxury` irá procurar documentos que contenham "wifi" ou "luxo", ou ambos. Porque OR é o operador de conjunção padrão, que também pode ser deixado de fora, de modo que `wifi luxury` é o equivalente de `wifi || luxuery`.
 
-#### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` ou `+`
+### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` ou `+`
 
 O operador AND é um e comercial ou um sinal de adição. Por exemplo: `wifi && luxury` irá procurar documentos que contenham "wifi" e "luxo". O caractere de adição (+) é usado para termos obrigatórios. Por exemplo, `+wifi +luxury` estipula que os dois termos devem aparecer em algum lugar no campo de um único documento.
 
 
-#### <a name="not-operator-not--or--"></a>Operador NOT `NOT`, `!` ou `-`
+### <a name="not-operator-not--or--"></a>Operador NOT `NOT`, `!` ou `-`
 
 O operador NOT é um ponto de exclamação ou o sinal de subtração. Por exemplo: `wifi !luxury` irá procurar documentos que tenham o termo "wifi" e/ou não tenham "luxo". A opção `searchMode` controla se um termo com o operador NOT terá AND ou OR com outros termos da consulta na ausência de um operador + ou | |. Lembre-se de que `searchMode` pode ser definido como `any`(padrão) ou `all`.
 
@@ -164,6 +120,50 @@ Usar `searchMode=all` aumenta a precisão de consultas, incluindo menos resultad
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
  O Azure Search usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
+
+##  <a name="bkmk_fields"></a> Consultas com escopo de campo  
+ Você pode especificar uma construção `fieldname:searchterm` para definir uma operação de consulta em campo, em que o campo é uma palavra única e o termo de pesquisa também é uma frase ou uma palavra única, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
+
+- gênero:jazz NÃO histórico  
+
+- artistas:("Miles Davis" "John Coltrane")
+
+  Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo `artists`.  
+
+  O campo especificado em `fieldname:searchterm` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
+
+##  <a name="bkmk_fuzzy"></a> Pesquisa difusa  
+ Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). A pesquisa difusa pode expandir um termo até o máximo de 50 termos que atendem aos critérios de distância. 
+
+ Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
+
+ Pesquisa difusa só pode ser aplicada aos termos, não frases, mas você pode acrescentar o til para cada termo individualmente em um nome de várias partes ou frase. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia a"Universidade de Washington".
+ 
+
+##  <a name="bkmk_proximity"></a> Pesquisa por proximidade  
+ As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "hotel" e "aeroporto" em cinco palavras uma da outra em um documento.  
+
+
+##  <a name="bkmk_termboost"></a> Aumento de termos  
+ O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Isso é diferente dos perfis de pontuação, já que os perfis de pontuação aumentam determinados campos, em vez de termos específicos.  
+
+O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontuação que aumente as correspondências em um determinado campo, como *gênero* no [exemplo de índice de loja de música](index-add-scoring-profiles.md#bkmk_ex). O aumento de termos pode ser usado para melhorar a posição de determinados termos de pesquisa. Por exemplo, `rock^2 electronic` aumentará os documentos que contêm os termos de pesquisa no campo gênero, à frente de outros campos pesquisáveis no índice. Além disso, os documentos com o termo de pesquisa *rock* serão mais bem classificados do que o outro termo de pesquisa *eletrônico* como resultado do valor de aumento de termo (2).  
+
+ Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. Você também pode aumentar as frases. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,20).  
+
+##  <a name="bkmk_regex"></a> Pesquisa com expressão regular  
+ Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+
+ Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`.  As pesquisas com expressões regulares são comparadas com palavras individuais.   
+
+##  <a name="bkmk_wildcard"></a> Pesquisa com curinga  
+ Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.  
+
+ Por exemplo, para localizar documentos que contêm as palavras com o prefixo "anota", como "anotações" ou "bloco de anotações", especifique "anota*".  
+
+> [!NOTE]  
+>  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
+>  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
 ## <a name="see-also"></a>Consulte também  
 

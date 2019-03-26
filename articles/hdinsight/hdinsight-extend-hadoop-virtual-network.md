@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e7d264e5d5d289117dbc30b71e317506006e1f30
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401574"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439406"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -284,6 +284,7 @@ Se você usar grupos de segurança de rede, deverá permitir o tráfego dos serv
     | China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Entrada |
     | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Entrada |
     | &nbsp; | Norte da China 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrada |
+    | &nbsp; | Leste da China 2 | 139.217.227.106</br>139.217.228.187 | 443 | Entrada |
     | Europa | Norte da Europa | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
     | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
     | França | França Central| 20.188.39.64</br>40.89.157.135 | 443 | Entrada |

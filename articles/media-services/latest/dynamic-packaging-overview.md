@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351398"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435305"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -30,32 +30,20 @@ Para aproveitar **empacotamento dinâmico**, você precisa ter uma **ativo** com
 
 Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. 
 
-Serviços de mídia, o empacotamento dinâmico é usado se você estiver transmitindo ao vivo ou sob demanda. O diagrama a seguir mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
-
-![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-> [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
-
-## <a name="delivery-protocols"></a>Protocolos de fornecimento
-
-|Protocolo|Exemplo|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+Serviços de mídia, o empacotamento dinâmico é usado se você estiver transmitindo ao vivo ou sob demanda. 
 
 ## <a name="common-on-demand-workflow"></a>Fluxo de trabalho comum e sob demanda
 
 A seguir é comum dos serviços de mídia fluxo de trabalho de streaming em que o empacotamento dinâmico é usado.
 
-1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador de Mídia Padrão](media-encoder-standard-formats.md)).
+1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, MP4, MOV ou MXF (para obter a lista de formatos com suporte, consulte [formatos suportados pelo Media Encoder Standard](media-encoder-standard-formats.md).
 2. Codifique o arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H.264.
 3. Publicar o ativo que contém o conjunto MP4 de taxa de bits adaptável. Publicar com a criação de um **localizador de Streaming**.
 4. Crie URLs diferentes formatos (HLS, Dash e Smooth Streaming) de destino. O **ponto de extremidade de Streaming** seria cuidar de atender o manifesto correto e as solicitações de todos esses formatos diferentes.
+
+O diagrama a seguir mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
+
+![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificar como MP4s de taxa de bits adaptável
 
@@ -87,13 +75,16 @@ O diagrama a seguir mostra a transmissão ao vivo com o fluxo de trabalho de emp
 
 ![passagem](./media/live-streaming/pass-through.svg)
 
-## <a name="dynamic-encryption"></a>Criptografia dinâmica
+## <a name="delivery-protocols"></a>Protocolos de fornecimento
 
-**Criptografia dinâmica** permite que você criptografe dinamicamente seu conteúdo ao vivo ou sob demanda com o AES-128 ou qualquer um dos sistemas DRM (gerenciamento) três direitos digitais principais: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
-
-## <a name="dynamic-manifest"></a>Manifesto dinâmico
-
-Filtragem dinâmica é usado para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+|Protocolo|Exemplo|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs de vídeo com suporte pelo empacotamento dinâmico
 
@@ -105,6 +96,10 @@ Empacotamento dinâmico oferece suporte a arquivos MP4, que contém áudio codif
 
 > [!NOTE]
 > O Dynamic Packaging não suporta arquivos que contenham áudio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (é um codec herdado).
+
+## <a name="dynamic-encryption"></a>Criptografia dinâmica
+
+**Criptografia dinâmica** permite que você criptografe dinamicamente seu conteúdo ao vivo ou sob demanda com o AES-128 ou qualquer um dos sistemas DRM (gerenciamento) três direitos digitais principais: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
 
 ## <a name="manifests"></a>Manifestos 
  
@@ -195,6 +190,14 @@ Aqui está um exemplo de um manifesto de Smooth Streaming:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## <a name="dynamic-manifest"></a>Manifesto dinâmico
+
+Filtragem dinâmica é usado para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+
+> [!NOTE]
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 [Carregar, codificar, transmitir vídeos](stream-files-tutorial-with-api.md)

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372515"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418679"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -216,11 +216,20 @@ Se a entidade predefinida é marcada com mais texto ou tokens que sua entidade p
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Remova a expressão de exemplo para corrigir a marcação 
 
-Sua primeira opção é excluir a expressão de exemplo e treinar novamente o aplicativo. Adicione novamente apenas a palavra ou frase que são a entidade como uma expressão de exemplo e marcar a entidade e o treinamento. Adicione novamente a entidade predefinida e a expressão de exemplo original. A entidade personalizada deve continuar a ser marcado como em vez de entidade predefinida. 
+Sua primeira opção é remover a expressão de exemplo. 
+
+1. Exclua a expressão de exemplo.
+1. Treinar novamente o aplicativo. 
+1. Adicione novamente apenas a palavra ou frase que são a entidade, que é marcada como uma entidade predefinida, como uma expressão de exemplo completo. A palavra ou frase ainda terão a entidade predefinida marcada. 
+1. Selecione a entidade na declaração de exemplo sobre o **intenção** página e alterar a sua entidade personalizada e treinar novamente. Isso deve impedir que LUIS marcando esse texto exato como a entidade predefinida em quaisquer declarações de exemplo que usam esse texto. 
+1. Adicione a expressão inteira de exemplo original novamente à intenção. A entidade personalizada deve continuar a ser marcado como em vez de entidade predefinida. Se a entidade personalizada não for marcada, você precisa adicionar mais exemplos do que o texto em declarações.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Remover entidade predefinida para corrigir a marcação
 
-A segunda opção é remover a entidade predefinida do aplicativo, em seguida, marcar a entidade personalizada na declaração de exemplo, em seguida, adicionar a entidade predefinida volta para o aplicativo. Essa correção pressupõe que a entidade predefinida não faz parte de uma entidade de composição. 
+1. Remova a entidade predefinida do aplicativo. 
+1. Sobre o **intenção** página, marque a entidade personalizada na declaração de exemplo.
+1. Treine o aplicativo.
+1. Adicionar a entidade predefinida para o aplicativo e treinar o aplicativo. Essa correção pressupõe que a entidade predefinida não faz parte de uma entidade de composição.
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 

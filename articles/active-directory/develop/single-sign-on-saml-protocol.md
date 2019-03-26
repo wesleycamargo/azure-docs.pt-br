@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012765"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437876"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
 
@@ -47,7 +47,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parâmetro |  | Descrição |
+| Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | ID | Obrigatório | O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
 | Versão | Obrigatório | Esse parâmetro deve ser definido como **2.0**. |
@@ -97,13 +97,13 @@ O elemento `Scoping`, que inclui uma lista de provedores de identidade, é opcio
 
 Se fornecido, não inclua o atributo `ProxyCount` ou elemento `IDPListOption` ou `RequesterID`, pois eles não têm suporte.
 
-### <a name="signature"></a>Assinatura
+### <a name="signature"></a>Signature
 Não inclua um elemento `Signature` nos elementos `AuthnRequest`, pois o Azure AD não dá suporte a solicitações de autenticação assinadas.
 
 ### <a name="subject"></a>Assunto
 O Azure AD ignora o elemento `Subject` dos elementos `AuthnRequest`.
 
-## <a name="response"></a>Resposta
+## <a name="response"></a>Response
 Quando um logon solicitado for concluído com êxito, o Azure AD postará uma resposta no serviço de nuvem. Uma resposta para uma tentativa de logon bem-sucedida se parece com este exemplo:
 
 ```
@@ -149,7 +149,7 @@ Quando um logon solicitado for concluído com êxito, o Azure AD postará uma re
 </samlp:Response>
 ```
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
 O elemento `Response` inclui os resultados da solicitação de autorização. O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `Response`. Ele também define os seguintes atributos:
 
@@ -158,7 +158,7 @@ O elemento `Response` inclui os resultados da solicitação de autorização. O 
 
 ### <a name="issuer"></a>Emissor
 
-O Azure AD define o elemento `Issuer` como `https://login.microsoftonline.com/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID de locatário do locatário do Azure AD.
+Azure AD define o `Issuer` elemento a ser `https://login.microsoftonline.com/<TenantIDGUID>/` onde \<TenantIDGUID > é a ID de locatário do locatário do Azure AD.
 
 Por exemplo, uma resposta com o elemento Issuer poderia ter a aparência deste exemplo:
 
@@ -193,13 +193,13 @@ Além de `ID`, `IssueInstant` e `Version`, o Azure AD define os elementos a segu
 
 #### <a name="issuer"></a>Emissor
 
-Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID de locatário do locatário do Azure AD.
+Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`onde \<TenantIDGUID > é a ID de locatário do locatário do Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Assinatura
+#### <a name="signature"></a>Signature
 
 O Azure AD assina a asserção em resposta a um logon bem-sucedido. O elemento `Signature` contém uma assinatura digital que o serviço de nuvem pode usar para autenticar e verificar a integridade da asserção.
 
@@ -243,7 +243,7 @@ Os atributos `NotBefore` e `NotOnOrAfter` especificam o intervalo durante o qual
 * O valor do atributo `NotBefore` é igual ou ligeiramente mais lento (menos de um segundo) do que o valor do atributo `IssueInstant` do elemento `Assertion`. O Azure AD não conta diferenças de tempo entre ele mesmo e o serviço de nuvem (provedor de serviços) e não adiciona buffer a esse tempo.
 * O valor do atributo `NotOnOrAfter` é 70 minutos depois do valor do atributo `NotBefore`.
 
-#### <a name="audience"></a>Audiência
+#### <a name="audience"></a>Público-alvo
 
 Ele contém um URI que identifica um público-alvo. O Azure AD define o valor desse elemento como o valor do elemento `Issuer` da `AuthnRequest` que iniciou o logon. Para avaliar o valor `Audience`, use o valor do `App ID URI` que foi especificado durante o registro do aplicativo.
 

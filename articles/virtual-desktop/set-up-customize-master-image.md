@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400767"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438777"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
@@ -162,8 +162,8 @@ Você pode desabilitar manualmente as atualizações automáticas.
 
 Para desabilitar atualizações automáticas:
 
-1. Instalar o Office 365, seguindo as instruções em [preparação de imagem do Office](set-up-customize-master-image.md#office-image-preparation).
-2. Instale os aplicativos adicionais, seguindo as instruções em [configuração do perfil de usuário (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), e [outros aplicativos e a configuração do registro](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Instalar o Office 365, seguindo as instruções em [preparação de Software e instalação](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Instale os aplicativos adicionais, seguindo as instruções em [configurar o contêiner de perfil do usuário (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configurar o Windows Defender](set-up-customize-master-image.md#configure-windows-defender), e [outros aplicativos e o registro configuração](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Desabilite o serviço de atualização automática de Windows na VM local.
 4. Abra **Editor de diretiva de Grupo Local\\modelos administrativos\\componentes do Windows\\Windows Update**.
 5. Clique com botão direito **configurar a atualização automática** e defina-o como **desabilitado**.
@@ -171,7 +171,7 @@ Para desabilitar atualizações automáticas:
 Você também pode executar o seguinte comando no prompt de comando para desabilitar as atualizações automáticas.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Execute este comando para especificar um layout de início para PCs com Windows 10.
@@ -232,9 +232,7 @@ Aqui está como instalar o OneDrive no modo de por máquina:
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil do usuário (FSLogix)
 
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [configurar um compartilhamento de perfil de usuário para um pool de host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Ao configurar a chave de registro do compartilhamento de arquivo, use o compartilhamento de arquivos que você criou na [configurar permissões para o servidor de arquivos](set-up-customize-master-image.md#configure-permissions-for-the-file-server) onde você pretende armazenar os contêineres de perfil. Você também pode testar a funcionalidade do contêiner FSLogix usando esse [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [configurar um compartilhamento de perfil de usuário para um pool de host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner com FSLogix [este guia de início rápido](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Configurar o Windows Defender
 

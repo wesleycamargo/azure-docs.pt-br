@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 310e0e77b898171aea3fdcf5996cbc53f9f582a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 32faab707b7a40a9f637e4ee5863690a9d9ff4c3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864602"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439272"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminhos de URL usando o Azure PowerShell
 
@@ -355,11 +355,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar a URL de base no gateway de aplicativo](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Altere a URL para http://<ip-address>:8080/video/test.htm, substituindo o endereço IP para <ip-address>, e você deverá ver algo semelhante ao exemplo a seguir:
+Altere a URL para `http://<ip-address>:8080/video/test.htm`, substituindo o IP do endereço para `<ip-address>`, e você deverá ver algo parecido com o exemplo a seguir:
 
 ![Testar a URL de imagens no gateway de aplicativo](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Altere a URL para ttp://<ip-address>:8080/video/test.htm e você verá algo parecido com o exemplo a seguir:
+Altere a URL para `http://<ip-address>:8080/video/test.htm` e você deverá ver algo parecido com o exemplo a seguir:
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

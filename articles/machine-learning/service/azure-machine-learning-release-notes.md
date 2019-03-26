@@ -8,20 +8,27 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860628"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437859"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
 Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
 + O [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + O [**SDK de Preparação de Dados do Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-03-25"></a>2019-03-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning SDK for Python v1.0.21
+
++ **Novos recursos**
+  + O *azureml.core.Run.create_children* método permite a criação de baixa latência de várias filho é executado com uma única chamada.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

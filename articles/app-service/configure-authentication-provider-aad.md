@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403214"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438217"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurar seu aplicativo do Serviço de Aplicativo para usar as credenciais do Azure Active Directory
 
@@ -43,8 +43,6 @@ Este artigo mostra como configurar os Serviços de Aplicativos do Azure para usa
 5. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pelo Azure Active Directory, defina a **Ação a ser executada quando a solicitação não for autenticada** como **Logon com o Azure Active Directory**. Isso exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas ao Active Directory do Azure para autenticação.
 6. Clique em **Salvar**.
 
-Agora você está pronto para usar o Azure Active Directory para autenticação no aplicativo do Serviço de Aplicativo.
-
 ## <a name="advanced"> </a>Configurar com configurações avançadas
 
 Você também pode fornecer as configurações manualmente. Essa é a solução preferencial se o locatário do Azure Active Directory que você deseja usar for diferente do locatário usado para entrar no Azure. Para concluir a configuração, você deve primeiro criar um registro no Active Directory do Azure e fornecer alguns detalhes de registro ao Serviço de Aplicativo.
@@ -57,8 +55,12 @@ Você também pode fornecer as configurações manualmente. Essa é a solução 
 4. Em alguns segundos, você deverá visualizar o novo registro do aplicativo que você acabou de criar.
 5. Depois que o registro do aplicativo for adicionado, clique no nome do registro do aplicativo, clique em **Configurações** na parte superior e clique em **Propriedades** 
 6. Cole a URL do Aplicativo (da etapa 1) na caixa **URI da ID do aplicativo**, cole a URL do Aplicativo (da etapa 1) também na **URL da Home Page** e clique em **Salvar**
-7. Agora, clique nas **URLs de Resposta**, edite a **URL de Resposta**, cole na URL do Aplicativo (da etapa 1) e, acrescente ao final da URL, */.auth/login/aad/callback* (Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Clique em **Salvar**.   
-8.  Neste ponto, copie a **ID do Aplicativo** para o aplicativo. Guarde para uso posterior. Isso será necessário para configurar seu aplicativo do Serviço de Aplicativo.
+7. Agora, clique na **URLs de resposta**, edite o **URL de resposta**, cole a URL do aplicativo (da etapa 1) e, em seguida, acrescente-o ao final da URL, */.auth/login/aad/callback* (para o exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Clique em **Salvar**.
+
+   > [!NOTE]
+   > Você pode usar o mesmo registro do aplicativo para vários domínios, adicionando adicionais **URLs de resposta**. Certifique-se cada instância de serviço de aplicativo com seu próprio registro de modelo para que ele tenha suas próprias permissões e consentimento. Também considere o uso de registros de aplicativo separados para os slots de sites separados. Isso é para evitar permissões que estão sendo compartilhadas entre ambientes, para que um bug no novo código em que teste não afeta a produção.
+    
+8. Neste ponto, copie a **ID do Aplicativo** para o aplicativo. Guarde para uso posterior. Isso será necessário para configurar seu aplicativo do Serviço de Aplicativo.
 9. Feche a página **Aplicativo registrado**. Na página **Registros de aplicativo**, clique no botão **Pontos de Extremidade** na parte superior e, em seguida, copie a URL do **PONTO DE EXTREMIDADE DE LOGON DO WS-FEDERATION**, mas remova a parte final `/wsfed` da URL. O resultado final deve ser semelhante a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. O nome de domínio pode ser diferente para uma nuvem soberana. Isso servirá como a URL do emissor para uso posterior.
 
 ### <a name="secrets"> </a>Adicionar informações do Azure Active Directory ao aplicativo do Serviço de Aplicativo

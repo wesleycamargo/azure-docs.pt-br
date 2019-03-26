@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318593"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439219"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do Enterprise Agreement para APIs de contrato do cliente da Microsoft
 
@@ -99,7 +99,7 @@ A API de resumo de saldo obter é substituída pela API do Microsoft.Billing/bil
 
 Para obter os saldos disponíveis com a API de saldo disponível:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
 
@@ -120,16 +120,16 @@ As APIs anteriores são substituídas pela API de detalhes de uso/consumo.
 
 Para obter detalhes de uso com a API de detalhes de uso:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
 
 A API de detalhes de uso, assim como acontece com todas as APIs de gerenciamento de custo, está disponível em vários escopos. Para custos faturados, como tradicionalmente, você receberia em um nível de registro, use o escopo de perfil de cobrança.  Para obter mais informações sobre escopos de gerenciamento de custos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 
-| Digite | Formato de ID |
+| Type | Formato de ID |
 | --- | --- |
 | Conta de cobrança | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
-| Perfil de cobrança | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
+| Perfil de faturamento | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
 | Assinatura | `/subscriptions/{subscriptionId}` |
 | Grupo de recursos | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
@@ -170,56 +170,56 @@ Novo corpo de resposta:
 
 O nome da propriedade que contém a matriz de registros de uso é alterado de dados a serem _valores_. Cada registro usado para ter uma lista simples de propriedades detalhadas. No entanto, cada registro agora todos os detalhes agora estão em uma propriedade aninhada chamada _propriedades_, exceto as marcas. A nova estrutura é consistente com as outras APIs do Azure. Alguns nomes de propriedade foram alterados. A tabela a seguir mostra as propriedades correspondentes.
 
-| Propriedade antiga | Nova propriedade | Anotações |
+| Propriedade antiga | Nova propriedade | Observações |
 | --- | --- | --- |
-| Id da Conta | Não aplicável | O criador da assinatura não controlado. Use invoiceSectionId (mesmo que a ID do departamento). |
-| AccountNameAccountOwnerId e AccountOwnerEmail | Não aplicável | O criador da assinatura não controlado. Use invoiceSectionName (mesmo que departmentName). |
+| Id da Conta | N/D | O criador da assinatura não controlado. Use invoiceSectionId (mesmo que a ID do departamento). |
+| AccountNameAccountOwnerId e AccountOwnerEmail | N/D | O criador da assinatura não controlado. Use invoiceSectionName (mesmo que departmentName). |
 | Informações Adicionais | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Observe que essas propriedades são opostos. Se isAzureCreditEnabled for true, ChargesBilledSeparately será false. |
-| Quantidade Consumida | quantidade | &nbsp; |
+| ConsumedQuantity | quantidade | &nbsp; |
 | Serviço Consumido | consumedService | Valores de cadeia de caracteres podem ser diferentes. |
-| Id do Serviço Consumido | Nenhuma | &nbsp; |
-| Centro de Custo | costCenter | &nbsp; |
+| Id do Serviço Consumido | Nenhum | &nbsp; |
+| CostCenter | costCenter | &nbsp; |
 | Data e usageStartDate | data | &nbsp;  |
-| Dia | Nenhuma | Analisa o dia da data. |
+| Dia | Nenhum | Analisa o dia da data. |
 | Id do Departamento | invoiceSectionId | Os valores exatos são diferentes. |
-| Nome do Departamento | invoiceSectionName | Valores de cadeia de caracteres podem ser diferentes. Configure as seções de nota fiscal de acordo com os departamentos, se necessário. |
+| DepartmentName | invoiceSectionName | Valores de cadeia de caracteres podem ser diferentes. Configure as seções de nota fiscal de acordo com os departamentos, se necessário. |
 | ExtendedCost e custo | costInBillingCurrency | &nbsp;  |
-| Id da Instância | resourceId | &nbsp;  |
-| É Cobrança Recorrente | Nenhuma | &nbsp;  |
-| Localizaçãoização | localização | &nbsp;  |
+| InstanceId | ResourceId | &nbsp;  |
+| É Cobrança Recorrente | Nenhum | &nbsp;  |
+| Local padrão | location | &nbsp;  |
 | Categoria do Medidor | meterCategory | Valores de cadeia de caracteres podem ser diferentes. |
-| Id do Medidor | meterId | Valores de cadeia de caracteres são diferentes. |
+| MeterId | meterId | Valores de cadeia de caracteres são diferentes. |
 | Nome do Medidor | meterName | Valores de cadeia de caracteres podem ser diferentes. |
 | Região do Medidor | meterRegion | Valores de cadeia de caracteres podem ser diferentes. |
 | Sub-categoria do Medidor | meterSubCategory | Valores de cadeia de caracteres podem ser diferentes. |
-| Mês | Nenhuma | Analisa o mês da data. |
-| Nome da Oferta | Nenhuma | Use publisherName e productOrderName. |
-| OfferId | Nenhuma | &nbsp;  |
-| Número do Pedido | Nenhuma | &nbsp;  |
-| PartNumber | Nenhuma | Use meterId e productOrderName para identificar exclusivamente os preços. |
+| Mês | Nenhum | Analisa o mês da data. |
+| Nome da oferta | Nenhum | Use publisherName e productOrderName. |
+| OfferId | Nenhum | &nbsp;  |
+| Número do Pedido | Nenhum | &nbsp;  |
+| PartNumber | Nenhum | Use meterId e productOrderName para identificar exclusivamente os preços. |
 | Nome do Plano | productOrderName | &nbsp;  |
 | Produto | Produto |   |
-| Id do Produto | productId | Valores de cadeia de caracteres são diferentes. |
-| Nome do Editor | publisherName | &nbsp;  |
-| GrupoRecuso | resourceGroupName | &nbsp;  |
+| ProductId | productId | Valores de cadeia de caracteres são diferentes. |
+| Nome do editor | publisherName | &nbsp;  |
+| ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Valores de cadeia de caracteres são diferentes. |
 | Localização do Recurso | resourceLocation | &nbsp;  |
-| Id da Localização do Recurso | Nenhuma | &nbsp;  |
+| Id da Localização do Recurso | Nenhum | &nbsp;  |
 | Taxa de Recursos | effectivePrice | &nbsp;  |
-| Id de Administrador de Serviço | Não aplicável | &nbsp;  |
+| Id de Administrador de Serviço | N/D | &nbsp;  |
 | Informações de Serviço 1 | serviceInfo1 | &nbsp;  |
 | Informações de Serviço 2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | Valores de cadeia de caracteres podem ser diferentes. |
 | ServiceTier | meterSubCategory | Valores de cadeia de caracteres podem ser diferentes. |
-| Identificador de Serviço da Loja | Não aplicável | &nbsp;  |
+| Identificador de Serviço da Loja | N/D | &nbsp;  |
 | Guid de Assinatura | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| Nome da Assinatura | subscriptionName | &nbsp;  |
-| Rótulos  | marcas | A propriedade tags se aplica a raiz do objeto, não para a propriedade de propriedades aninhadas. |
+| SubscriptionName | subscriptionName | &nbsp;  |
+| Marcas | marcas | A propriedade tags se aplica a raiz do objeto, não para a propriedade de propriedades aninhadas. |
 | Unidade de Medida | unitOfMeasure | Valores de cadeia de caracteres são diferentes. |
 | usageEndDate | data | &nbsp;  |
-| Ano | Nenhuma | Analisa o ano da data. |
+| Ano | Nenhum | Analisa o ano da data. |
 | (novo) | billingCurrency | Moeda usada para a cobrança. |
 | (novo) | billingProfileId | ID exclusiva para o perfil de cobrança (mesmo que o registro). |
 | (novo) | billingProfileName | Nome do perfil de cobrança (mesmo que o registro). |
@@ -236,7 +236,7 @@ Contas de cobrança MCA não usam períodos de cobrança. Em vez disso, eles usa
 
 Para obter as notas fiscais com a API de notas fiscais:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
 
@@ -250,7 +250,7 @@ Você usou APIs de cobrança do Enterprise com registros empresariais para obter
 
 Para obter os preços aplicáveis para o registro Enterprise especificado com a folha de preços e as APIs do período de cobrança:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
 | GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
@@ -261,13 +261,13 @@ Use a API de tabela de preços para contratos de clientes da Microsoft para exib
 
 Use a API de tabela de preços para exibir todos os dados de tabela de preços de serviços de consumo do Azure no formato CSV:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=csv` |
 
 Use a API de tabela de preços para exibir todos os dados de tabela de preços de serviços de consumo do Azure no formato JSON:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json` |
 
@@ -277,13 +277,13 @@ Usando a API retorna a tabela de preços para toda a conta. No entanto, você ta
 
 Para exibir informações de fatura com a API de tabela de preços no formato CSV:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
 Para exibir informações de fatura com a API de tabela de preços no formato JSON:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
@@ -291,13 +291,13 @@ Você também pode ver os preços previstos para qualquer serviço de consumo do
 
 Para exibir os preços previstos para serviços de consumo com a API de tabela de preços no formato CSV:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
 Para exibir os preços previstos para serviços de consumo com a API de tabela de preços no formato JSON:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
@@ -347,7 +347,7 @@ OData-EntityId: {operationId}
 
 ```
 
-Fazer com que o GET outra chamada para o local. A resposta para a chamada GET é o mesmo até que a operação atinja um estado de conclusão ou falha. Quando concluído, a resposta para o local de chamada GET retorna a URL de download. Como se a operação foi executada ao mesmo tempo. Veja um exemplo:
+Fazer com que o GET outra chamada para o local. A resposta para a chamada GET é o mesmo até que a operação atinja um estado de conclusão ou falha. Quando concluído, a resposta para o local de chamada GET retorna a URL de download. Como se a operação foi executada ao mesmo tempo. Aqui está um exemplo:
 
 ```
 HTTP Status 200
@@ -367,7 +367,7 @@ O cliente também pode fazer uma chamada GET o `Azure-AsyncOperation`. O ponto d
 
 A tabela a seguir mostra os campos em que a API de tabela de preços Enterprise Obtenha mais antigo. Ele inclui campos correspondentes na nova folha de preço para contratos de clientes da Microsoft:
 
-| Propriedade antiga | Nova propriedade | Anotações |
+| Propriedade antiga | Nova propriedade | Observações |
 | --- | --- | --- |
 | billingPeriodId  | _Não aplicável_ | Não aplicável. Contratos do Microsoft Customer, a nota fiscal e a tabela de preços associado substituído o conceito de billingPeriodId. |
 | meterId  | meterId | &nbsp;  |
@@ -384,13 +384,13 @@ Contratos Enterprise, você usou a API de tabela de preços de consumo [Obtenha]
 
 Para obter as informações de folha de preços para um escopo com a API de tabela de preços:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
 Para obter informações de folha de preços por período com a API de tabela de preços de cobrança:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
@@ -410,7 +410,7 @@ A autenticação do Azure Resource Manager é usada quando você receber a folha
 
 Para obter a tabela de preços na conta de registro em uma conta de cobrança:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
@@ -420,7 +420,7 @@ Para um contrato de cliente da Microsoft, use as informações na seção a segu
 
 A tabela de preços atualizado por conta de cobrança API obtém a tabela de preços no formato CSV. Para obter a tabela de preços no escopo do perfil de cobrança para um MCA:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
@@ -428,11 +428,11 @@ No escopo de registro do EA, a resposta da API e as propriedades são idênticas
 
 As propriedades mais antigas [APIs de folha de preço do Azure Resource Manager](/rest/api/consumption/pricesheet) e as mesmas propriedades novas estão na tabela a seguir.
 
-| Propriedade do antigo do Azure Resource Manager preço folha API  | Nova propriedade de API de tabela de preços de contrato do Microsoft Customer   | Descrição |
+| Propriedade do antigo do Azure Resource Manager preço folha API  | Nova propriedade de API de tabela de preços de contrato do Microsoft Customer   | DESCRIÇÃO |
 | --- | --- | --- |
-| ID de Medição | _meterId_ | Identificador exclusivo para o medidor. Mesmo que meterId. |
+| ID de medidor | _meterId_ | Identificador exclusivo para o medidor. Mesmo que meterId. |
 | Medir nome | meterName | Nome do medidor. Medidor representa o recurso implantável do serviço do Azure. |
-| Medir categoria  | serviço | Nome da categoria de classificação para o medidor. Mesmo que o serviço na tabela de preços do contrato Microsoft Customer. Valores de cadeia de caracteres são diferentes. |
+| Medir categoria  | propriedade serviço | Nome da categoria de classificação para o medidor. Mesmo que o serviço na tabela de preços do contrato Microsoft Customer. Valores de cadeia de caracteres são diferentes. |
 | Medidor de subcategoria | meterSubCategory | Nome da categoria subclassificação medidor. Com base na classificação de diferenciação de conjunto de recursos de alto nível no serviço. Por exemplo, banco de dados SQL básico versus banco de dados SQL Standard |
 | Região de medição | meterRegion | &nbsp;  |
 | Unidade | _Não aplicável_ | Pode ser analisado do unitOfMeasure. |
@@ -457,13 +457,13 @@ A tabela de preços inclui os preços para os serviços cujo preço é baseado e
 
 Os seguintes campos são não está disponível nas APIs de folha de preço do Microsoft cliente contrato ou ter os mesmos campos.
 
-|Campo obsoleto| Descrição|
+|Campo obsoleto| DESCRIÇÃO|
 |---|---|
 | billingPeriodId | Não aplicável. Corresponde a InvoiceId para MCA. |
 | offerId | Não aplicável. Corresponde a productOrderName em MCA. |
 | meterCategory  | Não aplicável. Corresponde ao serviço no MCA. |
-| unidade | Não aplicável. Pode ser analisado do unitOfMeasure. |
-| currencyCode | Mesmo que o o pricingCurrency em MCA. |
+| unit | Não aplicável. Pode ser analisado do unitOfMeasure. |
+| currencyCode | Mesmo que o pricingCurrency em MCA. |
 | meterLocation | Mesmo que o meterRegion em MCA. |
 | partNumber partnumber | Não aplicável porque o número de peça não está listado no MCA faturas. Em vez de partnumber, use a combinação de meterId e productOrderName para identificar exclusivamente os preços. |
 | totalIncludedQuantity | Não aplicável. |
@@ -475,7 +475,7 @@ Você pode obter cobrança transações para as compras de reserva com o [API de
 
 Para obter a reserva de transações de compra com a API de transações:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
 
@@ -490,7 +490,7 @@ Todas as APIs de consumo são substituídas por APIs nativas do Azure que usam o
 
 Para obter recomendações de reserva com a API de recomendações de reserva:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
 
@@ -507,13 +507,13 @@ Todas as APIs de consumo são substituídas por APIs nativas do Azure que usam o
 
 Para obter detalhes da reserva com a API de detalhes de reserva:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
 
 Para obter os resumos de reserva com a API de resumos de reserva:
 
-| Método | URI de Solicitação |
+| Método | URI da solicitação |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 

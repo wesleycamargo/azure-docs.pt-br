@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122919"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438250"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas
 
@@ -150,7 +150,7 @@ A tabela a seguir descreve a finalidade das páginas HTML5 precedentes.
 
 Você pode adicionar um link para os modelos de HTML5/CSS ao seu percurso do usuário ao editar diretamente uma política personalizada.
 
-Os modelos de HTML5/CSS personalizados usados no seu percurso do usuário devem ser especificados em uma lista de definições de conteúdo que podem ser usados nos percursos do usuário. Para essa finalidade, um elemento XML opcional *<ContentDefinitions>* deve ser declarado na seção *<BuildingBlocks>* do arquivo XML de política personalizada.
+Os modelos de HTML5/CSS personalizados usados no seu percurso do usuário devem ser especificados em uma lista de definições de conteúdo que podem ser usados nos percursos do usuário. Para essa finalidade, um recurso opcional  *\<ContentDefinitions >* elemento XML deve ser declarado na  *\<BuildingBlocks >* seção do seu arquivo XML de política personalizada.
 
 A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecido pelo mecanismo de experiência de identidade de Azure AD B2C e o tipo de páginas relacionadas a eles.
 

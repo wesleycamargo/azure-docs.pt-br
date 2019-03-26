@@ -1,24 +1,24 @@
 ---
 title: Entender a ordem da sequência de implantação
-description: Aprenda sobre o ciclo de vida de um blueprint e os detalhes de cada estágio.
+description: Saiba mais sobre o ciclo de vida que uma definição de planta percorre e os detalhes sobre cada fase.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990576"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434799"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
-O Blueprint do Azure usa uma **ordem de sequenciamento** para determinar a ordem de criação do recurso ao processar a atribuição de um blueprint. Este artigo o guiará pelos seguintes conceitos:
+O Azure usa plantas uma **pedido de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de planta. Este artigo o guiará pelos seguintes conceitos:
 
 - A ordem de sequenciamento padrão usada
 - Como personalizar o pedido
@@ -30,7 +30,7 @@ Existem variáveis nos exemplos JSON que você precisa substituir por seus próp
 
 ## <a name="default-sequencing-order"></a>Ordem de sequenciamento padrão
 
-Se o blueprint não contiver nenhuma diretriz para a ordem de implementação de artefatos ou a diretiva for nula, a seguinte ordem será usada:
+Se a definição de planta não contém nenhuma diretiva para a ordem para implantar artefatos ou a diretiva for null, a ordem a seguir é usada:
 
 - Designação de função de **nível de assinatura** artefatos classificados por nome de artefato
 - Designação de política do **nível de assinatura** artefatos classificados pelo nome do artefato
@@ -45,16 +45,14 @@ Em cada artefato do **grupo de recursos**, a seguinte ordem de sequência é usa
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizando o pedido de sequenciamento
 
-Ao compor grandes esquemas, pode ser necessário que recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando um blueprint inclui vários modelos do Azure Resource Manager. Blueprints lida com esse padrão permitindo que a ordem de sequenciamento seja definida.
+Ao redigir definições de plantas grande, pode ser necessário para os recursos a serem criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de planta inclui vários modelos do Azure Resource Manager. Blueprints lida com esse padrão permitindo que a ordem de sequenciamento seja definida.
 
-A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. Apenas o blueprint (para grupos de recursos) e objetos de artefato suportam essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
+A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição de planta, para grupos de recursos e objetos de artefato suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
 
-> [!NOTE]
-> Artefatos de **grupo de recursos** dão suporte para a propriedade `dependsOn`, mas não podem ser o destino de um `dependsOn` por qualquer tipo de artefato.
+### <a name="example---ordered-resource-group"></a>Exemplo - ordenados de grupo de recursos
 
-### <a name="example---blueprint-with-ordered-resource-group"></a>Exemplo - blueprint com grupo de recursos ordenado
-
-Este blueprint de exemplo possui um grupo de recursos que definiu uma ordem de sequenciamento customizada, declarando um valor para `dependsOn`, junto com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**. **standard-rg** será processado de acordo com a ordem de sequenciamento padrão.
+Essa definição de plano gráfico de exemplo tem um grupo de recursos que tenha definido uma ordem de sequenciamento personalizada, declarando um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**.
+**standard-rg** será processado de acordo com a ordem de sequenciamento padrão.
 
 ```json
 {
@@ -101,6 +99,42 @@ Este exemplo é um artefato de política que depende de um modelo do Azure Resou
     "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
     "type": "Microsoft.Blueprint/artifacts",
     "name": "assignPolicyTags"
+}
+```
+
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemplo - artefato de modelo de nível de assinatura, dependendo de um grupo de recursos
+
+Este exemplo é para um modelo do Resource Manager implantado no nível da assinatura depende de um grupo de recursos. Ordenação padrão, os artefatos em nível de assinatura seriam criados antes de quaisquer grupos de recursos e os artefatos de filho desses grupos de recursos. O grupo de recursos é definido na definição de plano gráfico como este:
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+O artefato de modelo de nível de assinatura, dependendo de **wait-para-me** grupo de recursos é definido como este:
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
 }
 ```
 

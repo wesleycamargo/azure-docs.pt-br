@@ -3,7 +3,7 @@ title: Solução de problema de Dados ausentes nos logs de atividades do Azure A
 description: Fornece uma resolução para dados ausentes nos logs de atividades do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49ef843c4d45c64a8be7bfe6900fd49f21c65d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b25c09b140102c0788a939c48f48300242fc6ee
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780925"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437230"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solucionar problemas: dados ausentes nos logs de atividades do Azure Active Directory 
 
@@ -38,7 +38,7 @@ Eu executei algumas ações no portal do Azure e esperava ver os logs de auditor
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relate | &nbsp; | Latência (P95) | Latência (P99) |
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -53,13 +53,13 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
 
- ![Relatório](./media/troubleshoot-missing-audit-data/02.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relate | &nbsp; | Latência (P95) | Latência (P99) |
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -74,13 +74,13 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
 
- ![Relatório](./media/troubleshoot-missing-audit-data/03.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
 Dependendo da sua licença, as Ações do Azure Active Directory armazenam relatórios de atividades para as durações a seguir:
 
-| Relate           | &nbsp; |  Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| Relatório           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Auditoria de Diretório  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
 | Atividade de Entrada | &nbsp; | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |

@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309598"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437536"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e o logon na Proteção de Senha do Azure AD
 
 Após a implantação da Proteção de Senha do Azure AD, o monitoramento e o relatório são tarefas essenciais. Este artigo apresenta detalhes para entender várias técnicas de monitoramento, incluindo o local em que cada serviço registra informações e como relatar o uso da Proteção de Senha do Azure AD.
+
+Monitoramento e emissão de relatórios são feitas por mensagens de log de eventos ou pela execução de cmdlets do PowerShell. Os controlador de domínio agente proxy serviços e ambas as mensagens de log de eventos de log. Todos os cmdlets do PowerShell descritos a seguir só estão disponíveis no servidor proxy (consulte o módulo do AzureADPasswordProtection PowerShell). O software do agente de controlador de domínio não instala um módulo do PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Log de eventos do agente do DC
 
@@ -233,7 +235,7 @@ O log de texto é desabilitado por padrão. Uma reinicialização do serviço do
 
 O software de serviço do agente DC instala um objeto de contador de desempenho denominado **Proteção de senha do Microsoft Azure Active Directory**. Atualmente, estão disponíveis os contadores de desempenho a seguir:
 
-|Nome do contador de desempenho | Descrição|
+|Nome do contador de desempenho | DESCRIÇÃO|
 | --- | --- |
 |Senhas processadas |Esse contador exibe o número total de senhas processadas (aceitas ou rejeitadas) desde o último reinício.|
 |Senhas aceitas |Esse contador exibe o número total de senhas aceitas desde o último reinício.|

@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236882"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438461"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Embora um tipo de recurso seja compatível com a operação de movimentação, pode haver condições que impeçam que o recurso seja movido. Para obter detalhes sobre as condições que afetam as operações de movimentação, confira [Move resources to new resource group or subscription](resource-group-move-resources.md) (Mover recursos para um novo grupo de recursos ou assinatura).
@@ -422,7 +422,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| labaccounts | Sim | Sim |
+| labaccounts | Não  | Não  |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Grupo de recursos | Assinatura |

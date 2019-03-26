@@ -1,24 +1,38 @@
 ---
 title: Atualizar o serviço do QnA Maker – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Você pode optar por fazer upgrade dos componentes individuais da pilha QnA Maker após a criação inicial.
+description: Compartilhar ou atualizar os serviços do QnA Maker para gerenciar os recursos melhor.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883263"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437980"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Atualizar seu serviço QnA Maker
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Compartilhar ou atualize o seu serviço QnA Maker
+Compartilhar ou atualizar os serviços do QnA Maker para gerenciar os recursos melhor. 
+
 Você pode optar por fazer upgrade dos componentes individuais da pilha QnA Maker após a criação inicial. Consulte os detalhes dos componentes dependentes e da seleção de SKU [aqui](https://aka.ms/qnamaker-docs-capacity).
+
+## <a name="share-existing-services-with-qna-maker"></a>Compartilhar os serviços existentes com o QnA Maker
+
+O QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e se beneficiar do custo de compartilhamento, use a tabela a seguir para entender o que você pode e não é possível compartilhar:
+
+|Serviço|Compartilhar|
+|--|--|
+|Serviços Cognitivos|X|
+|Plano do serviço de aplicativo|✔|
+|serviço de aplicativo|X|
+|Application Insights|✔|
+|Serviço Search|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Fazer upgrade da SKU de Gerenciamento do QnA Maker
 

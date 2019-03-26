@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180922"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436788"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para provisionamento automático de usuário
 
@@ -33,11 +33,14 @@ O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Th
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory
-*   Um locatário do ThousandEyes com o [Plano Standard](https://www.thousandeyes.com/pricing) ou melhor habilitado 
-*   Uma conta de usuário no ThousandEyes com permissões de administrador 
+*   Um ativo [conta do ThousandEyes](https://www.thousandeyes.com/pricing)
+*   Uma conta de usuário do ThousandEyes que foi atribuída uma função que inclui as seguintes permissões de 3:
+    * Exibir todos os usuários
+    * Editar usuário
+    * Permissões de acesso de API
 
 > [!NOTE]
-> A integração de provisionamento do Azure AD depende da [API de SCIM do ThousandEyes](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), disponível para as equipes do ThousandEyes no plano Standard ou outro melhor.
+> Integração de provisionamento do Azure AD depende de [API de SCIM do ThousandEyes](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
 
 ## <a name="assigning-users-to-thousandeyes"></a>Atribuição de usuários ao ThousandEyes
 
@@ -51,7 +54,19 @@ Antes de configurar e habilitar o serviço de provisionamento, é necessário de
 
 *   Recomendamos a atribuição de um único usuário do Azure AD ao ThousandEyes para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário ao ThousandEyes, é necessário selecionar a função **Usuário** ou outra função válida específica do aplicativo (se disponível) na caixa de diálogo de atribuição. A função **Acesso Padrão** não funciona para o provisionamento e esses usuários são ignorados.
+*   Ao atribuir um usuário ao ThousandEyes, você deve selecionar o **usuário** função ou outra válida específica do aplicativo (se disponível) na caixa de diálogo de atribuição. A função **Acesso Padrão** não funciona para o provisionamento e esses usuários são ignorados.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurar funções de usuário provisionado automaticamente no ThousandEyes
+
+Para cada grupo de conta, são o provisionamento automático usuários em que você podem configurar um conjunto de funções a serem aplicadas quando a nova conta de usuário é criada. Por padrão, o provisionamento automático de usuários são atribuídos a _usuário Regular_ função para todas as contas de grupos, a menos que configurado de outra forma.
+
+1. Para especificar um novo conjunto de funções para usuários provisionados em log ThousandEyes e navegue até a seção de configurações de SCIM **> seu ícone no canto superior direito de usuário > configurações da conta > organização > segurança e autenticação.** 
+
+   ![Navegue até configurações de API de SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. Adicione uma entrada para cada grupo de contas, atribua um conjunto de funções, em seguida, *salvar* suas alterações.
+
+   ![Definir funções padrão e os grupos de conta para os usuários criados por meio da API de SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configuração do provisionamento de usuários no ThousandEyes 
@@ -59,7 +74,7 @@ Antes de configurar e habilitar o serviço de provisionamento, é necessário de
 Esta seção explica como conectar seu Azure AD à API de provisionamento de conta de usuário do ThousandEyes e como configurar o serviço de provisionamento a fim de criar, atualizar e desabilitar contas de usuário atribuídas no ThousandEyes com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o ThousandEyes, seguindo as instruções fornecidas no [Portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+> Você também pode optar por habilitar baseado em SAML Single Sign-On (SSO) para o ThousandEyes, seguindo a [instruções fornecidas na base de conhecimento do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) para concluir o SSO. O SSO pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o ThousandEyes no Azure AD
@@ -75,7 +90,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
     ![Provisionamento do ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Na seção **Credenciais de Administrador**, insira o **Token de Portador do OAuth** gerado pela conta do ThousandEyes (é possível localizar e/ou gerar o token na sua conta do ThousandEyes: seção **Perfil**).
+5. Sob o **credenciais de administrador** seção, de entrada a **Token de portador OAuth** gerado pela conta dos ThousandEyes (você pode encontrar e ou gerar um token em sua conta do ThousandEyes  **Criar o perfil** seção).
 
     ![Provisionamento do ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

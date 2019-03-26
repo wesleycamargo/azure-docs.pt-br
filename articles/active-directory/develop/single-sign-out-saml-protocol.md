@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201662"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437077"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
 
@@ -72,7 +72,7 @@ O Azure AD envia uma `LogoutResponse` em resposta a um elemento `LogoutRequest`.
 O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `LogoutResponse`. Ele também define o elemento `InResponseTo` como o valor do atributo `ID` da `LogoutRequest` que emitiu a resposta.
 
 ### <a name="issuer"></a>Emissor
-O Azure AD define esse valor como `https://login.microsoftonline.com/<TenantIdGUID>/`, em que <TenantIdGUID> é a ID de locatário do locatário do Azure AD.
+Azure AD define esse valor como `https://login.microsoftonline.com/<TenantIdGUID>/` onde \<TenantIdGUID > é a ID de locatário do locatário do Azure AD.
 
 Para avaliar o valor do elemento `Issuer` , use o valor do **URI da ID do aplicativo** fornecido durante o registro do aplicativo.
 

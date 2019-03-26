@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193986"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418730"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -74,6 +74,7 @@ Pontos a serem considerados quando você estiver usando a resolução de nomes f
 * Os nomes de host devem ser compatíveis com DNS. Os nomes devem usar somente 0-9, a-z e '-' e não podem começar ou terminar com um '-'.
 * O tráfego da consulta DNS é restrita a cada VM. Essa limitação não deve afetar a maioria dos aplicativos. Se a limitação da solicitação for observada, certifique-se de que o armazenamento em cache do cliente está habilitado. Para saber mais, veja [Configuração de cliente DNS](#dns-client-configuration).
 * Apenas as VMs dos primeiros 180 serviços de nuvem são registradas para cada rede virtual em um modelo de implantação clássico. Esse limite não se aplica às redes virtuais no Azure Resource Manager.
+* O endereço IP de DNS do Azure é 168.63.129.16. Isso é um endereço IP estático e não será alterado.
 
 ## <a name="dns-client-configuration"></a>Configuração do cliente DNS
 

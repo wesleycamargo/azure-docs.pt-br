@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443446"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418956"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.
@@ -190,11 +190,15 @@ Após os Termos de uso terem sido criados e aplicados, os usuários que estivere
 
 ![Entrada do usuário da Web](./media/active-directory-tou/user-tou.png)
 
+Os usuários podem exibir os termos de uso e, se necessário, use os botões para ampliar e reduzir.
+
+![Exibir termos de uso com botões de zoom](./media/active-directory-tou/zoom-buttons.png)
+
 A tela a seguir mostra a aparência dos Termos de uso em dispositivos móveis.
 
 ![Entrada do dispositivo móvel do usuário](./media/active-directory-tou/mobile-tou.png)
 
-Os usuários só precisam aceitar os Termos de uso uma vez e não verão ver os Termos de uso nas entradas subsequentes.
+Os usuários só precisam aceitar os termos de uso de uma vez e não poderão ver os termos de uso novamente em conexões subsequentes.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Como os usuários podem analisar os Termos de uso
 Os usuários podem analisar e ver os Termos de uso aceitos usando o procedimento a seguir.

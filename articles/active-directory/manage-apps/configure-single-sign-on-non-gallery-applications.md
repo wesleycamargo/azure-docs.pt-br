@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117652"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435774"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o logon único para aplicativos não da galeria no Azure Active Directory
 
@@ -45,7 +45,7 @@ Na galeria do aplicativo, você pode adicionar um aplicativo não listado, selec
 
 **Dicas rápida**:  Como uma prática recomendada, use a função de pesquisa para verificar se o aplicativo já existe na galeria de aplicativos. Se o aplicativo for localizado e a descrição mencionar "logon único", o aplicativo já terá suporte para logon único federado.
 
-  ![Pesquisar](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Adicionar um aplicativo dessa maneira fornece uma experiência semelhante à disponível para aplicativos pré-integrados. Para começar, selecione **Configurar Logon Único** ou clique em **Logon único** no menu de navegação à esquerda do aplicativo. A próxima tela apresenta as opções para configurar o logon único. As opções são descritas nas próximas seções deste artigo.
   
@@ -124,7 +124,7 @@ Verifique se que o certificado tem:
 
 ### <a name="set-up-target-application"></a>Configurar aplicativo de destino
 
-Para configurar o aplicativo para logon único, localize a documentação do aplicativo. Para encontrar a documentação, role até o final da página de configuração de conexão baseada em SAML e clique em **Configurar <application name>**. 
+Para configurar o aplicativo para logon único, localize a documentação do aplicativo. Para localizar a documentação, role até o final da página de configuração de logon baseado em SAML e, em seguida, clique em **configurar \<nome do aplicativo >**. 
 
 Os valores necessários variam de acordo com o aplicativo. Para obter detalhes, consulte a documentação do aplicativo SAML. O URL de serviço de logon e logoff é resolvido para o mesmo ponto de extremidade, que é o ponto de extremidade de tratamento de solicitações SAML para sua instância do Azure AD. O ID da Entidade SAML é o valor que aparece como o Emissor no token SAML que é emitido para o aplicativo.
 

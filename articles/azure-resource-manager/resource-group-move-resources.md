@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081246"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418883"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -49,7 +49,7 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 
-A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser movidos para um novo grupo de recursos e uma nova assinatura. Para obter mais detalhes, confira [Move operation support for resources](move-support-resources.md) (Suporte para a operação de movimentação de recursos).
+A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser movidos para um novo grupo de recursos e uma nova assinatura. Para obter uma lista de quais recursos tipos dão suporte à movimentação, consulte [suporte para recursos de operação de mover](move-support-resources.md).
 
 * Serviços de análise
 * Gerenciamento de API
@@ -143,7 +143,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Dynamics LCS
 * ExpressRoute
 * Serviço do Kubernetes
-* Serviços de Laboratórios – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
+* Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou assinatura. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
 * Aplicativos gerenciados
 * Microsoft Genomics
 * SAP HANA no Azure

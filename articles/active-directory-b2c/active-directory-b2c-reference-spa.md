@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104831"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439423"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: credenciais do aplicativo de página única utilizando fluxo implícito do OAuth 2.0
 
@@ -27,7 +27,7 @@ Muitos aplicativos modernos têm um aplicativo de página única front-end que �
 
 Para oferecer suporte a esses aplicativos, o Azure AD B2C (Azure Active Directory B2C) utiliza o fluxo implícito do OAuth 2.0. O fluxo de concessão implícita de autorização do OAuth 2.0 é descrito na [seção 4.2 da especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, o aplicativo recebe tokens diretamente do ponto de extremidade autorizado do Azure AD (Azure Active Directory) sem qualquer troca de servidor para servidor. Toda lógica de autenticação e gerenciamento de sessão ocorre inteiramente no cliente JavaScript, sem redirecionamentos de página adicionais.
 
-O Azure AD B2C estende o fluxo implícito do OAuth 2.0 padrão para mais que autenticação e autorização simples. O Azure AD B2C introduz o [parâmetro de política](active-directory-b2c-reference-policies.md). Com o parâmetro de política, é possível usar o OAuth 2.0 para adicionar políticas ao seu aplicativo, como fluxos de usuários de inscrição, conexão e gerenciamento de perfil. Neste artigo, mostraremos como utilizar o fluxo implícito e o Azure AD para implementar cada uma dessas experiências em seus aplicativos de uma página única. Para ajudá-lo a começar, examine os nossos exemplos[Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) e [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi).
+O Azure AD B2C estende o fluxo implícito do OAuth 2.0 padrão para mais que autenticação e autorização simples. O Azure AD B2C introduz o [parâmetro de política](active-directory-b2c-reference-policies.md). Com o parâmetro de política, é possível usar o OAuth 2.0 para adicionar políticas ao seu aplicativo, como fluxos de usuários de inscrição, conexão e gerenciamento de perfil. Neste artigo, mostraremos como utilizar o fluxo implícito e o Azure AD para implementar cada uma dessas experiências em seus aplicativos de uma página única.
 
 Nas solicitações HTTP de exemplo neste artigo, usamos o diretório do Azure AD B2C de exemplo, **fabrikamb2c.onmicrosoft.com**. Além disso, usamos nosso próprio aplicativo de exemplo e fluxos de usuários. Você pode tentar as solicitações sozinho usando esses valores ou substituindo-os pelos seus próprios valores.
 Saiba como [obter seu próprio diretório, aplicativo e fluxos de usuários do Azure AD B2C](#use-your-own-azure-ad-b2c-tenant).
@@ -274,10 +274,5 @@ Para tentar essas solicitações, complete as três etapas a seguir. Substitua o
 
 1. [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md). Utilize o nome do seu locatário nas solicitações.
 2. [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter um ID de aplicativo e um valor `redirect_uri`. Inclua um aplicativo Web ou uma API Web em seu aplicativo. Opcionalmente, é possível criar um segredo de aplicativo.
-3. [Crie seus fluxos de usuários](active-directory-b2c-reference-policies.md) para obter nomes de fluxo de usuários.
-
-## <a name="samples"></a>Exemplos
-
-* [Criar um aplicativo de página única usando Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [Criar um aplicativo de página única usando .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+3. [Criar os fluxos dos usuários](active-directory-b2c-reference-policies.md) para obter os nomes do fluxo de usuário.
 

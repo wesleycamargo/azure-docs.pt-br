@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285778"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418849"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
 Todo novo locatário do Azure AD vem com um nome de domínio inicial: *domainname*.onmicrosoft.com. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar nomes da sua organização à lista. Adicionar nomes de domínio personalizados ajuda você a criar nomes de usuário que são familiares para seus usuários, tais como *alain\@contoso.com*.
@@ -84,6 +84,8 @@ Depois de registrar seu nome de domínio personalizado, precisa certificar-se de
 4. Na página **Contoso**, selecione **Verificar** para garantir que seu domínio personalizado foi devidamente registrado e é válido para o Azure AD.
 
     ![Página da Contoso com informações sobre entrada de DNS e o botão Verificar](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+Depois de verificar seu nome de domínio personalizado, você pode excluir o arquivo. TXT ou MX sua verificação.
 
 ## <a name="common-verification-issues"></a>Problemas comuns de verificação
 - Se o Azure AD não puder verificar um nome de domínio personalizado, tente as sugestões a seguir:

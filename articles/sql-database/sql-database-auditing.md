@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010535"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407344"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -93,7 +93,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
 6. Para configurar a gravação de logs de auditoria para uma conta de armazenamento, selecione **Armazenamento** e abra **Detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Os logs antigos serão excluídos. Em seguida, clique em **OK**.
 
-    ![Conta de Armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Para configurar a gravação de logs de auditoria em uma área de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
@@ -101,7 +101,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
 8. Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
-    ![Hub de eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+    ![Hub de Eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
 9. Clique em **Salvar**.
 10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
@@ -170,7 +170,6 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
   - Depois de baixar vários arquivos ou uma subpasta que contém arquivos de log, você pode mesclá-los localmente, conforme descrito nas instruções de Arquivos de Auditoria de Mesclagem do SSMS indicadas anteriormente.
   - Exiba os logs de auditoria de blob de forma programática:
 
-    - Use a biblioteca C# do [Leitor de Eventos Estendidos](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/).
     - [Consulte Arquivos de Eventos Estendidos usando o PowerShell](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/).
 
 ## <a id="subheading-5"></a>Práticas de produção
@@ -204,7 +203,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 3. Volte para a página de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e, depois, clique em **OK**. Em seguida, clique em **Salvar** na parte superior da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o próximo ciclo de atualização da chave).
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informações adicionais
 
 - Para obter detalhes sobre o formato de log, a hierarquia da pasta de armazenamento e as convenções de nomenclatura, consulte a [Referência de formato do log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -258,8 +257,11 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelos do[ Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), de acordo com estes exemplos:
 
 - [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implantar um servidor do SQL Azure com a auditoria habilitada para gravar logs de auditoria em logs do Azure Monitor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implantar um SQL Server do Azure comauditoria habilitada para gravar logs de auditoria no Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria no Hubs de Eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> Os exemplos vinculados estão em um repositório público externo e são fornecidos "como está", sem garantia e não têm suporte em qualquer programa/serviço suporte da Microsoft.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

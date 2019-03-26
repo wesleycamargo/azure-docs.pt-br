@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351925"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438458"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -24,7 +24,9 @@ Você pode usar o [Kit de Desenvolvimento da IoT MXChip](https://microsoft.githu
 
 ## <a name="what-you-do"></a>O que fazer
 
-Conecte o Kit de Desenvolvimento a um Hub IoT do Azure que você criou. Em seguida, colete os dados de temperatura e umidade de sensores e envie os dados para o Hub IoT.
+Neste artigo, você usará [Visual Studio Code](https://code.visualstudio.com/), uma fonte de plataforma cruzada de código no editor, juntamente com o [ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) pacote de extensão.
+
+Você se conectará o Kit de desenvolvimento para um hub IoT do Azure que você criar. Em seguida, colete os dados de temperatura e umidade de sensores e envie os dados para o Hub IoT.
 
 Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [compre um kit de desenvolvimento](https://aka.ms/iot-devkit-purchase).
 
@@ -119,7 +121,9 @@ Pressione o botão B para testar os sensores. Continue pressionando e soltando o
 
 ### <a name="install-azure-iot-tools"></a>Instalar as Ferramentas do Azure IoT
 
-O pacote de extensão [Ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) é recomendado para o Visual Studio Code para desenvolvimento no kit de desenvolvimento. Ele contém o [Workbench dos Dispositivos de IoT do Azure](https://aka.ms/iot-workbench) para desenvolver e depurar em vários dispositivos do Kit de desenvolvimento de IoT e o [Kit de ferramentas do Hub IoT do Azure](https://aka.ms/iot-toolkit) para gerenciar e interagir com o Hub IoT do Azure.
+Nesta seção, você instalará o [Arduino IDE](https://www.arduino.cc/en/Main/Software) juntamente com [Visual Studio Code](https://code.visualstudio.com/), um editor de código de origem de plataforma cruzada.
+
+Você também instalará o [as ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) pacote de extensão para o Visual Studio Code. É recomendável usar [as ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) pacote de extensão para o Visual Studio Code para desenvolver aplicativos no Kit de desenvolvimento. O pacote de extensão de ferramentas do Azure IoT contém a [Bancada de trabalho do Azure IoT dispositivo](https://aka.ms/iot-workbench) que é usado para desenvolver e depurar em vários dispositivos do Kit de desenvolvimento de IoT. O [Kit de ferramentas do Azure IoT Hub](https://aka.ms/iot-toolkit), também é incluído com o pacote de extensão de ferramentas do IoT do Azure, que é usado para gerenciar e interagir com Hubs IoT do Azure.
 
 Você pode observar estes vídeos do [Channel 9](https://channel9.msdn.com/) para ter uma visão geral sobre o que eles fazem:
 * [Introdução à nova extensão de IoT do Workbench para o VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

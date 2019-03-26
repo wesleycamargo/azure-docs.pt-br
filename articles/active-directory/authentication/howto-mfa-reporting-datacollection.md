@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314461"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436652"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
 
@@ -30,11 +30,11 @@ O Servidor MFA, a Extensão NPS e o Adaptador AD FS do Azure MFA do Windows Serv
 
 Tentativas de autenticação (usadas para relatórios e solução de problemas):
 
-- Carimbo de data/hora
-- Nome de usuário
+- Timestamp
+- Nome de Usuário
 - Nome
 - Sobrenome
-- Endereço de email
+- Endereço de Email
 - Grupo de usuários
 - Método de autenticação (chamada telefônica, mensagem de texto, aplicativo móvel, Token OATH)
 - Modo de chamada telefônica (Standard, PIN)
@@ -42,8 +42,8 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (Standard, PIN)
 - Modo de Token OATH (Standard, PIN)
-- Tipo de Autenticação
-- Nome do aplicativo
+- Tipo de autenticação
+- Nome do Aplicativo
 - Código do país da chamada primária
 - Número do telefone da chamada primária
 - Extensão da chamada primária
@@ -57,21 +57,21 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Geral autenticado
 - Resultado geral
 - Resultados
-- Autenticado
-- Resultado
+- Autenticada
+- Result
 - Iniciar endereço IP
 - Dispositivos
 - Token de dispositivo
 - Tipo de dispositivo
 - Versão do aplicativo móvel
 - Versão do SO
-- Resultado
+- Result
 - Verificar notificação usada
 
 Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authenticator):
-- Nome de usuário
-- Nome da Conta
-- Carimbo de data/hora
+- Nome de Usuário
+- Nome da conta
+- Timestamp
 - Obter resultado do código de ativação
 - Ativar êxito
 - Ativar erro
@@ -85,18 +85,18 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 
 - Bloquear carimbo de data/hora
 - Bloquear por nome de usuário
-- Nome de usuário
+- Nome de Usuário
 - Código do país
 - Número do telefone
 - Número de telefone formatado
-- Ramal
+- Extensão
 - Limpar extensão
 - Bloqueado
-- Motivo do bloqueio
+- Motivo para bloquear
 - Conclusão do carimbo de data/hora
 - Motivo da conclusão
-- Bloqueio de Conta
-- Alertas de Fraude
+- Bloqueio de conta
+- Alerta de fraude
 - Alerta de fraude não bloqueado
 - Linguagem
 
@@ -105,11 +105,11 @@ Bypass (usado para relatórios):
 - Carimbo de data/hora de bypass
 - Segundos do bypass
 - Bypass por nome de usuário
-- Nome de usuário
+- Nome de Usuário
 - Código do país
 - Número do telefone
 - Número de telefone formatado
-- Ramal
+- Extensão
 - Limpar extensão
 - Motivo do bypass
 - Conclusão do carimbo de data/hora
@@ -119,8 +119,8 @@ Bypass (usado para relatórios):
 Alterações (usadas para sincronizar as alterações do usuário para Servidor MFA ou AAD):
 
 - Alterar carimbo de data/hora
-- Nome de usuário
-- Novo Código do País
+- Nome de Usuário
+- Novo código do país
 - Novo número do telefone
 - Nova extensão
 - Novo código do país de backup
@@ -138,7 +138,7 @@ Para Servidor MFA versão 8.0 ou superior, o processo a seguir permite que os ad
 - Faça logon no Servidor MFA, navegue até a guia **Usuários** selecione o usuário em questão e clique no botão **Editar**. Faça capturas de tela (Alt-PrtScn) de cada guia para fornecer ao usuário as configurações do MFA atuais.
 - Na linha de comando do Servidor MFA, execute o comando a seguir alterando o caminho de acordo com a instalação `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` para produzir um arquivo no formato JSON.
 - Os administradores também podem usar a operação GetUserGdpr do SDK de Serviço Web como uma opção para exportar todas as informações de serviço de nuvem do MFA coletadas para um determinado usuário ou incorporar em uma solução de relatório maior.
-- Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer backups para “<username>” (inclua as citações na pesquisa) para localizar todas as instâncias do registro do usuário que estão sendo adicionadas ou alteradas.
+- Pesquisa `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e todos os backups para "\<username >" (inclua as aspas na pesquisa) para localizar todas as instâncias do registro do usuário que está sendo adicionadas ou alteradas.
    - Esses registros podem ser limitados (mas não eliminados), desmarcando **“Registrar alterações de usuário”** no UX do Servidor MFA, seção de Log, guia Arquivos de Log.
    - Se o syslog estiver configurado e **“Registrar alterações de usuário”** estiver marcado no UX do Servidor MFA, seção de Log, guia Syslog, as entradas de log poderão ser obtidas do syslog.
 - Outras ocorrências do nome de usuário no MultiFactorAuthSvc.log e outros arquivos de log do Servidor MFA referentes a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas usando a exportação de MultiFactorAuthGdpr.exe ou GetUserGdpr do SDK de Serviço Web.
