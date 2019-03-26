@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402713"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439066"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 O **RdsAppGroupUser adicionar** cmdlet não oferece suporte a adição de grupos de segurança e só adiciona um usuário por vez para o grupo de aplicativos. Se você quiser adicionar vários usuários para o grupo de aplicativos, execute novamente o cmdlet com os nomes de entidade de usuário apropriado.
 
-Execute o seguinte cmdlet para exportar o token de registro para uma variável, que você usará posteriormente no [registrar as máquinas virtuais ao pool de área de trabalho Virtual do Windows de host](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Execute o seguinte cmdlet para exportar o token de registro para uma variável, que você usará posteriormente no [registrar as máquinas virtuais ao pool de área de trabalho Virtual do Windows de host](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
