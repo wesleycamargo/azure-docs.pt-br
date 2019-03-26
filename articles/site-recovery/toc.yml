@@ -212,12 +212,10 @@ items:
         href: vmware-azure-set-up-replication.md
       - name: Implantar o serviço de Mobilidade
         items:
-        - name: Instalação do Serviço de mobilidade
+        - name: Instalação e visão geral do serviço de mobilidade
           href: vmware-physical-mobility-service-overview.md
         - name: Preparar para instalação do Serviço de Mobilidade por push
           href: vmware-azure-install-mobility-service.md
-        - name: Instalar o Serviço de Mobilidade manualmente
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Implante o serviço de Mobilidade usando o System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Habilitar a replicação para as VMs do VMware
@@ -244,6 +242,8 @@ items:
         href: vmware-azure-install-linux-master-target.md
     - name: Gerenciar
       items:
+      - name: Gerenciar o agente de mobilidade para VMware
+        href: vmware-physical-manage-mobility-service.md
       - name: Gerenciar o servidor de configuração para o VMware
         href: vmware-azure-manage-configuration-server.md
       - name: Gerenciar servidores de processo
@@ -276,8 +276,6 @@ items:
           href: vmware-physical-mobility-service-overview.md
         - name: Preparar para instalação do Serviço de Mobilidade por push
           href: vmware-azure-install-mobility-service.md
-        - name: Instalar o Serviço de Mobilidade manualmente
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Implante o serviço de Mobilidade usando o System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Configurar e orientar passo a passo a recuperação de desastre
@@ -286,6 +284,8 @@ items:
       href: physical-to-azure-failover-failback.md
     - name: Gerenciar
       items:
+      - name: Gerenciar o agente de mobilidade para o servidor físico
+        href: vmware-physical-manage-mobility-service.md
       - name: Gerenciar o servidor de configuração para replicação de servidor físico
         href: physical-manage-configuration-server.md
       - name: Gerenciar servidores de processo
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b486afff5bc65e58fc89d4b9f0bee4d9c0ff0b5c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317095"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418989"

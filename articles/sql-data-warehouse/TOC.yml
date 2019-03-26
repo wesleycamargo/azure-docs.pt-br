@@ -26,10 +26,6 @@ items:
     href: gen2-migration-schedule.md
   - name: Notas arquivadas sobre a versão
     items:
-    - name: Dezembro de 2018
-      href: release-notes-december-2018.md
-    - name: Outubro de 2018
-      href: release-notes-october-2018.md
     - name: Setembro de 2018
       href: release-notes-september-2018.md
     - name: Agosto de 2018
@@ -245,16 +241,18 @@ items:
     items:
     - name: Analisar sua carga de trabalho
       href: analyze-your-workload.md
-  - name: Monitorar e ajustar
+  - name: Gerenciar e monitorar
     items:
-    - name: Monitore sua carga de trabalho usando DMVs
-      href: sql-data-warehouse-manage-monitor.md
     - name: Atualizar para Gen2
       href: upgrade-to-latest-generation.md
-    - name: Monitorar cache do Gen2
-      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restaurar seu data warehouse
       href: sql-data-warehouse-restore.md
+    - name: Monitorar sua carga de trabalho – Portal
+      href: sql-data-warehouse-monitor-workload-portal.md
+    - name: Monitorar sua carga de trabalho – DMVs
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Monitorar cache do Gen2
+      href: sql-data-warehouse-how-to-monitor-cache.md
   - name: Integração
     items:
     - name: Usar o aprendizado de máquina
@@ -319,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gerenciamento de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 1ee4b1806047d93cbdbe0758b728dd4d835cf8eb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e206a9a171736ac7755e670838ee4854dabcdffb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309445"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402857"
