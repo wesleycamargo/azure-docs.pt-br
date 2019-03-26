@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119285"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417999"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de Aplicativo (visualização pública)
 
@@ -96,10 +96,12 @@ Essa funcionalidade dá suporte à regravação de cabeçalhos para as seguintes
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retorna a lista de codificações com suporte pelo cliente          |
 | ciphers_used               | Retorna a cadeia de caracteres de criptografia usada para uma conexão SSL estabelecida |
+| client_ip                  | Endereço IP do cliente; particularmente útil em cenários em que os clientes pretendem reescreva o cabeçalho X-Forwarded-For definido pelo Gateway de aplicativo, de forma que o cabeçalho contém somente o endereço IP sem as informações de porta. |
 | client_port                | porta do cliente                                                  |
 | client_tcp_rtt             | informações sobre a conexão TCP do cliente; disponível em sistemas que são compatíveis com a opção de soquete TCP_INFO |
 | client_user                | ao usar a autenticação de HTTP, o nome de usuário fornecido para autenticação |
 | host                       | nessa ordem de precedência: nome do host da linha de solicitação ou nome de host do campo de cabeçalho de solicitação de "Host" ou o nome de servidor corresponde a uma solicitação |
+| cookie_*nome*              | o *nome* cookie |
 | http_method                | o método usado para fazer a solicitação de URL. Por exemplo GET, POST etc. |
 | http_status                | estado da sessão, por exemplo: 200, 400, 403 etc.                       |
 | http_version               | protocolo de solicitação, normalmente, "HTTP/1.0", "HTTP 1.1" ou "HTTP 2.0" |
@@ -120,10 +122,6 @@ Essa funcionalidade dá suporte à regravação de cabeçalhos para as seguintes
 - O suporte à reescrita de cabeçalho HTTP só está disponível na nova SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). A funcionalidade não terá suporte na SKU antiga.
 
 - Ainda não há suporte para reescrever os cabeçalhos do Connect, Upgrade e Host.
-
-- Duas variáveis importantes do servidor, client_ip (endereço IP do cliente que está fazendo a solicitação) e cookie_*nome* (o *nome* cookie), ainda não são compatíveis. A variável do servidor client_ip é particularmente útil em cenários em que os clientes pretendem reescrever o cabeçalho x-forwarded-for definido pelo Gateway de Aplicativo, de forma que o cabeçalho contenha apenas o endereço IP do cliente e não as informações de porta.
-
-  Em breve, essas variáveis do servidor serão compatíveis.
 
 - A funcionalidade para reescrever condicionalmente os cabeçalhos http estarão disponíveis em breve.
 

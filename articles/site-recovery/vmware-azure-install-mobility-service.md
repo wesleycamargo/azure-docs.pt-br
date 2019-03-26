@@ -1,19 +1,19 @@
 ---
-title: Instalar o Serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos no Azure | Microsoft Docs
-description: Saiba como instalar o agente do Serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos no Azure usando o serviço Azure Site Recovery.
+title: Preparar as máquinas de origem para instalar o serviço de mobilidade por meio da instalação por push para a recuperação de desastre de VMs VMware e servidores físicos no Azure | Microsoft Docs
+description: Saiba como preparar seu servidor para instalar o agente de mobilidade por meio da instalação por push para a recuperação de desastre de VMs VMware e servidores físicos no Azure usando o serviço Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846905"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418662"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Instalar o serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar o computador de origem para instalação por push do agente de mobilidade
 
 Quando você configura a recuperação de desastre para VMs VMware e servidores físicos usando [Azure Site Recovery](site-recovery-overview.md), instale o [Serviço Mobilidade de Recuperação do Site](vmware-physical-mobility-service-overview.md) em cada VM VMware local e servidor físico.  O serviço Mobility captura gravação de dados na máquina e as encaminha para o servidor do processo de Recuperação do Site.
 
@@ -59,6 +59,10 @@ Em cada máquina Linux que você deseja proteger, faça o seguinte:
 11. Na guia **Gerenciar Contas**, selecione **Adicionar Conta**.
 12. Adicione a conta que você criou.
 13. Insira as credenciais usadas quando você habilitar a replicação de um computador.
+
+## <a name="anti-virus-on-replicated-machines"></a>Antivírus em computadores replicados
+
+Se as máquinas que você deseja replicar tiverem o software antivírus ativo em execução, exclua a pasta de instalação do serviço Mobility das operações de antivírus (*C:\ProgramData\ASR\agent*). Isso garante que a replicação funciona conforme o esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

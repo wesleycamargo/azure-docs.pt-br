@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112102"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407021"
 ---
-# <a name="monitoring-metrics-for-front-door"></a>Métricas de monitoramento do Front Door
+# <a name="monitoring-metrics-and-logs-for-front-door"></a>Monitoramento de logs e métricas para frente
 
 Usando o serviço de porta da frente do Azure, você pode monitorar os recursos das seguintes maneiras:
-* [Logs](#diagnostic-logging): Os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
 * [Métrica](#metrics): O Gateway de Aplicativo atualmente tem sete métricas para exibir os contadores de desempenho.
+* [Logs](#diagnostic-logging): Os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
 ## <a name="metrics"></a>Métricas
 

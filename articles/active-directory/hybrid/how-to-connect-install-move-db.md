@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076829"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437774"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mover o banco de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -42,7 +42,7 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
 8. Depois que o banco de dados for anexado, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Depois de concluir a instalação do MSI, o assistente do Azure AD Connect começa a instalação do modo Express. Feche a tela clicando no ícone de Saída.
    ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue até a pasta <drive>\Program Files\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
+10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue até a pasta \<unidade > \program files\Microsoft do Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Você receberá boas-vindas com a tela Bem-vindo ao Azure AD Connect. Depois que você concordar com os termos de licença e o aviso de privacidade, clique em **Continuar**.
     ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)

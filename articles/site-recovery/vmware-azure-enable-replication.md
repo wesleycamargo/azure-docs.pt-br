@@ -1,20 +1,19 @@
 ---
-title: Habilite a replicação de VMs do VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Microsoft Docs'
-description: Este artigo descreve como habilitar a replicação de VMs do VMware para recuperação de desastre no Azure, usando o Azure Site Recovery.
+title: Habilitar a replicação de VMs VMware para recuperação de desastres no Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como habilitar a VMs do VMware para replicação no Azure para recuperação de desastres usando o Azure Site Recovery.
 author: mayurigupta13
 ms.service: site-recovery
 ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098688"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418101"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
-
 
 Este artigo descreve como habilitar replicação de VMs VMware locais no Azure.
 
@@ -22,113 +21,114 @@ Este artigo descreve como habilitar replicação de VMs VMware locais no Azure.
 
 Este artigo supõe que você:
 
-1.  [Configure o ambiente de origem local](vmware-azure-set-up-source.md).
-2.  [Configure o ambiente de destino no Azure](vmware-azure-set-up-target.md).
-
+- [Configurar seu ambiente de origem local](vmware-azure-set-up-source.md).
+- [Configurar seu ambiente de destino no Azure](vmware-azure-set-up-target.md).
 
 ## <a name="before-you-start"></a>Antes de começar
-Ao replicar máquinas virtuais VMware:
+Quando você estiver replicando máquinas virtuais VMware, tenha essas informações em mente:
 
 * Sua conta de usuário do Azure precisa ter certas [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para habilitar a replicação de uma nova máquina virtual para o Azure.
-* VMs VMware são descobertas a cada 15 minutos. Pode levar 15 minutos ou mais para que elas sejam exibidas no portal do Azure após a descoberta. Da mesma forma, a descoberta pode levar 15 minutos ou mais quando você adiciona um novo servidor vCenter ou host vSphere.
-* As alterações de ambiente na máquina virtual (como instalação de ferramentas VMware) podem levar 15 minutos ou mais para serem atualizadas no portal.
-* Você pode verificar a hora da última descoberta das VMs VMware no campo **Último Contato Às** do servidor vCenter/host vSphere, na página **Servidores de Configuração**.
-* Para adicionar computadores para replicação sem precisar esperar pela descoberta agendada, realce o servidor de configuração (não clique nele) e clique no botão **Atualizar**.
-* Quando você habilitar a replicação, se o computador estiver preparado, o servidor em processo instalará automaticamente o Serviço de Mobilidade nele.
-
+* VMs VMware são descobertas a cada 15 minutos. Pode levar 15 minutos ou mais para máquinas virtuais aparecer no portal do Azure após a descoberta. Da mesma forma, a descoberta pode levar 15 minutos ou mais quando você adiciona um novo vCenter server ou host vSphere.
+* Pode levar 15 minutos ou mais para que as alterações de ambiente na máquina virtual (como instalação de ferramentas VMware) a ser atualizado no portal.
+* Você pode verificar a hora da última descoberta das VMs VMware: Consulte a **último contato às** campo o **servidores de configuração** página para o servidor vCenter/host vSphere.
+* Para adicionar máquinas virtuais para replicação sem precisar esperar pela descoberta agendada, realce o servidor de configuração (mas não clique nele) e selecione **Refresh**.
+* Quando você habilitar a replicação, se a máquina virtual estiver preparada, o servidor de processo instalará automaticamente o serviço de mobilidade do Azure Site Recovery nele.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
->[!NOTE]
->* Agora, o Azure Site Recovery replica diretamente para o Managed Disks para todas as replicações novo. Servidor de processo grava os logs de replicação para uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica. 
->* No momento do failover, o ponto de recuperação selecionado pelo cliente é usado para criar o disco gerenciado de destino.
->* As VMs que são configuradas anteriormente para replicar a contas de armazenamento de destino não serão afetadas. 
->* A replicação para contas de armazenamento para uma nova máquina só está disponível por meio da API REST e Powershell. Use a API versão 2016-08-10 ou 2018-01-10 para a replicação para contas de armazenamento.
+Antes de seguir as etapas nesta seção, observe as seguintes informações:
+* O Azure Site Recovery replica agora diretamente em discos gerenciados para todas as replicações de novo. O servidor de processo grava os logs de replicação para uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica.
+* No momento do failover, o ponto de recuperação selecionado é usado para criar o disco gerenciado de destino.
+* As VMs que foram previamente configuradas para replicar para contas de armazenamento de destino não são afetadas.
+* A replicação para contas de armazenamento para uma nova máquina virtual só está disponível por meio de uma transferência REST (Representational State) API e Powershell. Use a API de REST do Azure versão 2016-08-10 ou 2018-01-10 para a replicação para contas de armazenamento.
 
-1. Clique em **Etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
-2. Na página **Origem** > **Origem**, selecione o servidor de configuração.
-3. Em **Tipo de computador**, selecione **Máquinas Virtuais** ou **Computadores Físicos**.
-4. Em **Hipervisor do vCenter/vSphere**, selecione o servidor vCenter que gerencia o host vSphere ou selecione o host. Essa configuração não será relevante se você estiver replicando computadores físicos.
-5. Selecione o servidor de processo, que terá o nome do servidor de configuração caso você não tenha criado um servidor de processo adicional. Em seguida, clique em **OK**.
+1. Vá para **etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, selecione **+ replicar** no cofre para habilitar a replicação para máquinas virtuais adicionais.
+1. Na página **Origem** > **Origem**, selecione o servidor de configuração.
+1. Para **tipo de computador**, selecione **máquinas virtuais** ou **máquinas físicas**.
+1. Em **Hipervisor do vCenter/vSphere**, selecione o servidor vCenter que gerencia o host vSphere ou selecione o host. Essa configuração não é relevante se você estiver replicando computadores físicos.
+1. Selecione o servidor de processo, que será o servidor de configuração se você ainda não criou nenhum servidor de processo adicional. Depois, selecione **OK**.
 
-    ![Habilitar a origem de replicação](./media/vmware-azure-enable-replication/enable-replication2.png)
+    ![Habilitar janela de origem de replicação](./media/vmware-azure-enable-replication/enable-replication2.png)
 
-6. Em **Destino**, selecione a assinatura e o grupo de recursos no qual você deseja criar as máquinas virtuais do failover. Escolha o modelo de implantação que você deseja usar no Azure para as máquinas virtuais do failover.
+1. Para **destino**, selecione o grupo de recursos e assinatura em que você deseja criar as máquinas virtuais de failover. Escolha o modelo de implantação que você deseja usar no Azure para as VMs de failover.
 
-7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. A rede deve estar na mesma região do que o cofre de Recuperação de Site. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se você não tiver uma rede, precisará criar uma. Para criar uma rede usando o Resource Manager, clique em **Criar nova**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
+1. Selecione a rede do Azure e a sub-rede que irão se conectar a VMs do Azure após o failover. A rede deve estar na mesma região que o cofre do serviço de recuperação de Site.
+
+   Selecione **configurar agora para computadores selecionados** para aplicar a configuração de rede para todas as máquinas virtuais que você selecionou para proteção. Selecione **configurar mais tarde** para selecionar a rede do Azure por máquina virtual. Se você não tiver uma rede, precisará criar uma. Para criar uma rede usando o Azure Resource Manager, selecione **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, selecione **Okey**.
    
-   ![Habilitar a configuração de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
+   ![Habilitar janela de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-8. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**. Se você não conseguir exibir/selecionar nenhuma máquina virtual específica, clique [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
+1. Para **máquinas virtuais** > **selecionar máquinas virtuais**, selecione cada máquina virtual que você deseja replicar. Você só pode selecionar máquinas virtuais para os quais a replicação pode ser habilitada. Depois, selecione **OK**. Se você não pode ver ou seleciona qualquer máquina virtual específica, consulte [computador de origem não está listado no portal do Azure](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
 
-    ![Habilitar máquinas virtuais de replicação selecionadas](./media/vmware-azure-enable-replication/enable-replication5.png)
+    ![Habilitar janela Selecione as máquinas virtuais de replicação](./media/vmware-azure-enable-replication/enable-replication5.png)
 
-9. Em **Propriedades** > **Configurar propriedades**, selecione a conta usada pelo servidor de processo para instalar automaticamente o Serviço de Mobilidade no computador. Além disso, escolha o tipo de disco gerenciado de destino que você desejaria para replicar com base em seus dados de variação de padrões.
-10. Por padrão, todos os discos de um computador de origem são replicados. Para excluir discos da replicação, desmarque a opção **Include** caixa de seleção para quaisquer discos que você não deseja replicar.  Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente. [Saiba mais](vmware-azure-exclude-disk.md) sobre a exclusão de discos.
+1. Para **propriedades** > **configurar propriedades**, selecione a conta usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade do Site Recovery na máquina virtual. Além disso, escolha o tipo de disco gerenciado de destino para replicar para padrões de variação com base em seus dados.
+10. Por padrão, todos os discos de uma máquina virtual de origem são replicados. Para excluir discos da replicação, desmarque a **Include** caixa de seleção para todos os discos que você não deseja replicar. Depois, selecione **OK**. Você pode definir propriedades adicionais posteriormente. Saiba mais sobre [exclusão de discos](vmware-azure-exclude-disk.md).
 
-    ![Habilitar propriedades de configuração de replicação](./media/vmware-azure-enable-replication/enable-replication6.png)
+    ![Habilitar a replicação configurar a janela Propriedades](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-11. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada. Você pode modificar as configurações da política de replicação em **Configurações** > **Políticas de replicação** > (nome da política) > **Editar Configurações**. Alterações aplicadas a uma política também serão aplicadas a computadores novos e de replicação.
-12. Habilite **Consistência de várias VMs** se você quiser reunir computadores em um grupo de replicação. Especifique um nome para o grupo e então clique em **OK**. 
+1. No **as configurações de replicação** > **definir configurações de replicação**, verifique se que a política de replicação correta está selecionada. Você pode modificar as configurações de política de replicação no **as configurações** > **políticas de replicação** > ***nome da política***  >  **Editar configurações**. As alterações aplicadas a uma política também se aplicam a novos e replicadas máquinas virtuais.
+1. Habilitar **consistência de várias VMs** se você quiser reunir as máquinas virtuais em um grupo de replicação. Especifique um nome para o grupo e, em seguida, selecione **Okey**.
 
     > [!NOTE]
-    > 
-    >    * Os computadores em um grupo de replicação são replicados em conjunto e têm pontos de recuperação consistentes compartilhados com o aplicativo e com falhas quando executam failover.
-    >    * Colete VMs e servidores físicos para que espelhem suas cargas de trabalho. Habilitar a consistência de várias VMs pode afetar o desempenho da carga de trabalho. Use somente se os computadores estiverem executando a mesma carga de trabalho e você precisar de consistência.
+    >    * Máquinas virtuais em um grupo de replicação replicar juntos e compartilhou pontos de recuperação consistentes com o aplicativo e com falhas quando executam failover.
+    >    * Colete VMs e servidores físicos para que espelhem suas cargas de trabalho. Habilitar a consistência de várias VMs pode afetar o desempenho da carga de trabalho. Faça isso apenas se as máquinas virtuais estão executando a mesma carga de trabalho e precisam de consistência.
 
-    ![Habilitar a replicação](./media/vmware-azure-enable-replication/enable-replication7.png)
+    ![Habilitar janela de replicação](./media/vmware-azure-enable-replication/enable-replication7.png)
     
-13. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
+1. Selecione **Habilitar Replicação**. Você pode acompanhar o progresso do **Habilitar proteção** de trabalho no **configurações** > **trabalhos** > **trabalhos de recuperação de Site**. Após a execução do trabalho **Finalizar Proteção**, a máquina virtual estará pronta para failover.
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 
-Em seguida, verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure precisa estar em conformidade com os [Requisitos de máquina virtual do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
+Em seguida, verifique se as propriedades da máquina virtual de origem. Lembre-se de que o nome da VM do Azure precisa estar em conformidade com os [Requisitos de máquina virtual do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-1. Clique em **Configurações** > **Itens replicados** > e então selecione o computador. A página **Essentials** mostra as informações sobre as configurações e o status dos computadores.
-2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
-3. Em **Computação e Rede** > **propriedades de Computação**, você pode alterar várias propriedades da VM:
-   * Nome da VM do Azure – modifique o nome para que ele fique em conformidade com os requisitos do Azure se necessário
-   * Tamanho da VM de destino ou um tipo VM - o tamanho da VM padrão é escolhido com base no tamanho da VM de origem. Selecione outro tamanho de VM, conforme a necessidade, a qualquer momento antes do failover. Observe que o tamanho do disco de VM também se baseia no tamanho do disco de origem e só pode ser alterado pós-failover. Saiba mais sobre tamanhos de disco e IOPS no artigo [Metas de escalabilidade para discos](../virtual-machines/windows/disk-scalability-targets.md).
+1. Vá para **as configurações** > **itens replicados**e, em seguida, selecione a máquina virtual. O **Essentials** página mostra informações sobre as configurações e o status da VM.
+1. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
+1. Na **computação e rede** > **propriedades de computação**, você pode alterar várias propriedades da VM. 
 
-     ![Propriedades de Computação e Rede](./media/vmware-azure-enable-replication/vmproperties.png)
+    ![Janela de propriedades de computação e rede](./media/vmware-azure-enable-replication/vmproperties.png)
 
-   * Grupo de Recursos – selecione um [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) no qual um computador se tornará parte de um pós-failover. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar o computador para outro grupo de recursos, as configurações de proteção desse computador serão interrompidas.
-   * Conjunto de Disponibilidade – selecione um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se o computador precisar fazer parte de um pós-failover. Durante a seleção de um conjunto de disponibilidade, tenha em mente que:
+    * Nome da VM do Azure: Modifique o nome para atender aos requisitos do Azure, se necessário.
+    * Tamanho da VM de destino ou o tipo de VM: O tamanho da VM padrão é escolhido com base no tamanho da VM de origem. Você pode selecionar um tamanho VM diferente com base em suas necessidades, a qualquer momento antes do failover. Observe que o tamanho do disco VM também se baseia no tamanho do disco de origem, e ele só pode ser alterado após o failover. Saiba mais sobre tamanhos de disco e taxas de IOPS [metas de desempenho e escalabilidade para discos VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
-       * Apenas os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado serão listados.  
-       * Os computadores com redes virtuais diferentes não podem fazer parte do mesmo conjunto de disponibilidade.
-       * Somente máquinas virtuais do mesmo tamanho podem fazer parte de um mesmo conjunto de disponibilidade.
-4. Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP à VM do Azure.
-5. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
+    *  Grupo de recursos: Você pode selecionar um [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), do qual uma máquina virtual se torna parte de um failover de postagem. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar a máquina virtual para outro grupo de recursos, interromper as configurações de proteção para a máquina virtual.
+    * Conjunto de disponibilidade: Você pode selecionar um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se sua máquina virtual precisa ser uma parte de um failover de postagem. Quando você seleciona um conjunto de disponibilidade, lembre-se as informações a seguir:
+
+        * São listados apenas conjuntos de disponibilidade que pertencem ao grupo de recursos especificado.  
+        * As VMs que estão em redes virtuais diferentes não podem ser uma parte do mesmo conjunto de disponibilidade.
+        * Somente máquinas virtuais do mesmo tamanho podem fazer parte de um mesmo conjunto de disponibilidade.
+1. Você também pode adicionar informações sobre a rede de destino, a sub-rede e o endereço IP que é atribuído à VM do Azure.
+2. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Configurar redes e endereços IP
 
-- Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador que fez failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. Se o endereço estiver disponível na rede de failover de teste, o mesmo endereço IP de destino poderá ser usado para failover de teste.
-- O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
-    - Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
-    - Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino usado.
-    Por exemplo, se um computador de origem tiver dois adaptadores de rede e o tamanho do computador de destino der suporte a quatro, o computador de destino terá dois adaptadores. Se o computador de origem tiver dois adaptadores, mas o tamanho de destino com suporte só aceitar um, o computador de destino terá apenas um adaptador.
-    - Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede. Além disso, o primeiro deles mostrados na lista se torna o adaptador de rede *Padrão* na máquina virtual do Azure.
+Você pode definir o endereço IP de destino. Se você não fornecer um endereço, a máquina virtual de failover usa o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. Se o endereço está disponível na rede de failover de teste, você pode usar o mesmo endereço IP de destino para failover de teste.
+
+O número de adaptadores de rede é determinado pelo tamanho que você especificar para a máquina virtual de destino, da seguinte maneira:
+
+- Se o número de adaptadores de rede na máquina virtual de origem for menor ou igual ao número de adaptadores que são permitidos para o tamanho da VM de destino, o destino tem o mesmo número de adaptadores de como a origem.
+- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho da VM de destino, o tamanho máximo de destino será usado. Por exemplo, se uma máquina virtual de origem tiver dois adaptadores de rede e o tamanho da VM de destino der suporte a quatro, a máquina virtual de destino tem dois adaptadores. Se a VM de origem tiver dois adaptadores, mas o tamanho de destino dá suporte apenas a um, a VM de destino terá apenas um adaptador.
+- Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede. Além disso, o primeiro adaptador que é mostrado na lista se tornará o *padrão* adaptador de rede na máquina virtual do Azure. 
 
 ### <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Clientes do Microsoft Software Assurance podem usar o Benefício Híbrido do Azure para economizar nos custos de licenciamento para máquinas do Windows Server que são migradas para o Azure, ou que usam o Azure para recuperação de desastres. Se você está qualificado para usar o Benefício Híbrido do Azure, pode especificar que a máquina virtual atribuída a esse benefício seja a criada pelo Azure Site Recovery se houver um failover. Para fazer isso:
-- Vá para a seção de propriedades de Computação e Rede da máquina virtual replicada.
-- Responda à pergunta que pergunta se você tem uma licença do Windows Server que faz com que você tenha direito ao Benefício Híbrido do Azure.
-- Marque a caixa de seleção para confirmar que você tem uma licença do Windows Server com o Software Assurance que você pode usar para aplicar o Benefício Híbrido do Azure no computador que será criado durante o failover.
-- Salve as configurações para o computador replicado.
+Clientes do Microsoft Software Assurance podem usar o benefício híbrido do Azure para economizar nos custos de licenciamento para computadores com Windows Server que são migradas para o Azure. O benefício também se aplica a recuperação de desastre do Azure. Se você está qualificado, você pode atribuir o benefício para a máquina virtual que o Site Recovery cria se houver um failover. Para fazer isso, siga estas etapas:
+1. Vá para o **propriedades de rede e computador** da máquina virtual replicada.
+2. Responder quando perguntado se você tem uma licença do Windows Server que faz com que você qualificados do benefício híbrido do Azure.
+3. Confirme se você tem uma licença do Windows Server com Software Assurance que você pode usar para aplicar o benefício à VM que será criada no failover.
+4. Salve as configurações para a máquina virtual replicada.
 
 Saiba mais sobre o [Benefício Híbrido do Azure](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="common-issues"></a>Problemas comuns
+## <a name="resolve-common-issues"></a>Resolver problemas comuns
 
-* Cada disco deve ter menos de 4 TB.
-* O disco do sistema operacional deve ser um disco básico e não um disco dinâmico.
-* Para máquinas virtuais habilitadas pela geração 2/UEFI, a família do sistema operacional deve ser o Windows e o disco de inicialização deve ser menor que 300 GB.
+* Cada disco deve ser menor que 4 TB.
+* O disco do sistema operacional deve ser um disco básico, não um disco dinâmico.
+* Para a geração 2/UEFI-máquinas virtuais habilitadas para, a família do sistema operacional deve ser o Windows e o disco de inicialização deve ser menor que 300 GB.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que a proteção for concluída e a máquina estiver protegida, você pode tentar um [failover](site-recovery-failover.md) para verificar se o seu aplicativo é mostrado no Azure ou não.
+Depois que a máquina virtual atingir um estado protegido, tente uma [failover](site-recovery-failover.md) para verificar se seu aplicativo aparece no Azure.
 
 * Saiba como [limpar as configurações de registro e proteção](site-recovery-manage-registration-and-protection.md) para desabilitar a replicação.
-* Saiba como [automatizar a replicação para as máquinas virtuais usando o PowerShell](vmware-azure-disaster-recovery-powershell.md)
+* Saiba como [automatizar a replicação para as máquinas virtuais usando o Powershell](vmware-azure-disaster-recovery-powershell.md).

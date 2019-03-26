@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342466"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407582"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solução de problemas com o RBAC para recursos do Azure
 
@@ -28,23 +28,31 @@ Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas com as atribuições de função RBAC
 
-- Se você não conseguir adicionar uma atribuição de função porque a opção **Adicionar atribuição de função** está desabilitada ou porque recebeu um erro de permissões, verifique se você está usando uma função que tenha a permissão `Microsoft.Authorization/roleAssignments/*` no escopo para o qual está tentando atribuir a função. Se você não tiver essa permissão, verifique com seu administrador de assinatura.
-- Se você receber um erro de permissões ao tentar criar um recurso, verifique se você está usando uma função que tenha permissão para criar recursos no escopo selecionado. Por exemplo, talvez você precise ser um Colaborador. Se você não tiver a permissão, verifique com o administrador de assinatura.
-- Se você receber um erro de permissões ao tentar criar ou atualizar um tíquete de suporte, verifique se você está usando uma função que tenha a permissão `Microsoft.Support/*`, como [Colaborador de Solicitação de Suporte](built-in-roles.md#support-request-contributor).
-- Se você receber um erro informando que o número de atribuições de função foi excedido ao tentar atribuir uma função, tente reduzir o número de atribuições de função, atribuindo funções a grupos. O Azure dá suporte a até **2.000** atribuições de função por assinatura.
+- Se você não conseguir adicionar uma atribuição de função no portal do Azure no **controle de acesso (IAM)** porque o **Add** > **Adicionar atribuição de função** opção está desabilitada ou porque você receber o erro de permissões "o cliente com a id de objeto não tem autorização para executar a ação", verifique se você está atualmente registrado com um usuário que é atribuído a uma função que tenha o `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) no escopo do qual você está tentando atribuir a função.
+- Se você receber a mensagem de erro "nenhum mais atribuições de função podem ser criadas (código: RoleAssignmentLimitExceeded) "ao tentar atribuir uma função, tente reduzir o número de atribuições de função, atribuindo funções aos grupos em vez disso. O Azure dá suporte a até **2.000** atribuições de função por assinatura.
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
-- Se você não conseguir atualizar uma função personalizada existente, verifique se você tem a permissão `Microsoft.Authorization/roleDefinition/write`.
-- Se você não conseguir atualizar uma função personalizada existente, verifique se um ou mais escopos atribuíveis foram excluídos do locatário. A propriedade `AssignableScopes` de uma função personalizada controla [quem pode criar, excluir, atualizar ou exibir a função personalizada](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
-- Se você receber um erro informando que o limite da definição de função é excedido quando tentar criar uma função, exclua as funções personalizadas que não são usadas. Você também pode tentar consolidar ou reutilizar as funções personalizadas existentes. O Azure dá suporte a até **2.000** funções personalizadas em um locatário.
-- Se você não conseguir excluir uma função personalizada, verifique se há uma ou mais atribuições de função ainda usando a função personalizada.
+- Se você precisar que as etapas para criar uma função personalizada, consulte os tutoriais de função personalizada usando [Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
+- Se você não é possível atualizar uma função personalizada existente, verifique se você está atualmente registrado com um usuário que é atribuído a uma função que tenha o `Microsoft.Authorization/roleDefinition/write` permissão como [proprietário](built-in-roles.md#owner) ou [acesso de usuário administrador](built-in-roles.md#user-access-administrator).
+- Se não for possível excluir uma função personalizada e obter a mensagem de erro "há fazendo referência à função de atribuições de função existentes (código: RoleDefinitionHasAssignments) ", em seguida, há as atribuições de função ainda usando a função personalizada. Remover essas atribuições de função e tente excluir a função personalizada novamente.
+- Se você receber a mensagem de erro "o limite de definição do função excedido. Sem as definições de função podem ser criadas (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, exclua as funções personalizadas que não estão sendo usadas. O Azure dá suporte a até **2.000** funções personalizadas em um locatário.
+- Se você receber um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no escopo '/ assinaturas / {subscriptionid}', no entanto, a assinatura vinculada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [escopos atribuíveis](role-definitions.md#assignablescopes) ter sido excluída no locatário. Se o escopo foi excluído, em seguida, crie um tíquete de suporte pois não há nenhuma solução de autoatendimento disponível no momento.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar RBAC quando as assinaturas são movidas entre locatários
 
-- Se você precisar saber as etapas sobre como transferir uma assinatura para um locatário diferente, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
-- Quando você transfere uma assinatura para outro locatário, todas as atribuições de função são excluídas permanentemente do locatário de origem e não são migradas para o locatário de destino. Você precisa recriar as atribuições de função no locatário de destino.
-- Se você é um Administrador Global e perdeu o acesso a uma assinatura, use a alternância **Gerenciamento de acesso para recursos do Azure** para [elevar seu acesso](elevate-access-global-admin.md) temporariamente e obter o acesso à assinatura mais uma vez.
+- Se você precisar que as etapas sobre como transferir uma assinatura para um anúncio do Azure diferentes locatário, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
+- Se você transferir uma assinatura para um AD do Azure diferente locatário, todas as atribuições de função são excluídas permanentemente do locatário do AD do Azure de origem e não são migradas para o locatário do AD do Azure de destino. Você precisa recriar as atribuições de função no locatário de destino.
+- Se você for um Azure AD Administrador Global e você não tem acesso a uma assinatura depois que ele foi movido entre locatários, use o **Access management para recursos do Azure** ativar/desativar temporariamente [elevar seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
+
+## <a name="issues-with-service-admins-or-co-admins"></a>Problemas com os administradores de serviço ou coadministradores
+
+- Se você estiver tendo problemas com o administrador de serviços ou coadministradores, consulte [adicionar ou alterar os administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e [funções de administrador de assinatura clássico, funções de RBAC do Azure e Azure AD funções de administrador](rbac-and-directory-admin-roles.md).
+
+## <a name="access-denied-or-permission-errors"></a>Acesso negado ou erros de permissão
+
+- Se você receber o erro de permissões "o cliente com a id de objeto não tem autorização para executar a ação no escopo (código: AuthorizationFailed) "ao tentar criar um recurso, verifique se você está atualmente registrado com um usuário que é atribuído a uma função que tenha permissão de gravação para o recurso no escopo selecionado. Por exemplo, para gerenciar máquinas virtuais em um grupo de recursos, você deve ter o [colaborador da máquina Virtual](built-in-roles.md#virtual-machine-contributor) função no grupo de recursos (ou escopo pai). Para obter uma lista das permissões para cada função interna, consulte [funções internas para recursos do Azure](built-in-roles.md).
+- Se você receber o erro de permissões "Você não tem permissão para criar uma solicitação de suporte" ao tentar criar ou atualizar um tíquete de suporte, verifique se você está atualmente registrado com um usuário que é atribuído a uma função que tenha o `Microsoft.Support/supportTickets/write` permissão, como [Colaborador de solicitação de suporte](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Não estão sendo detectadas alterações de RBAC
 

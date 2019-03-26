@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400894"
+ms.locfileid: "58417795"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gerenciar o acesso, a potência e o modo de conectividade para sua borda da caixa de dados do Azure (visualização)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerenciar o acesso, a potência e o modo de conectividade para a borda da caixa de dados do Azure
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para a borda da caixa de dados do Azure. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
@@ -26,8 +26,6 @@ Neste artigo, você aprenderá a:
 > * Gerenciar o modo de conectividade
 > * Gerenciar potência
 
-> [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 

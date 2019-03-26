@@ -5,22 +5,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 03/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f32434e5ac0cd35cf620c1589aeb441476622442
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116836"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407446"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher nível certo de consistência 
 
-Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis pede para os desenvolvedores escolherem entre os dois modelos de extremos de coerência: coerência forte e coerência eventual. O Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: staleness forte e limitado, sessão, prefixo consistente e eventual. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [disponibilidade e compensações de desempenho](consistency-levels-tradeoffs.md) e são respaldados por SLAs abrangentes. As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
+Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: *forte* consistência e *eventual* consistência. O Azure Cosmos DB permite aos desenvolvedores escolher entre cinco modelos de consistência bem definidos: *forte*, *desatualização*, *sessão*, *consistente prefixo* e *eventual*. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos modelos de cinco consistência fornecer precisos [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e têm o suporte de SLAs abrangentes. As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
 
 ## <a name="sql-api-and-table-api"></a>SQL API e a API de Tabela
 
-Considere os seguintes pontos se seu aplicativo for criado usando a API SQL do Cosmos DB ou API de Tabela
+Se seu aplicativo é criado usando a API do SQL ou a API de tabela, considere os seguintes pontos:
 
 - Para muitos cenários do mundo real, a coerência de sessão é ideal e é a opção recomendada. Para obter mais informações, consulte [Como gerenciar o token de sessão do seu aplicativo](how-to-manage-consistency.md#utilize-session-tokens).
 
@@ -32,11 +32,11 @@ Considere os seguintes pontos se seu aplicativo for criado usando a API SQL do C
 
 - Se você precisar de garantias de consistência menos rígidas do que as fornecidas pela consistência da sessão, é recomendável usar um nível consistente de consistência de prefixo.
 
-- Se você precisar de mais alta disponibilidade e latência mais baixa, use o nível de coerência eventual.
+- Se você precisa de mais alta disponibilidade e a latência mais baixa, use o nível de consistência eventual.
 
 - Se você precisar de mais durabilidade de dados ainda sem perder desempenho, poderá criar um nível de consistência personalizado na camada de aplicativo. Para obter mais informações, confira [Como implementar a sincronização personalizada em seus aplicativos](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-api"></a>API do Cassandra, MongoDB e Gremlin
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB e APIs Gremlin
 
 - Para obter detalhes sobre o mapeamento entre o “Read Consistency Level” oferecido nos níveis de consistência do Apache Cassandra e do Cosmos DB, consulte [Níveis de consistência e as APIs do Cosmos DB](consistency-levels-across-apis.md#cassandra-mapping).
 
@@ -44,7 +44,7 @@ Considere os seguintes pontos se seu aplicativo for criado usando a API SQL do C
 
 ## <a name="consistency-guarantees-in-practice"></a>Garantias de consistência na prática
 
-Você pode obter garantias de consistência mais fortes na prática. Garantias de consistência para uma operação de leitura correspondem à atualização e ordenação do estado do banco de dados que você solicita. Consistência de leitura é vinculada ao pedido e a propagação das operações de gravação/atualização.  
+Na prática, você poderá obter muitas vezes mais fortes garantias de consistência. Garantias de consistência para uma operação de leitura correspondem à atualização e ordenação do estado do banco de dados que você solicita. Consistência de leitura é vinculada ao pedido e a propagação das operações de gravação/atualização.  
 
 * Quando o nível de coerência é definido como **desatualização limitada**, o Cosmos DB garante que os clientes sempre leiam o valor de uma gravação anterior, com um limitado pela janela de desatualização.
 
@@ -52,9 +52,9 @@ Você pode obter garantias de consistência mais fortes na prática. Garantias d
 
 * Para os três níveis de coerência restantes, a janela de desatualização limitada depende muito da carga de trabalho. Por exemplo, se não houver operações de gravação no banco de dados, é provável que uma operação de leitura com **eventuais**, **sessão** ou **consistência consistente prefira** resultados como uma operação de leitura com um nível de consistência forte.
 
-Se a sua conta do Cosmos DB estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de seus clientes obterem leituras fortes e consistentes para suas cargas de trabalho observando a métrica Probabilistic Bounded Staleness (PBS). Essa métrica é exposta no portal do Azure, para obter mais informações, consulte [métrica Monitor Probabilistic Bounded Staleness (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Se sua conta do Cosmos do Azure é configurada com um nível de consistência que não seja a coerência forte, você pode descobrir a probabilidade de que os clientes podem obter forte e leituras consistentes para suas cargas de trabalho, observando o *Probabilistically Desatualização* métrica (PBS). Essa métrica é exposta no portal do Azure, para obter mais informações, consulte [métrica Monitor Probabilistic Bounded Staleness (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-A desatualização limitada probabilística mostra o quão eventual é a sua coerência eventual. Essa métrica fornece uma visão de quantas vezes você pode obter uma consistência mais forte do que o nível de consistência que você configurou atualmente na sua conta do Cosmos DB. Em outras palavras, você pode ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de gravação e leitura.
+A desatualização limitada probabilística mostra o quão eventual é a sua coerência eventual. Essa métrica fornece uma visão geral de quantas vezes você pode obter uma consistência mais forte que o nível de consistência que você configurou atualmente em sua conta do Cosmos do Azure. Em outras palavras, você pode ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de gravação e leitura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

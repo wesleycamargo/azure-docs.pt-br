@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979880"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407684"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir os Serviços de Área de Trabalho Remota ou a senha de administrador em uma VM do Windows
 Se você não conseguir conectar-se a uma VM (máquina virtual) do Windows, poderá redefinir a senha de administrador local ou redefinir a configuração dos Serviços de Área de Trabalho Remota (sem suporte nos controladores de domínio do Windows). Para redefinir a senha, use o portal do Azure ou a extensão de acesso da VM no Azure PowerShell. Depois de entrar na VM, redefina a senha desse administrador local.  
@@ -39,18 +39,19 @@ Primeiro, entre no [Portal do Azure](https://portal.azure.com) e selecione **Má
 
 1. Selecione a VM do Windows e, em seguida, selecione **Redefinir senha** em **Suporte + Solução de problemas**. A janela **Redefinir senha** é exibida.
 
-1. Selecione **Redefinir senha**, insira um nome de usuário e uma senha e, em seguida, selecione **Atualizar**. 
+2. Selecione **Redefinir senha**, insira um nome de usuário e uma senha e, em seguida, selecione **Atualizar**. 
 
-1. Tente se conectar à VM novamente.
+3. Tente se conectar à VM novamente.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração dos Serviços de Área de Trabalho Remota**
 
+Esse processo será habilitar o serviço de área de trabalho remota na VM e criar uma regra de firewall para a porta do RDP padrão 3389.
+
 1. Selecione a VM do Windows e, em seguida, selecione **Redefinir senha** em **Suporte + Solução de problemas**. A janela **Redefinir senha** é exibida. 
 
-1. Selecione **Redefinir somente a configuração** e, em seguida, selecione **Atualizar**. 
+2. Selecione **Redefinir somente a configuração** e, em seguida, selecione **Atualizar**. 
 
-1. Tente se conectar à VM novamente.
-
+3. Tente se conectar à VM novamente.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Redefinir usando a extensão de VMAccess e o PowerShell
 

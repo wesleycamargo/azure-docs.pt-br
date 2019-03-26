@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571160"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407514"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho 
 
@@ -20,13 +20,13 @@ Bancos de dados distribuídos que dependem de replicação para alta disponibili
 
 O Azure Cosmos DB aborda a coerência de dados como um espectro de opções. Essa abordagem inclui mais opções que os dois extremos de consistência forte e eventual. Você pode escolher entre cinco modelos bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são:
 
-- Strong
-- Bounded staleness
-- Session
-- Prefixo consistente
-- Eventual
+- *Forte*
+- *Desatualização Limitada*
+- *Sessão*
+- *Prefixo coerente*
+- *Eventual*
 
-Cada modelo fornece compensações de desempenho e disponibilidade e é respaldado por SLAs abrangentes.
+Cada modelo fornece disponibilidade e compensações de desempenho e é respaldo por SLAs abrangentes.
 
 ## <a name="consistency-levels-and-latency"></a>Níveis de coerência e latência
 
@@ -34,9 +34,9 @@ A latência de leitura para todos os níveis de coerência é sempre asseguradam
 
 A latência de gravação para todos os níveis de consistência sempre é garantida para ser menor que 10 milissegundos no percentil 99. A latência de gravação é garantida por SLA. A latência média de gravação, 50 º percentil, geralmente é 5 milissegundos ou menos.
 
-Para contas do Azure Cosmos configuradas com consistência forte com mais de uma região, a latência de gravação é garantido que seja menor que duas vezes tempo ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, além de 10 milissegundos no percentil 99. Esta opção está atualmente em versão prévia.
+Para contas do Azure Cosmos configuradas com consistência forte com mais de uma região, a latência de gravação é garantido que seja menor que duas vezes tempo ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, além de 10 milissegundos no percentil 99.
 
-A latência RTT é uma função de distância à velocidade da luz e a topologia de rede exata do Azure. A Rede do Azure não fornece nenhum SLA de latência para o RTT entre nenhum par de regiões do Azure. Para sua conta do Azure Cosmos, latências de replicação são exibidas no portal do Azure. Você pode usar o portal do Azure para monitorar as latências de replicação entre várias regiões que estão associadas à sua conta.
+A latência RTT é uma função de distância à velocidade da luz e a topologia de rede exata do Azure. A Rede do Azure não fornece nenhum SLA de latência para o RTT entre nenhum par de regiões do Azure. Para sua conta do Azure Cosmos, latências de replicação são exibidas no portal do Azure. Você pode usar o portal do Azure (vá para a folha de métricas) para monitorar as latências de replicação entre várias regiões que estão associados com sua conta do Cosmos do Azure.
 
 ## <a name="consistency-levels-and-throughput"></a>Níveis de coerência e taxa de transferência
 
@@ -46,21 +46,22 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 
 ## <a id="rto"></a>Níveis de consistência e durabilidade de dados
 
-Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre a durabilidade dos dados e o nível de consistência no caso de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação).
+Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre a durabilidade dos dados e o nível de consistência no caso de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para um aplicativo se recupere totalmente é conhecido como **objetivo de tempo de recuperação** (**RTO**). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo das atualizações que você pode pode perder é conhecido como **objetivo de ponto de recuperação** (**RPO**).
 
-A tabela define a relação entre a durabilidade de dados e o modelo de consistência na presença de interrupção ampla de região. É importante observar que em um sistema distribuído, mesmo com forte consistência, é impossível ter um banco de dados distribuído com e RPO e RTO zero, devido ao Teorema de CAP. Para saber mais e os motivos, confira [Níveis de consistência no Azure Cosmos DB](consistency-levels.md).
+A tabela a seguir define a relação entre a durabilidade de dados e o modelo de consistência na presença de interrupção ampla de região. É importante observar que em um sistema distribuído, mesmo com coerência forte, é impossível ter um banco de dados distribuído com um RPO e RTO de zero devido ao Teorema de CAP. Para saber mais sobre o motivo, consulte [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
 |**Regiões**|**Modo de replicação**|**Nível de coerência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
 |> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
-|> 1|Único mestre|Bounded staleness|K & T|> 15 minutos|
+|> 1|Único mestre|Bounded staleness|*K* & *T*|< 15 minutos|
 |> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
-|> 1|Vários mestres|Bounded staleness|K & T|0|
+|> 1|Vários mestres|Bounded staleness|*K* & *T*|0|
 |> 1|Único ou vários mestres|Strong|0|< 15 minutos|
 
-K = O número de versões "K" (atualizações) de um item.
-T = intervalo de tempo "T" desde a última atualização.
+*K* = o número de *"K"* versões (ou seja, as atualizações) de um item.
+
+*T* = o intervalo de tempo *"T"* desde a última atualização.
 
 ## <a name="next-steps"></a>Próximas etapas
 

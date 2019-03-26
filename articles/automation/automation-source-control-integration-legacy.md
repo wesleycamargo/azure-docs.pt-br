@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901535"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418747"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controle do código-fonte à Automação do Azure – Herdado
 
@@ -65,17 +65,17 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
      
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
-     | NOME |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |Cadeia de caracteres |
-     | Valor |{"Branch":\<*Nome da sua ramificação*>,"RunbookFolderPath":\<*Caminho da pasta do runbook*>,"ProviderType":\<*tem um valor 1 para o GitHub*>,"Repository":\<*Nome do seu repositório*>,"Username":\<*O nome do seu usuário no GitHub*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |Cadeia de caracteres |
+     | `Value` |{"Branch":\<*Nome da sua ramificação*>,"RunbookFolderPath":\<*Caminho da pasta do runbook*>,"ProviderType":\<*tem um valor 1 para o GitHub*>,"Repository":\<*Nome do seu repositório*>,"Username":\<*O nome do seu usuário no GitHub*>} |
 
      * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
 
      |**Parâmetro**            |**Valor** |
      |:---|:---|
-     | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Valor | <*OAuthToken Criptografado*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*OAuthToken Criptografado*> |  
 
      ![variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768069"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434765"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
 É necessário delegar uma sub-rede para Azure NetApp Files.   Quando você cria um volume, é necessário especificar a sub-rede delegada.
 
-## <a name="about-this-task"></a>Sobre esta tarefa
+## <a name="considerations"></a>Considerações
 * O assistente para criar uma nova sub-rede usa como padrão uma máscara de rede /24, que possibilita 251 endereços IP disponíveis. Usar uma máscara de rede /28, que possibilita 16 endereços IP utilizáveis, é suficiente para o serviço.
-* Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
 * Em cada Vnet (Rede virtual) do Azure, apenas uma sub-rede pode ser delegada para o Azure NetApp Files.
-* No momento, não há suporte para o acesso a um volume de uma rede virtual emparelhada.
+* Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
+* Atualmente, não há suporte para acesso a um volume de uma rede virtual emparelhada globalmente.
+* Criando [rotas personalizadas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) em sub-redes VM com endereço de prefixo (destino) a uma sub-rede delegada aos arquivos do Azure NetApp não tem suporte e afeta a conectividade da VM.
 
 ## <a name="steps"></a>Etapas 
 1.  Acesse a folha **Redes virtuais** no portal do Azure e selecione a rede virtual que você deseja usar para o Azure NetApp Files.    

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350005"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407176"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -69,7 +69,7 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 - [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
 - [Localizadores de Streaming](streaming-locators-concept.md)
 
-Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
+### <a name="general-steps"></a>Etapas gerais
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
 2. Crie um [evento ao vivo](live-events-outputs-concept.md). <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. A cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente o recurso Parar no Evento ao vivo para parar a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
