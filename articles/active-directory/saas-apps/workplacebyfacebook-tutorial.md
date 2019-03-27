@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7be803d229990359846bdc3c447a7d09c3143c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory ao Workplace by Facebook
 
@@ -162,9 +162,9 @@ Para configurar o logon único do Azure AD com o Workplace by Facebook, execute 
 
     d. Abra o **Certificado codificado em Base64** no bloco de notas baixado do Portal do Azure, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado SAML**.
 
-    e. Copie a **URL do Público-alvo** da instância e cole-a na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica do SAML** no portal do Azure.
+    e. Copie a **URL do Público-alvo** da instância e cole-a na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica do SAML** no portal do Azure.
 
-    f. Copie a **URL do Destinatário** da instância e cole-a na caixa de texto **URL de Logon** na seção **Configuração Básica do SAML** no portal do Azure.
+    f. Copie a **URL do Destinatário** da instância e cole-a na caixa de texto **URL de Logon** na seção **Configuração Básica do SAML** no portal do Azure.
 
     g. Role até o final da seção e clique no botão **Testar SSO**. Isso resultará na exibição de uma janela pop-up com a página de logon do Azure AD apresentada. Insira suas credenciais como de costume para se autenticar.
 
@@ -205,7 +205,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

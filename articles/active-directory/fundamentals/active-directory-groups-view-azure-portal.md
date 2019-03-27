@@ -1,5 +1,5 @@
 ---
-title: Guia de Início Rápido para exibir os grupos e membros da sua organização no Azure Active Directory | Microsoft Docs
+title: Guia de Início Rápido para exibir os grupos e membros - Azure Active Directory | Microsoft Docs
 description: Instruções sobre como pesquisar e exibir os grupos da sua organização e seus membros atribuídos.
 services: active-directory
 author: eross-msft
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ee02944e32a11a3749d6730b9263254fa9bda
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881003"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -61,7 +61,7 @@ Criar um novo usuário denominado _Alain Charon_. Um usuário deve existir antes
 
     - **Nome:** Digite _Alain Charon_.
 
-    - **Nome de usuário:** digite *alain@contoso.com*.
+    - **Nome de usuário:** Digite *alain\@contoso.com*.
 
 3. Copie a senha gerada automaticamente fornecida na caixa **Senha** e, em seguida, selecione **Criar**.
 

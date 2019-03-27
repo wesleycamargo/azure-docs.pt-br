@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994331"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingerir dados no Azure Data Explorer sem uma linha de código
 
@@ -38,29 +38,44 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Provedor de dados do Azure Monitor: logs de diagnóstico e de atividades
 
-Exiba e compreenda os dados fornecidos pelos logs de diagnóstico e de atividades do Azure Monitor. Criaremos um pipeline de ingestão com base nesses esquemas de dados.
+Exiba e compreenda os dados fornecidos pelos logs de diagnóstico e de atividades do Azure Monitor abaixo. Criaremos um pipeline de ingestão com base nesses esquemas de dados. Observe que cada evento em um log tem uma matriz de registros. Essa matriz de registros será dividida adiante no tutorial.
 
 ### <a name="diagnostic-logs-example"></a>Exemplo de logs de diagnóstico
 
-Os logs de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornecem dados sobre a operação desse serviço. Os dados são agregados com um intervalo de agregação de 1 minuto. Cada evento em um log de diagnóstico contém um registro. Este é um exemplo de um esquema de evento de métrica do Azure Data Explorer sobre a duração da consulta:
+Os logs de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornecem dados sobre a operação desse serviço. Os dados são agregados com um intervalo de agregação de 1 minuto. Este é um exemplo de um esquema de evento de métrica do Azure Data Explorer sobre a duração da consulta:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Exemplo de logs de atividades
 
-Os logs de atividades do Azure são logs no nível da assinatura que contêm uma coleção de registros. Os logs fornecem informações sobre as operações executadas em recursos de sua assinatura. Ao contrário dos logs de diagnóstico, cada evento em um log de atividades tem uma matriz de registros. Precisaremos dividir essa matriz de registros mais adiante no tutorial. Este é um exemplo de um evento do log de atividades para verificar o acesso:
+Os logs de atividades do Azure são logs de nível de assinatura que fornecem insight sobre as operações executadas nos recursos em sua assinatura. Este é um exemplo de um evento do log de atividades para verificar o acesso:
 
 ```json
 {
@@ -129,6 +144,8 @@ No banco de dados *TestDatabase* do Azure Data Explorer, selecione **Consulta** 
 
 ### <a name="create-the-target-tables"></a>Criar as tabelas de destino
 
+A estrutura dos logs do Azure Monitor não é tabular. Você manipulará os dados e expandirá cada evento para um ou mais registros. Os dados brutos serão ingeridos a uma tabela intermediária denominada *ActivityLogsRawRecords* para os logs de atividade e *DiagnosticLogsRawRecords* para logs de diagnóstico. Nesse momento, os dados serão manipulados e expandidos. Usando uma política de atualização, os dados expandidos serão, em seguida, ingeridos na tabela *ActivityLogsRecords* para logs de atividade e *DiagnosticLogsRecords* para logs de diagnóstico. Isso significa que você precisará criar duas tabelas separadas para os logs de atividade de ingestão e duas tabelas separadas para a ingestão dos logs de diagnóstico.
+
 Use a IU da Web do Azure Data Explorer para criar as tabelas de destino no banco de dados do Azure Data Explorer.
 
 #### <a name="the-diagnostic-logs-table"></a>A tabela dos logs de diagnóstico
@@ -143,9 +160,13 @@ Use a IU da Web do Azure Data Explorer para criar as tabelas de destino no banco
 
     ![Executar consulta](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>As tabelas dos logs de atividades
+1. Crie a tabela de dados intermediários denominada *DiagnosticLogsRawRecords* no banco de dados *TestDatabase* para manipulação de dados usando a consulta a seguir. Selecione **Executar** para criar a tabela.
 
-Como a estrutura dos logs de atividades não é tabular, você precisará manipular os dados e expandir cada evento para um ou mais registros. Os dados brutos serão ingeridos em uma tabela intermediária chamada *ActivityLogsRawRecords*. Nesse momento, os dados serão manipulados e expandidos. Em seguida, os dados expandidos serão ingeridos na tabela *ActivityLogsRecords* usando uma política de atualização. Isso significa que você precisará criar duas tabelas separadas para a ingestão dos logs de atividades.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>As tabelas dos logs de atividades
 
 1. Crie uma tabela chamada *ActivityLogsRecords* no banco de dados *TestDatabase* para receber os registros do log de atividades. Para criar a tabela, execute a seguinte consulta do Azure Data Explorer:
 
@@ -174,7 +195,7 @@ Como a estrutura dos logs de atividades não é tabular, você precisará manipu
 Para mapear os dados dos logs de diagnóstico para a tabela, use a seguinte consulta:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Mapeamento de tabela para os logs de atividades
@@ -185,9 +206,11 @@ Para mapear os dados dos logs de atividades para a tabela, use a seguinte consul
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Criar a política de atualização para os dados dos logs de atividades
+### <a name="create-the-update-policy-for-log-data"></a>Criar a política de atualização para os dados dos logs
 
-1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção de registros de forma que cada valor na coleção recebe uma linha separada. Use o operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+#### <a name="activity-log-data-update-policy"></a>Política de atualização dos dados de log de atividade
+
+1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção de registros de log de atividades de forma que cada valor na coleção receba uma linha separada. Use o operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Para mapear os dados dos logs de atividades para a tabela, use a seguinte consul
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Política de atualização de dados de log de diagnóstico
+
+1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção dos registros do log de diagnóstico de forma que cada valor na coleção receba uma linha separada. Use o operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Adicione a [política de atualização](/azure/kusto/concepts/updatepolicy) à tabela de destino. Essa política executará a consulta automaticamente nos dados recém-ingeridos na tabela de dados intermediária *DiagnosticLogsRawRecords* e ingerirá os resultados na tabela *DiagnosticLogsRecords*:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos do Azure
@@ -252,12 +301,12 @@ Selecione um recurso do qual exportar métricas. Vários tipos de recurso dão s
     ![Configurações de Diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. O painel **Configurações de diagnóstico** será aberto. Siga estas etapas:
-    1. Dê aos dados de log de diagnóstico o nome *ADXExportedData*.
-    1. Em **MÉTRICA**, marque a caixa de seleção **AllMetrics** (opcional).
-    1. Marque a caixa de seleção **Transmitir para um hub de eventos**.
-    1. Selecione **Configurar**.
+   1. Dê aos dados de log de diagnóstico o nome *ADXExportedData*.
+   1. Em **MÉTRICA**, marque a caixa de seleção **AllMetrics** (opcional).
+   1. Marque a caixa de seleção **Transmitir para um hub de eventos**.
+   1. Selecione **Configurar**.
 
-    ![Painel Configurações de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Painel Configurações de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. No painel **Selecionar um hub de eventos**, configure como exportar os dados dos logs de diagnóstico para o hub de eventos criado:
     1. Na lista **Selecionar um namespace do hub de eventos**, selecione *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Agora, você precisa criar as conexões de dados para os logs de diagnóstico e 
 
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *DiagnosticLogsRecords* | A tabela criada no banco de dados *TestDatabase*. |
+    | **Tabela** | *DiagnosticLogsRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
     | **Formato dos dados** | *JSON* | O formato usado na tabela. |
     | **Mapeamento de coluna** | *DiagnosticLogsRecordsMapping* | O mapeamento criado no banco de dados *TestDatabase*, que mapeia os dados JSON de entrada para os nomes de coluna e os tipos de dados da tabela *DiagnosticLogsRecords*.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Resultados da consulta:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

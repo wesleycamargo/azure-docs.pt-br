@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097933"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
 
@@ -180,7 +180,7 @@ A última etapa é definir um coletor de saída para o trabalho em que ele pode 
 3. Escolha **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e marque **Autorizar**:
 
    |**Configuração**  |**Valor sugerido**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Alias de saída  |  MyPBIoutput  |
    |Nome do conjunto de dados  |   ASAdataset  |
    |Nome da tabela |  ASATable  |
@@ -236,7 +236,7 @@ Você pode testar uma consulta no editor de consultas usando dados de exemplo. E
 
 4. Escolha **Testar** para testar a consulta. Você deve ver o seguintes resultados:
 
-   ![Resultado do teste de consulta do Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Saída do teste de consulta do Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Iniciar o trabalho e visualizar a saída
 

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671549"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224950"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o tempo de execução de um cluster do Service Fabric no Azure
 
-Este tutorial é a parte três de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi criada para clusters do Service Fabric em execução no Azure e não se aplica a clusters do Service Fabric autônomo.
+Este tutorial é a parte quatro de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi criada para clusters do Service Fabric em execução no Azure e não se aplica a clusters do Service Fabric autônomo.
 
 > [!WARNING]
 > Esta parte do tutorial requer o PowerShell. As ferramentas da CLI do Azure ainda não dão suporte ao upgrade do tempo de execução do cluster. Como alternativa, pode ser feito o upgrade de um cluster no portal. Para saber mais, veja [Upgrade de um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -40,6 +40,7 @@ Neste tutorial, você aprenderá como:
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
+> * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * Atualizar o tempo de execução de um cluster
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)

@@ -2,21 +2,24 @@
 title: Testar módulos do Terraform no Azure usando o Terratest
 description: Saiba como usar o Terratest para testar seus módulos do Terraform.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, conta de armazenamento, azure, terratest, teste de unidade, teste de integração
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2018
-ms.openlocfilehash: fce70916cef96cee6496478503305e2bb1e73c09
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/19/2019
+ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656321"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223998"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testar módulos do Terraform no Azure usando o Terratest
+
+> [!NOTE]
+> O código de exemplo neste artigo não funciona com a versão 0.12 (e superior).
 
 Você pode usar módulos do Azure Terraform para criar componentes que podem ser testados, reutilizados e combinados. Os módulos do Terraform incorporam encapsulamento, o que é útil para implementar a infraestrutura como processos de código.
 
