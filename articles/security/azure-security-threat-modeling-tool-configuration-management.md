@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863586"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498376"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Visão geral sobre depuração do ASP.NET](https://msdn2.microsoft.com/library/ms227556.aspx), [Visão geral sobre rastreamento do ASP.NET](https://msdn2.microsoft.com/library/bb386420.aspx), [Como: habilitar o rastreamento de um aplicativo ASP.NET](https://msdn2.microsoft.com/library/0x5wc973.aspx), [Como: habilitar a depuração de aplicativos do ASP.NET](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referências**              | [Visão geral sobre depuração do ASP.NET](https://msdn.microsoft.com/library/ms227556.aspx), [Visão geral sobre rastreamento do ASP.NET](https://msdn.microsoft.com/library/bb386420.aspx), [Como: habilitar o rastreamento de um aplicativo ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [Como: habilitar a depuração de aplicativos do ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Etapas** | Quando o rastreamento estiver habilitado para a página, todos os navegadores que a solicitarem também obterão as informações de rastreamento que contêm dados do fluxo de trabalho e do estado interno do servidor. Elas podem ser informações confidenciais de segurança. Quando a depuração estiver habilitada para a página, os erros ocorridos no servidor serão apresentados ao navegador como uma pilha de dados de rastreamento. Esses dados podem conter informações confidenciais de segurança sobre fluxo de trabalho do servidor. |
 
 ## <a id="js-trusted"></a>Acessar JavaScripts de terceiros somente de fontes confiáveis

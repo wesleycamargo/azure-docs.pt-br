@@ -3,7 +3,7 @@ title: Parar de usar a extensão de VM de identidade gerenciada e começar a usa
 description: Etapa instruções passo a passo para parar de usar a extensão de VM e começar a usar o serviço de metadados de instância (IMDS) do Azure para autenticação.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227530"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498325"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a máquina virtual gerenciados a extensão de identidades e começar a usar o serviço de metadados de instância do Azure
 
@@ -196,7 +196,7 @@ Existem várias limitações importantes ao usar a extensão de máquina virtual
 
 ## <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
-O [serviço de metadados de instância (IMDS) do Azure](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) é um ponto de extremidade REST que fornece informações sobre instâncias de máquina virtual que podem ser usadas para gerenciar e configurar suas máquinas virtuais em execução. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (`169.254.169.254`) que podem ser acessados somente de dentro da máquina virtual.
+O [serviço de metadados de instância (IMDS) do Azure](/azure/virtual-machines/windows/instance-metadata-service) é um ponto de extremidade REST que fornece informações sobre instâncias de máquina virtual que podem ser usadas para gerenciar e configurar suas máquinas virtuais em execução. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (`169.254.169.254`) que podem ser acessados somente de dentro da máquina virtual.
 
 Há diversas vantagens em usar o Azure IMDS para solicitar tokens. 
 

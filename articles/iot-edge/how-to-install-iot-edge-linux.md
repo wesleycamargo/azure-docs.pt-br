@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309291"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499456"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (x64)
 
@@ -23,7 +23,7 @@ O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um
 
 Para obter mais informações, consulte [entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
 
-Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no seu Linux x64 (Intel/AMD) dispositivo IoT Edge. Consulte a [suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais de AMD64.
+Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no seu Ubuntu Linux x64 (Intel/AMD) dispositivo IoT Edge. Consulte a [suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais de AMD64.
 
 > [!NOTE]
 > Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name* ). Leia os termos da licença antes de usar o pacote. Sua instalação e uso do pacote constitui sua aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
@@ -33,11 +33,22 @@ Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edg
 Prepare o dispositivo do IoT Edge instalação do tempo de execução.
 
 
-Instale a configuração do repositório. Substitua **\<release\>** com **16.04** ou **18.04** conforme apropriado para sua versão do Ubuntu.
+Instale a configuração do repositório. Escolha o **16.04** ou **18.04** trecho de código conforme apropriado para sua versão do Ubuntu.
 
+> [!IMPORTANT]
+> Certifique-se de que escolher o trecho de código da caixa de código correto para sua versão do Ubuntu.
+
+* Para **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* Para **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Instale a configuração do repositório. Escolha o **16.04** ou **18.04** trecho de código conforme apropriado para sua versão do Ubuntu.
 
 Copie lista gerada.
 

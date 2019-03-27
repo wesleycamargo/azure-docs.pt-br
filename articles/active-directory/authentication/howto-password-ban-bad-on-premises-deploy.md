@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311961"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499243"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
@@ -36,7 +36,7 @@ Depois que o recurso tiver sido executado em modo de auditoria por um período r
 
 ## <a name="deployment-requirements"></a>Requisitos de implantação
 
-* Todos os controladores de domínio que obtém o agente de controlador de domínio de serviço para a proteção de senha do AD do Azure instalada deve executar o Windows Server 2012 ou posterior.
+* Todos os controladores de domínio que obtém o agente de controlador de domínio de serviço para a proteção de senha do AD do Azure instalada deve executar o Windows Server 2012 ou posterior. Esse requisito não implica que a floresta ou domínio do Active Directory também deve estar no nível funcional domínio ou floresta de Windows Server 2012. Conforme mencionado na [princípios de Design](concept-password-ban-bad-on-premises.md#design-principles), nenhum mínimo DFL ou FFL necessários para o controlador de domínio proxy ou agente de software ser executado.
 * Todas as máquinas que obtêm o proxy do serviço de proteção por senha do Azure AD instalada deve executar o Windows Server 2012 R2 ou posterior.
 * Todos os computadores em que o serviço de Proxy de proteção de senha do AD do Azure será instalado devem ter o .NET 4.7 instalado.
   .NET 4.7 já deve estar instalado em um Windows Server totalmente atualizado. Se isso não for o caso, baixe e execute o instalador encontrado em [o .NET Framework 4.7 o instalador offline para o Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -85,7 +85,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 1. Abra uma janela do PowerShell como administrador.
    * O software de proxy de proteção de senha inclui um novo módulo do PowerShell, *AzureADPasswordProtection*. As etapas a seguir executar diversos cmdlets desse módulo do PowerShell. Importe o novo módulo da seguinte maneira:
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
      * Modo de autenticação interativo:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
      * Modo de autenticação de código de dispositivo:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
      * Modo de autenticação silenciosa (baseada em senha):
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
      * Modo de autenticação interativo:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
      * Modo de autenticação de código de dispositivo:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
         Você deve concluir a autenticação, seguindo as instruções exibidas em um dispositivo diferente.
 
      * Modo de autenticação silenciosa (baseada em senha):
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 1. Opcional: Configure o serviço de proxy para a proteção de senha escutar em uma porta específica.
    * O software do agente de controlador de domínio para a proteção de senha nos controladores de domínio usa o RPC sobre TCP para se comunicar com o serviço de proxy. Por padrão, o serviço de proxy escuta em qualquer ponto de extremidade dinâmico de RPC disponível. Mas você pode configurar o serviço para escutar em uma porta TCP específica, se isso for necessário devido a requisitos de firewall em seu ambiente ou a topologia de rede.
       * <a id="static" /></a>Para configurar o serviço para ser executado em uma porta estática, use o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
          > Você deve parar e reiniciar o serviço para que essas alterações entrem em vigor.
 
       * Para configurar o serviço para ser executado em uma porta dinâmica, use o mesmo procedimento, mas defina *StaticPort* como zero novamente:
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
    * Para consultar a configuração atual do serviço, use o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy
@@ -257,7 +257,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
    Você pode instalar o serviço do agente de controlador de domínio em um computador que ainda não é um controlador de domínio. Nesse caso, o serviço iniciar e executar mas permanecem inativo até que a máquina será promovida para um controlador de domínio.
 
-   Você pode automatizar a instalação do software usando os procedimentos padrão do MSI. Por exemplo:
+   Você pode automatizar a instalação do software usando os procedimentos padrão do MSI. Por exemplo: 
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

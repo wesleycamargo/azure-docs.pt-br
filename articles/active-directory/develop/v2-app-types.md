@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162927"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499974"
 ---
 # <a name="application-types-for-v20"></a>Tipos de aplicativos para a v2.0
 
@@ -124,7 +124,7 @@ Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremi
 
 Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0. Você pode provar a identidade do aplicativo usando um certificado ou o segredo do cliente. Para obter mais informações, consulte [autenticando no Microsoft Azure Active Directory em aplicativos daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/token` para obter pontos de extremidade:
+Nesse fluxo, o aplicativo interage diretamente com o `/token` ponto de extremidade para obter acesso:
 
 ![Fluxo de autenticação de aplicativo de daemon](./media/v2-app-types/convergence_scenarios_daemon.png)
 

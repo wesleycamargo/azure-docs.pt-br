@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1276d1e581caf477449ce9a4c928d4493a6354d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857837"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487593"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure
 
@@ -50,7 +50,7 @@ A solução de problemas do observador de rede fornece a capacidade de soluciona
 
 ## <a name="log-in-with-armclient"></a>Como fazer logon com ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294341"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500178"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar dados de log e espaços de trabalho no Azure Monitor
 O Azure Monitor armazena dados de log em um workspace do Log Analytics, que é essencialmente um contêiner que inclui informações de configuração e dados. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas aos workspaces. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
@@ -114,7 +114,7 @@ A tabela a seguir resume os modos de acesso:
 |:---|:---|:---|
 | Quem cada modelo se destina? | Administração Central. Administradores que precisam configurar coleta de dados e os usuários que precisam de acesso a uma ampla variedade de recursos. Atualmente, também necessário para os usuários que têm acesso aos logs para recursos fora do Azure. | Equipes de aplicativo. Administradores de recursos do Azure que está sendo monitorados. |
 | O que um usuário requer para exibir os logs? | Permissões para o espaço de trabalho. Ver **permissões de espaço de trabalho** na [gerenciar contas e usuários](#manage-accounts-and-users). | Acesso de leitura para o recurso. Ver **permissões de recurso** na [gerenciar contas e usuários](#manage-accounts-and-users). As permissões podem ser herdadas (como o grupo de recursos contendo) ou diretamente atribuído ao recurso. Permissão para os logs para o recurso será atribuído automaticamente. |
-| O que é o escopo das permissões? | Espaço de trabalho. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas que tenham as permissões para. Consulte [controle de acesso de tabela](#table-access-control) | Recursos do Azure. Usuário pode consultar os logs para recursos eles têm acesso a partir de qualquer espaço de trabalho, mas não é possível consultar os logs para outros recursos. |
+| O que é o escopo das permissões? | Espaço de trabalho. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas que tenham as permissões para. Consulte [controle de acesso de tabela](#table-level-rbac) | Recursos do Azure. Usuário pode consultar os logs para recursos eles têm acesso a partir de qualquer espaço de trabalho, mas não é possível consultar os logs para outros recursos. |
 | Como pode logs de acesso do usuário? | Inicie **Logs** de **do Azure Monitor** menu ou **espaços de trabalho do Log Analytics**. | Inicie **Logs** do menu para o recurso do Azure. |
 
 
@@ -150,13 +150,13 @@ Você pode alterar essa configuração na **propriedades** página para o espaç
 
 Use o comando a seguir para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 Use o script a seguir para definir o modo de controle de acesso para um espaço de trabalho específico:
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 Use o seguinte script para definir o modo de controle de acesso para todos os espaços de trabalho na assinatura
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Quando fizer consultas dos usuários de um espaço de trabalho usando o acesso c
 
 Geralmente, essa permissão é concedida de uma função que inclui  _\*/leitura ou_ _\*_ permissões como a conta interna [leitor](../../role-based-access-control/built-in-roles.md#reader) e [ Colaborador](../../role-based-access-control/built-in-roles.md#contributor) funções. Observe que as funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
 
-Ver [definindo o controle de acesso por tabela](#defining-per-table-access-control) abaixo se você deseja criar o controle de acesso diferentes para diferentes tabelas.
+Ver [definindo o controle de acesso por tabela](#table-level-rbac) abaixo se você deseja criar o controle de acesso diferentes para diferentes tabelas.
 
 
 ## <a name="table-level-rbac"></a>RBAC de nível de tabela
 **RBAC de nível de tabela** permite que você forneça um controle mais granular para dados em um espaço de trabalho do Log Analytics, além de outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente a um conjunto específico de usuários.
 
-Implementar o controle de acesso de tabela com [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder ou negar acesso a específico [tabelas](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho centrado no espaço de trabalho ou recurso centrado [modos de controle de acesso](#access-control-modes) independentemente do usuário [modo de acesso](#access-mode).
+Implementar o controle de acesso de tabela com [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder ou negar acesso a específico [tabelas](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho centrado no espaço de trabalho ou recurso centrado [modos de controle de acesso](#access-control-mode) independentemente do usuário [modo de acesso](#access-modes).
 
 Criar uma [função personalizada](../../role-based-access-control/custom-roles.md) com as seguintes ações para definir o acesso ao controle de acesso de tabela.
 

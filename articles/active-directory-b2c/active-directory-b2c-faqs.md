@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433715"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499889"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure Active Directory B2C: Perguntas frequentes (FAQ) 
 Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
@@ -44,7 +44,7 @@ O Azure AD B2C também adicionou suporte para [políticas personalizadas](active
 Comece a usar políticas personalizadas verificando nosso [pacote de políticas personalizadas para iniciantes](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar escopos para saber mais sobre os consumidores de vários provedores de identidade sociais?
-Nenhum. Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
+ Não. Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
 
 * Facebook: email
 * Google +: email
@@ -113,7 +113,8 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
-1. Exclua todas as políticas no locatário do Azure AD B2C.
+1. Exclua todos os fluxos dos usuários (diretivas) em seu locatário do Azure AD B2C.
+1. Exclua todos os aplicativos que você registrou no locatário do Azure AD B2C.
 1. Entre no [Portal do Azure](https://portal.azure.com/) como o Administrador da Assinatura. (Use a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
 1. Mude para o locatário do Azure AD B2C que deseja excluir.
 2. Navegue até o menu do Active Directory à esquerda.

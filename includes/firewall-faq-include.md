@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419097"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500654"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -45,10 +45,11 @@ O Firewall do Azure pode ser configurado usando o portal do Azure, PowerShell, A
 
 O Firewall do Azure é compatível com regras e coleções de regras. Uma coleção de regras é um conjunto de regras que compartilham a mesma ordem e a mesma prioridade. Coleções de regras são executadas na ordem de prioridade. Coleções de regras de rede têm prioridade maior do que as coleções de regras de aplicativo, sendo que todas as regras são de terminação.
 
-Há dois tipos de coleções de regras:
+Há três tipos de coleções de regras:
 
-* *Regras de aplicativo*: Permite que você configure os FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados por uma sub-rede.
-* *Regras de rede*: Permitem a você configurar regras que contêm os endereços de origem, protocolos, portas de destino e os endereço de destino.
+* *Regras de aplicativo*: Configure nomes de domínio totalmente qualificados (FQDNs) que podem ser acessados de uma sub-rede.
+* *Regras de rede*: Configure as regras que contêm endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras de NAT*: Configure regras DNAT para permitir conexões de entrada.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure dá suporte à filtragem de tráfego de entrada?
 
@@ -94,19 +95,19 @@ Por exemplo:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Sim, você pode usar o Firewall do Azure em uma rede virtual de hub para encamin
 
 Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes na mesma VNET requer atenção adicional. Embora o uso do intervalo de endereços de VNET como um prefixo de destino para a UDR seja suficiente, isso também roteia todo o tráfego de um computador para outro na mesma sub-rede por meio da instância do Firewall do Azure. Para evitar isso, inclua uma rota para a sub-rede na UDR com um tipo **VNET** de próximo salto. O gerenciamento dessas rotas pode ser complicado e passível de erros. O método recomendado para segmentação de rede interna é usar Grupos de Segurança de Rede, o que não exige UDRs.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>É forçado túnel/encadeamento para uma solução de virtualização de rede com suporte?
+
+Sim.
+
+Firewall do Azure deve ter conectividade direta com a Internet. Por padrão, AzureFirewallSubnet tem uma rota 0.0.0.0/0 com o valor de NextHopType definido como **Internet**.
+
+Se você habilitar o túnel forçado para o local por meio do Gateway de VPN ou ExpressRoute, você precisa configurar uma rota definida pelo usuário de 0.0.0.0/0 (UDR) com o conjunto de valores de NextHopType como a Internet e associá-la ao seu AzureFirewallSubnet explicitamente. Isso substitui um gateway padrão de potencial anúncio de BGP para sua rede local. Se sua organização exige que o túnel forçado para o Firewall do Azure direcionar o tráfego de gateway padrão voltar por meio de sua rede local, contate o suporte. Podemos colocar sua assinatura para garantir que o firewall necessário conectividade com a Internet é mantida.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Há qualquer firewall restrições no grupo de recursos?
 
 Sim. O firewall, a sub-rede, a rede virtual e o endereço IP público devem estar todos no mesmo grupo de recursos.
@@ -131,3 +140,7 @@ Sim. O firewall, a sub-rede, a rede virtual e o endereço IP público devem esta
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego entrada de rede, também preciso configurar uma regra de rede correspondente para permitir esse tráfego?
 
  Não. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Como a curingas funcionam em um FQDN de destino da regra de aplicativo?
+
+Se você configurar ***. contoso.com**, ele permite *QualquerValor*. contoso.com, mas não contoso.com (o ápice de domínio). Se você quiser permitir o apex de domínio, você deve configurá-lo explicitamente como um FQDN de destino.

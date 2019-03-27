@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369642"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442292"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autenticar o acesso a blobs e filas com identidades gerenciadas para recursos do Azure
 
@@ -22,8 +22,6 @@ Os armazenamentos de blobs e de filas do Azure dão suporte à autenticação do
 Para conceder permissões para uma identidade gerenciada para uma fila ou um contêiner de blob, você atribui uma função de RBAC (controle de acesso baseado em função) para a identidade gerenciada que abrange as permissões para esse recurso no escopo apropriado. Para obter mais informações sobre as funções RBAC no armazenamento, consulte [gerenciar direitos de acesso aos dados do armazenamento com RBAC](storage-auth-aad-rbac.md). 
 
 Este artigo mostra como autenticar no Armazenamento de Blobs ou de Filas do Azure com uma identidade gerenciada para uma VM do Azure.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
 
@@ -42,6 +40,8 @@ Para autenticar uma identidade gerenciada do seu aplicativo de Armazenamento do 
 ## <a name="get-a-managed-identity-access-token"></a>Obter token de acesso de identidade gerenciada
 
 Para autenticar com uma identidade gerenciada, seu aplicativo ou script precisa adquirir um token de acesso de identidade gerenciada. Para saber como obter um token de acesso, confira [Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+Para autorizar operações de blob e fila com um token OAuth, você deve usar HTTPS.
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
 

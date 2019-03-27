@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335854"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497679"
 ---
 # <a name="language-support-for-qna-maker"></a>Suporte ao idioma para o QnA Maker
 
@@ -25,7 +25,7 @@ O idioma de uma base de dados de conhecimento afeta a capacidade do QnA Maker de
 ## <a name="auto-extraction"></a>Extração automática
 O QnA Maker dá suporte à extração de perguntas/respostas em qualquer página de idioma, mas a eficácia da extração é muito maior nos idiomas a seguir, pois o QnA Maker usa palavras-chave para identificar perguntas.
 
-|Idiomas compatíveis| Localidade|
+|Idiomas compatíveis| Local|
 |-----|----|
 |Inglês|en-*|
 |Francês|fr-*|
@@ -37,7 +37,7 @@ O QnA Maker dá suporte à extração de perguntas/respostas em qualquer página
 
 O idioma principal usado para detecção de é definido para o recurso do QnA Maker e todas as bases de Conhecimento criadas neste recurso, quando o primeiro documento ou URL é adicionado à base de Conhecimento primeiro. O idioma não pode ser alterado. 
 
-Se o usuário planos para oferecer suporte a vários idiomas, eles precisam ter um novo recurso do QnA Maker para cada idioma. Saiba como [criar uma base de dados de Conhecimento de QnA Maker baseada na linguagem](/how-to/language-knowledge-base.md).  
+Se o usuário planos para oferecer suporte a vários idiomas, eles precisam ter um novo recurso do QnA Maker para cada idioma. Saiba como [criar uma base de dados de Conhecimento de QnA Maker baseada na linguagem](../how-to/language-knowledge-base.md).  
 
 Verifique se o idioma principal com as seguintes etapas:
 
@@ -59,9 +59,9 @@ O QnA Maker [detecta automaticamente o idioma da base de dados de Conhecimento](
 |Idiomas compatíveis|
 |-----|
 |Árabe|
-|Armênio|
-Bangla|
-|basco|
+|Armênia|
+Bengalês|
+|Basco|
 |Búlgaro|
 |Catalão|
 |Chinês_Simplificado|

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411247"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500042"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
@@ -36,9 +36,12 @@ O terceiro bloco de código cria um [ouvinte de eventos](https://docs.microsoft.
 
 Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar dados com base em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  A fonte de dados, o ouvinte de eventos de clique e a camada de símbolo são criados e adicionados ao mapa dentro da função [ouvinte de evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o ponto seja exibido após o mapa ser totalmente carregado.
 
+> [!TIP]
+> Por padrão, para o desempenho, as camadas de símbolo otimizam a renderização de símbolos, ocultando os símbolos que se sobrepõem. Conforme você ampliar os símbolos ocultos se tornarão visíveis. Para desabilitar esse recurso e renderizar todos os símbolos em todos os momentos, defina as `allowOverlap` propriedade do `iconOptions` as opções para `true`.
+
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicionar um ícone personalizado a uma camada de símbolo
 
-As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Esta amostra explica como adicionar um ícone de símbolo personalizado aos recursos de mapa e, em seguida, usá-lo para renderizar o ponto de dados com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Nesse caso, desejamos renderizar a propriedade de temperatura do recurso de ponto como o valor de texto. Isso pode ser obtido com esta expressão: `['get', 'temperature']`. 
+As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Esta amostra explica como adicionar um ícone de símbolo personalizado aos recursos de mapa e, em seguida, usá-lo para renderizar o ponto de dados com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Nesse caso, queremos processar a propriedade de temperatura do recurso de ponto como o valor de texto. Isso pode ser obtido com esta expressão: `['get', 'temperature']`. 
 
 <br/>
 

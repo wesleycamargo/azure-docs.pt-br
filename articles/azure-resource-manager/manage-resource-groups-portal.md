@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090926"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484688"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar grupos de recursos do Azure Resource Manager usando o portal do Azure
 
@@ -122,7 +122,7 @@ Há duas maneiras de exportar um modelo:
 
 Esse método exporta os modelos para algumas implantações. Se você tiver alterado os recursos do portal ou adicionados/removidos recursos em várias implantações, consulte [exportar modelos de grupos de recursos](#export-templates-from-resource-groups).
 
-1. Abra o grupo de recursos que você deseja excluir.  Ver [grupos de recursos de abrir](#open-resource-groups).
+1. Abra o grupo de recursos que você deseja exportar.  Ver [grupos de recursos de abrir](#open-resource-groups).
 2. No painel esquerdo, selecione **implantações**, ou selecione o link sob **implantações**.  Na seguinte captura de tela, ele mostra **bem-sucedido 4** porque não havia quatro implantações separadas com quatro nomes de implantação diferentes. Você pode ver **1 com êxito**.
 
     ![modelos de exportação de grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Esse método exporta os modelos para algumas implantações. Se você tiver alte
 
 Se você alterou seus recursos do portal, ou adicionar ou remove recursos em várias implantações, a recuperação de um modelo do histórico de implantação não reflete o estado atual do grupo de recursos. Esta seção mostra como exportar um modelo que reflete o estado atual do grupo de recursos. Ele destina-se ser um instantâneo do grupo de recursos, que você pode usar para reimplantar no mesmo grupo de recursos. Para usar o modelo exportado para outras soluções, você deve modificá-lo significativamente.
 
-1. Abra o grupo de recursos que você deseja excluir.  Ver [grupos de recursos de abrir](#open-resource-groups).
-2. No painel esquerdo, selecione **script de automação**. O Resource Manager recupera os seguintes seis arquivos para você:
+1. Abra o grupo de recursos que você deseja exportar.  Ver [grupos de recursos de abrir](#open-resource-groups).
+2. No painel esquerdo, selecione **exportar modelo**. O Resource Manager recupera os seguintes seis arquivos para você:
 
    - **Modelo** - O modelo que define a infraestrutura de sua solução. Quando você criou a conta de armazenamento por meio do portal, o Gerenciador de Recursos usou um modelo para implantá-la e salvou esse modelo para uma futura referência.
    - **Parâmetros** - Um arquivo de parâmetro que você pode usar para passar valores durante a implantação. Ele contém os valores que você forneceu durante a primeira implantação. Você pode alterar qualquer um desses valores ao reimplantar o modelo.

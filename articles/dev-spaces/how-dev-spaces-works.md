@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438964"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500552"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -96,7 +96,7 @@ Quando espaços de desenvolvimento do Azure estiver habilitado no cluster do AKS
 * Remove qualquer namespace de Kubernetes chamado *azds*, se ele existe e cria um novo.
 * Implanta um objeto de inicializador de Kubernetes.
 
-! [Preparar cluster de espaços de desenvolvimento do azure]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Preparar o cluster espaços de desenvolvimento do Azure](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Para usar espaços de desenvolvimento do Azure, deve haver pelo menos um espaço de desenvolvimento. Espaços de desenvolvimento do Azure usa namespaces de Kubernetes dentro do cluster do AKS para espaços de desenvolvimento. Quando um controlador está sendo instalado, ele solicita que você crie um novo namespace de Kubernetes ou escolha um namespace existente para usar como o primeiro espaço de desenvolvimento. Quando um namespace é designado como um espaço de desenvolvimento, o controlador adiciona o *azds.io/space=true* rótulo para esse namespace para identificá-lo como um espaço de desenvolvimento. Criar ou designar o espaço de desenvolvimento inicial é selecionado por padrão, depois de preparar o cluster. Quando um espaço é selecionado, ele é usado por espaços de desenvolvimento do Azure para a criação de novas cargas de trabalho.
 

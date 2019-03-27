@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317452"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482041"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -96,20 +96,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Todas as consultas de metadados de instância diferenciam maiúsculas de minúsculas.
 
 ### <a name="data-output"></a>Saída de dados
+
 Por padrão, o serviço de metadados de instância retorna dados em formato JSON (`Content-Type: application/json`). No entanto, diferentes APIs retornam dados em formatos diferentes, se solicitado.
 A tabela a seguir é uma referência de outros formatos de dados que pode oferecer suporte a APIs.
 
 API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | texto
-/scheduledevents | json | nenhum
-/attested | json | nenhum
+/scheduledevents | json | Nenhum
+/attested | json | Nenhum
 
-Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo:
+Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo: 
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Para nós folha a `format=json` não funciona. Para essas consultas `format=text` precisa ser especificado explicitamente se o formato padrão é json.
 
 ### <a name="security"></a>Segurança
 
@@ -123,8 +127,8 @@ Se houver um elemento de dados não encontrado ou solicitações malformadas, o 
 Código de status HTTP | Motivo
 ----------------|-------
 200 OK |
-400 Solicitação Inválida | Faltando `Metadata: true` cabeçalho
-404 Não Encontrado | O elemento solicitado não existe 
+400 Solicitação Inválida | Faltando `Metadata: true` cabeçalho ou tem o formato ao consultar um nó folha
+404 Não Encontrado | O elemento solicitado não existe
 405 método não permitido | Somente as solicitações `GET` e `POST` são suportadas
 429 Número excessivo de solicitações | A API atualmente suporta um máximo de 5 consultas por segundo
 500 Erro do serviço     | Aguarde um pouco e tente novamente
@@ -332,15 +336,15 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 As seguintes categorias de dados estão disponíveis por meio do serviço de metadados da instância:
 
-Dados | Descrição | Versão introduzida
+Dados | DESCRIÇÃO | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure onde a VM está em execução em | 01-10-2018
-localização | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02
-nome | Nome da VM | 2017-04-02
+location | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02
+Nome | Nome da VM | 2017-04-02
 oferta | Oferece informações para a imagem VM. Esse valor só está presente para as imagens implantadas na Galeria de imagens do Azure. | 2017-04-02
 publicador | Publicador da imagem da máquina virtual | 2017-04-02
-SKU | SKU específica para a imagem da máquina virtual | 2017-04-02
-versão | Versão da imagem da máquina virtual | 2017-04-02
+sku | SKU específica para a imagem da máquina virtual | 2017-04-02
+version | Versão da imagem da máquina virtual | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
@@ -351,7 +355,7 @@ marcas | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) par
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a sua Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de Posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento da sua Máquina Virtual | 2017-08-01
 plan | [Planejar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM no seu uma imagem do Marketplace do Azure, contém o nome, o produto e o publicador | 2018-04-02
-provedor | Provedor da VM | 01-10-2018
+provider | Provedor da VM | 01-10-2018
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuído à VM e caminhos | 2018-04-02
 vmScaleSetName | [Nome do conjunto de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) do seu conjunto de dimensionamento de máquinas virtuais | 2017-12-01
 zona | [Zona de Disponibilidade](../../availability-zones/az-overview.md) da máquina virtual | 2017-12-01
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 O Azure tem várias nuvens soberanas, como o [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/). Às vezes, é necessário que o Ambiente do Azure tome algumas decisões de tempo de execução. O exemplo a seguir mostra como você pode gerar tal comportamento.
 
 **Solicitação**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Resposta**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 
@@ -555,7 +559,7 @@ Verification successful
 }
 ```
 
-Dados | Descrição
+Dados | DESCRIÇÃO
 -----|------------
 nonce | Cadeia de caracteres opcional fornecida pelo usuário com a solicitação. Se nenhuma nonce tiver sido fornecida na solicitação, o carimbo de data/hora UTC atual será retornado
 plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace, contém nome, produto e editor
@@ -641,7 +645,7 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 Linguagem | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -653,7 +657,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que isso significa?
    * O serviço de metadados de instância exige que o cabeçalho `Metadata: true` seja passado na solicitação. Passar o cabeçalho na chamada de REST permite acessar o serviço de metadados de instância.

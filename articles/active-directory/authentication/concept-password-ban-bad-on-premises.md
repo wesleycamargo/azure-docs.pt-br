@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310550"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479522"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -32,8 +32,15 @@ Proteção por senha do AD do Azure destina-se com esses princípios em mente:
 * Nenhum do Active Directory domínio ou floresta nível funcional mínimo (DFL/FFL) é necessário.
 * O software não criar nem exigem contas de domínios do Active Directory que ele protege.
 * Senhas de texto não criptografado de usuário não deixem o controlador de domínio durante as operações de validação de senha ou qualquer outro momento.
-* Há suporte para a implantação incremental. Mas a política de senha é imposta apenas onde o agente de controlador de domínio (agente de controlador de domínio) está instalado.
-* É recomendável que você instale o agente de controlador de domínio em todos os controladores de domínio para garantir que a imposição de segurança de proteção de senha universal.
+* Implantação incremental tem suporte, mas a política de senha é imposta apenas onde o agente de controlador de domínio (agente de controlador de domínio) está instalado. Consulte o próximo tópico para obter mais detalhes.
+
+## <a name="incremental-deployment"></a>Implantação incremental
+
+Proteção por senha do AD do Azure dá suporte à implantação incremental em controladores de domínio em um domínio do Active Directory, mas é importante entender o que isso realmente significa e quais são as vantagens e desvantagens.
+
+O software de agente de proteção DC de senha do Azure AD pode validar apenas senhas quando ele é instalado em um controlador de domínio e somente para as alterações de senha são enviadas ao controlador de domínio. Não é possível controlar quais controladores de domínio são escolhidos por máquinas de cliente do Windows para o processamento de alterações de senha do usuário. Para garantir um comportamento consistente e imposição de segurança de proteção de senha universal, o software do agente de controlador de domínio deve ser instalado em todos os controladores de domínio em um domínio.
+
+Muitas organizações desejarão fazer um teste cuidadoso da proteção por senha do Azure AD em um subconjunto de seus controladores de domínio antes de fazer uma implantação completa. Proteção por senha do AD do Azure dá suporte a implantação parcial, ou seja o software do agente de controlador de domínio em um determinado DC ativamente validará as senhas, mesmo quando outros controladores de domínio no domínio não têm o software do agente de controlador de domínio instalado. Implantações parciais desse tipo não são seguro e que não são recomendados para fins de teste.
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
@@ -87,7 +94,7 @@ A proteção por senha do Azure AD para o Windows Server Active Directory requer
 
 Para obter informações adicionais de licenciamento, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="download"></a>Download
+## <a name="download"></a>Baixar
 
 Dois instaladores de agente necessário para a proteção de senha do AD do Azure estão disponíveis na [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 

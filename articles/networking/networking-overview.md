@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880918"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445631"
 ---
 # <a name="azure-networking"></a>Rede do Azure
 
@@ -34,7 +34,7 @@ O Azure fornece uma variedade de recursos de rede que podem ser usados juntos ou
 - [Capacidade de gerenciamento](#manageability): monitore e gerencie os recursos de rede do Azure.
 - [Ferramentas de implantação e configuração](#tools): use um portal baseado na Web ou ferramentas de linha de comando de plataforma cruzada para implantar e configurar recursos de rede.
 
-## <a name="Connectivity"></a>Conectividade entre recursos do Azure
+## <a name="connectivity"></a>Conectividade entre recursos do Azure
 
 Os recursos do Azure, as Máquinas Virtuais, os Serviços de Nuvem, os Conjuntos de Dimensionamento de Máquinas Virtuais e os Ambientes do Serviço de Aplicativo do Azure, podem se comunicar entre si de forma privada por meio de uma VNet (rede virtual) do Azure. Uma VNet é um isolamento lógico da nuvem do Azure dedicada à sua [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). É possível implementar várias VNets dentro de cada assinatura e [região](https://azure.microsoft.com/regions) do Azure. Cada VNet é isolada de outras VNets. Para cada VNet, você pode:
 
@@ -150,7 +150,7 @@ O Azure fornece as seguintes ferramentas para monitorar e gerenciar a rede:
 É possível implantar e configurar recursos de rede do Azure com qualquer uma das seguintes ferramentas:
 
 - **Portal do Azure:** uma interface gráfica do usuário que é executada em um navegador. Abra o [Portal do Azure](https://portal.azure.com).
-- **Azure PowerShell:** ferramentas de linha de comando para gerenciar o Azure de computadores Windows. Saiba mais sobre o Azure PowerShell lendo o artigo [Visão geral do Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Azure PowerShell:** ferramentas de linha de comando para gerenciar o Azure de computadores Windows. Saiba mais sobre o Azure PowerShell lendo o artigo [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json).
 - **CLI (interface de linha de comando) do Azure**: ferramentas de linha de comando para gerenciar o Azure de computadores Windows, Linux ou macOS. Saiba mais sobre a CLI do Azure lendo o artigo [Visão geral da CLI do Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modelos do Azure Resource Manager:** um arquivo (no formato JSON) que define a infraestrutura e a configuração de uma solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Para saber mais sobre a criação de modelos, leia o artigo [Práticas recomendadas para a criação de modelos](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Modelos podem ser implantados com o PowerShell, a CLI e o Portal do Azure. Para começar a usar os modelos imediatamente, implante um dos muitos modelos pré-configurados na biblioteca [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=network). 
 

@@ -9,12 +9,12 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
-ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244667"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448416"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Atualizações da documentação e das notas de versão do Azure SQL Data Warehouse
 
@@ -22,9 +22,10 @@ O SQL DW (SQL Data Warehouse) do Azure é um Enterprise Data Warehouse baseado e
 
 Clique nos links abaixo para saber mais sobre os novos recursos e aprimoramentos que você pode esperar na última versão do SQL Data Warehouse do Azure. Você pode esperar receber essas atualizações de serviço durante a programação de manutenção identificada.
 
-- [Versão 10.0.10106.0 do SQL Data Warehouse (janeiro)](./release-notes-10-0-10106-0.md)
-- [Dezembro de 2018](./release-notes-december-2018.md)
-- [Outubro de 2018](./release-notes-october-2018.md)
+- [Março de 2019](./release-notes-10-0-10106-0.md#march-2019)
+- [Janeiro de 2019](./release-notes-10-0-10106-0.md#january-2019)
+- [Dezembro de 2018](./release-notes-10-0-10106-0.md#december-2018)
+- [Outubro de 2018](./release-notes-10-0-10106-0.md#october-2018)
 - [Setembro de 2018](./release-notes-september-2018.md)
 - [Agosto de 2018](./release-notes-august-2018.md)
 - [Julho de 2018](./release-notes-july-2018.md)
@@ -39,9 +40,9 @@ Para confirmar qual versão foi aplicada ao data warehouse. Conecte-se ao data w
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Saída de exemplo: ![Versão do SQL Data Warehouse](./media/release-notes/dw-version.png)
+Saída de exemplo: ![Versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
-Use a versão identificada para confirmar qual versão foi aplicada ao SQL Data Warehouse do Azure. 
+Use a data identificada para confirmar qual versão foi aplicada ao seu SQL Data Warehouse do Azure. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

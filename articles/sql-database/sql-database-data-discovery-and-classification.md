@@ -1,6 +1,6 @@
 ---
-title: Descoberta e classificação de dados do Banco de Dados SQL do Azure | Microsoft Docs
-description: Descoberta e classificação de dados do Banco de Dados SQL do Azure
+title: Classificação & descoberta de dados do banco de dados SQL e SQL Data Warehouse do Azure | Microsoft Docs
+description: Classificação & descoberta de dados e banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202972"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495979"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Descoberta e classificação de dados do Banco de Dados SQL do Azure
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & descoberta de dados do banco de dados SQL e SQL Data Warehouse do Azure
 
 A descoberta e classificação de dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.
 Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, atendimento à saúde, PII [informações de identificação pessoal] etc.) pode desempenhar uma função essencial para a estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
@@ -28,10 +28,10 @@ Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, a
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlar o acesso e proteção da segurança de bancos de dados contendo dados altamente confidenciais.
 
-A descoberta e classificação de dados fazem parte da oferta de [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS), um pacote unificado de funcionalidades avançadas de segurança do SQL. A descoberta e classificação de dados pode ser acessada e gerenciada por meio do portal central de ADS do SQL.
+Dados de descoberta e classificação faz parte dos [avançadas de segurança de dados](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para recursos de segurança avançados do SQL. A descoberta e classificação de dados pode ser acessada e gerenciada por meio do portal central de ADS do SQL.
 
 > [!NOTE]
-> Este documento está relacionado apenas ao Banco de Dados SQL do Azure. Para o SQL Server (local), consulte [descoberta de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
+> Este documento está relacionado ao banco de dados SQL e Azure SQL Data Warehouse. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Para o SQL Server (local), consulte [descoberta de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>O que é descoberta e classificação de dados
 

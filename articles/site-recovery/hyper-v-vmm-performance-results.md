@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793029"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482793"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
 
@@ -175,10 +175,10 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | CPU |\Processador(_Total)\% Tempo do processador |
 | Memória disponível |\Memória\MBytes disponíveis |
 | IOPS |\Disco físico(_Total)\Transferências do disco/seg |
-| Operações de leitura da VM (IOPS)/seg |\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Operações de leitura/Seg |
-| Operações de gravação da VM (IOPS)/seg |\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Operações de gravação/S |
-| Taxa de transferência de leitura da VM |\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Bytes de leitura/seg |
-| Taxa de transferência de gravação da VM |\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Bytes de gravação/seg |
+| Operações de leitura da VM (IOPS)/seg |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| Operações de gravação da VM (IOPS)/seg |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write operações/S |
+| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Read Bytes/s |
+| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write Bytes/s |
 
 ## <a name="next-steps"></a>Próximas etapas
 

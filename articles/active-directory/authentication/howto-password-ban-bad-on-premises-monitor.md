@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437536"
+ms.locfileid: "58479717"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e o logon na Proteção de Senha do Azure AD
 
@@ -81,7 +81,7 @@ Quando um par de eventos é registrado em conjunto, ambos os eventos são explic
 
 O cmdlet `Get-AzureADPasswordProtectionSummaryReport` pode ser usado para produzir uma exibição resumida da atividade de validação de senha. Um exemplo de saída deste cmdlet é o seguinte:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -254,7 +254,7 @@ O cmdlet `Get-AzureADPasswordProtectionDCAgent` pode ser usado para exibir infor
 
 Um exemplo de saída deste cmdlet é o seguinte:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -326,7 +326,7 @@ O cmdlet `Get-AzureADPasswordProtectionProxy` pode ser usado para exibir informa
 
 Um exemplo de saída deste cmdlet é o seguinte:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

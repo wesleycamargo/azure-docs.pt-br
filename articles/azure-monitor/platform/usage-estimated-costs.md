@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315870"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480527"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Para migrar essa assinatura para o novo modelo de preços, execute:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Para confirmar se a alteração foi executada com êxito, execute de novo:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ Agora, o optInDate contém um carimbo de data/hora de quando a assinatura aceito
 
 Se você precisar reverter para o modelo de preços antigo, execute:
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Se você executar novamente o script anterior que tinha ``-Action listmigrationd
 
 Se você tiver várias assinaturas, as quais você quer migrar, que estão hospedadas no mesmo locatário, crie sua própria variação usando partes dos scripts a seguir:
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Para verificar se todas as assinaturas em seu locatário estão qualificadas para o novo modelo de preços, execute:
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 O script pode ser refinado ainda mais por meio da criação de um script que gera três matrizes. Uma matriz será formada por todas as IDs com ```isGrandFatherableSubscription``` definido como True e optedInDate sem um valor no momento. Uma segunda matriz com assinaturas no novo modelo de preços. E uma terceira matriz preenchida somente com IDs de assinaturas em seu locatário que não estão qualificadas para o novo modelo de preços:
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Agora que suas assinaturas estão divididas em três matrizes, analise atentamente os resultados. Convém fazer uma cópia de backup do conteúdo das matrizes, para que você possa reverter facilmente as alterações, caso seja necessário no futuro. Se você decidir que quer converter todas as assinaturas qualificadas atualmente no modelo de preços antigo para o novo modelo de preços, isso poderá ser feito com:
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

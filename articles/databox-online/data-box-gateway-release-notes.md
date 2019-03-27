@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f3e07d745d83041afc9dafd64678a3ac4a65012
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418016"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499872"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade de dados do Azure/borda dados caixa Gateway geral da caixa do Azure
 
@@ -25,8 +25,8 @@ As notas de versão são continuamente atualizadas e, à medida que são descobe
 
 A versão GA corresponde às versões de software:
 
-- **Gateway de caixa de dados 1903 (1.5.810.441)**
-- **Borda da caixa de dados 1903 (1.5.810.441)**
+- **Gateway de caixa de dados 1903 (1.5.814.447)**
+- **Borda da caixa de dados 1903 (1.5.814.447)**
 
 
 ## <a name="whats-new"></a>Novidades

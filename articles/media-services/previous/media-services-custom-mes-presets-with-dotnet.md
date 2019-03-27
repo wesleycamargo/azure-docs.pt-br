@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: c64a3455e1189b83558707a96dc80b88dc242b48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eaea0719aa8ca981da68841dae365decdd3c860e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181649"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499855"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard  
 
@@ -28,6 +28,9 @@ ms.locfileid: "58181649"
 Este artigo mostra como executar a codificação avançada com o MES (Media Encoder Standard) usando uma predefinição personalizada. O artigo usa o .NET para criar uma tarefa de codificação e um trabalho que executa essa tarefa.  
 
 Este artigo mostra a você como personalizar uma predefinição usando a predefinição a [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O artigo [Personalizando as predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) demonstra as predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
+
+> [!NOTE]
+> As predefinições personalizadas descritas neste artigo não podem ser usadas [serviços de mídia V3](https://docs.microsoft.com/azure/media-services/latest/) transformações ou os comandos da CLI. Consulte a [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
 
 ## <a id="customizing_presets"></a> Personalizando uma predefinição do MES
 
@@ -260,6 +263,11 @@ namespace CustomizeMESPresests
     }
 }
 ```
+
+## <a name="see-also"></a>Consulte também
+
+- [Como codificar com uma transformação personalizada usando a CLI](../latest/custom-preset-cli-howto.md)
+- [Codificação com o Media Services v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
