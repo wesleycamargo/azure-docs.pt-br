@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770024"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486352"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
@@ -36,29 +36,29 @@ Este artigo baseia-se nos cmdlets do módulo do Lote do Az 1.0.0. É recomendáv
 
 * Execute o cmdlet **Connect-AzAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
 
-  ```PowerShell
+  ```powershell
   Connect-AzAccount
   ```
 
 * **Registrar com o namespace do provedor de Lote**. Você só precisa executar essa operação **uma vez por assinatura**.
   
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gerenciar contas e chaves do Batch
 
-### <a name="create-a-batch-account"></a>Criar uma conta do Lote
+### <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-**New-AzBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
+**New-AzBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo: 
 
-```PowerShell
+```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Em seguida, crie uma conta do Lote no grupo de recursos. Especifique um nome para a conta em <*account_name*> e a localização e o nome do seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo:
+Em seguida, crie uma conta do Lote no grupo de recursos. Especifique um nome para a conta em <*account_name*> e a localização e o nome do seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo: 
 
-```PowerShell
+```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 ```
 
@@ -69,7 +69,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** mostra as chaves de acesso associadas a uma conta do Lote do Azure. Por exemplo, execute o seguinte para obter as chaves primária e secundária da conta criada por você.
 
- ```PowerShell
+ ```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey
@@ -81,7 +81,7 @@ $Account.SecondaryAccountKey
 
 **New-AzBatchAccountKey** gera uma nova chave de conta primária ou secundária para uma conta do Lote do Azure. Por exemplo, para gerar uma nova chave primária para a sua conta do Batch, digite:
 
-```PowerShell
+```powershell
 New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
@@ -90,9 +90,9 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Excluir uma conta do Batch
 
-**Remove-AzBatchAccount** exclui uma conta do Lote. Por exemplo:
+**Remove-AzBatchAccount** exclui uma conta do Lote. Por exemplo: 
 
-```PowerShell
+```powershell
 Remove-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -104,7 +104,7 @@ Você pode autenticar para gerenciar os recursos do Lote usando a autenticação
 
 ### <a name="shared-key-authentication"></a>Autenticação de chave compartilhada
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccountKeys -AccountName <account_name>
 ```
 
@@ -113,7 +113,7 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 
 ### <a name="azure-active-directory-authentication"></a>Autenticação do Azure Active Directory
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -129,7 +129,7 @@ Ao criar ou atualizar um pool de Lote, selecione a configuração de serviços d
 
 Ao executar **New-AzBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o snippet a seguir cria um pool do Lote na com nós de computação do tamanho Standard_A1 na configuração da máquina virtual, com imagem gerada com o servidor do Ubuntu 18.04-LTS. Aqui, o parâmetro **VirtualMachineConfiguration** especifica a variável *$configuration* do objeto PSVirtualMachineConfiguration. O parâmetro **BatchContext** especifica uma variável definida anteriormente *$context* como o objeto BatchAccountContext.
 
-```PowerShell
+```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
@@ -147,7 +147,7 @@ Use cmdlets como **Get-AzBatchPool**, **Get-AzBatchJob** e **Get-AzBatchTask** p
 
 Por exemplo, use **Get-AzBatchPools** para encontrar os pools. Por padrão, isso consulta todos os pools em sua conta, supondo que você já tenha armazenado o objeto BatchAccountContext em *$context*:
 
-```PowerShell
+```powershell
 Get-AzBatchPool -BatchContext $context
 ```
 
@@ -155,7 +155,7 @@ Get-AzBatchPool -BatchContext $context
 
 Você pode fornecer um filtro OData usando o parâmetro **Filter** para localizar apenas os objetos de seu interesse. Por exemplo, você pode localizar todos os pools com IDs que começam com "myPool":
 
-```PowerShell
+```powershell
 $filter = "startswith(id,'myPool')"
 
 Get-AzBatchPool -Filter $filter -BatchContext $context
@@ -167,7 +167,7 @@ Esse método não é tão flexível quanto usar "Where-Object" em um pipeline lo
 
 Uma alternativa a um filtro OData é usar o parâmetro **Id** . Para consultar um pool específico com id "myPool":
 
-```PowerShell
+```powershell
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
@@ -175,9 +175,9 @@ O parâmetro **Id** só dá suporte à pesquisa de ID completa, não a curingas 
 
 ### <a name="use-the-maxcount-parameter"></a>Usar o parâmetro MaxCount
 
-Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo:
+Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo: 
 
-```PowerShell
+```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
 ```
 
@@ -189,13 +189,13 @@ Os cmdlets do Batch usam o pipeline do PowerShell para enviar dados entre cmdlet
 
 Por exemplo, localize e exiba todas as tarefas em sua conta:
 
-```PowerShell
+```powershell
 Get-AzBatchJob -BatchContext $context | Get-AzBatchTask -BatchContext $context
 ```
 
 Reinicializar todos os nós de computação em um pool:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 
@@ -205,25 +205,25 @@ Os pacotes de aplicativos fornecem uma maneira simplificada de implantar aplicat
 
 **Criar** um aplicativo:
 
-```PowerShell
+```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 **Adicionar** um pacote de aplicativos:
 
-```PowerShell
+```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
 Defina a **versão padrão** para o aplicativo:
 
-```PowerShell
+```powershell
 Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
 **Listar** pacotes de um aplicativo
 
-```PowerShell
+```powershell
 $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 $application.ApplicationPackages
@@ -231,13 +231,13 @@ $application.ApplicationPackages
 
 **Excluir** um pacote de aplicativo
 
-```PowerShell
+```powershell
 Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
 **Excluir** um aplicativo
 
-```PowerShell
+```powershell
 Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
@@ -250,7 +250,7 @@ Você pode especificar um ou mais pacotes de aplicativos para implantação dura
 
 Especifique a opção `-ApplicationPackageReference` durante a criação de um pool para implantar um pacote de aplicativos nos nós do pool à medida que eles ingressarem no pool. Primeiro, crie um objeto **PSApplicationPackageReference** e configure-o com a versão do pacote e a ID de aplicativo que deseja implantar em nós de computação do pool:
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -260,7 +260,7 @@ $appPackageReference.Version = "1.0"
 
 Agora, crie o pool e especifique o objeto de referência do pacote como o argumento para a opção `ApplicationPackageReferences`:
 
-```PowerShell
+```powershell
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
@@ -273,7 +273,7 @@ Veja mais informações sobre pacotes de aplicativos em [Implantar aplicativos e
 
 Para atualizar os aplicativos atribuídos a um pool existente, primeiro crie um objeto PSApplicationPackageReference com as propriedades desejadas (versão do pacote e ID de aplicativo):
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -284,7 +284,7 @@ $appPackageReference.Version = "2.0"
 
 Em seguida, obtenha o pool do Lote, apague todos os pacotes existentes, adicione nossa nova referência de pacote e atualize o serviço do Lote com as novas configurações do pool:
 
-```PowerShell
+```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
 $pool.ApplicationPackageReferences.Clear()
@@ -296,7 +296,7 @@ Set-AzBatchPool -BatchContext $context -Pool $pool
 
 Agora você atualizou as propriedades do pool no serviço de Lote. Para realmente implantar o novo pacote de aplicativo para nós de computação no pool, entretanto, reinicie ou recrie esses nós. Você pode reiniciar todos os nós em um pool com este comando:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 

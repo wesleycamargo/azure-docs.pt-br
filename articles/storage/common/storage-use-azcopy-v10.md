@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337010"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486012"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Transferir dados com AzCopy v10 (visualização)
 
@@ -250,7 +250,7 @@ O comando a seguir obtém todos os erros com o status UPLOADFAILED do log 04dc9c
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 V10 AzCopy cria arquivos de log e arquivos de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas potenciais. Os logs conterão o status de falha (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), o caminho completo e o motivo da falha. Os logs de trabalho e os arquivos de plano estão localizados na pasta %USERPROFILE\\.azcopy no Windows ou na pasta $HOME\\.azcopy no Mac e Linux.
 
@@ -285,6 +285,6 @@ Use o comando a seguir para retomar um trabalho com falha/cancelado. Esse comand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver dúvidas, problemas ou comentários gerais, enviá-los [no GitHub](https://github.com/Azure/azure-storage-azcopy.).
+Se você tiver dúvidas, problemas ou comentários gerais, enviá-los [no GitHub](https://github.com/Azure/azure-storage-azcopy).
 
 

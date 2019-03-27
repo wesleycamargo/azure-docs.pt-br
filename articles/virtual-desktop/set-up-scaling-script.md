@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402483"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497890"
 ---
-# <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
+# <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente hosts da sessão
 
 Para muitas implantações de visualização de área de trabalho Virtual do Windows no Azure, os custos de máquina virtual representam uma parte significativa do custo total de implantação de área de trabalho Virtual do Windows. Para reduzir os custos, é melhor desligar e desalocar a sessão hospedar máquinas virtuais (VMs) durante o horário de pico, reiniciá-los durante horários de pico.
 
@@ -81,7 +81,7 @@ Insira os valores relevantes para os campos a seguir para atualizar as configura
 | currentAzureSubscriptionId    | A ID da assinatura do Azure em que executa o host de sessão de VMs                        |
 | tenantName                    | Nome do locatário de área de trabalho Virtual do Windows                                                    |
 | hostPoolName                  | Nome do pool de host de área de trabalho Virtual do Windows                                                 |
-| RDBroker                      | URL do serviço WVD, o valor padrão <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | Padrão de URL para o serviço WVD, valor https:\//rdbroker.wvd.microsoft.com             |
 | Nome de Usuário                      | A ID de entidade de segurança de aplicativo de serviço (é possível ter a mesma entidade de serviço, conforme mostrado no AADApplicationId) ou o usuário padrão sem a autenticação multifator |
 | isServicePrincipal            | Os valores aceitos são **verdadeira** ou **falso**. Indica se o segundo conjunto de credenciais que está sendo usado é uma entidade de serviço ou uma conta padrão. |
 | BeginPeakTime                 | Quando o tempo de uso de pico começa                                                            |

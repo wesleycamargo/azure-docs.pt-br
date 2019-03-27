@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315293"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498410"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -146,10 +146,13 @@ O Coletor comunica-se de acordo com o resumo no diagrama e na tabela a seguir.
 **O Coletor comunica-se com** | **Porta** | **Detalhes**
 --- | --- | ---
 Serviço Migrações para Azure | TCP 443 | O Coletor comunica-se com o serviço de Migrações para Azure por SSL 443.
-Servidor vCenter | TCP 443 | O Coletor precisa ser capaz de comunicar-se com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter na 443.<br/><br/> Se o vCenter Server escuta em uma porta diferente, essa porta precisa estar disponível como a porta de saída no Coletor.
+vCenter Server | TCP 443 | O Coletor precisa ser capaz de comunicar-se com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter na 443.<br/><br/> Se o vCenter Server escuta em uma porta diferente, essa porta precisa estar disponível como a porta de saída no Coletor.
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Metadados coletados
+
+> [!NOTE]
+> Os metadados descobertos pelas migrações para Azure dispositivo coletor é usado para ajudá-lo dimensione seus aplicativos ao migrar para o Azure, executar análise de adequação do Azure, análise de dependência de aplicativo e planejamento de custo. Microsoft não usa esses dados em relação a qualquer auditoria de conformidade de licença.
 
 O dispositivo Coletor descobre os seguintes de metadados de configuração para cada VM. Os dados de configuração da VM ficam disponíveis uma hora após o início da descoberta.
 
@@ -162,7 +165,7 @@ O dispositivo Coletor descobre os seguintes de metadados de configuração para 
 - Tamanho da memória, tamanhos de disco
 - Contadores de desempenho da VM, do disco e da rede.
 
-### <a name="performance-counters"></a>Contadores de desempenho
+### <a name="performance-counters"></a>contadores de desempenho
 
  O dispositivo coletor coleta os seguintes contadores de desempenho para cada VM do host ESXi em um intervalo de 20 segundos. Esses contadores são contadores do vCenter e, embora a terminologia diga média, as amostras de 20 segundos são contadores de tempo real. Os dados de desempenho para as VMs começam a ficar disponíveis no portal duas horas depois de você ter iniciado a descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações com base no desempenho para obter recomendações precisas de dimensionamento correto. Se você estiver procurando instantâneos, poderá criar avaliações com critérios de dimensionamento como *local*, que não considerará os dados de desempenho para o dimensionamento correto.
 
@@ -211,7 +214,7 @@ Detalhes do adaptador de rede (por NIC) | Endereços IPv4 | vm.Guest.Net
 Detalhes do adaptador de rede (por NIC) | Endereços IPv6 | vm.Guest.Net
 Detalhes do adaptador de rede (por NIC) | Taxa de transferência de leitura em megabytes por segundo | net.received.average
 Detalhes do adaptador de rede (por NIC) | Taxa de transferência de gravação em megabytes por segundo | net.transmitted.average
-Detalhes do caminho de inventário | Nome | container.GetType().Name
+Detalhes do caminho de inventário | NOME | container.GetType().Name
 Detalhes do caminho de inventário | Tipo de objeto filho | container.ChildType
 Detalhes do caminho de inventário | Detalhes de referência | container.MoRef
 Detalhes do caminho de inventário | Caminho de inventário completo | container.Name com caminho completo

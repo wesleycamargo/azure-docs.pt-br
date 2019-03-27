@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856420"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498224"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
@@ -47,25 +47,21 @@ Considere as seguintes diretrizes ao escolher uma palavra de ativação:
 
 ## <a name="create-your-wake-word"></a>Criar sua palavra de ativação
 
-Antes de usar uma palavra de ativação personalizada com seu dispositivo, será preciso criá-la usando o serviço de Geração de Palavra de Ativação Personalizada da Microsoft. Depois de você fornecer uma palavra de ativação, o serviço produzirá um arquivo que deverá ser implantado no seu kit de desenvolvimento para habilitar a palavra de ativação no dispositivo.
+Antes de usar uma palavra de ativação personalizada com seu dispositivo, será preciso criá-la usando o serviço de Geração de Palavra de Ativação Personalizada da Microsoft. Depois de fornecer uma palavra de ativação, produz o serviço um arquivo que você implanta seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
 
-1. Acesse o [portal do Serviço de Fala Personalizada](https://cris.ai/).
+1. Vá para o [Portal de serviços de fala personalizado](https://cris.ai/).
 
-1. Crie uma conta com o endereço de email no qual você recebeu o convite para o Azure Active Directory.
+    ![O Portal de serviços de fala personalizado](media/speech-devices-sdk/wake-word-4.png)
 
-    ![Criar uma nova conta](media/speech-devices-sdk/wake-word-1.png)
+1. Entrar com o endereço de email que recebeu o convite para o Azure Active Directory.
 
-1. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de Fala Personalizada requer uma assinatura do Azure, mas o recurso de Palavra de Ativação Personalizada não. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.
-
-    ![A página Palavra de Ativação Personalizada é oculta](media/speech-devices-sdk/wake-word-4.png)
+1. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de fala personalizado requer uma assinatura do Azure, mas não o recurso personalizado Wake Word. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.
 
 1. Digite a palavra de ativação de sua escolha e, em seguida, selecione **Enviar a palavra**.
 
     ![Insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
 
 1. Pode demorar alguns minutos para os arquivos serem gerados. Você verá um círculo girando na janela do navegador. Após alguns momentos, uma barra de informações será exibida solicitando que você baixe um arquivo .zip.
-
-    ![Receber o arquivo .zip](media/speech-devices-sdk/wake-word-6.png)
 
 1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar a palavra de ativação personalizada no kit de desenvolvimento. Para implantar a palavra de ativação personalizada, siga as instruções em [Introdução ao SDK de Dispositivos de Fala](speech-devices-sdk-qsg.md).
 

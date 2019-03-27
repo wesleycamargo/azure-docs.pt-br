@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842746"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486311"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -222,7 +222,7 @@ A próxima etapa é configurar o cluster de failover com o S2D. Nesta etapa, voc
 
    Para instalar o recurso de Cluster de Failover com o PowerShell, execute o script a seguir em uma sessão do PowerShell de administrador em uma das máquinas virtuais.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ O **Assistente para Validar uma Configuração** executa os testes de validaçã
 
 Para validar o cluster com o PowerShell, execute o seguinte script em uma sessão do PowerShell de administrador em uma das máquinas virtuais.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ Para criar o cluster de failover, você precisa de:
 
 O PowerShell a seguir cria um cluster de failover. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP da VNET do Azure:
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ Os discos para S2D precisam estar vazios e sem partições ou outros dados. Para
 
    O PowerShell a seguir habilita os espaços de armazenamento direto.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ Os discos para S2D precisam estar vazios e sem partições ou outros dados. Para
 
    Um dos recursos do S2D é que ele cria automaticamente um pool de armazenamento quando você o habilita. Agora você está pronto para criar um volume. O commandlet `New-Volume` do PowerShell automatiza o processo de criação do volume, incluindo formatação, adição ao cluster e criação de um CSV (volume compartilhado do cluster). O exemplo a seguir cria um CSV de 800 GB (gigabytes).
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ Defina o parâmetro de porta de investigação de cluster no PowerShell.
 
 Para definir o parâmetro de porta de investigação do cluster, atualize as variáveis no script a seguir usando valores do seu ambiente. Remova os colchetes angulares `<>` do script. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -457,7 +457,7 @@ No script anterior, defina os valores para o seu ambiente. A lista a seguir desc
 
 Depois de você configurar a investigação de cluster, você pode ver todos os parâmetros de cluster no PowerShell. Execute o seguinte script:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

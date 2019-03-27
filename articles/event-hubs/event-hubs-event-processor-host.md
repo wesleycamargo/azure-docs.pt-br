@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106113"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498164"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Receber eventos de Hubs de Eventos do Azure usando o Host do Processador de Eventos
 
@@ -83,7 +83,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 Em seguida, criar uma instância de uma instância [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Dependendo da sobrecarga, ao criar a instância [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) no construtor, os seguintes parâmetros são usados:
 
-- **hostName:** o nome de cada instância do consumidor. Cada instância do **EventProcessorHost** deve ter um valor exclusivo para essa variável em um grupo de consumidores, portanto, é melhor não codificar esse valor.
+- **hostName:** o nome de cada instância do consumidor. Cada instância do **EventProcessorHost** deve ter um valor exclusivo para essa variável dentro de um grupo de consumidores, portanto, não codificar esse valor.
 - **eventHubPath:** O nome do hub de eventos.
 - **consumerGroupName:** Os Hubs de Eventos do Azure usam **$Default** como o nome do grupo de consumidores padrão, mas é uma boa prática criar um grupo de consumidores para seu aspecto específico de processamento.
 - **eventHubConnectionString:** A cadeia de caracteres de conexão ao hub de eventos, que pode ser recuperada do portal do Azure. Essa cadeia de conexão deve ter as permissões **Listen** no hub de eventos.
@@ -125,7 +125,7 @@ Aqui, cada host adquire a propriedade de uma partição para uma determinada dur
 
 Cada chamada para [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) oferece uma coleção de eventos. Ele é responsável por gerenciar o estes eventos. Caso deseje garantir que o host do processador processe todas as mensagens pelo menos uma vez, você precisará escrever seu próprio código para fazer novas tentativas. Mas tenha cuidado com mensagens suspeitas.
 
-É recomendável que você faça coisas relativamente rápidas; ou seja, faça o processamento menor possível. Em vez disso, use grupos de consumidores. Se você precisar gravar no armazenamento e fazer algum roteamento, geralmente é melhor usar dois grupos de consumidores e ter duas implementações [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que são executadas separadamente.
+É recomendável que você faça coisas relativamente rápidas; ou seja, faça o processamento menor possível. Em vez disso, use grupos de consumidores. Se você precisar gravar no armazenamento e fazer algumas roteamento, é melhor usar dois grupos de consumidores e têm duas [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementações que são executados separadamente.
 
 Em algum momento durante o processamento, convém manter o controle de que você tenha lido e concluído. Manter o controle é crítico se você precisar reiniciar a leitura para não retornar ao início do fluxo. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifica esse acompanhamento usando *pontos de verificação*. Um ponto de verificação é um local, ou deslocamento, para uma determinada partição, dentro de um determinado grupo de consumidores, ponto no qual você está satisfeito com o processamento das mensagens. Marcar um ponto de verificação em **EventProcessorHost** é realizado chamando o método [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) no objeto [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Essa operação é feita dentro do método [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync), mas também pode ser feita em [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -141,7 +141,7 @@ Por padrão, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processo
 
 ## <a name="shut-down-gracefully"></a>Desligar normalmente
 
-Finalmente, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite um desligamento limpo de todos os leitores de partição e deve sempre ser chamado ao encerrar uma instância de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Falha ao fazer isso pode causar atrasos ao iniciar outras instâncias do **EventProcessorHost** devido à expiração de concessão e conflitos de época. Gerenciamento de época é abordado em detalhes nesta [postagem de blog](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
+Finalmente, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite um desligamento limpo de todos os leitores de partição e deve sempre ser chamado ao encerrar uma instância de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Falha ao fazer isso pode causar atrasos ao iniciar outras instâncias do **EventProcessorHost** devido à expiração de concessão e conflitos de época. Gerenciamento de época é abordado em detalhes na [época](#epoch) seção do artigo. 
 
 ## <a name="lease-management"></a>Gerenciamento de concessão
 Registrar uma classe de processador de eventos com uma instância do EventProcessorHost que inicia o processamento de eventos. A instância de host obtém concessões em algumas partições do Hub de Eventos, possivelmente pegando alguns de outras instâncias de host, de forma que é convertido em uma distribuição uniforme de partições em todas as instâncias de host. Para cada partição concedida, a instância do host cria uma instância da classe de processador de evento fornecido, em seguida, recebe eventos de partição e passa para a instância do processador de eventos. Conforme mais instâncias são adicionadas e mais concessões são capturadas, EventProcessorHost eventualmente equilibra a carga entre todos os consumidores.
@@ -159,6 +159,32 @@ Além disso, uma sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microso
 - [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Se este parâmetro for **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) será chamado quando a chamada subjacente para receber eventos em uma partição expirar. Esse método é útil para a execução de ações com base no tempo durante períodos de inatividade na partição.
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Permite que uma função ponteiro ou expressão lambda deve ser definido, que é chamada para fornecer o inicial quando um leitor começa a ler uma partição de deslocamento. Sem especificar esse deslocamento, o leitor começa no evento mais antigo, a menos que um arquivo JSON com um deslocamento já tiver sido salvo na conta de armazenamento fornecida para o construtor [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Esse método é útil quando você deseja alterar o comportamento da inicialização do leitor. Quando este método é chamado, o parâmetro de objeto contém a ID de partição para a qual o leitor está sendo iniciado.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Permite que você receba uma notificação de subjacentes exceções que ocorrem no [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Se as coisas não estão funcionando conforme o esperado, esse evento é um bom lugar para começar a procurar.
+
+## <a name="epoch"></a>Época
+
+Aqui está como funciona a época de recebimento:
+
+### <a name="with-epoch"></a>Com a época
+Época é um identificador exclusivo (valor de época) que usa o serviço, para impor a propriedade da concessão/partição. Você cria um receptor de época usando o [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) método. Esse método cria um receptor de época. O destinatário é criado para uma partição do hub de evento específico do grupo de consumidor especificada.
+
+O recurso de época fornece aos usuários a capacidade de garantir que haja apenas um receptor em um grupo de consumidores em qualquer ponto no tempo, com as seguintes regras:
+
+- Se não houver nenhum receptor existente em um grupo de consumidores, o usuário pode criar um receptor com qualquer valor de época.
+- Se houver um destinatário com um e1 de valor de época e um novo receptor é criado com um e2 do valor de época em que e1 < = e2, o receptor com e1 será automaticamente desconectado, receptor com e2 é criado com êxito.
+- Se houver um destinatário com um e1 de valor de época e um novo receptor é criado com um e2 do valor de época em que e1 > e2 e, em seguida, criação de e2 com falha com o erro: Já existe um destinatário com e1 época.
+
+### <a name="no-epoch"></a>Não há época
+Você cria um receptor não são baseados em época usando o [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) método. 
+
+Existem alguns cenários no fluxo de processamento em que os usuários gostaria de criar vários receptores em um único grupo de consumidores. Para dar suporte a esses cenários, temos capacidade de criar um receptor sem época e nesse caso, permitimos que até 5 destinatários simultâneos no grupo de consumidores.
+
+### <a name="mixed-mode"></a>Modo misto
+Não recomendamos o uso do aplicativo em que você cria um receptor com época e, em seguida, alterne para a época de nenhuma ou vice-versa no mesmo grupo de consumidores. No entanto, quando este comportamento ocorrer, o serviço lida com ele usando as seguintes regras:
+
+- Se houver um destinatário já criado com a época e1 e receba ativamente eventos e um novo receptor é criado com nenhum época, a criação de novo receptor falhará. Receptores de época sempre têm precedência no sistema.
+- Se houver um destinatário já criado com a época e1 e foi desconectado, e um novo receptor é criado com nenhum época em que um novo MessagingFactory, a criação de novo receptor terá êxito. Há uma limitação aqui que nosso sistema detectará a desconexão"receptor" após cerca de 10 minutos.
+- Se há um ou mais destinatários criados com nenhum época e um novo receptor é criado com a época e1, for desconectados de todos os receptores antigos.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
