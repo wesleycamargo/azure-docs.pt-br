@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301264"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445839"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Para cada execução da Atividade de Cópia, o Data Factory determina o número 
 | Copiar dados de qualquer armazenamento de dados de origem para o armazenamento de Tabelas do Azure |4 |
 | Todos os outros cenários de cópia |1 |
 
-[!TIP]
+> [!TIP]
 > Ao copiar dados entre armazenamentos de arquivo, o comportamento padrão normalmente (automaticamente determinado) oferece a melhor taxa de transferência. 
 
 Para controlar a carga em computadores que hospedam os armazenamentos de dados ou ajustar o desempenho da cópia, você pode optar por substituir o valor padrão e especificar um valor para a propriedade **parallelCopies**. O valor deve ser um inteiro maior ou igual a 1. Na execução, para ter o melhor desempenho, a Atividade de Cópia usa um valor menor ou igual ao valor definido.

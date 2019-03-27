@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011790"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482763"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -195,9 +195,9 @@ Para automatizar solicitações com relação ao seu aplicativo com transações
 
    ![Captura de tela da barra de endereço da URL na barra de endereço](./media/asp-net-core/0013-copy-url.png)
 
-3. Execute o seguinte loop de PowerShell para criar 100 transações sintéticas usando seu aplicativo de teste. Modifique o número de porta após `localhost:` para corresponder com a URL que você copiou na etapa anterior. Por exemplo:
+3. Execute o seguinte loop de PowerShell para criar 100 transações sintéticas usando seu aplicativo de teste. Modifique o número de porta após `localhost:` para corresponder com a URL que você copiou na etapa anterior. Por exemplo: 
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/
@@ -217,7 +217,7 @@ No menu do Visual Studio, selecione **Projeto** > **Application Insights** > **a
 
 ## <a name="collect-failed-requests-live-stream-and-page-view-load-time"></a>Coletar Solicitações com falha, Live Stream e o Tempo de carregamento da exibição de página
 
-### <a name="failed-requests"></a>Solicitações com Falha
+### <a name="failed-requests"></a>Solicitações com falha
 
 Tecnicamente, solicitações com falha estão sendo coletadas, mas não ocorreu nenhuma ainda. Para acelerar o processo ao longo de uma exceção personalizada ao projeto existente para simular uma exceção do mundo real. Se seu aplicativo ainda estiver em execução no Microsoft Visual Studio antes de continuar **Interrompa a depuração** (Shift + F5).
 
@@ -249,7 +249,7 @@ Tecnicamente, solicitações com falha estão sendo coletadas, mas não ocorreu 
     }
     ```
 
-### <a name="live-stream"></a>Fluxo em Tempo Real
+### <a name="live-stream"></a>Live Stream
 
 Para acessar a funcionalidade Live Stream do Application Insights com atualização do ASP.NET Core para os pacotes NuGet do Microsoft.ApplicationInsights.AspNetCore 2.2.0.
 

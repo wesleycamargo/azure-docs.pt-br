@@ -1,23 +1,23 @@
 ---
-title: Execute os comandos de CLI do Azure ou PowerShell sob uma identidade do Azure AD para acessar o armazenamento do Azure | Microsoft Docs
-description: A CLI do Azure e o PowerShell oferecem suporte para registros com uma identidade do Microsoft Azure Active Directory para executar comandos em contêineres de Armazenamento do Microsoft Azure e filas e seus dados. Um token de acesso é fornecido para a sessão e usado para autorizar operações de chamada. Permissões dependem da função atribuída a identidade do Microsoft Azure Active Directory.
+title: Execute os comandos de CLI do Azure ou PowerShell sob uma identidade do Azure AD para acessar dados de blob e fila | Microsoft Docs
+description: Suportam a efetuar logon com uma identidade do AD do Azure para executar comandos em dados de blob e filas do armazenamento do Azure PowerShell e CLI do Azure. Um token de acesso é fornecido para a sessão e usado para autorizar operações de chamada. As permissões dependem da função RBAC atribuída a identidade do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369234"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483198"
 ---
-# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Usar uma identidade do AD do Azure para acessar o armazenamento do Azure com a CLI ou o PowerShell
+# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Usar uma identidade do Azure AD para acessar dados de blob e fila com a CLI ou o PowerShell
 
-O armazenamento do Azure fornece extensões para a CLI do Azure e do PowerShell que permitem que você entrar e executar comandos de script sob uma identidade do Azure Active Directory (Azure AD). A identidade do Azure AD pode ser um usuário, grupo, entidade de serviço de aplicativo ou pode ser uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Você pode atribuir permissões para acessar recursos de armazenamento à identidade o Microsoft Azure Active Directory através do controle de acesso com base em função (RBAC). Para obter mais informações sobre as funções RBAC no armazenamento do Azure, consulte [gerenciar direitos de acesso a dados do armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
+O armazenamento do Azure fornece extensões para a CLI do Azure e do PowerShell que permitem que você entrar e executar comandos de script sob uma identidade do Azure Active Directory (Azure AD). A identidade do Azure AD pode ser um usuário, grupo, entidade de serviço de aplicativo ou pode ser uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Você pode atribuir permissões para acessar os dados de blob e fila de identidade do Azure AD por meio do controle de acesso baseado em função (RBAC). Para obter mais informações sobre as funções RBAC no armazenamento do Azure, consulte [gerenciar direitos de acesso a dados do armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
 
 Quando você entrar CLI do Azure ou o PowerShell com uma identidade do AD do Azure, um token de acesso é retornado para acessar o armazenamento do Azure sob essa identidade. Esse token é usado automaticamente pela CLI ou o PowerShell para autorizar operações no Armazenamento do Microsoft Azure. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
 
@@ -29,7 +29,7 @@ Para obter detalhes sobre as permissões para cada operação de Armazenamento d
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Chamar comandos da CLI usando credenciais do Azure AD
 
-CLI do Azure é compatível com o `--auth-mode` parâmetro para operações de dados no armazenamento do Azure:
+CLI do Azure é compatível com o `--auth-mode` parâmetro para operações de dados de blob e fila:
 
 - Defina as `--auth-mode` parâmetro para `login` entrar usando uma entidade de segurança do Azure AD.
 - Defina o `--auth-mode` parâmetro o valor `key` herdado para tentar consultar uma chave de conta, se nenhum parâmetro de autenticação para a conta for fornecido. 
@@ -61,7 +61,7 @@ O exemplo a seguir mostra como criar um contêiner em uma nova conta de armazena
         --encryption-services blob
     ```
     
-1. Antes de criar o contêiner, atribua o [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função para si mesmo. Mesmo que você o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso aos contêineres do Azure e filas com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contêiner, atribua o [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função para si mesmo. Mesmo que você o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso a dados do Azure blob e fila com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de função RBAC podem levar alguns minutos para propagar.
@@ -114,7 +114,7 @@ O exemplo a seguir mostra como criar um contêiner em uma nova conta de armazena
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de criar o contêiner, atribua o [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função para si mesmo. Mesmo que você o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso aos contêineres do Azure e filas com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contêiner, atribua o [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) função para si mesmo. Mesmo que você o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso a dados do Azure blob e fila com o RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de função RBAC podem levar alguns minutos para propagar.

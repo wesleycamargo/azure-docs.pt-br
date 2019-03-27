@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194088"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484097"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -55,7 +55,7 @@ A primeira etapa na configuração de log de chave é apontar o Azure PowerShell
 
 Inicie uma sessão do Azure PowerShell e entre em sua conta do Azure usando o seguinte comando:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta 
 
 Você terá que especificar a assinatura que você usou para criar o Cofre de chaves. Insira o seguinte comando para ver as assinaturas da sua conta:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Em seguida, para especificar a assinatura que está associada com o Cofre de chaves que você vai estar fazendo o logon, digite:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Embora você possa usar uma conta de armazenamento existente para seus logs, vam
 
 Para facilidade de gerenciamento adicional, também usaremos o mesmo grupo de recursos que contém o Cofre de chaves. Dos [tutorial de Introdução](key-vault-get-started.md), esse grupo de recursos é denominado **ContosoResourceGroup**, e continuaremos a usar o local Ásia Oriental. Substitua esses valores pelos seus próprios, conforme aplicável:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ Para facilidade de gerenciamento adicional, também usaremos o mesmo grupo de re
 
 No [tutorial de Introdução](key-vault-get-started.md), o nome do Cofre de chaves era **ContosoKeyVault**. Continuaremos a usar esse nome e armazena os detalhes em uma variável chamada **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Para habilitar o registro em log para o Cofre de chaves, vamos usar o **AzDiagnosticSetting conjunto** cmdlet, junto com as variáveis que criamos para a nova conta de armazenamento e o Cofre de chaves. Também vamos definir a **-habilitado** sinalizador como **$true** e defina a categoria como **AuditEvent** (a única categoria para registro em log do Cofre de chaves):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Essa saída confirma que o log está habilitado para o Cofre de chaves, ele salv
 
 Opcionalmente, você pode definir uma política de retenção para os logs, de modo que os logs mais antigos são excluídos automaticamente. Por exemplo, definir a política de retenção, definindo o **- RetentionEnabled** sinalizador como **$true**e defina o **- RetentionInDays** parâmetro **90**para que os logs de mais de 90 dias sejam automaticamente excluídos.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ Logs do Cofre de chaves são armazenados do **insights-logs-auditevent** contêi
 
 Primeiro, crie uma variável para o nome do contêiner. Você usará essa variável em todo o restante do passo a passo.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Para listar todos os blobs nesse contêiner, digite:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Como você pode usar a mesma conta de armazenamento para coletar logs de vários
 
 Crie uma pasta para baixar os blobs. Por exemplo: 
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Em seguida, obtenha uma lista de todos os blobs:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Redirecione essa lista pelo **Get-AzStorageBlobContent** para baixar os blobs para a pasta de destino:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
 
 * Se você tiver vários cofres da chave e quiser baixar logs de apenas um cofre da chave, chamado CONTOSOKEYVAULT3:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Se você tiver vários grupos de recursos e quiser baixar os logs para apenas um grupo de recursos, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Se você quiser baixar todos os logs do mês de janeiro de 2019, use `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ Agora você está pronto para começar a examinar o conteúdo dos logs. Mas, ant
 
 Os blobs individuais são armazenados como texto, formatados como um blob JSON. Vamos examinar um exemplo de entrada de log. Execute este comando:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

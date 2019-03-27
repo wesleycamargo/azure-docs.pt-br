@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351959"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445481"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -103,13 +103,16 @@ API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | texto
 /scheduledevents | json | Nenhum
-/attested | json | nenhum
+/attested | json | Nenhum
 
-Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro querystring na solicitação. Por exemplo:
+Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo: 
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Para nós folha a `format=json` não funciona. Para essas consultas `format=text` precisa ser especificado explicitamente se o formato padrão é json.
 
 ### <a name="security"></a>Segurança
 
@@ -123,8 +126,8 @@ Se houver um elemento de dados não encontrado ou solicitações malformadas, o 
 Código de status HTTP | Motivo
 ----------------|-------
 200 OK |
-400 Solicitação Inválida | Faltando `Metadata: true` cabeçalho
-404 Não Encontrado | O elemento solicitado não existe 
+400 Solicitação Inválida | Faltando `Metadata: true` cabeçalho ou tem o formato ao consultar um nó folha
+404 Não Encontrado | O elemento solicitado não existe
 405 método não permitido | Somente as solicitações `GET` e `POST` são suportadas
 429 Número excessivo de solicitações | A API atualmente suporta um máximo de 5 consultas por segundo
 500 Erro do serviço     | Aguarde um pouco e tente novamente

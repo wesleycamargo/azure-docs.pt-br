@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437859"
+ms.locfileid: "58444650"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
@@ -29,6 +29,23 @@ Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina d
 
 + **Novos recursos**
   + O *azureml.core.Run.create_children* método permite a criação de baixa latência de várias filho é executado com uma única chamada.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>V 1.1.0 do SDK de preparação de dados do Azure Machine Learning
+
++ **Alterações da falha**
+  + O conceito do pacote de preparação de dados foi preterido e não é mais suportado. Em vez de manter vários fluxos de dados em um único pacote, você pode manter fluxos de dados individualmente.
+    + Guia de instruções: [Bloco de anotações de abertura e salvando fluxos de dados](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Novos recursos**
+  + Preparação de dados agora pode reconhecer a colunas que correspondem a um tipo específico de semântica e dividir adequadamente. Os STypes atualmente com suporte incluem: endereço de email, as coordenadas geográficas (latitude e longitude), endereços IPv4 e IPv6, o número de telefone dos EUA e CEP dos Estados Unidos.
+    + Guia de instruções: [Bloco de anotações de tipos semântico](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Preparação de dados agora suporta as seguintes operações para gerar uma coluna resultante de duas colunas numéricas: subtrair, multiplicar, dividir e de módulo.
+  + Você pode chamar `verify_has_data()` em um fluxo de dados para verificar se o fluxo de dados pode produzir registros se executado.
+
++ **Correções de bugs e melhorias**
+  + Agora você pode especificar o número de compartimentos para usar em um histograma para perfis de coluna numérica.
+  + O `read_pandas_dataframe` transformação agora requer o DataFrame ter - cadeia de caracteres ou bytes - nomes de coluna de tipo.
+  + Corrigido um bug no `fill_nulls` transformação, em que valores não foram corretamente preenchidos se a coluna estava ausente.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

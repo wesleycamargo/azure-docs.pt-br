@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890535"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481681"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
  
@@ -91,7 +91,7 @@ Nas etapas a seguir, você implanta o armazenamento da análise, que é chamado 
 2. Defina a variável $DemoScenario no script para coincidir com sua escolha de repositório de análise:
     - Para usar o banco de dados SQL sem o repositório de colunas, defina **$DemoScenario** = **2**
     - Para usar o banco de dados SQL com o repositório de colunas, defina **$DemoScenario** = **3**  
-3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics<XX>.ps1*) que cria o repositório de análise de locatário. 
+3. Pressione **F5** para executar o script de demonstração (que chama o *Deploy-TenantAnalytics\<XX >. ps1* script) que cria o repositório de análise de locatário. 
 
 Agora que você implantou o aplicativo e preenchido com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) conectem **tenants1-dpt -&lt;usuário&gt;**  e **catálogo-dpt -&lt;usuário&gt;**  servidores usando logon = *developer*, senha = *P\@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
@@ -120,7 +120,7 @@ Antes de prosseguir, verifique se implantou o banco de dados de conta de trabalh
 
 1. No SSMS, conecte-se a **jobaccount** em catalog-dpt-&lt;User&gt;.
 2. No SSMS, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modifique a variável @User na parte superior do script, substituindo <User> pelo valor de usuário usado quando você implantou o aplicativo SaaS Wingtip.
+3. Modifique a variável @User na parte superior do script, substituindo `<User>` pelo valor de usuário usado quando você implantou o aplicativo SaaS Wingtip.
 4. Pressione **F5** para executar o script que cria os dois grupos de destino.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrair dados brutos de todos os locatários
@@ -134,7 +134,7 @@ Cada trabalho extrai os dados e os envia para o repositório de análise. Existe
 
 1. No SSMS, conecte-se ao banco de dados **jobaccount** no servidor catalog-dpt-&lt;User&gt;.
 2. No SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modifique @User na parte superior do script e substitua <User> pelo nome de usuário usado quando você implantou o aplicativo SaaS Wingtip 
+3. Modifique @User na parte superior do script e substitua `<User>` pelo nome de usuário usado quando você implantou o aplicativo SaaS Wingtip 
 4. Pressione F5 para executar o script que cria e executa o trabalho que extrai dados de tíquetes e clientes de cada banco de dados de locatário. O trabalho salva os dados para o repositório de análise.
 5. Consulte a tabela TicketsRawData no banco de dados tenantanalytics para verificar se a tabela foi populada com informações de tíquetes de todos os locatários.
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734312"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496580"
 ---
 # <a name="brand-detection"></a>Detecção de marca
 
@@ -91,7 +91,8 @@ Em alguns casos, o detector de marca selecionará a imagem do logotipo e o nome 
 ```
 
 ## <a name="use-the-api"></a>Usar a API
-O recurso de detecção de marca faz parte da API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Quando você receber a resposta JSON completa, basta analisar a cadeia de caracteres para o conteúdo da seção `"brands"`.
+
+O recurso de detecção de marca faz parte da API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Incluir `Brands` no **visualFeatures** parâmetro de consulta. Em seguida, quando você receber a resposta JSON completa, simplesmente analisar a cadeia de caracteres para o conteúdo do `"brands"` seção.
 
 * [Início Rápido: Analisar uma imagem (SDK do .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Início Rápido: Analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)

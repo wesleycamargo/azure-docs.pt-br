@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 7713b449d5e5291ce1dd6c9b814ebefd07bc53a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737664"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485388"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 
@@ -29,7 +29,7 @@ Os contadores de desempenho fornecem uma maneira de acompanhar o desempenho do a
 
 Um contador de desempenho é composto por duas partes, um nome definido (também conhecido como categoria) e um ou mais contadores. É possível usar o PowerShell para obter uma lista de contadores de desempenho disponíveis:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -56,7 +56,7 @@ A propriedade `CounterSetName` representa um conjunto (ou categoria) e é um bom
 
 Para obter todos os contadores para um conjunto, use o valor `CounterSetName` e expanda a coleção `Paths`. Cada item de caminho é um contador que pode ser consultado. Por exemplo, para obter os contadores disponíveis relacionados ao conjunto `Processor`, expanda a coleção `Paths`:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time

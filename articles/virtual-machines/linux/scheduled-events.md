@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198738"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446137"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -47,7 +47,9 @@ Com Eventos Agendados, seu aplicativo pode descobrir quando a manutenção ocorr
 Os eventos agendados fornecem eventos nos seguintes casos de uso:
 
 - Manutenção iniciada na plataforma (por exemplo, uma atualização do SO host)
+- Hardware degradado
 - Manutenção iniciada pelo usuário (por exemplo, um usuário reinicia ou reimplanta uma VM)
+- [Remoção de VMs de baixa prioridade](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) conjuntos de dimensionamento
 
 ## <a name="the-basics"></a>Noções básicas  
 
@@ -65,15 +67,16 @@ Como resultado, verifique o campo `Resources` no evento para identificar quais V
 ### <a name="endpoint-discovery"></a>Descoberta do ponto de extremidade
 Para VMs habilitadas para VNET, o serviço de metadados está disponível de um IP não roteável estático, `169.254.169.254`. O ponto de extremidade completo para a versão mais recente dos eventos agendados é: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 Se a VM não for criada em uma Rede Virtual, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
-O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2017-08-01`.
+O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2017-11-01`.
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 
+| 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Visualização | Todos | <li>Versão inicial
 
@@ -112,7 +115,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -126,7 +129,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 |Propriedade  |  DESCRIÇÃO |
 | - | - |
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A VM está programada para pausar por alguns segundos. A CPU é suspensa, mas não há nenhum efeito na memória, em arquivos abertos ou em conexões de rede. <li>`Reboot`: A VM está programada para reinicialização. (A memória não persistente é perdida.) <li>`Redeploy`: A VM está programada para ser movida para outro nó. (Discos efêmeros são perdidos.) |
+| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para ser colocada em pausa por alguns segundos. A CPU é suspensa, mas não há nenhum impacto na memória, em arquivos abertos ou em conexões de rede. <li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina Virtual de baixa prioridade está sendo excluída (discos efêmeros são perdidos).|
 | ResourceType | O tipo de recurso que esse evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento está agendado para ser iniciado após o tempo especificado na propriedade `NotBefore`.<li>`Started`: Esse evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante é fornecido em nenhum momento. O evento não é mais retornado quando é concluído.
@@ -140,6 +143,7 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 | Congelamento| 15 minutos |
 | Reboot | 15 minutos |
 | Reimplantar | 10 minutos |
+| Antecipe | 30 segundos |
 
 ### <a name="start-an-event"></a>Iniciar um evento 
 
@@ -158,7 +162,7 @@ A seguir vemos o exemplo de JSON esperado no corpo da solicitação `POST`. A so
 
 #### <a name="bash-sample"></a>Exemplo de bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -176,7 +180,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

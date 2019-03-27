@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115773"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484858"
 ---
 Dependendo de seu ambiente e opções, o script pode criar toda a infraestrutura de cluster, incluindo a rede virtual do Azure, as contas de armazenamento, os serviços de nuvem, o controlador de domínio, os bancos de dados SQL locais ou remotos, o nó principal e nós de cluster adicionais. Como alternativa, o script pode usar a infraestrutura existente do Azure e criar somente os nós de cluster HPC.
 
@@ -22,7 +22,7 @@ Para obter informações detalhadas sobre o planejamento de um cluster Pacote HP
 * **Arquivo de configuração do script**: Crie um arquivo XML que o script usa para configurar o cluster HPC. Para obter informações e exemplos, consulte as seções mais adiante neste artigo e o arquivo Manual.rtf que acompanha o script de implantação.
 
 ## <a name="syntax"></a>Sintaxe
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>Exemplo
 O exemplo a seguir cria um cluster Pacote HPC usando o arquivo de configuração *MyConfigFile.xml* e especifica as credenciais de administrador para instalar o cluster.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

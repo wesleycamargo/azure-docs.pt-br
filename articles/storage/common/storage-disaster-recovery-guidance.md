@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871529"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486030"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastre e failover de conta de armazenamento (versão prévia) no Armazenamento do Azure
 
@@ -113,7 +113,7 @@ Para evitar uma grande perda de dados, verifique o valor da propriedade **Hora d
 O failover de conta está disponível em versão prévia para todos os clientes que utilizam o GRS ou o RA-GRS com implantações do Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover de conta está disponível atualmente nestas regiões:
 
 - Oeste dos EUA 2
-- Centro-oeste dos EUA
+- Centro-Oeste dos EUA
 
 A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
 
@@ -121,14 +121,14 @@ A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos d
 
 Para se registrar para a versão prévia, execute os seguintes comandos no PowerShell. Certifique-se de substituir o espaço reservado entre colchetes pela sua própria ID de assinatura:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Pode levar de um a dois dias para receber a aprovação para a versão prévia. Para verificar que seu registro foi aprovado, execute o seguinte comando:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Não há suporte aos seguintes recursos ou serviços para o failover de conta na
 - Não é possível realizar failover nas contas de armazenamento usando o namespace hierárquico do Azure Data Lake Storage Gen2.
 - Não é possível fazer failover em uma conta de armazenamento que contenha blobs. Mantenha os blobs arquivados em uma conta de armazenamento separada na qual não planeje fazer failover.
 - Não é possível realizar failover em uma conta de armazenamento que contenha blob de blocos premium. As contas de armazenamento que dão suporte a blobs de bloco premium atualmente não são compatíveis com a redundância geográfica.
+- Após o failover estiver concluído os recursos a seguir deixará de funcionar se originalmente habilitado: [As assinaturas de eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [políticas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [o log de análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiando dados como uma alternativa ao failover
 

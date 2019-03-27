@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f1515af1ef61bc40ae91e3e5b43154f92bc89ae4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725365"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448305"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat no HDInsight
 
@@ -29,7 +29,7 @@ O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API
 > [!IMPORTANT]  
 > Vários dos erros listados neste documento ocorrerem porque um máximo configurado foi excedido. Quando a etapa de solução menciona que você pode alterar um valor, use um dos seguintes para realizar a alteração:
 
-* Para clusters do **Windows**: use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [Desenvolver ações de script](hdinsight-hadoop-script-actions.md).
+* Para clusters do **Windows**: use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [Desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
 
 * Para clusters do **Linux**: use o Apache Ambari (API REST ou Web) para modificar o valor. Para obter mais informações, consulte [Gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
@@ -70,7 +70,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | Os detalhes do trabalho foram apagados pelo limpador de histórico de trabalhos |O período de retenção padrão do histórico de trabalhos é de 7 dias. O período de retenção padrão pode ser alterado modificando `mapreduce.jobhistory.max-age-ms`. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
 | O trabalho foi encerrado devido a um failover |Repita o envio do trabalho em até dois minutos |
-| Foi usada uma ID de trabalho inválida |Verifique se a ID de trabalho está correta |
+| Uma ID de trabalho inválido foi usada |Verifique se a ID do trabalho está correta |
 
 ## <a name="bad-gateway"></a>Gateway inválido
 
@@ -80,7 +80,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | A coleta de lixo interna está ocorrendo no processo do WebHCat |Aguarde até que a coleta de lixo seja concluída ou reinicie o serviço do WebHCat |
 | Tempo limite atingido ao aguardar uma resposta do serviço ResourceManager. Esse erro pode ocorrer quando o número de aplicativos ativos atinge o máximo configurado (padrão de 10.000) |Aguarde até que os trabalhos em execução no momento sejam concluídos ou aumente o limite de trabalhos simultâneos modificando `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a seção [Modificar a configuração](#modifying-configuration). |
-| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos* os detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes somente de trabalhos maiores que determinada ID de trabalho. Ou não use `Fields` |
+| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos* os detalhes do trabalho. Em vez disso use `jobid` para recuperar detalhes de trabalhos somente maiores que determinadas ID do trabalho. Ou não use `Fields` |
 | O serviço do WebHCat está inativo durante o failover do HeadNode |Aguarde dois minutos e repita a operação |
 | Há mais de 500 trabalhos pendentes enviados por meio do WebHCat |Aguarde até que os trabalhos pendentes no momento sejam concluídos antes de enviar mais trabalhos |
 

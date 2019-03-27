@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119711"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446453"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen1, usando o Azure Data Factory
 
@@ -46,7 +46,8 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
    
-   ![Cria um novo data factory](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na página **Novo data factory**, forneça os valores para os campos que estão mostrados na imagem a seguir: 
       
    ![Página de novo data factory](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)

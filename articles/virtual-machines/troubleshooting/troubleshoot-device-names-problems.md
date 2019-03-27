@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568866"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443984"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de mudança de nome do dispositivo de VM Linux no Azure
 
@@ -36,15 +36,17 @@ Você pode enfrentar os seguintes problemas ao executar VMs Linux no Microsoft A
 
 Não há garantia que caminhos de dispositivo no Linux serão consistentes entre as reinicializações. Nomes de dispositivo são formados por em números principais (letra) e secundários. Quando o driver de dispositivo de armazenamento do Linux detecta um novo dispositivo, ele atribui ao dispositivo números de dispositivo principais e secundários do intervalo disponível. Quando um dispositivo é removido, os números de dispositivo são liberados para reutilização.
 
-O problema ocorre porque a varredura de dispositivo no Linux agendada pelo subsistema SCSI ocorre de maneira assíncrona. Como resultado, um nome de caminho do dispositivo pode variar entre as reinicializações. 
+O problema ocorre porque a varredura de dispositivo no Linux agendada pelo subsistema SCSI ocorre de maneira assíncrona. Como resultado, um nome de caminho do dispositivo pode variar entre as reinicializações.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse problema, use nomenclatura persistente. Há quatro maneiras de usar uma nomenclatura persistente: por rótulo de sistema de arquivos, por UUID, por ID ou por caminho. Recomendamos o uso do rótulo do sistema de arquivos ou UUID para VMs Linux do Azure. 
+Para resolver esse problema, use nomenclatura persistente. Há quatro maneiras de usar uma nomenclatura persistente: por rótulo de sistema de arquivos, por UUID, por ID ou por caminho. Recomendamos o uso do rótulo do sistema de arquivos ou UUID para VMs Linux do Azure.
 
-A maioria das distribuições fornece os parâmetros `fstab`**nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+A maioria das distribuições fornece os parâmetros `fstab`**nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 Quando o agente Linux do Azure é instalado em uma VM, ele usa regras Udev para construir um conjunto de links simbólicos no caminho /dev/disk/azure. Aplicativos e scripts usam regras Udev para identificar os discos anexados à VM, junto com o tipo de disco e LUNs de disco.
+
+Se você já tiver editado o /etc/fstab de tal forma que sua VM não está sendo inicializado e não for possível SSH à sua VM, você pode usar o [Console Serial da VM](./serial-console-linux.md) inserir [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar seu fstab.
 
 ### <a name="identify-disk-luns"></a>Identificar LUNs de disco
 
@@ -83,29 +85,29 @@ As informações de LUN de convidado são usadas com os metadados de assinatura 
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Se houver partições adicionais na lista `blkid`, elas residirão em um disco d
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>Obter as regras mais recentes do armazenamento do Azure
 
 Para obter as regras de Armazenamento do Azure mais recentes, execute os seguintes comandos:

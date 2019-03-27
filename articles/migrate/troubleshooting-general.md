@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119166"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482905"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -61,11 +61,11 @@ Se você não conseguir exportar o relatório de avaliação do portal, tente us
 
     a.    Em uma janela do Windows PowerShell do administrador, execute o seguinte comando: ```armclient login```
 
-   Isso abre o pop-up de logon do Azure em que você precisa fazer logon no Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Na janela do PowerShell, execute o seguinte comando para obter a URL de download para o relatório de avaliação (substitua os parâmetros URI pelos valores apropriados, exemplo de solicitação de API abaixo)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Exemplo de solicitação e de saída:
 
@@ -102,6 +102,9 @@ Você pode acessar a seção **Essentials** na página **Visão geral** do proje
    - Clique em Arquivo > Implantar modelo OVF > navegue até o arquivo OVA e conclua a implantação
 4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Não é possível selecionar o Azure na nuvem no dispositivo
+
+Esse é um problema conhecido e uma correção está disponível para o problema. Baixe o [mais recente atualização bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para o dispositivo e o dispositivo para aplicar a correção de atualização.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>O coletor não é capaz de se conectar à Internet
 

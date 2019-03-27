@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774431"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487306"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -99,6 +99,12 @@ A configuração de filtragem baseada em domínio consiste nestas etapas:
 3. [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selecionar os domínios a serem sincronizados
+Há duas maneiras de selecionar os domínios a serem sincronizados:
+    - Usando o serviço de sincronização
+    - Usando o Assistente do Azure AD Connect.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Selecione os domínios a serem sincronizados usando o serviço de sincronização
 Para definir o filtro de domínio, siga estas etapas:
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
@@ -112,6 +118,17 @@ Para definir o filtro de domínio, siga estas etapas:
    ![Atualização necessária](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**. Se você tiver removido domínios da floresta, será exibida uma mensagem informando que um domínio foi removido e que a configuração será limpa.
 7. Prossiga para ajustar os perfis de execução.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Selecione os domínios a serem sincronizados usando o Assistente do Azure AD Connect
+Para definir o filtro de domínio, siga estas etapas:
+
+1.  Iniciar o Assistente do Azure AD Connect
+2.  Clique em **Configurar**.
+3.  Selecione **personalizar opções de sincronização** e clique em **próxima**.
+4.  Insira suas credenciais de AD do Azure
+5.  Sobre o **diretórios conectados** tela clique **próxima**.
+6.  Sobre o **página de filtragem de domínio e UO** clique em **atualizar**.  Novos domínios mal agora são exibidos e os domínios excluídos desaparecerá.
+   ![Partições](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Atualizar perfis de execução
 Se você tiver atualizado o filtro de domínio, também precisará atualizar os perfis de execução.

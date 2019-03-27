@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247232"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486777"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada SQL do Azure 
 
@@ -67,7 +67,7 @@ Vamos dar um aprofundamento na arquitetura de conectividade para instâncias ger
 
 ![Arquitetura de conectividade do cluster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes se conectam a uma instância gerenciada usando um nome de host que tem a forma `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host resolve para um endereço IP privado, embora ele é registrado em uma zona de nome DNS (sistema) de domínio público e pode ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospeda uma instância gerenciada secundária, ele compartilha sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de autofailover para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Os clientes se conectam a uma instância gerenciada usando um nome de host que tem a forma `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host resolve para um endereço IP privado, embora ele é registrado em uma zona de nome DNS (sistema) de domínio público e pode ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospeda uma instância gerenciada secundária, ele compartilha sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Esse endereço IP pertence ao balanceador de carga interno da instância gerenciada. O balanceador de carga direciona o tráfego para gateway a instância gerenciada. Como várias instâncias gerenciadas podem ser executado dentro do mesmo cluster, o gateway usa o nome do host da instância gerenciada para redirecionar o tráfego para o serviço de mecanismo SQL correto.
 
@@ -97,18 +97,20 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
 
-| Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
+| NOME       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |Qualquer        |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |PERMITIR |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |Qualquer        |PERMITIR |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |PERMITIR |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
-| Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
+| NOME       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
+|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Internet   |PERMITIR |
+|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |PERMITIR |
+
+> Verifique se há apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Provisionamento de instância gerenciada por meio de implantações do ARM poderá falhar se regras de entrada e saídas são configuradas separadamente para cada portas. 
 
 \* Subrede de MI refere-se ao intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Você pode encontrar essas informações no portal do Azure, nas propriedades de sub-rede.
 
@@ -120,7 +122,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="user-defined-routes"></a>rotas definidas pelo usuário
 
-|Nome|Prefixo de endereço|Próximo salto|
+|NOME|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Rede virtual|
 |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
@@ -167,6 +169,6 @@ Se a rede virtual inclui um DNS personalizado, adicione uma entrada para o ender
 - [Calcular o tamanho da sub-rede](sql-database-managed-instance-determine-size-vnet-subnet.md) onde você deseja implantar as instâncias gerenciadas.
 - Saiba como criar uma instância gerenciada:
   - No [portal do Azure](sql-database-managed-instance-get-started.md).
-  - Usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Usando [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [um modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Usando [um modelo do Resource Manager (usando o JumpBox, com o SSMS incluído)](https://portal.azure.com/).

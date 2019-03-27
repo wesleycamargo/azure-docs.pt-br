@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ec40c587ea4c609b1f8201e9860eb0e98e06ec62
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448182"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
 
@@ -238,7 +238,7 @@ Se você tiver um fluxo de trabalho que usa um aplicativo C#, valide esses aplic
 
 Em clusters baseados em Linux, o znode pai do HBase é `/hbase-unsecure`. Defina esse valor na configuração dos aplicativos cliente Java que usam a API nativa do Java para HBase.
 
-Confira [Build a Java-based Apache HBase application](hdinsight-hbase-build-java-maven.md) (Criar aplicativo HBase baseado em Java) para obter um exemplo de cliente que defina esse valor.
+Confira [Build a Java-based Apache HBase application](hbase/apache-hbase-build-java-maven-linux.md) (Criar aplicativo HBase baseado em Java) para obter um exemplo de cliente que defina esse valor.
 
 ## <a name="spark"></a>Spark
 

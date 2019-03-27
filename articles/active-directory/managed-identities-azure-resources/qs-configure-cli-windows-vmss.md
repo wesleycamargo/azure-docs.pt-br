@@ -4,7 +4,7 @@ description: Passo a passo instruções para configurar o sistema e identidades 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: daveba
+manager: MarkusVi
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88bcd38890baea2d6bc0460937fe4b7882f7fd23
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 04a3c9eba1f6498796a7e617b400649963c996d1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226038"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444468"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure
 
@@ -125,7 +125,7 @@ Nesta seção, você aprende como habilitar e remover uma identidade gerenciada 
 
 Esta seção orienta você por meio da criação de um conjunto de dimensionamento de máquina virtual e a atribuição de uma identidade gerenciada atribuída pelo usuário para o conjunto de dimensionamento de máquina virtual. Se você já tiver um conjunto de dimensionamento de máquina virtual que você deseja usar, ignore esta seção e vá para a próxima.
 
-1. Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa. Crie um [grupo de recursos ](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para independência e implantação da identidade gerenciada atribuída ao usuário, usando [ az group create ](/cli/azure/group/#az-group-create). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. : 
+1. Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa. Crie um [grupo de recursos ](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para independência e implantação da identidade gerenciada atribuída ao usuário, usando [ az group create ](/cli/azure/group/#az-group-create). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>

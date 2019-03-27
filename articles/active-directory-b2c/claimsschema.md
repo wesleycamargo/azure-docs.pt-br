@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167063"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487814"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | SIM | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
+| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
@@ -71,8 +71,8 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Name | SIM | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
-| PartnerClaimType | SIM | O nome do tipo de declaração a ser usado. |
+| Name | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
 
@@ -106,8 +106,8 @@ O elemento **Mask** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Type | SIM | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
-| Regex | Não  | Se **Type** for definido como `Regex`, especifique a expressão regular a ser usada.
+| `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
+| `Regex` | Não  | Se **`Type`** é definido como `Regex`, especifique a expressão regular a usar.
 
 O exemplo a seguir configura uma declaração **PhoneNumber** com a máscara `Simple`:
 
@@ -161,8 +161,8 @@ O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Texto | SIM | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
-|Valor | SIM | O valor da declaração associada à seleção dessa opção. |
+| Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
+|Valor | Sim | O valor da declaração associada à seleção dessa opção. |
 | SelectByDefault | Não  | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Valores possíveis: Verdadeiro ou falso. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
@@ -190,7 +190,7 @@ O elemento **Pattern** pode conter os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| RegularExpression | SIM | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
+| RegularExpression | Sim | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
 | HelpText | Não  | O padrão ou expressão regular para esta declaração. |
 
 O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a validação de entrada de expressão regular:

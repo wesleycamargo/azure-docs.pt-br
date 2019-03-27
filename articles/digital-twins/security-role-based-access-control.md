@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 94217deace731f6650db8003d2e1e3c6c63dcb66
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443685"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função em Gêmeos Digitais do Azure
 
@@ -67,7 +67,7 @@ Uma definição de função é uma coleção de permissões e outros atributos q
 Os seguintes artigos de documentação de referência descrevem:
 
 - Como [Consultar a ID de objeto de um usuário](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Como [Obter a ID de objeto para uma entidade de serviço](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- Como [Obter a ID de objeto para uma entidade de serviço](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 - Como [Recuperar a ID do objeto de um locatário do Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Atribuições de função

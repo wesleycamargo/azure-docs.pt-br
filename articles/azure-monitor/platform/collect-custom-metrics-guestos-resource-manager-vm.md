@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782013"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484890"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -243,12 +243,12 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 1. Obtenha sua lista de assinaturas usando `Get-AzSubscription`.
 1. Defina a assinatura que você está usando para criar/atualizar a máquina virtual em:
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Para criar um novo grupo de recursos para a VM sendo implantada, execute o comando a seguir:
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
@@ -258,7 +258,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
    > [!NOTE]
    > Se quiser atualizar uma VM existente, adicione *-Mode Incremental* ao final do comando a seguir.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417812"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449246"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
@@ -43,7 +43,8 @@ Durante a instalação por push do agente de mobilidade, as etapas a seguir são
 2. Depois que o agente é copiado com êxito para as verificações de pré-requisitos do servidor são executadas no servidor. A instalação falhará se uma ou mais da [pré-requisitos](vmware-physical-azure-support-matrix.md) não forem atendidas. Se todos os pré-requisitos forem atendidos, a instalação é disparada.
 3. O provedor VSS de recuperação de Site do Azure está instalado no servidor como parte da instalação do agente de mobilidade. Esse provedor é usado para gerar pontos consistentes do aplicativo. Se a instalação do provedor VSS falhar, essa etapa será ignorada e a instalação do agente continuará.
 4. Se a instalação do agente for bem-sucedida, mas falha na instalação do provedor VSS, status do trabalho é marcado como "Aviso". Isso não afeta a geração de pontos de consistência de falha.
-     a. Para gerar pontos consistente do aplicativo, consulte [nossas diretrizes](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) para concluir a instalação do Site Recovery VSS provider manualmente.
+
+     a. Para gerar pontos consistente do aplicativo, consulte [nossas diretrizes](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) para concluir a instalação do Site Recovery VSS provider manualmente. </br>
     b.  Se não desejar pontos consistente de aplicativo a ser gerado, [modificar a política de replicação](vmware-azure-set-up-replication.md#create-a-policy) desativar pontos consistente do aplicativo.
 
 ### <a name="before-922-versions"></a>Antes de 9.22 versões

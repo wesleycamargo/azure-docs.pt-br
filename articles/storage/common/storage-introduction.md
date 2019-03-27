@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012737"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446723"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -36,7 +36,7 @@ O Armazenamento do Azure inclui esses serviços de dados:
 
 Cada serviço é acessado através de uma conta de armazenamento. Para usá-los, consulte [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
-## <a name="blob-storage"></a>Armazenamento de Blob
+## <a name="blob-storage"></a>Armazenamento de blob
 
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. 
 
@@ -77,7 +77,7 @@ Por exemplo, digamos que você deseja que seus clientes possam carregar imagens 
 
 Para obter mais informações sobre Filas do Azure, consulte [Introdução às Filas do Azure](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Armazenamento de tabelas
+## <a name="table-storage"></a>Armazenamento de tabela
 
 O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
 
@@ -93,23 +93,15 @@ O Armazenamento do Azure também inclui recursos de disco gerenciados e usados p
 
 Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Acessar blobs, arquivos e filas
+## <a name="securing-access-to-storage-accounts"></a>Protegendo o acesso a contas de armazenamento
 
-Cada conta de armazenamento possui duas chaves de autenticação, que podem ser usadas para qualquer operação. Existem duas chaves para que você possa revisar as chaves ocasionalmente para aumentar a segurança. É importante que essas chaves sejam mantidas seguras porque sua posse, juntamente com o nome da conta, permite acesso ilimitado a todos os dados na conta de armazenamento.
+Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazenamento do Azure suporta os seguintes métodos de autorização:
 
-Esta seção aborda duas maneiras de proteger a conta de armazenamento e os seus respectivos dados. Para obter informações detalhadas sobre como proteger sua conta de armazenamento e seus dados, consulte o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Protegendo o acesso a contas de armazenamento usando o Azure AD
-
-Uma maneira de proteger o acesso aos seus dados de armazenamento é controlar o acesso às chaves da conta de armazenamento. Com o controle de acesso baseado em função (RBAC) do Resource Manager, você pode atribuir funções a usuários, grupos ou aplicativos. Essas funções são associadas a um conjunto específico de ações que são permitidas ou não permitidas. Usar o RBAC para conceder acesso a uma conta de armazenamento cuida somente das operações de gerenciamento para a conta de armazenamento, como alterar o nível de acesso. Você não pode usar o RBAC para conceder acesso a objetos de dados como um compartilhamento de arquivo ou contêiner específico. No entanto, você pode usar o RBAC para conceder acesso às chaves de conta de armazenamento, que então podem ser usadas para ler os objetos de dados.
-
-### <a name="securing-access-using-shared-access-signatures"></a>Protegendo o acesso usando assinaturas de acesso compartilhado
-
-Você pode usar assinaturas de acesso compartilhado e políticas de acesso armazenadas para proteger os objetos de dados. Uma assinatura de acesso compartilhado (SAS) é uma cadeia de caracteres que contém um token de segurança que pode ser anexado a um URI a um ativo que permite delegar acesso a objetos de armazenamento específicos e especificar restrições, como as permissões e o intervalo de data/hora de acesso. Esta funcionalidade tem recursos abrangentes. Para saber informações detalhadas, consulte [Usando Assinaturas de Acesso Compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-
-### <a name="public-access-to-blobs"></a>Acesso público aos blobs
-
-O Serviço Blob permite que você forneça acesso público a um contêiner e seus blobs ou um blob específico. Quando você indica que um contêiner ou blob é público, qualquer pessoa pode lê-lo anonimamente. Nenhuma autenticação é necessária. Um exemplo de quando seria desejável fazer isso é quando você tem um site que está usando imagens, vídeo ou documentos do armazenamento de Blobs. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
+- **Integração do Active Directory (Azure AD) do Azure para dados de blob e fila.** O armazenamento do Azure dá suporte à autenticação e autorização com credenciais do Azure AD para os serviços Blob e fila por meio do controle de acesso baseado em função (RBAC). Autorização de solicitações com o Azure AD é recomendado para melhor segurança e facilidade de uso. Para obter mais informações, consulte [autenticar o acesso ao Azure blobs e filas usando o Azure Active Directory](storage-auth-aad.md).
+- **Autorização do AD do Azure no SMB para arquivos do Azure (visualização).** Os arquivos do Azure dá suporte a autorização baseada em identidade via SMB (Server Message Block) por meio do Azure Active Directory Domain Services. Seu domínio Windows VMs (máquinas virtuais) podem acessar compartilhamentos de arquivos do Azure usando credenciais do Azure AD. Para obter mais informações, consulte [autorização de visão geral do Active Directory do Azure no SMB para arquivos do Azure (visualização)](../files/storage-files-active-directory-overview.md).
+- **Autorização com a chave compartilhada.** Os serviços de Azure Storage Blob, fila e tabela e os arquivos do Azure oferecer suporte à autorização com o cliente compartilhado Key.A usando autorização passa um cabeçalho com cada solicitação que é assinado usando a chave de acesso da conta de armazenamento de chave compartilhada. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **A autorização usando compartilhado (SAS) de assinaturas de acesso.** Uma assinatura de acesso compartilhado (SAS) é uma cadeia de caracteres que contém um token de segurança que pode ser acrescentado ao URI para um recurso de armazenamento. O token de segurança encapsula as restrições, como o intervalo de acesso e permissões. Para obter mais informações, consulte [usando acesso assinaturas compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Acesso anônimo aos contêineres e blobs.** Um contêiner e seus blobs podem ser publicamente disponíveis. Quando você especifica um contêiner ou blob é público, qualquer pessoa pode lê-lo anonimamente; Nenhuma autenticação é necessária. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>Criptografia
 

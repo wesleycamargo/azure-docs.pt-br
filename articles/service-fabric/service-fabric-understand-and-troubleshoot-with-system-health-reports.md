@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487899"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -84,7 +84,7 @@ System.FM relata OK quando o nó ingressa no anel (está em execução). Ele rel
 
 O exemplo a seguir mostra o evento System.FM com estado de integridade OK para o nó ativo:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ System.CM relata OK quando o aplicativo é criado ou atualizado. Ele informa ao 
 
 O exemplo a seguir mostra o evento de estado no aplicativo **fabric:/WordCount** :
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ System.FM relata OK quando o serviço é criado. Ele exclui a entidade do reposi
 
 O exemplo a seguir mostra o evento de estado no serviço **fabric:/WordCount/WordCountWebService**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ Os exemplos a seguir descrevem alguns desses relatórios.
 
 O exemplo a seguir mostra uma partição íntegra:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 O exemplo a seguir mostra a integridade de uma partição que está abaixo da contagem de réplica de destino. A próxima etapa é obter a descrição da partição, que mostra como ela é configurada: **MinReplicaSetSize** é três e **TargetReplicaSetSize** é sete. Em seguida, obtenha o número de nós no cluster, que, neste caso, é cinco. Assim, neste caso, duas réplicas não podem ser colocadas porque o número de réplicas de destino é maior do que o número de nós disponíveis.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 O exemplo a seguir mostra a integridade de uma partição paralisada na reconfiguração porque o usuário não respeitou o token de cancelamento no método **RunAsync**. Investigar o relatório de integridade de qualquer réplica marcada como P (primária) pode ajudar a fazer drill down adicional do problema.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ System.RA relata OK quando a réplica é criada.
 
 O exemplo a seguir mostra uma réplica íntegra:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ Esses avisos de integridade são gerados depois de tentar novamente a ação loc
 
 O exemplo a seguir mostra a integridade de uma réplica que está gerando `TargetInvocationException` de seu método aberto. A descrição contém o ponto de falha **IStatefulServiceReplica.Open**, o tipo de exceção **TargetInvocationException** e o rastreamento de pilha.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 O exemplo a seguir mostra a réplica que está falhando constantemente durante o fechamento:
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ Em casos raros, talvez a reconfiguração fique paralisada devido à comunicaç�
 
 O exemplo a seguir mostra um relatório de integridade em que uma reconfiguração está paralisada na réplica local. Neste exemplo, isso se deve a um serviço não aceitar o token de cancelamento.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ Para desbloquear a reconfiguração:
 
 O exemplo a seguir mostra o evento de integridade de System.RAP para um serviço confiável que não está respeitando o token de cancelamento em **RunAsync**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ Quando uma operação de Nomeação leva mais tempo do que o esperado, a operaç
 
 O exemplo a seguir mostra uma operação de criação de serviço. A operação demorou mais do que a duração configurada. “AO” tenta novamente e envia o trabalho para “NO”. “NO” concluiu a última operação com TIMEOUT. Nesse caso, a mesma réplica é primária para as funções “AO” e “NO”.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ System.Hosting relata OK quando um aplicativo é ativado com êxito no nó. Caso
 
 O exemplo a seguir mostra uma ativação bem-sucedida:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -793,7 +793,7 @@ System.Hosting relatará OK se o tipo de serviço tiver sido registrado com êxi
 
 O exemplo a seguir mostra um pacote de serviço íntegro implantado:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 

@@ -1,20 +1,20 @@
 ---
 title: Criar uma conta de Serviços Cognitivos no portal do Azure
 titlesuffix: Azure Cognitive Services
-description: Como criar uma conta de APIs de Serviços Cognitivos da Microsoft no portal do Azure.
+description: Como criar uma conta de APIs de serviços Cognitivos do Azure no portal do Azure.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534796"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472847"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início Rápido: Criar uma conta de Serviços Cognitivos no portal do Azure
 
@@ -29,7 +29,7 @@ Neste início rápido, você aprenderá a se inscrever nos Serviços Cognitivos 
 Antes de começar, é importante saber que há dois tipos de assinaturas dos Serviços Cognitivos do Azure. A primeira é uma assinatura de um único serviço, como Pesquisa Visual Computacional ou Serviços de Fala. Uma assinatura de serviço único fica restrita ao recurso em questão. A segunda é uma assinatura de vários serviços para os Serviços Cognitivos do Azure. Esta assinatura permite que você use uma única assinatura para a maioria dos Serviços Cognitivos do Azure. Essa opção também consolida a cobrança. Consulte [Preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter mais informações.
 
 >[!WARNING]
-> No momento, esses serviços **não** têm suporte para chaves de vários serviços: QnA Maker, Serviços de Fala e Visão Personalizada.
+> No momento, estes serviços **não** têm suporte para chaves de vários serviços: O QnA Maker, serviços de fala, visão personalizada e Detector de anomalias.
 
 As seções a seguir detalham como criar uma assinatura de um ou de vários serviços.
 

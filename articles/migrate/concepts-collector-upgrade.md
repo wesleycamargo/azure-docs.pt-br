@@ -7,22 +7,39 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: d7a9a6cb8683116b9e0c432c2aede2b8df3ddc68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895595"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484501"
 ---
-# <a name="collector-update-release-history"></a>Histórico de versões de atualização do Coletor
+# <a name="collector-appliance-updates"></a>Atualizações do dispositivo coletor
+
+## <a name="how-to-upgrade-the-appliance"></a>Como atualizar o dispositivo
+
+É possível atualizar o Coletor para a última versão sem baixar o OVA novamente.
+
+1. Feche todas as janelas de navegador e qualquer abra arquivos/pastas no dispositivo.
+2. Baixe o pacote de atualização mais recente da lista de atualizações mencionadas a seguir neste artigo.
+3. Para garantir que o pacote baixado é seguro, abra a janela de comando de administrador e execute o seguinte comando para gerar o hash do arquivo ZIP. O hash gerado deve corresponder ao hash mencionado em relação à versão específica:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+
+    Exemplo: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
+4. Copie o arquivo zip para a VM do dispositivo Coletor.
+5. Clique com o botão direito do mouse no arquivo zip > **Extrair tudo**.
+6. Clique com o botão direito do mouse em **Setup.ps1** > **Executar com PowerShell** e siga as instruções de instalação.
+
+## <a name="collector-update-release-history"></a>Histórico de versões de atualização do Coletor
 
 Este artigo resume as informações de atualização para o dispositivo Coletor em [Migrações para Azure](migrate-overview.md).
 
 O Coletor de Migrações para Azure é um dispositivo leve usado para descobrir um ambiente do vCenter local para fins de avaliação antes da migração para o Azure. [Saiba mais](concepts-collector.md).
 
-## <a name="continuous-discovery-upgrade-versions"></a>Descoberta contínua: Versões de atualização
+### <a name="continuous-discovery-upgrade-versions"></a>Descoberta contínua: Versões de atualização
 
-### <a name="version-101012-released-on-03132019"></a>Versão 1.0.10.12 (lançado em 13/03/2019)
+#### <a name="version-101012-released-on-03132019"></a>Versão 1.0.10.12 (lançado em 13/03/2019)
 
 Contém correções para problemas na seleção do Azure na nuvem no dispositivo.
 
@@ -34,12 +51,12 @@ MD5 | 27704154082344c058238000dff9ae44
 SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
 SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
-## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Descoberta avulsa (já preterido): Versões anteriores de atualização
+### <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Descoberta avulsa (já preterido): Versões anteriores de atualização
 
 > [!NOTE]
 > O dispositivo de descoberta única já foi preterido, pois esse método se baseou nas configurações de estatísticas do vCenter Server para disponibilidade de pontos de dados de desempenho e contadores de desempenho médios coletados, o que resultou em subdimensionamento de VMs para migração para o Azure.
 
-### <a name="version-10916-released-on-10292018"></a>Versão 1.0.9.16 (lançada em 29 de outubro de 2018)
+#### <a name="version-10916-released-on-10292018"></a>Versão 1.0.9.16 (lançada em 29 de outubro de 2018)
 
 Contém correções para problemas de PowerCLI enfrentadas ao configurar o dispositivo.
 
@@ -51,7 +68,7 @@ MD5 | d2c53f683b0ec7aaf5ba3d532a7382e1
 SHA1 | e5f922a725d81026fa113b0c27da185911942a01
 SHA256 | a159063ff508e86b4b3b7b9a42d724262ec0f2315bdba8418bce95d973f80cfc
 
-### <a name="version-10914"></a>Versão 1.0.9.14
+#### <a name="version-10914"></a>Versão 1.0.9.14
 
 Valores de hash para o pacote de [atualização 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
 
@@ -61,7 +78,7 @@ MD5 | c5bf029e9fac682c6b85078a61c5c79c
 SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
 SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-### <a name="version-10913"></a>Versão 1.0.9.13
+#### <a name="version-10913"></a>Versão 1.0.9.13
 
 Valores de hash para o pacote de [atualização 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
 
@@ -70,21 +87,6 @@ Valores de hash para o pacote de [atualização 1.0.9.13](https://aka.ms/migrate
 MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
-
-
-## <a name="run-an-upgrade"></a>Executar uma atualização
-
-É possível atualizar o Coletor para a última versão sem baixar o OVA novamente.
-
-1. Você faz o download do pacote de atualizações mais recente na lista abaixo.
-2. Para ter certeza de que você fez o download de um hotfix seguro, abra a janela Comando do Administrador e execute o comando a seguir a fim de gerar o hash do arquivo ZIP. O hash gerado deve corresponder ao hash mencionado em relação à versão específica:
-
-    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-
-    Exemplo: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
-3. Copie o arquivo zip para a VM do dispositivo Coletor.
-4. Clique com o botão direito do mouse no arquivo zip > **Extrair tudo**.
-5. Clique com o botão direito do mouse em **Setup.ps1** > **Executar com PowerShell** e siga as instruções de instalação.
 
 
 ## <a name="next-steps"></a>Próximas etapas

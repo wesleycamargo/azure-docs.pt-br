@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076336"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482123"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -31,8 +31,8 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 | Windows 8.1            | SMB 3.0     | Sim                   | Sim                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sim                   | Sim                  |
 | Windows Server 2012    | SMB 3.0     | Sim                   | Sim                  |
-| Windows 7              | SMB 2.1     | Sim                   | Não                   |
-| Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                   |
+| Windows 7              | SMB 2.1     | Sim                   | Não                    |
+| Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                    |
 
 <sup>1</sup>Windows 10, versões 1507, 1607, 1703, 1709, 1803 e 1809.  
 <sup>2</sup>Windows Server, versão 1709 e 1803.
@@ -49,7 +49,7 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 
     O código do PowerShell a seguir pressupõe que você tem o módulo do PowerShell AzureRM instalado; consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ Um padrão comum para o lift and shift de aplicativos de LOB (linha de negócios
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistindo as credenciais de compartilhamento de arquivos do Azure no Windows  
 O utilitário [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) permite que você armazene suas credenciais da conta de armazenamento no Windows. Isso significa que você não precisa especificar as credenciais quando tenta acessar um compartilhamento de arquivos do Azure por meio do caminho UNC ou montar o compartilhamento de arquivos do Azure. Para salvar as credenciais da conta de armazenamento, execute os seguintes comandos do PowerShell, substituindo `<your-storage-account-name>` e `<your-resource-group-name>` quando apropriado.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 Você pode verificar que o utilitário cmdkey armazenou a credencial da conta de armazenamento usando o parâmetro de lista:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ Há dois cenários adicionais a serem considerados com cmdkey: armazenar credenc
 
 O armazenamento de credenciais de outro usuário no computador é muito fácil: quando estiver conectado à sua conta, execute o seguinte comando do PowerShell:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ No entanto, não é possível armazenar as credenciais em um computador remoto u
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Como montar o compartilhamento de arquivos do Azure com o PowerShell
 Execute os comandos a seguir de uma sessão regular (ou seja, sem privilégios elevados) do PowerShell para montar o compartilhamento de arquivos do Azure. Lembre-se de substituir `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, e `<desired-drive-letter>` pelas informações apropriadas.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 Se desejar, você pode desmontar o compartilhamento de arquivos do Azure usando o cmdlet do PowerShell a seguir.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -234,13 +234,13 @@ A tabela a seguir fornece informações detalhadas sobre o status do SMB 1 em ca
 | Windows Server 2019 (versão prévia)             | Desabilitado             | Remover com recurso do Windows |
 | Windows Server, versões 1709 e posteriores            | Desabilitado             | Remover com recurso do Windows |
 | Windows 10, versões 1709 ou posterior                | Desabilitado             | Remover com recurso do Windows |
-| Windows Server 2016                       | Ativado              | Remover com recurso do Windows |
-| Windows 10 versões 1507, 1607 e 1703 | Ativado              | Remover com recurso do Windows |
-| Windows Server 2012 R2                    | Ativado              | Remover com recurso do Windows | 
-| Windows 8.1                               | Ativado              | Remover com recurso do Windows | 
-| Windows Server 2012                       | Ativado              | Desabilitar no Registro       | 
-| Windows Server 2008 R2                    | Ativado              | Desabilitar no Registro       |
-| Windows 7                                 | Ativado              | Desabilitar no Registro       | 
+| Windows Server 2016                       | habilitado              | Remover com recurso do Windows |
+| Windows 10 versões 1507, 1607 e 1703 | habilitado              | Remover com recurso do Windows |
+| Windows Server 2012 R2                    | habilitado              | Remover com recurso do Windows | 
+| Windows 8.1                               | habilitado              | Remover com recurso do Windows | 
+| Windows Server 2012                       | habilitado              | Desabilitar no Registro       | 
+| Windows Server 2008 R2                    | habilitado              | Desabilitar no Registro       |
+| Windows 7                                 | habilitado              | Desabilitar no Registro       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditando o uso de protocolos SMB 1
 > Aplica-se a Windows Server 2019 (versão prévia), canal semestral do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
@@ -252,7 +252,7 @@ Antes de remover o protocolo SMB 1 de seu ambiente, audite o uso de SMB 1 para v
 
 Para habilitar a auditoria, execute o seguinte cmdlet em uma sessão do PowerShell com privilégios elevados:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 Para remover o SMB 1 de uma instância do Windows Server, execute o seguinte cmdlet em uma sessão do PowerShell com privilégios elevados:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Para concluir o processo de remoção, reinicie o servidor.
 
 Para remover o SMB 1 do seu cliente Windows, execute o seguinte cmdlet em uma sessão do PowerShell com privilégios elevados:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ O SMB 1 não pode ser completamente removidos em versões herdadas do Windows ou
 
 Você pode fazer isso facilmente usando também o seguinte cmdlet do PowerShell:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558457"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487865"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
@@ -81,13 +81,13 @@ O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico, 
 - 'multiChartStack=false&multiChartSameScale=true' 
   - O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  É 'false', por padrão, então passar 'true' permite essa funcionalidade.  
   
-O 'timeBucketUnit=<Unit>&timeBucketSize=<integer>' permite que você ajuste o controle deslizante de intervalo para fornecer uma exibição mais granular ou mais suave, agregada, do gráfico.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+O `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite que você ajuste o controle deslizante de intervalo para fornecer mais granulares ou suave, agregada mais a exibição do gráfico.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Unidades = dias, horas, minutos, segundos e milissegundos.  Sempre colocar em maiuscula a unidade.
   - Defina o número de unidades passando o inteiro desejado ao timeBucketSize.  Observe que é possível suavizar até sete dias.  
   
-O parâmetro 'timezoneOffset=<integer>' permite a exibição do fuso horário no gráfico, como uma contrapartida aoUTC.  
-  - 'timezoneOffset=-<integer>'
+O `timezoneOffset=<integer>` parâmetro permite que você defina o fuso horário para o gráfico seja exibido em como um deslocamento em UTC.  
+  - `timezoneOffset=-<integer>`
     - O inteiro é sempre em milissegundos.  
     - Observe que essa funcionalidade é ligeiramente diferente da habilitada no gerenciador de TSI, onde permitimos a escolha entre local (horário do navegador) ou UTC.  
  

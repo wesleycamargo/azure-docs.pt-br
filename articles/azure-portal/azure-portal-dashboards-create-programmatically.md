@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888477"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444872"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -28,7 +28,7 @@ Este documento explica o processo de criação e publicação de forma programá
 
 ## <a name="overview"></a>Visão geral
 
-Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](/rest/api/), [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
+Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](/rest/api/), [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
 
 Cada uma dessas APIs e ferramentas oferece maneiras de criar, listar, recuperar, modificar e excluir recursos.  Como painéis são recursos, você pode escolher sua API/ferramenta favorita para usar.
 

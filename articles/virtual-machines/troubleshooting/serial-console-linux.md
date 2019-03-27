@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010983"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445651"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 
@@ -41,9 +41,9 @@ Para obter a documentação do console serial para máquinas virtuais do Windows
 
 - Uma conta que usa um console serial deve ter a [função de Integrador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de [diagnóstico de inicialização](boot-diagnostics.md):
 
-    - A VM na qual você está acessando um console serial deve ter uma conta baseada em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
+- A VM na qual você está acessando um console serial deve ter uma conta baseada em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
 
-    - Para configurações específicas das distribuições do Linux, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
+- Para configurações específicas das distribuições do Linux, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Imagens personalizadas do Linux     | Para ativar o console serial para sua imag
 
 Cenário          | Ações no console serial
 :------------------|:-----------------------------------------
-Arquivo  *FSTAB quebrado* | Pressione a tecla **Enter** para continuar e use um editor de texto para corrigir o arquivo *FSTAB*. Você pode precisar estar no modo de usuário único para fazer isso. Para obter mais informações, consulte [Como corrigir problemas do fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [Use o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).
-Regras de firewall incorretas | Acesse o console serial e corrija o iptables.
-Corrupção de sistema de arquivos/verificação | Acesse o console serial e recupere o sistema de arquivos.
-Problemas de configuração de RDP/SSH | Acesse o console serial e altere as configurações.
-Bloqueio de sistema de rede| Acesse o console serial do portal do Azure para gerenciar o sistema.
-Interagir com o carregador de inicialização | Reinicie a VM na folha do console serial para acessar o GRUB na VM do Linux. Para obter mais informações, consulte [Use o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).
+Arquivo  *FSTAB quebrado* | Pressione a tecla **Enter** para continuar e use um editor de texto para corrigir o arquivo *FSTAB*. Você pode precisar estar no modo de usuário único para fazer isso. Para obter mais informações, consulte a seção console serial [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [console serial de usar para acessar o GRUB e modo de usuário único](serial-console-grub-single-user-mode.md).
+Regras de firewall incorretas |  Se você tiver configurado o iptables para bloquear a conectividade SSH, você pode usar o console serial para interagir com sua VM sem a necessidade de SSH. Mais detalhes podem ser encontrados na [página do manual iptables](https://linux.die.net/man/8/iptables). Da mesma forma, se você firewalld está bloqueando o acesso SSH, você pode acessar a VM por meio do console serial e reconfigurar firewalld. Mais detalhes podem ser encontrados na [firewalld documentação](https://firewalld.org/documentation/).
+Corrupção de sistema de arquivos/verificação | Consulte a seção do console serial do [VM Linux do Azure não pode iniciar devido a erros de sistema de arquivos](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) para obter mais detalhes sobre como solucionar problemas corrompido sistemas de arquivos usando o console serial.
+Problemas de configuração de SSH | Acesse o console serial e altere as configurações. Console serial pode ser usado independentemente da configuração de SSH de uma VM, pois requer a VM tenha conectividade de rede funcione. Um guia de solução de problemas está disponível em [solucionar problemas de conexões SSH a uma VM do Linux do Azure que falha, tem erros, ou é recusada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Mais detalhes estão disponíveis em [detalhadas SSH etapas para problemas para se conectar a uma VM do Linux no Azure para solucionar problemas](./detailed-troubleshoot-ssh-connection.md)
+Interagir com o carregador de inicialização | Reinicie a VM na folha do console serial para acessar o GRUB na VM do Linux. Para obter mais detalhes e informações específicas de distribuição, consulte [console serial de usar para acessar o GRUB e modo de usuário único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Desativar o console serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. É possível desabilitar o console serial no nível da assinatura ou no nível da VM.

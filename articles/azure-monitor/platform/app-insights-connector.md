@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878448"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481749"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -272,7 +272,7 @@ Essa solução não tem um conjunto de pesquisas de logs de exemplo mostrado no 
 ## <a name="removing-the-connector-with-powershell"></a>Remover o conector com PowerShell
 Com o preterimento do portal OMS, não há como configurar nem remover conexões do portal. É possível remover as conexões existentes com o seguinte script do PowerShell. Você deve ser o proprietário ou colaborador do workspace e o leitor do recurso Application Insights para executar esta operação.
 
-```PowerShell
+```powershell
 $Subscription_app = "App Subscription Name"
 $ResourceGroup_app = "App ResourceGroup"
 $Application = "Application Name"
@@ -289,7 +289,7 @@ Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceG
 
 É possível recuperar uma lista de aplicativos usando o seguinte script do PowerShell que invoca uma chamada à API REST. 
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"

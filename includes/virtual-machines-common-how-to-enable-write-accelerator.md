@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740784"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495064"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar acelerador de gravação
 
@@ -96,7 +96,7 @@ Especifique se $true ou $false para controlar o suporte do Aelerador de Gravaç�
 
 Exemplos de comandos podem ser semelhantes a:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Dois principais cenários podem ser em script, conforme mostrado nas seções a 
 
 Substitua `myVM`, `myWAVMs`, `log001`, tamanho do disco e LunID do disco com valores apropriados para sua implantação específica.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Você pode usar este script para habilitar o Acelerador de Gravação em um disco existente. Substitua `myVM`, `myWAVMs`, e `test-log001` com valores apropriados para sua implantação específica. O script acima adiciona o Acelerador de Gravação a um disco existente, onde o valor **$newstatus** é definido como '$true'. Usar o valor '$false' desabilitará o Acelerador de Gravação em um determinado disco.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

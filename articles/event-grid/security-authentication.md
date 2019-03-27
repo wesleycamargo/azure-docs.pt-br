@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316042"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472799"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -41,7 +41,7 @@ Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma fu
 
    A partir da versão 2018-05-01-preview, a Grade de Eventos dá suporte a um handshake de validação manual. Se você estiver criando uma inscrição de evento com um SDK ou ferramenta que usa a versão da API 2018-05-01-preview ou posterior, a Grade de Eventos envia uma propriedade `validationUrl` na parte de dados do evento de validação da assinatura. Para concluir o handshake, encontre essa URL nos dados do evento e manualmente enviar uma solicitação GET para ela. Você pode usar um cliente REST ou o navegador da web.
 
-   A URL fornecida é válida por 10 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 10 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
+   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 10 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
 
 ### <a name="validation-details"></a>Detalhes da validação
 

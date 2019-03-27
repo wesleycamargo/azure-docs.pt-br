@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110599"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496165"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -36,10 +36,10 @@ A tabela a seguir descreve os tipos de armazenamento disponíveis e suas funcion
 
 | Caso de uso | Plug-in de volume | Ler/gravar uma vez | Muitos somente leitura | Muitos ler/gravar |
 |----------|---------------|-----------------|----------------|-----------------|
-| Configuração compartilhada       | Arquivos do Azure   | SIM | sim | SIM |
-| Dados de aplicativo estruturados        | Discos do Azure   | SIM | Não  | Não   |
-| Dados de aplicativo, compartilhamentos somente leitura | [Dysk (versão prévia)][dysk] | SIM | sim | Não   |
-| Dados não estruturados, operações do sistema de arquivos | [BlobFuse (versão prévia)][blobfuse] | SIM | sim | SIM |
+| Configuração compartilhada       | Arquivos do Azure   | Sim | sim | Sim |
+| Dados de aplicativo estruturados        | Discos do Azure   | Sim | Não  | Não   |
+| Dados de aplicativo, compartilhamentos somente leitura | [Dysk (versão prévia)][dysk] | Sim | sim | Não   |
+| Dados não estruturados, operações do sistema de arquivos | [BlobFuse (versão prévia)][blobfuse] | Sim | sim | Sim |
 
 Os dois principais tipos de armazenamento fornecidos para volumes no AKS são apoiados pelos Discos do Azure ou Arquivos do Azure. Para melhorar a segurança, os dois tipos de armazenamento usam a Criptografia do Serviço de Armazenamento do Azure (SSE) por padrão, que criptografa os dados em repouso. No momento, os discos não podem ser criptografados usando a Criptografia de Disco do Azure no nível do nó do AKS.
 
@@ -91,9 +91,9 @@ Para obter mais informações sobre as opções de classe de armazenamento, conf
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja e faça backup de seus dados
 
-**Guias de práticas recomendadas** – faça backup de seus dados usando uma ferramenta adequada para seu tipo de armazenamento, como Heptio Ark ou o Azure Site Recovery. Verifique a integridade e a segurança desses backups.
+**Diretrizes de práticas recomendadas de** – faça backup de seus dados usando uma ferramenta adequada para seu tipo de armazenamento, como Velero ou o Azure Site Recovery. Verifique a integridade e a segurança desses backups.
 
-Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez você precise de um gancho para que seus aplicativos liberem as gravações no disco antes de executar a operação de instantâneo. [Heptio Ark][heptio-ark] pode fazer o backup de volumes persistentes juntamente com recursos e configurações adicionais do cluster. Se você não puder [remover o estado de seus aplicativos][remove-state], faça o backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
+Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez você precise de um gancho para que seus aplicativos liberem as gravações no disco antes de executar a operação de instantâneo. [Velero] [ velero] pode fazer backup de volumes persistentes juntamente com as configurações e recursos de cluster adicionais. Se você não puder [remover o estado de seus aplicativos][remove-state], faça o backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
 
 Entenda as limitações das diferentes abordagens de backups de dados e se será preciso desativar os dados antes de tirar o instantâneo. Os backups de dados não necessariamente permitem que você restaure seu ambiente de aplicativo da implantação do cluster. Para saber mais sobre esses cenários, confira [Práticas recomendadas para a continuidade dos negócios e recuperação de desastres no AKS][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Entenda as limitações das diferentes abordagens de backups de dados e se será
 Este artigo se concentra nas práticas recomendadas de armazenamento de no AKS. Para obter mais informações sobre conceitos básicos de armazenamento no Kubernetes, confira [Conceitos de armazenamento para aplicativos no AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
