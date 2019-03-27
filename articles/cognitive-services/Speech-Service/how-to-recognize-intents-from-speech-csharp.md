@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855717"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer as intenções da fala usando o SDK de Fala para C#
 
@@ -45,9 +45,9 @@ Você precisará ter os itens a seguir antes de começar este tutorial.
 
 ## <a name="luis-and-speech"></a>LUIS e fala
 
-O LUIS integra-se ao serviço de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura do serviço de Fala, apenas do LUIS.
+O LUIS integra-se aos Serviços de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura dos Serviços de Fala, apenas do LUIS.
 
-O LUIS usa dois tipos de chaves: 
+O LUIS usa dois tipos de chaves:
 
 |Tipo de chave|Finalidade|
 |--------|-------|
@@ -56,7 +56,7 @@ O LUIS usa dois tipos de chaves:
 
 A chave do ponto de extremidade é a chave do LUIS necessária para este tutorial. Este tutorial usa o app LUIS de Automação Residencial como exemplo, que pode ser criado seguindo [Usar o app de Automação residencial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se já tiver criado um app LUIS próprio, você poderá usá-lo.
 
-Ao criar um app LUIS, uma chave de início é gerada automaticamente para que você possa testar o app usando consultas de texto. Essa chave não permite a integração ao serviço de Fala e não funcionará com este tutorial. Será preciso criar um recurso LUIS no painel do Azure e atribui-lo ao app LUIS. Você pode usar a camada de assinatura gratuita para este tutorial. 
+Ao criar um app LUIS, uma chave de início é gerada automaticamente para que você possa testar o app usando consultas de texto. Essa chave não habilita a integração com os Serviços de Fala e não funcionará com este tutorial. Será preciso criar um recurso LUIS no painel do Azure e atribui-lo ao app LUIS. Você pode usar a camada de assinatura gratuita para este tutorial.
 
 Depois de criar o recurso LUIS no painel do Azure, faça logon no [portal do LUIS](https://www.luis.ai/home), escolha o seu aplicativo na página Meus aplicativos e alterne para a página Gerenciar do app. Por fim, clique em **Chaves e os pontos de extremidade** na barra lateral.
 
@@ -123,7 +123,7 @@ As seções a seguir incluem uma discussão sobre o código.
 A primeira etapa para reconhecer intenções na fala é criar uma configuração de fala da sua chave de ponto de extremidade e região do LUIS. As configurações de fala podem ser usadas para criar os reconhecedores para os vários recursos do SDK de Fala. A configuração de fala tem várias maneiras de especificar a assinatura que você deseja usar. Aqui, usaremos `FromSubscription`, que usa a chave de assinatura e a região.
 
 > [!NOTE]
-> Use a chave e a região da sua assinatura do LUIS, não de uma assinatura do Serviço de Fala.
+> Use a chave e a região de sua assinatura do LUIS, não de uma assinatura dos Serviços de Fala.
 
 Em seguida, crie um reconhecedor de intenção usando `new IntentRecognizer(config)`. Depois que a configuração souber qual assinatura usar, não será necessário especificar a chave de assinatura e o ponto de extremidade novamente ao criar o reconhecedor.
 
@@ -174,7 +174,7 @@ O código a seguir ilustra duas outras funcionalidades do reconhecimento de inte
 
 A outra funcionalidade é a leitura do áudio que contém a fala, processado de um arquivo WAV. Isso envolve a criação de uma configuração de áudio que pode ser usada ao criar o reconhecedor de intenção. O arquivo precisa ser mono (canal único) com uma taxa de amostragem de 16 kHz.
 
-Para experimentar esses recursos, substitua o corpo do método `RecognizeIntentAsync()` pelo código a seguir. 
+Para experimentar esses recursos, substitua o corpo do método `RecognizeIntentAsync()` pelo código a seguir.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

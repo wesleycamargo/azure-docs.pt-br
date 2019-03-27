@@ -291,7 +291,7 @@ ms.topic: hub-page
                         <h3>API de Visão</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Pesquisa Visual Computacional</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Serviço de Visão Personalizada&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Serviço de Visão Personalizada</a></p>
                         <p><a href="/azure/cognitive-services/face/">API de Detecção Facial</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
@@ -366,20 +366,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Laboratórios</h3>
-                        <p><a href="https://docs.microsoft.com/gestures/">Projeto de Gesto</a></p>
-                        <p><a href="/azure/cognitive-services/project-personality-chat/overview">Projeto Personality Chat</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview">Projeto de Rastreamento de Eventos</a></p>
-                        <p><a href="/azure/cognitive-services/academic-knowledge/home">Projeto de Conhecimento Acadêmico</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation">Insights Locais do Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/kes/overview">Serviço de Exploração de Conhecimento do Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/entitylinking/home">Projeto de Vinculação de Entidade</a></p>
-                        <p><a href="/azure/cognitive-services/labs/url-preview/overview">Visualização de URL do Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/labs/answer-search/overview">Pesquisa de Resposta do Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Localizador de Anomalias de Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Aprendiz de Conversa do Projeto</a></p>
-                        <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Projeto Acústico</a></p>
-                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Serviço de Decisão Personalizada&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a></p>
+                        <h3>Detecção de anomalias</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Detector de Anomalias&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a></p>               
                     </div>
                 </div>
             </div>

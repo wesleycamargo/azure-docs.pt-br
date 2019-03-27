@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999604"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779769"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospede seu domínio no DNS do Azure
 
-Você pode usar o DNS do Azure para hospedar seu domínio DNS e gerenciar seus registros DNS. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. 
+Você pode usar o DNS do Azure para hospedar seu domínio DNS e gerenciar seus registros DNS. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure.
 
 Suponha que você compre o domínio 'contoso.net' de um registrador de nome de domínio e, em seguida, crie uma zona chamada contoso.net no DNS do Azure. Como o proprietário do domínio, seu registrador oferece a opção de configurar os registros de servidor de nomes (NS) para seu domínio. O registrador armazena os registros NS na zona pai .net. Os usuários da Internet em todo o mundo serão então direcionados para seu domínio na zona DNS do Azure quando tentarem resolver os registros DNS em contoso.net.
 
@@ -31,6 +31,12 @@ Neste tutorial, você aprenderá como:
 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Você deve ter um nome de domínio disponível com o qual seja possível testar e que você possa hospedar no DNS do Azure. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
+
+O domínio de exemplo usado neste tutorial é contoso.net, mas use seu próprio nome de domínio.
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 

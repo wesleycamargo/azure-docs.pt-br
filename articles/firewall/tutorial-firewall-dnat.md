@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582234"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531157"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: filtrar tráfego de entrada com o DNAT do Firewall do Azure usando o portal do Azure
+# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de entrada com o DNAT do Firewall do Azure usando o portal do Azure
 
 Você pode configurar a Conversão de Endereço de Rede de Destino (DNAT) do Firewall do Azure para converter e filtrar o tráfego de entrada para suas sub-redes. Quando você configura o modo DNAT, a ação da coleção de regras da NAT é definida como **Dnat**. Assim, cada regra na coleção de regras NAT pode ser usada para converter o IP e a porta públicos em um IP e porta privados do firewall. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
 
@@ -37,7 +37,7 @@ Neste tutorial, você criará duas redes virtuais emparelhadas:
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
 3. Em **Nome do grupo de recursos**, digite **RG-DNAT-Test**.
 4. Em **Assinatura**, selecione sua assinatura.

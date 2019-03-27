@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Azure Active Directory ao Cisco Umbrella
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -229,7 +229,7 @@ No caso do Cisco Umbrella, o provisionamento é uma tarefa manual.
 
     c. Em **Escolher Função de Administrador Delegado**, selecione sua função.
   
-    d. No campo **Endereço de Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+    d. No campo **Endereço de Email**, digite o endereço de email do usuário, como **brendafernandes\@contoso.com**.
 
     e. No campo **Senha**, insira sua senha.
 

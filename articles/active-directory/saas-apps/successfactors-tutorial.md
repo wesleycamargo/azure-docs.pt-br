@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c964d4e070bafc6e8e66535c3963d82803d3cd1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com o SuccessFactors
 
@@ -106,6 +106,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
     ![Informações de logon único de Domínio e URLs do SuccessFactors](common/sp-identifier-reply.png)
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -114,6 +115,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
     | `https://<companyname>.sapsf.eu`|
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,6 +129,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
     | `https://www.successfactors.cn/<companyname>`|
 
     c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -242,7 +245,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588102"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404698"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS
 
@@ -40,9 +40,10 @@ Antes de começar, verifique se:
 
 Com base na conta de armazenamento selecionada, o Data Box cria até:
 - Três compartilhamentos para cada conta de armazenamento associada para GPv1 e GPv2.
-- Uma ação para a conta premium ou de armazenamento de blobs. 
+- Um compartilhamento para armazenamento premium. 
+- Um compartilhamento para conta do Armazenamento de Blobs. 
 
-Sob o blob de bloco e os compartilhamentos de blob de página, as entidades de primeiro nível são contêineres e as entidades de segundo nível são blobs. Em compartilhamentos de Arquivos do Azure, as entidades de primeiro nível são compartilhamentos e entidades de segundo nível são arquivos.
+Em compartilhamentos de blob de blocos e blob de páginas, as entidades de primeiro nível são contêineres e as entidades de segundo nível são blobs. Em compartilhamentos de Arquivos do Azure, as entidades de primeiro nível são compartilhamentos e entidades de segundo nível são arquivos.
 
 A tabela a seguir mostra o caminho UNC para os compartilhamentos na URL de caminho do Data Box e do Armazenamento do Azure em que os dados são carregados. A URL final de caminho do Armazenamento do Azure pode ser derivada do caminho de compartilhamento UNC.
  
@@ -125,6 +126,9 @@ Se usar a opção de rsync para obter uma cópia com multithread, siga estas dir
      onde j especifica o número de paralelização, X = número de cópias paralelas
 
      Recomendamos que você inicie com 16 cópias paralelas e aumente o número de segmentos, dependendo dos recursos disponíveis.
+
+> [!IMPORTANT]
+> Não há suporte para os seguintes tipos de arquivo do Linux: links simbólicos, arquivos de caracteres, arquivos de bloco, soquetes e pipes. Esses tipos de arquivo resultarão em falhas durante a etapa **Preparar para o envio**.
 
 - Para garantir a integridade dos dados, a soma de verificação é computada em linha à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço usado e o espaço livre no seu dispositivo.
     

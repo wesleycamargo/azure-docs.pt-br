@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ace39ad587fa8a3bf78f3807cbee4970d29c910e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Azure Active Directory ao Flock
 
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -212,7 +212,7 @@ Para permitir que os usuários do Azure AD façam logon no Flock, eles devem ser
 
     ![Adicionar Funcionário](./media/flock-tutorial/user2.png)
 
-4. Insira o endereço de email do usuário como **Brittasimon@contoso.com** e, em seguida, selecione **Adicionar usuários**.
+4. Insira o endereço de email do usuário como **brendafernandes\@contoso.com** e, em seguida, selecione **Adicionar Usuários**.
 
     ![Adicionar Funcionário](./media/flock-tutorial/user3.png)
 

@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255050"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544956"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Início Rápido: criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando C\#
 
@@ -21,6 +21,8 @@ O Azure SignalR Service permite adicionar facilmente a funcionalidade em tempo r
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+
+Você também pode executar este tutorial na linha de comando (macOS, Windows ou Linux) usando as [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), o [SDK do .NET Core](https://dotnet.microsoft.com/download)e seu editor de código favorito.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +36,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar o aplicativo do Azure Functions
 
-1. Inicie o Visual Studio e abra a solução na pasta *chat\src\csharp* do repositório clonado.
+1. Inicie o Visual Studio (ou outro editor de código) e abra a solução na pasta *chat\src\csharp* do repositório clonado.
 
 1. No navegador em que o portal do Azure é aberto, confirme se a instância do SignalR Service implantada anteriormente foi criada com êxito pesquisando pelo nome na caixa de pesquisa na parte superior do portal. Selecione a instância para abri-la.
 
@@ -53,9 +55,17 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
     - **GetSignalRInfo** – usa a associação de entrada *SignalRConnectionInfo* para gerar e retornar informações de conexão válidas.
     - **SendMessage** – recebe uma mensagem de chat no corpo da solicitação e usa a associação de saída *SignalR* para difundir a mensagem a todos os aplicativos cliente conectados.
 
-1. No menu **Depurar**, selecione **Iniciar depuração** para executar o aplicativo.
+1. Use uma das opções a seguir para iniciar o aplicativo de Funções do Azure localmente.
 
-    ![Depurar o aplicativo](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+    - **Visual Studio**: No menu *Depurar*, selecione *Iniciar depuração* para executar o aplicativo.
+
+        ![Depurar o aplicativo](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+
+    - **Linha de comando**: Execute o comando a seguir para iniciar o host da função.
+
+        ```bash
+        func start
+        ```
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -63,7 +73,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou e executou um aplicativo sem servidor em tempo real no VS Code. Em seguida, saiba mais sobre como implantar o Azure Functions do VS Code.
+Neste início rápido, você criou e executou um aplicativo sem servidor em tempo real no Visual Studio. Em seguida, saiba mais sobre como desenvolver e implantar o Azure Functions com o Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Implantar o Azure Functions com o VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Desenvolver o Azure Functions usando o Visual Studio](../azure-functions/functions-develop-vs.md)

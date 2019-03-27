@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236542"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433800"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>O que é o Cache do Azure para Redis
 
@@ -57,7 +57,7 @@ Basic | Um cache de nó único. Essa camada dá suporte a vários tamanhos de me
 
 Você pode dimensionar seu cache até uma camada superior depois de criá-lo. Não há suporte para a redução para uma camada inferior. Para obter instruções sobre dimensionamento passo a passo, confira [Como dimensionar o Cache do Azure para Redis](cache-how-to-scale.md) e [Como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Comparação de recursos
+### <a name="feature-comparison"></a>Comparação de Recursos
 
 A página [Preço do Cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada camada. A seguinte tabela ajuda a descrever alguns dos recursos compatíveis por camada:
 

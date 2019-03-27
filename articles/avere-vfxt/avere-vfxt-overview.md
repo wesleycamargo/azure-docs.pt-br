@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670480"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989312"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT para Azure? 
 
@@ -19,8 +19,8 @@ O Avere vFXT para o Azure é um solução de cache de sistema de arquivos para t
 
 O Avere vFXT dá suporte a estes cenários comuns de computação: 
 
-* Arquitetura de nuvem híbrida: o Avere vFXT para Azure pode trabalhar com um sistema de armazenamento de hardware, que oferece o benefício da computação em nuvem sem precisar mover arquivos. 
-* Intermitência de nuvem: o Avere vFXT para Azure pode ajudá-lo a mover seus dados para a nuvem para um único projeto, ou "preparar e mover" todo o fluxo de trabalho permanentemente. 
+* Arquitetura de nuvem híbrida: O Avere vFXT para Azure pode trabalhar com um sistema de armazenamento de hardware, que oferece o benefício da computação em nuvem sem precisar mover arquivos. 
+* Intermitência de nuvem: O Avere vFXT para Azure pode ajudá-lo a mover seus dados para a nuvem para um único projeto, ou "preparar e mover" todo o fluxo de trabalho permanentemente. 
 
 ![diagrama que mostra detalhes sobre o sistema do Avere vFXT dentro de uma assinatura do Azure conectada ao Armazenamento de Blobs e a um datacenter local](media/avere-vfxt-hybrid.png)
 
@@ -67,7 +67,7 @@ O Avere vFXT usa os seguintes recursos do Azure:
 
 |Componente do Azure|   |
 |----------|-----------|
-|Máquinas virtuais|Três ou mais D16s_v3 ou E32s_v3|
+|Máquinas virtuais|3 ou mais E32s_v3|
 |Armazenamento SSD Premium|Espaço do sistema operacional de 200 GB, além de 1 a 4 TB de espaço do cache por nó |
 |Conta de armazenamento (opcional) |v2|
 |Armazenamento de back-end de dados (opcional) | Um contêiner de blobs de LRS vazio |

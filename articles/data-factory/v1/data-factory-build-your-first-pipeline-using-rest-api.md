@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2465dd6c22567a3d8b50a7cfad4e26491bbe773e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 384294dfcd443f0bdbb7a915069d2563bcc35ae4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885193"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533878"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro Azure data factory usando a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -46,6 +46,9 @@ O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta CURL com comandos REST para criar um data factory.
 * Siga as instruções [deste artigo](../../active-directory/develop/howto-create-service-principal-portal.md) para:
@@ -55,13 +58,13 @@ O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**.
   4. Atribua o aplicativo **ADFGetStartedApp** à função **Colaborador do Data Factory**.
 * Instale o [Azure PowerShell](/powershell/azure/overview).
 * Inicie o **PowerShell** e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechar e reabrir, precisará executar os comandos novamente.
-  1. Execute **Connect-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
-  2. Execute **Get-AzureRmSubscription** para exibir todas as assinaturas dessa conta.
-  3. Execute **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** para selecionar a assinatura com a qual você deseja trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua assinatura do Azure.
+  1. Execute **Connect-AzAccount** e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
+  2. Execute **Get-AzSubscription** para exibir todas as assinaturas dessa conta.
+  3. Execute **Get-AzSubscription – SubscriptionName NameOfAzureSubscription | Set-AzContext** para selecionar a assinatura com a qual você deseja trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua assinatura do Azure.
 * Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell:
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
    Algumas das etapas neste tutorial supõem que você utilize o grupo de recursos denominado ADFTutorialResourceGroup. Se você utilizar um grupo de recursos diferente, precisará usar o nome do seu grupo de recursos no lugar de ADFTutorialResourceGroup neste tutorial.
@@ -132,7 +135,7 @@ Observe os seguintes pontos:
 * Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 * O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
 
-    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 
@@ -325,12 +328,12 @@ Observe os seguintes pontos:
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
       Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado:
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
 

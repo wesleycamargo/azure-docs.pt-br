@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aa3bbfc0a79e4923f66cc73817ecae1723621eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com o SAP NetWeaver
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 
     b. Clique em **Metadados**.
 
-    c. Salvar o**arquivo XML de Metadados** em seu computador e carregá-lo na seção **Configuração Básica do SAML** automaticamente preencher o **Identificador** e os valores de **Responder URL** no portal do Azure.
+    c. Salve o **arquivo XML de metadados** em seu computador e faça upload dele na seção **Configuração Básica de SAML** para preencher automaticamente os valores de **Identificador** e **URL de Resposta** no portal do Azure.
 
 8. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SAP NetWeaver**, selecione **Logon único**.
 
@@ -179,9 +179,9 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 
     > [!NOTE]
     > Já observamos que alguns clientes relataram um erro de URL de Resposta incorreta configurada para suas instâncias. Se você receber um erro desse tipo, use o seguinte script do PowerShell como uma solução alternativa para definir a URL de Resposta correta para a instância:
-    ```
-    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-    ``` 
+    > ```
+    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    > ``` 
     > A ID de Objeto da ServicePrincipal deve ser definida primeiro por você ou também pode ser passada aqui.
 
 12. O aplicativo SAP NetWeaver espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
@@ -316,7 +316,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

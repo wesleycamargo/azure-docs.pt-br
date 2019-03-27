@@ -3,59 +3,48 @@ title: 'Tutorial: Integração do Azure Active Directory com o Workday | Microso
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workday.
 services: active-directory
 documentationCenter: na
-author: cmmdesai
-manager: daveba
-ms.reviewer: jeedes
+author: jeevansd
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2018
-ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.topic: tutorial
+ms.date: 03/04/2019
+ms.author: jeedes
+ms.openlocfilehash: 9bcc74e395746ae82867d915ea37962bf8880a3e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301631"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
 Neste tutorial, você aprenderá como integrar o Workday ao Azure AD (Azure Active Directory).
-
 A integração do Workday com o Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao Workday.
-- É possível permitir que os usuários se conectem automaticamente ao Workday (Logon Único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Workday.
+* Você pode permitir que seus usuários entrem automaticamente no Workday (Logon Único) usando suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Workday, são necessários os seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura do Workday habilitada para logon único
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura do Workday com logon único habilitado
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-1. Adicionar o Workday da galeria
-2. configurar e testar o logon único do AD do Azure
+* O Workday dá suporte ao SSO iniciado por **SP** e **IDP**
 
 ## <a name="adding-workday-from-the-gallery"></a>Adicionar o Workday da galeria
 
@@ -63,113 +52,119 @@ Para configurar a integração do Workday com o Azure AD, é necessário adicion
 
 **Para adicionar o Workday da galeria, siga as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **Workday**, selecione **Workday** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Workday na lista de resultados](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
+     ![Workday na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configura e testa o logon único do Azure AD com o Workday, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Workday é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Workday.
-
-No Workday, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Workday com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Workday.
 
 Para configurar e testar o logon único do Azure AD com o Workday, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Workday](#create-a-workday-test-user)** – para ter um equivalente de Brenda Fernandes no Workday que esteja vinculado à representação de usuário no Azure AD.
+2. **[Configurar o Logon Único do Workday](#configure-workday-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+5. **[Criar um usuário de teste do Workday](#create-workday-test-user)** – para ter um equivalente de Brenda Fernandes no Workday que esteja vinculado à representação de usuário no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Workday.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o Workday, siga as etapas abaixo:**
+Para configurar o logon único do Azure AD com o Workday, siga as etapas abaixo:
 
-1. No Portal do Azure, na página de integração de aplicativos do **Workday**, clique em **Logon único**.
+1. No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Workday**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Caixa de diálogo Logon único](./media/workday-tutorial/tutorial_workday_samlbase.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na seção **URLs e Domínio do Workday**, siga as etapas abaixo:
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Informações de logon único de Domínio e URLs do Workday](./media/workday-tutorial/tutorial_workday_url.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.flex`
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    b. Na caixa de texto **Identificador**, digite uma URL: `https://www.workday.com`
+    ![Informações de logon único de Domínio e URLs do Workday](common/sp-identifier.png)
 
-4. Marque a opção **Mostrar configurações de URL avançadas** e execute a seguinte etapa:
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
-    ![Informações de logon único de Domínio e URLs do Workday](./media/workday-tutorial/tutorial_workday_url1.png)
+    b. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.workday.com`
 
-    Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://impl.workday.com/<tenant>/login-saml.htmld`
+5. Clique em **Definir URLs adicionais** e execute a seguinte etapa:
+
+    ![Informações de logon único de Domínio e URLs do Workday](./media/workday-tutorial/reply.png)
+
+    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https:\//impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Sua URL de resposta deve ter um subdomínio, por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl.
-    > Usar algo como "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*" não. Contate a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter esses valores.
+    > Usar algo como `http://www.myworkday.com` funciona, mas `http://myworkday.com` não. Contate a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. O aplicativo do dia de trabalho espera as asserções do SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo dessa configuração.
+6. Seu aplicativo Workday espera as instruções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Workday espera que **nameidentifier** seja mapeado com **user.mail**, **UPN** etc. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![Configurar o logon único](./media/Workday-tutorial/tutorial_workday_attributes.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Aqui nós Mapeamos a identificação do nome UPN (userPrincipalName) como padrão. Você precisa para mapear a ID de nome com a ID de usuário real em sua conta do Workday (seu email, etc. o UPN) para trabalhar com êxito do SSO.
 
-6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-    ![O link de download do Certificado](./media/workday-tutorial/tutorial_workday_certificate.png)
+    ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Clique no botão **Salvar** .
+8. Na seção **Configurar o Workday**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Botão Salvar em Configurar Logon Único](./media/workday-tutorial/tutorial_general_400.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-8. Na seção **Configuração do Workday**, clique em **Configurar o Workday** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    a. URL de logon
 
-    ![Configuração do Workday](./media/workday-tutorial/tutorial_workday_configure.png)
+    b. Identificador do Azure AD
 
-9. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Workday como administrador.
+    c. URL de logoff
 
-10. Na **Caixa de pesquisa**, procure com o nome **Editar Configuração de Locatário – Segurança** no lado superior esquerdo da home page.
+### <a name="configure-workday-single-sign-on"></a>Configurar o logon único do Workday
+
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Workday como administrador.
+
+2. Na **Caixa de pesquisa**, procure com o nome **Editar Configuração de Locatário – Segurança** no lado superior esquerdo da home page.
 
     ![Editar segurança de locatário](./media/workday-tutorial/IC782925.png "Editar segurança de locatário")
 
-11. Na seção **URLs de Redirecionamento** , execute as seguintes etapas:
+3. Na seção **URLs de Redirecionamento** , execute as seguintes etapas:
 
     ![URLs de redirecionamento](./media/workday-tutorial/IC7829581.png "URLs de redirecionamento")
 
      a. Clique em **Adicionar Linha**.
 
-    b. Nas caixas de texto **URL de Redirecionamento de Logon** e **URL de Redirecionamento Móvel**, digite a **URL de Entrada** inserida na página **URLs e Domínio do Workday** do Portal do Azure.
+    b. Nas caixas de texto **URL de Redirecionamento de Logon** e **URL de Redirecionamento Móvel**, digite a **URL de Entrada** inserida na página **Configuração Básica de SAML** do Portal do Azure.
 
-    c. No Portal do Azure, na janela **Configurar logon**, copie a **URL de Saída** e, em seguida, cole-a na caixa de texto **URL de Redirecionamento de Logoff**.
+    c. No Portal do Azure, na janela **Configurar Workday**, copie a **URL de Logoff** e, em seguida, cole-a na caixa de texto **URL de Redirecionamento de Logoff**.
 
     d. Na caixa de texto **Usado para Ambientes**, selecione o nome do ambiente.  
 
-    >[!NOTE]
-    > O valor do atributo Ambiente é vinculado ao valor da URL do locatário:  
-    >-Se o nome de domínio da URL do locatário da Workday iniciar com impl por exemplo: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), o atributo do **Ambiente** deverá ser definido como Implementação.  
-    >–Se o nome de domínio começar de outra forma, será necessário contatar a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor de **Ambiente** correspondente.
+   > [!NOTE]
+   > O valor do atributo Ambiente é vinculado ao valor da URL do locatário:  
+   > –Se o nome de domínio da URL do locatário do Workday começar com impl, por exemplo, *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*, o atributo **Ambiente** deverá ser definido como Implementação.  
+   > –Se o nome de domínio começar de outra forma, será necessário contatar a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor de **Ambiente** correspondente.
 
-12. Na seção **Configuração do SAML** , execute as seguintes etapas:
+4. Na seção **Configuração do SAML** , execute as seguintes etapas:
 
     ![Instalação do SAML](./media/workday-tutorial/IC782926.png "Instalação do SAML")
 
@@ -177,19 +172,19 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     b.  Clique em **Adicionar Linha**.
 
-13. Na seção **Provedores de Identidade do SAML**, execute as seguintes etapas:
+5. Na seção **Provedores de Identidade do SAML**, execute as seguintes etapas:
 
     ![Provedores de Identidade SAML](./media/workday-tutorial/IC7829271.png "Provedores de Identidade SAML")
 
      a. Na caixa de texto **Nome do Provedor de Identidade**, digite um nome de provedor (por exemplo: *SPInitiatedSSO*).
 
-    b. No Portal do Azure, na janela **Configurar logon**, copie o valor da **ID da Entidade SAML** e, em seguida, cole-o na caixa de texto **Emissor do Certificado**.
+    b. No Portal do Azure, na janela **Configurar Workday**, o valor do **Identificador do Azure AD** e, em seguida, cole-o na caixa de texto **Emissor**.
 
     ![Provedores de Identidade SAML](./media/workday-tutorial/IC7829272.png "Provedores de Identidade SAML")
 
-    c. No portal do Azure, na janela **Configurar logon**, copie o valor da **URL de Saída** e, em seguida, cole-o na caixa de texto **URL de Resposta de Logoff**.
+    c. No Portal do Azure, na janela **Configurar Workday**, copie a **URL de Logoff** e, em seguida, cole-a na caixa de texto **URL de Resposta de Logoff**.
 
-    d. No Portal do Azure, na janela **Configurar logon**, copie o valor da **URL do Serviço de Logon Único SAML** e, em seguida, cole-o na caixa de texto **URL do Serviço de SSO IdP**.
+    d. No Portal do Azure, na janela **Configurar Workday**, copie a **URL de Logon** e, em seguida, cole-a na caixa de texto **URL do Serviço de SSO do IdP**.
 
     e. Na caixa de texto **Usado para Ambientes**, selecione o nome do ambiente.
 
@@ -201,7 +196,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Criar](./media/workday-tutorial/IC782929.png "Criar")
 
-14. Na seção **Exibir Chave Pública x509** , realize as seguintes etapas:
+6. Na seção **Exibir Chave Pública x509** , realize as seguintes etapas:
 
     ![Exibir chave pública x509](./media/workday-tutorial/IC782930.png "Exibir chave pública x509")
 
@@ -222,7 +217,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     f.  Clique em **OK**.
 
-15. Execute as seguintes etapas:
+7. Execute as seguintes etapas:
 
     ![Configuração de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuração de SSO")
 
@@ -241,95 +236,72 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE]
     > Verifique se que você configurar o logon único corretamente. Caso você habilite o logon único com a configuração incorreta, talvez não seja possível inserir o aplicativo com suas credenciais e ser bloqueado. Nessa situação, o Workday fornece uma URL de login de backup em que os usuários podem entrar usando seu nome de usuário e senha normais no seguinte formato: [Your Workday URL] /login.flex?redirect=n
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/workday-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/workday-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/workday-tutorial/create_aaduser_03.png)
-
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/workday-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-workday-test-user"></a>Criar um usuário de teste do Workday
-
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Workday. Trabalhe com [a equipe de suporte do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os usuários à plataforma Workday. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Workday.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Workday**.
 
-**Para atribuir Brenda Fernandes ao Workday, siga as etapas abaixo:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, selecione **Workday**.
 
-    ![O link do Workday na lista de Aplicativos](./media/workday-tutorial/tutorial_workday_app.png)  
+    ![O link do Workday na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O painel Adicionar Atribuição][203]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar logon único
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-workday-test-user"></a>Criar um usuário de teste do Workday
+
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Workday. Trabalhe com [a equipe de suporte do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os usuários à plataforma Workday. Os usuários devem ser criados e ativados antes de usar o logon único.
+
+### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Workday no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Workday.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Ao clicar no bloco do Workday no Painel de Acesso, você deverá ser conectado automaticamente ao Workday, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[1]: ./media/workday-tutorial/tutorial_general_01.png
-[2]: ./media/workday-tutorial/tutorial_general_02.png
-[3]: ./media/workday-tutorial/tutorial_general_03.png
-[4]: ./media/workday-tutorial/tutorial_general_04.png
-
-[100]: ./media/workday-tutorial/tutorial_general_100.png
-
-[200]: ./media/workday-tutorial/tutorial_general_200.png
-[201]: ./media/workday-tutorial/tutorial_general_201.png
-[202]: ./media/workday-tutorial/tutorial_general_202.png
-[203]: ./media/workday-tutorial/tutorial_general_203.png

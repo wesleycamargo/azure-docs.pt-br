@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Traduzir texto, Node.js – API de Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Node.js.
 services: cognitive-services
@@ -10,19 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834283"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres com Node.js
 
 Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Node.js e a API REST de Tradução de Texto.
 
 Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +32,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
-Crie um novo projeto usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código para seu projeto em um arquivo denominado `translate-text.js`.
+Crie um novo projeto Python usando o editor ou IDE favorito ou crie uma nova pasta com um arquivo chamado `translate-text.js` na área de trabalho. Em seguida, copie este snippet de código no projeto/arquivo:
 
 ```javascript
 const request = require('request');

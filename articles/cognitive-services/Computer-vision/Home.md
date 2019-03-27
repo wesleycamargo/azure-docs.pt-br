@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453045"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432100"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -42,12 +42,11 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 |**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Pesquisa Visual Computacional primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. A Pesquisa Visual Computacional corta a imagem para atender aos requisitos da área de interesse. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original, dependendo de suas necessidades.|
 |**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analise o conteúdo de uma imagem para retornar as coordenadas da *área de interesse*. Essa é a mesma função usada para gerar uma miniatura, porém, em vez de cortar a imagem, a Pesquisa Visual Computacional retorna as coordenadas da caixa delimitadora da região para que o aplicativo de chamada possa modificar a imagem original conforme desejado.|
 
-
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Use a Pesquisa Visual Computacional para [extrair o texto usando o OCR (reconhecimento óptico de caracteres)](concept-extracting-text-ocr.md) de uma imagem em um fluxo de caracteres legíveis por computador. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
+Use a Pesquisa Visual Computacional para extrair texto de uma imagem em um fluxo de caracteres legíveis por computador usando o [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
 
-Você também pode [reconhecer o texto impresso e manuscrito](concept-recognizing-text.md) em uma imagem. A Pesquisa Visual Computacional pode detectar e extrair texto impresso e manuscrito das imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, o reconhecimento de texto impresso e manuscrito está em versão prévia, sendo o inglês é o único idioma com suporte. 
+Você também pode usar a [API de Leitura](concept-recognizing-text.md#read-api) para extrair texto impresso e manuscrito de imagens e documentos com uso intenso de texto. A API de Leitura usa modelos atualizados e funciona em uma variedade de objetos em diferentes superfícies e telas de fundo, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações. Atualmente, a API de Leitura está em versão prévia e o inglês é o único idioma com suporte.
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

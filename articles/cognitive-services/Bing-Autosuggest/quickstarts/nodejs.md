@@ -1,92 +1,123 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing, Node.js'
+title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Node.js'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Sugestão Automática do Bing.
+description: Saiba como começar rapidamente sugerindo termos de pesquisa em tempo real com a API de sugestão automática do Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 09ad56d2ccee28519c1926eedf6716a7110dc977
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: b8f7fbe386400babac033de0efbaaabbe8832397
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867861"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010082"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Início Rápido da API de Sugestão Automática do Bing com o Node.js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Node.js
 
-Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com o Node.js. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
+Use este guia de início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Esse aplicativo simples do Node.js envia uma consulta de pesquisa parcial para a API e retorna as sugestões para pesquisas. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte dessa amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter o [Node.js 6](https://nodejs.org/en/download/) para executar esse código.
+* [Node.js 6](https://nodejs.org/en/download/) ou posterior
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Sugestão Automática do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Obter resultados da Sugestão Automática
+## <a name="create-a-new-application"></a>Crie um novo aplicativo
 
-1. Crie um projeto Node.js em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+1. Crie um novo arquivo JavaScript no seu IDE ou editor favorito e defina o rigor e os requisitos de https.
+    
+    ```javascript
+    'use strict';
+    
+    let https = require ('https');
+    ```
 
-```javascript
-'use strict';
+2. Crie variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura, o [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes) e o termo de pesquisa.
 
-let https = require ('https');
+    ```javascript
+    // Replace the subscriptionKey string value with your valid subscription key.
+    let subscriptionKey = 'enter key here';
+    
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/Suggestions';
+    
+    let mkt = 'en-US';
+    let query = 'sail';
+    ```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+## <a name="construct-the-search-request-and-query"></a>Construa a solicitação de pesquisa e a consulta.
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+1. Criar uma cadeia de caracteres de parâmetros para a sua consulta, acrescentando o código de mercado para o `mkt=` parâmetro e sua consulta para o `q=` parâmetro.
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/Suggestions';
+    ```javascript 
+    let params = '?mkt=' + mkt + '&q=' + query;
+    ```
 
-let mkt = 'en-US';
-let query = 'sail';
+2. Crie uma função chamada `get_suggestions()`. Use as variáveis das últimas etapas para formatar uma URL de pesquisa para a solicitação da API. O termo de pesquisa deve ser codificado como URL antes de ser enviado para a API.
 
-let params = '?mkt=' + mkt + '&q=' + query;
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-    let body_ = JSON.parse (body);
-    let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_suggestions = function () {
-  let request_params = {
-    method : 'GET',
-    hostname : host,
-    path : path + params,
-    headers : {
-      'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    ```javascript
+    let get_suggestions = function () {
+      let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + params,
+        headers : {
+          'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+      };
+    //...
     }
-  };
+    ```
 
-  let req = https.request (request_params, response_handler);
-  req.end ();
-}
+    1. Na mesma função, use a biblioteca de solicitação para enviar sua consulta para a API. `response_handler` será definido na próxima seção.
+    
+        ```javascript
+        //...
+        let req = https.request(request_params, response_handler);
+        req.end();
+        ```
 
-get_suggestions ();
-```
+## <a name="create-a-search-handler"></a>Criar um manipulador de pesquisa
 
-### <a name="response"></a>Response
+1. defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. Siga estas etapas nesta função:
+    
+    1. Defina uma variável para conter o corpo da resposta JSON.  
+
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
+
+    2. Armazene o corpo da resposta quando o sinalizador **dados** for chamado
+        
+        ```javascript
+        response.on ('data', function (d) {
+        body += d;
+        });
+        ```
+
+    3. Quando **final** é sinalizado, os usuários `JSON.parse()` e `JSON.stringify()` devem imprimir a resposta.
+    
+        ```javascript
+        response.on ('end', function () {
+        let body_ = JSON.parse (body);
+        let body__ = JSON.stringify (body_, null, '  ');
+            console.log (body__);
+        });
+        response.on ('error', function (e) {
+            console.log ('Error: ' + e.message);
+        });
+        ```
+
+2. Ligue para `get_suggestions()` para enviar a solicitação à API de sugestão automática do Bing.
+
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -157,9 +188,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)
-
-## <a name="see-also"></a>Consulte também
+> [Criar um aplicativo Web de página única](../tutorials/autosuggest.md)
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência de API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

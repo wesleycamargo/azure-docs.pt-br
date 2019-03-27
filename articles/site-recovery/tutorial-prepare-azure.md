@@ -2,18 +2,18 @@
 title: Preparar o Azure para a recuperação de desastre de computadores locais com o Azure Site Recovery | Microsoft Docs
 description: Saiba como preparar o Azure para a recuperação de desastre de computadores locais usando o Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838554"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar recursos do Azure para recuperação de desastre de computadores locais
 
@@ -28,7 +28,6 @@ Este artigo mostra como preparar componentes do Azure quando você deseja replic
 
 > [!div class="checklist"]
 > * Verifique se sua conta do Azure tem permissões de replicação.
-> * Crie uma conta de armazenamento do Azure. As imagens de máquinas replicadas são mantidas nele.
 > * Crie um cofre dos Serviços de Recuperação. Um cofre contém metadados e informações de configuração para máquinas virtuais e outros componentes de replicação.
 > * Configure uma rede do Azure. Quando as VMs do Azure são criadas após o failover, elas são ingressadas nessa rede do Azure.
 
@@ -36,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](http://portal.azure.com).
+Entre no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 
@@ -44,27 +43,11 @@ Se acabou de criar sua conta gratuita do Azure, você é o administrador da assi
 
 - Criar uma VM no grupo de recursos selecionado.
 - Criar uma VM na rede virtual selecionada.
-- Gravar na conta de armazenamento selecionada.
+- Gravar para a conta de armazenamento.
+- Gravar em disco gerenciado.
 
 Para concluir essas tarefas, sua conta deve receber a função interna de Colaborador de Máquina Virtual. Além disso, para gerenciar as operações do Site Recovery em um cofre, sua conta deve receber a função interna de Colaborador do Site Recovery.
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-
-As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As VMs do Azure são criadas do armazenamento quando há failover do local para o Azure. A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação. Neste tutorial, estamos usando Europa Ocidental.
-
-1. No menu do [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** >  **Armazenamento** > **Conta de armazenamento - blob, arquivo, tabela, fila**.
-2. Em **Criar conta de armazenamento**, insira um nome para a conta. Para esses tutoriais, estamos usando **contosovmsacct1910171607**. O nome que você selecionar deve ser exclusivo dentro do Azure e ter entre 3 e 24 caracteres, contendo apenas números e letras minúsculas.
-3. Em **Modelo de implantação**, selecione **Gerenciador de Recursos**.
-4. Em **Tipo de conta**, selecione **Armazenamento (uso geral v1)**. Não selecione armazenamento de blobs.
-5. Em **Replicação**, selecione o padrão **Armazenamento com redundância geográfica com acesso de leitura** para redundância de armazenamento. Estamos deixando **Transferência segura obrigatória** como **Desabilitada**.
-6. Em **Desempenho**, selecione **Padrão** e, na **Camada de acesso**, escolha a opção padrão **Frequente**.
-7. Em **Assinatura**, selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
-8. Em **Grupo de recursos**, digite um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Para esses tutoriais, estamos usando **ContosoRG**.
-9. Em **Localização**, selecione a localização geográfica para sua conta de armazenamento. 
-
-   ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Selecione **Criar** para criar a conta de armazenamento.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -81,7 +64,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 
 ## <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
-Quando as VMs do Azure são criadas do armazenamento após o failover, elas são associadas a esta rede.
+Quando as VMs do Azure são criadas de discos gerenciados após o failover, elas são associadas a esta rede.
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 2. Estamos deixando **Gerenciador de Recursos** selecionado como o modelo de implantação.
@@ -100,8 +83,7 @@ Quando as VMs do Azure são criadas do armazenamento após o failover, elas são
 ## <a name="useful-links"></a>Links úteis
 
 - [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre as redes do Azure.
-- [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sobre os tipos de armazenamento do Azure.
-- [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sobre redundância de armazenamento e [transferência segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para armazenamento.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) discos gerenciados.
 
 
 

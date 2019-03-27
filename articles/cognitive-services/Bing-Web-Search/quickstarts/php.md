@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858194"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: usar PHP para chamar a API de Pesquisa na Web do Bing  
 
 Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Node.js envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
-* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
+* [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 * Uma chave de assinatura  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Aqui estão alguns itens de que você poderá precisar antes de executar este in
 
 Antes de começar, localize `php.ini` e remova a marca de comentário desta linha:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis  
+## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis
 
 Crie um projeto PHP em seu IDE ou editor favorito. Não se esqueça de adicionar marcas de abertura e fechamento `<?php` e `?>`.
 

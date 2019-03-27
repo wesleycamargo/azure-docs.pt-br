@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Criar um modelo acústico com o Serviço de Fala'
 titlesuffix: Azure Cognitive Services
-description: Aprenda como criar um modelo acústico com o Serviço de Fala nos Serviços Cognitivos do Azure.
+description: Saiba como criar um modelo acústico usando os Serviços de Fala no Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878112"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844017"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -33,9 +33,9 @@ Se você não tiver uma conta dos Serviços Cognitivos do Azure, crie uma [conta
 
 Verifique se sua conta de Serviços Cognitivos está conectada a uma assinatura abrindo a página [Assinaturas de Serviços Cognitivos](https://cris.ai/Subscriptions).
 
-Você pode se conectar a uma assinatura do Serviço de Fala criada no portal do Azure selecionando **Conectar-se a uma assinatura existente**.
+Você pode se conectar a uma assinatura dos Serviços de Fala criada no portal do Azure selecionando **Conectar-se a uma assinatura existente**.
 
-Para obter informações sobre como criar uma assinatura do Serviço de Fala no portal do Azure, veja [Experimente o Serviço de Fala gratuitamente](get-started.md).
+Para obter informações sobre como criar uma assinatura dos Serviços de Fala no portal do Azure, veja [Experimente os Serviços de Fala gratuitamente](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
@@ -69,7 +69,7 @@ Um conjunto de dados acústicos para personalizar o modelo acústico é composto
 | Taxa de amostragem | 8.000 Hertz (Hz) ou 16.000 Hz |
 | Canais | 1 (mono) |
 | Formato de exemplo | PCM, inteiros de 16 bits |
-| Duração do arquivo | 0,1 segundo < duração < 12 segundos | 
+| Duração do arquivo | 0,1 segundo < duração < 12 segundos |
 | Anel de silêncio | > 0,1 segundo |
 | Formato de arquivo | .zip |
 | Tamanho máximo de arquivo | 2 GB |
@@ -96,19 +96,19 @@ As transcrições para todos os arquivos WAV devem estar contidas em um único a
 
 As transcrições são normalizadas para texto para processamento pelo sistema. No entanto, há algumas normalizações importantes que devem ser executadas pelo usuário _antes_ de carregar os dados para o Serviço de Fala Personalizado. Para a linguagem apropriada a ser usada na preparação das transcrições, veja [Diretrizes de transcrição para usar o Serviço de Fala](prepare-transcription.md).
 
-Execute as etapas nas próximas seções usando o [portal do Serviço de Fala](https://cris.ai).
+Execute as etapas nas próximas seções usando o [portal dos Serviços de Fala](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>Importar o conjunto de dados acústico
 
 Depois de ter preparado os arquivos de áudio e as transcrições, eles estarão prontos para serem importados para o portal da Web.
 
-Para importá-los, primeiro verifique se você está conectado ao [portal do Serviço de Fala](https://cris.ai). Em seguida, na lista suspensa **Fala Personalizada** na faixa de opções, selecione **Dados de Adaptação**. Se esta for a primeira vez fazendo o carregamento de dados para o Serviço de Fala Personalizado, uma tabela vazia chamada **Conjuntos de dados** será exibida. 
+Para importá-los, primeiro verifique se você está conectado ao [portal dos Serviços de Fala](https://cris.ai). Em seguida, na lista suspensa **Fala Personalizada** na faixa de opções, selecione **Dados de Adaptação**. Se esta for a primeira vez fazendo o carregamento de dados para o Serviço de Fala Personalizado, uma tabela vazia chamada **Conjuntos de dados** será exibida.
 
 Na linha **Conjuntos de Dados Acústicos**, selecione o botão **Importar** e o site exibirá uma página para carregar um novo conjunto de dados.
 
 ![A página Importar Dados Acústicos](media/stt/speech-acoustic-datasets-import.png)
 
-Nas caixas **Nome** e **Descrição**, insira as informações apropriadas. Descrições amigáveis são úteis para manter o controle de vários conjuntos de dados que você faz upload. 
+Nas caixas **Nome** e **Descrição**, insira as informações apropriadas. Descrições amigáveis são úteis para manter o controle de vários conjuntos de dados que você faz upload.
 
 Nas caixas **Arquivo de transcrições (.txt)** e **Arquivos de áudio (.zip)**, selecione **Procurar** e, em seguida, selecione seu arquivo de transcrição de texto sem formatação e os arquivo zip dos arquivos WAV. Quando a preparação for concluída, selecione **Importar** para fazer upload dos seus dados. Seus dados serão carregados. Para conjuntos grandes de dados, o processo de importação poderá levar vários minutos.
 
@@ -126,11 +126,11 @@ Se você quiser alterar o nome ou a descrição do conjunto de dados, selecione 
 
 Depois que o status do conjunto de dados acústico for *Concluído*, você poderá usar o conjunto de dados para criar um modelo acústico personalizado. Para fazer isso, clique em **Modelos Acústicos** na lista suspensa **Fala Personalizada**. Uma tabela rotulada como **Seus Modelos** lista todos os seus modelos acústicos personalizados. A tabela estará vazia se esse for seu primeiro uso. O título da tabela exibe a localidade atual. No momento, você pode criar modelos acústicos para inglês dos EUA somente.
 
-Para criar um novo modelo, selecione **Criar Novo** sob o título da tabela. Como anteriormente, insira um nome e uma descrição para ajudar a identificar esse modelo. Por exemplo, você pode usar o campo **Descrição** para registrar qual modelo inicial e conjunto de dados acústico você usou para criar o modelo. 
+Para criar um novo modelo, selecione **Criar Novo** sob o título da tabela. Como anteriormente, insira um nome e uma descrição para ajudar a identificar esse modelo. Por exemplo, você pode usar o campo **Descrição** para registrar qual modelo inicial e conjunto de dados acústico você usou para criar o modelo.
 
 Em seguida, na lista suspensa **Modelo Acústico de Base**, selecione um modelo de base. O modelo de base é o ponto de partida para sua personalização. Há dois modelos acústicos de base para escolher:
-* O modelo **AM de Pesquisa e Ditado da Microsoft** é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. 
-* O **Modelo de Conversa da Microsoft** é apropriado para reconhecer a fala em um estilo conversacional. Esse tipo de fala costuma ser direcionado a outra pessoa e ocorre em um call center ou em reuniões. 
+* O modelo **AM de Pesquisa e Ditado da Microsoft** é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado.
+* O **Modelo de Conversa da Microsoft** é apropriado para reconhecer a fala em um estilo conversacional. Esse tipo de fala costuma ser direcionado a outra pessoa e ocorre em um call center ou em reuniões.
 
 A latência de resultados parciais em modelos de conversa é maior do que em modelos de pesquisa e ditado.
 
@@ -153,6 +153,6 @@ A tabela de modelos acústicos exibe uma nova entrada que corresponde a esse nov
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obtenha sua assinatura de avaliação do Serviço de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
 - [Dados de exemplo do Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

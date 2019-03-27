@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3142f52d43cd884d11a40431d23120cc8a6ee8c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Tutorial: Integração do Azure Active Directory ao webMethods Integration Cloud
 
@@ -107,6 +107,7 @@ Para configurar o logon único do Azure AD com o webMethods Integration Cloud, e
     ![Informações de logon único de Domínio e URLs do webMethods](common/idp-intiated.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `<SUBDOMAIN>.webmethodscloud.com` |
@@ -114,6 +115,7 @@ Para configurar o logon único do Azure AD com o webMethods Integration Cloud, e
     | `<SUBDOMAIN>.webmethodscloud.de` |
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
@@ -125,6 +127,7 @@ Para configurar o logon único do Azure AD com o webMethods Integration Cloud, e
     ![Informações de logon único de Domínio e URLs do webMethods](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -170,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

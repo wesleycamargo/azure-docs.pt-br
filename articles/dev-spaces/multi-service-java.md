@@ -1,22 +1,21 @@
 ---
-title: Executar vários serviços dependentes usando Java e VS Code | Microsoft Docs
+title: Executar vários serviços dependentes usando Java e VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
+keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 manager: yuvalm
-ms.openlocfilehash: 2ca5e41bb384a9b4d7fd1c5d81f4e8b9c921472a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b105b5d4609430ef9a302fdf990b22406941e132
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850761"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento de vários serviços com Azure Dev Spaces
 
@@ -34,8 +33,13 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
 1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
-1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que está pronto quando a barra de depuração do VS Code for exibida.
-1. A URL de ponto de extremidade será algo parecido com http://localhost:\<portnumber\>. **Dica: a barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
+1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que ele está pronto quando uma mensagem semelhante à mostrada abaixo for exibida no console de depuração:
+
+    ```cmd
+    2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
+    ```
+
+1. A URL de ponto de extremidade será algo parecido com `http://localhost:<portnumber>`. **Dica: a barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
 1. Quando `mywebapi` estiver pronto, abra seu navegador para o endereço do localhost.
 1. Se todas as etapas foram bem-sucedidas, você poderá ver uma resposta do serviço `mywebapi`.
 

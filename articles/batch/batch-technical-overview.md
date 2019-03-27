@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621272"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730951"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -30,7 +30,7 @@ Os desenvolvedores podem de usar o Lote como um serviço de plataforma para cria
 
 Não há custos adicionais para usar o Lote. Você paga apenas pelos recursos subjacentes consumidos, como máquinas virtuais, armazenamento e rede.
 
-Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do HPC, Lote e Big Compute](../virtual-machines/linux/high-performance-computing.md).
+Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [HPC (Computação de alto desempenho) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Executar cargas de trabalho paralelas
 O Lote funciona bem com cargas de trabalho intrinsecamente paralelas (também conhecidas como "excessivamente paralelas"). Cargas de trabalho intrinsecamente paralelas são aquelas em que os aplicativos podem ser executados independentemente, e cada instância conclui parte do trabalho. Quando os aplicativos estão em execução, eles podem acessar alguns dados comuns, mas não se comunicam com outras instâncias do aplicativo. Cargas de trabalho podem, portanto, ser executadas em grande escala, determinada pela quantidade de recursos de computação disponíveis para executar aplicativos simultaneamente.

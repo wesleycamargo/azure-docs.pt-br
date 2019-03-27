@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1bac1e9fee9b06fb88237ddc3a7374eed32e40
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Azure Active Directory ao Coupa
 
@@ -111,6 +111,7 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
     > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Coupa](https://success.coupa.com/Support/Contact_Us?) para obter esses valores.
 
     b. Na caixa **Identificador**, digite uma URL:
+
     | Ambiente  | URL |
     |:-------------|----|
     | Área restrita | `devsso35.coupahost.com`|
@@ -118,6 +119,7 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
     | | |
 
     c. Na caixa de texto **URL de resposta**, insira uma URL:
+
     | Ambiente | URL |
     |------------- |----|
     | Área restrita | `https://devsso35.coupahost.com/sp/ACS.saml2`|
@@ -174,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

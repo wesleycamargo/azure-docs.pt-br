@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175142"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215584"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Concluir uma distribuição piloto de redefinição de senha self-service do Azure AD
 
@@ -42,8 +42,8 @@ Neste tutorial, você habilitará uma distribuição piloto de SSPR (redefiniç�
       * Verifique se os usuários do grupo que você escolheu foram licenciados adequadamente.
    * Clique em **Salvar**
 1. Na página **Métodos de autenticação**
-   * Defina o **Número de métodos necessários para a redefinição** como **2**
-   * Escolha quais **métodos disponíveis para os usuários** sua organização deseja habilitar. Para este tutorial, marque as caixas para habilitar **Email**, **Celular** e **Telefone comercial**.
+   * Defina o **Número de métodos necessários para a redefinição** como **1**
+   * Escolha quais **métodos disponíveis para os usuários** sua organização deseja habilitar. Para este tutorial, marque as caixas para habilitar **Email**, **Código do aplicativo móvel (visualização)**.
    * Clique em **Salvar**
 1. Na página **Registro**
    * Selecione **Sim** em **Exigir que os usuários se registrem ao entrar**.

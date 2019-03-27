@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864942"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início rápido: Usar os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure (versão prévia)
 
@@ -29,8 +29,12 @@ Os Serviços do Machine Learning incluem uma distribuição base do R, sobrepost
 
 Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-> [!NOTE]
-> Atualmente, os Serviços do Machine Learning (com o R) no Banco de Dados SQL do Azure estão em versão prévia pública. [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Os Serviços do Machine Learning do Banco de Dados SQL do Azure estão em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -154,7 +158,7 @@ Por enquanto, vamos examinar apenas as variáveis de entrada e saída padrão de
 
     ![Saída do script R que retorna dados de uma tabela](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Vamos alterar o nome das variáveis de entrada ou saída. O script acima usou os nomes de variável de entrada e saída padrão, _InputDataSet_ e _OutputDataSet_. Para definir os dados de entrada associados a _InputDatSet_, use a variável *@input_data_1*.
+3. Vamos alterar o nome das variáveis de entrada ou saída. O script acima usou os nomes de variável de entrada e saída padrão, _InputDataSet_ e _OutputDataSet_. Para definir os dados de entrada associados a _InputDatSet_, use a variável *\@input_data_1*.
 
     Nesse script, os nomes das variáveis de entrada e saída para o procedimento armazenado foram alterados para *SQL_out* e *SQL_in*:
 
@@ -170,7 +174,7 @@ Por enquanto, vamos examinar apenas as variáveis de entrada e saída padrão de
 
     Observe que R diferencia maiúsculas de minúsculas e, portanto, a capitalização das variáveis de entrada e saída em `@input_data_1_name` e `@output_data_1_name` precisa coincidir com a do código R em `@script`. 
 
-    Além disso, a ordem dos parâmetros é importante. Você deve especificar os parâmetros necessários *@input_data_1* e *@output_data_1* primeiro para usar os parâmetros opcionais *@input_data_1_name* e *@output_data_1_name*.
+    Além disso, a ordem dos parâmetros é importante. Você precisa especificar os parâmetros necessários *\@input_data_1* e *\@output_data_1* primeiro para usar os parâmetros opcionais *\@input_data_1_name* e *\@output_data_1_name*.
 
     Só é possível passar um conjunto de dados de entrada como parâmetro, e você pode retornar apenas um conjunto de dados. No entanto, você pode chamar outros conjuntos de dados em seu código R e pode retornar saídas de outros tipos, além do conjunto de dados. Você também pode adicionar a palavra-chave OUTPUT a qualquer parâmetro para que ele retorne com os resultados. 
 
@@ -271,34 +275,34 @@ Você pode treinar um modelo usando R e salvá-lo em uma tabela no banco de dado
 
     Os requisitos de um modelo linear são simples:
 
-    - Defina uma fórmula que descreve a relação entre a variável dependente `speed` e a variável independente `distance`.
+   - Defina uma fórmula que descreve a relação entre a variável dependente `speed` e a variável independente `distance`.
 
-    - Forneça dados de entrada para usar no treinamento do modelo.
+   - Forneça dados de entrada para usar no treinamento do modelo.
 
-    > [!TIP]
-    > Caso você precise relembrar os modelos lineares, recomendamos este tutorial, que descreve o processo de ajuste de um modelo usando rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > Caso você precise relembrar os modelos lineares, recomendamos este tutorial, que descreve o processo de ajuste de um modelo usando rxLinMod: [Ajustando modelos lineares](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    Para criar o modelo, defina a fórmula dentro do código R e passe os dados como um parâmetro de entrada.
+     Para criar o modelo, defina a fórmula dentro do código R e passe os dados como um parâmetro de entrada.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    O primeiro argumento para rxLinMod é o parâmetro *formula*, que define a distância como dependente da velocidade. Os dados de entrada são armazenados na variável `CarsData`, que é preenchida pela consulta SQL. Se você não atribuir um nome específico para seus dados de entrada, o nome da variável padrão será _InputDataSet_.
+     O primeiro argumento para rxLinMod é o parâmetro *formula*, que define a distância como dependente da velocidade. Os dados de entrada são armazenados na variável `CarsData`, que é preenchida pela consulta SQL. Se você não atribuir um nome específico para seus dados de entrada, o nome da variável padrão será _InputDataSet_.
 
 2. Em seguida, crie uma tabela na qual armazenar o modelo, para que você possa readaptá-lo ou usá-lo para previsão. A saída de um pacote R que cria um modelo é geralmente um **objeto binário**. Portanto, a tabela deve fornecer uma coluna do tipo **VARBINARY(max)**.
 
@@ -397,23 +401,23 @@ Use o modelo que você criou na seção anterior para pontuar previsões em rela
 
     O script acima executa as seguintes etapas:
 
-    + Use uma instrução SELECT para obter um único modelo da tabela e passá-lo como parâmetro de entrada.
+   + Use uma instrução SELECT para obter um único modelo da tabela e passá-lo como parâmetro de entrada.
 
-    + Depois de recuperar o modelo da tabela, chame a função `unserialize` no modelo.
+   + Depois de recuperar o modelo da tabela, chame a função `unserialize` no modelo.
 
-        > [!TIP] 
-        > Verifique também as novas [funções de serialização](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) fornecidas pelo RevoScaleR, que dá suporte à pontuação em tempo real.
-    + Aplique a função `rxPredict` com os devidos argumentos para o modelo e forneça os novos dados de entrada.
+       > [!TIP] 
+       > Verifique também as novas [funções de serialização](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) fornecidas pelo RevoScaleR, que dá suporte à pontuação em tempo real.
+   + Aplique a função `rxPredict` com os devidos argumentos para o modelo e forneça os novos dados de entrada.
 
-    + No exemplo, a função `str` é adicionada durante a fase de teste para verificar o esquema dos dados retornado de R. Você pode remover a instrução mais tarde.
+   + No exemplo, a função `str` é adicionada durante a fase de teste para verificar o esquema dos dados retornado de R. Você pode remover a instrução mais tarde.
 
-    + Os nomes de coluna usados no script R não são necessariamente passados para a saída do procedimento armazenado. Aqui, usamos a cláusula WITH RESULTS para definir novos nomes de coluna.
+   + Os nomes de coluna usados no script R não são necessariamente passados para a saída do procedimento armazenado. Aqui, usamos a cláusula WITH RESULTS para definir novos nomes de coluna.
 
-    **Resultados**
+     **Resultados**
 
-    ![Conjunto de resultados para previsão da distância de parada](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Conjunto de resultados para previsão da distância de parada](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    Também é possível usar [PREDICT no Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) para gerar um valor ou pontuação prevista com base em um modelo armazenado.
+     Também é possível usar [PREDICT no Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) para gerar um valor ou pontuação prevista com base em um modelo armazenado.
 
 <a name="add-package"></a>
 

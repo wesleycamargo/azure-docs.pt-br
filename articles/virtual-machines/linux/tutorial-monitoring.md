@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092735"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531582"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: monitorar e atualizar uma máquina virtual do Linux no Azure
 
@@ -189,7 +189,7 @@ A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o work
 
 ![Habilitar a solução de Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador. Depois que a solução for habilitada, as informações sobre atualizações ausentes na VM fluirão para o Log Analytics. Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
+A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador. Depois que a solução for habilitada, as informações sobre atualizações ausentes na VM fluirão para os logs do Azure Monitor. Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
 
 ### <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
@@ -294,7 +294,7 @@ Você pode realizar monitoramento mais avançado da sua VM usando uma solução 
 
 No workspace do Log Analytics ao qual a VM está conectada, você também pode recuperar, consolidar e analisar os dados coletados com a [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Workspace do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

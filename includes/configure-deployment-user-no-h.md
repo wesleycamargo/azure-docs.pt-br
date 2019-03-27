@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 95d89da66935ce933fee082a5f53ee2e36ea953f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e8888a0505a3a38d2844f82c0f7fff255d05353d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344679"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261366"
 ---
-No Cloud Shell, configure credenciais de implantação com o comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Esse usuário de implantação é necessário para a implantação do FTP e do Git local em um aplicativo Web. O nome de usuário e a senha estão no nível de conta. _Eles são diferentes das credenciais da sua assinatura do Azure._
+No Azure Cloud Shell, configure credenciais de implantação com o comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Esse usuário de implantação é necessário para a implantação do FTP e do Git local em um aplicativo Web. O nome de usuário e senha são o nível de conta. _São diferentes das credenciais da sua assinatura do Azure._
 
 No exemplo a seguir, substitua *\<nome de usuário>* e *\<senha>* (incluindo os colchetes) por um novo nome de usuário e senha. O nome do usuário deve ser exclusivo no Azure. A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 
 
@@ -23,11 +23,11 @@ No exemplo a seguir, substitua *\<nome de usuário>* e *\<senha>* (incluindo os 
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Você deve obter uma saída JSON, com a senha mostrada como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro ` 'Bad Request'. Details: 400`, use uma senha mais forte.
+Você obterá uma saída JSON com a senha mostrada como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro ` 'Bad Request'. Details: 400`, use uma senha mais forte.
 
-Você precisa configurar esse usuário de implantação uma única vez; é possível usá-lo para todas as implantações do Azure.
+É necessário configurar esse usuário de implantação somente uma vez. Você pode usá-lo para todas as implantações do Azure.
 
 > [!NOTE]
-> Registre um nome de usuário e uma senha. Você precisará delas para implantar o aplicativo Web mais tarde.
+> Registre o nome de usuário e a senha. Você precisará delas para implantar o aplicativo Web mais tarde.
 >
 >

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 08/14/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2cf135cc984ce032113de65bead210bd4c5e95ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847976"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>O que é a API de Pesquisa na Web do Bing?
 
-A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas de usuário. Os resultados da pesquisa são facilmente definidos para incluir as páginas da Web, imagens, vídeos, notícias, traduções e muito mais. Os resultados são fornecidos como JSON e são baseados na relevância de pesquisa e em suas assinaturas de pesquisa na Web do Bing.
+A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas de usuário. Os resultados da pesquisa são facilmente definidos para incluir as páginas da Web, imagens, vídeos, notícias, traduções e muito mais. A Pesquisa na Web do Bing fornece os resultados como JSON baseado na relevância de pesquisa e em suas assinaturas de Pesquisa na Web do Bing.
 
 Essa API é ideal para aplicativos que precisam de acesso a todo o conteúdo relevante para a consulta de pesquisa do usuário. Se você estiver criando um aplicativo que exige apenas um tipo específico de resultados, considere usar a [API de Pesquisa de Imagem do Bing](../Bing-Image-Search/overview.md), [API de Pesquisa de Vídeo do Bing](../Bing-Video-Search/search-the-web.md), ou [API de Pesquisa de Notícias do Bing](../Bing-News-Search/search-the-web.md). Ver [API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services) para obter uma lista completa das APIs de Pesquisa do Bing.
 
@@ -28,7 +28,7 @@ Quer ver como funciona? Experimente a [demonstração da API de Pesquisa na Web 
 
 ## <a name="features"></a>Recursos  
 
-Além das respostas instantâneas, a Pesquisa na Web do Bing fornece recursos adicionais e funcionalidades que permitem que você personalize os resultados da pesquisa para seus usuários.
+A Pesquisa na Web do Bing só não fornece acesso às respostas instantâneas. Ela também fornece recursos adicionais e funcionalidades que permitem que você personalize os resultados da pesquisa para seus usuários.
 
 | Recurso | DESCRIÇÃO |
 |---------|-------------|
@@ -40,7 +40,7 @@ Além das respostas instantâneas, a Pesquisa na Web do Bing fornece recursos ad
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-A API de Pesquisa na Web do Bing é fácil de ser chamada a partir de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar as respostas JSON. O serviço é acessado usando a [API REST](quickstarts/python.md) ou os [SDKs de Pesquisa na Web do Bing](web-sdk-python-quickstart.md).  
+A API de Pesquisa na Web do Bing é fácil de ser chamada a partir de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar as respostas JSON. O serviço é acessado usando a [API REST](quickstarts/python.md) ou os [SDKs de Pesquisa na Web do Bing](web-sdk-python-quickstart.md).
 
 1. Crie uma [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Envie uma [solicitação à API de Pesquisa na Web do Bing](quickstarts/python.md).

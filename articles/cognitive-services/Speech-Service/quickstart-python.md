@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala, Python – Serviços de Fala'
+title: 'Início rápido: Reconhecer fala, Python – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de console de conversão de fala em texto que usa o SDK de Fala para Python. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886110"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer fala com o SDK de Fala para Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Este artigo mostra como usar o serviço de Fala por meio do SDK de Fala para Python. Ilustra como reconhecer fala da entrada do microfone.
+Este artigo mostra como usar os Serviços de Fala por meio do SDK de Fala para Python. Ilustra como reconhecer fala da entrada do microfone.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente](get-started.md).
 * [Python 3.5 ou posterior](https://www.python.org/downloads/).
-* O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais: 
+* O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais:
     * Windows: x64 e x86.
     * Mac: macOS X versão 10.12 ou mais recente.
     * Linux: Ubuntu 16.04 ou 18.04 em x64.
@@ -50,11 +50,11 @@ Este comando instala o pacote Python do [PyPI](https://pypi.org/) para o SDK de 
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>Suporte e atualizações 
+## <a name="support-and-updates"></a>Suporte e atualizações
 
 As atualizações do pacote Python do SDK de Fala são distribuídas por meio do PyPI e anunciadas no [Notas sobre a versão](./releasenotes.md).
 Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
-Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`. 
+Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
 Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](./support.md) (Opções de Ajuda e Suporte).
 
@@ -68,7 +68,7 @@ Se você tiver um problema ou se estiver faltando um recurso, confira [Support a
 python quickstart.py
 ```
 
-ou é possível baixar este tutorial de início rápido como um [Jupyter](https://jupyter.org) Notebook do [repositório de exemplos do SDK de Fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um notebook. 
+ou é possível baixar este tutorial de início rápido como um [Jupyter](https://jupyter.org) Notebook do [repositório de exemplos do SDK de Fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um notebook.
 
 ### <a name="sample-code"></a>Exemplo de código
 
@@ -86,13 +86,13 @@ ou é possível baixar este tutorial de início rápido como um [Jupyter](https:
 1. No Visual Studio Code, selecione o ícone **Arquivo**. Em seguida, abra a pasta criada.
 
    ![Abrir uma pasta](media/sdk/qs-python-vscode-python-open-folder.png)
-   
+
 1. Crie um novo arquivo de origem Python, `speechsdk.py`, clicando no ícone de novo arquivo.
 
    ![Criar um arquivo](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, cole e salve o [código do Python](#sample-code) para o arquivo recém-criado.
-1. Insira as informações de assinatura do Serviço de Fala.
+1. Insira as informações de assinatura dos Serviços de Fala.
 1. Se já tiver sido selecionado, um interpretador do Python será exibido no lado esquerdo da barra de status na parte inferior da janela.
    Caso contrário, exiba uma lista de interpretadores do Python disponíveis. Abra a paleta de comandos (Ctrl+Shift+P) e insira **Python: selecionar interpretador**. Escolha um adequado.
 1. É possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code. Faça isso se ele ainda não foi instalado para o interpretador do Python selecionado.

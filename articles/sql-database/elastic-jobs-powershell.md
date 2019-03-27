@@ -11,13 +11,13 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 04a4c23808489e17d1759904cb6df01cd15eaafa
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/13/2019
+ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840810"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
 
@@ -37,30 +37,34 @@ Neste tutorial, você aprenderá as etapas necessárias para executar uma consul
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+A versão atualizada dos trabalhos de Banco de Dados Elástico tem um novo conjunto de cmdlets do PowerShell para uso durante a migração. Esses novos cmdlets transferem todas as suas credenciais de trabalho existentes, destinos (incluindo bancos de dados, servidores, coleções personalizadas), gatilhos de trabalho, agendas de trabalho, conteúdos de trabalhos e trabalhos de failover para um novo agente de Trabalho Elástico.
+
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets de Trabalhos Elásticos mais recentes
+
 Se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Instalar o módulo **AzureRM.Sql** 4.8.1-preview mais recente para obter os cmdlets de Trabalho Elástico. Execute os comandos a seguir no PowerShell com acesso administrativo.
+Instale o módulo **Az.Sql** 1.1.1-preview mais recente para obter os cmdlets de Trabalho Elástico. Execute os comandos do PowerShell a seguir com acesso administrativo.
 
-  ```powershell
-  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-  
-  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
-  
-  # Restart your powershell session with administrative access
-  
-  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-  
-  # Import the AzureRM.Sql 4.8.1 module
-  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-  
-  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-  Get-Module AzureRM.Sql
-  ```
+```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-- Além do módulo **AzureRM.Sql** 4.8.1-preview, este tutorial também exige o módulo *sqlserver* do PowerShell. Para obter detalhes, confira [Instalar o módulo do SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+
+# Restart your powershell session with administrative access
+
+# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
+
+# Import the Az.Sql module
+Import-Module Az.Sql -RequiredVersion 1.1.1
+
+# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
+Get-Module Az.Sql
+```
+
+- Além do módulo **Az.Sql** 1.1.1-preview, este tutorial também exige o módulo *sqlserver* do PowerShell. Para obter detalhes, confira [Instalar o módulo do SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 
 ## <a name="create-required-resources"></a>Criar recursos necessários
@@ -73,13 +77,13 @@ Os Trabalhos Elásticos não têm nenhum requisito de nomenclatura específico. 
 
 ```powershell
 # Sign in to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # Create a resource group
 Write-Output "Creating a resource group..."
 $ResourceGroupName = Read-Host "Please enter a resource group name"
 $Location = Read-Host "Please enter an Azure Region"
-$Rg = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+$Rg = New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 $Rg
 
 # Create a server
@@ -90,17 +94,17 @@ $AdminLogin = Read-Host "Please enter the server admin name"
 $AdminPassword = Read-Host "Please enter the server admin password"
 $AdminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
 $AdminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AdminLogin, $AdminPasswordSecure
-$AgentServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$AgentServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set server firewall rules to allow all Azure IPs
 Write-Output "Creating a server firewall rule..."
-$AgentServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
+$AgentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
 $AgentServer
 
 # Create the job database
 Write-Output "Creating a blank SQL database to be used as the Job Database..."
 $JobDatabaseName = "JobDatabase"
-$JobDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
+$JobDatabase = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
 $JobDatabase
 ```
 
@@ -109,17 +113,17 @@ $JobDatabase
 Write-Output "Creating target server..."
 $TargetServerName = Read-Host "Please enter a target server name"
 $TargetServerName = $TargetServerName + "-" + [guid]::NewGuid()
-$TargetServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$TargetServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set target server firewall rules to allow all Azure IPs
-$TargetServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
-$TargetServer | New-AzureRmSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
+$TargetServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
+$TargetServer | New-AzSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
 $TargetServer
 
 # Create some sample databases to execute jobs against...
-$Db1 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
+$Db1 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
 $Db1
-$Db2 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
+$Db2 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
 $Db2
 ```
 
@@ -128,19 +132,19 @@ $Db2
 Para usar os Trabalhos Elásticos, registre o recurso em sua assinatura do Azure executando o seguinte comando (isso só precisa ser executado uma vez em cada assinatura em que você deseja usar os Trabalhos Elásticos):
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
+Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
 ```
 
 ## <a name="create-the-elastic-job-agent"></a>Criar o agente de Trabalho Elástico
 
 Um agente de Trabalho Elástico é um recurso do Azure para criar, executar e gerenciar trabalhos. O agente executa trabalhos com base em uma agenda ou como um único trabalho.
 
-O cmdlet **New-AzureRmSqlElasticJobAgent** requer um banco de dados SQL do Azure existente, ou seja, os parâmetros *ResourceGroupName*, *ServerName* e  *DatabaseName* precisam apontar para recursos existentes.
+O cmdlet **New-AzSqlElasticJobAgent** requer um Banco de Dados SQL do Azure existente, ou seja, os parâmetros *ResourceGroupName*, *ServerName* e *DatabaseName* precisam apontar para recursos existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
 $AgentName = Read-Host "Please enter a name for your new Elastic Job agent"
-$JobAgent = $JobDatabase | New-AzureRmSqlElasticJobAgent -Name $AgentName
+$JobAgent = $JobDatabase | New-AzSqlElasticJobAgent -Name $AgentName
 $JobAgent
 ```
 
@@ -202,10 +206,10 @@ Write-Output "Creating job credentials..."
 $LoginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
 
 $MasterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $LoginPasswordSecure
-$MasterCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
+$MasterCred = $JobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
 
 $JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "jobuser", $LoginPasswordSecure
-$JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
+$JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
 ```
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definir os bancos de dados de destino nos quais os trabalhos serão executados
@@ -217,13 +221,13 @@ O snippet a seguir cria dois grupos de destino: *ServerGroup* e *ServerGroupExcl
 ```powershell
 Write-Output "Creating test target groups..."
 # Create ServerGroup target group
-$ServerGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroup'
-$ServerGroup | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroup = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroup'
+$ServerGroup | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
 
 # Create ServerGroup with an exclusion of Db2
-$ServerGroupExcludingDb2 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
-$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
-$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
+$ServerGroupExcludingDb2 = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
+$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
 ```
 
 ## <a name="create-a-job"></a>Criar um trabalho
@@ -231,7 +235,7 @@ $ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetSer
 ```powershell
 Write-Output "Creating a new job"
 $JobName = "Job1"
-$Job = $JobAgent | New-AzureRmSqlElasticJob -Name $JobName -RunOnce
+$Job = $JobAgent | New-AzSqlElasticJob -Name $JobName -RunOnce
 $Job
 ```
 
@@ -244,8 +248,8 @@ Write-Output "Creating job steps"
 $SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
 $SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
 
-$Job | Add-AzureRmSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
-$Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
+$Job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
+$Job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
 ```
 
 
@@ -255,7 +259,7 @@ Para iniciar o trabalho imediatamente, execute o seguinte comando:
 
 ```powershell
 Write-Output "Start a new execution of the job..."
-$JobExecution = $Job | Start-AzureRmSqlElasticJob
+$JobExecution = $Job | Start-AzSqlElasticJob
 $JobExecution
 ```
 
@@ -273,13 +277,13 @@ Os seguintes snippets de código obtêm os detalhes de execução do trabalho:
 
 ```powershell
 # Get the latest 10 executions run
-$JobAgent | Get-AzureRmSqlElasticJobExecution -Count 10
+$JobAgent | Get-AzSqlElasticJobExecution -Count 10
 
 # Get the job step execution details
-$JobExecution | Get-AzureRmSqlElasticJobStepExecution
+$JobExecution | Get-AzSqlElasticJobStepExecution
 
 # Get the job target execution details
-$JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
+$JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
 ## <a name="schedule-the-job-to-run-later"></a>Agendar o trabalho para execução posterior
@@ -288,7 +292,7 @@ Para agendar um trabalho para execução em um momento específico, execute o se
 
 ```powershell
 # Run every hour starting from now
-$Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
+$Job | Set-AzSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -300,7 +304,7 @@ Exclua os recursos do Azure criados neste tutorial excluindo o grupo de recursos
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
 ```
 
 

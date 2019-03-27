@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894421"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775570"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acessar um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, você, como aluno, conecta-se a uma máquina virtual (VM) em um laboratório de sala de aula. 
@@ -44,8 +44,9 @@ Neste tutorial, você executa as seguintes ações:
 1. Selecione **Conectar** no bloco da máquina virtual do laboratório que você deseja acessar. 
 
     ![Conectar-se a uma VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Salve o arquivo RDP no disco rígido e abra-o (supondo que se trata de uma VM com Windows)
-3. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
+2. Siga uma das etapas a seguir: 
+    1. Para VM **Windows**, salve o arquivo **RDP** no disco rígido e abra-o. Abra o arquivo RDP para se conectar à máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
+    3. Para máquinas virtuais **Linux**, copie e salve a cadeia de caracteres de conexão SSH na caixa de diálogo **Conectar-se a sua máquina virtual**. Use essa cadeia de caracteres de conexão em um terminal SSH (como [Putty](https://www.putty.org/)) para se conectar à máquina virtual. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você acessou um laboratório de sala de aula usando o link de registro obtido do seu professor/educador.

@@ -3,16 +3,15 @@ title: 'Início Rápido: API REST do Serviço do Azure SignalR'
 description: Um início rápido para usar a API REST do Azure SignalR Service.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540089"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530783"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início Rápido: Difundir mensagens em tempo real do aplicativo de console
 
@@ -176,3 +175,10 @@ Versão | Método HTTP da API | URL de Solicitação
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste início rápido, você aprendeu como usar a API REST para transmitir mensagens em tempo real do SignalR Service aos clientes. Em seguida, saiba mais sobre como desenvolver e implantar o Azure Functions com SignalR Service associação, que é criada sobre a API REST.
+
+> [!div class="nextstepaction"]
+> [Desenvolver Azure Functions usando associações de serviço do Azure SignalR](signalr-quickstart-azure-functions-csharp.md)

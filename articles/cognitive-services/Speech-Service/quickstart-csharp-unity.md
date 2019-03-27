@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872545"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -82,8 +82,8 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
 1. Edite o script clicando duas vezes nele.
 
-  > [!NOTE]
-  > Configure qual editor de códigos será iniciado em **Editar** > **Preferências**; confira o [Manual do Usuário do Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > Configure qual editor de códigos será iniciado em **Editar** > **Preferências**; confira o [Manual do Usuário do Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Substitua todo o código pelo seguinte:
 
@@ -97,19 +97,19 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
 1. Novamente no Editor do Unity, o script precisa ser adicionado como um componente a um dos objetos de jogo.
 
-  * Clique no objeto **Tela** na Janela Hierarquia. Isso abrirá a configuração na [Janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão, à direita).
-  * Clique no botão **Adicionar Componente** na Janela Inspetor e, em seguida, pesquise o script HelloWorld que criamos acima e adicione-o.
-  * Observe que o componente Olá, Mundo tem duas propriedades não inicializadas, **Texto de Saída** e **Botão Iniciar Recuperação**, que correspondem às propriedades públicas da classe `HelloWorld`.
-    Para conectá-los, clique no Seletor de Objetos (o pequeno ícone de círculo à direita da propriedade) e escolha os objetos de texto e de botão criados anteriormente.
+   * Clique no objeto **Tela** na Janela Hierarquia. Isso abrirá a configuração na [Janela Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por padrão, à direita).
+   * Clique no botão **Adicionar Componente** na Janela Inspetor e, em seguida, pesquise o script HelloWorld que criamos acima e adicione-o.
+   * Observe que o componente Olá, Mundo tem duas propriedades não inicializadas, **Texto de Saída** e **Botão Iniciar Recuperação**, que correspondem às propriedades públicas da classe `HelloWorld`.
+     Para conectá-los, clique no Seletor de Objetos (o pequeno ícone de círculo à direita da propriedade) e escolha os objetos de texto e de botão criados anteriormente.
 
-    > [!NOTE]
-    > O botão também tem um objeto de texto aninhado. Lembre-se de não o escolher acidentalmente para a saída de texto (ou renomeie um dos objetos de texto usando o campo Nome na Janela Inspetor para evitar essa confusão).
+     > [!NOTE]
+     > O botão também tem um objeto de texto aninhado. Lembre-se de não o escolher acidentalmente para a saída de texto (ou renomeie um dos objetos de texto usando o campo Nome na Janela Inspetor para evitar essa confusão).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Executar o aplicativo no Editor do Unity
 
 * Pressione o botão **Reproduzir** na barra de ferramentas do Editor do Unity (abaixo da barra de menus).
 
-* Depois que o aplicativo for iniciado, clique no botão e fale uma frase ou uma sentença em inglês no microfone do computador. Sua fala será transmitida para o serviço de Fala e transcrita para texto, que será exibida na janela.
+* Depois que o aplicativo for iniciado, clique no botão e fale uma frase ou uma sentença em inglês no microfone do computador. Sua fala será transmitida para o Serviço de Fala e transcrita para texto, que será exibida na janela.
 
   [![Captura de tela do Início Rápido em execução na janela do jogo do Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

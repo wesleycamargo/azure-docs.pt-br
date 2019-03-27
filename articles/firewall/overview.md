@@ -6,21 +6,21 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 3/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4f95cbb6cb04f2215bb5cb89bb5e9afb4ca2628f
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960835"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342132"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
 Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall totalmente com estado como serviço, com alta disponibilidade interna e escalabilidade de nuvem sem restrições. 
 
-![Visão geral do firewall](media/overview/firewall-overview.png)
+![Visão geral do firewall](media/overview/firewall-threat.png)
 
 É possível criar, impor e registrar centralmente políticas de conectividade de rede e de aplicativo em assinaturas e redes virtuais. O Firewall do Azure usa um endereço IP público estático para seus recursos de rede virtual, permitindo que firewalls externos identifiquem o tráfego originário de sua rede virtual.  O serviço é totalmente integrado ao Azure Monitor para registro em log e análise.
 
@@ -29,9 +29,11 @@ Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em n
 O Firewall do Azure oferece os seguintes recursos:
 
 ### <a name="built-in-high-availability"></a>Alta disponibilidade interna
+
 A alta disponibilidade é interna, portanto, nenhum balanceador de carga adicional é necessário e nenhuma configuração é necessária.
 
-### <a name="unrestricted-cloud-scalability"></a>Escalabilidade de nuvem sem restrições 
+### <a name="unrestricted-cloud-scalability"></a>Escalabilidade de nuvem sem restrições
+
 O Firewall do Azure pode escalar verticalmente o quanto você precisar a fim de acomodar fluxos de tráfego de rede cambiáveis, para que você não precise de orçamento para o tráfego de pico.
 
 ### <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicativo
@@ -45,6 +47,14 @@ Você pode criar centralmente regras de filtragem de rede para *permitir* ou *ne
 ### <a name="fqdn-tags"></a>Marcas de FQDN
 
 As marcas de FQDN facilitam permitir o tráfego de rede do serviço do Azure conhecido através do firewall. Por exemplo, digamos que você deseja permitir o tráfego de rede do Windows Update por meio de seu firewall. Você cria uma regra de aplicativo e inclui a marca do Windows Update. Agora o tráfego de rede do Windows Update pode fluir através do firewall.
+
+### <a name="service-tags"></a>Marcas de serviço
+
+Uma marca de serviço representa um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade da criação de regra de segurança. Você não pode criar sua própria marca de serviço ou especificar quais endereços IP estão incluídos em uma marca. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
+
+### <a name="threat-intelligence"></a>Inteligência contra ameaças
+
+A filtragem contra ameaças baseada em inteligência pode ser habilitada para o seu firewall de forma a alertar e rejeitar o tráfego de/para endereços IP e domínios mal-intencionados. Os endereços IP e os domínios são originados do feed de inteligência de ameaças da Microsoft.
 
 ### <a name="outbound-snat-support"></a>Suporte a SNAT de saída
 
@@ -72,11 +82,10 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |As marcas de FQDN requerem que um protocolo:porta seja definido|As regras de aplicativo com marcas de FQDN exigem a definição de um protocolo:porta.|Você pode usar **HTTPS** como o valor de porta:protocolo. Estamos trabalhando para tornar esse campo opcional quando marcas de FQDN são usadas.|
 |Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso roteiro. Para mover um firewall para um grupo de recursos ou uma assinatura diferente, você precisa excluir a instância atual e recriá-la no novo grupo de recursos ou na nova assinatura.|
 |Intervalo de portas em regras de rede e de aplicativo|As portas são limitadas a 64 mil, uma vez que as portas altas estão reservadas para gerenciamento e investigações de integridade. |Estamos trabalhando para melhorar essa limitação.|
-|
+|Alertas de inteligência de ameaças podem ser mascarados|As regras de rede com destino 80/443 para filtragem de saída mascaram os alertas de inteligência de ameaças quando configuradas para o modo somente alerta.|Crie a filtragem de saída para 80/443 usando regras de aplicativo. Ou, alterar o modo de inteligência contra ameaças para **Alertar e negar**.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md)
 - [Implantar Firewall do Azure usando um modelo](deploy-template.md)
 - [Criar um ambiente de teste do Firewall do Azure](scripts/sample-create-firewall-test.md)
-

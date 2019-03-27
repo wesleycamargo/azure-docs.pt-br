@@ -8,30 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842066"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início Rápido: pesquisar na Web usando a API REST de Pesquisa na Web do Bing e C#
-
 
 Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo C# envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Uma chave de assinatura
 
 Este programa de exemplo usa apenas classes do .NET Core.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Algumas variáveis devem ser definidas antes de podermos continuar. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de assinatura válida da sua conta do Azure. Fique à vontade para personalizar a consulta de pesquisa substituindo o valor para `searchTerm`.
+Algumas variáveis devem ser definidas antes de podermos continuar. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de assinatura válida da sua conta do Azure. Fique à vontade para personalizar a consulta de pesquisa substituindo o valor para `searchTerm`. Lembre-se de adicionar esse código à classe `Program`, conforme observado acima.
 
 ```csharp
 // Enter a valid subscription key.

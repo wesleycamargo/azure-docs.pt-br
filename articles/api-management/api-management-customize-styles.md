@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441750"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762714"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do Portal do Desenvolvedor
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -57,11 +57,11 @@ Neste tutorial, você aprenderá como:
     Todos os elementos que você pode personalizar usando **Estilos** aparecem na página
 5. Insira "headings-color" no campo **Alterar valores de variáveis para personalizar a aparência do portal do desenvolvedor:**.
 
-    O elemento **@headings-color** aparece na página. Essa variável controla a cor do texto.
+    O elemento **\@cor do cabeçalho** aparece na página. Essa variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo da variável **@headings-color**. 
+6. Clique no campo da variável **\@cor do cabeçalho**. 
     
     A lista suspensa do seletor de cores é aberta.
 7. Selecione uma nova cor na lista suspensa do seletor de cores.

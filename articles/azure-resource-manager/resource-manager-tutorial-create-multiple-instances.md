@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 779ae6030c7d36c60dbd0ad00daaf1423a21eb04
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269035"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311875"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar em seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, você modificará um modelo para criar três instâncias de conta de armazenamento.
+
+![O Azure Resource Manager cria um diagrama de várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Este tutorial cobre as seguintes tarefas:
 

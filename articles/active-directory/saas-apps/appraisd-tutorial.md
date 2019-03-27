@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db063306-4d0d-43ca-aae0-09f0426e7429
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c92e76d1fd49121d09a56f986c39de52dbbde1c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutorial: Integração do Azure Active Directory ao Appraisd
 
@@ -205,7 +205,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -262,7 +262,7 @@ Para habilitar o Azure Active Directory, os usuários entram no Appraisd, eles d
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como **simon**.
 
-    c. Na caixa de texto **E-mail**, insira o e-mail do usuário como**Brittasimon@contoso.com**.
+    c. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
     d. Clique em **Adicionar usuário**.
 

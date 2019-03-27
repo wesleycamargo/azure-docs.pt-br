@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857157"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET MVC com o Azure Cosmos DB usando o SDK da versão prévia do .NET 
 
@@ -26,9 +26,9 @@ ms.locfileid: "54037116"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-Este tutorial mostra a você como usar o Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web ASP.NET MVC hospedado no Azure. Neste tutorial, você usará o SDK do .NET V3 que está atualmente em versão prévia. A imagem abaixo mostra a página da Web que você criará usando o exemplo neste artigo:
+Este tutorial mostra a você como usar o Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web ASP.NET MVC hospedado no Azure. Neste tutorial, você usará o SDK do .NET V3, que está atualmente em versão prévia. A imagem abaixo mostra a página da Web que você criará usando o exemplo neste artigo:
  
-![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial - passo a passo do tutorial do ASP.NET MVC](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial – tutorial passo a passo do ASP.NET MVC](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 Se você não tiver tempo para concluir o tutorial, poderá baixar o projeto de exemplo completo do [GitHub][GitHub]. 
 
@@ -77,7 +77,7 @@ Na próxima seção, você criará um novo aplicativo ASP.NET MVC.
 
 3. Na caixa **Nome** , digite o nome do projeto. Este tutorial usará o nome "todo". Se você optar por usar algum outro nome, sempre que este tutorial falar sobre o namespace todo, ajuste os exemplos de código fornecidos para usar o nome de seu aplicativo. 
 
-4. Clique em **Procurar** para navegar até a pasta na qual você deseja criar o projeto e escolha **.NET Framework 4.6.1** ou superior. Selecione **OK**. 
+4. Selecione **Procurar** para navegar até a pasta na qual você deseja criar o projeto e escolha **.NET Framework 4.6.1** ou superior. Selecione **OK**. 
 
 5. A caixa de diálogo **Novo Aplicativo Web ASP .NET** aparece. No painel de modelos, selecione **MVC**.
 
@@ -91,7 +91,7 @@ Agora que temos a maior parte do código da estrutura do ASP.NET MVC de que prec
 
 1. O SDK .NET do Azure Cosmos DB é empacotado e distribuído como um pacote do NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio clicando com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**.
    
-   ![Captura de tela das opções do botão direito do mouse para o projeto de aplicativo Web no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![Captura de tela das opções acessadas ao clicar com o botão direito do mouse para o projeto de aplicativo Web no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
 2. A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida. Na caixa **Procurar** do NuGet, digite **Microsoft.Azure.Cosmos**. Com base nos resultados, instale a versão **Microsoft.Azure.Cosmos** 3.0.0.1-preview. Ela baixa e instala o pacote do Azure Cosmos DB e suas dependências, como Newtonsoft.Json. Selecione **OK** na janela **Versão prévia** e em **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
    
@@ -129,7 +129,7 @@ Agora vamos adicionar os modelos, as exibições e os controladores ao aplicativ
 
 1. Selecione **Controlador MVC 5 – Vazio** e clique em **Adicionar**.
 
-   ![Captura de tela da caixa de diálogo Adicionar Scaffold com a opção Controlador MVC 5 - Vazio realçada](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Captura de tela da caixa de diálogo Adicionar Scaffold com a opção Controlador MVC 5 – Vazio realçada](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Nomeie o novo controlador, **ItemController e substitua o código nesse arquivo pelo seguinte código:
 
@@ -235,7 +235,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha a lógica par
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Esse código agora informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento, em vez de **Home**, ele deve usar **Item** como controlador e **Índice** como exibição.
+   Esse código agora informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento, em vez de **Home**, ele deve usar **Item** como controlador e **Índice** como exibição.
 
 Agora, se você executar o aplicativo, ele chamará seu **ItemController** que chama os métodos GetItems da classe TodoItemService definida na próxima seção. 
 

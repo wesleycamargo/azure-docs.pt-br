@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar seu aplicativo ASP.NET e o Banco de Dados SQL do Azure usando o Azure DevOps Projects'
+title: 'Tutorial: Implantar o aplicativo ASP.NET e o Banco de Dados SQL do Azure usando os Azure DevOps Projects'
 description: O DevOps Projects facilita o uso inicial do Azure. Com o DevOps Projects, é possível implantar seu aplicativo ASP.NET e o código de Banco de Dados SQL do Azure em algumas etapas.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845215"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET e o Banco de Dados SQL do Azure usando o Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implantar o aplicativo ASP.NET e o Banco de Dados SQL do Azure usando os Azure DevOps Projects
 
 O Azure DevOps Projects apresenta uma experiência simplificada na qual é possível trazer o seu código e repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
@@ -81,7 +81,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD completo no Azu
 1. Na parte superior do painel do DevOps Projects, selecione **Pipelines de build**.  
     Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **Status**, depois selecione as reticências (...).  
+1. Aponte para o campo **Status** e selecione as reticências (...).  
     Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
@@ -106,10 +106,10 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD completo no Azu
 
 O DevOps Projects cria e configura automaticamente as etapas necessárias para implantar a organização do Azure DevOps na sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de CD, o qual fornece a CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD do Azure DevOps, faça o seguinte:
 
-1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
     O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
-1. Selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**.  
+1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
     O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
 1. Em **Artefatos**, selecione **Soltar**.  
@@ -122,8 +122,8 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
     
 1. À esquerda, selecione **Variáveis**. 
 
-  > [!NOTE]
-  > Só execute a etapa a seguir caso tenha alterado a senha do SQL Server. Há uma única senha variável.
+   > [!NOTE]
+   > Só execute a etapa a seguir caso tenha alterado a senha do SQL Server. Há uma única senha variável.
   
 1. Ao lado da caixa **Valor**, selecione o ícone de cadeado, insira a nova senha, depois selecione **Salvar**.
 
@@ -135,14 +135,14 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 
 1. À direita, selecione **Exibir versões** para exibir um histórico de versões.
 
-1. Selecione as reticências (...) ao lado de uma versão, depois selecione **Abrir**.  
-    É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
+1. Selecione as reticências (...) ao lado de uma versão e selecione **Abrir**.  
+     É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
 
 1. Selecione **Confirmações**.  
-    Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
+     Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
 
 1. Selecione **Logs**.  
-    Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+     Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure 
 
@@ -157,7 +157,7 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Faça uma alteração no arquivo, como adicionar um texto dentro de uma das marcas div. 
 
-1. No canto superior direito, selecione **Confirmar**, depois selecione **Confirmar** novamente para efetuar push da alteração.  
+1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração.  
     Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Projects ou no navegador com sua organização do Azure DevOps.
 
 1. Depois de concluir o lançamento, atualize o aplicativo para verificar as alterações.
@@ -182,10 +182,10 @@ Você precisa de permissões apropriadas para se conectar ao banco de dados SQL 
 
     Como opção, agora você pode usar ferramentas de cliente como o SQL Server Management Studio ou o Visual Studio para se conectar ao SQL Server e ao banco de dados SQL do Azure. Use a propriedade **Nome do servidor** para se conectar.
 
-    Caso não tenha alterado o nome de usuário do banco de dados ao configurar o DevOps Projects inicialmente, seu nome de usuário é a parte local do seu endereço de email. Por exemplo, se seu endereço de email for *johndoe@microsoft.com*, seu nome de usuário será *johndoe*.
+    Caso não tenha alterado o nome de usuário do banco de dados ao configurar o DevOps Projects inicialmente, seu nome de usuário é a parte local do seu endereço de email. Por exemplo, se o seu endereço de email for *joãosilva\@microsoft.com*, seu nome de usuário será *joãosilva*.
 
- > [!NOTE]
- > Se você alterar sua senha de logon no SQL, deverá alterar a senha na variável de pipeline de lançamento, conforme descrito na seção “Examinar o pipeline de CD”.
+   > [!NOTE]
+   > Se você alterar sua senha de logon no SQL, deverá alterar a senha na variável de pipeline de lançamento, conforme descrito na seção “Examinar o pipeline de CD”.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

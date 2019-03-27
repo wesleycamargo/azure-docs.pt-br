@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652695"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444252"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar um aplicativo Java implantado em um cluster local do Service Fabric
 
 Este tutorial é a parte dois de uma série. Você aprenderá como anexar um depurador remoto usando o Eclipse para o aplicativo do Service Fabric. Além disso, você aprenderá a redirecionar os logs dos aplicativos em execução para um local conveniente para o desenvolvedor.
-
-Na segunda parte da série, você aprenderá como:
-> [!div class="checklist"]
-> * Depurar o aplicativo Java usando o Eclipse
-> * Redirecionar logs para um local configurável
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
@@ -38,6 +33,13 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Implantar o aplicativo em um cluster do Azure](service-fabric-tutorial-java-deploy-azure.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-java-elk.md)
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+
+Na segunda parte da série, você aprenderá como:
+> [!div class="checklist"]
+> * Depurar o aplicativo Java usando o Eclipse
+> * Redirecionar logs para um local configurável
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,17 +55,17 @@ Se você não tiver criado o aplicativo de exemplo Votação na [parte um esta s
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Compile e implante](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) o aplicativo em um cluster de desenvolvimento local.
+[Compile e implante](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) o aplicativo no cluster de desenvolvimento local.
 
 ## <a name="debug-java-application-using-eclipse"></a>Depurar o aplicativo Java usando o Eclipse
 
 1. Abra o IDE do Eclipse em seu computador e clique em **Arquivo -> Importar...**
 
-2. Na janela pop-up, selecione a opção **Geral -> Projetos Existentes no Espaço de trabalho** e pressione Avançar.
+2. Na janela pop-up, selecione a opção **Geral -&gt; Projetos Existentes no Workspace** e pressione Avançar.
 
 3. Na janela Importar Projetos, escolha a opção **Selecionar diretório raiz** e escolha o diretório **Votação**. Se você seguiu a primeira série de tutoriais, o diretório **Votação** estará no diretório **Eclipse-espaço de trabalho**.
 
-4. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Para este tutorial, o front-end sem estado é usado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Neste exemplo, a porta 8001 foi definida para depuração.
+4. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Neste tutorial, o front-end sem estado é usado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Neste exemplo, a porta 8001 foi definida para depuração.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. No IDE do Eclipse, selecione **Executar -> Configurações de Depuração -> Aplicativo Java Remoto**, clique na configuração de **Votação** que você criou e clique em **Depurar**.
 
-11. Acesse seu navegador da Web e acesse **localhost:8080** para atingir o ponto de interrupção, e insira a **Perspectiva de depuração** no Eclipse.
+11. No navegador da Web, acesse **localhost:8080**. Isso atingirá automaticamente o ponto de interrupção e o Eclipse vai inserir a **Perspectiva de depuração**.
+
+Agora você pode aplicar estas mesmas etapas para depurar qualquer aplicativo do Service Fabric no Eclipse.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Redirecionar os logs de aplicativo para o local personalizado
 
 As etapas a seguir explicam como redirecionar os logs de aplicativo do local padrão */var/log/syslog* para um local personalizado.
 
-1. Atualmente, os aplicativos em execução em clusters do Linux do Service Fabric dão suporte à seleção de um único arquivo de log. Como resultado, os logs sempre vão para */tmp/mysfapp0.0.log*. Crie um arquivo chamado logging.properties no seguinte local *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* e adicione o seguinte conteúdo.
+1. Atualmente, os aplicativos em execução em clusters do Linux do Service Fabric são compatíveis somente com a seleção de um único arquivo de log. Para configurar um aplicativo para que os logs sempre vão para */tmp/mysfapp0.0.log*, crie um arquivo chamado logging.properties na seguinte localização *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* e adicione o seguinte conteúdo.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ As etapas a seguir explicam como redirecionar os logs de aplicativo do local pad
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ As etapas a seguir explicam como redirecionar os logs de aplicativo do local pad
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    O exemplo a seguir mostra um exemplo de execução:
+    O exemplo a seguir mostra um exemplo de execução com o depurador anexado, semelhante à execução na seção anterior.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

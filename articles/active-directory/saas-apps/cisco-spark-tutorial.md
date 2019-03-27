@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef0638afd162dc179a2a7dec54b60bfb1f89144
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Azure Active Directory ao Cisco Webex
 
@@ -46,6 +46,8 @@ Para configurar a integração do Azure Active Directory ao Cisco Webex, você p
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * O Cisco Webex dá suporte ao SSO iniciado por **SP**
+
+* O Cisco Webex dá suporte ao provisionamento de usuário **Automatizado**
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionando o Cisco Webex da galeria
 
@@ -120,7 +122,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex, execute as seguint
     
     | NOME |  Atributo de Origem|
     | ---------------|--------- |
-    | UID | user.userprincipalname |
+    | uid | user.userprincipalname |
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
@@ -150,7 +152,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex, execute as seguint
 
     a. URL de logon
 
-    b. Identificador do Azure Ad
+    b. Identificador do Azure AD
 
     c. URL de logoff
 
@@ -190,7 +192,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -243,7 +245,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Webex
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
-    c. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário como **britta.simon@contoso.com**.
+    c. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário como **brenda.fernandes\@contoso.com**.
 
 5. Clique no sinal de mais para adicionar Brenda Fernandes. Em seguida, clique em **Avançar**.
 
@@ -257,8 +259,10 @@ Ao clicar no bloco do Cisco Webex no Painel de Acesso, você deverá ser conecta
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Configurar Provisionamento de Usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

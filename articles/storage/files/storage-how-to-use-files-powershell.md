@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 53f2b59032e7e9725b067ef472b2b6dcf94bcb72
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437115"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerenciar um compartilhamento de arquivos do Azure com o Azure PowerShell 
 Este guia oferece orientações básicas sobre como trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando o PowerShell. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -166,7 +166,7 @@ Agora, se você listar os arquivos no novo compartilhamento, deverá ver o arqui
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Embora o cmdlet `Start-AzStorageFileCopy` seja conveniente para movimentações avulsas de arquivos entre compartilhamentos de arquivos do Azure e contêineres de armazenamento de Blobs do Azure, recomendamos AzCopy para movimentações maiores (em termos de quantidade ou tamanho de arquivos que estão sendo movidos). Saiba mais sobre [AzCopy para Windows](../common/storage-use-azcopy.md) e [AzCopy para Linux](../common/storage-use-azcopy-linux.md). O AzCopy deve ser instalado localmente; ele não está disponível no Cloud Shell. 
+Embora o cmdlet `Start-AzStorageFileCopy` seja conveniente para movimentações ad hoc de arquivos entre compartilhamentos de arquivos do Azure e contêineres de armazenamentos de Blobs do Azure, recomendamos o AzCopy para movimentações maiores (em termos de quantidade ou tamanho de arquivos que estão sendo movidos). Saiba mais sobre [AzCopy para Windows](../common/storage-use-azcopy.md) e [AzCopy para Linux](../common/storage-use-azcopy-linux.md). O AzCopy deve ser instalado localmente; ele não está disponível no Cloud Shell. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Criar e gerenciar instantâneos de compartilhamento
 Outra tarefa útil que você pode fazer com um compartilhamento de arquivos do Azure é criar instantâneos de compartilhamento. Um instantâneo preserva um ponto no tempo para um compartilhamento de arquivos do Azure. Os instantâneos de compartilhamento são semelhantes às tecnologias de sistema operacional que você talvez já conheça, como:

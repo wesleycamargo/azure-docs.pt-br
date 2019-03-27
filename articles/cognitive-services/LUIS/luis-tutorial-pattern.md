@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855876"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193731"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar formatos comuns de enunciado de modelo padrão
 
@@ -221,22 +221,7 @@ Para que um padrão seja correspondido a um enunciado, as entidades dentro do en
 
 **Embora os padrões permitam que você forneça menos enunciados de exemplo, se as entidades não forem detectadas, o padrão não corresponderá.**
 
-Neste tutorial, adicione duas novas intenções: `OrgChart-Manager` e `OrgChart-Reports`. 
-
-|Intenção|Enunciado|
-|--|--|
-|Organograma-Manager|A quem o senhor João W. Silva deve se reportar?|
-|OrgChart-Reports|Quem responde a João W. Silva?|
-
-Depois que o LUIS retornar uma previsão para o aplicativo cliente, o nome da intenção poderá ser usado como um nome de função no aplicativo cliente e a entidade Funcionário poderá ser usada como um parâmetro para essa função.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Lembre-se de que os funcionários foram criados no [tutorial da entidade de lista](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção do Organograma-Manager
 
 1. Selecione **Compilar** no menu superior.
 
@@ -259,7 +244,7 @@ Lembre-se de que os funcionários foram criados no [tutorial da entidade de list
 
     [![Captura de tela da entrada de enunciados de modelo para intenção](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selecione a intenção **OrgChart-Reports** e, em seguida, insira os seguintes enunciados de modelo:
+4. Selecione a intenção **OrgChart-Reports** e, em seguida, insira os seguintes enunciados de modelo, enquanto ainda estiver na página de Padrões:
 
     |Enunciados de modelo|
     |:--|
@@ -272,11 +257,13 @@ Lembre-se de que os funcionários foram criados no [tutorial da entidade de list
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Ponto de extremidade de consulta quando os padrões são usados
 
+Agora que os padrões foram adicionados ao aplicativo, treine, publique e consulte o aplicativo no ponto de extremidade de tempo de execução de previsão.
+
 1. Treine e publique o aplicativo novamente.
 
-2. Alterne as guias do navegador para a guia de URL do ponto de extremidade.
+1. Alterne as guias do navegador para a guia de URL do ponto de extremidade.
 
-3. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?` como o enunciado. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
+1. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?` como o enunciado. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Lembre-se de que os funcionários foram criados no [tutorial da entidade de list
     }
     ```
 
-A previsão de intenção agora é significativamente maior.
+A previsão de intenção agora é significativamente mais confiante.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabalhanr com texto opcional e as entidades predefinidas
 
-As declarações de modelo padrão anteriores neste tutorial tinham alguns exemplos de uso da letra s, caso seja um texto opcional `'s`e o uso de ponto de interrogação, `?`. Suponha que as declarações de ponto de extremidade mostram que os gerentes e os representantes de Recursos Humanos estão procurando dados históricos, bem como planejado movimentações de funcionário na empresa que está acontecendo em uma data futura.
+As declarações de modelo padrão anteriores neste tutorial tinham alguns exemplos de uso da letra s, caso seja um texto opcional `'s`e o uso de ponto de interrogação, `?`. Suponha que você precisa permitir para datas atuais e futuras no texto da expressão.
 
 Exemplo de enunciados:
 
@@ -379,23 +366,22 @@ Exemplo de enunciados:
 
 Cada um desses exemplos usa um indicativo de verbo, `was`, `is`, `will be`, bem como uma data `March 3`, `now`, e `in a month`, que LUIS precisa prever corretamente. Observe que os dois últimos exemplos usam quase o mesmo texto, exceto para `in` e `on`.
 
-Exemplo das declarações de modelo:
+Declarações de modelo de exemplo que permitem essas informações opcionais: 
+
 |Intenção|Exemplo de enunciado com texto opcional e as entidades predefinidas|
 |:--|:--|
 |Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |Organograma-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|Organograma-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|Organograma-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adicionar a declaração de modelo e podem ser aninhados em até um segundo nível, `[[]]`e incluem entidades ou texto.
 
-**Pergunta: Por que não foi possível as declarações de dois últimos exemplo combinar em uma declaração de modelo único?** O modelo padrão não oferece suporte a sintaxe de OR. Para capturar tanto a versão `in` como a versão `on`, cada um deve ser uma expressão de modelo separado.
 
 **Pergunta: Por que todas as letras `w`, a primeira letra de cada expressão de modelo, são minúsculas? Eles não devem ser opcionalmente letras maiusculas ou minúsculas?** A expressão enviado para o ponto de extremidade da consulta pelo aplicativo cliente, é convertida em minúsculas. A expressão de modelo pode ser em maiusculas ou minúsculas e a expressão de ponto de extremidade também pode ser qualquer uma. A comparação sempre é feita após a conversão em letras minúsculas.
 
 **Pergunta: Por que um número predefinido não faz parte do modelo de expressão se 3 de março está previsto tanto como número `3` quanto como data `March 3`?** A expressão de modelo contextualmente está usando uma data, ou, literalmente, como em `March 3` ou abstraída como `in a month`. Uma data pode conter um número, mas um número necessariamente não pode ser visto como uma data. Sempre use a entidade que melhor representa o tipo que você deseja que seja retornado nos resultados da previsão de JSON.  
 
-**Pergunta: E quanto a expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS.
+**Pergunta: E quanto a expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS. Você pode [grupo e ou](#use-the-or-operator-and-groups) verbais combinar essas declarações. 
 
 **Lembre-se: entidades encontram-se em primeiro lugar, em seguida, o padrão é correspondido.**
 
@@ -403,11 +389,9 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
 1. No site do LUIS, selecione **construir** no menu superior, em seguida, selecione **padrões** no menu à esquerda. 
 
-2. Localize a declaração de modelo existente `Who is {Employee}['s] manager[?]`e selecione as reticências (***...*** ) à direita. 
+1. Pesquise a declaração de modelo existente `Who is {Employee}['s] manager[?]`e selecione as reticências (***...*** ) para a direita, em seguida, selecione **Editar** no menu pop-up. 
 
-3. Selecione **Editar** no menu acima. 
-
-4. Alterar a definição do modelo para: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Alterar a definição do modelo para: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Adicionar novas declarações de modelo padrão
 
@@ -416,7 +400,6 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
     |Intenção|Exemplo de enunciado com texto opcional e as entidades predefinidas|
     |--|--|
     |Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |Organograma-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |Organograma-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |Organograma-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
 4. Insira várias declarações de teste para verificar se o padrão é correspondido e a pontuação de intenção é muito alta. 
 
-    Depois de inserir a primeira expressão, selecione **Inspecionar** sob o resultado para que você possa ver todos os resultados de previsão.
+    Depois de inserir a primeira expressão, selecione **Inspecionar** sob o resultado para que você possa ver todos os resultados de previsão. Cada expressão deve ter a intenção do **Organograma-Manager** e deve extrair os valores para as entidades de funcionário e datetimeV2.
 
     |Enunciado|
     |--|
@@ -438,6 +421,51 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
     |Quem será o gerente de João W. Silva no próximo mês?|
 
 Todas essas declarações encontradas as entidades dentro, portanto eles coincidir com o mesmo padrão e têm uma pontuação alta de previsão.
+
+## <a name="use-the-or-operator-and-groups"></a>Use o operador OR e grupos
+
+Várias das declarações de modelo anterior são muito parecidas. Use o **grupo** `()` e a sintaxe **OU** `|` para reduzir as declarações de modelo. 
+
+Os seguintes 2 padrões podem combinar em um único padrão usando o grupo `()` e a sintaxe OU `|`.
+
+|Intenção|Exemplo de enunciado com texto opcional e as entidades predefinidas|
+|--|--|
+|Organograma-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|Organograma-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+A nova declaração de modelo será: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Isso usa um **grupo** em torno dos tempos verbais exigidos e o `in` opcional e `on` com um **ou** pipe entre eles. 
+
+1. Na página **Padrões**, selecione o filtro **Organograma-Manager**. Restrinja a lista pesquisando por `manager`. 
+
+    ![Pesquisar nos padrões de intenção do Organograma-Manager para o termo 'gerenciador'](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Mantenha uma versão da expressão de modelo (para editar na próxima etapa) e excluir as outras variações. 
+
+1. Alterar a definição do modelo para: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Treine o aplicativo.
+
+1. Use o painel de teste para testar versões de declaração:
+
+    |Declarações a serem inseridas no painel de teste|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e término da declaração
+
+A sintaxe padrão oferece uma sintaxe de âncora da declaração de início e término de um ponto de inserção, `^`. As âncoras de declaração de início e término podem ser usadas juntas para direcionar na declaração muito específica e possivelmente literal ou usadas separadamente para propósitos de destino. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

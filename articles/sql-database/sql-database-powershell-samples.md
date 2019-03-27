@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: 07e530a30898e57916b91632c4bf49d43d69471a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 03/12/2019
+ms.openlocfilehash: 3a22caa39dad3ce296c43015f324270b7dc55ae8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862022"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
 
@@ -26,7 +26,7 @@ Banco de Dados SQL do Azure permitem que você configure seus bancos de dados, a
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o AZ PowerShell 1.4.0 ou posterior. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="single-database-and-elastic-pools"></a>Banco de Dados Individual e pools Elásticos
 
@@ -65,7 +65,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 | |  |
 |---|---|
 |**Criar e configurar instâncias gerenciadas**||
-| [Criar e gerenciar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell |
+| [Criar e gerenciar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell |
 | [Criar e gerenciar uma Instância Gerenciada usando o modelo do Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar uma Instância Gerenciada usando o Azure PowerShell e o modelo do Azure Resource Manager.|
 | **Configurar TDE (Transparent Data Encryption)**||
 | [Gerenciar Transparent Data Encryption em uma Instância Gerenciada usando sua própria chave do Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a TDE (Transparent Data Encryption) no cenário de Bring Your Own Key para instância gerenciada do SQL usando uma chave do Azure Key Vault|

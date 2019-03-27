@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863756"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Transmitir ao vivo com Serviços de Mídia v3 usando .NET
 
@@ -33,7 +33,7 @@ Este tutorial mostra como:
 > [!div class="checklist"]
 > * Baixe o aplicativo de exemplo descrito no tópico
 > * Examinar o código que executa a transmissão ao vivo
-> * Assista ao evento com o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em http://ampdemo.azureedge.net
+> * Assista ao evento com o [Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em https://ampdemo.azureedge.net
 > * Limpar recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é neces
 
 ### <a name="create-a-live-event"></a>Criar um evento ao vivo
 
-Esta seção mostra como criar um tipo de **passagem** do Evento ao Vivo (LiveEventEncodingType definido como Nenhum). Se você quiser criar um Evento ao Vivo habilitado para codificação ativa, defina LiveEventEncodingType como **Standard**. 
-
-Outras opções que talvez você queira especificar ao criar o evento ao vivo são:
+Esta seção mostra como criar um tipo de **passagem** do Evento ao Vivo (LiveEventEncodingType definido como Nenhum). Para obter mais informações sobre os tipos de Eventos ao vivo disponíveis, consulte [Tipos de evento ao vivo](live-events-outputs-concept.md#live-event-types). 
+ 
+Algumas coisas que talvez você queira especificar ao criar o evento ao vivo são:
 
 * Local dos Serviços de Mídia 
 * O protocolo de streaming para Evento ao Vivo (atualmente, há suporte para os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o Evento ao vivo ou suas Saídas ao vivo associadas estiverem em execução. Se você precisar de protocolos diferentes, crie um Evento ao vivo separado para cada protocolo de streaming.  
@@ -166,7 +166,7 @@ O código a seguir mostra como limpar sua conta de todos os Eventos ao Vivo:
 
 ## <a name="watch-the-event"></a>Assistir ao evento
 
-Para assistir ao evento, copie a URL de streaming obtida quando você executou o código descrito em Criar um Localizador de Streaming e use um player de sua escolha. É possível usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream em http://ampdemo.azureedge.net. 
+Para assistir ao evento, copie a URL de streaming obtida quando você executou o código descrito em Criar um Localizador de Streaming e use um player de sua escolha. É possível usar o [Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream em https://ampdemo.azureedge.net. 
 
 O Evento ao Vivo é convertido automaticamente em conteúdo sob demanda quando é interrompido. Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
 

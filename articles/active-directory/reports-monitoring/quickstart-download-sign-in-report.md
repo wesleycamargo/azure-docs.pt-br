@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168810"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547802"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Baixar um relatório de entrada usando o portal do Azure
 
-Neste início rápido, você aprenderá a baixar os dados de entrada para seu locatário nas últimas 24 horas. É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por mais recentes; por padrão, você obterá 5000 registros mais recentes. 
+Neste início rápido, você aprenderá a baixar os dados de entrada para seu locatário nas últimas 24 horas. Você pode baixar até 250.000 registros do portal do Azure. Os registros são classificados por mais recentes; por padrão, você obterá os 250.000 registros mais recentes. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Você precisa de:
 2. Selecione **Azure Active Directory** do painel de navegação à esquerda e use o botão **Mudar diretório** para selecionar seu Active Directory.
 3. No painel, selecione **Azure Active Directory** e, em seguida, selecione **Entradas**. 
 4. Escolha **Últimas 24 horas** na lista suspensa do filtro **Data** e selecione **Aplicar** para exibir as entradas nas últimas 24 horas. 
-5. Selecione o botão **Baixar** para baixar um arquivo CSV que contém os registros filtrados. 
+5. Selecione o botão **Baixar**, selecione **CSV** como o formato de arquivo e especifique um nome de arquivo para baixar um arquivo CSV contendo os registros filtrados. 
 
 ![Relatórios](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

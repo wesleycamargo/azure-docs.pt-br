@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
+title: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
 description: Neste início rápido, você define e recupera um segredo do Azure Key Vault usando um aplicativo Web do .NET
 services: key-vault
 author: prashanthyv
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238276"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316380"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET
 

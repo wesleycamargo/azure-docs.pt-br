@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f86fe5e3-0e91-40d6-869c-3df6912d27ea
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 24fa4297701e5144ba58d6d0e8ec034a6cdda570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Active Directory com o Flatter Files
 
@@ -140,8 +140,8 @@ Para configurar o logon único do Azure AD com o Flatter Files, execute as segui
    
      a. Na caixa de texto **Domínio**, digite seu domínio registrado.
    
-    >[!NOTE]
-    >Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com). 
+   > [!NOTE]
+   > Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com). 
     
     b. Na caixa de texto **URL do Provedor de Identidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
    
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

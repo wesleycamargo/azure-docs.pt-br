@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109037"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242030"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -128,7 +128,7 @@ A Central de Segurança inclui funcionalidades que ajudam você a realizar a cla
 
 ## <a name="get-secure-faster"></a>Ficar seguro com mais rapidez
 
-A integração nativa do Azure (incluindo Azure Policy e Log Analytics) combinada com a integração perfeita a outras soluções de segurança da Microsoft, como ao Microsoft Cloud App Security e à Proteção Avançada contra Ameaças do Windows Defender, ajuda a garantir sua solução de segurança seja abrangente e simples de integrar e distribuir.
+A integração nativa do Azure (incluindo Azure Policy e Azure Monitor logs) combinada com a integração perfeita a outras soluções de segurança da Microsoft, como ao Microsoft Cloud App Security e à Proteção Avançada contra Ameaças do Windows Defender, ajuda a garantir sua solução de segurança seja abrangente e simples de integrar e distribuir.
 
 Além disso, você pode estender a solução completa além do Azure para cargas de trabalho em execução em outras nuvens e data centers locais.
 

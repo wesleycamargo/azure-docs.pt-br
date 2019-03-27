@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821893"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409832"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 
@@ -51,7 +51,16 @@ O Gerenciador de Recursos fornece vários benefícios:
 * Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 * Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marcação.
 
+## <a name="understand-management-scope"></a>Entender o escopo de gerenciamento
+
+O Azure fornece quatro níveis de escopo de gerenciamento: grupos de gerenciamento, assinatura, grupos de recursos e recursos. [Grupos de gerenciamento](../governance/management-groups/index.md) estão em uma versão prévia. A imagem a seguir mostra um exemplo dessas camadas.
+
+![Escopo](./media/resource-group-overview/scope-levels.png)
+
+As configurações de gerenciamento são aplicadas em qualquer desses níveis de escopo. O nível que você seleciona determina o quão amplamente a configuração é aplicada. Os níveis inferiores herdam as configurações de níveis superiores. Por exemplo, ao aplicar uma [política](../governance/policy/overview.md) à assinatura, ela será aplicada a todos os grupos de recursos e recursos em sua assinatura. Ao aplicar uma política no grupo de recursos, ela será aplicada ao grupo de recursos e a todos os recursos. No entanto, outro grupo de recursos não terá essa atribuição de política.
+
 ## <a name="guidance"></a>Diretrizes
+
 As sugestões a seguir ajudarão você a aproveitar ao máximo o Gerenciador de Recursos quando estiver trabalhando com suas soluções.
 
 * Defina e implante a sua infraestrutura através de sintaxe declarativa em modelos do Gerenciador de Recursos, e não de comandos imperativos.
