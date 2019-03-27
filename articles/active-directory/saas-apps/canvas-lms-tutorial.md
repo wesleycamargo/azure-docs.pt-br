@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff46d9644848d197051e574106b029fb44efb069
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Azure Active Directory com o Canvas
 
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -239,9 +239,9 @@ Para permitir que os usuários do Azure AD façam logon no Canvas, eles devem se
 
     a. Na caixa de texto **Nome Completo**, insira o nome de usuário, como **BrendaFernandes**.
 
-   b. Na caixa de texto **Email**, insira o email de usuário como **brittasimon@contoso.com**.
+   b. Na caixa de texto **Email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
-   c. Na caixa de texto **Logon**, insira o endereço de email do Azure AD do usuário como **brittasimon@contoso.com**.
+   c. Na caixa de texto **Logon**, insira o endereço de email do Azure AD do usuário, como **brendafernandes\@contoso.com**.
 
    d. Selecione **Enviar email ao usuário sobre a criação desta conta**.
 

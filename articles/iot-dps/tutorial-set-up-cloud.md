@@ -1,20 +1,20 @@
 ---
 title: Configurar a nuvem para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure no Portal | Microsoft Docs
 description: Provisionamento automático de dispositivos no Hub IoT no Portal do Azure
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170727"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -81,11 +81,11 @@ A próxima etapa é vincular o Serviço de Provisionamento de Dispositivos e o H
 
 4. Na página **Adicionar link ao Hub IoT**, forneça as informações a seguir e clique em **Salvar**:
 
-    * **Assinatura:** Verifique se a assinatura que contém o Hub IoT está selecionada. Você pode vincular ao Hub IoT que reside em uma assinatura diferente.
+    * **Assinatura:** Certifique-se de que a assinatura que contém o hub IoT esteja selecionada. Você pode vincular ao Hub IoT que reside em uma assinatura diferente.
 
-    * **Hub IoT:** Escolha o nome do Hub IoT que você deseja vincular a essa instância de serviço de provisionamento do dispositivo.
+    * **Hub IoT:** Escolha o nome do Hub IoT que você quer vincular a essa instância de Serviço de Provisionamento de Dispositivos.
 
-    * **Política de acesso:** Selecione **iothubowner** como as credenciais para estabelecer o link com o Hub IoT.
+    * **Política de acesso:** Selecione **iothubowner** como as credenciais a serem usadas para estabelecer o link para o Hub IoT.
 
    ![Vincular o nome do hub para vincular ao serviço Provisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -93,11 +93,11 @@ A próxima etapa é vincular o Serviço de Provisionamento de Dispositivos e o H
 
 A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos no Hub IoT que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
 
-1. **Menor latência**: dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
+1. **Menor latência**: Os dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
 
-2. **Distribuição igualmente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
+2. **Distribuição uniformemente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
 
-3. **Configuração estática por meio da lista de registro**: a especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
+3. **Configuração estática através da lista de registro**: A especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
 
 Para definir a política de alocação, na página do Serviço de Provisionamento de Dispositivos, clique em **Gerenciar política de alocação**. Verifique se a política de alocação está definida como **Distribuição igualmente ponderada** (o padrão). Se fizer alguma alteração, clique em **Salvar** quando terminar.
 

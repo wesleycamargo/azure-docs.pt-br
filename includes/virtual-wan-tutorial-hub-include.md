@@ -5,22 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f5560877d48513d5ac0b6a4842f45b2d91873e02
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1d59c90b4f4ac7213a4bd2769a9c22cace25e9cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004112"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124535"
 ---
-Um novo hub contém o gateway, cuja criação demora 30 minutos. Depois que o hub é criado, você será cobrado por ele, mesmo se não anexar sites. 
-1. Na página da WAN, em **Arquitetura da WAN Virtual**, clique em **Hubs** para abrir a página Hubs.
-2. Na página Hubs, clique em **+ Novo Hub** para abrir a página **Hubs**.
-3. Na página Hubs, preencha os campos a seguir:
+Um hub contém o gateway. Depois que o hub é criado, você será cobrado por ele, mesmo se não anexar sites. Leva 30 minutos para criar o hub e o gateway.
 
-  * Local padrão
-  * NOME
-  * Espaço de endereço privado do hub
-4. Clique em **Confirmar** para criar o hub. Clique em **Atualizar** para exibir o hub na página Hubs.
+1. Localize o WAN Virtual que você criou. Na página WAN Virtual, na seção **arquitetura WAN Virtual**, clique em **Hubs**.
+2. Na página Hubs, clique em **+ Novo Hub** para abrir a página do **hub WAN Virtual**.
+3. Na página de hub de WAN Virtual, conclua os seguintes campos:
+
+   * Local padrão
+   * NOME
+   * Espaço de endereço privado do hub
+4. Clique em **Confirmar** para criar o hub. Clique em **Atualizar** para exibir o hub na página **Hubs**.

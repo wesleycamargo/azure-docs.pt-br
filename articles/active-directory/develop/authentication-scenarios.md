@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244548"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295701"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -79,7 +79,7 @@ O Azure AD representa aplicativos que seguem um modelo específico projetado par
 
 No Azure AD, um **objeto de aplicativo** descreve um aplicativo como uma entidade abstrata. Os desenvolvedores trabalham com aplicativos. No momento da implantação, o Azure AD usa um objeto de aplicativo específico como um blueprint para criar uma **entidade de serviço**, que representa uma instância concreta de um aplicativo em um diretório ou um locatário. É a entidade de serviço que define o que o aplicativo pode realmente fazer em um diretório de destino específico, quem pode usá-lo, a quais recursos ele tem acesso e assim por diante. O Azure AD cria uma entidade de serviço com base em um objeto de aplicativo por meio de **consentimento**.
 
-O diagrama a seguir mostra um fluxo de provisionamento simplificado do Azure AD orientado por consentimento.
+O diagrama a seguir mostra um fluxo de provisionamento simplificado do Azure AD orientado por consentimento.  Nele, há dois locatários (A e B), em que o locatário A possui o aplicativo e o locatário B está instanciando o aplicativo por meio de uma entidade de serviço.  
 
 ![Fluxo de provisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Neste fluxo de provisionamento:
 
 |   |   |
 |---|---|
-| 1 | Um usuário de B tenta entrar com o aplicativo |
+| 1 | Um usuário do locatário B tenta entrar com o aplicativo |
 | 2 | As credenciais do usuário são obtidas e verificadas |
 | 3 | O usuário deve fornecer consentimento ao aplicativo para obter acesso ao locatário B |
-| 4 | O Azure AD usa o objeto de aplicativo em A como um blueprint para a criação de uma entidade de serviço em B |
+| 4 | O Azure AD usa o objeto de aplicativo em A como um blueprint para criar uma entidade de serviço no locatário B |
 | 5 | O usuário recebe o token solicitado |
 |   |   |
 
-Você pode repetir esse processo quantas vezes desejar para outros locatários (C, D e assim por diante). O diretório A retém o blueprint do aplicativo (objeto de aplicativo). Os usuários e os administradores de todos os outros locatários nos quais o aplicativo recebe consentimento retêm o controle sobre o que o aplicativo pode fazer por meio do objeto de entidade de serviço correspondente em cada locatário. Para obter mais informações, confira [Objetos de entidade de serviço e aplicativo no Azure AD](app-objects-and-service-principals.md).
+Você pode repetir esse processo quantas vezes desejar para outros locatários (C, D e assim por diante). O locatário A mantém o blueprint para o aplicativo (objeto de aplicativo). Os usuários e os administradores de todos os outros locatários nos quais o aplicativo recebe consentimento retêm o controle sobre o que o aplicativo pode fazer por meio do objeto de entidade de serviço correspondente em cada locatário. Para obter mais informações, confira [Objetos de entidade de serviço e aplicativo no Azure AD](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Declarações em tokens de segurança do Azure AD
 

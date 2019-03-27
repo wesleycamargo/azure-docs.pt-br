@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200863"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224644"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -33,8 +33,10 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
    * [Ingressados no Azure AD](../device-management-azure-portal.md) ou
    * [Ingressados no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * É necessário habilitar a redefinição de senha self-service do Azure AD.
-* Se seus dispositivos Windows 10 estiverem atrás de um firewall ou de um servidor proxy, você deverá adicionar as URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidas para tráfego HTTPS (porta 443).
+* Se os dispositivos Windows 10 estiverem atrás de um firewall ou de um servidor proxy, você deverá adicionar as URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidas para tráfego HTTPS (porta 443).
+* A SSPR para Windows 10 somente tem suporte com proxies de nível do computador
 * Examine as limitações abaixo antes de experimentar esse recurso em seu ambiente.
+* Se estiver usando uma imagem, antes do sysprep, assegure-se de que o cache da Web esteja desmarcado para o Administrador interno, antes de executar a etapa CopyProfile. Mais informações sobre esse assunto podem ser encontradas no artigo de suporte [Desempenho insatisfatório ao usar perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
 

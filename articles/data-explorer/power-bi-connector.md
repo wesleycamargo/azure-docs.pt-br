@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Visualizar dados usando o conector do Azure Data Explorer para o Power BI'
+title: 'Início rápido: Visualize dados usando o conector do Azure Data Explorer para Power BI'
 description: 'Neste início rápido, você aprenderá a usar uma das três opções para visualizar dados no Power BI: o conector do Power BI para o Azure Data Explorer.'
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106739"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início Rápido: Visualizar dados usando o conector do Azure Data Explorer para o Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualize dados usando o conector do Azure Data Explorer para Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Power BI é uma solução de análise de negócios que permite que você visualize os dados e compartilhar os resultados na sua organização.
 
@@ -53,7 +53,7 @@ Primeiro, conecte-se ao cluster de ajuda do Azure Data Explorer, depois use um s
     |---|---|---|
     | HDInsight | *https://help.kusto.windows.net* | A URL do cluster de ajuda. Para outros clusters, a URL está no formato *https://\<NomeCluster\>.\<Região\>.kusto.windows.net*. |
     | Banco de dados | Deixar em branco | Um banco de dados que está hospedado no cluster ao qual você está se conectando. Vamos selecioná-lo em uma etapa posterior. |
-    | Nome da tabela | Deixar em branco | Uma das tabelas no banco de dados ou uma consulta, como “StormEvents | take 1000”. Vamos selecioná-lo em uma etapa posterior. |
+    | Nome da tabela | Deixar em branco | Uma das tabelas no banco de dados, ou uma consulta como <code>StormEvents \| take 1000</code>. Vamos selecioná-lo em uma etapa posterior. |
     | Opções Avançadas | Deixar em branco | Opções para suas consultas, como tamanho de conjunto de resultados. |
     | Modo de conectividade de dados | *DirectQuery* | Determina se o Power BI importa os dados ou se conecta diretamente à fonte de dados. Você pode usar uma das opções com esse conector. |
     | | | |
@@ -91,4 +91,4 @@ Caso não precise mais do relatório que você criou para este início rápido, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Visualizar dados usando uma consulta importada no Power BI](power-bi-imported-query.md)
+> [Início Rápido: Visualize dados usando uma consulta importada no Power BI](power-bi-imported-query.md)

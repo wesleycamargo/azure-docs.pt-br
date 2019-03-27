@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415758"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999963"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -30,15 +30,17 @@ As Migrações para Azure ajudam você a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs do VMware precisam ser gerenciadas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
-- Se você quer avaliar as VMs Hyper-V e servidores físicos, use o [Planejador de Implantações do Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) para Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para computadores físicos.
+- O suporte para Hyper-V atualmente está em versão prévia com suporte de produção, se você estiver interessado em testá-lo, inscreva-se [aqui.](https://aka.ms/migratefuture)
+- Para avaliação de servidores físicos, você pode aproveitar nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/).
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 -  Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, isso não restringe sua capacidade de criar avaliações para outros locais do Azure de destino.
+
     **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov. dos EUA – Virgínia
-    Ásia | Sudeste Asiático
+    Ásia | Sudeste Asiático ou Ásia Oriental
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
@@ -72,27 +74,27 @@ As configurações de avaliação podem ser personalizadas de acordo com suas ne
 
 ## <a name="how-does-azure-migrate-work"></a>Como funcionam as Migrações para Azure?
 
-1.  Você cria um projeto das Migrações para Azure.
-2.  As Migrações para Azure usam uma VM local chamada dispositivo coletor para descobrir informações sobre suas máquinas locais. Para criar o dispositivo, baixe o arquivo de configuração no formato Open Virtualization Appliance (.ova) e importe-o como uma VM em seu servidor local do vCenter Server.
+1. Você cria um projeto das Migrações para Azure.
+2. As Migrações para Azure usam uma VM local chamada dispositivo coletor para descobrir informações sobre suas máquinas locais. Para criar o dispositivo, baixe o arquivo de configuração no formato Open Virtualization Appliance (.ova) e importe-o como uma VM em seu servidor local do vCenter Server.
 3. Você se conecta à VM do vCenter Server e especifica uma nova senha para ele durante a conexão.
 4. Execute o coletor na VM para iniciar a descoberta.
 5. O coletor coleta metadados da VM usando os cmdlets de VMware PowerCLI. A descoberta não tem agente e não instala nada em VMs ou hosts VMware. Os metadados coletados incluem informações da VM (núcleos, memória, discos, tamanhos de disco e adaptadores de rede). Também coleta dados de desempenho para VMs, incluindo CPU e uso da memória, IOPS de disco, taxa de transferência do disco (MBps) e saída da rede (MBps).
-5.  Os metadados são enviados para o projeto das Migrações para Azure. Consulte-os no Portal do Azure.
-6.  Para fins de avaliação, junte as VMs descobertas em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Para um agrupamento mais preciso, você pode usar a visualização de dependência para exibir as dependências de um computador específico ou para todos os computadores em um grupo e refinar o grupo.
-7.  Após o grupo ser definido, crie uma avaliação para ele.
-8.  Após a conclusão da avaliação, você poderá exibi-la no portal ou baixá-la no formato do Excel.
+5. Os metadados são enviados para o projeto das Migrações para Azure. Consulte-os no Portal do Azure.
+6. Para fins de avaliação, junte as VMs descobertas em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Para um agrupamento mais preciso, você pode usar a visualização de dependência para exibir as dependências de um computador específico ou para todos os computadores em um grupo e refinar o grupo.
+7. Após o grupo ser definido, crie uma avaliação para ele.
+8. Após a conclusão da avaliação, você poderá exibi-la no portal ou baixá-la no formato do Excel.
 
-  ![Arquitetura das Migrações para Azure](./media/migration-planner-overview/overview-1.png)
+   ![Arquitetura das Migrações para Azure](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Quais são os requisitos de porta?
 
 A tabela resume as portas necessárias para as comunicações das Migrações para Azure.
 
-Componente | Comunica-se com |  Detalhes
---- | --- |---
-Coletor  | Serviço Migrações para Azure | O coletor se conecta ao serviço através da porta SSL 443.
-Coletor | vCenter Server | Por padrão, o coletor se conecta ao vCenter Server na porta 443. Se o servidor escutar em uma porta diferente, configure-a como uma porta de saída na VM coletora.
-VM local | Workspace do Log Analytics | [TCP 443] | [O MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) usa a porta TCP 443 para se conectar ao Log Analytics. Você só precisará dessa porta se estiver usando a visualização de dependência, que requer o agente MMA.
+| Componente | Comunica-se com |  Detalhes |
+| --- | --- |--- |
+|Coletor  | Serviço Migrações para Azure | O coletor se conecta ao serviço através da porta SSL 443.|
+|Coletor | vCenter Server | Por padrão, o coletor se conecta ao vCenter Server na porta 443. Se o servidor escutar em uma porta diferente, configure-a como uma porta de saída na VM coletora.|
+|VM local | Workspace do Log Analytics | [O MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) usa porta TCP 443 para conectar logs do Azure Monitor. Você só precisará dessa porta se estiver usando a visualização de dependência, que requer o agente MMA.|
 
 
 ## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?

@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270327"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137820"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início Rápido: Usar ferramentas internas do portal para importação, indexação e consultas do Azure Search
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Usar ferramentas internas do portal para importação, indexação e consultas do Azure Search
 
 Para se familiarizar rapidamente com os conceitos do Azure Search, experimente as ferramentas internas no portal do Azure. Os assistentes e os editores não oferecem a paridade completa com o .NET e as APIs REST, mas você pode começar rapidamente com uma introdução sem código, escrevendo consultas interessantes em dados de exemplo em minutos.
 
@@ -34,13 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um serviço Azure Search](search-create-service-portal.md) ou encontre um serviço existente em sua assinatura atual.
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Abra o painel de serviços de seu serviço de Azure Search. Se você não fixar o bloco do serviço ao seu painel, poderá encontrar o serviço desta maneira:
-
-   * Na barra de navegação, clique em **Todos os serviços** no painel de navegação à esquerda.
-   * Na caixa de pesquisa, digite *search* para obter uma lista de serviços de pesquisa da sua assinatura. Clique em **Serviços Search**. Seu serviço deve aparecer na lista.
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
 ### <a name="check-for-space"></a>Verificar o espaço
 

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957429"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226701"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início Rápido: Criar uma função do Azure com a Configuração de Aplicativo
 
-A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. Ela permite armazenar e gerenciar com facilidade todas as suas configurações de aplicativo em um só lugar, separado do código. Este Início Rápido mostra como incorporar o serviço em um Azure Function. 
+A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. É possível utilizá-lo para armazenar e gerenciar facilmente todas as configurações de aplicativo em um local separado do código. Este início rápido mostra como incorporar o serviço em um Azure Functions. 
 
-Você pode usar qualquer editor de código para concluir as etapas deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma opção excelente nas plataformas Windows, macOS e Linux.
+Você pode usar qualquer editor de código para executar as etapas deste início rápido. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-![Início Rápido completo local](./media/quickstarts/dotnet-core-function-launch-local.png)
+![Início rápido local completo](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este Início Rápido, instale o [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (e garanta que a carga de trabalho de **desenvolvimento do Azure** também seja instalada) e as [ferramentas mais recentes do Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Para fazer este início rápido, instale o [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Garanta que a carga de trabalho de **desenvolvimento do Azure** também seja instalada. Instale também as [ferramentas do Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version) mais recentes.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ Para concluir este Início Rápido, instale o [Visual Studio 2017](https://visua
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>Conectar-se ao repositório de configurações de aplicativo
+## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
 
-1. Abra *Function1.cs* e adicione uma referência ao provedor de configuração da Configuração de Aplicativo do .NET Core.
+1. Abra *Function1.cs* e adicione uma referência a um provedor de configuração .NET Core da Configuração de Aplicativo.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -77,25 +77,25 @@ Para concluir este Início Rápido, instale o [Visual Studio 2017](https://visua
 
 ## <a name="test-the-function-locally"></a>Testar a função localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de configurações de aplicativo. Caso esteja usando o Prompt de Comando do Windows, execute o seguinte comando e reinicie o Prompt de Comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente nomeada **ConnectionString** e configure-a como a chave de acesso para o repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Caso esteja usando o Windows PowerShell, execute o seguinte comando:
+    Se você usa o Windows PowerShell, execute o comando a seguir:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Caso esteja usando o macOS ou o Linux, execute o seguinte comando:
+    Se você usa macOS ou Linux, execute o comando a seguir:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Para testar a função, pressione **F5**. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas **principais (CLI) do Azure Functions**. Você também precisará habilitar a exceção de firewall de forma que as ferramentas possam lidar com solicitações HTTP.
+2. Para testar sua função, pressione F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas **principais (CLI) do Azure Functions**. Além disso, talvez seja necessário habilitar uma exceção de firewall para que as ferramentas possam manipular solicitações HTTP.
 
 3. Copie a URL da sua função da saída de tempo de execução do Azure Functions.
 
     ![Depuração de função do Início Rápido no VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Cole a URL para a solicitação HTTP na barra de endereços do navegador. O exemplo a seguir mostra a resposta no navegador à solicitação GET local retornada pela função:
+4. Cole a URL para a solicitação HTTP na barra de endereços do navegador. A imagem a seguir mostra a resposta no navegador para a solicitação GET local retornada pela função.
 
     ![Inicialização local da Função do Início Rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -105,7 +105,7 @@ Para concluir este Início Rápido, instale o [Visual Studio 2017](https://visua
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Início Rápido, você criou um repositório de configurações de aplicativo e use-o com uma função do Azure. Para saber mais sobre como usar a Configuração de Aplicativo, continue no próximo tutorial, que demonstra a autenticação.
+Neste início rápido, você criou um novo repositório de configurações de aplicativos e utilizou-o com um Azure Functions. Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades gerenciadas para integração de recursos do Azure](./integrate-azure-managed-service-identity.md)

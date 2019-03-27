@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182567"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -25,7 +25,7 @@ Para este tutorial, você deve criar três redes virtuais:
 
 - **VNet-Hub**: o firewall está nessa rede virtual.
 - **VNet-Spoke**: a rede virtual spoke representa a carga de trabalho localizada no Azure.
-- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, ela pode ser conectada por VPN ou conexão Rota. Para simplificar, este tutorial usa uma conexão de gateway de VPN, e uma rede virtual localizada no Azure é usada para representar uma rede local.
+- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, pode ser conectada por uma conexão VPN ou ExpressRoute. Para simplificar, este tutorial usa uma conexão de gateway de VPN, e uma rede virtual localizada no Azure é usada para representar uma rede local.
 
 ![Firewall em uma rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ Há três requisitos principais para que este cenário funcione corretamente:
 
 - Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação de rotas BGP deve estar **Desabilitada** nessa tabela de rotas.
 - Uma UDR na sub-rede do gateway do hub precisa apontar para o endereço IP do firewall como o próximo salto para as redes spoke.
-- Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
+
+   Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 - Verifique se você definiu **AllowGatewayTransit** ao emparelhar a VNet-Hub com a VNet-Spoke e **UseRemoteGateways** ao emparelhar a VNet-Spoke com a VNet-Hub.
 
-Confira a seção Criar rotas deste tutorial para ver como essas rotas são criadas.
+Consulte a seção [Criar Rotas](#create-the-routes) deste tutorial para ver como essas rotas são criadas.
 
 >[!NOTE]
->O Firewall do Azure deve ter conectividade direta com a Internet. Se você tiver habilitado o túnel forçado para local por meio do ExpressRoute ou do Gateway de Aplicativo, será necessário configurar a UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** e, em seguida, atribuí-lo a **AzureFirewallSubnet**.
+>O Firewall do Azure deve ter conectividade direta com a Internet. Por padrão, o AzureFirewallSubnet deve permitir apenas uma UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet**.
+>
+>Se você habilitar túnel forçado para local por meio do ExpressRoute ou Gateway de Aplicativo, talvez seja necessário configurar explicitamente uma UDR 0.0.0.0/0 com o valor NextHopType definido como **Internet** e associá-lo ao AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para tráfego do Firewall do Azure, contate o Suporte para que possamos incluir sua assinatura na lista de permissões e garantir que a conectividade com a Internet do firewall necessária seja mantida.
 
 >[!NOTE]
 >O tráfego entre VNETs diretamente emparelhadas é roteado diretamente, mesmo se uma UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar o tráfego de sub-rede para sub-rede para o firewall nesse cenário, uma UDR precisa conter o prefixo de rede da sub-rede de destino explicitamente em ambas as sub-redes.

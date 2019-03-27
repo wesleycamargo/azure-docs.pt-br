@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200048"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
@@ -28,7 +28,7 @@ No Azure Active Directory (Azure AD), você pode adicionar ou remover usuários 
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> * Criar um grupo preenchido automaticamente de usuários convidados de uma empresa parceira específica
+> * Criar um grupo preenchido automaticamente de usuários convidados de uma empresa parceira
 > * Atribuir licenças ao grupo para os recursos específicos do parceiro para acesso pelos usuários convidados
 > * Bônus: proteger o grupo **Todos os usuários** removendo os usuários convidados, de modo que, por exemplo, você pode dar aos usuários membros acesso somente aos sites internos
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este recurso requer uma licença Azure AD Premium para você como o administrador global do locatário. Se você não tiver uma, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
+Esse recurso requer uma licença do Azure AD Premium para você como o administrador global do locatário. Se você não tiver uma, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
 
 Não é necessário atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos. Você precisa apenas do número mínimo de licenças do Azure AD Premium P1 disponíveis no locatário para cobrir todos esses usuários. 
 
@@ -44,15 +44,15 @@ Não é necessário atribuir licenças aos usuários para que eles sejam membros
 
 Primeiro, você criará um grupo para os usuários convidados que são de uma única empresa parceira. Eles precisam de uma licença especial, portanto, geralmente é mais eficiente criar um grupo para essa finalidade.
 
-1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja de administrador global para o seu locatário.
+1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja o administrador global do locatário.
 2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
-  ![selecione o novo comando de grupo](./media/groups-dynamic-tutorial/new-group.png)
+   ![selecione o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. Na folha **Grupo**:
   
-  * Selecione **Segurança** como o tipo de grupo
-  * Digite `Guest users Contoso` como o nome e a descrição para o grupo
-  * Altere o **Tipo de associação** para **Usuário dinâmico**
-  * Selecione **Adicionar consulta dinâmica**
+   * Selecione **Segurança** como o tipo de grupo
+   * Digite `Guest users Contoso` como o nome e a descrição para o grupo
+   * Altere o **Tipo de associação** para **Usuário dinâmico**
+   * Selecione **Adicionar consulta dinâmica**
   
 4. Selecione **Regra avançada** e na caixa **Regra avançada**, digite: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Selecione **Adicionar consulta** para fechar a folha.

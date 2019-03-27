@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994855"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
@@ -70,6 +70,9 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 
 - `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
+
+> [!NOTE]
+> Especificações técnicas também podem ser criadas no nível da assinatura. Para ver um exemplo, consulte [criar um blueprint em um exemplo de assinatura](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Crie o objeto _blueprint_ original. O **Corpo da Solicitação** inclui propriedades sobre o blueprint, grupos de recursos que devem ser criados e todos os parâmetros no nível do blueprint. Os parâmetros são definidos durante a atribuição e usados pelos artefatos adicionados nas etapas posteriores.
 
@@ -262,7 +265,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -435,9 +438,9 @@ Para remover um blueprint em si, use a seguinte operação de API REST:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](./concepts/sequencing-order.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](./concepts/resource-locking.md)
-- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./concepts/sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./concepts/resource-locking.md).
+- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md).

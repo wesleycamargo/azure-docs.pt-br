@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087152"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -22,13 +22,18 @@ O Azure IoT Edge pode tornar sua solução de IoT mais eficiente movendo cargas 
 
 Por exemplo, a Visão Personalizada em um dispositivo do IoT Edge conseguiu determinar se uma estrada está com tráfego acima ou abaixo do normal, ou se uma garagem de estacionamento tem vagas disponíveis em sequência. Essas informações podem ser compartilhadas com outro serviço que atuará em relação a elas. 
 
-
 Neste tutorial, você aprenderá como: 
 
 > [!div class="checklist"]
+>
 > * Criar um classificador de imagem com a Visão Personalizada.
 > * Desenvolver um módulo do IoT Edge que consulta o servidor Web da Visão Personalizada em seu dispositivo.
 > * Enviar os resultados do classificador de imagem para o Hub IoT.
+
+<center>
+
+![Diagrama – Arquitetura do tutorial, classificador de preparação e implantação](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Recursos de nuvem:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão no Azure. 
 * Um registro de contêiner. Este tutorial utiliza o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/). 
-    * Saiba as credenciais da [conta de administrador](../container-registry/container-registry-authentication.md#admin-account) do registro de contêiner.
+* Saiba as credenciais da [conta de administrador](../container-registry/container-registry-authentication.md#admin-account) do registro de contêiner.
 
 Recursos de desenvolvimento:
 

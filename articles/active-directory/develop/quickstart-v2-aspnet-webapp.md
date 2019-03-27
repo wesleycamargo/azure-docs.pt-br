@@ -3,8 +3,8 @@ title: Início rápido do servidor Web do Azure AD v2.0 ASP.NET | Microsoft Docs
 description: Saiba como implementar a Entrada da Microsoft em um aplicativo Web do ASP.NET usando o OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200252"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "56200472"
 
 Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entrar em contas pessoais (hotmail.com, outlook.com, outros) e contas corporativas e de estudante de qualquer instância do Azure AD (Azure Active Directory).
 
-![Como funciona o aplicativo de exemplo gerado por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -147,7 +147,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | ID do aplicativo referente ao aplicativo registrado no portal do Azure |
-> | `Authority`    | O ponto de extremidade do STS para o usuário autenticar. Geralmente https://login.microsoftonline.com/{tenant}/v2.0 para a nuvem pública, em que {tenant} é o nome do seu locatário, sua ID do locatário ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
+> | `Authority`    | O ponto de extremidade do STS para o usuário autenticar. Geralmente <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {tenant} é o nome do seu locatário, sua ID do locatário ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
 > | `RedirectUri`  | URL à qual os usuários são enviados após a autenticação com relação ao ponto de extremidade do Azure AD v2.0 |
 > | `PostLogoutRedirectUri`     | URL à qual os usuários são enviados após saírem |
 > | `Scope`     | A lista de escopos que estão sendo solicitados, separados por espaços |

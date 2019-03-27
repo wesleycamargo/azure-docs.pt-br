@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/03/2018
-ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 03/20/2019
+ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352301"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295140"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
-O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB se baseia no mecanismo de banco de dados da [edição da comunidade do MariaDB](https://mariadb.org/download/), versão 10.2.
+O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB é baseado no mecanismo de banco de dados da [edição de comunidade do MariaDB](https://mariadb.org/download/) (disponível sob a licença GPLv2), versão 10.2.
 
 Banco de dados do Azure para MariaDB oferece:
 

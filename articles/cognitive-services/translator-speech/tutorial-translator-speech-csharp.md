@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900821"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicativo de Tradução de Fala em C#
 
@@ -40,7 +40,7 @@ A solução do Visual Studio também cria um instalador para o aplicativo. É ne
 
 Você também precisa de uma chave de assinatura para o serviço de conversor de fala, que pode ser obtido a partir do painel do Microsoft Azure. Um tipo de preço gratuito está disponível e permite converter até 10 horas de fala por mês sem custo adicional. Esta camada é suficiente para este tutorial.
 
-A terceira biblioteca [JSON.Net](https://www.newtonsoft.com/json) (da Newtonsoft) também é necessária. Este assembly é instalado automaticamente pelo NuGet se ambas as caixas de seleção de restauração de pacotes estiverem habilitadas nas opções do Visual Studio.
+A [Biblioteca JSON.NET](https://www.newtonsoft.com/json) de terceiros (da Newtonsoft) também é necessária. Este assembly é instalado automaticamente pelo NuGet se ambas as caixas de seleção de restauração de pacotes estiverem habilitadas nas opções do Visual Studio.
 
 ## <a name="trying-the-translation-app"></a>Testando o aplicativo de tradução
 

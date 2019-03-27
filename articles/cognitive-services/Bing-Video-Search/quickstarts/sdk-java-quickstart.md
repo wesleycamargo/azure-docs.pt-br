@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Java'
+title: 'Início rápido: Pesquisar vídeos usando o SDK de Pesquisa de Vídeo do Bing para Java'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo usando o SDK de Pesquisa de Vídeo do Bing para Java.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105702"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Início Rápido: Executar uma pesquisa de vídeo com o SDK de Pesquisa de Vídeo do Bing para Java
 
@@ -41,7 +41,7 @@ Instale as dependências do SDK de Pesquisa de Vídeo do Bing usando Maven, Grad
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Criar e inicializar um projeto
+## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
 
 Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas a seguir.
@@ -61,7 +61,7 @@ Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas
 
 ## <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-2. Implemente o cliente `VideoSearchAPIImpl`, que exige o ponto de extremidade de API e uma instância da classe `ServiceClientCredentials`.
+1. Implemente o cliente `VideoSearchAPIImpl`, que exige o ponto de extremidade de API e uma instância da classe `ServiceClientCredentials`.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Enviar uma solicitação de pesquisa e receber a resposta 
+## <a name="send-a-search-request-and-receive-the-response"></a>Enviar uma solicitação de pesquisa e receber a resposta 
 
 1. Criar uma função chamada `VideoSearch()` que usa sua chave de assinatura como uma cadeia de caracteres. Criar uma instância de pesquisa de cliente criada anteriormente.
     

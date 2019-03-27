@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097416"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -31,7 +31,7 @@ Você pode usar o Backup do Azure para proteger seu Windows Server de corrupçõ
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -88,11 +88,11 @@ O Agente MARS (Serviços de Recuperação do Microsoft Azure) cria uma associaç
 
 1. Localize e clique duas vezes no **MARSagentinstaller.exe** baixado.
 2. O **Assistente de Instalação do Agente de Serviços de Recuperação do Microsoft Azure** aparecerá. Conforme avançar no assistente, forneça as informações a seguir quando solicitado e clique em **Registrar**.
-    - Local para a instalação e a pasta de cache.
-    - Informações do servidor proxy, se você usar um servidor proxy para se conectar à Internet.
-    - Seus detalhes de nome de usuário e senha, se você usar um proxy autenticado.
+   - Local para a instalação e a pasta de cache.
+   - Informações do servidor proxy, se você usar um servidor proxy para se conectar à Internet.
+   - Seus detalhes de nome de usuário e senha, se você usar um proxy autenticado.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. No final do assistente, clique em **Prosseguir com o Registro** e forneça o arquivo **Credenciais do Cofre** baixado no procedimento anterior.
  

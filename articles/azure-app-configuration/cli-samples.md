@@ -1,5 +1,5 @@
 ---
-title: Amostras da CLI do Azure – Configuração de Aplicativo do Azure | Microsoft Docs
+title: Exemplos de CLI do Azure - Configuração do Aplicativo Azure | Microsoft Docs
 description: Fornece informações sobre os scripts de exemplo disponíveis para a Configuração de Aplicativo do Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 053baf072c667c46f9e6d955125c13f711c20c20
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884291"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223641"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
-A tabela a seguir inclui links para scripts Bash para o serviço Configuração de Aplicativo do Azure usando a CLI do Azure.
+A tabela a seguir inclui links para scripts de bash para Configuração do Aplicativo Azure usando a CLI do Azure.
 
 | | |
 |-|-|

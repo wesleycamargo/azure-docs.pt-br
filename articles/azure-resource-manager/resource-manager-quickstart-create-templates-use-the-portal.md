@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c7759b9f0787b7926b3642b8b912ec5391347adf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079053"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure
 
 Saiba como gerar um modelo do Resource Manager usando o portal do Azure e o processo de edição e implantação do modelo por meio do portal. Os modelos do Resource Manager são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](resource-group-overview.md).
+
+![diagrama do portal de início rápido do modelo do Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Depois de concluir o tutorial, você implantará uma conta do Armazenamento do Azure. O mesmo processo pode ser usado para implantar outros recursos do Azure.
 
@@ -32,7 +34,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 A criação de um modelo do Resource Manager do zero não é uma tarefa fácil, especialmente se você está usando a implantação do Azure pela primeira vez e não está familiarizado com o formato JSON. Usando o portal do Azure, você pode configurar um recurso, por exemplo, uma conta do Armazenamento do Azure. Antes de implantar o recurso, você pode exportar a configuração para um modelo do Resource Manager. Você pode salvar o modelo e reutilizá-lo no futuro.
 
-Muitos desenvolvedores de modelo experientes usam esse método para gerar modelos funcionais quando tentam implantar recursos do Azure com os quais não estão familiarizados.
+Muitos desenvolvedores de modelos experientes usam esse método para gerar modelos quando tentam implantar recursos do Azure com os quais não estão familiarizados. Para obter mais informações sobre como exportar modelos usando o portal, consulte [Exportar grupos de recursos para modelos](./manage-resource-groups-portal.md#export-resource-groups-to-templates). A outra forma de localizar um modelo de trabalho é a partir dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento – blob, arquivo, tabela, fila**.
@@ -40,8 +42,10 @@ Muitos desenvolvedores de modelo experientes usam esse método para gerar modelo
     ![Criar uma conta de armazenamento do Azure usando o portal do Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Insira as seguintes informações:
 
-    - **Grupo de recursos**: Selecione **Criar** e especifique um nome de grupo de recursos de sua escolha. Na captura de tela, o nome do grupo de recursos é *mystorage1016rg*. Um grupo de recursos é um contêiner para os recursos do Azure. O grupo de recursos facilita o gerenciamento de recursos do Azure.
-    - **Nome**: Dê um nome exclusivo à conta de armazenamento. Na captura de tela, o nome é *mystorage1016*.
+    |NOME|Valor|
+    |----|----|
+    |**Grupo de recursos**|Selecione **Criar** e especifique um nome de grupo de recursos de sua escolha. Na captura de tela, o nome do grupo de recursos é *mystorage1016rg*. Um grupo de recursos é um contêiner para os recursos do Azure. O grupo de recursos facilita o gerenciamento de recursos do Azure. |
+    |**Nome**|Dê um nome exclusivo à conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "O nome da conta de armazenamento 'mystorage1016' já foi preenchido", tente usar **&lt;seu nome>storage&lt;Data de hoje em MMDD>**, por exemplo **joaodolestorage1016**. Para obter mais informações, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Você pode usar valores padrão para as outras propriedades.
 
@@ -50,7 +54,7 @@ Muitos desenvolvedores de modelo experientes usam esse método para gerar modelo
     > [!NOTE]
     > Alguns dos modelos exportados exigem algumas edições antes da implantação.
 
-4. Selecione **Revisar + criar** na parte inferior da tela.
+4. Selecione **Revisar + criar** na parte inferior da tela. Não selecione **Criar** na próxima etapa.
 5. Selecione **Baixar um modelo para automação** na parte inferior da tela. O portal mostra o modelo gerado:
 
     ![Gerar um modelo no portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -59,13 +63,14 @@ Muitos desenvolvedores de modelo experientes usam esse método para gerar modelo
 
     Existem seis parâmetros definidos. Um deles é chamado **storageAccountName**. A segunda parte realçada na captura de tela anterior mostra como referenciar esse parâmetro no modelo. Na próxima seção, você deve editar o modelo para usar um nome gerado para a conta de armazenamento.
 
-    No modelo, um recurso do Azure é definido. O tipo é [Microsoft.Storage/storageAccounts]. Veja como o recurso é definido e a estrutura da definição.
-6. Selecione **Baixar**. Salve **template.json** do pacote baixado em seu computador. Na próxima seção, você pode usar uma ferramenta de implantação de modelo para editar o modelo.
-7. Selecione a guia **Parâmetro** para ver os valores fornecidos para os parâmetros. Anote esses valores, você precisará deles na próxima seção quando implantar o modelo.
+    No modelo, um recurso do Azure é definido. O tipo é `Microsoft.Storage/storageAccounts`. Examine como o recurso é definido e a estrutura de definição.
+6. Selecione **Baixar** na parte superior da tela. 
+7. Abra o arquivo zip baixado e salve **template.json** no computador. Na próxima seção, você pode usar uma ferramenta de implantação de modelo para editar o modelo.
+8. Selecione a guia **Parâmetro** para ver os valores fornecidos para os parâmetros. Anote esses valores, você precisará deles na próxima seção quando implantar o modelo.
 
     ![Gerar um modelo no portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Usando o modelo e os arquivos de parâmetros, você pode criar um recurso, neste tutorial, uma conta de armazenamento do Azure.
+    Usando o arquivo de modelo e o arquivo de parâmetros é possível criar um recurso, neste tutorial, uma conta de armazenamento do Azure.
 
 ## <a name="edit-and-deploy-the-template"></a>Editar e implantar o modelo
 
@@ -81,79 +86,82 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 4. Selecione **Criar**.
 5. Selecione **Criar seu próprio modelo no editor**.
 6. Selecione **Carregar arquivo** e, em seguida, siga as instruções para carregar o template.json que você baixou na última seção.
-7. Adicione uma variável como mostrado nesta captura de tela:
+7. Faça as três alterações a seguir no modelo:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    ```
     ![Modelos do Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Duas funções de modelo são usadas aqui: `concat()` e `uniqueString()`.
+   - Remova o parâmetro **storageAccountName**, conforme mostrado na captura de tela anterior.
+   - Adicione uma variável chamada **storageAccountName**, conforme mostrado na captura de tela anterior:
 
-8. Remova o parâmetro **storageAccountName** realçado na captura de tela anterior.
-9. Atualize o elemento de nome do recurso **Storage/storageaccounts** para usar a variável definida recentemente em vez do parâmetro:
+       ```json
+       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+       Duas funções de modelo são usadas aqui: `concat()` e `uniqueString()`.
+   - Atualize o elemento de nome do recurso **Storage/storageaccounts** para usar a variável definida recentemente em vez do parâmetro:
 
-    O modelo final deverá ficar assim:
+       ```json
+       "name": "[variables('storageAccountName')]",
+       ```
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
-        },
-        "variables": {
-            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-        },
-        "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
-        ],
-        "outputs": {}
-    }
-    ```
-7. Clique em **Salvar**.
-8. Insira os valores a seguir:
+     O modelo final deverá ficar assim:
 
-    - **Grupo de recursos**: selecione **Criar** e dê um nome exclusivo ao grupo de recursos.
-    - **Local**: selecione um local para o grupo de recursos. Por exemplo, **Centro dos EUA**. 
-    - **Local**: selecione um local para a conta de armazenamento. Por exemplo, **Centro dos EUA**.
-    - **Tipo de conta**: Insira **Standard_LRS** para este início rápido.
-    - **Tipo**: Insira **StorageV2** para este início rápido.
-    - **Camada de acesso**: Insira **Quente** para este início rápido.
-    - **Somente Tráfego HTTPS habilitado**.  Selecione **true** para este início rápido.
-    - **Concordo com os termos e as condições declarados acima**: (selecionar)
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
+       },
+       "variables": {
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       },
+       "resources": [
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
+       ],
+       "outputs": {}
+     }
+     ```
+8. Clique em **Salvar**.
+9. Insira os valores a seguir:
+
+    |NOME|Valor|
+    |----|----|
+    |**Grupo de recursos**|Selecione o nome do grupo de recursos criado na última seção. |
+    |**Localidade**|Selecione um local para a conta de armazenamento. Por exemplo, **Centro dos EUA**. |
+    |**Tipo de conta**|Insira **Standard_LRS** para este início rápido. |
+    |**Tipo**|Insira **StorageV2** para este início rápido. |
+    |**Camada de acesso**|Insira **Quente** para este início rápido. |
+    |**Somente tráfego HTTPS habilitado**| Selecione **true** para este início rápido. |
+    |**Concordo com os termos e condições acima**|(selecionar)|
 
     Veja uma captura de tela de uma implantação de exemplo:
 

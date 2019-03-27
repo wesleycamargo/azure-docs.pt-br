@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090314"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -69,9 +69,9 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Na página **Configurar modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
-    2. Conecte-se à VM modelo selecionando **Conectar**. 
-    3. Instale e configure software em sua VM modelo.     
-    5. Insira uma **descrição** do modelo
+    1. Conecte-se à VM modelo selecionando **Conectar**. 
+    2. Instale e configure software em sua VM modelo.     
+    3. Insira uma **descrição** do modelo
 9. Selecione **Avançar** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as seguintes ações. 
     1. Publicar o modelo imediatamente e selecionar **Publicar**.  
@@ -108,15 +108,15 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
     ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Enviar link de registro para estudantes
-
+## <a name="send-an-email-with-the-registration-link"></a>Envie um email com o link de registro
 1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
-2. Selecione **Obter link de registro** na barra de ferramentas.
-1. Na caixa de diálogo **Registro de usuário**, selecione o botão **Copiar**. O link é copiado para a área de transferência.
+2. Selecione usuário específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**Nome**) ou marque todas as caixas de seleção para todos os usuários na lista.
+3. Selecione **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome do aluno na lista e enviar o ícone de email. 
 
-    ![Link de registro](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. Na caixa de diálogo **Registro de usuário**, selecione **Fechar**. 
-2. Compartilhe o link de registro com um aluno para que ele possa se registrar para a aula.
+    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Em **Enviar link de registro pela página de email**, siga estas etapas: 
+    1. Digite uma **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
+    2. Em **Enviar link de registro pela página de email**, selecione **Enviar**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode acessar uma VM no laboratório usando o link de registro, vá para o seguinte tutorial:

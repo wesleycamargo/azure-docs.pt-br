@@ -4,11 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 139f2f2c32c8974d08e0a9c4278304a5b17892bc
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4badd7b3ea308968e514a58463f08e58243a3387
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908511"
 ---
-No painel **Hierarquia**, selecione o objeto de jogo **AzureSpatialAnchors**. Em seguida, no painel **Inspector**, insira o `Account Key` (do recurso Âncoras Espaciais criado anteriormente) como o valor para `Spatial Anchors Account Key` e o `Account ID` (do recurso Âncoras espaciais criado anteriormente) como o valor para `Spatial Anchors Account Id`.
+A próxima etapa é configurar o aplicativo para usar o identificador e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
+
+No painel **Hierarquia**, selecione o objeto de jogo **AzureSpatialAnchors**. Em seguida, no painel **Inspetor**, insira `Account Key` como o valor de `Spatial Anchors Account Key` e `Account ID` como o valor de `Spatial Anchors Account Id`.

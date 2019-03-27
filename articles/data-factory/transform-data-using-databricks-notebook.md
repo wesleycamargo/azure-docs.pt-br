@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984757"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015166"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
@@ -151,7 +151,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de **mynotebook** na pasta **adftutorial****,** e clique em **Criar.**
+       1. [Crie um novo notebooks](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), nomeie-o como **mynotebook** na Pasta **adftutorial** e clique em **Criar.**
 
           ![Criar um novo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
        1. O **Caminho do Notebook** nesse caso é **/adftutorial/mynotebook**
 
-1.  Volte para a **ferramenta de criação de IU do Data Factory**. Navegue a guia **Configurações** na **Atividade Notebook1**. 
-    
+1.  Volte para a **ferramenta de criação de IU do Data Factory**. Navegue a guia **Configurações** na **Atividade Notebook1**.
+
      a.  **Adicionar parâmetro** à atividade de Notebook. Use o mesmo parâmetro que você adicionou anteriormente ao **Pipeline**.
 
        ![Adicionar um parâmetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Nomear o parâmetro como **input** e fornecer o valor da expressão  **@pipeline().parameters.name**.
+    b.  Nomear o parâmetro como **input** e fornecer o valor como expressão **\@pipeline().parameters.name**.
 
 1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o botão **\>\>** (seta para a direita).
 

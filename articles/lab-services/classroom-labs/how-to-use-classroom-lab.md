@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096972"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como acessar um laboratório de sala de aula, conecte-se à VM no laboratório e interrompa a VM. 
@@ -46,10 +46,10 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 
 1. Inicie a VM caso ainda não o tenha feito; selecione **Iniciar** no bloco. 
 2. Selecione **Conectar** no bloco que representa a máquina virtual do laboratório que você deseja acessar. 
-3. Salve o arquivo RDP (para VM Windows) no disco rígido e abra-o. 
-4. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Interrompa a máquina virtual em um laboratório de sala de aula
+3. Siga uma das etapas a seguir: 
+   1. Para máquinas virtuais do **Windows**, salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para conectar a máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
+   3. Para máquinas virtuais do **Linux**, copie e salve a cadeia de conexão SSH na caixa de diálogo **Conecte-se à sua máquina virtual**. Use essa cadeia de conexão de um terminal SSH (como [Putty](https://www.putty.org/)) para conectar a máquina virtual.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Interrompa a máquina virtual em um laboratório de sala de aula
 
 Para parar a VM, selecione **Parar** no bloco. Quando a VM for interrompida, o botão **Iniciar** no bloco está habilitado. 
 

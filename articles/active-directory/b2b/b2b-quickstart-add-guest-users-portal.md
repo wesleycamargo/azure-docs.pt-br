@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669968"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295021"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início Rápido: adicionar usuários convidados ao diretório no portal do Azure
 
@@ -39,15 +40,15 @@ Para concluir o cenário deste tutorial, você precisa de:
 2. No painel esquerdo, selecione **Azure Active Directory**.
 3.  Em **Gerenciar**, selecione **Usuários**.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Captura de tela mostrando onde selecionar a opção Usuários](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Selecione **Novo usuário convidado**.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Captura de tela mostrando onde selecionar a opção Novo usuário convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  Em **Nome de usuário**, insira o endereço de email do usuário externo. Em **Incluir uma mensagem pessoal com o convite**, digite uma mensagem de boas-vindas. 
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Captura de tela mostrando onde inserir a mensagem de convite de usuário convidado](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. Uma notificação será exibida no canto superior direito com a mensagem **Usuário convidado com êxito**. 
 7.  Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
@@ -59,7 +60,7 @@ Adicione o aplicativo do Salesforce ao locatário de teste e atribua o usuário 
 3.  Selecione **Novo aplicativo**.
 4. Em **Adicionar por meio da galeria**, pesquise **Salesforce** e, em seguida, selecione-o.
 
-    ![Selecione Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Captura de tela mostrando a caixa de pesquisa Adicionar por meio da galeria](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Selecione **Adicionar**.
 6. Em **Gerenciar**, selecione **Logon único**. Em **Modo de Logon Único**, selecione **Logon baseado em Senha** e clique em **Salvar**.
 7. Em **Gerenciar**, selecione **Usuários e grupos** > **Adicionar usuário** > **Usuários e grupos**.
@@ -71,11 +72,11 @@ Agora, entre como usuário convidado para ver o convite.
 1.  Entre na conta de email do usuário convidado de teste.
 2.  Na caixa de entrada, encontre o email de "Você foi convidado".
 
-    ![Email de convite de B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Captura de tela mostrando o email do convite B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  No corpo do email, selecione **Começar**. Uma página **Analisar as permissões** será aberta no navegador. 
 
-    ![Página de convite para aceitar B2B](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Captura de tela mostrando a página Analisar as permissões](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Selecione **Aceitar**. O Painel de Acesso é aberto e lista os aplicativos que o usuário convidado pode acessar.
 

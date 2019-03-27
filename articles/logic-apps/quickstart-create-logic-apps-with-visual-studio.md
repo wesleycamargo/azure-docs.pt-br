@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231025"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097654"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: Criar e automatizar tarefas, processos e fluxos de trabalho com os Aplicativos Lógicos do Azure - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar e automatizar tarefas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure - Visual Studio
 
 Com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o Visual Studio, você pode criar fluxos de trabalho que automatizam tarefas e processos para a integração de aplicativos, dados, sistemas e serviços entre empresas e organizações. Este início rápido mostra como você pode projetar e criar esses fluxos de trabalho criando aplicativos lógicos no Visual Studio e implantar esses aplicativos para o <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> na nuvem. E embora você possa executar essas tarefas no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>, o Visual Studio permite que você adicione aplicativos lógicos para controle do código-fonte, diferentes versões de publicação e crie modelos do Azure Resource Manager para ambientes de implantação diferentes. 
 
@@ -43,7 +43,7 @@ Antes de começar, verifique se você tem estes itens:
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Microsoft Azure para .NET (2.9.1 ou posterior)</a> e <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
   Saiba mais sobre o <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">SDK do Azure para .NET</a>.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Ferramentas de Aplicativo Lógico do Azure para Visual Studio 2017</a> ou a <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Versão do Visual Studio 2015</a>
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Ferramentas de Aplicativos Lógicos do Azure para Visual Studio 2017</a> ou a <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Versão do Visual Studio 2015</a>
   
     Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">instalar essa extensão de dentro do Visual Studio</a>. 
     Reinicie o Visual Studio depois de concluir a instalação.
@@ -61,7 +61,7 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
 1. Inicie o Visual Studio e entre com sua conta do Azure.
 
-2. No menu **Arquivo**, selecione **Novo** > **Projeto**. (Teclado: Ctrl + Shift + N)
+2. No menu **Arquivo**, selecione **Novo** > **Projeto**. (teclado: Ctrl+Shift+N)
 
    ![No menu “Arquivo”, selecione “Novo” > “Projeto”](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
@@ -83,11 +83,13 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
 Depois de criar seu projeto do Grupo de Recursos do Azure, crie e compile o aplicativo lógico a partir de um modelo **Aplicativo lógico em branco**.
 
-1. No Gerenciador de Soluções, abra o menu de atalho para o arquivo **LogicApp.json**. Selecione **Abrir com o Designer de Aplicativo Lógico**. (Teclado: Ctrl + L)
+1. No Gerenciador de Soluções, abra o menu de atalho para o arquivo **LogicApp.json**. 
+   Selecione **Abrir com o Designer de Aplicativo Lógico**. (teclado: Ctrl+L)
 
    ![Abrir o aplicativo lógico .json com o Designer de Aplicativo Lógico](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. Para **Assinatura**, selecione a assinatura do Azure que você deseja usar. Para **Grupo de Recursos**, selecione **Criar Novo...**, que cria um novo grupo de recursos do Azure. 
+2. Para **Assinatura**, selecione a assinatura do Azure que você deseja usar. 
+   Para **Grupo de Recursos**, selecione **Criar Novo...**, que cria um novo grupo de recursos do Azure. 
 
    ![Selecione assinatura do Azure, grupo de recursos e local do recurso](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Depois de criar seu projeto do Grupo de Recursos do Azure, crie e compile o apli
    | **Localidade** | MyLogicApp-RG2 <br> (Oeste dos EUA) | Um local diferente, se você não quiser usar o local do grupo de recursos |
    ||||
 
-3. O Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução e os gatilhos normalmente usados. Role pelo vídeo e pelos gatilhos. Em **Modelos**, selecione **Aplicativo lógico em branco**.
+3. O Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução e os gatilhos normalmente usados. 
+   Role pelo vídeo e pelos gatilhos. Em **Modelos**, selecione **Aplicativo lógico em branco**.
 
    ![Selecione “Aplicativo lógico em branco”](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Depois de criar seu projeto do Grupo de Recursos do Azure, crie e compile o apli
 
 Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é acionado quando um novo item de RSS feed aparece. Cada aplicativo lógico deve começar com um gatilho, que é acionado quando os critérios específicos são atingidos. Cada vez que o gatilho é disparado, o mecanismo dos Aplicativos Lógicos cria uma instância de aplicativo lógico que executa o fluxo de trabalho.
 
-1. No Designer de Aplicativo Lógico, digite "rss" na caixa de pesquisa. Selecione este gatilho: **Quando um item do feed é publicado**
+1. No Designer de Aplicativo Lógico, digite "rss" na caixa de pesquisa. Selecione este gatilho: **Quando um item de feed é publicado**
 
    ![Crie seu aplicativo de lógica adicionando um gatilho e ações](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -123,7 +126,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Aplicativo lógico concluído](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
-3. Para salvar seu aplicativo lógico, salve sua solução do Visual Studio. (Teclado: Ctrl + S)
+3. Para salvar seu aplicativo lógico, salve sua solução do Visual Studio. (teclado: Ctrl + S)
 
 Agora, antes de poder testar seu aplicativo lógico, implante seu aplicativo no Azure.
 

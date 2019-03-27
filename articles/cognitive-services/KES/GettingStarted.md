@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994946"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -64,7 +64,7 @@ Para obter informações adicionais sobre a definição do esquema, consulte [Fo
 
 ## <a name="generate-data"></a>Gerar dados
 
-O arquivo de dados descreve a lista de publicações a serem indexadas, com cada linha especificando os valores de atributos de um papel no [formato JSON](http://json.org/).  O exemplo a seguir é uma única linha do arquivo de dados *Academic.data*, formatado para legibilidade:
+O arquivo de dados descreve a lista de publicações a serem indexadas, com cada linha especificando os valores de atributos de um papel no [formato JSON](https://json.org/).  O exemplo a seguir é uma única linha do arquivo de dados *Academic.data*, formatado para legibilidade:
 
 ```
 ...
@@ -207,7 +207,7 @@ Após ter uma especificação de gramática XML, será possível compilá-la em 
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Hospede a gramática e o índice em um serviço Web
 
-Para prototipagem rápida, é possível hospedar a gramática e o índice em um serviço Web no computador local, usando [`kes.exe host_service`](CommandLine.md#host_service-command). É possível acessar o serviço por meio de [APIs da Web](WebAPI.md) para validar a correção de dados e o design da gramática. Neste exemplo, você hospeda o arquivo de gramática *Academic.grammar* e o arquivo de índice *Academic.index* em http://localhost:8000/. Use o seguinte comando:
+Para prototipagem rápida, é possível hospedar a gramática e o índice em um serviço Web no computador local, usando [`kes.exe host_service`](CommandLine.md#host_service-command). É possível acessar o serviço por meio de [APIs da Web](WebAPI.md) para validar a correção de dados e o design da gramática. Neste exemplo, você hospeda o arquivo de gramática *Academic.grammar* e o arquivo de índice *Academic.index* em `http://localhost:8000/`. Use o seguinte comando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -238,7 +238,7 @@ Neste exemplo, você pode assumir que o seguinte contêiner de armazenamento de 
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Note que pode levar de 5 a 10 minutos para provisionar uma VM temporária para compilar o índice. Para prototipagem rápida, é possível:
+Observe que pode levar de 5 a 10 minutos para provisionar uma VM temporária para build de índice. Para prototipagem rápida, é possível:
 - Desenvolva com um conjunto de dados menor localmente em qualquer computador.
 - Manualmente [crie uma VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), [conecte-a ](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via Área de Trabalho Remota, instale o [SDK de Serviço de Exploração de Conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488) e execute [`kes.exe`](CommandLine.md) dentro da VM.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181037"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte usando Java
 
@@ -171,6 +171,8 @@ gradle run
 ```
 
 ## <a name="sample-response"></a>Resposta de exemplo
+
+Localize a abreviação do país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo:
 

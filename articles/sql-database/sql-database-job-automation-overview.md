@@ -3,7 +3,6 @@ title: Automação de trabalhos do SQL do Azure | Microsoft Docs
 description: Usar a Automação de Trabalhos para executar scripts T-SQL (Transact-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901960"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
 O Banco de Dados SQL do Azure permite que você crie e agende trabalhos que podem ser executados periodicamente em um ou vários bancos de dados para executar consultas T-SQL e executar tarefas de manutenção. Cada trabalho registrará o status de execução e também repetirá as operações se ocorrer uma falha.
 É possível definir o banco de dados de destino ou grupos de bancos de dados SQL do Azure em que o trabalho será executado e também definir agendas para executar um trabalho.
 Um trabalho lida com a tarefa de fazer logon no banco de dados de destino. Você também define, atualiza e mantém os scripts T-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
+
+## <a name="when-to-use-automated-jobs"></a>Quando usar trabalhos automatizados
 
 Há vários cenários, quando você pode usar a automação de trabalhos:
 
@@ -36,8 +37,10 @@ Há vários cenários, quando você pode usar a automação de trabalhos:
   - Agregar dados de uma coleção de bancos de dados SQL do Azure em apenas uma tabela de destino.
   - Executar consultas de processamento de dados mais longas em um grande conjunto de bancos de dados, por exemplo, a coleta de telemetria do cliente. Resultados são coletados em uma única tabela de destino para análise posterior.
 - Movimentações de dados
- - Crie trabalhos que replicam as alterações feitas em seus bancos de dados para outros bancos de dados ou colete atualizações feitas em bancos de dados remotos e aplique o que foi alterado no banco de dados.
- - Crie trabalhos que carregam dados de ou para seus bancos de dados usando o SSIS (SQL Server Integration Services).
+  - Crie trabalhos que replicam as alterações feitas em seus bancos de dados para outros bancos de dados ou colete atualizações feitas em bancos de dados remotos e aplique o que foi alterado no banco de dados.
+  - Crie trabalhos que carregam dados de ou para seus bancos de dados usando o SSIS (SQL Server Integration Services).
+
+## <a name="overview"></a>Visão geral
 
 As tecnologias de agendamento de trabalhos a seguir estão disponíveis no Banco de Dados SQL do Azure:
 
@@ -158,9 +161,9 @@ Alguns recursos do SQL Agent disponíveis no SQL Server não são compatíveis c
 - As configurações do agente SQL são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte na Instância Gerenciada.
 - No momento, não há suporte para habilitar/desabilitar o Agent na Instância Gerenciada. O SQL Agent sempre está em execução.
 - As notificações são parcialmente suportadas
- - Não há suporte para pager.
- - Não há suporte a NetSend.
- - Ainda não há suporte para alertas.
+  - Não há suporte para pager.
+  - Não há suporte a NetSend.
+  - Ainda não há suporte para alertas.
 - Não há suporte para proxies.
 - Não há suporte para Eventlog.
 

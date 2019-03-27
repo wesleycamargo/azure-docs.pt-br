@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0fbc55c73f6d745d39873236df389f121dc9c7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Azure Active Directory ao Asana
 
@@ -159,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -204,7 +204,7 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Asana.
 
     ![Criação de um usuário de teste do AD do Azure](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Digite o email do usuário como **britta.simon@contoso.com** na caixa de texto e selecione **Convidar**.
+2. Digite o email do usuário como **brenda.fernandes\@contoso.com** na caixa de texto e, em seguida, selecione **Convidar**.
 
 3. Clique em **Enviar Convite**. O novo usuário receberá um email em sua conta de email. Ele precisará criar e validar a conta.
 
@@ -222,4 +222,4 @@ Ao clicar no bloco do Asana no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configurar Provisionamento de Usuário](asana-provisioning-tutorial.md)
+- [Configurar Provisionamento de Usuário](asana-provisioning-tutorial.md)

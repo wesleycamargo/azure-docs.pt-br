@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 69895fff5e1daaf02caec54a6d38052e36ad8d49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754808"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999048"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: Carregar, baixar e listar blobs usando Go
 
@@ -89,7 +89,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 Quando você pressiona a tecla para continuar, o programa de exemplo exclui o contêiner de armazenamento e os arquivos. 
 
 > [!TIP]
-> Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
+> Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
 >
 
 ## <a name="understand-the-sample-code"></a>Entender o código de exemplo
@@ -208,7 +208,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Baixar o blob
 
-Baixe blobs usando a função **Download** de nível inferior em um BlobURL. Isso retornará um struct **DownloadResponse**. Execute a função **Body** sobre a struct para obter um fluxo **RetryReader** para a leitura de dados. Se uma conexão falhar durante a leitura, serão feitas solicitações adicionais para restabelecer uma conexão e continuar a leitura. Especificar um RetryReaderOption com o conjunto MaxRetryRequests como 0 (o padrão) retorna o corpo da resposta original e nenhuma nova tentativa será realizada. Como alternativa, use as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar seu código.
+Baixe blobs usando a função **Download** de nível inferior em um BlobURL. Isso retornará um struct **DownloadResponse**. Execute a função **Body** sobre a struct para obter um fluxo **RetryReader** para a leitura de dados. Se uma conexão falhar durante a leitura, solicitações adicionais serão feitas para restabelecer uma conexão e continuar a leitura. Especificar um RetryReaderOption com o conjunto MaxRetryRequests como 0 (o padrão) retorna o corpo da resposta original e nenhuma nova tentativa será realizada. Como alternativa, use as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar seu código.
 
 O código a seguir baixa o blob usando a função **Download**. O conteúdo do blob é gravado em um buffer e mostrado no console.
 

@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: e11e4a59e447a8befcfaedb7ddedbb9aabdfaa28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330691"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226922"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando Node.js para chamar o Serviço Cognitivo de Análise de Texto  
+# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Node.js para chamar o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Node.JS.
@@ -28,7 +28,7 @@ Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
+Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,11 @@ Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-t
 
 A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método Detectar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie um novo projeto Node.js no IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
+2. Adicione o código fornecido abaixo a um novo arquivo `.js`.
+3. Substitua o valor `accessKey` por uma chave de assinatura do recurso de Análise de Texto no Azure.
 4. Substitua o local em `uri` (atualmente `westus`) pela região na qual você se inscreveu.
-5. Execute o programa.
+5. Execute o programa a partir do IDE ou linha de comando, por exemplo `npm start` ou `node detect.js`.
 
 ```javascript
 'use strict';
@@ -156,13 +156,13 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto, usando o [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir classifica dois documentos, um em inglês e outro em espanhol.
+A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto usando o [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Análise de Sentimento pode ser usada para descobrir o que os clientes pensam da marca ou tópico, analisando texto bruto em busca de pistas sobre sentimentos positivos ou negativos. O exemplo a seguir fornece pontuações para dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto Node.js no IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
+2. Adicione o código fornecido abaixo a um novo arquivo `.js`.
+3. Substitua o valor `accessKey` por uma chave de assinatura do recurso de Análise de Texto no Azure.
 4. Substitua o local em `uri` (atualmente `westus`) pela região na qual você se inscreveu.
-5. Execute o programa.
+5. Execute o programa a partir do IDE ou linha de comando, por exemplo `npm start` ou `node sentiment.js`.
 
 ```javascript
 'use strict';
@@ -229,7 +229,8 @@ get_sentiments (documents);
 
 **Resposta da análise de sentimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
+O resultado será medido como positivo se for pontuado mais próximo de 1,0 e negativo se for pontuado mais próximo de 0,0.
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo:
 
 ```json
 {
@@ -251,13 +252,13 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="extract-key-phrases"></a>Extraia frases-chave
 
-A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
+A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). A extração de frases-chave é usada para identificar rapidamente os principais pontos de um documento ou texto. O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
 
-1. Crie um novo projeto Node.js no IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
+2. Adicione o código fornecido abaixo a um novo arquivo `.js`.
+3. Substitua o valor `accessKey` por uma chave de assinatura do recurso de Análise de Texto no Azure.
 4. Substitua o local em `uri` (atualmente `westus`) pela região na qual você se inscreveu.
-5. Execute o programa.
+5. Execute o programa a partir do IDE ou linha de comando, por exemplo `npm start` ou `node key-phrases.js`.
 
 ```javascript
 'use strict';
@@ -367,13 +368,13 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="identify-linked-entities"></a>Identificar as entidades vinculadas
 
-A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica as entidades de documentos em inglês.
+A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). As [Entidades](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de um texto, como "Estados Unidos" e, em seguida, fornecem o tipo e/ou link da Wikipédia para essas palavras. O tipo para "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O exemplo a seguir identifica as entidades de documentos em inglês.
 
-1. Crie um novo projeto Node.js no IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
+2. Adicione o código fornecido abaixo a um novo arquivo `.js`.
+3. Substitua o valor `accessKey` por uma chave de assinatura do recurso de Análise de Texto no Azure.
 4. Substitua o local em `uri` (atualmente `westus`) pela região na qual você se inscreveu.
-5. Execute o programa.
+5. Execute o programa a partir do IDE ou linha de comando, por exemplo `npm start` ou `node entities.js`.
 
 ```javascript
 'use strict';
@@ -440,7 +441,7 @@ get_entities (documents);
 
 **Resposta de extração de entidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo:
 
 ```json
 {

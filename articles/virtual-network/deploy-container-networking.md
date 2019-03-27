@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 62d19432cba431bce4485aaa2af3e0a23ad8b5f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104090"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implantar o plug-in do adaptador de rede de contêiner da Rede Virtual do Azure
 
@@ -95,10 +95,10 @@ Conclua as seguintes etapas para instalar o plug-in em todas as máquinas virtua
 1. [Baixe e instale o plug-in](#download-and-install-the-plug-in).
 2. Pré-aloque um pool de endereços IP de rede virtual em cada máquina virtual do qual os endereços IP serão atribuídos aos Pods. Todas as máquinas virtuais do Azure vêm com um endereço IP privado de rede virtual primário em cada adaptador de rede. O pool de endereços IP de Pods é adicionado como os endereços secundários (*ipconfigs*) no adaptador de rede de máquina virtual, usando uma das seguintes opções:
 
-   - **CLI**: [atribuir vários endereços IP usando a CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [atribuir vários endereços IP usando o PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [atribuir vários endereços IP usando o portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
-   - **Modelo do Azure Resource Manager**: [atribuir vários endereços IP usando modelos](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [atribuir vários endereços IP usando a CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [atribuir vários endereços IP usando o PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [Atribuir vários endereços IP usando o portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
+   - **Modelo do Azure Resource Manager**: [Atribuir vários endereços IP usando modelos](virtual-network-multiple-ip-addresses-template.md)
 
    Certifique-se de adicionar endereços IP suficientes para todos os Pods que você espera ativar na máquina virtual.
 
@@ -106,13 +106,13 @@ Conclua as seguintes etapas para instalar o plug-in em todas as máquinas virtua
 4. Se você quiser que seus Pods acessem a Internet, adicione a seguinte regra *iptables* às máquinas virtuais do Linux ao tráfego de Internet de Nat de origem. No exemplo a seguir, o intervalo de IP especificado é 10.0.0.0/8.
 
    ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
    addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
    ```
 
    O tráfego de NAT de regras que não é destinado aos intervalos de IP especificados. A suposição é que todo o tráfego fora dos intervalos anteriores é tráfego da Internet. Você pode optar por especificar os intervalos de IP da rede virtual da máquina virtual, como de redes virtuais emparelhadas e redes locais.
 
-  Máquinas virtuais do Windows automaticamente originam o tráfego de NAT que tem um destino fora da sub-rede à qual a máquina virtual pertence. Não é possível especificar intervalos IP personalizados.
+   Máquinas virtuais do Windows automaticamente originam o tráfego de NAT que tem um destino fora da sub-rede à qual a máquina virtual pertence. Não é possível especificar intervalos IP personalizados.
 
 Depois de concluir as etapas anteriores, os Pods ativados nas máquinas virtuais do Agente do Kubernetes recebem automaticamente endereços IP privados da rede virtual.
 
@@ -157,12 +157,12 @@ O arquivo de configuração de rede CNI é descrito no formato JSON. Ele está, 
 
 #### <a name="settings-explanation"></a>Explicação das configurações
 
-- **cniVersion**: os plug-ins de CNI da Rede Virtual do Azure são compatíveis com as versões 0.3.0 e 0.3.1 da [especificação de CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
-- **name**: nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
-- **type**: nome do plug-in de rede. Definido como *azure-vnet*.
-- **mode**: modo operacional. Esse campo é opcional. O único modo compatível é "bridge". Para saber obter mais informações, consulte os [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **bridge**: nome da ponte que será usada para conectar contêineres a uma rede virtual. Esse campo é opcional. Se omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface mestre.
-- **ipam type**: nome do plug-in de IPAM. Sempre definido como *azure-vnet-ipam*.
+- **cniVersion**: Os plug-ins de CNI da Rede Virtual do Azure dão suporte às versões 0.3.0 e 0.3.1 do [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **nome**: Nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
+- **type**: Nome do plug-in de rede. Definido como *azure-vnet*.
+- **mode**: Modo operacional. Esse campo é opcional. O único modo compatível é "bridge". Para obter mais informações, consulte [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **bridge**: Nome da ponte que será usada para conectar contêineres a uma rede virtual. Esse campo é opcional. Se omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface mestre.
+- **ipam type**: Nome do plug-in de IPAM. Sempre definido como  *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Baixar e instalar o plug-in
 

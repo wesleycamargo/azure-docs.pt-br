@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901416"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
 
@@ -60,7 +60,7 @@ Para este tutorial, recomendamos o uso [deste aplicativo de exemplo disponível 
 Crie uma bifurcação deste aplicativo e anote o local (URL) para usar em etapas posteriores deste tutorial. Para obter mais informações, consulte [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Criar fork para um repositório).    
 
 > [!NOTE]
-> O aplicativo foi criado por meio do [Yeoman](http://yeoman.io/learning/index.html). Ele usa o Express, Bower e o Grunt. Além disso, ele tem alguns pacotes npm como dependências.
+> O aplicativo foi criado por meio do [Yeoman](https://yeoman.io/learning/index.html). Ele usa o Express, Bower e o Grunt. Além disso, ele tem alguns pacotes npm como dependências.
 > O exemplo também contém um script que configura o Nginx e implanta o aplicativo. Ele é executado nas máquinas virtuais. Especificamente, o script:
 > 1. Instala o Node, Nginx e PM2.
 > 2. Configura o Nginx e o PM2.
@@ -141,7 +141,7 @@ Um ponto de extremidade de serviço permite que o Azure DevOps Services se conec
 8. Após a instalação, serão solicitadas marcações de grupo de implantação. Aceite os padrões.
 9. No Azure DevOps Services, verifique sua máquina virtual recém-registrada em **Destinos** em **Grupos de implantação**.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Criar um pipeline de lançamento no Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Criar um pipeline de lançamento no Azure Pipelines
 
 Um pipeline de lançamento especifica o processo que o Azure Pipelines usa para implantar o aplicativo. Neste exemplo, você deve executar um script de shell.
 

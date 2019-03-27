@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189641"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com C#. O código foi escrito para funcionar em um aplicativo .Net Core, com referências mínimas a bibliotecas externas; portanto, você também pode executá-lo no Linux ou no macOS.
+Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com C#. O código foi gravado para funcionar em um aplicativo .NET Core, com referências mínimas a bibliotecas externas, para que você também possa executá-lo em Linux ou MacOS.
 
 Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
@@ -30,26 +30,25 @@ Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para
 
 Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição.
 
-
 ## <a name="install-the-nuget-sdk-package"></a>Instalar o pacote do SDK do NuGet
 1. Crie uma nova solução de console no Visual Studio.
 1. Clique com o botão direito do mouse na solução e em **Gerenciar pacotes NuGet para a solução**
 1. Marque a caixa de seleção **Incluir pré-lançamento**.
 1. Selecione a guia **Procurar** e pesquise por **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selecione o pacote NuGet e instale-o.
+1. Selecione o pacote NuGet e instale-o. Por enquanto, talvez você precise da v2.8.0 (3-18-2019), em vez da v3.0.0, até que um bug no software seja corrigido.
 
 > [!Tip]
 >  Embora você possa chamar os [pontos de extremidade HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) diretamente do C#, o SDK Microsoft.Azure.CognitiveServices.Language torna mais fácil chamar o serviço sem precisar se preocupar com a serialização e desserialização do JSON.
 >
 > Alguns links úteis:
-> - [Página NuGet do SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [Página NuGet do SDK](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [Código do SD ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chame a API de Análise de Texto usando o SDK
+
 1. Substitua Program.cs pelo código fornecido abaixo. Este programa demonstra as funcionalidades da API de Análise de Texto em três seções (extração de linguagem, extração de frases-chave e análise de sentimento).
 1. Substitua o valor de cabeçalho `Ocp-Apim-Subscription-Key` por uma chave de acesso válida para sua assinatura.
-1. Substitua o local em `Endpoint` para o ponto de extremidade em que inscreveu-se. Você pode encontrar o ponto de extremidade em recursos do portal do Azure. O ponto de extremidade normalmente começa com "https://[region].api.cognitive.microsoft.com" e, em seguida, inclua somente o protocolo e o nome do host.
+1. Substitua a região em `Endpoint`. É possível localizar o ponto de extremidade na seção de visão geral do recurso de Análise de Texto no [portal do Azure](<https://ms.portal.azure.com>). Inclua apenas esta parte do ponto de extremidade: "https://[region].api.cognitive.microsoft.com".
 1. Execute o programa.
 
 ```csharp

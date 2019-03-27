@@ -1,23 +1,23 @@
 ---
-title: Explorar APIs REST em ferramentas de teste HTTP da Web do Postman ou do Fiddler – Azure Search
-description: Como usar o Fiddler ou Postman para emitir solicitações HTTP e chamadas da API REST para o Azure Search.
+title: Explorar APIs REST no Postman ou Fiddler - Azure Search
+description: Como usar o Postman ou Fiddler para emitir solicitações HTTP e chamadas à API REST ao Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137616"
 ---
-# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Explorar as APIs REST do Azure Search usando o Postman ou o Fiddler
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Início Rápido: Explorar as APIs REST do Azure Search usando o Postman ou o Fiddler
 
 Uma das maneiras mais fáceis de explorar a [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice) é usar o Postman ou o Fiddler para formular solicitações HTTP e inspecionar as respostas. Com as ferramentas certas e essas instruções, você pode enviar pedidos e exibir respostas antes de escrever qualquer código.
 
@@ -31,7 +31,7 @@ Uma das maneiras mais fáceis de explorar a [API REST do Azure Search](https://d
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar e, em seguida, [inscreva-se no Azure Search](search-create-service-portal.md).
 
-## <a name="download-and-install-tools"></a>Baixar e instalar ferramentas
+## <a name="download-tools"></a>Baixar ferramentas
 
 As ferramentas a seguir são amplamente usadas no desenvolvimento para a Web, mas se você estiver familiarizado com outra ferramenta, as instruções neste artigo ainda devem ser aplicáveis.
 
@@ -42,11 +42,16 @@ As ferramentas a seguir são amplamente usadas no desenvolvimento para a Web, ma
 
 As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-1. No portal do Azure, abra a página de serviço de pesquisa no painel ou [localize o seu serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na lista de serviços.
-2. Obtenha o ponto de extremidade em **Visão geral** > **Informações gerais** > **Url**. Um ponto de extremidade de exemplo pode parecer com `https://my-service-name.search.windows.net`.
-3. Obtenha a chave de API em **Configurações** > **Chaves**. Existem duas chaves de administração para redundância no caso de você desejar sobrepor chaves. As chaves de administração concedem as permissões de gravação no seu serviço, necessárias para criar e carregar índices. É possível usar a chave primária ou secundária para operações de gravação.
+1. No portal do Azure, na página **Visão geral**, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://my-service-name.search.windows.net`.
 
-## <a name="configure-request-headers"></a>Configure os cabeçalhos de solicitações
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+
+Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+
+
+## <a name="configure-headers"></a>Configure os cabeçalhos
 
 Cada ferramenta mantém as informações do cabeçalho de solicitação para a sessão, o que significa que você só precisa inserir o ponto de extremidade da URL, a versão da API, a chave da API e o tipo de conteúdo uma vez.
 
@@ -56,13 +61,20 @@ A composição da URL do serviço inclui os seguintes elementos:
 
 + Prefixo HTTPS.
 + URL do serviço, obtida a partir do portal.
-+ Recurso, uma operação que cria um objeto em seu serviço. Nesta etapa, é um índice chamado hotéis.
++ Recurso, uma operação que cria um objeto em seu serviço. Nesta etapa, é um índice chamado *hotéis*.
 + api-version, uma cadeia de caracteres em minúsculas obrigatória especificada como "?api-version=2017-11-11" para a versão atual. [As versões de API](search-api-versions.md) são atualizadas regularmente. Incluir a versão de API em cada solicitação lhe dá controle total sobre qual é usada.  
 
 A composição de cabeçalho de solicitação inclui dois elementos, o tipo de conteúdo e a chave de API descrita na seção anterior:
 
-         content-type: application/json
-         api-key: <placeholder>
+    api-key: <placeholder>
+    Content-Type: application/json
+
+
+### <a name="postman"></a>postman
+
+Formule uma solicitação semelhante à captura de tela a seguir. Escolha **PUT** como o verbo. 
+
+![Cabeçalho da solicitação do Postman][6]
 
 ### <a name="fiddler"></a>Fiddler
 
@@ -71,15 +83,9 @@ Formule uma solicitação semelhante à captura de tela a seguir. Escolha **PUT*
 ![Cabeçalho da solicitação do Fiddler][1]
 
 > [!Tip]
-> Você pode desativar o tráfego da Web para ocultar atividade HTTP irrelevante e não relacionada às tarefas que você está executando. No Fiddler, vá até o menu **Arquivo** e desative **Capturar tráfego**. 
+> Desative o tráfego da Web para ocultar atividade HTTP não relacionada e incorreta. No menu **Arquivo** do Fiddler, desative **Capturar Tráfego**. 
 
-### <a name="postman"></a>postman
-
-Formule uma solicitação semelhante à captura de tela a seguir. Escolha **PUT** como o verbo. 
-
-![Cabeçalho da solicitação do Postman][6]
-
-## <a name="create-the-index"></a>Criar o índice
+## <a name="1---create-an-index"></a>1 - Criar um índice
 
 O corpo da solicitação contém a definição do índice. Adicionar o corpo da solicitação conclui a solicitação que produz o índice.
 
@@ -109,11 +115,6 @@ Quando você enviar esta solicitação, você deve obter uma resposta HTTP 201, 
 
 Se obtiver o HTTP 504, veja se a URL especifica HTTPS. Caso veja HTTP 400 ou 404, confira o corpo da solicitação para verificar se não houve erros ao copiar e colar. Um HTTP 403 normalmente indica um problema com a chave de API (uma chave inválida ou um problema de sintaxe com o modo que a chave de API está especificada).
 
-### <a name="fiddler"></a>Fiddler
-
-Copie a definição do índice para o corpo da solicitação, de forma semelhante à captura de tela a seguir e, em seguida, clique em **Executar** no canto superior direito para enviar a solicitação concluída.
-
-![Corpo da solicitação do Fiddler][7]
 
 ### <a name="postman"></a>postman
 
@@ -121,7 +122,13 @@ Copie a definição do índice para o corpo da solicitação, de forma semelhant
 
 ![Corpo da solicitação do Postman][8]
 
-## <a name="load-documents"></a>Carregue os documentos
+### <a name="fiddler"></a>Fiddler
+
+Copie a definição do índice para o corpo da solicitação, de forma semelhante à captura de tela a seguir e, em seguida, clique em **Executar** no canto superior direito para enviar a solicitação concluída.
+
+![Corpo da solicitação do Fiddler][7]
+
+## <a name="2---load-documents"></a>2 - Carregar documentos
 
 Criar o índice e popular o índice são etapas separadas. No Azure Search, o índice contém todos os dados pesquisáveis, os quais você pode fornecer como documentos JSON. Para revisar a API para esta operação, confira [Adicionar, atualizar ou excluir documentos (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -199,11 +206,6 @@ Se você obtiver um 207, houve falha no carregamento de pelo menos um documento.
 > [!Tip]
 > Para fontes de dados selecionadas, você pode escolher a abordagem alternativa do *indexador* que simplifica e reduz a quantidade de código necessária para indexação. Para obter mais informações, confira [Operações do indexador](https://docs.microsoft.com/rest/api/searchservice/indexer-operations).
 
-### <a name="fiddler"></a>Fiddler
-
-Altere o verbo para **POST**. Altere a URL para incluir `/docs/index`. Copie os documentos para o corpo da solicitação, semelhante à captura de tela a seguir e, em seguida, execute a solicitação.
-
-![Conteúdo da solicitação do Fiddler][9]
 
 ### <a name="postman"></a>postman
 
@@ -211,8 +213,14 @@ Altere o verbo para **POST**. Altere a URL para incluir `/docs/index`. Copie os 
 
 ![Conteúdo da solicitação do Postman][10]
 
-## <a name="query-the-index"></a>Consulte o índice
-Agora que o índice e os documentos foram carregados, você pode consultá-los. Para obter mais informações sobre esta API, confira [Documentos do Azure Search (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)  
+### <a name="fiddler"></a>Fiddler
+
+Altere o verbo para **POST**. Altere a URL para incluir `/docs/index`. Copie os documentos para o corpo da solicitação, semelhante à captura de tela a seguir e, em seguida, execute a solicitação.
+
+![Conteúdo da solicitação do Fiddler][9]
+
+## <a name="3---search-an-index"></a>3 - Pesquisar um índice
+Como um índice e documentos foram carregados, agora é possível emitir consultas usando a API REST [Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 + Altere o verbo para **GET** para esta etapa.
 + Altere o ponto de extremidade para incluir parâmetros de consulta, incluindo cadeias de caracteres de pesquisa. Uma URL de consulta pode ser semelhante à `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
@@ -234,7 +242,7 @@ O exemplo de consulta a seguir é do artigo [Operação Pesquisar índice (API d
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
-## <a name="query-index-properties"></a>Propriedades do índice de consulta
+## <a name="get-index-properties"></a>Obter propriedades de índice
 Você também pode consultar as informações do sistema para obter contagens de documentos e consumo de armazenamento: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 No Postman, sua solicitação deve ser semelhante à seguinte, e a resposta inclui uma contagem de documentos e o espaço usado em bytes.
@@ -254,9 +262,8 @@ No Fiddler, clique na guia **Inspetores**, clique na guia **Cabeçalhos** e, em 
 
 Os clientes REST são imprescindíveis para uma exploração improvisada, mas agora que você sabe como funcionam as APIs REST, você pode continuar com o código. Para as próximas etapas, confira os links a seguir:
 
-+ [Criar um índice (REST)](search-create-index-rest-api.md)
-+ [Importar dados (REST)](search-import-data-rest-api.md)
-+ [Pesquisar um índice (REST)](search-query-rest-api.md)
++ [Início Rápido: Criar um índice usando SDK do .NET](search-create-index-dotnet.md)
++ [Início Rápido: Criar um índice (REST) usando PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png
