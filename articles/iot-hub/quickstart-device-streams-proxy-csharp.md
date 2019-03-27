@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079223"
 ---
-# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Início Rápido: SSH/RDP em fluxos de dispositivos do Hub IoT usando aplicativos proxy C# (versão prévia)
+# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Início rápido: SSH/RDP em fluxos de dispositivos do Hub IoT usando aplicativos proxy C# (versão prévia)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Atualmente, o Hub IoT do Microsoft Azure dá suporte a fluxos de dispositivos como uma [versão prévia do recurso](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os [fluxos de dispositivos do Hub IoT](./iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e dispositivo se comuniquem de maneira segura e simples para o firewall. Este guia de início rápido envolve dois programas C# que permitem que o tráfego de aplicativo para clientes/servidores (por exemplo, SSH e RDP) seja enviado em um fluxo de dispositivo estabelecido por meio do Hub IoT. Confira [aqui](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) uma visão geral da instalação.
 
@@ -48,6 +50,11 @@ A figura abaixo ilustra a configuração de como os programas proxy no local do 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com os Hubs IoT criados nas seguintes regiões:
+
+  - **Centro dos EUA**
+  - **EUA Central EUAP**
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o C#. É necessário ter o SDK do .NET Core 2.1.0 ou maior no computador de desenvolvimento.
 
@@ -100,7 +107,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Anote o valor retornado, que tem esta aparência:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961034"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258540"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
 
@@ -30,7 +30,7 @@ O SDK de Fala é atualmente compatível com dispositivos Android que têm proces
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
+Você precisa de uma chave de assinatura dos Serviços de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Consulte [Experimentar os Serviços de Fala gratuitamente](get-started.md) para obter mais detalhes.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -61,11 +61,11 @@ O Android Studio demora algum tempo para preparar seu novo projeto Android. Em s
 A versão atual do SDK de Fala dos Serviços Cognitivos é `1.3.1`.
 
 O Speech SDK para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias e as permissões necessárias do Android.
-Está hospedado em um repositório Maven em https://csspeechstorage.blob.core.windows.net/maven/.
+Ele está hospedado em um repositório Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Configure seu projeto para usar o SDK de Fala. Abra a janela de estrutura do projeto escolhendo **Arquivo** > **Estrutura do Projeto** na barra de menus do Android Studio. Na janela Estrutura do Projeto, faça as seguintes alterações:
 
-1. Na lista no lado esquerdo da janela, selecione **Projeto**. Edite as configurações de **Repositório de Biblioteca Padrão** anexando uma vírgula e nossa URL do repositório Maven entre aspas simples. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. Na lista no lado esquerdo da janela, selecione **Projeto**. Edite as configurações de **Repositório de Biblioteca Padrão** anexando uma vírgula e nossa URL do repositório Maven entre aspas simples. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Captura de tela da janela Estrutura do Projeto](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -137,7 +137,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
 
    ![Captura de tela da janela Selecionar Destino da Implantação](media/sdk/qs-java-android-12-deploy.png)
 
-Pressione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para o serviço de Fala e transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
+Pressione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para os Serviços de Fala e transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
 
 ![Captura de tela do aplicativo Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
