@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83c3db81b2836fca15c8cac1e9665a73a89ba06d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5a87563e54e0d932acefc5bd5808ac49b3cbf30a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980242"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005246"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Crie uma conexão remota para sua primeira instância de VM. Especifique seu próprio endereço IP público e número da porta da instância de VM necessária, conforme mostrado com os comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão,nos comandos de exemplo eles são *azureuser* e  *P@ssw0rd!*). Se você usa o Azure Cloud Shell, execute esta etapa de um prompt do PowerShell local ou do Cliente Área de Trabalho Remota. O exemplo abaixo se conecta a uma instância de VM em *0*:
+Crie uma conexão remota para sua primeira instância de VM. Especifique seu próprio endereço IP público e número da porta da instância de VM necessária, conforme mostrado com os comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão, nos comandos de exemplo eles são *azureuser* e *P\@ssw0rd!*). Caso use o Azure Cloud Shell, execute esta etapa de um prompt do PowerShell local ou do Cliente da Área de Trabalho Remota. O exemplo abaixo se conecta a uma instância de VM em *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Azure Active Directory ao Envi MMIS
 
@@ -184,7 +184,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -237,7 +237,7 @@ Para permitir que os usuários do Azure AD entrem no Envi MMIS, eles precisarão
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user3.png)
 
-     a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário de Brenda Fernandes como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
     
     b. Na caixa de texto **Nome**, digite o primeiro nome de Brenda Fernandes como **Britta**.
 
@@ -245,9 +245,9 @@ Para permitir que os usuários do Azure AD entrem no Envi MMIS, eles precisarão
 
     d. Insira o título do usuário no **título** da caixa de texto.
     
-    e. Na caixa de texto **Endereço de Email**, digite o endereço de email da conta de Brenda Fernandes**brittasimon@contoso.com**.
+    e. Na caixa de texto **Endereço de Email**, digite o endereço de email da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
 
-    f. Na caixa de texto **Nome de Usuário SSO**, digite o nome de usuário de Brenda Fernandes como **brittasimon@contoso.com**.
+    f. Na caixa de texto **Nome de Usuário de SSO**, digite o nome de usuário da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
 
     g. Clique em **Salvar**.
 

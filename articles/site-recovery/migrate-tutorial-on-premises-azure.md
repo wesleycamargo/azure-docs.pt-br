@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110300"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -36,6 +36,8 @@ Este é o terceiro tutorial de uma série. Este tutorial presume que você já t
 
 Antes de começar, é aconselhável examinar as arquiteturas do [VMware](vmware-azure-architecture.md) ou [Hyper-V](hyper-v-azure-architecture.md) quanto à recuperação de desastre.
 
+> [!TIP]
+> Procurando uma maneira sem uso de agente para migrar VMs VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +56,6 @@ Não há suporte para dispositivos exportados por drivers paravirtualizados.
    ![Novo cofre](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 O novo cofre é adicionado ao **Painel** em **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
-
 
 
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
@@ -112,10 +113,10 @@ Execute um failover para as máquinas que você deseja migrar.
 5. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
 6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso faz o seguinte:
 
-    - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
-    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
+   - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+   - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
-    ![Migração completa](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Migração completa](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

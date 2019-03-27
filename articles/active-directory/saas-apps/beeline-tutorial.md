@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f846791bfcaadbfec85f150654e18e55517acdcc
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ec694e9d0bf69ca1d9adbe1c12beedba24d9994b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984927"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutorial: Integração do Azure Active Directory com o BeeLine
 
@@ -108,6 +108,7 @@ Para configurar o logon único do Azure AD com o BeeLine, execute as seguintes e
      a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://projects.beeline.net/<instancename>`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
@@ -156,7 +157,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

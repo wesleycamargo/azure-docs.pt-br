@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 21719ab4e6b999f262ff53adf31d855d6e1833b4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 069762659560d1eb60ecf28267ecfa0e80a7f6e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181173"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>Assinar eventos de um grupo de recursos e filtrar por um recurso com o PowerShell
 
@@ -24,16 +24,19 @@ Este script cria uma assinatura de Grade de Eventos para os eventos para um grup
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-O script de exemplo de visualização requer o módulo de Grade de Eventos. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
-
 ## <a name="sample-script---stable"></a>Exemplo de script - estável
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
 ## <a name="sample-script---preview-module"></a>Exemplo de script – módulo de visualização
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
+O script de exemplo de visualização requer o módulo de Grade de Eventos. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
@@ -41,7 +44,7 @@ Este script usa o seguinte comando para criar a assinatura do evento. Cada coman
 
 | Comando | Observações |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Criar uma assinatura na Grade de Eventos. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Criar uma assinatura na Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,7 +2,7 @@
 title: Início Rápido – Criar um perfil do Gerenciador de Tráfego para alta disponibilidade dos aplicativos usando o portal do Azure
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198212"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760657"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web altamente disponível
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
 
 Este início rápido descreve como criar um perfil do Gerenciador de Tráfego que fornece alta disponibilidade para seu aplicativo Web.
 
@@ -100,7 +100,7 @@ Adicione o site no *Leste dos EUA* como ponto de extremidade primário para enca
 
     | Configuração | Valor |
     | ------- | ------|
-    | Tipo | Selecione **ponto de extremidade do Azure**. |
+    | Type | Selecione **ponto de extremidade do Azure**. |
     | NOME | Insira *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicativo**. |
     | Recurso de destino | Selecione **Escolher um serviço de aplicativo** > **Leste dos EUA**. |
@@ -113,7 +113,7 @@ Adicione o site no *Leste dos EUA* como ponto de extremidade primário para enca
 
     | Configuração | Valor |
     | ------- | ------|
-    | Tipo | Selecione **ponto de extremidade do Azure**. |
+    | Type | Selecione **ponto de extremidade do Azure**. |
     | NOME | Insira *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicativo**. |
     | Recurso de destino | Selecione **Escolher um serviço de aplicativo** > **Europa Ocidental**. |

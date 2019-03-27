@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170625"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia privada)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Saiba como usar [Gerenciador de Implantação do Azure](./deployment-manager-overview.md) para implantar seus aplicativos em várias regiões. Para usar o Gerenciador de Implantação, você precisa criar dois modelos:
 
@@ -59,6 +57,13 @@ Para concluir este artigo, você precisa do seguinte:
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Se você tiver o módulo Azure PowerShell Az instalado, serão necessárias duas opções adicionais:
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Gerenciador do Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/). O Gerenciador de Armazenamento do Azure não é necessário, mas facilita.
 
 ## <a name="understand-the-scenario"></a>Compreender o cenário
@@ -204,9 +209,6 @@ A captura de tela a seguir mostra apenas algumas partes da topologia de serviço
 - **dependsOn**: Todos os recursos da topologia de serviço dependem do recurso de origem do artefato.
 - **artefatos** apontam para os artefatos de modelo.  Caminhos relativos são usados aqui. O caminho completo é construído concatenando artifactSourceSASLocation (definido na fonte de artefato), artifactRoot (definido na fonte de artefato) e templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
 
-> [!NOTE]
-> Os nomes de unidade de serviço devem conter 31 caracteres ou menos. 
-
 ### <a name="topology-parameters-file"></a>Arquivo de parâmetros de topologia
 
 Você cria um arquivo de parâmetros usado com o modelo de topologia.
@@ -276,7 +278,7 @@ Você cria um arquivo de parâmetros usado com o modelo de distribuição.
 2. Preencha os valores de parâmetro:
 
     - **namePrefix**: Insira uma cadeia de caracteres com 4 a 5 caracteres. Esse prefixo é usado para criar nomes exclusivos de recursos do Azure.
-    - **azureResourceLocation**: Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em EUA Central ou **Leste dos EUA 2**.
+    - **azureResourceLocation**: Atualmente, os recursos de Gerenciador de Implantação do Azure só podem ser criados em **EUA Central** ou **Leste dos EUA 2**.
     - **artifactSourceSASLocation**: Insira o URI de SAS do diretório raiz (o contêiner de Blob) em que os arquivos de parâmetros e de modelo de unidade de serviço são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
     - **binaryArtifactRoot**: A menos que você altere a estrutura de pasta dos artefatos, use **binaries/1.0.0.0** neste tutorial.
     - **managedIdentityID**: Insira a identidade gerenciada atribuída pelo usuário. Veja [Criar identidade gerenciada atribuída pelo usuário](#create-the-user-assigned-managed-identity). A sintaxe do é:
@@ -294,13 +296,13 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 1. Execute o script para implantar a topologia de serviço.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 3. <a id="deploy-the-rollout-template"></a>Implante o modelo de distribuição:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 4. Verifique o progresso de distribuição usando o seguinte script do PowerShell:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    Os cmdlets do PowerShell do Gerenciador de Implantação devem ser instalados antes de executar este cmdlet. Confira Pré-requisitos.
+    Os cmdlets do PowerShell do Gerenciador de Implantação devem ser instalados antes de executar este cmdlet. Confira Pré-requisitos. O comutador detalhado pode ser usado para ver toda a saída.
 
     O exemplo a seguir mostra o status em execução:
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

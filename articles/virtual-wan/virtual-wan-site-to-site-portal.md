@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: c99d3df23e0ba9733e8762fe8fc22a4c69d3bcfb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075161"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -40,7 +40,11 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
 
@@ -60,12 +64,12 @@ Crie quantos sites forem necessários para corresponder a seus locais físicos. 
 2. Na página **Sites VPN**, clique em **+Criar site**.
 3. Na página **Criar site**, preencha os seguintes campos:
 
-  * **Nome**: esse é o nome pelo qual você deseja se referir ao site local.
-  * **Endereço IP público:** esse é o endereço IP público do dispositivo VPN local.
-  * **Espaço de endereço privado:** espaço de endereço localizado no local. O tráfego destinado a esse espaço de endereço é roteado para o site local.
-  * **Assinatura**: verifique a assinatura.
-  * **Grupo de Recursos:** o grupo de recursos que você deseja usar.
-  * **Local**.
+   * **Nome**: esse é o nome pelo qual você deseja se referir ao site local.
+   * **Endereço IP público:** esse é o endereço IP público do dispositivo VPN local.
+   * **Espaço de endereço privado:** espaço de endereço localizado no local. O tráfego destinado a esse espaço de endereço é roteado para o site local.
+   * **Assinatura**: verifique a assinatura.
+   * **Grupo de Recursos:** o grupo de recursos que você deseja usar.
+   * **Local**.
 4. Clique em **Mostrar opções avançadas** para exibir as configurações adicionais. Selecione **BGP** para habilitar o BGP, o que permitirá essa funcionalidade em todas as conexões criadas para o site no Azure. Você também pode inserir **Informações do dispositivo** (campos opcionais). Isso pode ajudar a equipe do Azure a entender melhor seu ambiente para adicionar possibilidades de otimização adicionais futuramente ou para ajudá-lo a solucionar problemas.
 5. Clique em **Confirmar**.
 6. Depois de clicar em **Confirmar**, veja o status na página sites VPN. O site mudará de **Provisionando** para **Provisionado**.
@@ -267,10 +271,10 @@ Crie uma conexão para monitorar a comunicação entre uma VM do Azure e um site
 
 ## <a name="cleanup"></a>11. Limpar recursos
 
-Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+Quando esses recursos não forem mais necessários, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

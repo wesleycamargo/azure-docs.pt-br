@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893486"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294307"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
@@ -38,6 +38,8 @@ Domínios DNS no DNS do Azure são hospedados na rede global do Azure de servido
 
 Para saber mais, confira [Como proteger zonas e registros DNS](dns-protect-zones-recordsets.md). 
 
+## <a name="dnssec"></a>DNSSEC
+Atualmente não há suporte para DNSSEC no DNS do Azure. Na maioria dos casos, você pode reduzir a necessidade de DNSSEC consistentemente usando HTTPS/TLS em seus aplicativos. Se o DNSSEC for um requisito crítico para as zonas DNS, você pode hospedar essas zonas com provedores de hospedagem de DNS de terceiros.
 
 ## <a name="ease-of-use"></a>Fácil de uso
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutorial: Integração do Azure Active Directory ao iProva
 
@@ -221,7 +221,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
      a. Na caixa **Nome**, insira um nome como **BrendaFernandes**.
   
-    b. Na caixa **Nome de usuário**, insira *yourname@yourcompanydomain.extension*. 
+    b. Na caixa **Nome de usuário**, insira *seunome\@domíniodaempresa.extensão*. 
     Um exemplo é BrittaSimon@contoso.com.
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
@@ -266,14 +266,14 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 5. Selecione **Adicionar**.
 
-6. Na caixa **Nome de usuário**, insira *brittasimon@yourcompanydomain.extension*. 
+6. Na caixa **Nome de usuário**, insira *brendafernandes\@domíniodaempresa.extensão*. 
     Um exemplo é BrittaSimon@contoso.com.
 
 7. Na caixa **Nome completo**, insira um nome completo, como **BrendaFernandes**.
 
 8. Selecione a opção **Nenhuma senha (usar logon único)**.
 
-9. No **Endereço de email**, insira *yourname@yourcompanydomain.extension*. 
+9. Na caixa **Endereço de email**, insira *seunome\@domíniodaempresa.extensão*. 
    Um exemplo é BrittaSimon@contoso.com.
 
 10. Role para baixo até o final da página e, em seguida, selecione **Concluir**.

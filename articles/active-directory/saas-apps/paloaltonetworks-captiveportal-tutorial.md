@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Azure Active Directory ao Palo Alto Networks – Captive Portal
 
@@ -105,12 +105,12 @@ Primeiro, você habilitará o logon único do Azure AD no portal do Azure:
 
     ![Painel Configuração básica de SAML do Palo Alto Networks – Captive Portal](common/idp-intiated.png)
 
-    1. Para **Identificador**, insira uma URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Para **Identificador**, insira uma URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. Para **URL de resposta**, insira uma URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Para **URL de resposta**, insira uma URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Atualize os valores de espaço reservado nesta etapa com o identificador real e URLs de resposta. Para obter os valores reais, entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks – Captive Portal](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Atualize os valores de espaço reservado nesta etapa com o identificador real e URLs de resposta. Para obter os valores reais, entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks – Captive Portal](https://support.paloaltonetworks.com/support).
 
 5. Na seção **Certificado de autenticação SAML**, ao lado de **XML de metadados de federação**, selecione **Baixar**. Salve o arquivo baixado em seu computador.
 
@@ -158,7 +158,7 @@ Em seguida, você criará uma usuária de teste no portal do Azure chamada *Bren
 
     1. Em **Nome**, insira **BrendaFernandes**.
   
-    2. Em **Nome de usuário**, insira **BrendaFernandes@\<domínio_da_empresa\>**. Por exemplo, **BrittaSimon@contoso.com**.
+    2. Em **Nome de usuário**, insira **BrendaFernandes\@\<domínio_da_empresa\>**. Por exemplo, **BrendaFernandes\@contoso.com**.
 
     3. Em **Senha**, insira uma senha. É recomendável que você mantenha um registro da senha inserida. Você pode marcar a caixa de seleção **Mostrar senha** para exibir a senha.
 

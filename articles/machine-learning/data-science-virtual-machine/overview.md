@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863233"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -38,7 +38,7 @@ A VM de Ciência de Dados foi desenvolvida e configurada para trabalhar com ampl
 Esta seção sugere alguns cenários importantes para os quais a VM de Ciência de Dados pode ser implantada.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Área de trabalho de análise pré-configurada na nuvem
-A VM de Ciência de Dados fornece uma configuração de linha de base para equipes de ciência de dados que buscam substituir as respectivas áreas de trabalho locais por uma área de trabalho de nuvem gerenciada. Essa linha de base garante que todos os cientistas de dados em uma equipe tenham uma configuração consistente com a qual podem verificar experiências e promover colaboração. Ela também diminui os custos reduzindo a carga de administração de sistema e poupando o tempo necessário para avaliar, instalar e manter os vários pacotes de software necessários à análise avançada.  
+A VM de Ciência de Dados fornece uma configuração de linha de base para equipes de ciência de dados que buscam substituir as respectivas áreas de trabalho locais por uma área de trabalho de nuvem gerenciada. Essa linha de base garante que todos os cientistas de dados em uma equipe tenham uma configuração consistente com a qual podem verificar experiências e promover colaboração. Ela também diminui os custos reduzindo a carga de administração de sistema e poupando o tempo necessário para avaliar, instalar e manter os vários pacotes de software necessários à análise avançada.
 
 ### <a name="data-science-training-and-education"></a>Educação e treinamento de ciência de dados
 Os treinadores e educadores corporativos que ensinam sobre ciência de dados geralmente fornecem uma imagem de máquina virtual para garantir que seus alunos tenham uma configuração consistente e que as amostras funcionem de maneira previsível. A VM de Ciência de Dados cria um ambiente sob demanda com uma configuração consistente que facilita o suporte e os desafios de incompatibilidade. Nos casos em que esses ambientes precisam ser criados com frequência, especialmente para aulas rápidas de treinamento, os alunos são consideravelmente beneficiados.
@@ -50,7 +50,7 @@ As maratonas/competições de ciência de dados ou modelagem e exploração de d
 A VM de Ciência de Dados pode ser usada para avaliar ferramentas, ou aprender sobre elas, como o Microsoft ML Server, SQL Server, Visual Studio, Jupyter, kits de ferramentas de machine learning/aprendizado profundo, além de novas ferramentas conhecidas na comunidade com mínimo esforço de configuração. Uma vez que a VM de Ciência de Dados pode ser configurada rapidamente, ela pode ser aplicada em outros cenários de uso de curto prazo, como na replicação de testes publicados, na execução de demonstrações, depois de passo a passos em sessões online ou em tutoriais de conferência.
 
 ### <a name="deep-learning"></a>Aprendizado
-A VM de ciência de dados pode ser usada para modelos de treinamento usando algoritmos de aprendizagem profunda em hardware baseado em GPU (unidades de processamento gráfico). Utilizando as funcionalidades de colocação em escala de VM da nuvem do Azure, a DSVM ajuda você a usar hardware baseado em GPU na nuvem de acordo com a necessidade. É possível mudar para uma VM baseada em GPU durante o treinamento de modelos grandes ou quando houver necessidade de cálculos em alta velocidade mantendo o mesmo disco do SO.  A edição do Windows Server 2016 do DSVM vem pré-instalada com drivers de GPU, estruturas e versões de GPU de estruturas de aprendizagem profunda. Na edição para Linux, aprendizagem profunda em GPU está habilitada nos DSVMs CentOS e Ubuntu. Você pode implantar a edição do Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados em máquinas virtuais do Azure não baseadas em GPU, quando, então, todas as estruturas de aprendizagem profunda usarão o modo de CPU. 
+A VM de ciência de dados pode ser usada para modelos de treinamento usando algoritmos de aprendizagem profunda em hardware baseado em GPU (unidades de processamento gráfico). Utilizando as funcionalidades de colocação em escala de VM da nuvem do Azure, a DSVM ajuda você a usar hardware baseado em GPU na nuvem de acordo com a necessidade. É possível mudar para uma VM baseada em GPU durante o treinamento de modelos grandes ou quando houver necessidade de cálculos em alta velocidade mantendo o mesmo disco do SO.  A edição do Windows Server 2016 do DSVM vem pré-instalada com drivers de GPU, estruturas e versões de GPU de estruturas de aprendizagem profunda. Na edição para Linux, aprendizagem profunda em GPU está habilitada nos DSVMs CentOS e Ubuntu. Você pode implantar a edição do Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados em máquinas virtuais do Azure não baseadas em GPU, quando, então, todas as estruturas de aprendizagem profunda usarão o modo de CPU.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>O que está incluído na VM de Ciência de Dados?
 A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ciência de dados e de aprendizado já instaladas e configuradas. Ela também inclui ferramentas que facilitam trabalhar com vários produtos de análise e dados do Azure, como o Microsoft ML Server (R, Python) para a criação de modelos preditivos ou o SQL Server 2017 para a exploração do conjuntos de dados de grande escala. Também está incluído um conjunto de outras ferramentas da comunidade de software livre e da Microsoft, bem como código de exemplo e notebooks. A tabela a seguir relaciona e compara os principais componentes incluídos nas edições do Windows e Linux da Máquina Virtual de Ciência de Dados.
@@ -66,7 +66,7 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | Bancos de dados relacionais                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Ferramentas de Banco de Dados                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> Drivers * ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (ferramenta de consultas), <br /> * bcp, sqlcmd <br /> Drivers * ODBC/JDBC|
 | Análise no banco de dados escalonável com os serviços do SQL Server ML (R, Python) | S     |N              |
-| **[Jupyter Notebook Server](http://jupyter.org/) com os kernels a seguir,**                                  | S     | S |
+| **[Jupyter Notebook Server](https://jupyter.org/) com os kernels a seguir,**                                  | S     | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | S | S |
@@ -76,17 +76,17 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | JupyterHub (Servidor de notebooks com vários usuários)| N | S |
 | JupyterLab (Servidor de notebooks com vários usuários) | N | Y (somente Ubuntu) |
 | **Ferramentas de desenvolvimento, IDEs e editores de código**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) com Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) e [RTVS (Ferramentas do R para Visual Studio)](http://microsoft.github.io/RTVS-docs/) | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) com Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) e [RTVS (Ferramentas do R para Visual Studio)](https://microsoft.github.io/RTVS-docs/) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (IDE de Julia)](http://junolab.org/)| S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (IDE de Julia)](https://junolab.org/)| S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim e Emacs | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
 | PowerBI Desktop | S | N |
 | SDKs para acessar o Azure e o pacote de serviços Cortana Intelligence | S | S |
 | **Ferramentas de movimentação de dados e gerenciamento** | | |
@@ -99,12 +99,12 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Ferramenta de Migração de Dados do DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Gateway de Gerenciamento de Dados da Microsoft](https://msdn.microsoft.com/library/dn879362.aspx): Mover dados entre OnPrem e Nuvem | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilitários de linha de comando Unix/Linux | S | S |
-| [Apache Drill](http://drill.apache.org) para Exploração de dados | S | S |
+| [Apache Drill](https://drill.apache.org) para Exploração de dados | S | S |
 | **Machine Learning Tools** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Integração com [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](https://www.cs.waikato.ac.nz/ml/weka/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (somente Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (somente Ubuntu) |
@@ -113,21 +113,21 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | S (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | S (Windows 2016) | S|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](https://mxnet.io/) | S (Windows 2016) | S|
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe e Caffe2](https://github.com/caffe2/caffe2) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](https://pytorch.org/)| N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Servidor Modelo MXNet](https://github.com/awslabs/mxnet-model-server) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Fornecimento do TensorFlow](https://www.tensorflow.org/serving/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | S | S |
 | **Plataforma Big Data (somente Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) autônomo local | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](http://hadoop.apache.org/) local (HDFS, YARN) | N | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) autônomo local | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) local (HDFS, YARN) | N | S |
 
 ## <a name="get-started"></a>Introdução
 

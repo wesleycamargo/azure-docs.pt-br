@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842938"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure (versão prévia)
 
@@ -37,11 +37,13 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registrar este recurso
 
-Antes de configurar a WAN Virtual, você precisa inscrever sua assinatura na versão prévia. Caso contrário, você não poderá trabalhar com a WAN Virtual no portal. Para se inscrever, envie um email para **azurevirtualwan@microsoft.com** com sua ID de assinatura. Após a inscrição da sua assinatura, você receberá um email.
+Antes de configurar a WAN Virtual, você precisa inscrever sua assinatura na versão prévia. Caso contrário, você não poderá trabalhar com a WAN Virtual no portal. Para inscrever-se, envie um email para **azurevirtualwan\@microsoft.com** com sua ID da assinatura. Após a inscrição da sua assinatura, você receberá um email.
 
 **Considerações sobre a versão prévia:**
 
@@ -69,15 +71,15 @@ Em um navegador, navegue para o [portal do Azure (versão prévia)](https://aka.
 ## <a name="hub"></a>4. Localizar e associar um circuito ao hub
 
 1. Selecione sua vWAN e, em **Arquitetura da WAN Virtual**, selecione **Circuitos do ExpressRoute**
-2. Se o circuito do ExpressRoute na mesma assinatura do que sua vWAN, clique em **Selecionar circuito do ExpressRoute** da(s) sua(s) assinatura(s) 
-3. Usando a lista suspensa, selecione o ExpressRoute que você gostaria de associar ao hub.
-4. Se o circuito da ExpressRoute não estiver na mesma assinatura ou se você tiver recebido [uma chave de autorização e uma identificação de emparelhamento](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito ao resgatar uma chave de autorização**
-5. Insira os seguintes detalhes:
-* **Chave de autorização**: gerada pelo proprietário do circuito, conforme descrito acima
-* **URI do circuito de pares**: o URI do circuito que é fornecido pelo proprietário do circuito e é o identificador exclusivo para o circuito
-* **Peso de roteamento** - [Peso de Roteamento](../expressroute/expressroute-optimize-routing.md) permite que você prefira determinados caminhos quando vários circuitos de localizações de emparelhamento diferentes estiverem conectados ao mesmo hub
-6. Clique em **Localizar circuito** e selecione o circuito, se encontrado
-7. Selecione um ou mais hubs na lista suspensa e clique em **Salvar**
+1. Se o circuito do ExpressRoute na mesma assinatura do que sua vWAN, clique em **Selecionar circuito do ExpressRoute** da(s) sua(s) assinatura(s) 
+1. Usando a lista suspensa, selecione o ExpressRoute que você gostaria de associar ao hub.
+1. Se o circuito da ExpressRoute não estiver na mesma assinatura ou se você tiver recebido [uma chave de autorização e uma identificação de emparelhamento](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito ao resgatar uma chave de autorização**
+1. Insira os seguintes detalhes:
+1. **Chave de autorização**: gerada pelo proprietário do circuito, conforme descrito acima
+1. **URI do circuito de pares**: o URI do circuito que é fornecido pelo proprietário do circuito e é o identificador exclusivo para o circuito
+1. **Peso de roteamento** - [Peso de Roteamento](../expressroute/expressroute-optimize-routing.md) permite que você prefira determinados caminhos quando vários circuitos de localizações de emparelhamento diferentes estiverem conectados ao mesmo hub
+1. Clique em **Localizar circuito** e selecione o circuito, se encontrado
+1. Selecione um ou mais hubs na lista suspensa e clique em **Salvar**
 
 ## <a name="vnet"></a>5. Conectar sua VNET a um hub
 
@@ -110,10 +112,10 @@ Crie uma conexão para monitorar a comunicação entre uma VM do Azure e um site
 
 ## <a name="cleanup"></a>9. Limpar recursos
 
-Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+Quando esses recursos não forem mais necessários, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

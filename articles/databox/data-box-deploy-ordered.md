@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834261"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -38,7 +38,7 @@ Antes de começar, verifique se:
 - Verifique se a assinatura usada para o serviço Data Box é de um dos seguintes tipos:
     - Microsoft EA (Contrato Enterprise). Leia mais sobre [assinaturas de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 - Verifique se você tem acesso de proprietário ou colaborador na assinatura para criar um pedido do Data Box.
 
@@ -61,6 +61,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 3. Clique em **Criar**.
 
 4. Verifique se o serviço Data Box está disponível em sua região. Insira ou selecione as seguintes informações e clique em **Aplicar**. 
+
     |Configuração  |Valor  |
     |---------|---------|
     |Assinatura     | Selecione uma assinatura do EA, do CSP ou do Azure Sponsorship para o serviço Data Box. <br> A assinatura está vinculada à sua conta de cobrança.       |
@@ -68,7 +69,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |País de origem     |   Selecione o país onde os dados residem no momento.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde você deseja transferir dados.        |
 
-5. Selecione Data **Box**. A capacidade máxima de solução de um único pedido é de 80 TB. É possível criar vários pedidos para tamanhos maiores de dados.
+5. Selecione Data **Box**. A capacidade máxima utilizável de uma única ordem é de 786 TB. É possível criar vários pedidos para tamanhos maiores de dados.
 
       [![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +80,22 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |NOME     |  Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
     |Grupo de recursos     |   Use um grupo existente ou crie um novo. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
     |Região do Azure de destino     | Selecione uma região para sua conta de armazenamento. <br> Para saber mais, acesse [disponibilidade por região](data-box-overview.md#region-availability).        |
-    |Conta(s) de armazenamento     | Com base na região especificada do Azure, selecione uma ou mais contas de armazenamento existente na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blob**. Não é possível usar contas de armazenamento que tenham regras configuradas. As contas de armazenamento precisam **permitir o acesso em todas as redes** na seção de firewalls e redes virtuais.|
-    
+    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma ou mais contas de armazenamento existente na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o Azure Data Box como um serviço confiável](../storage/common/storage-network-security.md#exceptions).|
+
+    Se usar a conta de armazenamento como o destino de armazenamento, você verá a seguinte captura de tela:
+
+    ![Ordem do Data Box para a conta de armazenamento](media/data-box-deploy-ordered/order-storage-account.png)
+
+    Se usar o Data Box para criar discos gerenciados dos VHDs locais, você também precisará fornecer as seguintes informações:
+
+    |Configuração  |Valor  |
+    |---------|---------|
+    |Grupos de recursos     | Se você pretende criar discos gerenciados de VHDs locais, crie novos grupos de recursos. Ao criar um pedido do Data Box para o disco gerenciado pelo serviço Data Box, você poderá usar um grupo de recursos somente se o grupo de recursos tiver sido criado anteriormente. <br> Especifique vários grupos de recursos separados por ponto e vírgula. Há suporte para um limite máximo de dez grupos de recursos.|
+
+    ![Ordem do Data Box para o disco gerenciado](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    A conta de armazenamento especificada para os discos gerenciados é usada como uma conta de armazenamento de preparo. O serviço do Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de preparo antes de convertê-los em discos gerenciados e movê-los para os grupos de recursos. Para obter mais informações, confira [Verificar o upload de dados para o Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
 7. No **Endereço para remessa**, forneça seu nome e sobrenome, nome e endereço da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito. Clique em **Próximo**.
 
 8. Nos **Detalhes da notificação**, especifique endereços de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.
@@ -89,7 +104,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 9. Examine o **Resumo** de informações relacionadas com o pedido, o contato, a notificação e os termos de privacidade. Marque a caixa correspondente ao contrato de termos de privacidade.
 
-10. Clique em **Pedido**. A criação do pedido demora alguns minutos. 
+10. Clique em **Pedido**. A criação do pedido demora alguns minutos.
 
 
 ## <a name="track-the-order"></a>Acompanhar o pedido
@@ -98,9 +113,9 @@ Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do 
 
 Se o dispositivo não estiver disponível, você receberá uma notificação. Se o dispositivo estiver disponível, a Microsoft identificará o dispositivo para envio e o preparará. Durante a preparação do dispositivo, ocorrerão as seguintes ações:
 
-- Os compartilhamentos SMB são criados para cada conta de armazenamento associada ao dispositivo. 
+- Os compartilhamentos SMB são criados para cada conta de armazenamento associada ao dispositivo.
 - Para cada compartilhamento, as credenciais de acesso, como nome de usuário e senha, são geradas.
-- Também é gerada uma senha do dispositivo que ajuda a desbloqueá-lo. 
+- Também é gerada uma senha do dispositivo que ajuda a desbloqueá-lo.
 - O Data Box é bloqueado para impedir o acesso não autorizado ao dispositivo.
 
 Após a conclusão da preparação do dispositivo, o portal mostra o pedido no estado **Processado**.

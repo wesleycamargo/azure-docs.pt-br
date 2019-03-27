@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109790"
 ---
 # <a name="get-started"></a>Início Rápido: criar um balanceador de carga público usando o Azure PowerShell
 
@@ -229,7 +229,7 @@ Crie as NICs virtuais com [New-AzNetworkInterface](/powershell/module/az.network
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Cre
 $cred = Get-Credential
 ```
 
-Agora, é possível criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. Durante a criação do exemplo de VM abaixo, as NICs criadas anteriormente estão associadas às VMs, pois recebem a mesma rede virtual (*myVnet*) e sub-rede (*mySubnet*):
+Agora, é possível criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. Neste exemplo, as NICs (*VM1* e *VM2*) criadas na etapa anterior são automaticamente atribuídas às máquinas virtuais *VM1* e *VM2*, já que elas têm nomes idênticos e a mesma rede virtual (*myVnet*) e sub-rede (*mySubnet*) são atribuídas a elas. Além disso, já que as NICs estão associadas ao pool de back-end do balanceador de carga, as VMs são automaticamente adicionadas ao pool de back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,18 +295,18 @@ Instale o IIS com uma página da Web personalizada em ambas as VMs de back-end d
 
 1. Obtenha o endereço IP Público do Balanceador de Carga. Usando `Get-AzPublicIPAddress`, obtenha o endereço IP Público do Balanceador de Carga.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Crie uma conexão de área de trabalho remota com VM1 usando o endereço IP Público obtido na etapa anterior. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Insira as credenciais para *VM1* para iniciar a sessão do RDP.
 4. Inicie o Windows PowerShell na VM1 e usando os comandos a seguir para instalar o servidor do IIS e atualizar o arquivo htm padrão.
     ```azurepowershell-interactive

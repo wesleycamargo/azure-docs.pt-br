@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456921"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226208"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no Banco de Dados SQL do Azure usando entidades de servidor (logons) do Azure AD
 
@@ -148,13 +148,13 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
 
 1. Conecte-se à instância gerenciada com a entidade de servidor (logon) do Azure AD usando o SQL Server Management Studio. Insira o nome do host de sua instância gerenciada. Para a autenticação no SSMS, há três opções entre as quais escolher ao fazer logon com uma conta do Azure AD:
 
-    - Active Directory – Universal com suporte a MFA
-    - Active Directory – Senha
-    - Active Directory – Integrado </br>
+   - Active Directory – Universal com suporte a MFA
+   - Active Directory – Senha
+   - Active Directory – Integrado </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Para obter mais informações, confira o seguinte artigo: [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
+     Para obter mais informações, confira o seguinte artigo: [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Selecione **Active Directory – Universal com suporte a MFA**. Isso abre uma janela de logon MFA (Autenticação Multifator). Entre com sua senha do Azure AD.
 
@@ -207,10 +207,10 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
 1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta** para a nova conexão.
 1. Verifique as permissões de servidor para a entidade de servidor (logon) do Azure AD criada recentemente executando o seguinte comando:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Há suporte para usuários convidados do Azure AD para logons de instância gerenciada somente quando adicionados como parte de um grupo do Azure AD. Um usuário convidado do Azure AD é uma conta convidada para o Azure AD à qual a instância gerenciada pertence de outro Azure AD. Por exemplo, joe@contoso.com (Conta do Azure AD) ou steve@outlook.com (Conta MSA) pode ser adicionada a um grupo no aadsqlmi do Azure AD. Depois que os usuários são adicionados a um grupo, um logon pode ser criado no banco de dados **mestre** da instância gerenciada para o grupo usando a sintaxe **CREATE LOGIN**. Usuários convidados que são membros desse grupo podem se conectar à instância gerenciada usando seus logons atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
@@ -360,7 +360,7 @@ A instância gerenciada dá suporte à representação de entidades de seguranç
     GO
     ```
 
-1. Use o comando a seguir para ver o que o usuário você está representando ao executar o procedimento armazenado é **bob@aadsqlmi.net**.
+1. Use o comando a seguir para ver o que o usuário você está representando ao executar o procedimento armazenado é **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

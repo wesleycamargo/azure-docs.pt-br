@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994247"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -54,7 +54,7 @@ Primeiro, crie um grupo de recursos para conter os recursos necessários à impl
 
 O grupo de recursos contém todos os recursos para o tutorial.
 
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página inicial do portal do Azure, clique em **Grupos de recursos** > **Adicionar**.
 3. Em **Nome do grupo de recursos**, digite **Test-FW-RG**.
 4. Em **Assinatura**, selecione sua assinatura.
@@ -110,7 +110,7 @@ Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas su
 5. Em **Selecionar portas de entrada**, selecione **RDP (3389)**.
 
 6. Aceite os outros padrões e clique em **Próximo: Discos**.
-7. Aceite os padrões de disco e clique em **Próximo: Rede**.
+7. Aceite os padrões de disco e clique em **Avançar: Rede**.
 8. Verifique se **Test-FW-VN** está selecionado para a rede virtual e se a sub-rede é **Jump-SN**.
 9. Para **IP Público**, clique em **Criar novo**.
 10. Digite **Srv-Jump-PIP** para o nome do endereço IP público e clique em **OK**.
@@ -235,12 +235,12 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
 2. Conectar-se a uma área de trabalho remota à máquina virtual **Srv-Jump** e de lá abra uma conexão de área de trabalho remota para o endereço IP privado **Srv-Work**.
 
-3. Abra o Internet Explorer e navegue até http://msn.com.
+3. Abra o Internet Explorer e navegue até https://msn.com.
 4. Clique em **OK** > **Fechar** nos alertas de segurança.
 
    Você verá a página inicial do MSN.
 
-5. Navegue até http://www.msn.com.
+5. Navegue até https://www.msn.com.
 
    Você deve ser bloqueado pelo firewall.
 

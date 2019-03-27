@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106637"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempacotar, conectar e desbloquear o Azure Data Box Disk
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Ordenar o Azure Data Box Disk](data-box-disk-deploy-ordered.md).
+1. Você concluiu o [Tutorial: Solicitar o Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 2. Você recebeu os discos e o status do trabalho o portal foi atualizado para **Entregue**.
 3. Você tem um computador cliente no qual pode instalar a ferramenta de desbloqueio do Data Box Disk. Computador cliente deve:
     - Executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
@@ -70,12 +70,12 @@ As etapas para desbloquear os discos são diferentes de acordo com o cliente Win
 Execute as seguintes etapas para conectar e desbloquear os discos.
      
 1. No portal do Azure, vá até **Geral > Detalhes do Dispositivo**. 
-2. Baixe o conjunto de ferramentas do Data Box Disk correspondente ao cliente do Windows. Esse conjunto de ferramentas contém três ferramentas: a ferramenta de Desbloqueio de Data Box Disk, a ferramenta de Validação de Data Box Disk e a ferramenta de Cópia Dividida de Data Box Disk. 
+2. Baixe o conjunto de ferramentas do Data Box Disk correspondente ao cliente do Windows. Esse conjunto de ferramentas contém 3 ferramentas: Ferramenta de Desbloqueio de Data Box Disk, a ferramenta de Validação de Data Box Disk e a ferramenta de Cópia Dividida de Data Box Disk. 
 
     Neste procedimento, você usará somente a ferramenta de Desbloqueio de Data Box Disk. As duas ferramentas serão usadas posteriormente.
 
     > [!div class="nextstepaction"]
-    > [Baixe o conjunto de ferramentas do Disco do Data Box para Windows](https://aka.ms/databoxdisktoolswin)         
+    > [Baixe o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extraia o conjunto de ferramentas no mesmo computador que você usará para copiar os dados. 
 4. Abra uma janela do prompt de comando ou execute o Windows PowerShell como administrador no mesmo computador.
@@ -131,7 +131,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
 2. Baixe o conjunto de ferramentas do Data Box Disk correspondente ao cliente do Linux.  
 
     > [!div class="nextstepaction"]
-    > [Baixe o conjunto de ferramentas do Disco do Data Box para Linux](https://aka.ms/databoxdisktoolslinux) 
+    > [Baixe o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. No cliente Linux, abra um terminal. Navegue até a pasta para a qual você baixou o software. Altere as permissões de arquivo para executar esses arquivos. Digite o seguinte comando:  
 
@@ -170,39 +170,39 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
     
  
 5. Digite `y` para continuar a instalação. Os pacotes que o script instala são: 
-    - **epel-release**: repositório que contém os três pacotes a seguir. 
-    - **dislocker e fuse-dislocker**: esse utilitário ajuda a descriptografar discos criptografados do BitLocker. 
-    - **ntfs-3g**: pacote que ajuda a montar volumes NTFS. 
+   - **epel-release**: repositório que contém os três pacotes a seguir. 
+   - **dislocker e fuse-dislocker**: esse utilitário ajuda a descriptografar discos criptografados do BitLocker. 
+   - **ntfs-3g**: pacote que ajuda a montar volumes NTFS. 
  
-    Após a instalação bem-sucedida dos pacotes, o terminal exibirá uma notificação sobre isso.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Após a instalação bem-sucedida dos pacotes, o terminal exibirá uma notificação sobre isso.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Execute a ferramenta de desbloqueio do Data Box Disk. Forneça a chave de acesso do portal do Azure que você obteve em [Conectar-se a discos e obter a chave de acesso](#Connect-to-disks-and-get-the-passkey). Como opção, especifique uma lista de volumes criptografados do BitLocker a serem desbloqueados. A lista de chaves de acesso e de volumes precisa ser especificada entre aspas simples. 
 
@@ -256,7 +256,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk como:
+Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk, como:
 
 > [!div class="checklist"]
 > * Desempacotar o Data Box Disk
@@ -268,5 +268,5 @@ Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk como:
 Avance para o próximo tutorial para saber como copiar dados para o Data Box Disk.
 
 > [!div class="nextstepaction"]
-> [Copiar dados para o seu Disco do Data Box](./data-box-disk-deploy-copy-data.md)
+> [Copiar dados para o seu Data Box Disk](./data-box-disk-deploy-copy-data.md)
 

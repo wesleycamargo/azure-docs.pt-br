@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100668"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014138"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar se os dados são coletados
 
 ## <a name="prerequisites"></a>Pré-requisitos
-A exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Há suporte para as seguintes permissões do Azure por assinatura para exportações de dados por usuário e por grupo:
+A exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Há suporte para as seguintes permissões ou escopos do Azure por assinatura para exportações de dados por usuário e por grupo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Proprietário – pode criar, modificar ou excluir exportações agendadas de uma assinatura.
 - Colaborador – pode criar, modificar ou excluir suas próprias exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outras pessoas.
@@ -45,9 +45,9 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Gerenciamento de Custos + Cobrança &gt; Gerenciamento de Custos &gt; selecione uma assinatura ou um grupo de recursos em uma assinatura &gt; Exportar &gt;  **Adicionar**.
+Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página de análise de custo, clique em **Exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **Agendar exportação**. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
-Digite um nome para a exportação e selecione a opção "Exportação diária de custos do mês atual". Clique em **Próximo**.
+Clique em **Adicionar**, digite um nome para a exportação e, em seguida, selecione a **exportação diária da opção de custos desde o início do mês**. Clique em **Próximo**.
 
 ![Novo exemplo de exportação mostrando o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 

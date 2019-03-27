@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731388"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444150"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gerenciada que fornece modelos de dados de nível empresarial na nuvem. Utilize recursos de modelagem e mashup avançados para combinar dados de várias fontes de dados, definir métricas e proteger os dados em um único modelo de dados semânticos tabulares confiável. O modelo de dados fornece uma maneira mais rápida e fácil para os usuários navegarem quantidades de dados em massa para análise de dados ad-hoc.
+O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gerenciada que fornece modelos de dados de nível empresarial na nuvem. Utilize recursos de modelagem e mashup avançados para combinar dados de várias fontes de dados, definir métricas e proteger os dados em um único modelo de dados semânticos tabulares confiável. O modelo de dados fornece uma maneira mais rápida e fácil para os usuários navegarem enormes quantidades de dados para análise de dados ad hoc.
 
 ![Fontes de dados](./media/analysis-services-overview/aas-overview-overall.png)
 

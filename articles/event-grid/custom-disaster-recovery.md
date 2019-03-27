@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863161"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para Tópicos Personalizados na Grade de Eventos
 
@@ -28,7 +28,7 @@ Para simplificar o teste, implante um [aplicativo Web criado previamente](https:
 
 1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 Anote essa URL, pois você precisará dela posteriormente.
@@ -54,10 +54,10 @@ Primeiro, crie dois tópicos de Grade de Eventos. Esses tópicos funcionarão co
 
 1. No menu Tópicos de Grade de Eventos, selecione **+ADICIONAR** para criar o tópico principal.
 
-    * Dê um nome lógico ao tópico e adicione “-principal” como sufixo para facilitar o acompanhamento.
-    * A região desse tópico será a região primária.
+   * Dê um nome lógico ao tópico e adicione “-principal” como sufixo para facilitar o acompanhamento.
+   * A região desse tópico será a região primária.
 
-    ![Caixa de diálogo principal de criação do Tópico de Grade de Eventos](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Caixa de diálogo principal de criação do Tópico de Grade de Eventos](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Após a criação do Tópico, navegue até ele e copie o **Ponto de Extremidade do Tópico**. você precisará do URI posteriormente.
 
@@ -69,11 +69,11 @@ Primeiro, crie dois tópicos de Grade de Eventos. Esses tópicos funcionarão co
 
 1. Na folha Tópico, clique em **+Assinatura do Evento** para criar uma assinatura que conecta a assinatura do site do receptor de eventos criada nos pré-requisitos ao tutorial.
 
-    * Dê um nome lógico à assinatura do evento e adicione “-primário” como sufixo para facilitar o acompanhamento.
-    * Selecione o Web hook do tipo de ponto de extremidade.
-    * Defina o ponto de extremidade como a URL do evento do receptor de eventos, que deve ter esta aparência: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Dê um nome lógico à assinatura do evento e adicione “-primário” como sufixo para facilitar o acompanhamento.
+   * Selecione o Web hook do tipo de ponto de extremidade.
+   * Defina o ponto de extremidade como a URL do evento do receptor de eventos, que deve ter esta aparência: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Assinatura do Evento Principal da Grade de Eventos](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Assinatura do Evento Principal da Grade de Eventos](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita o mesmo fluxo para criar seu tópico e assinatura secundários. Dessa vez, substitua o sufixo "-primário" por "-secundário" para facilitar o acompanhamento. Por fim, certifique-se de colocá-lo em uma região diferente do Azure. Embora seja possível colocá-lo em qualquer local que você desejar, é recomendável usar as [Regiões Emparelhadas do Azure](../best-practices-availability-paired-regions.md). Colocar o tópico e a assinatura secundários em uma região diferente garante que os novos eventos flutuarão mesmo se a região primária ficar inativa.
 
@@ -91,7 +91,7 @@ Agora que você tem um par de instalação de tópicos e assinaturas regionalmen
 
 ### <a name="basic-client-side-implementation"></a>Implementação básica do lado do cliente
 
-O código de exemplo a seguir é um publicador simples do .Net que sempre tentará ser publicado primeiro em seu tópico principal. Se não tiver êxito, ele fará o failover do tópico secundário. Em ambos os casos, ele também verifica a api de integridade do outro tópico fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico íntegro deve sempre responder com **200 OK** quando um GET é feito no ponto de extremidade **/api/health**.
+O código de exemplo a seguir é um publicador simples do .NET que sempre tentará ser publicado primeiro em seu tópico principal. Se não tiver êxito, ele fará o failover do tópico secundário. Em ambos os casos, ele também verifica a api de integridade do outro tópico fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico íntegro deve sempre responder com **200 OK** quando um GET é feito no ponto de extremidade **/api/health**.
 
 ```csharp
 using System;

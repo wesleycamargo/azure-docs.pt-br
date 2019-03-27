@@ -1,24 +1,20 @@
 ---
 title: 'Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure | Microsoft Docs '
 description: Neste tutorial, execute o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript
-keywords: javascript, funções definidas pelo usuário, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088867"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192268"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
  
@@ -50,12 +46,19 @@ Aqui estão ações que não podem ser realizadas com uma função definida pelo
 Embora funções como **Date.GetDate()** ou **Math.random()** não estejam bloqueadas na definição de funções, você deve evitar usá-las. Essas funções **não** retornam o mesmo resultado sempre que você as chama e o serviço Stream Analytics do Azure não mantém um diário das invocações da função e dos resultados retornados. Se uma função retornar resultados diferentes nos mesmos eventos, a capacidade de repetição não será garantida quando um trabalho for reiniciado por você ou pelo serviço Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo usuário do JavaScript no portal do Azure
-Para criar uma função definida pelo usuário do JavaScript simples em um trabalho do Stream Analytics existente, siga essas etapas:
+Para criar uma função simples do JavaScript definida por usuário sob um trabalho do Stream Analytics existente, siga estas etapas:
+
+> [!NOTE]
+> Essas etapas funcionam nos trabalhos do Stream Analytics configurados para serem executados na nuvem. Se o trabalho do Stream Analytics é configurado para ser executado no Azure IoT Edge, use, em vez disso, o Visual Studio e [grave a função definida pelo usuário usando C# ](stream-analytics-edge-csharp-udf.md).
 
 1.  No portal do Azure, encontre seu trabalho do Stream Analytics.
-2.  Em **TOPOLOGIA DO TRABALHO**, selecione sua função. Uma lista vazia de funções é exibida.
-3.  Para criar uma nova função definida pelo usuário, selecione **Adicionar**.
+
+2. No cabeçalho **Topologia de trabalhos**, selecione **Funções**. Uma lista vazia de funções é exibida.
+
+3.  Para criar uma nova função definida pelo usuário, selecione **+ Adicionar**.
+
 4.  Na folha **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. Um modelo de função padrão aparece no editor.
+
 5.  Para o **alias da UDF**, insira **hex2Int** e altere a implementação da função, conforme mostrado a seguir:
 
     ```javascript
@@ -70,7 +73,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo usuário do JavaScript em uma consulta
 
-1. No editor de consulta, em **TOPOLOGIA DO TRABALHO**, selecione **Consulta**.
+1. No editor de consulta, sob o cabeçalho de **Topologia de trabalho**, selecione **Consulta**.
 2.  Edite sua consulta e, em seguida, chame a função definida pelo usuário da seguinte forma:
 
     ```SQL
@@ -97,7 +100,7 @@ Há diferenças nos tipos com suporte na linguagem de consulta do Stream Analyti
 Stream Analytics | JavaScript
 --- | ---
 bigint | Número (o JavaScript pode representar apenas o inteiro até 2^53 exatamente)
-Datetime | Data (o JavaScript dá suporte somente a milissegundos)
+DateTime | Data (o JavaScript dá suporte somente a milissegundos)
 double | Número
 nvarchar(MAX) | Cadeia de caracteres
 Registro | Objeto
@@ -111,7 +114,7 @@ Aqui estão as conversões de JavaScript para Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for arredondado e estiver entre long.MinValue e long.MaxValue; caso contrário, será dobrado)
-Data | Datetime
+Data | DateTime
 Cadeia de caracteres | nvarchar(MAX)
 Objeto | Registro
 Matriz | Matriz

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117095"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000621"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
@@ -43,7 +43,6 @@ Entre no Portal do Azure em http://portal.azure.com.
     - **Assinatura**: Escolha uma assinatura.
     - Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.
     - No menu suspenso **Local**, escolha um local.
-    - Marque a caixa de seleção **Fixar no painel**.
     - Deixe as outras opções em seus padrões.
 6. Depois de fornecer as informações acima, selecione **Criar**.
 
@@ -70,7 +69,11 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. Você pode ver algumas das propriedades. Se você clicar na versão atual, poderá ver o valor especificado na etapa anterior.
 
-![Propriedades do segredo](./media/quick-create-portal/version.png)
+![Propriedades do segredo](./media/quick-create-portal/current-version-hidden.png)
+
+Ao clicar no botão "Mostrar o valor de segredo" no painel direito, será possível ver o valor oculto. 
+
+![O valor do segredo apareceu](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

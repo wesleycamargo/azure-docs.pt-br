@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ab6048ff54f9c593bb62fb3e9c40af930bf1edad
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077540"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cabeamento para o Azure Data Box
 
@@ -39,7 +39,7 @@ Execute as etapas a seguir para cabear o dispositivo.
     - **Endereço IP** como 192.168.100.5
     - **Sub-rede** como 255.255.255.0
 
-3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
+3. Acesse a IU da Web local do dispositivo em: 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>Transferência através da porta DATA com IPs estáticos
@@ -62,12 +62,12 @@ Execute as etapas a seguir para cabear o dispositivo.
 2. Use um RJ45 para DATA 3 ou cabos SFP+ para conectar DATA 1 ou DATA 2 ao servidor atuando como fonte de dados. Recomendamos que você use portas DATA 1 ou DATA 2 de 10 GbE para um bom desempenho.
 3. No servidor, defina:
 
-    - **Endereço IP** como 192.168.100.5
-    - **Sub-rede** como 255.255.255.0
+   - **Endereço IP** como 192.168.100.5
+   - **Sub-rede** como 255.255.255.0
 
-    ![Instalação de duas portas](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Instalação de duas portas](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
+3. Acesse a IU da Web local do dispositivo em: 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 4. Atribua IPs estáticos às portas de dados que você configurou.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>Opção 2: configuração inicial por meio de outro computador
@@ -78,12 +78,12 @@ Execute as etapas a seguir para cabear o dispositivo.
 2. Use um RJ45 para DATA 3 ou cabos SFP+ para conectar DATA 1 ou DATA 2 ao servidor. Recomendamos que você use portas DATA 1 ou DATA 2 de 10 GbE para um bom desempenho. As portas de dados são conectadas, por meio de um comutador de 10 GbE, ao servidor com os dados.
 3. Configure o adaptador de Ethernet do notebook que você está usando para se conectar ao dispositivo com:
 
-    - **Endereço IP** 192.168.100.5
-    - **Sub-rede** 255.255.255.0.
+   - **Endereço IP** 192.168.100.5
+   - **Sub-rede** 255.255.255.0.
 
-    ![Instalação de duas portas com um comutador](media/data-box-cable-options/cabling-with-static-ip.png)
+     ![Instalação de duas portas com um comutador](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
+3. Acesse a IU da Web local do dispositivo em: 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 4. Identifique os endereços IP atribuídos pelo servidor DHCP.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>Transferir via porta DATA com IPs estáticos usando um comutador 
@@ -102,12 +102,12 @@ Execute as etapas a seguir para cabear o dispositivo.
 2. Use um RJ45 para DATA 3 ou cabos SFP+ para conectar DATA 1 ou DATA 2 ao servidor. Recomendamos que você use portas DATA 1 ou DATA 2 de 10 GbE para um bom desempenho.
 3. Configure o adaptador de Ethernet do notebook que você está usando para se conectar ao dispositivo com:
 
-    - **Endereço IP** 192.168.100.5
-    - **Sub-rede** 255.255.255.0.
+   - **Endereço IP** 192.168.100.5
+   - **Sub-rede** 255.255.255.0.
 
-    ![Instalação de duas portas com um comutador](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Instalação de duas portas com um comutador](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. Acesse a interface do usuário da Web local do dispositivo em 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
+3. Acesse a IU da Web local do dispositivo em: 192.168.100.10. Entre e desbloqueie o Data Box usando a senha de desbloqueio do portal do Azure.
 4. Atribua IPs estáticos às portas de dados que você configurou.
 
 

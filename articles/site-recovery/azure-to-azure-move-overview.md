@@ -1,5 +1,5 @@
 ---
-title: Mover as VMs IaaS do Azure para outra região do Azure usando o serviço Azure Site Recovery | Microsoft Docs
+title: Mover as VMs da IaaS do Azure para outra região do Azure usando o serviço do Azure Site Recovery | Microsoft Docs
 description: Use o Azure Site Recovery para mover as VMs IaaS do Azure de uma região do Azure para outra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,105 +8,99 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077999"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
-O Azure está crescendo extensivamente junto com a base de clientes e está adicionando suporte para novas regiões com aumento de demandas. Também há recursos mais recentes que são adicionados mensalmente aos serviços. Por conta disso, há ocasiões em que você desejará mover as VMs para outra região ou para Zonas de Disponibilidade, a fim de aumentar a disponibilidade.
+O Azure cresce junto com a base de clientes e adiciona suporte a novas regiões para acompanhar o aumento de demandas. Novas funcionalidades também são adicionadas mensalmente entre serviços. Talvez você queira mover suas VMs (máquinas virtuais) para uma região diferente ou para Zonas de Disponibilidade para aumentar a disponibilidade.
 
-Este documento explica os vários cenários em que você desejará mover as VMs e um guia de como a arquitetura deve ser configurada no destino para obter disponibilidade mais alta. 
+Este tutorial descreve os diferentes cenários em que você desejaria mover suas VMs. Ele também descreve como configurar a arquitetura na região de destino para obter uma disponibilidade mais alta. 
+
+Neste tutorial, você aprenderá sobre:
+
 > [!div class="checklist"]
-> * [Por que mover as VMs do Azure](#why-would-you-move-azure-vms)
-> * [Como mover as VMs do Azure](#how-to-move-azure-vms)
-> * [Arquiteturas típicas](#typical-architectures-for-a-multi-tier-deployment)
-> * [Mover as VMs no estado em que se encontram para uma região de destino](#move-azure-vms-to-another-region)
-> * [Mover as VMs para aumentar a disponibilidade](#move-vms-to-increase-availability)
+> 
+> * Motivos para mover as VMs
+> * Arquiteturas típicas
+> * Movimentação das VMs no estado em que se encontram para uma região de destino
+> * Movimentação as VMs para aumentar a disponibilidade
 
+## <a name="reasons-to-move-azure-vms"></a>Motivos para mover VMs do Azure
 
-## <a name="why-would-you-move-azure-vms"></a>Por que mover as VMs do Azure
+Você pode mover VMs pelos seguintes motivos:
 
-Os clientes movem as VMs pelos seguintes motivos:
+- Você já fez a implantação em uma região e foi adicionado suporte a uma nova região mais próxima aos usuários finais do aplicativo ou serviço. Nesse cenário, você pode querer mover suas VMs como está para a nova região para reduzir a latência. Use a mesma abordagem se você desejar consolidar assinaturas ou se houver regras de governança ou da organização que exijam a movimentação.
+- Sua VM foi implantada como uma VM de instância única ou como parte de um conjunto de disponibilidade. Se quiser aumentar a disponibilidade dos SLAs, você poderá mover suas VMs para uma Zona de Disponibilidade.
 
-- Se você já tiver feito a implantação em uma região e for adicionado o suporte a uma nova região que seja mais próxima aos usuários finais do aplicativo ou do serviço, você desejará **mover as VMs no estado em que se encontram para a nova região**, a fim de reduzir a latência. A mesma abordagem será adotada se você desejar consolidar assinaturas ou se houver regras de governança/da organização que exigem a movimentação. 
-- Se a VM foi implantada como uma VM de instância única ou como parte de um conjunto de disponibilidade e você deseja aumentar os SLAs de disponibilidade, **mova as VMs para uma zona de disponibilidade**. 
+## <a name="steps-to-move-azure-vms"></a>Etapas para mover as VMs do Azure
 
-## <a name="how-to-move-azure-vms"></a>Como mover as VMs do Azure
 A movimentação das VMs envolve as seguintes etapas:
 
-1. Verificar pré-requisitos 
-2. Preparar as VMs de origem 
-3. Preparar a região de destino 
-4. Copiar os dados para a região de destino – use a tecnologia de replicação do Azure Site Recovery para copiar os dados da VM de origem para a região de destino
-5. Testar a configuração: Depois que a replicação for concluída, teste a configuração executando um failover de teste em uma rede de não produção.
-6. Realizar a movimentação 
-7. Descartar os recursos na região de origem 
-
-
-> [!IMPORTANT]
-> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra, mas não dá suporte à movimentação dentro de uma região. 
+1. Verifique se os pré-requisitos.
+2. Prepare as VMs de origem.
+3. Prepare a região de destino.
+4. Copie os dados para a região de destino. Use a tecnologia de replicação do Azure Site Recovery para copiar os dados da VM de origem para a região de destino.
+5. Teste a configuração. Depois que a replicação for concluída, teste a configuração executando um failover de teste para uma rede de não produção.
+6. Realize a movimentação.
+7. Descarte os recursos na região de origem.
 
 > [!NOTE]
-> Diretrizes detalhadas sobre essas etapas são fornecidas na documentação de cada cenário, conforme mencionado [aqui](#next-steps)
+> Detalhes sobre essas etapas são fornecidos nas seções a seguir.
+> [!IMPORTANT]
+> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra, mas não dá suporte à movimentação dentro de uma região.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Arquiteturas típicas para uma implantação de várias camadas
-A seção abaixo descreve as arquiteturas de implantação mais comuns adotadas pelos clientes, para um aplicativo de várias camadas no Azure. O exemplo que estamos usando aqui é de um aplicativo de três camadas com um IP público. Cada uma das camadas – Web, Aplicativo e Banco de Dados – tem 2 VMs e é conectada por um Balanceador de Carga às outras camadas. A camada de Banco de Dados tem a replicação do SQL AlwaysOn entre as VMs para HA (alta disponibilidade).
 
-1.  **VMs de instância única implantadas em várias camadas** – cada VM em uma camada é configurada como uma VM de instância única, conectada por balanceadores de carga às outras camadas. Essa é a configuração mais simples adotada pelos clientes.
+Esta seção descreve as arquiteturas de implantação mais comuns para um aplicativo multicamada no Azure. O exemplo é de um aplicativo de três camadas com um IP público. Cada uma das camadas (Web, aplicativo e banco de dados) tem duas VMs e é conectada por um Azure Load Balancer às outras camadas. A camada de banco de dados tem a replicação do SQL Server Always On entre as VMs para alta disponibilidade.
 
-       ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
+* **VMs de instância única implantadas em várias camadas**: Cada VM em uma camada é configurada como uma VM de instância única e é conectada por balanceadores de carga às outras camadas. Essa configuração é mais simples de adotar.
 
-2. **VMs em cada camada implantadas em um conjunto de disponibilidade** – cada VM em uma camada é configurada em um conjunto de disponibilidade. Os [conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados em um cluster. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional. 
-   
-      ![avset](media/move-vm-overview/AVset.PNG)
+     ![Implantação de VM de instância única em camadas](media/move-vm-overview/regular-deployment.png)
 
-3. **VMs em cada camada implantadas em um conjunto de disponibilidade** – cada VM em uma camada é configurada em [Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Cada VM em uma camada é configurada em um conjunto de disponibilidade. Os [conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados em um cluster. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
-      ![zone-deploymnt](media/move-vm-overview/zone.PNG)
+     ![Implantação da VM em conjuntos de disponibilidade](media/move-vm-overview/avset.png)
 
+* **VMs em cada camada implantadas em Zonas de Disponibilidade**: Cada VM em uma camada é configurada em [Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
+     ![Implantação de Zona de Disponibilidade](media/move-vm-overview/zone.png)
 
 ## <a name="move-vms-as-is-to-a-target-region"></a>Mover as VMs no estado em que se encontram para uma região de destino
 
 Com base nas [arquiteturas](#typical-architectures-for-a-multi-tier-deployment) mencionadas acima, veja a seguir como será a aparência das implantações depois que você realizar a movimentação das VMs no estado em que se encontram para a região de destino.
 
+* **VMs de instância única implantadas em várias camadas**
 
-1. **VMs de instância única implantadas em várias camadas** 
+     ![Implantação de VM de instância única em camadas](media/move-vm-overview/single-zone.png)
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+* **VMs em cada camada implantadas em conjuntos de disponibilidade**
 
-2. **VMs em cada camada implantadas em um conjunto de disponibilidade**
+     ![Conjuntos de disponibilidade entre regiões](media/move-vm-overview/crossregionaset.png)
 
-     ![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
+* **VMs em cada camada implantadas em Zonas de Disponibilidade**
 
-
-3. **VMs em cada camada implantadas em uma zona de disponibilidade**
-      
-
-     ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
+     ![Implantação de VMs em Zonas de Disponibilidade](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Mover as VMs para aumentar a disponibilidade
 
-1. **VMs de instância única implantadas em várias camadas** 
+* **VMs de instância única implantadas em várias camadas**
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+     ![Implantação de VM de instância única em camadas](media/move-vm-overview/single-zone.png)
 
-2. **VMs em cada camada implantadas em um conjunto de disponibilidade** – você poderá optar por configurar e colocar as VMs de um conjunto de disponibilidade em Zonas de Disponibilidade separadas quando optar por habilitar a replicação na VM usando o Azure Site Recovery. O SLA de disponibilidade será de 99,9% depois que a operação de movimentação for concluída.
+* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Quando habilitar a replicação para sua VM usando o Azure Site Recovery, você pode configurar suas VMs em um conjunto de disponibilidade em Zonas de Disponibilidade separadas. O SLA de disponibilidade será de 99,9% depois que a operação de movimentação for concluída.
 
-     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
-
+     ![Implantação de VMs em conjuntos de disponibilidade e Zonas de Disponibilidade](media/move-vm-overview/aset-azone.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você lerá as diretrizes gerais para a movimentação de VMs. Para conhecer a execução passo a passo disso, leia mais:
-
-
 > [!div class="nextstepaction"]
+> 
 > * [Mover as VMs do Azure para outra região](azure-to-azure-tutorial-migrate.md)
-
-> * [Mover as VMs do Azure para Zonas de Disponibilidade](move-azure-VMs-AVset-Azone.md)
+> 
+> * [Mover as VMs do Azure para Zonas de Disponibilidade](move-azure-vms-avset-azone.md)
 

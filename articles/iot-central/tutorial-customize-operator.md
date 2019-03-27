@@ -3,19 +3,19 @@ title: Personalizar os modos de exibição do operador no Azure IoT Central | Mi
 description: Como um construtor, personalize os modos de exibição do operador em seu aplicativo do Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 10/12/2018
+ms.date: 01/29/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657647"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769669"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar o modo de exibição do operador do Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Tutorial: Personalizar a exibição do operador do Azure IoT Central (design da nova interface do usuário)
 
 Este tutorial mostra a você, como um construtor, como personalizar o modo de exibição do operador do seu aplicativo. Ao fazer uma alteração no aplicativo como um construtor, você pode visualizar o modo de exibição do operador no aplicativo do Microsoft Azure IoT Central.
 
@@ -28,10 +28,8 @@ Neste tutorial, você aprenderá como:
 > * Configurar o layout das configurações do dispositivo
 > * Configurar o layout das propriedades do dispositivo
 > * Visualizar o dispositivo como operador
-> * Configurar sua página inicial padrão
-> * Visualizar a página inicial padrão como operador
-
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+> * Configurar o painel de aplicativo padrão
+> * Visualizar o painel do aplicativo padrão como um operador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,86 +40,66 @@ Antes de começar, você deve concluir os dois tutoriais anteriores:
 
 ## <a name="configure-your-device-dashboard"></a>Configurar o painel do dispositivo
 
-Como um construtor, você pode definir quais informações são exibidas em um painel do dispositivo. No tutorial [Definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md), você adicionou um gráfico de linhas e outras informações ao painel **Ar condicionado-1 conectado**.
+Como um construtor, você pode definir quais informações são exibidas em um painel do dispositivo. No tutorial [Definir um novo tipo de dispositivo no aplicativo](tutorial-define-device-type.md), você adicionou um gráfico de linhas e outras informações ao painel do **Ar-condicionado Conectado**.
 
-1. Para editar o modelo do dispositivo de **Ar condicionado conectado**, escolha **Explorer** no menu de navegação à esquerda:
+1. Para editar o modelo de dispositivo **Ar-condicionado Conectado**, escolha **Modelos de Dispositivo** no menu de navegação à esquerda:
 
-    ![Página Explorer](media/tutorial-customize-operator/explorer.png)
+    ![Página Modelos de Dispositivo](media/tutorial-customize-operator/devicetemplates.png)
 
-2. Para começar a personalizar o painel do dispositivo de ar condicionado conectado, selecione o modelo do dispositivo de **Ar condicionado conectado (1.0.0)**. Escolha o dispositivo **Ar condicionado-1 conectado** criado no tutorial [Definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md):
+2. Para personalizar o painel do dispositivo, clique no modelo de dispositivo **Ar-condicionado Conectado (1.0.0)** criado no tutorial [Definir um novo tipo de dispositivo no aplicativo](tutorial-define-device-type.md).
 
-    ![Selecione o dispositivo de ar condicionado conectado](media/tutorial-customize-operator/selectdevice.png)
-
-    Quando estiver em um dispositivo, como **Ar condicionado-1 conectado**, você pode selecionar **Editar modelo** para fazer uma alteração no modelo subjacente. Para saber mais sobre como [Criar uma nova versão de modelo de dispositivo](howto-version-devicetemplate.md).
-
-3. Para editar o painel, escolha **Painel**, e selecione **Editar modelo**:
-
-    ![Página Painel de modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
+3. Para editar o painel, selecione a guia **Painel**.
 
 4. Para adicionar um bloco de indicador chave de desempenho (KPI) para o painel, escolha **KPI**:
-
-    ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 
     Para definir o KPI, use as informações da tabela a seguir:
 
     | Configuração     | Valor |
     | ----------- | ----- |
     | NOME        | Temperatura máxima |
+    | Intervalo de tempo  | Passada uma semana |
+    | Tipo de Medida | Telemetria |
     | Medida | temperatura |
     | Agregação | Máximo |
-    | Intervalo de tempo  | Passada uma semana |
+    | Visibilidade  | habilitado |
 
-5. Escolha **Salvar**. Agora você pode ver o bloco KPI no painel:
+    ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
+
+5. Clique em **Salvar**. Agora você pode ver o bloco KPI no painel:
 
     ![Bloco KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-6. Para mover ou redimensionar um bloco no painel, mova o ponteiro do mouse sobre o bloco. Você pode arrastar o bloco para um novo local ou redimensioná-lo:
-
-    ![Editar layout do painel](media/tutorial-customize-operator/dashboardlayout.png)
-
-7. Clique em **Concluído** quando terminar de fazer alterações.
+6. Para mover ou redimensionar um bloco no painel, mova o ponteiro do mouse sobre o bloco. Arraste o bloco para uma nova localização ou redimensione-o.
 
 ## <a name="configure-your-settings-layout"></a>Configurar o layout do dispositivo
 
-Como um construtor, você também pode configurar o modo de exibição do operador das configurações do dispositivo. Um operador usa a página de configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a página de configurações para definir a temperatura-alvo do ar-condicionado conectado.
+Como um construtor, você também pode configurar o modo de exibição do operador das configurações do dispositivo. Um operador usa a guia de configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a guia de configurações para definir a temperatura-alvo do ar-condicionado conectado.
 
-1. Para editar o layout de configurações do ar condicionado conectado, escolha **Configurações** e selecione **Editar modelo**:
-
-    ![Página Configurações](media/tutorial-customize-operator/settings.png)
+1. Para editar o layout de configurações do ar-condicionado conectado, escolha a guia **Configurações**.
 
 2. É possível mover e redimensionar os blocos de configurações:
 
     ![Editar o layout de configurações](media/tutorial-customize-operator/settingslayout.png)
 
-3. Clique em **Concluído** quando terminar de fazer alterações.
-
-> [!NOTE]
-> No modo **Editar modelo**, não é possível editar os valores das configurações.
-
 ## <a name="configure-your-properties-layout"></a>Configurar o layout das propriedades
 
-Além do painel e das configurações, também é possível configurar o modo de exibição do operador das propriedades do dispositivo. Um operador usa a página de propriedades do dispositivo para gerenciar os metadados do dispositivo. Por exemplo, um operador usa a página de propriedades para visualizar um número de série do dispositivo ou atualizar detalhes de contato do fabricante.
+Além do painel e das configurações, também é possível configurar o modo de exibição do operador das propriedades do dispositivo. Um operador usa a guia de propriedades do dispositivo para gerenciar os metadados do dispositivo. Por exemplo, um operador usa a guia de propriedades para exibir o número de série de um dispositivo ou atualizar detalhes de contato do fabricante.
 
-1. Para editar o layout de propriedades do ar condicionado conectado, escolha **Propriedades**, e selecione **Editar modelo**:
-
-    ![Página Propriedades](media/tutorial-customize-operator/properties.png)
+1. Para editar o layout de propriedades do ar-condicionado conectado, escolha a guia **Propriedades**.
 
 2. Você pode mover e redimensionar os campos de propriedades:
 
     ![Editar o layout de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
-3. Clique em **Concluído** quando terminar de fazer alterações.
+## <a name="preview-the-device"></a>Visualizar o aplicativo
 
-> [!NOTE]
-> No modo **Editar modelo**, não é possível editar os valores das propriedades.
+Use a página **Modelos de Dispositivo** para personalizar as guias do painel, de configurações e de propriedades de um operador. Use a página **Device Explorer** para exibir e usar o modelo de dispositivo.
 
-## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Como um operador, visualize o dispositivo de ar condicionado conectado
+1. Para exibir e usar o modelo de ar-condicionado conectado como um operador, navegue para a página do **Device Explorer** e escolha o dispositivo simulado gerado pelo IoT Central com base no modelo:
 
-No modo **Editar modelo**, você pode personalizar as páginas do painel, das configurações e das propriedades para um operador. Se você não estiver no modo **Editar modelo**, você pode exibir o aplicativo como um operador.
+    ![Exibir e usar o modelo de dispositivo](media/tutorial-customize-operator/usetemplate.png)
 
-1. Para exibir o dispositivo de ar-condicionado conectado como um operador, clique em **Concluído** para interromper a edição do modelo e retornar para a exibição do dispositivo do operador.
-
-2. Para atualizar a Localização desse dispositivo, edite o valor no bloco de Localização e escolha **Salvar**:
+2. Para atualizar a Localização desse dispositivo, escolha **Propriedades** e edite o valor no bloco Localização. Em seguida, selecione **Salvar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
@@ -135,34 +113,37 @@ No modo **Editar modelo**, você pode personalizar as páginas do painel, das co
 
     ![Modo de exibição do operador do painel do dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-home-page"></a>Configurar a página inicial padrão
+## <a name="configure-the-default-dashboard"></a>Configurar o diretório padrão
 
-Quando um construtor ou um operador entra em um aplicativo do Azure IoT Central, eles veem uma página inicial. Como um construtor, você pode configurar o conteúdo desta página inicial para incluir o conteúdo mais útil e relevante para um operador.
+Quando um construtor ou um operador entra em um aplicativo do Azure IoT Central, eles veem uma página inicial. Como um construtor, você pode configurar o conteúdo desta do painel padrão para incluir o conteúdo mais útil e relevante para um operador.
 
-1. Para personalizar a página inicial padrão, navegue até a página **Inicial** e selecione **Editar** no canto superior direito da página. Ao selecionar **Editar**, um painel deslizará da direita com uma lista de objetos que você pode adicionar à sua página inicial.
+> [!NOTE]
+> Os usuários também podem criar seus próprios painéis pessoais e escolher um como padrão.
 
-    ![Página Construtor do aplicativo](media/tutorial-customize-operator/builderhome.png)
+1. Para personalizar o painel padrão, navegue até a página **Painel** e selecione **Editar** no canto superior direito da página. Um painel é exibido com uma biblioteca de objetos que você pode adicionar ao painel.
 
-2. Para personalizar a página inicial, adicione blocos da **Biblioteca**. Escolha **Link** e adicione detalhes do site da sua organização. Depois escolha **Salvar**:
+    ![Página de Painel](media/tutorial-customize-operator/builderhome.png)
 
-    ![Adicionar link à página inicial](media/tutorial-customize-operator/addlink.png)
+2. Para personalizar o painel, adicione blocos da **Biblioteca**. Escolha **Link** e adicione detalhes do site da sua organização. Depois escolha **Salvar**:
+
+    ![Adicionar link ao painel](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Também é possível adicionar links para páginas dentro do seu aplicativo do Azure IoT Central. Por exemplo, é possível adicionar um link para um painel do dispositivo ou uma página de configurações.
 
-3. Como opção, escolha **Imagem** e carregue uma imagem a ser exibida na sua página inicial. Uma imagem pode conter uma URL para a qual você é destinado ao clicar nela:
+3. Como opção, escolha **Imagem** e carregue uma imagem a ser exibida no painel. Uma imagem pode conter uma URL à qual você navega ao clicar nela:
 
-    ![Adicionar imagem à página inicial](media/tutorial-customize-operator/addimage.png)
+    ![Adicionar uma imagem ao painel](media/tutorial-customize-operator/addimage.png)
 
     Para saber mais, consulte [Como preparar e carregar imagens para o aplicativo Azure IoT Central](howto-prepare-images.md).
 
-## <a name="preview-the-default-home-page-as-an-operator"></a>Visualizar a página inicial padrão como operador
+## <a name="preview-the-dashboard"></a>Versão prévia do painel
 
-Para visualizar a página inicial como um operador e parar de editar, selecione **Concluído** na parte superior direita da página
+Para visualizar o painel do aplicativo como um operador, selecione **Concluído** na parte superior direita da página.
 
 ![Alternar o Modo de Design](media/tutorial-customize-operator/operatorviewhome.png)
 
-É possível clicar nos blocos de link e de imagem para navegar até as URLs que você definir como um construtor.
+É possível selecionar o link e os blocos de imagem para navegar até as URLs que você definir como um construtor.
 
 ## <a name="next-steps"></a>Próximas etapas
 

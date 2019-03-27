@@ -1,23 +1,22 @@
 ---
-title: Executar vários serviços dependentes usando .NET Core e Visual Studio | Microsoft Docs
+title: Executar vários serviços dependentes usando .NET Core e Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
+ms.openlocfilehash: e302a4edc54b98f0dd731f65d0d45aa592cc72ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076761"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento de vários serviços com Azure Dev Spaces
 
@@ -35,7 +34,7 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 1. Abra o projeto `mywebapi` em uma *janela separada do Visual Studio*.
 1. Selecione **Azure Dev Spaces** na lista suspensa de configurações de inicialização, conforme feito anteriormente no projeto `webfrontend`. Em vez de criar um novo cluster AKS desta vez, selecione o mesmo que você já criou. Assim como antes, deixe o espaço com o padrão `default` e clique em **OK**. Na janela de Saída, pode ser que você note que o Visual Studio inicia para “aquecer” esse novo serviço em seu espaço de desenvolvimento para acelerar as coisas ao iniciar a depuração.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que está pronto quando a barra de status do Visual Studio ficar laranja
-1. Anote o ponto de extremidade de URL exibido no painel **Azure Dev Spaces for AKS** na janela de **Saída**. Será semelhante a http://localhost:\<portnumber\>. Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no espaço de desenvolvimento no Azure.
+1. Anote o ponto de extremidade de URL exibido no painel **Azure Dev Spaces for AKS** na janela de **Saída**. Será semelhante a `http://localhost:<portnumber>`. Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no espaço de desenvolvimento no Azure.
 2. Quando `mywebapi` estiver pronto, abra seu navegador no endereço do localhost e acrescente `/api/values` à URL para invocar a API GET padrão para `ValuesController`. 
 3. Se todas as etapas foram bem-sucedidas, você deverá ver uma resposta do serviço `mywebapi` que se parece com isto.
 

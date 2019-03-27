@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076846"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Provisionar um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager
 
@@ -87,8 +87,8 @@ Nessa solicitação, os valores que precisam ser personalizados são:
 +   `storageProfile/geoRedundantBackup` – Especifique Habilitado/Desabilitado, dependendo dos requisitos de Geo-DR.
 +   `sku/tier` – Especifique a camada Basic, GeneralPurpose ou MemoryOptimized para a implantação.
 +   `sku/capacity` – Especifique a capacidade de vCore. Os valores possíveis incluem 2, 4, 8, 16, 32 ou 64.
-+   `sku/family` – Especifique Gen4 ou Gen5 para escolher a geração de hardware para implantação do servidor.
-+   `sku/name` – Especifique TierPrefix_family_capacity. Por exemplo, B_Gen4_1, GP_Gen5_16 e MO_Gen5_32. Confira a documentação sobre [tipos de preço](./concepts-pricing-tiers.md) para entender os valores válidos por região e por tipo.
++   `sku/family` – Especifique Gen5 para escolher a geração de hardware para implantação do servidor.
++   `sku/name` – Especifique TierPrefix_family_capacity. Por exemplo, B_Gen5_1, GP_Gen5_16 e MO_Gen5_32. Confira a documentação sobre [tipos de preço](./concepts-pricing-tiers.md) para entender os valores válidos por região e por tipo.
 +   `resources/properties/virtualNetworkSubnetId` – Especifique o identificador do Azure da sub-rede na VNET em que o servidor MySQL do Azure deverá ser colocado. 
 +   `tags(optional)` – Especifique que marcas opcionais são pares chave-valor que você usará para categorizar os recursos de cobrança etc.
 
@@ -127,8 +127,8 @@ O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **ad
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ Neste tutorial, você aprendeu a:
 > * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
-
+> 
 > [Como conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md)

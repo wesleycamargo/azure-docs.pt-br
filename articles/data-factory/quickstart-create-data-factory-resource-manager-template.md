@@ -3,21 +3,20 @@ title: Criar um data factory do Azure usando modelo do Resource Manager | Micros
 description: Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447592"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576643"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um Azure data factory usando um modelo do Azure Resource Manager
 
@@ -34,7 +33,9 @@ Este início rápido descreve como usar um modelo do Azure Resource Manager para
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
@@ -51,7 +52,7 @@ Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\ADFTutoria
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Crie um arquivo JSON chamado **ADFTutorialARM-Parameters.json** que contenha os 
 No PowerShell, execute o comando a seguir para implantar entidades do Data Factory usando o modelo do Resource Manager criado anteriormente neste início rápido.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 Você verá uma saída semelhante ao exemplo a seguir:
@@ -368,9 +369,9 @@ O modelo implanta as seguintes entidades de Data Factory:
 - Pipeline com uma atividade de cópia
 - Gatilho para disparar o pipeline
 
-O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o gatilho é usar o cmdlet do PowerShell **Start-AzureRmDataFactoryV2Trigger**. O procedimento a seguir fornece as etapas detalhadas:
+O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o gatilho é usar o cmdlet do PowerShell **Start-AzDataFactoryV2Trigger**. O procedimento a seguir fornece as etapas detalhadas:
 
-1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o seguinte comando na janela do PowerShell e pressione ENTER. Se você tiver especificado um nome de grupo de recursos diferente para o comando New-AzureRmResourceGroupDeployment, atualize o valor aqui.
+1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o seguinte comando na janela do PowerShell e pressione ENTER. Se você tiver especificado um nome de grupo de recursos diferente para o comando New-AzResourceGroupDeployment, atualize o valor aqui.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
 4. Obtenha o **status do gatilho** executando o seguinte comando do PowerShell depois de especificar o nome de seu data factory e do gatilho:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Veja o exemplo de saída:
@@ -405,7 +406,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
 5. **Iniciar o gatilho**. O gatilho executa o pipeline definido no modelo na hora. Ou seja, se você executou esse comando às 14h25, o gatilho executará o pipeline às 15h pela primeira vez. Em seguida, ele executa o pipeline a cada hora até a hora de término especificada para o gatilho.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Veja o exemplo de saída:
@@ -416,10 +417,10 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirme que o disparador foi iniciado executando novamente o comando Get-AzureRmDataFactoryV2Trigger.
+6. Confirme que o gatilho foi iniciado executando novamente o comando Get-AzDataFactoryV2Trigger.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Veja o exemplo de saída:
@@ -466,7 +467,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
 8. Interrompa o gatilho quando vir uma execução bem-sucedida/com falha. O gatilho executa o pipeline uma vez por hora. O pipeline copia o mesmo arquivo da pasta de entrada para a pasta de saída para cada execução. Para interromper o gatilho, execute o seguinte comando na janela do PowerShell.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Defina um pipeline que copia dados de um conjunto de dados de blobs do Azure par
 
 #### <a name="trigger"></a>Gatilho
 
-Defina um disparador que executa o pipeline uma vez por hora. O gatilho implantado está no estado interrompido. Inicie o gatilho usando o cmdlet **Start-AzureRmDataFactoryV2Trigger**. Para obter mais informações sobre gatilhos, consulte o artigo [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#triggers).
+Defina um disparador que executa o pipeline uma vez por hora. O gatilho implantado está no estado interrompido. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger**. Para obter mais informações sobre gatilhos, consulte o artigo [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -647,11 +648,11 @@ No tutorial, você criou um modelo para definir entidades de Data Factory e um m
 Exemplo:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Observe que o primeiro comando usa o arquivo de parâmetro para o ambiente de desenvolvimento, outro para o ambiente de teste e um terceiro para o ambiente de produção.

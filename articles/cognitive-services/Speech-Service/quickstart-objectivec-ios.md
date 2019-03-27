@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958500"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094915"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
 
@@ -75,7 +75,7 @@ Substitua o XML gerado automaticamente por este código:
 ## <a name="add-the-sample-code"></a>Adicione o código de amostra
 
 1. Baixe o [arquivo wav de amostra](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) clicando com o botão direito do mouse e escolhendo **Salvar destino como…**. Adicione o arquivo wav ao projeto como um recurso arrastando-o de uma janela do Finder para o nível raiz da exibição do Projeto.
-Clique em **Concluir** na seguinte caixa de diálogo sem alterar as configurações.
+   Clique em **Concluir** na seguinte caixa de diálogo sem alterar as configurações.
 1. Substitua o conteúdo do arquivo `ViewController.m` gerado automaticamente por:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
@@ -90,12 +90,12 @@ Clique em **Concluir** na seguinte caixa de diálogo sem alterar as configuraç�
 ## <a name="building-and-running-the-sample"></a>Criação e execução da amostra
 
 1. Torne a saída de depuração visível (**Exibição** > **Área de Depuração** > **Ativar Console**).
-1. Escolha o simulador de iOS ou um dispositivo iOS conectado ao computador de desenvolvimento como o destino para o aplicativo na lista de **Produto** -> **menu de Destino**.
+1. Escolha o simulador de iOS ou um dispositivo iOS conectado ao computador de desenvolvimento como o destino para o aplicativo da lista no menu **Produto** -> **Destino**.
 1. Compile e execute o exemplo de código no simulador do iOS selecionando **Produto** -> **Executar** no menu ou clicando no botão **Reproduzir**.
-No momento, o SDK de Fala só dá suporte à plataforma iOS de 64 bits.
+   No momento, o SDK de Fala só dá suporte à plataforma iOS de 64 bits.
 1. Depois de clicar no botão "Reconhecer (arquivo)" no aplicativo, você deve ver o conteúdo do arquivo de áudio de "Como está o clima?” na parte inferior da tela.
 
- ![Aplicativo do iOS simulado](media/sdk/qs-objectivec-simulated-app.png)
+   ![Aplicativo do iOS simulado](media/sdk/qs-objectivec-simulated-app.png)
 
 1. Depois que você clicar no botão "Reconhecer (microfone)" no aplicativo e diga algumas palavras, você deve ver o texto falado por você na parte inferior da tela.
 

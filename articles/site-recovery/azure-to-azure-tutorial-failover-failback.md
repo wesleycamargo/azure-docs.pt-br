@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737715"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729043"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
+# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>Fazer failover e proteger novamente VMs do Azure entre regiões do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
@@ -24,9 +24,7 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 
 > [!div class="checklist"]
 > * Fazer failover da VM do Azure
-> * Proteger novamente a VM do Azure secundária para que ela seja replicada para a região primária
-> * Fazer failback da VM secundária
-> * Proteger novamente a VM primária de volta para a região secundária
+> * Proteja novamente a VM do Azure secundária para que ela seja replicada para a região primária.
 
 > [!NOTE]
 > Este tutorial tem como objetivo guiar o usuário pelas etapas para fazer failover para uma região de destino e voltar com personalização mínima; caso deseje saber mais sobre os vários aspectos associados ao failover, incluindo considerações de rede, automação ou solução de problemas, consulte os documentos em “Como fazer” para VMs do Azure.
@@ -74,12 +72,5 @@ Após o failover da VM, você precisa protegê-la novamente para que ela seja re
 > Confira a [seção de "instruções"](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) para obter mais detalhes sobre o fluxo de trabalho da nova proteção e o que acontece durante a nova proteção.
 
 
-## <a name="fail-back-to-the-primary-region"></a>Failback para a região primária
-
-Depois que as VMs forem protegidas novamente, você poderá fazer failback para a região primária, conforme necessário. Para fazer isso, configure um failover da região secundária para a região primária, conforme descrito neste artigo.
-
-![Clicar com o botão direito do mouse para proteger novamente](./media/azure-to-azure-tutorial-failover-failback/failback.png)
-
-Se a captura de tela anterior for exibida, isso indicará que foi feito o failover da VM "ContosoWin2016" da região EUA Central para o Leste dos EUA e o failback do Leste dos EUA para EUA Central.
-
-O failover desliga a VM na região secundária, ou seja, a região de recuperação de desastre, e cria e inicializa a VM na região primária. **Observe** que as VMs de DR permanecerão no estado desalocado de desligamento, conforme mostrado acima. Esse comportamento ocorre por design, porque o Azure Site Recovery salva as informações da máquina virtual, que podem ser úteis no failover para o primário na região secundária posteriormente. Você não é cobrado pelas máquinas virtuais desalocadas e, portanto, elas devem ser mantidas no estado em que se encontram.
+## <a name="next-steps"></a>Próximas etapas
+- Leia [como realizar o failback](azure-to-azure-tutorial-failback.md).

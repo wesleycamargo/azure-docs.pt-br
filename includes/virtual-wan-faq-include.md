@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/19/2019
+ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c0da70426d8962999fd8d2cf2852a9bd8d255fc8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 931bc26e22db4bbf02a18d4824b9c846f1e66b18
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190638"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
 A WAN Virtual fornece conectividade site a site em larga escala e é criada visando produtividade, escalabilidade e facilidade de uso. A funcionalidade de conectividade ponto a site e ExpressRoute está atualmente em versão prévia. Dispositivos de branch CPE provisionam e se conectam automaticamente à WAN Virtual do Azure. Esses dispositivos estão disponíveis em um ecossistema crescente de SD-WAN e parceiros de VPN. Confira a [Lista de Parceiros Preferenciais](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
-### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quais provedores de dispositivo (parceiros de WAN Virtual) têm suporte no momento da inicialização? 
+### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quais provedores de dispositivo (parceiros de WAN Virtual) têm suporte no momento da inicialização?
 
 Neste momento, muitos parceiros dão suporte à experiência de WAN Virtual totalmente automatizada. Para saber mais, confira [Parceiros de WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
 
@@ -69,7 +69,7 @@ Sim, você pode conectar a VNET da sua NVA (solução de virtualização de rede
 
 ### <a name="is-there-support-for-bgp"></a>Há suporte para BGP?
 
-Sim, há suporte para BGP. Para garantir que as rotas de uma VNET da NVA sejam anunciadas adequadamente, os spokes precisam desabilitar o BGP, caso estejam conectados a uma VNET da NVA que, por sua vez, esteja conectada a um hub virtual. Além disso, conecte as VNETS do spoke ao hub virtual para garantir que as rotas da VNET do spoke sejam propagadas do spoke para os sistemas locais.
+Sim, há suporte para BGP. Quando você cria um site VPN, você pode fornecer os parâmetros de BGP nele. Isso implicará que todas as conexões criadas no Azure para o site serão habilitadas para BGP. Além disso, se você tiver uma rede virtual com uma NVA e se essa rede virtual de NVA foi anexada a um hub de WAN Virtual, para garantir que as rotas de uma rede virtual de NVA sejam anunciadas apropriadamente, spokes que estão anexados à rede virtual de NVA devem desabilitar o BGP. Além disso, conecte essas redes virtuais do spoke à rede hub virtual do hub para garantir que as rotas de rede virtual do spoke sejam propagadas nos sistemas locais.
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Posso direcionar o tráfego usando UDR no hub virtual?
 
@@ -79,9 +79,17 @@ Sim, você pode direcionar o tráfego para uma VNET usando a tabela de rotas do 
  
 Sim. Confira a página [Preços](https://azure.microsoft.com/pricing/details/virtual-wan/).
 
+### <a name="how-do-i-calculate-price-of-a-hub"></a>Como fazer para calcular o preço de um hub?
+ 
+Você pagaria pelo serviço no hub. Por exemplo, 10 ramificações ou dispositivos de locais que precisam para se conectar a WAN Virtual do Azure implicariam conectar-se aos pontos de extremidade VPN no hub. Digamos que trata-se de VPN de unidade de escala 1 = 500 Mbps, isso é cobrado USD 0,361/hora. Cada conexão é cobrada USD 0,08/hora. Para 10 conexões, o encargo total de serviço/hora seria USD $0,361 + USD$ 0,8 / hora. São aplicados encargos de dados para o tráfego que sai do Azure. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como integrar novos parceiros que não estejam na sua lista de parceiros de lançamento?
 
 Envie um email para azurevirtualwan@microsoft.com. Um parceiro ideal é aquele que tem um dispositivo que pode ser provisionado para conectividade IPsec IKEv1 ou IKEv2.
+
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>E se um dispositivo que estou usando não estiver na lista de parceiros de WAN Virtual? Ainda posso usá-lo para se conectar à VPN de WAN Virtual do Azure?
+
+Sim, desde que o dispositivo seja compatível com IPsec IKEv1 ou IKEv2. Os parceiros WAN virtuais automatizam a conectividade do dispositivo aos pontos de extremidade de VPN do Azure. Isso implica automatizar etapas como “upload de informações de branch”, “IPsec e configuração” e “conectividade”. Uma vez que o dispositivo não é proveniente de um ecossistema de parceiro de WAN Virtual, você precisará fazer o trabalho pesado de realizar manualmente a configuração do Azure e atualizar seu dispositivo para configurar a conectividade IPsec. 
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>É possível construir a WAN Virtual do Azure com um modelo do Resource Manager?
 
@@ -99,6 +107,10 @@ Sim.
 
 VPN de Gateway de Rede Virtual é limitada a 30 túneis. Para conexões, você deve usar a WAN Virtual para VPN em larga escala. Você pode conectar até 1000 conexões de branches com 2 Gbps no hub para todas as regiões, exceto a região Centro-oeste dos EUA. Para a região Centro-oeste dos EUA, há 20 Gbps disponíveis. No futuro será disponibilizado 20 Gbps para mais regiões. Uma conexão é um túnel de ativo-ativo do dispositivo VPN local para o hub virtual. Pode haver um hub por região, o que significa que você pode conectar a mais de 1000 branches entre os hubs.
 
+### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como o WAN Virtual dá suporte aos dispositivos SD-WAN?
+
+Parceiros WAN Virtuais automatizam a conectividade IPsec com pontos de extremidade de VPN do Azure. Se o parceiro WAN Virtual é um provedor de SD-WAN, está implícito que o controlador de SD-WAN gerencia a automação e conectividade IPsec aos pontos de extremidade do Azure VPN. Se o dispositivo de SD-WAN requer seu próprio ponto de extremidade de VPN do Azure para qualquer funcionalidade SD-WAN proprietária, você pode implantar o ponto de extremidade SD-WAN em uma Rede Virtual do Azure e coexiste com o WAN Virtual do Azure.
+
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Essa WAN Virtual exige o ExpressRoute de cada site?
 
 Não, a WAN Virtual não exige o ExpressRoute de cada site. Ele usa a conectividade de site a site IPsec padrão por meio de links da Internet do dispositivo para um hub de WAN Virtual do Azure. Seus sites podem estar conectados a uma rede do provedor usando um circuito do ExpressRoute. Para os sites conectados usando o ExpressRoute no hub virtual (em versão prévia), os sites podem ter um fluxo de tráfego branch a branch entre a VPN e o ExpressRoute. 
@@ -109,12 +121,12 @@ O número de branches é limitado a 1000 conexões por hub/região e um total de
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo local utilize vários ISPs em paralelo ou sempre será um único túnel VPN?
 
-Sim, você pode ter túneis ativo-ativo (2 túneis = 1 conexão WAN Virtual do Azure) de um único branch, dependendo do dispositivo branch.
+Uma conexão que chega ao VPN WAN Virtual é sempre um túnel de ativo-ativo (para garantir a resiliência dentro do mesmo hub/região) usando um link disponível no branch. Esse link pode ser um link do ISP no branch local. O WAN Virtual do Azure não fornece nenhuma lógica especial para configurar vários ISP em paralelo. Gerenciar o failover em ISP no branch é completamente uma operação de rede centrada no branch. Você pode usar sua solução de SD-WAN favorita para fazer a seleção de caminho no branch.
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Como o tráfego é roteado no backbone do Azure?
 
-O tráfego segue o padrão: dispositivo branch ->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->dispositivo branch
+O tráfego segue o padrão: dispositivo branch ->ISP->Microsoft Edge->Microsoft DC (hub VNet) ->Microsoft Edge->ISP->dispositivo branch
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Nesse modelo, o que você precisa em cada site? Apenas uma conexão com a Internet?
 
-Sim. Uma conexão de Internet e um dispositivo físico, preferencialmente de nossos [parceiros](https://go.microsoft.com/fwlink/p/?linkid=2019615) integrados. Opcionalmente, você pode gerenciar manualmente a configuração e a conectividade com o Azure usando seu dispositivo preferido.
+Sim. Uma conexão de Internet e um dispositivo físico que é compatível com IPsec, preferencialmente nossos [parceiros](https://go.microsoft.com/fwlink/p/?linkid=2019615) integrados. Opcionalmente, você pode gerenciar manualmente a configuração e a conectividade com o Azure usando seu dispositivo preferido.

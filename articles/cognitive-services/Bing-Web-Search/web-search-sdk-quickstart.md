@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usar o SDK de Pesquisa na Web do Bing para C#'
+title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo C#. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860747"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início rápido: Usar o SDK de Pesquisa na Web do Bing para C#
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#
 
 O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo C#. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 
@@ -32,14 +32,14 @@ Aqui estão alguns requisitos que serão necessários antes de executar este in�
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# para Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Gerenciador de Pacotes do NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
-* [SDK do .Net Core](https://www.microsoft.com/net/download)
+* [SDK do .NET Core](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>Criar um projeto e instalar dependências
 
 > [!TIP]
 > Obtenha o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-A primeira etapa é criar um novo projeto de console. Se você precisar de ajuda para configurar um projeto de console, veja [Olá, Mundo – seu primeiro programa (guia de programação em C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para usar o SDK de Pesquisa na Web do Bing no seu aplicativo, você precisará instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` usando o Gerenciador de Pacotes do NuGet.
+A primeira etapa é criar um novo projeto de console. Se precisar de ajuda para configurar um projeto de console, veja [Olá, Mundo – seu primeiro programa (guia de programação em C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para usar o SDK de Pesquisa na Web do Bing no seu aplicativo, você precisará instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` usando o Gerenciador de Pacotes do NuGet.
 
 O [pacote do SDK de Pesquisa na Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Criar scaffolding do projeto
 
-Quando você criou seu novo projeto de console, um namespace e uma classe para o seu aplicativo devem ter sido criados. O programa deve ter esta aparência:
+Quando você criou seu novo projeto de console, um namespace e uma classe para o seu aplicativo devem ter sido criados. O programa deve se parecer com este exemplo:
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>Tratar da resposta
 
-Em seguida, vamos adicionar algum código para analisar a resposta e imprimir os resultados. O `name` e a `url` para a primeira página da Web, imagem, artigo de notícias e vídeo serão impressos se estiverem presentes no objeto de resposta.
+Em seguida, vamos adicionar algum código para analisar a resposta e imprimir os resultados. O `Name` e a `Url` para a primeira página da Web, imagem, artigo de notícias e vídeo serão impressos se estiverem presentes no objeto de resposta.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ Agora que você criou sua primeira chamada à API de Pesquisa na Web do Bing, va
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitar o número de resultados retornados pelo Bing
 
-Este exemplo usa os parâmetros `count` e `offset` para limitar o número de resultados retornados para "Melhores restaurantes em Seattle". São impressos o `name` e a `URL` para o primeiro resultado.
+Este exemplo usa os parâmetros `count` e `offset` para limitar o número de resultados retornados para "Melhores restaurantes em Seattle". São impressos o `Name` e a `Url` para o primeiro resultado.
 
 1. Adicione este código ao seu projeto de console:
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ Este exemplo usa os parâmetros `count` e `offset` para limitar o número de res
         }
     }
     ```
+
 2. Adicione `WebResultsWithCountAndOffset` à `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ Este exemplo usa os parâmetros `count` e `offset` para limitar o número de res
         Console.ReadKey();
     }
     ```
+
 3. Execute o aplicativo.
 
 ### <a name="filter-for-news"></a>Filtro de notícias
 
-Este exemplo usa o parâmetro `response_filter` para filtrar os resultados da pesquisa. Os resultados da pesquisa retornados são limitados a artigos de notícias para "Microsoft". São impressos o `name` e a `URL` para o primeiro resultado.
+Este exemplo usa o parâmetro `response_filter` para filtrar os resultados da pesquisa. Os resultados da pesquisa retornados são limitados a artigos de notícias para "Microsoft". São impressos o `Name` e a `Url` para o primeiro resultado.
 
 1. Adicione este código ao seu projeto de console:
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ Este exemplo usa o parâmetro `response_filter` para filtrar os resultados da pe
         }
     }
     ```
+
 2. Adicione `WebResultsWithCountAndOffset` à `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ Este exemplo usa o parâmetro `response_filter` para filtrar os resultados da pe
         Console.ReadKey();
     }
     ```
+
 3. Execute o aplicativo.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Use a pesquisa segura, a contagem de respostas e o filtro de promoção
 
-Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para filtrar os resultados da pesquisa para "Vídeos de Música". São exibidos o `name` e a `URL` para o primeiro resultado.
+Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para filtrar os resultados da pesquisa para "Vídeos de Música". São exibidos o `Name` e a `ContentUrl` para o primeiro resultado.
 
 1. Adicione este código ao seu projeto de console:
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para f
         }
     }
     ```
+
 2. Adicione `WebResultsWithCountAndOffset` à `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para f
         Console.ReadKey();
     }
     ```
+
 3. Execute o aplicativo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

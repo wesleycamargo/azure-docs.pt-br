@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890739"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu com o Workbench de aprendizado de máquina do Azure?
 
@@ -60,7 +60,7 @@ Os históricos de execução agora são chamados de **testes**. Você pode colet
 
 Painel de workspace do portal é compatível apenas com os navegadores Microsoft Edge, Chrome e Firefox:
 
-[![Portal online](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portal online](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Comece treinando seus modelos e acompanhando os históricos de execução usando o novo CLI e SDK. Você pode aprender como com o [Tutorial: treinar modelos com o serviço de aprendizado de máquina do Azure](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Comece treinando seus modelos e acompanhando os históricos de execução usando
 
 Seus arquivos de preparação de dados preexistentes não são portáteis para a versão mais recente, porque não temos mais o Machine Learning Workbench. Mas você ainda pode preparar qualquer tamanho de conjunto de dados para modelagem.   
 
-Com conjuntos de dados de qualquer tamanho, é possível usar o [SDK de preparação de dados do Azure Machine Learning](http://aka.ms/data-prep-sdk) para preparar rapidamente seus dados antes da modelagem escrevendo código Python. 
+Com conjuntos de dados de qualquer tamanho, é possível usar o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk) para preparar rapidamente seus dados antes da modelagem escrevendo código Python. 
 
 Você pode seguir [este tutorial](tutorial-data-prep.md) para saber mais sobre como usar o SDK de Preparação de Dados do Azure Machine Learning.
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Saiba como começar a usar o [Python com o SDK principal](quickstart-create-workspace-with-python.md) ou usar o [portal do Azure](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>E quanto aos meus modelos e imagens registrados?
- 
+
 Os modelos registrados em seu registro de modelo antigo devem ser migrados para o seu novo workspace se você quiser continuar a usá-los. Para migrar seus modelos, baixe-os e registre-os novamente no novo workspace. 
 
 As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo workspace para continuar a usá-las. Você pode fazer isso seguindo as seções em [Configurar e criar uma imagem](how-to-deploy-and-where.md#configureimage). 
@@ -109,7 +109,7 @@ Usando o novo SDK do Python na versão mais recente, você pode interagir com o 
 
 Nesta última versão, a extensão foi renomeada para Azure Machine Learning para Visual Studio Code e foi expandida e aprimorada para trabalhar com os novos recursos acima.
 
-[![Azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>E os pacotes de domínio?
 

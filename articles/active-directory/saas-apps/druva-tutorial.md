@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aac1b32f420f4a028777d1a9b5dc6b31cab23a1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: da134672224c5881a69f002d418c79af97036d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872549"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integração do Azure Active Directory com o Druva
 
@@ -205,7 +205,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -258,7 +258,7 @@ Para permitir que os usuários do Azure AD façam logon no Druva, eles devem est
    
     ![Criar Novo Usuário](./media/druva-tutorial/ic795099.png "Criar Novo Usuário")
    
-     a. Na caixa de texto **Endereço de email**, insira o email do usuário como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
    
     b. Na caixa de texto **Nome**, insira o nome de usuário, como **BrendaFernandes**.
    

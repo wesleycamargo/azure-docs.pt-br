@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aad6abce87ce56c0a4ef546e208bf23b14068247
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
 
@@ -105,6 +105,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
     ![Informações de logon único de Domínio e URLs do Periscope Data](common/sp-identifier.png)
 
      a. Na caixa de texto **URL de logon**, digite qualquer uma das URLs:
+    
     | |
     |--|
     | `https://app.periscopedata.com/` |
@@ -165,7 +166,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -218,7 +219,7 @@ Para habilitar que os usuários do Azure AD façam logon no Periscope Data, eles
 
     b. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    c. Na caixa de texto **E-mail**, insira o e-mail do usuário como**brittasimon@contoso.com**.
+    c. Na caixa de texto **Email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     d. Clique em **ADICIONAR**.
 

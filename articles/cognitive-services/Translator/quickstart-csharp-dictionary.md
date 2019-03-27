@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Procure palavras com o dicionário bilíngue, C# – API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, C# – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a obter traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando o .NET Core e a API de Tradução de Texto.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 268f4e07fee2fedda37b86e589d3be7fd3d84df4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b5a14791b30ef825a136840a81900940c6def16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181241"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Início rápido: Procure palavras com o dicionário bilíngue C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Início Rápido: Procure palavras com o dicionário bilíngue C#
 
 Neste início rápido, você aprenderá a obter traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando o .NET Core e a API de Tradução de Texto.
 
@@ -132,8 +132,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Adicionar `PrettyPrint` para adicionar formatação à sua resposta JSON:
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto

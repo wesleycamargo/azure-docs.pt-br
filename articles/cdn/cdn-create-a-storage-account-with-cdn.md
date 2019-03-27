@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092568"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193357"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de armazenamento do Azure com a CDN do Azure
 Neste início rápido, você habilita a [Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md) para armazenar em cache o conteúdo do armazenamento do Azure. A CDN do Azure oferece aos desenvolvedores uma solução global para fornecimento de conteúdo de alta largura de banda. Ele consegue armazenar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, na Europa, na Ásia, na Austrália e na América do Sul.
@@ -31,7 +31,7 @@ Neste início rápido, você habilita a [Rede de Distribuição de Conteúdo (CD
 Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de Armazenamento do Microsoft Azure: Blob do Azure, Fila e Tabela. Para obter mais informações, consulte: [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) .
+Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de Armazenamento do Microsoft Azure: Blob do Azure, Fila e Tabela: Blob do Azure, fila e Armazenamento de Tabela. Para obter mais informações, consulte: [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) .
 
 Para criar uma conta de armazenamento, você deve ser o administrador de serviços ou um coadministrador da assinatura associada.
 
@@ -96,9 +96,10 @@ Você pode habilitar a CDN do Azure para sua conta de armazenamento diretamente 
 
     | Configuração  | Valor |
     | -------- | ----- |
-    | **Perfil do CDN** | Selecione **Criar novo** e insira *my-cdn-profile-123* como nome de perfil. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente.  |
+    | **Perfil do CDN** | Selecione **Criar novo** e insira seu nome de perfil, por exemplo, *my-cdn-profile-123*. Esse nome deve ser globalmente exclusivo.  |
     | **Tipo de preços** | Selecione **Verizon Standard** na lista suspensa. |
-    | **Nome do ponto de extremidade do CDN** | Digite *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net. Por padrão, um novo ponto de extremidade CDN usa o nome do host de sua conta de armazenamento como o servidor de origem.|
+    | **Nome do ponto de extremidade do CDN** | Insira *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net. |
+    | **Nome do host de origem** | Por padrão, um novo ponto de extremidade CDN usa o nome do host de sua conta de armazenamento como o servidor de origem. |
 
 3. Selecione **Criar**. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade.
 
@@ -145,5 +146,5 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 Para saber mais sobre como adicionar um domínio personalizado e habilitar o HTTPS no seu ponto de extremidade CDN, consulte o tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Tutorial: acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS](cdn-storage-custom-domain-https.md)
+> [Tutorial: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS](cdn-storage-custom-domain-https.md)
 

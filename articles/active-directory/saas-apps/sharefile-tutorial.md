@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc89475ea0338165e7a4477e861ddb199bd73de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Active Directory ao Citrix ShareFile
 
@@ -119,6 +119,7 @@ Para configurar o logon único do Azure AD com o Citrix ShareFile, execute as se
     | |
     
     c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -186,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -235,7 +236,7 @@ Para permitir que os usuários do Azure AD façam logon no Citrix ShareFile, ele
    
     ![Informações Básicas](./media/sharefile-tutorial/IC799951.png "Informações Básicas")
    
-     a. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes como **brittasimon@contoso.com**.
+     a. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes como **brendafernandes\@contoso.com**.
    
     b. Na caixa de texto **Nome**, digite o **nome** do usuário como **Brenda**.
    

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087696"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ Você vai para rotear mensagens para recursos diferentes com base nas propriedad
 
 Agora, configure o roteamento para a conta de armazenamento. Acesse o painel Roteamento de Mensagens e adicione uma rota. Ao adicionar a rota, defina um novo ponto de extremidade para ela. Depois que isso for configurado, as mensagens em que a propriedade **nível** estiver definida como **armazenamento** serão gravadas em uma conta de armazenamento automaticamente. 
 
-Os dados são gravados para armazenamento de blobs no formato Avro.
+Os dados são gravados para armazenamento de blobs no formato Avro por padrão.
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o grupo de recursos. Este tutorial usa **ContosoResources**. 
 
@@ -301,8 +301,9 @@ Os dados são gravados para armazenamento de blobs no formato Avro.
    > 
    > Por exemplo, usando o formato de nome de arquivo de blob padrão, se o nome do hub for ContosoTestHub e a data/hora for 30 de outubro de 2018, às 10:56, o nome do blob será assim: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Os blobs são gravados no formato Avro.
-   >
+   > Os blobs são gravados no formato Avro por padrão. Você pode optar por gravar arquivos no formato JSON. A capacidade de codificar o formato JSON está na versão prévia em todas as regiões em que o Hub IoT está disponível, exceto Leste dos EUA, oeste dos EUA e Oeste da Europa. Veja as [orientações sobre o roteamento para o armazenamento de blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Ao rotear o armazenamento de blob, é recomendável inscrever os blobs e, em seguida, iterar sobre eles, para garantir que todos os contêineres são lidos sem fazer suposições de partição. O intervalo de partição potencialmente pode ser alterado durante um [failover iniciado pela Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou [failover manual](iot-hub-ha-dr.md#manual-failover-preview) do Hub IoT. Para saber como enumerar a lista de blobs, consulte o [roteamento para o armazenamento de blobs](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Clique em **Criar** para criar o ponto de extremidade de armazenamento e adicioná-lo à rota. Você retornará ao painel **Adicionar uma rota**.
 
@@ -311,15 +312,15 @@ Os dados são gravados para armazenamento de blobs no formato Avro.
    **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **StorageRoute**.
 
    **Ponto de extremidade**: mostra o ponto de extremidade que você acabou de configurar. 
-   
+
    **Fonte de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista suspensa.
 
    **Habilitar rota**: habilite esta opção.
-   
+
    **Consulta de roteamento**: insira `level="storage"` como a cadeia de caracteres de consulta. 
 
    ![Captura de tela mostrando a criação de uma consulta de roteamento para a conta de armazenamento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Clique em **Salvar**. Ao terminar, você retornará ao painel Roteamento de Mensagens, que exibe sua nova consulta de roteamento para o armazenamento. Feche o painel de Rotas, que retorna para a página de Grupo de Recursos.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Roteamento para uma fila do Barramento de Serviço 
@@ -337,14 +338,14 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
 4. Preencha os campos:
 
    **Nome do Ponto de Extremidade**: Insira um nome para o ponto de extremidade. Este tutorial usa **CriticalQueue**.
-   
+
    **Namespace do Barramento de Serviço**: clique neste campo para exibir a lista suspensa e selecione o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial usa **ContosoSBNamespace**.
 
    **Fila do Barramento de Serviço**: clique neste campo para exibir a lista suspensa e selecione a fila do Barramento de Serviço. Este tutorial usa **contososbqueue**.
 
 5. Clique em **Criar** para adicionar o ponto de extremidade da fila do Barramento de Serviço. Você retornará ao painel **Adicionar uma rota**. 
 
-6.  Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens à fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela. 
+6. Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens à fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela. 
 
    **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **SBQueueRoute**. 
 
@@ -401,7 +402,7 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
    ![Captura de tela mostrando a configuração de conexão para a fila do Barramento de Serviço.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Clique no namespace do Barramento de Serviço. Este tutorial usa **ContosoSBNamespace**. Quando você seleciona o namespace, o portal consulta o namespace do Barramento de Serviço para recuperar as chaves. Selecione **RootManageSharedAccessKey** e clique em **Criar**. 
-   
+
    ![Captura de tela mostrando a configuração concluir a conexão.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. Na próxima tela, selecione o nome da fila (este tutorial usa **contososbqueue**) na lista suspensa. Você pode usar os padrões para o restante dos campos. 
@@ -442,9 +443,9 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
-4. Em **Topologia do Trabalho**, clique em **Entradas**.
+1. Em **Topologia do Trabalho**, clique em **Entradas**.
 
-5. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
+1. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de entrada**: Este tutorial usa **contosoinputs**.
 
@@ -457,12 +458,12 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
    **Nome da política de acesso compartilhado**: Selecione **iothubowner**. O portal preenche a chave de política de acesso compartilhado para você.
 
    **Grupo de consumidores**: selecione o grupo de consumidores criado anteriormente. Este tutorial usa **contosoconsumers**.
-   
+
    Para o restante dos campos, aceite os padrões. 
 
    ![Captura de tela mostrando como configurar as entradas para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
@@ -631,4 +632,4 @@ Neste tutorial, você aprendeu a usar o roteamento de mensagens para rotear mens
 Avance para o próximo tutorial para aprender a gerenciar o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Configurar e usar métricas e diagnósticos com um Hub IoT](tutorial-use-metrics-and-diags.md)
+> [Configurar e usar métricas e diagnósticos com um Hub IoT](tutorial-use-metrics-and-diags.md)

@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155993"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546918"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box Disk usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início rápido: Implantar o Azure Data Box Disk usando o portal do Azure
 
-Este início rápido descreve como implantar o Azure Data Box Disk usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure. 
+Este início rápido descreve como implantar o Azure Data Box Disk usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure.
 
 Para obter a implantação detalhada passo a passo e instruções de acompanhamento, acesse [Tutorial: Solicitar o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
@@ -32,7 +32,7 @@ Antes de começar:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Entre no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Classificar
 
@@ -41,9 +41,9 @@ Esta etapa leva aproximadamente 5 minutos.
 1. Criar um novo recurso do Azure Data Box no portal do Azure. 
 2. Selecione uma assinatura habilitada para esse serviço e escolha o tipo de transferência como **Importação**. Forneça o **País de origem** onde os dados residem e a **região de destino do Azure** para a transferência de dados.
 3. Selecione **Data Box Disk**. A capacidade máxima da solução é de 35 TB, e você pode criar vários pedidos de disco para tamanhos maiores de dados.  
-4. Insira os detalhes do pedido e as informações de envio. Se o serviço estiver disponível em sua região, forneça endereços de email de notificação, examine o resumo e, em seguida, crie o pedido. 
+4. Insira os detalhes do pedido e as informações de envio. Se o serviço estiver disponível em sua região, forneça endereços de email de notificação, examine o resumo e, em seguida, crie o pedido.
 
-Depois que o pedido é criado, os discos estão preparados para remessa. 
+Depois que o pedido é criado, os discos estão preparados para remessa.
 
 ## <a name="unpack"></a>Desempacotar
 
@@ -52,7 +52,7 @@ Esta etapa leva aproximadamente 5 minutos.
 O Data Box Disk é enviado em uma caixa expressa da UPS. Abra a caixa e verifique se a ela contém:
 
 - 1 a 5 discos de USB embalados em plástico-bolha.
-- Um cabo de conexão por disco. 
+- Um cabo de conexão por disco.
 - Uma etiqueta de remessa para remessa de devolução.
 
 ## <a name="connect-and-unlock"></a>Conectar e desbloquear
@@ -69,18 +69,20 @@ Esta etapa leva aproximadamente 5 minutos.
 
 ## <a name="copy-data-and-validate"></a>Copiar dados e validar
 
-O tempo para concluir essa operação depende do tamanho dos dados. 
+O tempo para concluir essa operação depende do tamanho dos dados.
 
-1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *DataBoxDiskImport*. Arraste e solte para copiar os dados que precisam ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e solte os dados como VHD/VHDX para a pasta *PageBlob*.
+1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* e *DataBoxDiskImport*. Arraste e solte para copiar os dados que precisam ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e solte os dados como VHD/VHDX para a pasta *PageBlob* e os dados apropriados para *AzureFile*. Copiar os VHDs que você deseja carregar como discos gerenciados para uma pasta sob *ManagedDisk*.
 
-    Um contêiner é criado na conta de armazenamento do Azure para cada subpasta em *BlockBlob* e a pasta *PageBlob*. Todos os arquivos nas pastas *BlockBlob* e *PageBlob* são copiados para um contêiner padrão `$root` sob a conta de Armazenamento do Azure.
+    Um contêiner é criado na conta de armazenamento do Azure para cada subpasta em *BlockBlob* e a pasta *PageBlob*. Um compartilhamento de arquivos é criado para uma subpasta sob *AzureFile*.
 
-    > [!NOTE] 
-    > - Todos os contêineres e blobs devem obedecer às [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se essas regras não forem seguidas, o carregamento de dados do Azure falhará.
-    > - Verifique se os arquivos não excedem ~4,75 TiB para blobs de bloco e ~8 TiB para blobs de página.
+    Todos os arquivos nas pastas *BlockBlob* e *PageBlob* são copiados para um contêiner padrão `$root` sob a conta de Armazenamento do Azure. Copie os arquivos para uma pasta na pasta no *AzureFile*. Os arquivos copiados diretamente para a pasta *AzureFile* falham e são carregados como blobs de blocos.
 
-2. (Opcional) Depois que a cópia for concluída, é recomendável que você execute o `DataBoxDiskValidation.cmd` fornecido na pasta *DataBoxDiskImport* para gerar somas de verificação para validação. Dependendo do tamanho dos dados, esta etapa pode demorar. 
-3. Desconecte a unidade. 
+    > [!NOTE]
+    > - Todos os contêineres, blobs e arquivos devem estar em conformidade com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Se essas regras não forem seguidas, o carregamento de dados do Azure falhará.
+    > - Verifique se os arquivos não excedem ~4,75 TiB para blobs de blocos, ~8 TiB para blobs de páginas e ~1 TiB para Arquivos do Azure.
+
+2. **(Opcional mas recomendado)**  Depois que a cópia for concluída, é altamente recomendável que pelo menos você execute o `DataBoxDiskValidation.cmd` fornecido na pasta *DataBoxDiskImport* e selecione a opção 1 para validar os arquivos. Também é recomendável permitir esse tempo, use a opção 2 para também gerar somas de verificação para validação (pode demorar dependendo do tamanho de dados). Essas etapas minimizam as chances de qualquer falha ao carregar os dados para o Azure.
+3. Remova a unidade com segurança.
 
 ## <a name="ship-to-azure"></a>Enviar para o Azure
 
@@ -95,8 +97,8 @@ O serviço do Data Box Disk envia uma notificação por email e atualiza o statu
 
 O tempo para concluir essa operação depende do tamanho dos dados.
 
-1. Quando o Data Box Disk estiver conectado à rede de datacenter do Azure, o carregamento de dados do Azure é iniciado automaticamente. 
-2. O serviço do Azure Data Box notifica que a cópia de dados foi concluída por meio do portal do Azure. 
+1. Quando o Data Box Disk estiver conectado à rede de datacenter do Azure, o carregamento de dados do Azure é iniciado automaticamente.
+2. O serviço do Azure Data Box notifica que a cópia de dados foi concluída por meio do portal do Azure.
     
     1. Verifique se há logs de erros para quaisquer falhas e tome as medidas apropriadas.
     2. Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte.
@@ -107,17 +109,17 @@ Esta etapa leva de 2 a 3 minutos para ser concluída.
 
 Para limpar, você pode cancelar o pedido do Data Box e, em seguida, excluí-lo.
 
-- Você pode cancelar o pedido do Data Box no portal do Azure antes de o pedido ser processado. Depois que o pedido tiver sido processado, ele não pode ser cancelado. O pedido progride até atingir o estágio concluído. 
+- Você pode cancelar o pedido do Data Box no portal do Azure antes de o pedido ser processado. Depois que o pedido tiver sido processado, ele não pode ser cancelado. O pedido progride até atingir o estágio concluído.
 
     Para cancelar o pedido, vá para **Visão geral** e clique em **Cancelar** na barra de comandos.  
 
-- Você pode excluir o pedido depois que o status é mostrado como **Completo** ou **Cancelado** no portal do Azure. 
+- Você pode excluir o pedido depois que o status é mostrado como **Completo** ou **Cancelado** no portal do Azure.
 
     Para excluir o pedido, vá para **Visão geral** e clique em **Excluir** na barra de comandos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou o Azure Data Box Disk para ajudar a importar seus dados no Azure. Para saber mais sobre o gerenciamento de Azure Data Box Disk, avance para o tutorial a seguir: 
+Neste início rápido, você implantou o Azure Data Box Disk para ajudar a importar seus dados no Azure. Para saber mais sobre o gerenciamento de Azure Data Box Disk, avance para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
 > [Usar o portal do Azure para administrar o Data Box Disk](data-box-portal-ui-admin.md)

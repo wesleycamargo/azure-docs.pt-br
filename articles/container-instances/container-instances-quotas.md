@@ -5,53 +5,24 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/15/2019
+ms.date: 03/01/2019
 ms.author: danlep
-ms.openlocfilehash: c676989b4b882f2b1887a1b6a5091b60027f61d0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c01243a33094a93da1b05ea3b58324b0f3cb2bf9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328394"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539710"
 ---
-# <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
+# <a name="quotas-and-limits-for-azure-container-instances"></a>Cotas e limites para Instâncias de Contêiner do Azure
 
-Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. As seções a seguir fornecem detalhes dos limites de recursos padrão de vários recursos das Instâncias de Contêiner do Azure, bem como a disponibilidade do serviço nas regiões do Azure.
+Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. Este artigo fornece detalhes sobre as cotas padrão e os limites para Instâncias de Contêiner do Azure.
+
+Para saber mais sobre a disponibilidade de recursos das Instâncias de Contêiner do Azure e recursos em regiões do Azure, confira [Disponibilidade de recursos para Instâncias de Contêiner do Azure](container-instances-region-availability.md).
 
 ## <a name="service-quotas-and-limits"></a>Cotas e limites de serviço
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-## <a name="feature-availability"></a>Disponibilidade de recursos
-
-As Instâncias de Contêiner do Azure podem agendar contêineres do Windows e do Linux com a mesma API. No entanto, os recursos a seguir estão atualmente disponíveis somente em grupos de contêineres do Linux. O suporte para Windows está planejado.
-
-* Vários contêineres por grupo de contêineres
-* Montagem de volume (Arquivos do Azure, emptyDir, GitRepo, segredo)
-* Rede virtual (versão prévia)
-* Recursos da GPU (versão prévia)
-
-## <a name="region-availability"></a>Disponibilidade de região
-
-As Instâncias de Contêiner do Azure estão disponíveis nas regiões a seguir com os limites de memória e da CPU especificados para cada grupo de contêineres. Os valores estavam atualizados no momento da publicação. Para obter informações atualizadas, use a API de [Funcionalidades de Lista](/rest/api/container-instances/listcapabilities/listcapabilities). 
-
-A disponibilidade e os limites de recursos podem ser diferentes ao usar instâncias de contêiner do Azure com uma [rede virtual](container-instances-vnet.md) (versão prévia) ou com [recursos de GPU](container-instances-gpu.md) (versão prévia).
-
-| Local padrão | SO | CPU | Memória (GB) |
-| -------- | -- | :---: | :-----------: |
-| Canadá Central, EUA Central, Leste dos EUA 2 e Centro-Sul dos EUA | Linux | 4 | 16 |
-| Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA, Oeste dos EUA 2 | Linux | 4 | 14 |
-| Leste do Japão | Linux | 2 | 8 |
-| Leste da Austrália, Sudeste Asiático | Linux | 2 | 7 |
-| Índia Central, Ásia Oriental, Centro-Norte dos EUA e Sul da Índia | Linux | 2 | 3,5 |
-| Leste dos EUA, Europa Ocidental, Oeste dos EUA |  Windows | 4 | 14 |
-| Leste da Austrália, Canadá Central, Índia Central, EUA Central, Ásia Oriental, Leste dos EUA 2, Leste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sul da Índia, Sudeste Asiático, Oeste dos EUA 2 |  Windows | 2 | 3,5 |
-
-As instâncias de contêiner criadas dentro desses limites de recursos estão sujeitas à disponibilidade dentro da região de implantação. Quando uma região está sob carga pesada, você pode enfrentar uma falha durante a implantação de instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de memória e CPU inferiores ou tente implantar em um momento posterior.
-
-Informe à equipe de regiões adicionais necessárias ou limites de CPU/memória aumentados em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
-
-Para obter mais informações sobre como solucionar problemas de implantação de instâncias de contêiner, consulte [Solucionar problemas de implantação com Instâncias de Contêiner do Azure](container-instances-troubleshooting.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

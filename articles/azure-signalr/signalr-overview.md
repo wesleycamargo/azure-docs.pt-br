@@ -1,19 +1,19 @@
 ---
-title: O que é o Azure SignalR?
-description: Uma visão geral do Serviço Azure SignalR.
+title: O que é o Serviço do Azure SignalR?
+description: Uma visão geral do Serviço do Azure SignalR.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 198eb0ff6c9f8de311cc2d39ba8fb7c8b6ed3a11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255169"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552064"
 ---
-# <a name="what-is-azure-signalr-service"></a>O que é o Serviço Azure SignalR
+# <a name="what-is-azure-signalr-service"></a>O que é o Serviço do Azure SignalR?
 
 O Azure SignalR Service simplifica o processo de adição da funcionalidade Web em tempo real aos aplicativos por HTTP. Essa funcionalidade em tempo real permite que o serviço envie por push atualizações de conteúdo a clientes conectados, como um aplicativo móvel ou Web de página única. Como resultado, os clientes são atualizados sem a necessidade de sondar o servidor, ou enviar novas solicitações HTTP para atualizações.
 
@@ -36,6 +36,6 @@ Além disso, o SignalR fornece um modelo de programação para aplicativos em te
 
 Atualmente, há três maneiras de usar o Azure SignalR Service:
 
-- **[Dimensionar um aplicativo SignalR do ASP.NET Core](signalr-overview-scale-aspnet-core.md)**  – integre o Azure SignalR Service com um aplicativo SignalR do ASP.NET Core para escalar horizontalmente centenas de milhares de conexões.
-- **[Criar aplicativos em tempo real sem servidor](signalr-overview-azure-functions.md)** – use a integração do Azure Functions com o SignalR Service para criar aplicativos em tempo real sem servidor em linguagens como JavaScript, C# e Java.
+- **[Dimensionar um aplicativo SignalR do ASP.NET Core](signalr-concept-scale-aspnet-core.md)**  – integre o Azure SignalR Service com um aplicativo SignalR do ASP.NET Core para escalar horizontalmente centenas de milhares de conexões.
+- **[Criar aplicativos em tempo real sem servidor](signalr-concept-azure-functions.md)** – use a integração do Azure Functions com o SignalR Service para criar aplicativos em tempo real sem servidor em linguagens como JavaScript, C# e Java.
 - **[Enviar mensagens do servidor para clientes por meio da API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** – o Azure SignalR Service fornece a API REST para habilitar aplicativos para publicar mensagens a clientes conectados com o SignalR Service, em qualquer linguagem de programação compatível com REST.

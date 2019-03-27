@@ -9,16 +9,16 @@ ms.date: 07/03/2018
 ms.topic: sample
 ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 17e33e3c0e6b06266025a7f0e6403789c9468a16
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7fe68090773902248dbcdd63fbbdbbdb06b307cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852382"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Criar um aplicativo de funções e implantar o código da função do Azure DevOps
 
-Este tópico mostra como usar o Azure Functions para criar um aplicativo de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) usando o [plano de consumo](../functions-scale.md#consumption-plan). O aplicativo de funções, que é um contêiner para suas funções, é implantado continuamente de um repositório do Azure DevOps. 
+Este tópico mostra como usar o Azure Functions para criar um aplicativo de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) usando o [plano de consumo](../functions-scale.md#consumption-plan). O aplicativo de funções, que é um contêiner para suas funções, é continuamente implantado de um repositório do Azure DevOps. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

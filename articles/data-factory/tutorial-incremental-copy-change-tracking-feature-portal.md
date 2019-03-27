@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593141"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121869"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -144,7 +144,10 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -257,7 +260,7 @@ Nesta etapa, você cria um conjunto de dados para representar os dados copiados 
 
     1. Selecione **AzureStorageLinkedService** para **Serviço vinculado**.
     2. Digite **adftutorial/incchgtracking** para a parte da **pasta** no **Caminho do arquivo**.
-    3. Digite **@CONCAT('Incremental-', pipeline().RunId, '.txt')** para a parte do **arquivo** no **Caminho do arquivo**.  
+    3. Digite **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** para a parte do **arquivo** no **Caminho do arquivo**.  
 
        ![Conjunto de dados do coletor - conexão](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -369,29 +372,29 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
     ![Atividade de pesquisa - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Alterne para **Configurações** na janela **Propriedades** e execute as seguintes etapas:
 
-    1. Selecione **SourceDataset** para o campo **Conjunto de dados de origem**.
-    2. Selecione **Consulta** para **Usar consulta**. 
-    3. Insira a seguinte consulta SQL para **Consulta**. 
+   1. Selecione **SourceDataset** para o campo **Conjunto de dados de origem**.
+   2. Selecione **Consulta** para **Usar consulta**. 
+   3. Insira a seguinte consulta SQL para **Consulta**. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Atividade de pesquisa - configurações](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Atividade de pesquisa - configurações](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de dados**e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão de controle de alterações e a versão atual de controle de alterações para o armazenamento de dados de destino. 
 
     ![Atividade de cópia - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Alterne para a guia **Fonte** na janela **Propriedades** e execute as seguintes etapas:
 
-    1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
-    2. Selecione **Consulta** para **Usar consulta**. 
-    3. Insira a seguinte consulta SQL para **Consulta**. 
+   1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
+   2. Selecione **Consulta** para **Usar consulta**. 
+   3. Insira a seguinte consulta SQL para **Consulta**. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![Atividade de cópia - configurações da fonte](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Atividade de cópia - configurações da fonte](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. Alterne para a guia **Coletor** e selecione **SinkDataset** para o campo **Conjunto de dados do coletor**. 
 
     ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -422,9 +425,9 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
 15. Clique em **Validar** na barra de ferramentas. Confirme se não houver nenhum erro de validação. Feche a janela **Relatório de validação do pipeline** clicando em **>>**. 
 
     ![Botão Validar](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Data Factory clicando no botão **Publicar tudo**. Aguarde até que você veja a mensagem **Publicado com êxito**. 
+16. Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Data Factory clicando no botão **Publicar tudo**. Aguarde até que você veja a mensagem **Publicado com êxito**. 
 
-        ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline de cópia incremental
 1. Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disparar agora**. 

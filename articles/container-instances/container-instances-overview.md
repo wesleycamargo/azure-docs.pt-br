@@ -2,19 +2,19 @@
 title: O que são as Instâncias de Contêiner do Azure?
 description: O serviço das Instâncias de Contêiner do Azure oferece a maneira mais rápida e mais simples de executar contêineres isolados no Azure, sem a necessidade de gerenciar máquinas virtuais nem adotar um orquestrador de nível superior.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863314"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
@@ -48,9 +48,14 @@ Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, n�
 
 As Instâncias de Contêiner do Azure podem agendar contêineres do Windows e do Linux com a mesma API. Basta especificar o tipo de sistema operacional ao criar seus [grupos de contêiner](container-instances-container-groups.md).
 
-Alguns recursos são atualmente restritos a contêineres do Linux. Enquanto trabalhamos para trazer paridade de recursos para contêineres do Windows, você pode encontrar diferenças da plataforma atual em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
+Alguns recursos estão restritos a contêineres Linux:
 
-As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base nas versões de Canal de Manutenção de Longo Prazo (LTSC). Versões do Canal Semestral (SAC) do Windows como 1709 e 1803 não são suportadas.
+* Vários contêineres por grupo de contêineres
+* Montagem de volume ([Arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
+* [Implantação da rede virtual (versão prévia](container-instances-vnet.md))
+* [Recursos da GPU](container-instances-gpu.md) (versão prévia)
+
+As Instâncias de Contêiner do Azure dão suporte a imagens do Windows Server 2016 baseadas nas versões do LTSC (Canal de Manutenção em Longo Prazo). Versões do Canal Semestral (SAC) do Windows como 1709 e 1803 não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 

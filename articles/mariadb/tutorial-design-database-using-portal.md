@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852518"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -90,7 +90,7 @@ Obtenha os valores para **Nome do servidor** (totalmente qualificado) e o **Nome
 
    ![Propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Em nosso exemplo, o nome do servidor é **mydemoserver.mariadb.database.azure.com** e o nome de logon do administrador do servidor é **myadmin@mydemoserver**.
+Em nosso exemplo, o nome do servidor é **mydemoserver.mariadb.database.azure.com** e o nome de logon do administrador do servidor é **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Conectar-se ao servidor usando o MySQL
 

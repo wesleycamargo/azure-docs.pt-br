@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669694"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450934"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usar serviços conectados no Visual Studio para se conectar à API da Pesquisa Visual Computacional
 
@@ -92,7 +92,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
       }
    ```
 
-1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API da Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções: 
+1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API da Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item Existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções: 
   
    ![Captura de tela da exibição do gerenciador de soluções com um arquivo de imagem selecionado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

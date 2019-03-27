@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959180"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440039"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar um aplicativo de console do .NET Core para gerenciar dados na conta da API do SQL do Azure Cosmos DB (SDK versão 3 Versão Prévia)
 
@@ -75,10 +75,10 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja 
 
    ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
 
-1. Na guia **NuGet**, clique em **Procurar** e digite **Microsoft.Azure.Cosmos** na caixa de pesquisa.
+1. Na guia **NuGet**, clique em **Procurar** e insira **Microsoft.Azure.Cosmos** na caixa de pesquisa.
 1. Nos resultados, encontre **Microsoft.Azure.Cosmos** e clique em **Instalar**.
    A ID do pacote para a Biblioteca de Clientes do API do SQL do Azure Cosmos DB é [Biblioteca de Clientes do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Captura de tela do menu NuGet para localizar documentos do SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Captura de tela do menu do NuGet para localizar o SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
    Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
 
@@ -131,7 +131,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja 
 
    Copie o URI do portal e cole-o em `<your endpoint URL>` no arquivo `Program.cs`. Copie a CHAVE PRIMÁRIA do portal e cole-a em `<your primary key>`.
 
-   ![Captura de tela para obter chaves do Azure Cosmos DB do portal do Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Captura de tela para obter chaves do Azure Cosmos DB no portal do Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Em seguida, vamos criar uma nova instância do `CosmosClient` e configurar uma estrutura para nosso programa.
 

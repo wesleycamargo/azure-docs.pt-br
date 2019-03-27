@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ededde4f8458051fafd09c388ce556dedaea3efc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management)
 
@@ -106,6 +106,7 @@ Para configurar o logon único do Azure AD com o EPIM (EthicsPoint Incident Mana
     ![Informações de logon único de Domínio e URLs do EPIM (EthicsPoint Incident Management)](common/sp-identifier-reply.png)
 
      a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
@@ -154,7 +155,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

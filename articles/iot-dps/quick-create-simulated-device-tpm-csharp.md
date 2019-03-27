@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901569"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -37,7 +37,7 @@ Este artigo irá demonstrar registros individuais.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Verifique se você tem o [SDK do .Net Core 2.1 ou posterior](https://www.microsoft.com/net/download/windows) instalado em seu computador. 
+1. Verifique se você tem o [SDK do .Net Core 2.1 ou posterior](https://www.microsoft.com/net/download/windows) instalado no computador. 
 
 1. Verifique se o `git` está instalado em seu computador e é adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
 
@@ -78,14 +78,14 @@ Este artigo irá demonstrar registros individuais.
 4. No Portal do Azure, na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
 5. Em **Adicionar Registro**, insira as seguintes informações:
-    - Selecione **TPM** como o atestado de identidade *Mecanismo*.
-    - Insira a *ID de Registro* e a *Chave de endosso* para seu dispositivo do TPM anotados anteriormente.
-    - Opcionalmente, selecione um Hub IoT vinculado com o serviço de provisionamento.
-    - Insira uma ID de dispositivo exclusiva. Você pode inserir a ID do dispositivo sugerida na saída de exemplo ou inserir a sua própria. Se você usar a sua própria, evite dados confidenciais ao nomear o dispositivo. 
-    - Opcionalmente, atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-    - Uma vez concluído, clique no botão **Salvar**. 
+   - Selecione **TPM** como o atestado de identidade *Mecanismo*.
+   - Insira a *ID de Registro* e a *Chave de endosso* para seu dispositivo do TPM anotados anteriormente.
+   - Opcionalmente, selecione um Hub IoT vinculado com o serviço de provisionamento.
+   - Insira uma ID de dispositivo exclusiva. Você pode inserir a ID do dispositivo sugerida na saída de exemplo ou inserir a sua própria. Se você usar a sua própria, evite dados confidenciais ao nomear o dispositivo. 
+   - Opcionalmente, atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+   - Uma vez concluído, clique no botão **Salvar**. 
 
-    ![Inserir informações de registro de dispositivo na folha do portal](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![Inserir informações de registro de dispositivo na folha do portal](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo será exibida na lista na guia *Registros Individuais*. 
 

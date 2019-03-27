@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4b04a1a5805ff11ad51cec53cdcccf2ea34f1c65
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043440"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443242"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>O Azure Cosmos DB: Tutorial de introdução à API do SQL
 
@@ -69,7 +69,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja 
 5. Na guia **NuGet**, clique em **Procurar** e digite **azure documentdb** na caixa de pesquisa.
 6. Nos resultados, encontre **Microsoft.Azure.DocumentDB** e clique em **Instalar**.
    A ID do pacote para a Biblioteca de Clientes do API do SQL do Azure Cosmos DB é [Biblioteca de Clientes do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Captura de tela do menu NuGet para localizar documentos do SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ![Captura de tela do menu do NuGet para localizar o SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
 

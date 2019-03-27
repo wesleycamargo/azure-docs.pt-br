@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 68532ec4ae7e6d6b496ece8d08755555f756a60e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006483"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Rotear o tráfego da web baseado na URL usando a CLI do Azure
+# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Rotear o tráfego da Web baseado na URL usando a CLI do Azure
 
 Como um administrador de TI que gerencia tráfego da Web, você deseja ajudar seus clientes ou usuários a obter as informações necessárias o mais rápido possível. Uma maneira de otimizar essa experiência é roteando diferentes tipos de tráfego da Web para recursos de servidor diferentes. Este tutorial mostra como usar a CLI do Azure para instalar e configurar o roteamento do Gateway de Aplicativo para vários tipos de tráfego do seu aplicativo. O roteamento, em seguida, direciona o tráfego para pools de servidor diferentes com base na URL.
 
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Para obter o endereço IP público do gateway de aplicativo, use az network public-ip show. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* ou *http://40.121.222.19:8080/video/test.htm*.
+Para obter o endereço IP público do gateway de aplicativo, use az network public-ip show. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` ou `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \

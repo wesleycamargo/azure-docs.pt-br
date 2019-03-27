@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d27d385fa6fba93b7221d241f46894e9cfb9dea6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f89e1e89736929b7d50444800550708a55e45db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103410"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com C#
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com C#
 
 Neste início rápido, você aprenderá a detectar o idioma do texto fornecido usando o .NET Core e a API REST de Tradução de Texto.
 
@@ -131,9 +131,17 @@ request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Para imprimir a resposta com "Estilo de formatação" (formatação para a resposta), adicione essa função à sua classe de Programa:
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
@@ -154,6 +162,8 @@ dotnet run
 ```
 
 ## <a name="sample-response"></a>Resposta de exemplo
+
+Localize a abreviação do país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 [

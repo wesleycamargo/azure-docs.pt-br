@@ -4,17 +4,17 @@ description: Use o Azure Blueprints para criar, definir e implantar artefatos po
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004911"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um Azure Blueprint no portal
 
@@ -42,7 +42,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
    ![Criar plano gráfico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Forneça um **Nome do blueprint** como "MyBlueprint" (letras e números – até 48 caracteres, mas sem espaços nem caracteres especiais) para o blueprint, mas deixe **Descrição do blueprint** em branco por enquanto.  Na caixa **Definir local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que deseja salvar o blueprint e clique em **Selecione**.
+1. Forneça um **Nome do blueprint** como "MyBlueprint" (letras e números – até 48 caracteres, mas sem espaços nem caracteres especiais) para o blueprint, mas deixe **Descrição do blueprint** em branco por enquanto. Na caixa **Definir local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que deseja salvar o blueprint e clique em **Selecione**.
 
 1. Verifique se as informações estão corretas (os campos **Nome do blueprint** e **Local da definição** não podem ser alterados mais tarde) e clique em **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
@@ -84,7 +84,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ Em [Criar um blueprint](#create-a-blueprint), uma Descrição não foi fornecida
 
 1. Na lista de planos gráficos, clique com o botão direito do mouse naquele que você criou anteriormente e selecione **Editar Blueprint**.
 
-1. Em **Descrição do Blueprint**, forneça algumas informações sobre o blueprint e os artefatos que o compõem.  Nesse caso, insira algo como: "Este blueprint define a atribuição de política e de atribuição de tag na assinatura, cria um ResourceGroup e implementa um modelo de recurso e uma atribuição de função para esse ResourceGroup".
+1. Em **Descrição do Blueprint**, forneça algumas informações sobre o blueprint e os artefatos que o compõem. Nesse caso, insira algo como: "Este blueprint define a atribuição de política e de atribuição de tag na assinatura, cria um ResourceGroup e implementa um modelo de recurso e uma atribuição de função para esse ResourceGroup".
 
 1. Clique em **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
@@ -186,13 +186,17 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
    > [!NOTE]
    > Uma atribuição é criada para cada assinatura selecionada, permitindo alterações em uma única designação de assinatura posteriormente, sem forçar alterações no restante das assinaturas selecionadas.
 
-1. Para **Nome atribuído**, forneça um nome exclusivo para esta atribuição.
+1. Para **Nome da atribuição**, forneça um nome exclusivo para essa atribuição.
 
-1. Em **Local**, selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+1. Em **Localização**, selecione uma região na qual criar a identidade gerenciada e o objeto de implantação de assinatura. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Deixe a lista suspensa **Blueprint definition version** de **Published** versões na entrada 'v1' (padrão como a versão mais recente **Publicado**).
+1. Deixe o menu suspenso **Versão de definição de blueprint** de versões **Publicadas** na entrada 'v1' (o padrão é a versão **Publicada** mais recentemente).
 
 1. Para **Atribuição de Bloqueio**, deixe o padrão de **Não Bloquear**. Para obter mais informações, consulte [bloqueio de recursos de projetos](./concepts/resource-locking.md).
+
+   ![Atribuição – Bloqueio e identidades gerenciadas](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Em **Identidade gerenciada**, deixe o padrão de **Atribuído pelo sistema**.
 
 1. Para a atribuição de função de nível de assinatura **[Grupo de usuários ou nome do aplicativo]: Colaborador**, procure e selecione um usuário, aplicativo ou grupo.
 
@@ -245,9 +249,9 @@ Se não for mais necessária, remova uma atribuição de blueprint de uma assina
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](./concepts/sequencing-order.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](./concepts/resource-locking.md)
-- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./concepts/sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./concepts/resource-locking.md).
+- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md).

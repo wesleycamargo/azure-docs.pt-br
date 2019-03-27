@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121733"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativo Web com o Azure Cosmos DB
 
@@ -501,7 +501,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
      
 2. Clique no link **Criar Novo** e adicione valores ao campos **Nome** e **Descrição**. Deixe a caixa de seleção **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado em um estado concluído e não aparecerá na lista inicial.
    
-    ![Captura de tela da exibição Criar](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+    ![Captura de tela de Criar visualização](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. Clique em **Criar** e você será redirecionado de volta à exibição **Índice** e seu **Item** aparecerá na lista.
    
     ![Captura de tela da exibição Índice](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
@@ -541,7 +541,6 @@ Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP .NET MVC usa
 
 Para adicionar outras funcionalidades a seu aplicativo, examine as APIs disponíveis na [Biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254

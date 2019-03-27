@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264753"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453745"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET Core no Azure Service Fabric usando o Azure DevOps Projects
 
@@ -39,7 +39,7 @@ Neste tutorial, você irá:
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Usar o DevOps Projects para criar um aplicativo ASP.NET Core e implantá-lo no Service Fabric
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>Usar o DevOps Projects para criar um aplicativo ASP.NET Core e implantá-lo no Service Fabric
 
 O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como um cluster do Service Fabric, na assinatura do Azure de sua escolha.
 
@@ -47,7 +47,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
-1. Na caixa de pesquisa, digite **DevOps Projects**, depois selecione **Criar**.
+1. Na caixa de pesquisa, digite **DevOps Projects** e selecione **Criar**.
 
     ![O painel do DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -84,7 +84,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD no Azure Pipeli
 1. Na parte superior do painel do DevOps Projects, selecione **Pipelines de build**.  
     Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **Status**, depois selecione as reticências (...).  
+1. Aponte para o campo **Status** e selecione as reticências (...).  
     Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
@@ -98,7 +98,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD no Azure Pipeli
     Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
 1. Selecione **Gatilhos**.  
-    O DevOps Projects criou automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
+    O DevOps Projects cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**.  
     Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
@@ -110,7 +110,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
     O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
-1. Selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**.  
+1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
     O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
 1. Em **Artefatos**, selecione **Soltar**.  
@@ -121,11 +121,11 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 
 1. À direita, selecione **Exibir versões** para exibir um histórico de versões.
 
-1. Selecione as reticências (...) ao lado de uma versão, depois selecione **Abrir**.  
+1. Selecione as reticências (...) ao lado de uma versão e selecione **Abrir**.  
     É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
 
 1. Selecione **Confirmações**.  
-    Essa exibição mostra as confirmações de código associadas à essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
+    Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
 
 1. Selecione **Logs**.  
     Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.

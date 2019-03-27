@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c397cd3b535c7bf918eac2ac1e9ae1f967d7b95a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Azure Active Directory com o SAP Business Object Cloud
 
@@ -106,12 +106,14 @@ Para configurar o logon único do Azure AD com o SAP Business Object Cloud, exec
     ![Informações de Domínio e URLs do SAP Business Object Cloud para logon único](common/sp-identifier.png)
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -237,7 +239,7 @@ Para provisionar uma conta de usuário:
 
     d. Na caixa **NOME DE EXIBIÇÃO**, insira o nome completo do usuário, como **Brenda Fernandes**.
 
-    e. Na caixa **EMAIL**, insira o endereço de email do usuário, como **brittasimon@contoso.com**.
+    e. Na caixa **EMAIL**, insira o endereço de email do usuário como **brendafernandes\@contoso.com**.
 
     f. Na página **Selecionar Funções**, selecione a função apropriada para o usuário e selecione **OK**.
 

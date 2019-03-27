@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168598"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é gerenciamento de dispositivos no Azure Active Directory?
 
@@ -89,7 +89,7 @@ O **Ingresso no Azure AD** foi desenvolvido para organizações que priorizam a 
 
 A implementação de dispositivos adicionados ao Azure AD proporciona os seguintes benefícios:
 
-- **SSO (Logon Único)** para serviços e aplicativos SaaS gerenciados pelo Azure. Os usuários não visualizam solicitações adicionais de autenticação ao acessar recursos de trabalho. A funcionalidade de SSO é consistente mesmo quando eles não estão conectados à rede de domínio disponível.
+- **SSO (Logon Único)** para serviços e aplicativos SaaS gerenciados pelo Azure. Os usuários não visualizam solicitações adicionais de autenticação ao acessar recursos de trabalho. A funcionalidade de SSO está disponível, mesmo quando os usuários não estão conectados à rede de domínio.
 
 - **Roaming em conformidade corporativa** das configurações de usuário entre dispositivos adicionados. Os usuários não precisam se conectar a uma conta da Microsoft (por exemplo, Hotmail) para ver as configurações entre dispositivos.
 

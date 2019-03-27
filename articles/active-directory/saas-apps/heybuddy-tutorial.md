@@ -4,58 +4,49 @@ description: Saiba como configurar logon único entre o Azure Active Directory e
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2018
+ms.topic: tutorial
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c3bf168ae056b1205d6eeaa8e5676c880eab97
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 88fa7ace6427a14dc167a46eba3076798114cff7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integração do Azure Active Directory ao HeyBuddy
 
 Neste tutorial, você aprenderá como integrar o HeyBuddy ao Azure AD (Azure Active Directory).
-
 A integração do HeyBuddy ao Azure AD fornece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao HeyBuddy.
-- Você pode permitir que seus usuários façam logon automaticamente no HeyBuddy (Logon único) com as contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Azure AD quem tem acesso ao HeyBuddy.
+* Você pode permitir que os usuários sejam conectados automaticamente ao HeyBuddy (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é acesso de aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md)
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o HeyBuddy, você precisará dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do HeyBuddy
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do HeyBuddy
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-1. Adicionando HeyBuddy da galeria
-2. configurar e testar o logon único do AD do Azure
+* O HeyBuddy dá suporte ao SSO iniciado por **SP**
+* O HeyBuddy dá suporte ao provisionamento de usuário **Just-In-Time**
 
 ## <a name="adding-heybuddy-from-the-gallery"></a>Adicionando HeyBuddy da galeria
 
@@ -63,57 +54,57 @@ Para configurar a integração do HeyBuddy ao Azure AD, você precisará adicion
 
 **Para adicionar o HeyBuddy da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **HeyBuddy**, selecione **HeyBuddy** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![HeyBuddy na lista de resultados](./media/heybuddy-tutorial/tutorial_heybuddy_addfromgallery.png)
+     ![HeyBuddy na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o HeyBuddy, com base em uma usuária de teste chamada "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do HeyBuddy é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no HeyBuddy.
+Nesta seção, você configurará e testará o logon único do Azure AD com o HeyBuddy, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do HeyBuddy.
 
 Para configurar e testar o logon único do Azure AD com o HeyBuddy, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do HeyBuddy](#creating-a-heybuddy-test-user)** – para ter um equivalente de Brenda Fernandes no HeyBuddy que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do HeyBuddy](#configure-heybuddy-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do HeyBuddy](#create-heybuddy-test-user)** – para ter um equivalente de Brenda Fernandes no HeyBuddy que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no aplicativo HeyBuddy.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o HeyBuddy, execute as etapas a seguir:**
+Para configurar o logon único do Azure AD com o HeyBuddy, execute as seguintes etapas:
 
-1. No portal do Azure, na página de integração do aplicativo **HeyBuddy**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **HeyBuddy**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Configurar o logon único](common/tutorial_general_301.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Configurar o logon único](common/editconfigure.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do HeyBuddy](./media/heybuddy-tutorial/tutorial_heybuddy_url.png)
+    ![Informações de logon único de Domínio e URLs do HeyBuddy](common/sp-identifier.png)
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://api.heybuddy.com/auth/<ENTITY ID>`
 
@@ -122,117 +113,114 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais (ID de entidade). O valor `Entity ID` na URL de Entrada é gerado automaticamente para cada organização. Contate a [equipe de suporte do Cliente HeyBuddy](mailto:support@heybuddy.com) para obter esses valores.
 
-5. O aplicativo HeyBuddy espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
+5. O aplicativo HeyBuddy espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone  **Editar** para abrir a caixa de diálogo Atributos do usuário.
 
-    ![image](./media/heybuddy-tutorial/tutorial_heybuddy_attribute.png)
+    ![image](common/edit-attribute.png)
 
-    >[!NOTE]
-    >Consulte este [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) sobre como instalar e configurar as funções para o aplicativo.
+    > [!NOTE]
+    > Consulte este [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) sobre como instalar e configurar as funções para o aplicativo.
 
-6. Na seção **Reivindicações do usuário** da caixa de diálogo **Atributos e reivindicações do usuário**, configure o atributo do token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
-    
-    | NOME  | Atributo de Origem  |
-    | --------------- | --------------- |
-    | Funções               | user.assignedroles |
+6. Além do indicado acima, o aplicativo HeyBuddy espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+
+    | NOME |  Atributo de Origem|
+    | -------- | --------- |
+    | Funções  | user.assignedroles |
+    | | |
 
      a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](./common/new_save_attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./common/new_attribute_details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o valor de **Namespace** em branco.
+    c. Deixe o **Namespace** em branco.
 
     d. Escolha Origem como **Atributo**.
 
     e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **Salvar**.
+    f. Clique em **Ok**
 
-7. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no **ícone** de cópia para copiar  **URL de metadados da federação de aplicativo**  e cole-o no bloco de notas.
+    g. Clique em **Salvar**.
 
-    ![O link de download do Certificado](./media/heybuddy-tutorial/tutorial_heybuddy_certificate.png) 
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-8. Para configurar o logon único no lado do **HeyBuddy**, é necessário enviar a **URL de metadados de federação do aplicativo** copiada para a [equipe de suporte do HeyBuddy](mailto:support@heybuddy.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    ![O link de download do Certificado](common/copy-metadataurl.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="configure-heybuddy-single-sign-on"></a>Configurar o logon único do HeyBuddy
+
+Para configurar o logon único no lado do **HeyBuddy**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do HeyBuddy](mailto:support@heybuddy.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![Criar um usuário do AD do Azure][100]
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
 
-### <a name="creating-a-heybuddy-test-user"></a>Criando um usuário de teste do HeyBuddy
-
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no HeyBuddy. O HeyBuddy dá suporte para provisionamento just-in-time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o HeyBuddy, se ainda não existir.
->[!Note]
->Se for necessário criar um usuário manualmente, contate a  [equipe de suporte do HeyBuddy](mailto:support@heybuddy.com).
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que o Brenda Fernandes use o logon único do Azure, concedendo acesso ao HeyBuddy.
 
-1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **HeyBuddy**.
 
-    ![Atribuir usuário][201]
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, escolha **HeyBuddy**.
 
-    ![Configurar o logon único](./media/heybuddy-tutorial/tutorial_heybuddy_app.png)
+    ![O link do HeyBuddy na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![Atribuir usuário][202]
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![Atribuir usuário][203]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
 5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-heybuddy-test-user"></a>Criar um usuário de teste do HeyBuddy
+
+Nesta seção, um usuário chamado Brenda Fernandes será criado no HeyBuddy. O HeyBuddy dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no HeyBuddy, um novo será criado após a autenticação.
+
+> [!Note]
+> Se for necessário criar um usuário manualmente, contate a  [equipe de suporte do HeyBuddy](mailto:support@heybuddy.com).
+
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco HeyBuddy no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo HeyBuddy.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco do HeyBuddy no Painel de Acesso, você deverá ser conectado automaticamente ao HeyBuddy, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
-
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

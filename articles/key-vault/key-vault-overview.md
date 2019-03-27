@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115939"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195465"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -55,7 +55,7 @@ Depois de criar alguns Key Vaults, é bom monitorar como e quando suas chaves e 
 
 - Arquive em uma conta de armazenamento.
 - Transmita para um hub de eventos.
-- Enviar os logs ao Log Analytics.
+- Enviar logs para os logs do Azure Monitor.
 
 Você tem controle sobre os logs e pode protegê-los restringindo o acesso, e também pode excluir logs que não são mais necessários.
 

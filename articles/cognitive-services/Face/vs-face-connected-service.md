@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857776"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435218"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conectar a API de Detecção Facial dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
 
@@ -79,7 +79,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
       }
    ```
 
-1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API de Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções:
+1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API de Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item Existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções:
  
    ![pasta de imagens com arquivo de imagem](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 

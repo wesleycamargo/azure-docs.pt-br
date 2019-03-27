@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1874950e733df1cf14fba2f53fdb49d478cb6f8a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Tutorial: Integração do Azure Active Directory com AlertOps
 
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -227,7 +227,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
      a. Na caixa de texto **Nome de Usuário de Logon**, insira o nome de usuário, como **Brendafernandes**.
 
-    b. Na caixa de texto **Email Oficial**, insira o endereço de email do usuário como **Brittasimon@contoso.com**.
+    b. Na caixa de texto **Email Oficial**, insira o endereço de email do usuário como **brendafernandes\@contoso.com**.
 
     c. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886475"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure usando a CLI do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando a CLI do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um pool compartilhado de armazenamento no qual você pode implantar o compartilhamento de arquivos do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter uma quantidade ilimitada de compartilhamentos de arquivos. Um compartilhamento pode conter uma quantidade ilimitada de arquivos, até os limites de capacidade da conta de armazenamento.
 
-O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount\<número aleatório\>* usando o comando [az storage account create](/cli/azure/storage/account) e coloca o nome da conta de armazenamento na variável `$STORAGEACCT`. Os nomes da conta de armazenamento devem ser exclusivos. Usar `$RANDOM` acrescenta um número à conta de armazenamento para torná-la exclusiva. 
+O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount\<número aleatório\>* usando o comando [az storage account create](/cli/azure/storage/account) e coloca o nome da conta de armazenamento na variável `$STORAGEACCT`. Os nomes das contas de armazenamento devem ser exclusivos. Portanto, substitua "mystorageacct" por um nome exclusivo.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -87,12 +87,12 @@ Para montar um compartilhamento de arquivos com SMB, consulte o documento abaixo
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Usar um compartilhamento de arquivos do Azure com o protocolo REST de arquivo 
-É possível trabalhar diretamente com o protocolo REST de Arquivo (ou seja, criar manualmente chamadas REST HTTP por conta própria), mas a maneira mais comum para usar o protocolo REST de Arquivo é usar a CLI do Azure, o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md) ou um SDK do Armazenamento do Azure, que fornecem um bom wrapper do protocolo REST de Arquivo na linguagem de scripts/programação de sua escolha.  
+É possível trabalhar diretamente com o protocolo REST de Arquivo (criar manualmente chamadas REST HTTP por conta própria), mas a maneira mais comum para usar o protocolo REST de Arquivo é usar a CLI do Azure, o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md) ou um SDK do Armazenamento do Microsoft Azure, que fornecem um bom wrapper do protocolo REST de Arquivo na linguagem de scripts/programação de sua escolha.  
 
 Acreditamos que a maioria dos usos dos arquivos do Azure será com o compartilhamento em vez do protocolo SMB, pois isso permite usar os aplicativos e as ferramentas existentes que se espera poder usar, mas há vários motivos que mostram como é vantajoso usar a API REST de arquivo em vez de SMB, a saber:
 
 - Você está buscando seu compartilhamento de arquivo no Azure Bash Cloud Shell (que não pode montar os compartilhamentos de arquivos via SMB).
-- Você precisa executar um script ou aplicativo de um cliente que não consegue montar compartilhamentos de SMB, por exemplo, clientes locais que não têm a porta 445 desbloqueada.
+- Você precisa executar um script ou aplicativo de um cliente que não consegue montar um compartilhamento de SMB, como clientes locais que não têm a porta 445 desbloqueada.
 - Você está aproveitando as vantagens dos recursos sem servidor, como o [Azure Functions](../../azure-functions/functions-overview.md). 
 
 Os exemplos a seguir mostram como usar a CLI do Azure para manipular o compartilhamento de arquivos do Azure com o protocolo REST de Arquivo. 

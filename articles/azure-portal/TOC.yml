@@ -1,31 +1,38 @@
 items:
-- name: Documentação de personalização do portal do Azure
+- name: Documentação do portal do Azure
   href: index.yml
-- name: Painéis do Azure
+- name: Visão geral
+  items:
+  - name: Sobre o portal do Azure
+    href: azure-portal-overview.md
+  - name: Navegadores e dispositivos com suporte
+    href: azure-portal-supported-browsers-devices.md
+- name: Conceitos
   items:
   - name: Criar e compartilhar painéis do Azure
     href: azure-portal-dashboards.md
-  - name: Usar um bloco markdown personalizado
-    href: azure-portal-markdown-tile.md
   - name: Compartilhar painéis com o controle de acesso baseado em função
     href: azure-portal-dashboard-share-access.md
-  - name: Estrutura de painéis do Azure
-    href: azure-portal-dashboards-structure.md
   - name: Criar programaticamente os painéis do Azure
     href: azure-portal-dashboards-create-programmatically.md
-- name: Configurações
+- name: Guias de instruções
+  items:
+  - name: Ativar alto contraste ou alterar tema
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Usar um bloco markdown personalizado
+    href: azure-portal-markdown-tile.md
+  - name: Exportar ou excluir configurações do usuário
+    href: azure-portal-export-delete-settings.md
+- name: Referência
   items:
   - name: Atalhos do teclado
     href: azure-portal-keyboard-shortcuts.md
-  - name: Navegadores e dispositivos com suporte
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Ativar alto contraste ou alterar tema
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Exportar ou excluir configurações do usuário
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Estrutura de painéis do Azure
+    href: azure-portal-dashboards-structure.md
 - name: Recursos
   items:
+  - name: Série de vídeos explicativos sobre o portal do Azure
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/updates/
   - name: Desenvolva suas habilidades com o Microsoft Learn
@@ -36,11 +43,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: vídeos
+  - name: Vídeos do Azure
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902764"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443870"

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893264"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
 
@@ -77,11 +77,11 @@ Para configurar uma regra de firewall no nível do servidor:
 
 1. Na página **Visão geral**, selecione **Definir firewall do servidor**. A página **Configurações do firewall** do servidor de banco de dados será aberta.
 
-    1. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP. Clique em **Salvar**.
+   1. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP. Clique em **Salvar**.
 
-    ![definir regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![definir regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Selecione **OK** e feche a página **Configurações do firewall**.
+   1. Selecione **OK** e feche a página **Configurações do firewall**.
 
 Agora você pode se conectar a qualquer banco de dados do servidor com o endereço IP ou o intervalo de endereços IP especificado.
 
@@ -90,7 +90,7 @@ Agora você pode se conectar a qualquer banco de dados do servidor com o endere�
 
 ### <a name="setup-database-firewall-rules"></a>Configurar regras de firewall do banco de dados
 
-As regras de firewall no nível do banco de dados se aplicam somente a bancos de dados individuais. Essas regras são portáteis e seguirão o banco de dados durante um failover de servidor. As regras de firewall no nível do banco de dados só poderão ser configuradas usando instruções T-SQL (Transact-SQL) e somente depois que você configurar uma regra de firewall no nível do servidor.
+As regras de firewall no nível do banco de dados se aplicam somente a bancos de dados individuais. O banco de dados manterá essas regras durante um failover de servidor. As regras de firewall no nível do banco de dados só poderão ser configuradas usando instruções T-SQL (Transact-SQL) e somente depois que você configurar uma regra de firewall no nível do servidor.
 
 Para configurar uma regra de firewall no nível do banco de dados:
 
@@ -142,7 +142,7 @@ Para obter informações sobre como configurar o Azure AD, confira:
 
 - [Integrar suas identidades locais ao Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [O Microsoft Azure agora dá suporte à federação com o Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [O Microsoft Azure agora dá suporte à federação com o Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrar seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Gerenciar o Azure AD usando o PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Portas e protocolos necessários para a identidade híbrida](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Para habilitar a segurança de dados avançada:
 
 1. Na página **SQL Server**, encontre a seção **Segurança** e selecione **Segurança de Dados Avançada**.
 
-    1. Selecione **ATIVADO** em **Segurança de Dados Avançada** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Salvar**.
+   1. Selecione **ATIVADO** em **Segurança de Dados Avançada** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Salvar**.
 
-    ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
 
-    Configure também emails para receber alertas de segurança, detalhes de armazenamento e tipos de detecção de ameaças.
+      Configure também emails para receber alertas de segurança, detalhes de armazenamento e tipos de detecção de ameaças.
 
 1. Retorne à página **Bancos de dados SQL** de seu banco de dados e selecione **Segurança de Dados Avançada** na seção **Segurança**. Aqui você encontrará vários indicadores de segurança disponíveis para o banco de dados.
 
@@ -264,7 +264,7 @@ Se forem detectadas atividades anormais, você receberá um email com informaç�
 
 ### <a name="auditing"></a>Auditoria
 
-O recurso de auditoria rastreia eventos de banco de dados, gravando-os em um log de auditoria no Armazenamento do Azure, no Log Analytics ou em um hub de eventos. A auditoria ajuda a manter a conformidade regulatória, entender a atividade do banco de dados e obter insights sobre discrepâncias e anomalias que podem indicar possíveis violações de segurança.
+O recurso de auditoria rastreia eventos de banco de dados, gravando-os em um log de auditoria no Armazenamento do Azure, no Azure Monitor ou em um hub de eventos. A auditoria ajuda a manter a conformidade regulatória, entender a atividade do banco de dados e obter insights sobre discrepâncias e anomalias que podem indicar possíveis violações de segurança.
 
 Para habilitar a auditoria:
 
@@ -274,25 +274,25 @@ Para habilitar a auditoria:
 
 1. Nas configurações de **Auditoria**, defina os seguintes valores:
 
-    1. Defina **Auditoria** como **ATIVADO**.
+   1. Defina **Auditoria** como **ATIVADO**.
 
-    1. Selecione **Destino do log de auditoria** como um dos seguintes:
+   1. Selecione **Destino do log de auditoria** como um dos seguintes:
 
-        - **Armazenamento**, uma conta de armazenamento do Azure na qual os logs de eventos são salvos e podem ser baixados como arquivos *.xel*
+       - **Armazenamento**, uma conta de armazenamento do Azure na qual os logs de eventos são salvos e podem ser baixados como arquivos *.xel*
 
-           > [!TIP]
-           > Use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatório de auditoria.
+          > [!TIP]
+          > Use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatório de auditoria.
 
-        - **Log Analytics**, que armazena automaticamente os eventos para consulta ou análise adicional
+       - **Log Analytics**, que armazena automaticamente os eventos para consulta ou análise adicional
 
-            > [!NOTE]
-            > Um **workspace do Log Analytics** é necessário para dar suporte a recursos avançados, como análise, regras de alerta personalizadas e exportações do Excel ou do Power BI. Sem um workspace, apenas o editor de consultas fica disponível.
+           > [!NOTE]
+           > Um **workspace do Log Analytics** é necessário para dar suporte a recursos avançados, como análise, regras de alerta personalizadas e exportações do Excel ou do Power BI. Sem um workspace, apenas o editor de consultas fica disponível.
 
-        - **Hub de Eventos**, que permite que os eventos sejam encaminhados para uso em outros aplicativos
+       - **Hub de Eventos**, que permite que os eventos sejam encaminhados para uso em outros aplicativos
 
-    1. Clique em **Salvar**.
+   1. Clique em **Salvar**.
 
-    ![Configurações de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Configurações de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Agora você pode selecionar **Exibir logs de auditoria** para exibir dados de eventos do banco de dados.
 
@@ -334,7 +334,7 @@ Para habilitar ou verificar a criptografia:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para exibir o status da criptografia, conecte-se ao banco de dados usando o [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da exibição [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Um estado igual a `3` indica que o banco de dados está criptografado.
+> Para exibir o status da criptografia, conecte-se ao banco de dados usando o [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da exibição [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). Um estado igual a `3` indica que o banco de dados está criptografado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

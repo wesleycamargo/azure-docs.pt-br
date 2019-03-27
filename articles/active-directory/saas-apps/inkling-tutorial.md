@@ -4,244 +4,197 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/06/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89ef8f6cba049f606f78c1d41a4005a708ae62a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 901abdcc45bcac2c9b912e28386f80ab59a1c520
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166718"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integração do Azure Active Directory com o Inkling
 
 Neste tutorial, você aprenderá a integrar o Inkling ao Azure AD (Azure Active Directory).
-
 A integração do Inkling ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar, no Azure AD, quem terá acesso ao Inkling
-- Você pode permitir que os usuários entrem automaticamente no Inkling (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
+* Você pode controlar, no Azure AD, quem tem acesso ao Inkling.
+* Você pode permitir que seus usuários entrem automaticamente no Inkling (logon único) usando as respectivas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Inkling, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único no Inkling
-
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura do Inkling habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o Inkling usando a galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
+* O Inkling dá suporte a SSO iniciado por **IDP**
 
 ## <a name="adding-inkling-from-the-gallery"></a>Adicionar o Inkling usando a galeria
+
 Para configurar a integração do Inkling ao Azure AD, você precisa adicionar o Inkling por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Inkling usando a galeria, execute as seguintes etapas:**
 
-1. No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![APLICATIVOS][2]
-    
-1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![APLICATIVOS][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **Inkling**.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/tutorial_inkling_001.png)
+4. Na caixa de pesquisa, digite **Inkling**, selecione **Inkling** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-1. No painel de resultados, selecione **Inkling** e clique no botão **Adicionar** para adicionar o aplicativo.
+     ![Inkling na lista de resultados](common/search-new-app.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/tutorial_inkling_0001.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-Nesta seção, você configura e testa o logon único do Azure AD com o Inkling, com base em um usuário de teste chamado "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Inkling é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Inkling.
-
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Inkling.
+Nesta seção, você configura e testa o logon único do Azure AD com o Inkling, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Inkling.
 
 Para configurar e testar o logon único do Azure AD com o Inkling, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criando um usuário de teste do Inkling](#creating-an-inkling-test-user)**: para ter um equivalente de Brenda Fernandes no Inkling que esteja vinculado à representação dela no Azure AD.
-1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do Inkling](#configure-inkling-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Inkling](#create-inkling-test-user)** – para ter um equivalente de Brenda Fernandes no Inkling vinculado à representação do usuário no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciamento do Azure e configura o logon único em seu aplicativo Inkling.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o Inkling, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Inkling, execute as seguintes etapas:
 
-1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Inkling**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Inkling**, selecione **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_general_300.png)
-    
-1. Na seção **URLs e Domínio do Inkling**, execute as seguintes etapas:
-    
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_inkling_01.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.inkling.com/saml/v2/acs/<user-id>`
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    > [!NOTE] 
-    > Observe que esses não são os valores reais. Você precisa atualizar esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Inkling](mailto:press@inkling.com) para obter esses valores.
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_general_400.png)  
+    ![Informações de logon único de domínio e de URLs do Inkling](common/idp-intiated.png)
 
-1. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_general_500.png)
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/acs/<user-id>`
 
-1. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Inkling](mailto:press@inkling.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_inkling_02.png)
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-1. Na janela pop-up **Certificado de substituição**, clique em **OK**.
+    ![O link de download do Certificado](common/metadataxml.png)
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_general_600.png)
+6. Na seção **Configurar o Inkling**, copie as URLs apropriadas de acordo com suas necessidades.
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_inkling_03.png) 
+    a. URL de logon
 
-1. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do Inkling](mailto:press@inkling.com) e forneça os **metadados** baixados. 
+    b. Identificador do Azure AD
 
+    c. URL de logoff
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
+### <a name="configure-inkling-single-sign-on"></a>Configurar logon único do Inkling
 
-![Criar um usuário do AD do Azure][100]
+Para configurar o logon único no lado do **Inkling**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Inkling](mailto:press@inkling.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/create_aaduser_01.png) 
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/create_aaduser_02.png) 
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/create_aaduser_03.png) 
+2. Selecione **Novo usuário** na parte superior da tela.
 
-1. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/inkling-tutorial/create_aaduser_04.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    d. Clique em **Criar**. 
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
+    d. Clique em **Criar**.
 
-
-### <a name="creating-an-inkling-test-user"></a>Criando um usuário de teste do Inkling
-
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Inkling. Trabalhe com a [equipe de suporte do Inkling](mailto:press@inkling.com) para adicionar usuários à plataforma Inkling.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Inkling.
 
-![Atribuir usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Inkling**.
 
-**Para atribuir Brenda Fernandes ao Inkling, execute as seguintes etapas:**
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-1. No Portal de Gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **Aplicativos empresariais**, depois clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, escolha **Inkling**.
 
-    ![Atribuir usuário][201] 
+    ![O link do Inkling na lista de Aplicativos](common/all-applications.png)
 
-1. Na lista de aplicativos, escolha **Inkling**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![Configurar o logon único](./media/inkling-tutorial/tutorial_inkling_50.png) 
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![Atribuir usuário][202] 
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![Atribuir usuário][203]
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+### <a name="create-inkling-test-user"></a>Criar um usuário de teste do Inkling
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Inkling. Trabalhe com a [equipe de suporte do Inkling](mailto:press@inkling.com) para adicionar usuários à plataforma Inkling. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco Inkling no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Inkling.
-
+Ao clicar no bloco do Inkling no Painel de Acesso, você deverá ser conectado automaticamente ao Inkling, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/inkling-tutorial/tutorial_general_01.png
-[2]: ./media/inkling-tutorial/tutorial_general_02.png
-[3]: ./media/inkling-tutorial/tutorial_general_03.png
-[4]: ./media/inkling-tutorial/tutorial_general_04.png
-
-[100]: ./media/inkling-tutorial/tutorial_general_100.png
-
-[200]: ./media/inkling-tutorial/tutorial_general_200.png
-[201]: ./media/inkling-tutorial/tutorial_general_201.png
-[202]: ./media/inkling-tutorial/tutorial_general_202.png
-[203]: ./media/inkling-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

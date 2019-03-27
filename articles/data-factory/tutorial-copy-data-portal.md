@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233856"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539863"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados SQL. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -53,7 +53,7 @@ Agora, prepare seu armazenamento de blobs e o banco de dados SQL para o tutorial
     Jane,Doe
     ```
 
-1. Crie um contêiner chamado **adftutorial** no seu Armazenamento de blobs. Crie uma pasta chamada **input** nesse contêiner. Em seguida, carregue o arquivo **emp.txt** na pasta **input**. Use as ferramentas ou o portal do Azure, como [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para realizar essas tarefas.
+1. Crie um contêiner chamado **adftutorial** no seu Armazenamento de blobs. Crie uma pasta chamada **input** nesse contêiner. Em seguida, carregue o arquivo **emp.txt** na pasta **input**. Use as ferramentas ou o portal do Azure, como [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para realizar essas tarefas.
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela do SQL de coletor
 
@@ -176,7 +176,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 1. Alterne para a guia **Coletor** e selecione **+ Novo** para criar um conjunto de dados do coletor. 
 
     ![Conjunto de dados do coletor](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. Na janela **Novo conjunto de dados**, digite “SQL” na caixa de pesquisa para filtrar os conectores, em seguida, selecione **Banco de Dados SQL do Azure**e selecione **Concluir**. Neste tutorial, você copia dados para um banco de dados SQL. 
+1. Na janela **Novo conjunto de dados**, digite "SQL" na caixa de pesquisa para filtrar os conectores e, em seguida, selecione **Banco de Dados SQL do Azure** e selecione **Concluir**. Neste tutorial, você copia dados para um banco de dados SQL. 
 
     ![Seleção de banco de dados SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. Na guia **Geral** da janela **Propriedades**, defina o **Nome** como **OutputSqlDataset**. 
@@ -232,7 +232,7 @@ Você pode depurar um pipeline antes de publicar os artefatos (serviços vincula
 
 1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Você verá o status da execução do pipeline na guia **Saída** na parte inferior da janela. 
 
-1. Depois que o pipeline for executado corretamente, na barra de ferramentas superior, selecione **Publicar tudo**. Esta ação publica as entidades (conjuntos de dados e pipelines) criadas por você anteriormente no Data Factory.
+1. Depois que o pipeline for executado corretamente, na barra de ferramentas superior, selecione **Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipelines) criadas por você anteriormente no Data Factory.
 
     ![Publicar](./media/tutorial-copy-data-portal/publish-button.png)
 

@@ -5,25 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003182"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
-O gerenciamento de custos é o processo no qual você efetivamente planeja e controla os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. O Gerenciamento de Custos do Azure ajuda as organizações a planejar priorizando o custo. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar os gastos na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](cost-mgt-best-practices.md).
+O gerenciamento de custos é o processo de efetivamente planejar e controlar os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. O Gerenciamento de Custos do Azure ajuda as organizações a planejar priorizando o custo. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar o gasto na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](cost-mgt-best-practices.md).
 
 Embora relacionado, o faturamento difere do gerenciamento de custos. O faturamento é o processo de faturar os clientes por bens ou serviços e gerenciar o relacionamento comercial.  As equipes de suprimento e finanças geralmente realizam tarefas de faturamento.
 
-O gerenciamento de custos mostra os padrões de custo e uso da organização com análises avançadas. Os relatórios no Gerenciamento de Custos mostram o custo, o uso, a instância reservada e o uso do Benefício Híbrido do Azure do Azure. Coletivamente, os relatórios mostram seus custos internos e externos de uso e os encargos do Microsoft Azure Marketplace. Outros encargos, como compras de reserva, suporte e impostos ainda não são mostrados nos relatórios. Os relatórios ajudam você a entender seus gastos e uso de recursos e podem ajudar a encontrar anomalias de gastos. A análise preditiva também está disponível. O Gerenciamento de Custos usa grupos de gerenciamento, orçamentos e recomendações do Azure para mostrar claramente como suas despesas são organizadas e como você pode reduzir custos.
+O gerenciamento de custos mostra os padrões de custo e uso da organização com análises avançadas. Os relatórios no Gerenciamento de Custos mostram os custos baseados em uso consumidos pelos serviços do Azure e de ofertas do Marketplace de terceiros. Os custos são baseados nos fatores e preços negociados na reserva e nos descontos do Benefício Híbrido do Azure. Coletivamente, os relatórios mostram seus custos internos e externos de uso e os encargos do Microsoft Azure Marketplace. Outros encargos, como compras de reserva, suporte e impostos ainda não são mostrados nos relatórios. Os relatórios ajudam você a entender seus gastos e uso de recursos e podem ajudar a encontrar anomalias de gastos. A análise preditiva também está disponível. O Gerenciamento de Custos usa grupos de gerenciamento, orçamentos e recomendações do Azure para mostrar claramente como suas despesas são organizadas e como você pode reduzir custos.
 
 Você pode usar o portal do Azure ou várias APIs para automação de exportação para integrar dados de custo com sistemas e processos externos. A exportação automática de dados de faturamento e relatórios agendados também estão disponíveis.
 
@@ -41,7 +41,7 @@ Se você usar sistemas externos para acessar ou revisar dados de gerenciamento d
 
 ## <a name="consider-cloudyn"></a>Considere o Cloudyn
 
-[Cloudyn](overview.md) é um serviço do Azure relacionado ao Gerenciamento de Custos. Com o Cloudyn, você pode rastrear o uso e os gastos da nuvem para os recursos do Azure. Ele também suporta outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. Atualmente, o Gerenciamento de Custos não suporta showback / chargeback ou outros provedores de serviços de nuvem. No entanto, o Cloudyn é uma opção que _dá_ suporte a eles. Atualmente, o Gerenciamento de Custos suporta apenas as contas do EA do Azure. Embora não ofereça suporte a contas individuais ou Pay-As-You-Go ou contas do Microsoft Cloud Service Provider, a Cloudyn faz isso. Se você tiver uma dessas contas, poderá usar o Cloudyn para ajudar a gerenciar seus custos.
+[Cloudyn](overview.md) é um serviço do Azure relacionado ao Gerenciamento de Custos. Com o Cloudyn, você pode rastrear o uso e os gastos da nuvem para os recursos do Azure. Ele também suporta outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. Atualmente, o Gerenciamento de Custos não suporta showback / chargeback ou outros provedores de serviços de nuvem. No entanto, o Cloudyn é uma opção que _dá_ suporte a eles. No momento, o Gerenciamento de Custos não dá suporte a contas CSP (provedor de serviços de nuvem) da Microsoft, mas o Cloudyn, sim. Se você tiver contas CSP ou se desejar usar análise/estorno, será possível usar o Cloudyn para ajudar a gerenciar os custos.
 
 ## <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 

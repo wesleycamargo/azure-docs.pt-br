@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6cb9de466410ee2f8bf311183f389c5c86148a8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b6d948542cfac8624d70dd37d37fa967f72f22bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o Confluence da resolution GmbH
 
@@ -204,7 +204,7 @@ Para configurar o logon único do Azure AD com o SSO do SAML para o Confluence d
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. No diálogo que mostra **Ignorar o teste significa...**, clique em **OK**.
+17. Na caixa de diálogo que aparece com a mensagem **Ignorar o teste significa...**, clique em **OK**.
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -226,7 +226,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

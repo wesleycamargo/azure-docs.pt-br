@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873434"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888699"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Azure Active Directory ao Brightidea
 
@@ -163,18 +163,18 @@ Para configurar o logon único do Azure AD com o Brightidea, execute as seguinte
     
     ![Configuração do Brightidea](./media/brightidea-tutorial/configure4.png)
     
-     * Insira o **Nome do Perfil SAML**, por exemplo, `Azure Ad SSO`
+   * Insira o **Nome do Perfil SAML**, por exemplo, `Azure Ad SSO`
     
-     * Para **Carregar Metadados**, clique para escolher o arquivo e carregue o arquivo de metadados baixado do portal do Azure.
+   * Para **Carregar Metadados**, clique para escolher o arquivo e carregue o arquivo de metadados baixado do portal do Azure.
 
      > [!NOTE]
      > Depois de carregar o arquivo de metadados, os campos restantes **Serviço de Logon Único, Emissor de Provedor de Identidade e Carregar Chave Pública** serão preenchidos automaticamente.
 
-     * Na caixa de texto **Email**, insira os valores como `mail`.
+   * Na caixa de texto **Email**, insira os valores como `mail`.
      
-     * Na caixa de texto **Nome da Tela**, insira os valores como `givenName`.
+   * Na caixa de texto **Nome da Tela**, insira os valores como `givenName`.
      
-     * Clique em **Salvar Alterações**.  
+   * Clique em **Salvar Alterações**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -194,7 +194,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

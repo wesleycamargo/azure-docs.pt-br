@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880021"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Android com as Âncoras Espaciais do Azure
 
@@ -33,6 +33,8 @@ Você aprenderá a:
 Para concluir este início rápido, certifique-se de que:
 
 - Um computador Windows ou macOS com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+  - Se estiver executando no Windows, você também precisará do <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+  - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Digite o comando a seguir em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
   - Para compilar o exemplo NDK, você também precisará instalar o NDK e o CMake 3.6 SDK Tools no Android Studio.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
 - Seu aplicativo deve ter como destino 1.5 ARCore (suporte para ARCore 1.6+ estará disponível em breve)
@@ -59,7 +61,7 @@ Selecione **Abrir um projeto existente do Android Studio** e selecione o projeto
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar a chave e o identificador da conta
 
-A próxima etapa é usar o identificador de conta e a chave de conta registrados anteriormente ao configurar o recurso Âncoras Espaciais para configurar o aplicativo.
+A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 

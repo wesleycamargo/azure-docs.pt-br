@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Hub IoT do Azure | Microsoft Docs
-description: Saiba mais sobre o Hub IoT do Azure. Esse serviço IoT é construído para a ingestão de dados escalonável, gerenciamento de dispositivo e segurança.
+description: Saiba mais sobre o Hub IoT do Azure. Esse serviço IoT é construído para ingestão de dados escalonável, gerenciamento de dispositivo e segurança.
 author: nberdy
 ms.author: nberdy
 ms.date: 07/04/2018
@@ -9,20 +9,20 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343620"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726730"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o Hub IoT do Azure?
 
-O Hub IoT é um serviço gerenciado e hospedado na nuvem que atua como um hub central de mensagem para a comunicação bidirecional entre o aplicativo de IoT e os dispositivos que ele gerencia. Você pode usar o Hub IoT do Azure para criar soluções de IoT com comunicação segura e confiável entre milhões de dispositivos de IoT e um back-end de solução de nuvem hospedado. Você pode se conectar praticamente qualquer dispositivo ao Hub IoT.
+O Hub IoT é um serviço gerenciado e hospedado na nuvem que atua como um hub central de mensagem para a comunicação bidirecional entre o aplicativo de IoT e os dispositivos que ele gerencia. Você pode usar o Hub IoT do Azure para criar soluções de IoT com comunicação segura e confiável entre milhões de dispositivos de IoT e um back-end de solução de nuvem hospedado. Você pode conectar praticamente qualquer dispositivo ao Hub IoT.
 
-O Hub IoT dá suporte a comunicações do dispositivo para a nuvem e da nuvem para o dispositivo. O Hub IoT dá suporte a vários padrões de mensagens, como telemetria do dispositivo para nuvem, o carregamento de arquivo de dispositivos e métodos de solicitação-resposta para controlar os dispositivos pela nuvem. O monitoramento do Hub IoT ajuda a manter a integridade de sua solução pelo rastreamento de eventos, como criação de dispositivo, falhas do dispositivo e conexões de dispositivo.
+O Hub IoT dá suporte a comunicações do dispositivo para a nuvem e da nuvem para o dispositivo. O Hub IoT dá suporte a vários padrões de mensagens, como telemetria do dispositivo para nuvem, carregamento de arquivo a partir de dispositivos e métodos de solicitação-resposta para controlar os dispositivos pela nuvem. O monitoramento do Hub IoT ajuda a manter a integridade de sua solução pelo rastreamento de eventos, como criação de dispositivo, falhas do dispositivo e conexões de dispositivo.
 
-Os recursos do Hub IoT ajudarão a criar soluções de IoT escalonáveis e completas, como o gerenciamento de equipamentos industriais usados na produção, no controle de ativos valiosos na área de saúde e monitoramento de uso de prédios.
+Os recursos do Hub IoT ajudam a criar soluções de IoT escalonáveis e completas, como o gerenciamento de equipamentos industriais usados na produção, o controle de ativos valiosos na área de saúde e o monitoramento de edifícios comerciais.
 
 ## <a name="scale-your-solution"></a>Escalar sua solução
 
@@ -110,7 +110,7 @@ Se sua solução não puder usar um dos protocolos com suporte, você poderá es
 
 ## <a name="quotas-and-limits"></a>Cotas e limites
 
-Cada assinatura do Azure tem limites de cota em vigor para impedir o abuso do serviço e esses limites podem afetar o escopo de sua solução de IoT. O limite atual por assinatura é de 10 hubs IoT por assinatura. Você pode solicitar um aumento de cota contatando o suporte. Para obter mais detalhes sobre os limites de cota:
+Cada assinatura do Azure tem limites de cota em vigor para impedir o abuso do serviço e esses limites podem afetar o escopo de sua solução de IoT. O limite atual por assinatura é de 50 hubs IoT por assinatura. Você pode solicitar um aumento de cota contatando o suporte. Para obter mais detalhes sobre os limites de cota:
 
 * [Limites de serviço da assinatura do Azure](../azure-subscription-service-limits.md)
 
@@ -120,4 +120,4 @@ Cada assinatura do Azure tem limites de cota em vigor para impedir o abuso do se
 
 Para testar uma solução de IoT de ponta a ponta, confira o início rápido do Hub IoT:
 
-* [Início Rápido: enviar telemetria de um dispositivo para um hub de IoT](quickstart-send-telemetry-node.md)
+* [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-node.md)

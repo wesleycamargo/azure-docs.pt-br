@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: v-jaswel
-ms.openlocfilehash: 47115159501195209257e4657f09ae1f93039c5e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869901"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010371"
 ---
-# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Tutorial: Criar um cliente de Sugestão Automática de página da Web
+# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa em uma página da Web
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Sugestão Automática do Bing.
 

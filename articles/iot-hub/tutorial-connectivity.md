@@ -2,19 +2,19 @@
 title: Verificar conectividade de dispositivo com Hub IoT
 description: Use ferramentas do Hub IoT para solucionar problemas de conectividade do dispositivo durante o desenvolvimento no Hub IoT.
 services: iot-hub
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077557"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o hub IoT
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Anote o texto completo do token SAS gerado. Um token SAS é semelhante ao seguinte: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests**.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
 
@@ -176,7 +176,7 @@ Primeiro, recupere a cadeia de conexão atual para o dispositivo simulado usando
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Para executar um dispositivo simulado que envia mensagens, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device** no código que você baixou.
+Para executar um dispositivo simulado que envia mensagens, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests** no código que você baixou.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
 

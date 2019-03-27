@@ -1,6 +1,6 @@
 ---
-title: Início Rápido – Executar um aplicativo nas Instâncias de Contêiner do Azure – Portal
-description: Neste início rápido, você usará o portal do Azure para implantar um aplicativo de contêiner do Docker para execução em um contêiner isolado nas Instâncias de Contêiner do Azure
+title: Início Rápido – implantar um contêiner do Docker em Instâncias de Contêiner do Azure – portal
+description: Neste início rápido, você usa o portal do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566066"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729150"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Início Rápido: Executar um aplicativo de contêiner nas Instâncias de Contêiner do Azure no portal do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
 
-Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Após definir algumas configurações e implantar o contêiner, você poderá navegar até o aplicativo em execução:
+Use as Instâncias de Contêiner do Azure para executar contêineres do Docker sem servidor no Azure de maneira simples e rápida. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisa de uma plataforma de orquestração de contêiner completa como o Serviço de Kubernetes do Azure.
+
+Neste início rápido, você usará o portal do Azure para implantar um contêiner do Docker isolado e disponibilizar o respectivo aplicativo com um FQDN (nome de domínio totalmente qualificado). Após definir algumas configurações e implantar o contêiner, você poderá navegar até o aplicativo em execução:
 
 ![Aplicativos implantados nas Instâncias de Contêiner do Azure exibidos no navegador][aci-portal-07]
 
@@ -41,9 +43,9 @@ Insira os seguintes valores nas caixas de texto **Nome do contêiner**, **Imagem
 
 ![Configurando as definições básicas para uma nova instância de contêiner no Portal do Azure][aci-portal-03]
 
-Para este início rápido, deixe a configuração padrão **Público** para implantar a imagem `microsoft/aci-helloworld` do Registro do Hub do Docker público. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
+Para este início rápido, deixe a configuração padrão **Público** para implantar a imagem `microsoft/aci-helloworld` pública. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
 
-Em **Configuração**, especifique um **rótulo do nome DNS** para seu contêiner. O nome  deve ser exclusivo dentro da região do Azure em que você criar a instância do contêiner. Seu contêiner estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`.
+Em **Configuração**, especifique um **rótulo do nome DNS** para seu contêiner. O nome precisa ser exclusivo dentro da região do Azure em que você cria a instância de contêiner. Seu contêiner estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
 Deixe as outras configurações em **Configuração** com seus padrões e selecione **OK** para validar a configuração.
 

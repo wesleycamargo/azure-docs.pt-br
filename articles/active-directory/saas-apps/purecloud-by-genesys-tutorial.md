@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c9b2770f861098993623d69f6b9f6a1577c9cf27
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integração do Azure Active Directory ao PureCloud by Genesys
 
@@ -105,6 +105,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
     ![Informações de logon único de Domínio e URLs do PureCloud by Genesys](common/idp-intiated.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL de acordo com sua região:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
     | `https://login.mypurecloud.au/saml` |
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL de acordo com sua região:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
     ![Informações de logon único de Domínio e URLs do PureCloud by Genesys](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL de acordo com sua região:
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -220,7 +223,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -275,7 +278,7 @@ Para permitir que os usuários do Azure AD façam logon no PureCloud by Genesys,
 
      a. Na caixa de texto **Nome Completo**, insira o nome do usuário como **Brendafernandes**.
 
-    b. Na caixa de texto **E-mail**, insira o e-mail do usuário como**brittasimon@contoso.com**.
+    b. Na caixa de texto **Email**, insira o email do usuário como **brendafernandes\@contoso.com**.
     
     c. Clique em **Criar**.
 

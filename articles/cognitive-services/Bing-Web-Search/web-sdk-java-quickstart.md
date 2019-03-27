@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Java'
+title: 'Início rápido: Usar o SDK de Pesquisa na Web do Bing para Java'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Java. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863773"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Java
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início rápido: Usar o SDK de Pesquisa na Web do Bing para Java
 
 O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Java. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -28,15 +28,16 @@ Deseja ver o código agora mesmo? Os [exemplos de SDK de Pesquisa na Web do Bing
 Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * [JDK 7 ou 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) ou sua ferramenta de automação de build favorita
 * Uma chave de assinatura
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>Criar um projeto e configurar seu arquivo POM
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Crie um projeto e configure seu arquivo POM
 
-Crie um novo projeto Java usando Maven ou sua ferramenta de automação de build favorita. Supondo que você esteja usando Maven, adicione as seguintes linhas ao seu arquivo POM. Substitua todas as instâncias de `mainClass` com seu aplicativo.
+Crie um novo projeto Java usando Maven ou sua ferramenta de automação de build favorita. Supondo que você esteja usando Maven, adicione as seguintes linhas ao seu arquivo [POM (Modelo de objeto de projeto)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html). Substitua todas as instâncias de `mainClass` com seu aplicativo.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ Em seguida, vamos adicionar algum código para analisar a resposta e imprimir os
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

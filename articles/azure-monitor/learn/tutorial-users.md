@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f5d75e817da843e0b6a8e86fb055cc723e45a2bb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108888"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449590"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usar o Azure Application Insights para entender como os clientes estão usando o seu aplicativo
 
@@ -86,7 +86,7 @@ O painel **Sessões** é semelhante ao painel **Usuários**.  O item **Usuários
     ![Linha do tempo de sessões](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Agrupe usuários semelhantes
-Um **Coorte** é um conjunto de usuários agrupados conforme características semelhantes.  Você pode usar coortes para filtrar os dados em outros painéis, permitindo que você analise grupos específicos de usuários.  Por exemplo, você talvez queira analisar apenas os usuários que concluíram uma compra.
+Uma **Coorte** é um conjunto de usuários agrupados conforme características semelhantes.  Você pode usar coortes para filtrar os dados em outros painéis, permitindo que você analise grupos específicos de usuários.  Por exemplo, você talvez queira analisar apenas os usuários que concluíram uma compra.
 
 1.  Selecione **Coortes** no menu.
 2.  Clique em **Novo** para criar um novo coorte.

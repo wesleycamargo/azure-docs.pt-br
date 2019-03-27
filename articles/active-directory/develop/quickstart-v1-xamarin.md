@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196188"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078696"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início Rápido: Criar um aplicativo Xamarin que integra a entrada com a conta da Microsoft
 
@@ -59,11 +59,12 @@ Para habilitar o aplicativo para obter tokens, primeiro será necessário regist
 3. Clique em **Todos os serviços** no painel esquerdo e, em seguida, selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Para criar um novo **Aplicativo Cliente Nativo**, siga os prompts.
-  * **Nome** descreve o aplicativo para os usuários.
-  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usará para retornar respostas de tokens. Insira um valor (por exemplo, http://DirectorySearcher).
+   * **Nome** descreve o aplicativo para os usuários.
+   * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usará para retornar respostas de tokens. Insira um valor (por exemplo, `http://DirectorySearcher`).
 6. Depois que você concluir o registro, o Azure AD atribuirá uma ID do aplicativo exclusiva ao aplicativo. Copie o valor da guia **Aplicativo**, pois você precisará dele mais tarde.
 7. Na página **Configurações**, selecione **Permissões necessárias** e escolha **Adicionar**.
-8. Selecione **Microsoft Graph** como a API. Em **permissões delegadas**, adicione o **ler dados do diretório** permissão. Essa ação permite que o aplicativo consulte a API do Graph para usuários.
+8. Selecione **Microsoft Graph** como a API. Em **permissões delegadas**, adicione o **ler dados do diretório** permissão. 
+   Essa ação permite que o aplicativo consulte a API do Graph para usuários.
 
 ## <a name="step-3-install-and-configure-adal"></a>Etapa 3: Instalar e configurar a ADAL
 
@@ -95,9 +96,9 @@ Agora que você tem um aplicativo no Azure AD, você pode instalar a ADAL e escr
 2. No projeto DirectorySearcherLib, abra DirectorySearcher.cs.
 3. Substitua os valores de membro de classe pelos valores que você inseriu no portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
 
-  * O *tenant* é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
-  * A *clientId* é a ID do cliente do aplicativo, que você copiou do portal.
-  * O *returnUri* é o URI de redirecionamento que você inseriu no portal (por exemplo, http://DirectorySearcher).
+   * O *tenant* é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
+   * A *clientId* é a ID do cliente do aplicativo, que você copiou do portal.
+   * O *returnUri* é o URI de redirecionamento que você inseriu no portal (por exemplo, `http://DirectorySearcher`).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 4: Usar a ADAL para obter tokens do Azure AD
 

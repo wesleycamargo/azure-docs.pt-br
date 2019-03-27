@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156164"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404885"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 
@@ -80,11 +80,25 @@ Execute as etapas a seguir no [portal do Azure](https://aka.ms/azuredataboxfromd
     |NOME|Forneça um nome amigável para acompanhar o pedido.<br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número. |
     |Grupo de recursos| Use um grupo existente ou crie um novo. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos. |
     |Região do Azure de destino| Selecione uma região para sua conta de armazenamento.<br> Atualmente, há suporte para contas de armazenamento em todas as regiões nos EUA, na Europa Setentrional e na Europa Ocidental, no Canadá e na Austrália. |
-    |Conta(s) de armazenamento|Com base na região especificada do Azure, selecione uma conta de armazenamento existente na lista filtrada. <br>Você também pode criar uma nova conta de Uso geral v1 ou v2. |
     |Tamanho estimado de dados em TB| Insira uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número apropriado de SSDs de 8 TB (7 TB de capacidade utilizável). <br>A capacidade máxima de uso de 5 discos é de 35 TB. |
     |Chave de acesso do disco| Forneça a chave de acesso do disco se você marcar **Usar chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave de 12 a 32 caracteres alfanuméricos que tenha pelo menos um caractere numérico e um caractere especial. Os caracteres especiais permitidos são `@?_+`. <br> Você pode optar por ignorar essa opção e usar a chave de acesso gerada pelo Azure para desbloquear os discos.|
+    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Não é possível usar contas de armazenamento que tenham regras configuradas. As contas de armazenamento precisam **permitir o acesso em todas as redes** na seção de firewalls e redes virtuais.|
 
-13. Clique em **Próximo**. 
+    Se usar a conta de armazenamento como o destino de armazenamento, você verá a seguinte captura de tela:
+
+    ![Ordem do Data Box Disk para a conta de armazenamento](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Se usar o Data Box Disk para criar discos gerenciados dos VHDs locais, você também precisará fornecer as seguintes informações:
+
+    |Configuração  |Valor  |
+    |---------|---------|
+    |Grupo de recursos     | Se você pretende criar discos gerenciados de VHDs locais, crie um novo grupo de recursos. Use um grupo de recursos existente apenas se ele tiver sido criado para ordem do Data Box Disk para disco gerenciado pelo serviço Data Box. <br> Há suporte para apenas um grupo de recursos.|
+
+    ![Ordem do Data Box Disk para o disco gerenciado](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    A conta de armazenamento especificada para os discos gerenciados é usada como uma conta de armazenamento de preparo. O serviço do Data Box faz upload dos VHDs na conta de armazenamento de preparo e, em seguida, os converte em discos gerenciados e os move para o grupo de recursos. Para obter mais informações, confira [Verificar o upload de dados para o Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Clique em **Próximo**.
 
     ![Fornecer detalhes do pedido](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Execute as etapas a seguir no [portal do Azure](https://aka.ms/azuredataboxfromd
  
 ## <a name="track-the-order"></a>Acompanhar o pedido
 
-Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do Azure. Vá até seu pedido e depois até **Visão geral** para exibir o status. O portal mostra o trabalho sob o estado **Pedido**. 
+Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do Azure. Vá até seu pedido e depois até **Visão geral** para exibir o status. O portal mostra o trabalho sob o estado **Pedido**.
 
 ![Data Box Disk com o status de pedido](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ A Microsoft preparará e enviará seus discos por meio de uma operadora regional
 
 ## <a name="cancel-the-order"></a>Cancelar o pedido
 
-Para cancelar esse pedido, no portal do Azure, vá para **Visão geral** e clique em **Cancelar** na barra de comandos. 
+Para cancelar esse pedido, no portal do Azure, vá para **Visão geral** e clique em **Cancelar** na barra de comandos.
 
-Só é possível fazer o cancelamento quando os discos forem solicitados e o pedido estiver sendo processado para remessa. Depois que o pedido for processado, não é mais possível cancelá-lo. 
+Só é possível fazer o cancelamento quando os discos forem solicitados e o pedido estiver sendo processado para remessa. Depois que o pedido for processado, não é mais possível cancelá-lo.
 
 ![Cancelar o pedido](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Avance para o próximo tutorial para saber como proteger seu Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Configure seu Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
-
-

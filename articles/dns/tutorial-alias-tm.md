@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530953"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio apex com o Gerenciador de Tráfego 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego 
 
 Você pode criar um registro de alias para o apex do nome de domínio fazer referência a um perfil do Gerenciador de Tráfego. Um exemplo é contoso.com. Em vez de usar um serviço de redirecionamento, configure o DNS do Azure para fazer referência a um perfil do Gerenciador de Tráfego diretamente da sua zona. 
 
@@ -33,13 +33,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
-Para obter instruções sobre como hospedar seu domínio no DNS do Azure, confira [Tutorial: Hospedar seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções sobre como hospedar seu domínio no DNS do Azure, consulte o Tutorial [: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 O domínio de exemplo usado neste tutorial é contoso.com, mas use seu próprio nome de domínio.
 
 ## <a name="create-the-network-infrastructure"></a>Criar a infraestrutura de rede
 Primeiro, crie uma rede virtual e uma sub-rede para abrigar seus servidores Web.
-1. Entre no Portal do Azure em http://portal.azure.com.
+1. Entre no Portal do Azure em https://portal.azure.com.
 2. No canto superior esquerdo do portal, escolha **Criar um recurso**. Insira *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-TM**.
 3. Clique em **Criar um recurso** > **Rede** > **Rede virtual**.
 4. Crie uma rede virtual chamada **VNet-Servers**. Coloque-a no grupo de recursos **RG-DNS-Alias-TM** e nomeie a sub-rede **SN-Web**.

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Azure Active Directory com o ClickTime
 
@@ -108,6 +108,7 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
      a. Na caixa de texto **Identificador**, digite uma URL: `https://app.clicktime.com/sp/`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -222,7 +223,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
    
      a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
   
-    b.  Na caixa de texto **endereço de email**, digite o endereço de email do usuário, por exemplo, **brittasimon@contoso.com**.
+    b.  Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
        
     > [!NOTE]
     > Se quiser, defina propriedades adicionais do novo objeto pessoa.

@@ -1,7 +1,7 @@
 ---
-title: O que é Projeto Acústico?
+title: Visão geral do Projeto Acústico
 titlesuffix: Azure Cognitive Services
-description: O plug-in Project Acoustics do Unity fornece oclusão, reverberação e espacialização para projetos de VR e telas tradicionais.
+description: O Projeto Acústico é um mecanismo acústico para experiências interativas 3D, integrando simulação de ondas preparadas com controles de design interativo.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,56 +10,48 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136593"
 ---
 # <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
-O plug-in Project Acoustics do Unity fornece oclusão, reverberação e espacialização para projetos de VR e telas tradicionais. Ele fornece uma maneira para criar acústica nos jogos que sobrepõe-se às intenções do designer em relação a uma simulação física de onda.
+Projeto Acústico é um mecanismo de acústica de onda para experiências interativas 3D. Ele modela os efeitos de onda como difração, portaling e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona. Também inclui o mecanismo de jogo e a integração de áudio de middleware. A filosofia do Projeto Acústico é semelhante à iluminação estática: preparar a física detalhada offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.
 
-## <a name="why-use-acoustics-in-virtual-environments"></a>Por que usar acústica em ambientes virtuais?
-Os seres humanos usam indicações audiovisuais para entender o mundo ao redor deles. Em mundos virtuais, combinar áudio espacial com acústica aumenta a imersão do usuário. A ferramenta acústica descrita aqui analisa mundos virtuais para criar uma simulação realista de acústica e dá suporte a um processo de design pós-simulação. A análise inclui a geometria e os materiais para cada superfície no mundo. A simulação inclui parâmetros, como a direção de chegada (portaling), intensidade da reverberação, tempos de declínio e efeitos de oclusão e obstrução.
+![Modo de exibição de Design](media/gears-with-voxels.jpg)
 
-## <a name="how-does-this-approach-to-acoustics-work"></a>Como essa abordagem para acústica funciona?
-O sistema se baseia em uma computação offline do mundo virtual, que permite uma simulação mais complexa que se a análise fosse feita em tempo de execução. A computação offline produz uma tabela de pesquisa de acústicos parâmetros. Um designer especifica as regras aplicadas aos parâmetros em tempo de execução. Ajustar essas regras pode resultar em efeitos hiper-realistas para alta intensidade emocional ou cenas hipo-realista para obter mais sons de áudio em segundo plano.
+## <a name="using-wave-physics-for-interactive-acoustics"></a>Usando física de onda para acústica interativa
+Métodos com base em raio acústico podem verificar se houver oclusão usando uma conversão de raio fonte-ouvinte ou reverberação de unidade estimando o volume da cena local com alguns raios. Mas, essas técnicas podem não ser confiáveis porque uma pedra oclui tanto quanto um pedregulho. Os raios não contam pela forma como o som se inclina em torno dos objetos, um fenômeno conhecido como difração. A simulação do Projeto Acústico captura esses efeitos usando uma simulação baseada em onda. O resultado é mais previsível e confiável.
 
-## <a name="design-process-comparison"></a>Comparação do processo de design
-O plug-in Project Acoustics dá suporte a um novo processo de design para acústica em cenas de Unity. Para explicar esse novo processo de design, vamos compará-lo a uma das abordagens atuais populares para acústica.
+A inovação de chave do Projeto Acústico é acoplar simulação acústica com conceitos de design de som tradicionais. Ele converte os resultados da simulação em parâmetros DSP de áudio tradicional para oclusão, portaling e reverberação. O designer usa controles sobre esse processo de translação. Para obter mais detalhes sobre as principais tecnologias por trás do Projeto Acústico, visite a [página de pesquisa do projeto](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-### <a name="typical-approach-to-acoustics-today"></a>Abordagem típica para acústica hoje
-Em uma abordagem típica para acústica de hoje em dia, você desenha volumes de reverberação:
+![Modo de exibição de Design](media/wave-simulation.gif)
 
-![Modo de exibição de Design](media/reverbZonesAltSPace2.png)
+## <a name="setup"></a>Configuração
+A [Integração do Unity do Projeto Acústico](unity-integration.md) é do tipo arrastar e soltar e inclui um plugin de mecanismo de áudio do Unity. Aumente os controles de fonte de áudio do Unity, anexando um componente dos controles C# do Projeto Acústico a cada objeto de áudio.
 
-Em seguida, ajusta os parâmetros para cada zona:
+A [Integração do Unreal do Projeto Acústico](unreal-integration.md) inclui plugins de editor e de jogo para o Unreal e um plugin de mixer Wwise. Um componente de áudio personalizado estende funcionalidade familiar do Wwise dentro do Unreal com controles de design de acústica em tempo real. Os controles de design também são expostos no Wwise no plugin do mixer.
 
-![Modo de exibição de Design](media/TooManyReverbParameters.png)
+## <a name="workflow"></a>Fluxo de trabalho
+* **Pré-bake:** Comece configurando o bake selecionando qual geometria responde à acústica, por exemplo, ignorando os faróis de luz. Em seguida, edite as atribuições de material automáticas e selecione as áreas de navegação para guiar a amostragem do ouvinte. Não há nenhuma marcação manual para zonas de reverberação/portal/sala.
+* **Bake:** Uma etapa de análise é executada localmente, o que faz voxelização e outras análises geométricas na cena com base nas seleções acima. Os resultados são visualizados no editor para verificar a configuração da cena. No envio de bake, os dados de voxel são enviados para o Azure e você obtém de volta no ativo do jogo de acústica.
+* **Tempo de execução:** Carregue o ativo em seu nível e você estará pronto para ouvir a acústica em seu nível. Projete a acústica em tempo real no editor usando os controles do código-fonte granulares. Os controles também podem ser obtidos a partir do nível de script.
 
-Por fim, adiciona lógica de ray tracing para obter a filtragem correta de oclusão e obstrução ao longo da cena e lógica de pesquisa do caminho para portaling. Esse código pode resultar em um custo adicional de tempo de execução. Ele também apresenta problemas com suavidade em cantos e possui casos de bordas em cenas com formas irregulares.
-
-### <a name="an-alternative-approach-with-physics-based-design"></a>Uma abordagem alternativa com design baseado em física
-Com a abordagem fornecida pelo plug-in Project Acoustics do Unity, você pode fornecer materiais e forma para uma cena estática. Como a cena possui voxels e o processo não usa o ray tracing, você não precisa fornecer uma malha acústica simplificada ou precisa. Também não é necessário marcar a cena com volumes de reverberação. O plug-in carrega a cena para a nuvem, onde é usada a simulação física de onda. O resultado é integrado ao seu projeto como uma tabela de pesquisa e pode ser modificado para efeitos de estética ou jogabilidade.
-
-![Modo de exibição de Design](media/GearsWithVoxels.jpg)
-
-## <a name="requirements"></a>Requisitos
-* Unity 2018.2+ para preparação acústica e Unity 5.2+ para implantação e design de som
-* Editor de Unity de 64 bits do Windows
-* Assinatura do Lote do Azure para preparação acústica
-* O tempo de execução de script do Unity deve ser definido como “equivalente ao .NET 4.x”
-
-## <a name="platform-support"></a>Suporte à plataforma
-* Área de trabalho do Windows (x86 e AMD64)
-* UWP do Windows (x86, AMD64 e ARM)
-* Android (x86 e ARM64)
+## <a name="platforms"></a>Plataformas
+Os plug-ins do tempo de execução do Projeto Acústico podem atualmente ser implantados nas seguintes plataformas:
+*  Windows
+* Android
+* Xbox One
 
 ## <a name="download"></a>Baixar
-Se você estiver interessado em avaliar o plug-in de acústica, registre-se [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para participar da Visualização do Designer.
+* [Plugins e amostras do Projeto Acústico](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+  * Para suporte e binários do Xbox, entre em contato conosco por meio do formulário de Inscrição abaixo
+* [Fóruns do Projeto Acústico](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Inscreva-se para receber atualizações sobre o Projeto Acústico](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [processo de design](design-process.md)
-* Introdução ao [integrando acústica em seu projeto do Unity](getting-started.md)
+* Tente um [Início Rápido do Projeto Acústico para o Unit](unity-quickstart.md) ou para o [Unreal](unreal-quickstart.md)
+* Explore a [filosofia de design de som do Projeto Acústico](design-process.md)
 

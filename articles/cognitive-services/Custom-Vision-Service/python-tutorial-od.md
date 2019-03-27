@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python'
+title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, faça upload de imagens, treine seu projeto e detecte objetos usando o SDK do Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 691e95c666edf290dcfd79a6007e7b29d168a605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881185"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727018"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Python de Visão Personalizada
 
@@ -70,7 +70,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Criar marcas no projeto
 
-Para criar marcas de classificação para o projeto, adicione o seguinte código ao final de *sample.py*:
+Para criar marcas de objeto no projeto, adicione o código a seguir no final de *sample.py*:
 
 ```Python
 # Make two tags in the new project

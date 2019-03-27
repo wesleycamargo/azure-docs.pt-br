@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674473"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293627"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -34,7 +35,7 @@ Com o Azure AD B2B, o parceiro usa sua própria solução de gerenciamento de id
 - Não é necessário gerenciar contas ou senhas externas. 
 - Não é necessário sincronizar contas ou gerenciar ciclos de vida de contas.  
 
-![adicionar membro](media/what-is-b2b/add-member.png)
+![Captura de tela mostrando a página Adicionar membros](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Convidar usuários com um processo simples de convite e resgate
 Os usuários convidados entram nos aplicativos e serviços com as próprias identidades empresariais, estudantis ou sociais. Se o usuário convidado não tiver uma conta Microsoft ou do Azure AD, uma será criada no momento do resgate do convite. 
@@ -42,7 +43,7 @@ Os usuários convidados entram nos aplicativos e serviços com as próprias iden
 - Envie um link direto para um aplicativo ou um convite para o Painel de Acesso do usuário convidado. 
 - Os usuários convidados precisam seguir algumas etapas de resgate simples para entrar.
 
-![painel de acesso](media/what-is-b2b/consentscreen.png)
+![Captura de tela mostrando a página Analisar as permissões](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Usar políticas para compartilhar aplicativos e serviços com segurança
 É possível usar as políticas de autorização para proteger seu conteúdo corporativo. Políticas de acesso condicional, como autenticação multifator, podem ser aplicadas:
@@ -50,7 +51,7 @@ Os usuários convidados entram nos aplicativos e serviços com as próprias iden
 - No nível do aplicativo.
 - Para que usuários convidados específicos protejam dados e aplicativos corporativos.
 
-![adicionar usuários convidados](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Captura de tela mostrando a opção Acesso condicional](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Adicione usuários convidados no portal do Azure AD com facilidade
@@ -60,7 +61,7 @@ Como administrador, é possível adicionar facilmente usuários convidados à su
 - O usuário convidado imediatamente recebe um convite personalizável que permite entrar no Painel de Acesso dele.
 - Os usuários convidados no diretório podem ser atribuídos a aplicativos ou grupos.  
 
-![adicionar usuários convidados](media/what-is-b2b/adding-b2b-users-admin.png)
+![Captura de tela mostrando a página de entrada de convite Novo Usuário Convidado](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Permitir que o aplicativo e os proprietários de grupos gerenciem os próprios usuários convidados
 
@@ -68,7 +69,7 @@ Como administrador, é possível adicionar facilmente usuários convidados à su
  - Os administradores configuram o aplicativo de autoatendimento e o gerenciamento de grupos.
  - Os não administradores usam o [Painel de Acesso](https://myapps.microsoft.com) para adicionar usuários convidados a aplicativos ou grupos.
 
-![adicionar usuários convidados](media/what-is-b2b/access-panel-manage-app.png)
+![Captura de tela mostrando o painel de acesso para um usuário convidado](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Use as APIs e código de exemplo para facilmente criar aplicativos para integração
 
@@ -76,7 +77,7 @@ Integre seus parceiros externos de modo personalizado às necessidades de sua or
 - Use as [APIs de convite de colaboração B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), para personalizar suas experiências de integração, incluindo a criação de portais de inscrição de autoatendimento. 
 - Use o código de exemplo que fornecemos para um portal de autoatendimento [no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![portal de inscrição](media/what-is-b2b/sign-up-portal.png)
+![Captura de tela mostrando o portal de inscrição de exemplo](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

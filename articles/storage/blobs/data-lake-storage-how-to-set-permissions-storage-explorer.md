@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867045"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546295"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2
 
@@ -33,7 +33,7 @@ Para melhor descrevem o processo, solicitamos que você conclua nosso [Início r
 
 ## <a name="managing-access"></a>Gerenciando o acesso
 
-Você pode definir permissões na raiz do seu sistema de arquivos. Para fazer isso, clique com o botão direito do mouse no sistema de arquivos e selecione **Gerenciar Permissões** abrindo a caixa de diálogo **Gerenciar Permissão**.
+Você pode definir permissões na raiz do seu sistema de arquivos. Para fazer isso, você deve estar conectado ao Gerenciador de Armazenamento do Azure com sua conta individual com direitos para fazê-lo (se comparado com uma cadeia de caracteres de conexão). Clique com o botão direito do mouse no sistema de arquivos e selecione **Gerenciar Permissões** abrindo a caixa de diálogo **Gerenciar Permissão**.
 
 ![Gerenciador de Armazenamento do Microsoft Azure – gerenciar o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

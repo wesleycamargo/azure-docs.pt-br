@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863110"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo do Unity para Android com as Âncoras Espaciais do Azure
 
@@ -35,7 +35,9 @@ Você aprenderá a:
 
 Para concluir este início rápido, certifique-se de que:
 
-- Um computador Windows ou macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 ou posterior</a> e o <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 ou posterior</a> instalados.
+- Um computador Windows ou macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 ou posterior</a> e o <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 ou posterior</a>.
+  - Se estiver executando no Windows, você também precisará do <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+  - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Digite o comando a seguir em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ Salve a cena selecionando **Arquivo** -> **Salvar**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Selecione **Exportar** para abrir uma caixa de diálogo. Em seguida, selecione uma pasta para exportar o projeto do Android Studio.
-
-Quando a exportação for concluída, uma pasta será exibida contendo o projeto do Android Studio exportado, com uma subpasta chamada **HelloAR U3D**.
-
-## <a name="deploy-the-android-application"></a>Implantar o aplicativo do Android
-
-Abra o Android Studio e selecione **Abrir um projeto existente do Android Studio**. Em seguida, selecione a subpasta **HelloAR U3D** no projeto do Android Studio exportado e clique em **OK**.
-
-Após a abertura, será exibido um prompt perguntando se você deseja usar o wrapper Gradle. Selecione **OK** para usar o wrapper Gradle e abrir o projeto.
-
-Ligue o dispositivo Android, entre nele e conecte-o ao computador usando um cabo USB.
-
-Selecione **Executar** na barra de ferramentas do Android Studio.
-
-![Botão Implantar e Executar do Android Studio](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-Selecione o dispositivo Android na caixa de diálogo **Selecionar o Destino de Implantação** e selecione **OK** para executar o aplicativo no dispositivo Android.
+Verifique se a caixa de seleção **Exportar Projeto** não tem uma marca de seleção. Clique em **Compilar e Executar**. Você será solicitado a salvar seu arquivo `.apk`; você pode escolher qualquer nome para ele.
 
 Siga as instruções no aplicativo para colocar uma âncora e fazer recall dela.
 
 > [!NOTE]
 > Ao executar o aplicativo, se a câmera não for exibida como a tela de fundo (por exemplo, é exibida uma tela em branco, azul ou outras texturas), você provavelmente precisará reimportar os ativos no Unity. Interrompa o aplicativo. No menu superior do Unity, escolha **Ativos -> Reimportar todos**. Em seguida, execute o aplicativo novamente.
-
-Interrompa o aplicativo, selecionando **Parar** na barra de ferramentas do Android Studio.
-
-![Botão Parar do Android Studio](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

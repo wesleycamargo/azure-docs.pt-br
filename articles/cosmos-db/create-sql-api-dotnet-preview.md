@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587378"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455761"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Início Rápido: Criar um aplicativo Web do ASP.NET usando a conta de API de SQL do Azure Cosmos DB
 
@@ -141,7 +141,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo projeto de aplicativo de console, que está em sua solução do Visual Studio e clique em **Gerenciar pacotes do NuGet...**
     
     ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/create-sql-api-dotnet/manage-nuget-package.png)
-1. Na guia **NuGet**, clique em **Procurar** e digite **Microsoft.Azure.Cosmos** na caixa de pesquisa.
+1. Na guia **NuGet**, clique em **Procurar** e insira **Microsoft.Azure.Cosmos** na caixa de pesquisa.
 1. Nos resultados, encontre **Microsoft.Azure.Cosmos** e clique em **Instalar**.
    A ID do pacote para a Biblioteca de Clientes do API do SQL do Azure Cosmos DB é [Biblioteca de Clientes do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 

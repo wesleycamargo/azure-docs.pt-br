@@ -1,6 +1,6 @@
 ---
-title: Exemplo da CLI do Azure – Criar uma VM do Azure executando o monitoramento do Log Analytics | Microsoft Docs
-description: Exemplo da CLI do Azure – Criar uma VM do Azure executando uma VM do Windows Server 2016 e o monitoramento do Log Analytics.
+title: Exemplo da CLI do Azure – criar uma VM do Azure executando o Azure Monitor | Microsoft Docs
+description: Exemplo da CLI do Azure – criar uma VM do Azure executando uma VM do Windows Server 2016 e Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 06e853534dc811ba5b37b192a9da75e88eedd778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668306"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543314"
 ---
-# <a name="monitor-a-vm-with-log-analytics"></a>Monitorar uma VM com Log Analytics
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorar uma VM com logs do Azure Monitor
 
 Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um workspace do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Monitoramento do Azure.
 
