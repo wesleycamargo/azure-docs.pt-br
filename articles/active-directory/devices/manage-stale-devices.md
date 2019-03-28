@@ -3,7 +3,7 @@ title: Como gerenciar dispositivos obsoletos no Azure AD | Microsoft Docs
 description: Devido a dispositivos perdidos, roubados ou quebrados, por exemplo, ou reinstalações do sistema operacional, normalmente você tem dispositivos obsoletos em seu ambiente. Saiba como remover dispositivos obsoletos do seu banco de dados de dispositivos registrados no Azure AD (Azure Active Directory).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcbc7f66df65cd1ea18cd3062ec61adb1e0399f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58164953"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521518"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerenciar dispositivos obsoletos no Azure AD
 

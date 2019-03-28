@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b1e6ffc985c35b6711b8e602dbb877e840ab3f1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992372"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517004"
 documentType: LandingData
 title: Documentação do Banco de Dados do Azure para MariaDB
 metadata:
@@ -14,7 +14,7 @@ metadata:
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 02/25/2018
+  ms.date: 03/25/2019
 abstract:
   description: O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional com base no mecanismo do Servidor MariaDB de software livre.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MariaDB utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MariaDB com nossos guias de início rápido, tutoriais e exemplos.
 sections:
@@ -38,7 +38,7 @@ sections:
   - type: paragraph
     text: 'Aprenda a estruturar seu banco de dados e desenvolver aplicativos:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Estruturar um Banco de Dados &#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Portal do Azure</a> | <a href="/azure/mariadb/tutorial-design-database-cli">CLI do Azure</a>
 - title: Exemplos

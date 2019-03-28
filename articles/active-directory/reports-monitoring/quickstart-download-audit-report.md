@@ -3,7 +3,7 @@ title: 'Início Rápido: baixar um relatório de auditoria usando o portal do Az
 description: Saiba como baixar um relatório de auditoria usando o portal do Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a45e85b35ab48f95ecff07043484b322f237a8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538044"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436653"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início Rápido: Baixar um relatório de auditoria usando o portal do Azure
 
@@ -35,7 +35,7 @@ Você precisa de:
 * Um locatário do Azure Active Directory. 
 * Um usuário, que está na função de **Administrador de Segurança**, **Leitor de Segurança** ou **Administrador Global** para o locatário. Além disso, qualquer usuário no locatário pode acessar seus próprios logs de auditoria.
 
-## <a name="quickstart-download-an-audit-report"></a>Início rápido: Baixar um relatório de auditoria
+## <a name="quickstart-download-an-audit-report"></a>Início Rápido: Baixar um relatório de auditoria
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** do painel de navegação à esquerda e use o botão **Mudar diretório** para selecionar seu Active Directory.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879064"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351857"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
 
@@ -51,7 +51,7 @@ O aplicativo de exemplo fica disponível em [https://github.com/Azure-Samples/co
 
 1. Use a tecla `F5` para iniciar o aplicativo do Visual Studio. É possível que seja solicitado que você habilite o Modo de Desenvolvedor. Para obter mais informações, confira o documento [Habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
-2. Quando o aplicativo for iniciado, use o botão para selecionar uma imagem para pontuação.
+1. Quando o aplicativo for iniciado, use o botão para selecionar uma imagem para pontuação.
 
 ## <a name="use-your-own-model"></a>Usar seu próprio modelo
 
@@ -65,8 +65,8 @@ Para usar seu próprio modelo, use as seguintes etapas:
 
 1. No Gerenciador de Soluções, clique com o botão direito na pasta Ativos e selecione __Adicionar item existente__. Selecione o arquivo ONNX.
 
-1. No Gerenciador de Soluções, selecione o arquivo ONNX da pasta Ativos. Altere as seguintes propriedades para o arquivo: 
-    
+1. No Gerenciador de Soluções, selecione o arquivo ONNX da pasta Ativos. Altere as seguintes propriedades para o arquivo:
+
     * __Ação de Compilação__ -> __Conteúdo__
     * __Copiar para Diretório de Saída__ -> __Copiar se mais recente__
 

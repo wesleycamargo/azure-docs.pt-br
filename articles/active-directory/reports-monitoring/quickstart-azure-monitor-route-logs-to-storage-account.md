@@ -3,7 +3,7 @@ title: Tutorial – Arquivar logs do Azure Active Directory em uma conta de arma
 description: Saiba como configurar o Diagnóstico do Azure para enviar logs do Active Directory do Azure por push para uma conta de armazenamento (versão prévia)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077744"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434714"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure (versão prévia)
 

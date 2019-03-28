@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096972"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402143"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como acessar um laboratório de sala de aula, conecte-se à VM no laboratório e interrompa a VM. 
@@ -49,7 +49,8 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 3. Siga uma das etapas a seguir: 
    1. Para máquinas virtuais do **Windows**, salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para conectar a máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
    3. Para máquinas virtuais do **Linux**, copie e salve a cadeia de conexão SSH na caixa de diálogo **Conecte-se à sua máquina virtual**. Use essa cadeia de conexão de um terminal SSH (como [Putty](https://www.putty.org/)) para conectar a máquina virtual.
-      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Interrompa a máquina virtual em um laboratório de sala de aula
+
+## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Interrompa a máquina virtual em um laboratório de sala de aula
 
 Para parar a VM, selecione **Parar** no bloco. Quando a VM for interrompida, o botão **Iniciar** no bloco está habilitado. 
 
