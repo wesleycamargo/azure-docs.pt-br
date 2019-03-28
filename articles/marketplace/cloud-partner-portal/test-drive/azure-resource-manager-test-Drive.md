@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457241"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541155"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 
@@ -51,7 +51,7 @@ Aqui está o processo de criação de uma unidade de teste do Gerenciador de rec
 
 A parte mais importante na hora de compilar um Test Drive do Azure Resource Manager é definir quais cenários você deseja que seus clientes experimentem. Tem um produto de firewall e deseja demonstrar como lida com ataques de injeção de script? Tem um produto de armazenamento e deseja demonstrar como sua solução compacta arquivos de modo rápido e fácil?
 
-Lembre-se de dedicar uma quantidade de tempo suficiente a avaliar quais são as melhores maneiras de exibir seu produto. Especificamente em torno de todos os recursos necessários seria necessário, pois ele facilita a empacotar o modelo do Resource Manager suficientemente mais fácil.
+Certifique-se de gastar uma quantidade suficiente de tempo para avaliar quais são as melhores maneiras de exibir seu produto. Especificamente em torno de todos os recursos necessários seria necessário, pois ele facilita a empacotar o modelo do Resource Manager suficientemente mais fácil.
 
 Para continuar com nosso exemplo de firewall, a arquitetura talvez exija uma URL de IP público para seu serviço e outra URL de IP público para o site que seu firewall está protegendo. Cada IP é implantado em uma Máquina Virtual e conectado com um grupo de segurança de rede + adaptador de rede.
 

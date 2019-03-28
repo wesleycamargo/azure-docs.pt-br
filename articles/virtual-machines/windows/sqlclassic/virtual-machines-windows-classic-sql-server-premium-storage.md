@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905113"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540866"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Etapa 2: Aumentar as falhas permitidas nos recursos <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Etapa 2: Aumentar as falhas permitidas nos recursos \<opcional >
 
 Em determinados recursos que pertencem ao seu grupo de disponibilidade AlwaysOn há limites no número de falhas que podem ocorrer em um período, no qual o serviço de cluster tenta reiniciar o grupo de recursos. É recomendável aumentar isso, durante a execução deste procedimento, pois se não você não executar manualmente o failover e disparar failovers desligando máquinas, poderá chegar perto desse limite.
 
@@ -692,7 +692,7 @@ Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de C
 
 Altere o Máximo de Falhas para 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Etapa 3: Adicionar o recurso de endereço IP ao grupo de clusters <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Etapa 3: Recurso de endereço IP de adição para grupo de clusters \<opcional >
 
 Se você tiver apenas um endereço IP para o grupo de clusters e ele estiver alinhado à sub-rede de nuvem, tome cuidado: se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP de cluster e o nome de rede do cluster não poderão ficar online. Nessa situação, ela impede que as atualizações para outros recursos de cluster.
 

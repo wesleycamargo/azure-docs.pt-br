@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107722"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541223"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 Os parâmetros são os seguintes: 
 
 - O primeiro parâmetro caracteriza o tipo de backup de instantâneo. Os valores permitidos são **hana**, **logs** e **boot**. 
-- O parâmetro **<HANA Large Instance Type>** é necessário apenas para backups de volumes de inicialização. Há dois valores válidos com "TypeI" ou "TypeII", dependendo da unidade do HANA em Instâncias Grandes. Para localizar o tipo da unidade, consulte a visão geral do [SAP HANA (Instâncias Grandes) e arquitetura do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- O parâmetro **<snapshot_prefix>** é um rótulo de backup ou de instantâneo para o tipo de instantâneo. Há duas finalidades: uma é para você dar um nome a ele para que saiba do que se tratam esses instantâneos. A segunda finalidade é para o script *azure\_hana\_backup.pl* determinar o número de instantâneos de armazenamento retidos de acordo com esse rótulo específico. Se você agendar dois backups de instantâneo de armazenamento do mesmo tipo (como **hana**), com dois rótulos diferentes e definir que 30 instantâneos devem ser mantidos para cada um, 60 instantâneos de armazenamento dos volumes serão afetados. Somente caracteres alfanuméricos ("A-Z, a-z, 0-9"), sublinhado ("_") e traço ("-") são permitidos. 
-- O parâmetro **< snapshot_frequency >** é reservado para futuros desenvolvimentos e não tem nenhum impacto. Configure para "3min" ao executar backups do tipo **log** e para "15min" ao executar os outros tipos de backup.
-- O parâmetro **<number of snapshots retained>** define a retenção dos instantâneos indiretamente, definindo o número de instantâneos com o mesmo prefixo de instantâneo (rótulo). Esse parâmetro é importante para a execução agendada por meio de cron. Se o número de instantâneos com o mesmo snapshot_prefix exceder o número dado por esse parâmetro, o instantâneo mais antigo será excluído antes de executar um novo instantâneo de armazenamento.
+- O parâmetro  **\<tipo de instância grande do HANA >** é necessário para apenas backups de volume de inicialização. Há dois valores válidos com "TypeI" ou "TypeII", dependendo da unidade do HANA em Instâncias Grandes. Para localizar o tipo da unidade, consulte a visão geral do [SAP HANA (Instâncias Grandes) e arquitetura do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- O parâmetro  **\<snapshot_prefix >** é um rótulo de backup para o tipo de instantâneo ou instantâneo. Há duas finalidades: uma é para você dar um nome a ele para que saiba do que se tratam esses instantâneos. A segunda finalidade é para o script *azure\_hana\_backup.pl* determinar o número de instantâneos de armazenamento retidos de acordo com esse rótulo específico. Se você agendar dois backups de instantâneo de armazenamento do mesmo tipo (como **hana**), com dois rótulos diferentes e definir que 30 instantâneos devem ser mantidos para cada um, 60 instantâneos de armazenamento dos volumes serão afetados. Somente caracteres alfanuméricos ("A-Z, a-z, 0-9"), sublinhado ("_") e traço ("-") são permitidos. 
+- O parâmetro  **\<snapshot_frequency >** é reservado para futuros desenvolvimentos e não tem nenhum impacto. Configure para "3min" ao executar backups do tipo **log** e para "15min" ao executar os outros tipos de backup.
+- O parâmetro  **\<número de instantâneos retidos >** define a retenção dos instantâneos indiretamente definindo o número de instantâneos com o mesmo prefixo de instantâneo (rótulo). Esse parâmetro é importante para a execução agendada por meio de cron. Se o número de instantâneos com o mesmo snapshot_prefix exceder o número dado por esse parâmetro, o instantâneo mais antigo será excluído antes de executar um novo instantâneo de armazenamento.
 
 No caso de uma expansão, o script executa uma verificação adicional para garantir que você possa acessar todos os servidores do HANA. O script também verifica se todas as instâncias do HANA retornam o status apropriado das instâncias antes de criar um instantâneo do SAP HANA. O instantâneo SAP HANA é seguido por um instantâneo de armazenamento.
 

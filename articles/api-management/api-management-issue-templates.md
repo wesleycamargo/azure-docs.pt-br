@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760743"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540832"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de problemas no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
@@ -99,11 +99,11 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|Problemas|Coleção de entidades de [problemas](api-management-template-data-model-reference.md#Issue).|Os problemas visíveis para o usuário atual.|  
-|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
-|IsAuthenticated|booleano|Se o usuário atual está conectado ao portal do desenvolvedor.|  
-|CanReportIssues|booleano|Se o usuário atual tem permissões para arquivar um problema.|  
-|Search|cadeia de caracteres|Essa propriedade foi preterida e não deve ser usada.|  
+|`Issues`|Coleção de entidades de [problemas](api-management-template-data-model-reference.md#Issue).|Os problemas visíveis para o usuário atual.|  
+|`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
+|`IsAuthenticated`|booleano|Se o usuário atual está conectado ao portal do desenvolvedor.|  
+|`CanReportIssues`|booleano|Se o usuário atual tem permissões para arquivar um problema.|  
+|`Search`|cadeia de caracteres|Essa propriedade foi preterida e não deve ser usada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

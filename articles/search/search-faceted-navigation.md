@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861036"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541206"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada no Azure Search
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
@@ -34,7 +34,7 @@ No desenvolvimento do aplicativo, escrever um código que construa consultas con
 ## <a name="sample-code-and-demo"></a>Demonstração e código de exemplo
 Este artigo usa um portal de pesquisa de trabalhos como um exemplo. O exemplo é implementado como um aplicativo ASP.NET MVC.
 
--   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](https://azjobsdemo.azurewebsites.net/).
+-   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](http://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -364,7 +364,7 @@ Há duas funções geoespaciais no Azure Search, **geo.distance** e **geo.inters
 * A função **geo.distance** retorna a distância em quilômetros entre dois pontos. Um ponto é um campo e o outro é uma constante passada como parte do filtro. 
 * A função **geo.intersects** retornará true se um determinado ponto estiver dentro de um polígono determinado. O ponto é um campo e o polígono é especificado como uma lista constante de coordenadas passadas como parte do filtro.
 
-Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 
