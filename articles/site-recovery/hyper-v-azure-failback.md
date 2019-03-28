@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841635"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541030"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -54,7 +54,7 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
 1. Se você estiver definindo um novo hardware, instale o Windows Server 2012 R2 e a função do Hyper-V no servidor.
 2. Crie um comutador de rede virtual com o mesmo nome que você tinha no servidor original.
-3. Selecione **Itens Protegidos** -> **Grupo de Proteção** -> <ProtectionGroupName> -> <VirtualMachineName> do qual deseja realizar failback e selecione **Failover Planejado**.
+3. Selecione **itens protegidos** -> **grupo de proteção** -> \<Nomegrupoproteção > -> \<VirtualMachineName > você deseja realizar o failback, e selecione **Failover planejado**.
 4. Em **Confirmar Failover Planejado** select **Criar máquina virtual local se ela não existir**.
 5. Em Nome do Host,** selecione o novo servidor host do Hyper-V no qual deseja colocar a máquina virtual.
 6. Em Sincronização de Dados, é recomendável selecionar a opção para sincronizar os dados antes do failover. Essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que faz a sincronização sem desligá-las. Ele faz o seguinte:
@@ -63,7 +63,7 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
     - Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações é transferido para o servidor local e a máquina virtual local é inicializada.
     
 7. Clique na marca de seleção para iniciar o failover (failback).
-8. Depois que sincronização inicial for finalizada e você estiver pronto para desligar a máquina virtual no Azure, clique em **Trabalhos** > <planned failover job> > **Concluir Failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e a inicia.
+8. Depois que a sincronização inicial for concluída e você está pronto para desligar a máquina virtual no Azure, clique em **trabalhos** > \<trabalho de failover planejado >> **concluir Failover** . Isso desliga a máquina do Azure, transfere as alterações mais recentes para a máquina virtual local e a inicia.
 9. Você pode fazer logon na máquina virtual local para verificar se tudo está funcionando conforme o esperado. Em seguida, clique em **Confirmar** para concluir o failover. A confirmação exclui a máquina virtual do Azure e seus discos e prepara a VM para ser protegida novamente.
 10. Clique em **Replicação Inversa** para iniciar a proteção da máquina virtual local.
 

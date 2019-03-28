@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57993995"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520117"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Classificação de carga de trabalho do SQL Data Warehouse (visualização)
 
 Este artigo explica o processo de classificação de carga de trabalho do SQL Data Warehouse da atribuição de uma classe de recurso e a importância às solicitações de entrada.
 
 > [!Note]
-> Classificação de carga de trabalho está disponível no SQL Data Warehouse Gen2.
+> A classificação de carga de trabalho está disponível no SQL Data Warehouse Gen2.
 
 ## <a name="classification"></a>classificação
 
@@ -33,6 +33,8 @@ Classificação de gerenciamento de carga de trabalho permite que as políticas 
 Embora haja várias maneiras de classificar as cargas de trabalho de armazenamento de dados, a classificação mais simples e mais comum é a carga e a consulta. Carregar dados com insert, update e delete instruções.  Você consulta os dados usando o seleciona. Uma solução de data warehouse geralmente terá uma política de carga de trabalho para a atividade de carga, como a atribuição de uma classe de recurso maior com mais recursos. Uma política de carga de trabalho diferentes pode aplicar a consultas, como a menor importância em comparação comparada para carregar atividades.
 
 Você também pode subclassify suas cargas de trabalho de consulta e de carga. Subclassificação lhe dá mais controle das cargas de trabalho. Por exemplo, cargas de trabalho de consulta podem consistir em atualizações do cubo, consultas ao painel ou consultas ad hoc. Você pode classificar cada uma dessas cargas de trabalho de consulta com classes de recursos diferente ou as configurações de importância. Carga também pode beneficiar subclassificação. Transformações grandes podem ser atribuídas a classes de recursos maiores. Importância mais alta pode ser usada para garantir que os dados de vendas principais forem carregador antes dos dados de clima ou um feed de dados sociais.
+
+Nem todas as instruções são classificadas como eles não exigem recursos ou precisam de importância para influenciar a execução.  Os comandos DBCC, instruções BEGIN, COMMIT e ROLLBACK TRANSACTION não são classificadas.
 
 ## <a name="classification-process"></a>Processo de classificação
 
@@ -82,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a classificação de carga de trabalho do SQL Data Warehouse e importância, consulte [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) e [importância do SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Ver [DM pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.
+Para obter mais informações sobre a classificação de carga de trabalho do SQL Data Warehouse e importância, consulte [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) e [importância do SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.

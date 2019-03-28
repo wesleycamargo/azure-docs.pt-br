@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726865"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540033"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
 
@@ -67,6 +67,10 @@ Se o conjunto de dados puder se ajustar à memória do nó de trabalho do Databr
 ![Autojunção](media/data-flow/selfjoin.png "Autojunção")
 
 No diagrama acima, a Transformação de seleção está na parte superior. Tudo o que ela está fazendo é atribuir um alias ao fluxo original como “OrigSourceBatting”. Na transformação de junção realçada embaixo dele, é possível ver que usamos esse fluxo de alias de Junção como a junção direita, permitindo-nos referenciar a mesma chave no lado esquerdo e no direito da junção interna.
+
+## <a name="composite-and-custom-keys"></a>Chaves compostas e personalizadas
+
+Você pode criar chaves compostas e personalizadas em tempo real dentro da transformação junção. Adicione linhas para colunas de junção adicional com o sinal de adição (+) ao lado de cada linha da relação. Ou um novo valor de chave no construtor de expressão para um valor de junção na hora de computação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

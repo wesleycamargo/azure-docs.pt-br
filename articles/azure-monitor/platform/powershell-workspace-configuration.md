@@ -1,6 +1,6 @@
 ---
 title: Usar o PowerShell para criar e configurar um workspace do Log Analytics | Microsoft Docs
-description: O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
+description: Espaços de trabalho do log Analytics no Azure Monitor armazenam dados de servidores em seu local ou infraestrutura de nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482086"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539370"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>Gerenciar o Log Analytics usando o PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gerenciar o espaço de trabalho do Log Analytics no Azure Monitor usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar os [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
+Você pode usar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções em um espaço do Log Analytics no Azure Monitor em uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
 
 * Criar um workspace
 * Adicionar ou remover uma solução
@@ -195,7 +195,7 @@ No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O deli
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurando o Log Analytics para enviar o diagnóstico do Azure
-Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um workspace do Log Analytics. Essa abordagem envia dados diretamente para o Log Analytics e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
+Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um workspace do Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Você também pode usar o cmdlet anterior para coletar logs de recursos em assinaturas diferentes. O cmdlet é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID do recurso que está criando os logs e do workspace para o qual os logs são enviados.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Configuração do Log Analytics para coletar o diagnóstico do Azure do armazenamento
-Para coletar dados de log de dentro de uma instância em execução de um serviço de nuvem clássico ou em um cluster de service fabric, você precisa primeiro escrever os dados no armazenamento do Azure. O Log Analytics é, então, configurado para coletar os logs da conta de armazenamento. Os recursos com suporte incluem:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configurando o espaço de trabalho do Log Analytics para coletar o diagnóstico do Azure do armazenamento
+Para coletar dados de log de dentro de uma instância em execução de um serviço de nuvem clássico ou em um cluster de service fabric, você precisa primeiro escrever os dados no armazenamento do Azure. Um espaço de trabalho do Log Analytics, em seguida, é configurado para coletar os logs da conta de armazenamento. Os recursos com suporte incluem:
 
 * Serviços de nuvem clássicos (funções de web e de trabalho)
 * Clusters do Service Fabric
 
 O exemplo a seguir mostra como:
 
-1. Listar as contas de armazenamento existentes e os locais de onde o Log Analytics indexará os dados
+1. Listar as contas de armazenamento existentes e os locais que o espaço de trabalho indexará os dados
 2. Criar uma configuração para ler de uma conta de armazenamento
 3. Atualizar a configuração criada recentemente para indexar dados de locais adicionais
 4. Excluir a configuração recém-criada
@@ -250,7 +250,7 @@ O exemplo a seguir mostra como:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

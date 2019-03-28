@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479964"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540135"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ A meta é instalar várias instâncias clusterizadas do SAP Advanced Business Ap
 
 _**Figura 2:** configuração de vários SIDs do SAP em dois clusters_
 
-A instalação de um sistema **SAP \<SID2>** adicional é idêntica à instalação de um sistema <SID>. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
+A instalação do adicional **SAP \<SID2 >** sistema é idêntico à instalação de um \<SID > sistema. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Prepare a infraestrutura para um cenário de vários SIDs do SAP
 
@@ -261,7 +261,7 @@ Estas etapas são descritas em [Preparação da infraestrutura para um cenário 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Prepare a infraestrutura em um cluster SOFS usando o Host Global do SAP existente
 
-Você pode reutilizar o \<SAPGlobalHost> e o Volume1 existentes do primeiro sistema SAP <SID1>.
+Você pode reutilizar existente \<SAPGlobalHost > e o Volume1 do SAP primeiro \<SID1 > sistema.
 
 ![Figura 3: SOFS com vários SIDs é o mesmo que o Nome de host Global do SAP][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Figura 3:** SOFS com vários SIDs é o mesmo que o Nome de host Global do SAP
 >Para o segundo sistema **SAP \<SID2>**, o mesmo Volume1 e a mesma rede **\<SAPGlobalHost>** estão sendo usados.
 >Como você já definiu **SAPMNT** como o nome do compartilhamento para vários sistemas SAP, para reutilizar o nome de rede **\<SAPGlobalHost >**, você deve usar o mesmo **Volume1**.
 >
->O caminho do arquivo para o host global <SID2> é C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
+>O caminho do arquivo para o \<SID2 > host global é C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 Para o sistema \<SID2>, você deve preparar o Host Global do SAP ..\SYS\.. pasta no cluster SOFS.

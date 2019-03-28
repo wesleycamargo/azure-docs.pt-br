@@ -1,19 +1,19 @@
 ---
 title: Visão Geral dos Logs de Diagnóstico
 description: Saiba quais são os logs de diagnóstico do Azure e como você pode usá-los para compreender os eventos que ocorrem dentro de um recurso do Azure.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310175"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519384"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -49,11 +49,6 @@ Você pode usar uma conta de armazenamento ou um namespace de Hubs de Evento que
 > [!NOTE]
 >  Atualmente, não é possível arquivar logs de fluxo de rede para uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
-> [!WARNING]
-> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 
 Logs de diagnóstico de recursos são configurados usando configurações de diagnóstico de recursos. Os logs de diagnóstico do inquilino são configurados usando uma configuração de diagnóstico de locatário. **Configurações de Diagnóstico** para um controle de recursos:
@@ -61,7 +56,7 @@ Logs de diagnóstico de recursos são configurados usando configurações de dia
 * Para onde os registros e métricas de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Azure Monitor).
 * Quais categorias de log são enviadas e se os dados de métrica também são enviados.
 * Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento
-    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
+    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
     - Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma Conta de Armazenamento estiver desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
     - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. A exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da conta de armazenamento.
 

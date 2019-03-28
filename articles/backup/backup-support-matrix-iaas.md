@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 63821ef5ebc36f49d4f3a43a7fbfbcf8fda12c50
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352027"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518483"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e máquinas virtuais (VMs). Este artigo resume as configurações de suporte e limitações quando você faz backup de VMs do Azure com o Backup do Azure.
@@ -82,8 +82,7 @@ Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para a [
 - O Backup do Azure não dá suporte ao principal sistema operacional Linux.
 - O Backup do Azure não dá suporte a sistemas operacionais de 32 bits.
 - Outras distribuições do Linux traga seu próprio podem funcionar, desde o [agente de VM do Azure para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) está disponível na VM e, desde que o Python tem suporte.
-- O Backup do Azure não dá suporte a VM que executa o Python versão 2.6* apenas com o proxy configurado.
-
+- O Backup do Azure não dá suporte a uma VM do Linux proxy configurado se não tiver o Python versão 2.7 instalado.
 
 
 ## <a name="backup-frequency-and-retention"></a>Frequência e retenção de backup

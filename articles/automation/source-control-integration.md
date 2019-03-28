@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3b2df5b24a12f3d2ea5d8a03721c08f8d2a742ad
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335973"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539982"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
@@ -45,16 +45,16 @@ Escolha **Tipo de controle do código-fonte** e clique em **Autenticar**. Uma ja
 
 Na página **Resumo de controle do código-fonte**, preencha as informações e clique em **Salvar**. A tabela a seguir fornece uma descrição dos campos disponíveis.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte        |
 |Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Repositórios do Azure (Git)</br> Azure Repos (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Os repositórios de 200 primeiros são retornados. Para procurar por um repositório, digite o nome no campo e clique em **pesquisa no GitHub**.|
-|Filial     | O branch do qual o pull dos arquivos de origem é efetuado. Direcionamento de ramificação não está disponível para o tipo de controle de origem TFVC.          |
+|Branch     | O branch do qual o pull dos arquivos de origem é efetuado. Direcionamento de ramificação não está disponível para o tipo de controle de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
 |Sincronização automática     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
 |Publicar runbook     | Se definido como **em**, depois de runbooks são sincronizados do controle de origem que serão publicados automaticamente.         |
-|Descrição     | Um campo de texto para fornecer detalhes adicionais        |
+|DESCRIÇÃO     | Um campo de texto para fornecer detalhes adicionais        |
 
 ![Resumo do controle do código-fonte](./media/source-control-integration/source-control-summary.png)
 
@@ -68,19 +68,19 @@ Você também pode usar o PowerShell para configurar o controle de origem na aut
 ### <a name="azure-repos-git"></a>Repositórios do Azure (Git)
 
 ```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<account>.visualstudio.com/DefaultCollection/<project>/_git/<repository> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
 ### <a name="azure-repos-tfvc"></a>Azure Repos (TFVC)
 
 ```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<account>.visualstudio.com/<projectName>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
 ### <a name="github"></a>GitHub
 
 ```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<account>/<repoName>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
 ### <a name="personal-access-token-permissions"></a>Permissões do token de acesso pessoal
@@ -91,7 +91,7 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criar um token de acesso pessoal para a linha de comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Escopo  |Descrição  |
+|Escopo  |DESCRIÇÃO  |
 |---------|---------|
 |**repositório**     |         |
 |repo:status     | Acessar status de confirmação         |
@@ -116,7 +116,7 @@ Para obter mais informações sobre como criar um token de acesso pessoal em rep
 
 <sup>1</sup> permissão a conexões de serviço só é necessária se você tiver habilitado a sincronização automática.
 
-## <a name="syncing"></a>Sincronizando
+## <a name="syncing"></a>Sincronização
 
 Selecione a origem da tabela sobre o **controle de fonte de** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405616"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521992"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen2 usando o Azure Data Factory
 
@@ -104,10 +104,10 @@ Para usar a autenticação de entidade de serviço, siga estas etapas:
     - **Como coletor**, no Gerenciador de armazenamento, conceda pelo menos **gravar + executar** permissão para criar itens filho na pasta. Como alternativa, no controle de acesso (IAM), conceda pelo menos **Colaborador de dados de Blob de armazenamento** função.
 
 >[!NOTE]
->A lista pastas começando na raiz, você precisa definir a permissão da entidade de serviço que está sendo concedida a **no nível raiz com a permissão "Execute"** ou a permissão IAM. Isso é verdadeiro quando você usa o:
+>A lista de pastas a partir do nível da conta, você precisa definir a permissão da entidade de serviço que está sendo concedida a **conta de armazenamento com a permissão "Execute"** ou a permissão IAM. Isso é verdadeiro quando você usa o:
 >- **Ferramenta Copiar Dados** para criar o pipeline de cópia.
 >- **Interface do Usuário do Data Factory** para testar a conexão e navegar por pastas durante a criação. 
->Se você tiver interesse na concessão de permissão no nível raiz, você pode ignorar manualmente conexão de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funcionará desde que a entidade de serviço é concedida com a permissão adequada os arquivos a serem copiados.
+>Se você tiver interesse na concessão de permissão no nível da conta, você pode ignorar manualmente conexão de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funcionará desde que a entidade de serviço é concedida com a permissão adequada os arquivos a serem copiados.
 
 Essas propriedades têm suporte no serviço vinculado:
 
@@ -158,10 +158,10 @@ Para usar identidades gerenciadas para autenticação de recursos do Azure, siga
     - **Como coletor**, no Gerenciador de armazenamento, conceda pelo menos **gravar + executar** permissão para criar itens filho na pasta. Como alternativa, no controle de acesso (IAM), conceda pelo menos **Colaborador de dados de Blob de armazenamento** função.
 
 >[!NOTE]
->A lista de pastas começando na raiz, você precisa definir a permissão de identidade gerenciada que está sendo concedida a **no nível raiz com a permissão "Execute"** ou a permissão no IAM. Isso é verdadeiro quando você usa o:
+>A lista de pastas a partir do nível da conta, você precisa definir a permissão de identidade gerenciada que está sendo concedida a **conta de armazenamento com a permissão "Execute"** ou a permissão IAM. Isso é verdadeiro quando você usa o:
 >- **Ferramenta Copiar Dados** para criar o pipeline de cópia.
 >- **Interface do Usuário do Data Factory** para testar a conexão e navegar por pastas durante a criação. 
->Se você tiver interesse na concessão de permissão no nível raiz, você pode ignorar manualmente conexão de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funcionará desde que a identidade gerenciada é concedida com a permissão adequada os arquivos a serem copiados.
+>Se você tiver interesse na concessão de permissão no nível da conta, você pode ignorar manualmente conexão de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funcionará desde que a identidade gerenciada é concedida com a permissão adequada os arquivos a serem copiados.
 
 Essas propriedades têm suporte no serviço vinculado:
 
@@ -196,7 +196,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureBlobFSFile**. |Sim |
-| folderPath | Caminho para a pasta no Data Lake Store Gen2. Se não especificado, apontará para a raiz. <br/><br/>O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome real da pasta tiver um curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Não  |
+| folderPath | Caminho para a pasta no Data Lake Store Gen2. Se não especificado, apontará para a raiz. <br/><br/>O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome real da pasta tiver um curinga ou esse caractere interno de escape. <br/><br/>Exemplos: sistema de arquivos/pasta /, veja mais exemplos na [exemplos de filtro de arquivo e pasta](#folder-and-file-filter-examples). |Não  |
 | fileName | **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificada no coletor de atividade, a atividade de cópia gerará automaticamente o nome do arquivo com o seguinte padrão: "*Data.[GUID da ID de execução da atividade].[GUID se FlattenHierarchy].[formato se configurado].[compactação se configurada]*", por exemplo: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se você copiar da fonte de dados de tabela usando o nome da tabela em vez da consulta, o nome padrão será "*[nome da tabela].[formato].[compactação se configurada]*", por exemplo: "MinhaTabela.csv". |Não  |
 | modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |
 | modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |

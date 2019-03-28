@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371308"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521832"
 ---
 # <a name="mapping-data-flow-datasets"></a>Conjuntos de Dados de Fluxo de Dados de Mapeamento
 
@@ -49,9 +49,27 @@ No fluxo de dados, você pode pedir o ADF para criar uma nova definição de tab
 
 ![Esquema de fonte de transformação](media/data-flow/dataset2.png "esquema SQL")
 
-## <a name="delimited-text-dataset"></a>Conjunto de dados de texto delimitado
+## <a name="choose-your-type-of-data-first"></a>Escolha seu tipo de dados pela primeira vez
 
-O conjunto de dados de texto delimitado, você definirá o delimitador para lidar com qualquer um dos delimitadores únicos ('\t 'para TSV,',' para o CSV, ' |'...) ou usar vários caracteres de delimitador. Defina a alternância de linha de cabeçalho e, em seguida, vá para a transformação de origem para detectar automaticamente tipos de dados.
+### <a name="delimited-text"></a>Texto delimitado
+
+O conjunto de dados de texto delimitado, você definirá o delimitador para lidar com qualquer um dos delimitadores únicos ('\t 'para TSV,',' para o CSV, ' |'...) ou usar vários caracteres de delimitador. Defina a alternância de linha de cabeçalho e, em seguida, vá para a transformação de origem para detectar automaticamente tipos de dados. Se você estiver usando um conjunto de dados de texto delimitados para descarregar dados em um coletor, basta selecione uma pasta de destino. Nas configurações do coletor, você pode definir o nome dos arquivos de saída.
+
+### <a name="parquet"></a>Parquet
+
+Use o Parquet como o tipo preferencial de conjunto de dados de preparo em fluxos de dados do ADF. Parquet armazena metadados sofisticados esquema juntamente com os dados.
+
+### <a name="database-types"></a>Tipos de banco de dados
+
+Você pode selecionar o BD SQL do Azure ou SQL DW do Azure.
+
+Para os outros tipos de conjunto de dados do ADF, use a atividade de cópia para preparar seus dados. Há um modelo do ADF na Galeria de modelos para ajudá-lo a criar este padrão.
+
+![cópia de preparo](media/data-flow/templatedf.png "copiar preparo")
+
+## <a name="choose-your-connection-type"></a>Escolha seu tipo de conexão
+
+Se você estiver usando o Parquet ou texto delimitado por conjuntos de dados, você pode, em seguida, selecione o local para seus dados: ADLS ou Blob.
 
 ## <a name="next-steps"></a>Próximas etapas
 

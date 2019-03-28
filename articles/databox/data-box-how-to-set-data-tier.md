@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118367"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517140"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usar o Azure Data Box para enviar dados para a camada do Azure Storage Blob adequada
 
@@ -27,7 +27,7 @@ O armazenamento do Azure permite três níveis diferentes para armazenar os dado
 
 A camada de armazenamento frio é para dados acessados com pouca frequência que precisam ser armazenados por pelo menos 30 dias. O custo de armazenamento para a camada fria é inferior ao da camada de armazenamento quente, mas os encargos de acesso a dados são altos em comparação aos da camada Quente.
 
-A camada de Arquivos do Azure fica offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais altos. Essa camada destina-se a dados que permanecem no armazenamento de arquivos por pelo menos 180 dias. Para obter detalhes sobre cada uma dessas camadas e o modelo de preços, acesse [Comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+A camada de Arquivos do Azure fica offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais altos. Essa camada destina-se a dados que permanecem no armazenamento de arquivos por pelo menos 180 dias. Para obter detalhes sobre cada uma dessas camadas e o modelo de preços, acesse [Comparação das camadas de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 Os dados do Data Box são carregados para uma camada de armazenamento associada à conta de armazenamento. Quando você cria uma conta de armazenamento, pode especificar a camada de acesso como quente ou fria. Dependendo do padrão de acesso de sua carga de trabalho e do custo, você poderá mover esses dados da camada padrão para outra camada de armazenamento.
 

@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895797"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520795"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Criar uma experiência de âncora eficaz usando âncoras espacial do Azure
 
@@ -86,7 +86,7 @@ O cenário de destino, fotos podem ajudar. Se você mostrar aos usuários uma fo
 
 No cenário de espaço, os usuários inserem um espaço simplesmente saber que há uma âncora aqui em algum lugar. Os usuários verificar o espaço com o seu dispositivo e localizar rapidamente a âncora.
 
-Essa experiência normalmente requer que você criar âncoras bem estruturadas, conforme discutido em [várias perspectivas de exibição](#consider-various-viewing-perspectives). Se você tiver examinado na sala de muitas perspectivas quando criou a âncora, os usuários podem analisar quase em qualquer lugar ao tentarem localizá-lo.
+Essa experiência normalmente requer que você criar âncoras bem estruturadas, conforme discutido em várias perspectivas de exibição. Se você tiver examinado na sala de muitas perspectivas quando criou a âncora, os usuários podem analisar quase em qualquer lugar ao tentarem localizá-lo.
 
 ![Ilustração de como um usuário pode digitalizar uma sala para localizar uma âncora](./media/scan-room.png)
 

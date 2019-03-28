@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170795"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540900"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
@@ -38,9 +38,9 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > 
 
 ## <a name="what-is-in-the-report"></a>O que é o relatório?
-Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. O relatório fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+A endereços IP do cliente de atividade de entrada com falha é agregadas por meio de servidores de Proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. O relatório fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Item do relatório | Descrição |
+| Item do relatório | DESCRIÇÃO |
 | ------- | ----------- |
 | Carimbo de Data/Hora | Mostra o carimbo de data/hora com base na hora local do portal do Azure quando a janela de tempo de detecção é iniciada.<br /> Todos os eventos diários são gerados à meia-noite, horário UTC. <br />Os eventos por hora têm o carimbo de data/hora arredondado para o início da hora. Você pode encontrar a hora de início da primeira atividade de "firstAuditTimestamp" no arquivo exportado. |
 | Tipo de gatilho | Mostra o tipo de janela de tempo de detecção. Os tipos de gatilho de agregação são por hora ou por dia. Isso é útil para detectar um ataque de força bruta de alta frequência versus um ataque lento, em que o número de tentativas é distribuído ao longo do dia. |
@@ -67,7 +67,7 @@ Atividades de entrada com falha agregadas ao balanceador de carga e limite de al
 ## <a name="download-risky-ip-report"></a>Baixar relatório IP arriscado 
 Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos últimos 30 dias pode ser exportada do Portal do Connect Health O resultado de exportação incluirá todas as atividades de entrada do AD FS com falha em cada janela de tempo de detecção, para que você possa personalizar a filtragem após a exportação. Além de agregações realçadas no portal, o resultado da exportação também mostra mais detalhes sobre as atividades de entrada com falha por endereço IP:
 
-|  Item do relatório  |  Descrição  | 
+|  Item do relatório  |  DESCRIÇÃO  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Mostra o primeiro carimbo de data/hora de quando as atividades com falha começaram durante a janela de tempo de detecção.  | 
 | lastAuditTimestamp | Mostra o último carimbo de data/hora de quando as atividades com falha terminaram durante a janela de tempo de detecção.  | 
@@ -82,7 +82,7 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Item de limite | Descrição |
+| Item de limite | DESCRIÇÃO |
 | --- | --- |
 | (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. |
 | (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. |
@@ -96,7 +96,7 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 >
 >
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 **Por que estou vendo intervalos de endereços IP privados no relatório?**  <br />
 Endereços IP privados (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) e endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões IP. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.
 

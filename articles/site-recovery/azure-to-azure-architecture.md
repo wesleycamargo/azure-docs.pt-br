@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310278"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540713"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -91,7 +91,7 @@ O Site Recovery tira instantâneos da seguinte maneira:
 1. O Site Recovery tira instantâneos consistentes com falhas de dados por padrão e instantâneos consistentes com aplicativo se você especifica uma frequência para eles.
 2. Os pontos de recuperação são criados com base nos instantâneos e armazenados de acordo com as configurações de retenção na política de replicação.
 
-### <a name="consistency"></a>Coerência
+### <a name="consistency"></a>Consistência
 
 A tabela a seguir explica os diferentes tipos de consistência.
 
@@ -144,7 +144,7 @@ Para controlar a conectividade de saída para VMs usando endereços IP, permita 
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Armazenamento.<nome-da-região>.
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Armazenamento. \<região-name >.
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD (Azure Active Directory).<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG (Grupo de Segurança de Rede).  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de destino. 
 
@@ -152,7 +152,7 @@ Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade 
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de destino. | Armazenamento.<nome-da-região>.
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de destino. | Armazenamento. \<região-name >.
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD.<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG.  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de origem. 
 

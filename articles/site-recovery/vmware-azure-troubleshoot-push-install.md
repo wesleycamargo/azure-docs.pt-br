@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078645"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541173"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
@@ -167,7 +167,7 @@ Antes da versão 9.20, a partição ou o volume raiz disposto em vários discos 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Habilitar proteção falhou porque o nome do dispositivo foi mencionado na configuração do GRUB em vez do UUID (ErrorID: 95320)
 
 **Possível causa:** </br>
-Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" ou "/etc/default/grub") podem conter o valor dos parâmetros **root** e **resume** como os nomes de dispositivo reais em vez do UUID. O Site Recovery exige a abordagem com UUID, pois o nome dos dispositivos poderá ser alterado quando ocorrer uma reinicialização da VM, uma vez que a VM poderá não ter o mesmo nome após um failover, causando problemas. Por exemplo: </br>
+Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" ou "/etc/default/grub") podem conter o valor dos parâmetros **root** e **resume** como os nomes de dispositivo reais em vez do UUID. O Site Recovery exige a abordagem com UUID, pois o nome dos dispositivos poderá ser alterado quando ocorrer uma reinicialização da VM, uma vez que a VM poderá não ter o mesmo nome após um failover, causando problemas. Por exemplo:  </br>
 
 
 - A seguinte linha é do arquivo GRUB **/boot/grub2/grub.cfg**. <br>
@@ -183,7 +183,7 @@ Se você observar a cadeia de caracteres em negrito acima, o GRUB terá nomes de
 os nomes de dispositivo devem ser substituídos pelo UUID correspondente.<br>
 
 
-1. Localize o UUID do dispositivo executando o comando "blkid <device name>". Por exemplo:<br>
+1. Localizar o UUID do dispositivo executando o comando "blkid \<nome do dispositivo >". Por exemplo: <br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ os nomes de dispositivo devem ser substituídos pelo UUID correspondente.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. Agora substitua o nome do dispositivo pelo UUID no formato como "root=UUID=<UUID>". Por exemplo, se podemos substituir os nomes de dispositivo com o UUID para raiz e retomar o parâmetro mencionado acima, nos arquivos de "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" ou "/ etc/padrão/grub:, em seguida, as linhas nos arquivos de aparência. <br>
+2. Agora substitua o nome do dispositivo com o UUID no formato como "raiz = UUID =\<UUID >". Por exemplo, se podemos substituir os nomes de dispositivo com o UUID para raiz e retomar o parâmetro mencionado acima, nos arquivos de "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" ou "/ etc/padrão/grub:, em seguida, as linhas nos arquivos de aparência. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Reiniciar o trabalho de proteção novamente
 

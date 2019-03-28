@@ -4,7 +4,7 @@ description: Saiba como configurar a política de risco de entrada no Azure AD I
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da3f03cfcf821fa093e9f21cf9a11a2d99d67683
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999033"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518025"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: Configurar a política de risco de entrada
 
@@ -53,7 +53,7 @@ Ao configurar a política de risco de entrada, será necessário definir:
 
 - O nível de risco de entrada que dispara a política:
 
-    ![Nível de risco da conexão](./media/howto-sign-in-risk-policy/12.png)
+    ![Nível de risco de entrada](./media/howto-sign-in-risk-policy/12.png)
 
 - O tipo de acesso que deverá ser imposto quando o nível de risco de entrada for alcançado:  
 

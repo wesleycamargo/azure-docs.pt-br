@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329159"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540577"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerenciar a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
 
@@ -103,7 +103,21 @@ Para poder reverter a atualização, você precisará criar um ambiente de prepa
 Depois de concluir as etapas de preparação, o ambiente de preparo estará pronto para a atualização. O diagrama a seguir ilustra essas etapas de atualização:
 
 1. Defina o banco de dados primário no ambiente de produção para o modo somente leitura (10). Esse modo vai garantir que o banco de dados de produção (V1) não será alterado durante a atualização, evitando a divergência de dados entre as instâncias de banco de dados V1 e V2.
-2. Desconecte o banco de dados secundário na mesma região usando o modo de encerramento planejado (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Encerrar a replicação geográfica, desconectando o secundário (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa Transact-SQL, mas [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Execute o script de atualização com relação a `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` e o banco de dados primário de preparo (12). As alterações ao banco de dados serão replicadas automaticamente para o banco de dados de preparo secundário.
 
 ![Configuração da replicação geográfica do Banco de Dados SQL para a recuperação de desastre da nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

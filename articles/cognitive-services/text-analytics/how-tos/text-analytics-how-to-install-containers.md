@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39c1a212bee552b436ef21d208f4a20086578325
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d6c0d04966d3a713493485d52ca4e81ba25ab743
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437842"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521475"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
@@ -145,6 +145,10 @@ O contêiner fornece APIs de ponto de extremidade de previsão de consulta com b
 
 Use o host, `https://localhost:5000`, para APIs de contêiner.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Parar o contêiner
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
@@ -152,10 +156,6 @@ Use o host, `https://localhost:5000`, para APIs de contêiner.
 ## <a name="troubleshooting"></a>solução de problemas
 
 Se você executar o contêiner com uma [montagem](../text-analytics-resource-container-config.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem durante a inicialização ou execução do contêiner. 
-
-## <a name="containers-api-documentation"></a>Documentação da API do contêiner
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Cobrança
 

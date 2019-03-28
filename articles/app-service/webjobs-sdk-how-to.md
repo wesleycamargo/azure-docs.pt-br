@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848066"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518823"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>Gatilhos
 
-Funções devem ser métodos públicos e deve ter um atributo de gatilho ou o [ `NoAutomaticTrigger` ](#manual-trigger) atributo.
+Funções devem ser métodos públicos e deve ter um atributo de gatilho ou o [ `NoAutomaticTrigger` ](#manual-triggers) atributo.
 
 ### <a name="automatic-triggers"></a>Disparadores automáticos
 
@@ -995,7 +995,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-O `SamplingPercentageEstimatorSettings` configura o objeto [amostragem adaptável](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). Isso significa que, em determinados cenários de alto volume, Applications Insights envia um subconjunto selecionado de dados de telemetria para o servidor.
+O `SamplingPercentageEstimatorSettings` configura o objeto [amostragem adaptável](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). Isso significa que, em determinados cenários de alto volume, Applications Insights envia um subconjunto selecionado de dados de telemetria para o servidor.
 
 Depois de criar a fábrica de telemetria, passá-la para o provedor de log do Application Insights:
 

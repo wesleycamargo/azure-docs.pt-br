@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369472"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522325"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas sobre a versão do SQL Data Warehouse do Azure
 
@@ -28,7 +28,7 @@ Este artigo resume os novos recursos e melhorias nas versões recentes do [SQL D
 |**Importância da carga de trabalho agora disponível para visualização**|Importância da carga de trabalho oferece a capacidade de usar a importância para classificar solicitações de engenheiros de dados. Solicitações com importância mais alta têm a garantia mais rápido acesso aos recursos, que ajuda a atender aos SLAs.  Importância da carga de trabalho permite que o trabalho de valor de negócios de alta atender aos SLAs em um ambiente compartilhado com menos recursos.<br/><br/>Para obter mais informações sobre a importância da carga de trabalho, consulte o [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md) artigos de visão geral na documentação. Confira a [CLASSIFICADOR de carga de trabalho de criar](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc também.<br/><br/>Veja a importância da carga de trabalho em ação no abaixo de vídeos:<br/>[Conceitos de gerenciamento de carga de trabalho](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Cenários de gerenciamento de carga de trabalho](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**GROUP BY ROLLUP**|Agora, o pacote cumulativo de atualizações é uma opção de GROUP BY com suporte no Data Warehouse do Azure.   GROUP BY ROLLUP cria um grupo para cada combinação de expressões de coluna. GROUP BY também "acumula" os resultados em subtotais e totais gerais. Para fazer isso, ele move da direita para esquerda, diminuindo o número de expressões de coluna na qual ele cria grupos e agregações.  A ordem da coluna afeta a saída ROLLUP e pode afetar o número de linhas no conjunto de resultados.<br/><br/>Para obter mais informações sobre GROUP BY ROLLUP, consulte o artigo [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Precisão aprimorada para o uso de DWU e métricas do portal da CPU**|SQL Data Warehouse aprimora significativamente a precisão de métrica no portal do Azure.  Esta versão inclui uma correção para a definição da métrica de CPU e DWU usado para refletir corretamente sua carga de trabalho em todos os nós de computação.|
-|**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi estendida para incluir o suporte para:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi estendida para incluir o suporte para:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>Melhorias na documentação

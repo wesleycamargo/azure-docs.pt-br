@@ -1,21 +1,19 @@
 ---
 title: Cenários comuns da Coleção de Workspaces do Microsoft Power BI
 description: Cenários comuns do Microsoft Power BI Embedded
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 04c54250a12e2f5989b474b7c6865ff8052743ef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 0e111c40df79d236bad6130338d021f76587dde4
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041878"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519163"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>Cenários comuns da Coleção de Workspaces do Power BI
 
@@ -32,5 +30,5 @@ Aqui estão alguns cenários para uso das **Coleções de Workspaces do Power BI
 
 ### <a name="see-also"></a>Veja também
 
-* [Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI](get-started.md)
+* [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)
 * [Amostra de introdução](get-started-sample.md)

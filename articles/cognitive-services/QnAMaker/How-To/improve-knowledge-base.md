@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337418"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522189"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar a sua base de dados de Conhecimento
 
@@ -169,21 +169,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de solicitação HTTP|Nome|Digite|Finalidade|
+|Propriedade de solicitação HTTP|NOME|Type|Finalidade|
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de Conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
 |Host subdomain|Nome do recurso QnAMaker|cadeia de caracteres|O nome do host para o QnA Maker em sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
-|Cabeçalho|Tipo de Conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: `application/json`|
+|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: `application/json`|
 |Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo do POST|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
 
-|Propriedade de corpo JSON|Digite|Finalidade|
+|Propriedade de corpo JSON|Type|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
 |`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as sugestões de perguntas. O formato de ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válido em sua arquitetura. Opcional.|
-|`userQuestion`|cadeia de caracteres|Texto exato da pergunta. Obrigatória.|
+|`userQuestion`|cadeia de caracteres|Texto exato da pergunta. Obrigatório.|
 |`qnaID`|número|ID da pergunta, encontrada na [GenerateAnswer resposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
@@ -208,7 +208,7 @@ Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JS
 
 Quando seu aplicativo tenha habilitado de aprendizado ativo, e você exporta o aplicativo, o `SuggestedQuestions` coluna no arquivo tsv retém os dados de aprendizado ativo. 
 
-O `SuggestedQuestions` coluna é um objeto JSON de informações do implícita (`autosuggested`) e explícitas (`usersuggested`) [comentários](#active-learning). Um exemplo desse objeto JSON para uma única pergunta enviado pelo usuário de `help` é:
+O `SuggestedQuestions` coluna é um objeto JSON de informações do implícita (`autosuggested`) e explícitas (`usersuggested`) comentários. Um exemplo desse objeto JSON para uma única pergunta enviado pelo usuário de `help` é:
 
 ```JSON
 [

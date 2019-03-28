@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285064"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522155"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -145,7 +145,7 @@ Configure o backup da seguinte maneira:
 
    - Selecionar a política padrão: HourlyLogBackup.
    - Escolher uma política de backup existente criada anteriormente para SQL.
-   - [Definir uma nova política](#configure-a-backup-policy) baseada no seu período de retenção e o RPO.
+   - Defina uma nova política baseada no período de retenção e o RPO.
 
      ![Selecionar a Política de backup](./media/backup-azure-sql-database/select-backup-policy.png)
 

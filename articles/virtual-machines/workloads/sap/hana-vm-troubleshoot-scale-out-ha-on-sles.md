@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994701"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520574"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -964,7 +964,7 @@ Este exemplo mostra as restrições de localização causadas por uma migração
 ![Restrições de lista de falcão](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Você também pode fazer upload da saída **hb_report** no Hawk, abaixo do **Histórico**, mostrado a seguir. Ver [hb_report para coletar arquivos de log](#hbreport-to-collect-log-files): 
+Você também pode fazer upload da saída **hb_report** no Hawk, abaixo do **Histórico**, mostrado a seguir. Consulte hb_report para coletar arquivos de log: 
 
 ![Saída do HAWK upload hb_report](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

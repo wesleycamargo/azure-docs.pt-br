@@ -4,7 +4,7 @@ description: Saiba como configurar a política de registro de autenticação mul
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6b5df5144c5e9e2c211c87ed8fe70abf871435
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258030"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520336"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Como: configurar a política de registro de autenticação multifator
 

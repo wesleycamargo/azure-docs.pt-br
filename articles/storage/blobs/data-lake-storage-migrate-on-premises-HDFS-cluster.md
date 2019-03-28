@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258523"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518024"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usar o Azure Data Box para migrar dados de um repositório do HDFS local para o armazenamento do Azure
 
@@ -111,7 +111,7 @@ Para melhorar a velocidade de cópia:
 
 Siga estas etapas para preparar e enviar o dispositivo Data Box para a Microsoft.
 
-1. Após a cópia de dados for concluída, execute [preparar para o envio](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) em sua caixa de dados. Após concluir a preparação do dispositivo, baixe os arquivos BOM. Você usa esses BOM ou arquivos posteriormente para verificar os dados carregados para o Azure de manifesto. Desligar o dispositivo e remova os cabos. 
+1. Após a cópia de dados for concluída, execute [preparar para o envio](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) em sua caixa de dados. Após concluir a preparação do dispositivo, baixe os arquivos BOM. Você usa esses BOM ou arquivos posteriormente para verificar os dados carregados para o Azure de manifesto. Desligar o dispositivo e remova os cabos. 
 2.  Agendar uma retirada no-break [envie o Data Box para o Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Depois que a Microsoft recebe seu dispositivo, ele está conectado para o datacenter de rede e os dados são carregados para a conta de armazenamento especificada (com namespaces hierárquicos desabilitados) quando você solicitou a caixa de dados. Verifique se que todos os seus dados é carregado no Azure em relação aos arquivos BOM. Agora você pode mover esses dados para uma conta de armazenamento do Data Lake armazenamento Gen2.
 

@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/27/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: 8993aea208e4ccdcf92f676cc07f2912979da606
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540220"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,9 +32,11 @@ Este artigo de instruções abrange operações comuns do armazenamento de Tabel
 
 Este artigo de instruções mostra como criar uma nova conta de armazenamento do Azure em um novo grupo de recursos, de modo que você possa removê-la facilmente quando terminar. Se preferir usar uma conta de armazenamento existente, faça isso.
 
-Estes exemplos exigem a `AzureRM` versão 4.4.0 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable AzureRM` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Os exemplos requerem que os módulos PowerShell Az `Az.Storage (1.1.3 or greater)` e `Az.Resources (1.2.0 or greater)`. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
-[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+> [!IMPORTANT]
+> Usar esse recurso do Azure do PowerShell exige que você tenha o módulo `Az` instalado. A versão atual do AzureRmStorageTable não é compatível com o módulo AzureRM mais antigo.
+> Siga as [mais recente instalar instruções para instalar o módulo de Az](/powershell/azure/install-az-ps) se necessário.
 
 Depois que o Azure PowerShell for instalado ou atualizado, você deverá instalar o módulo **AzureRmStorageTable**, que contém os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
 
@@ -44,10 +46,10 @@ Install-Module AzureRmStorageTable
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
+Entre na sua assinatura do Azure com o comando `Add-AzAccount` e siga as instruções na tela.
 
 ```powershell
-Connect-AzureRmAccount
+Add-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Recuperar a lista de locais
@@ -55,28 +57,28 @@ Connect-AzureRmAccount
 Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Esses exemplos usam **eastus**. Armazene esse valor na variável **location** para uso futuro.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup). 
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos chamado *pshtablesrg* é criado na região *eastus*.
 
 ```powershell
 $resourceGroup = "pshtablesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>Criar Conta de Armazenamento
 
-Crie uma conta de armazenamento padrão de uso geral com o armazenamento localmente redundante (LRS) usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obtenha o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais.
+Crie uma conta de armazenamento padrão para uso geral com o LRS (armazenamento com redundância local) usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Certifique-se de especificar um nome de conta de armazenamento exclusivo. Em seguida, obtenha o contexto que representa a conta de armazenamento. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -87,40 +89,51 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
-Para criar uma tabela, use o cmdlet [New-AzureStorageTable](/powershell/module/azure.storage/New-AzureStorageTable). Neste exemplo, a tabela é chamada `pshtesttable`.
+Para criar uma tabela, use o [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) cmdlet. Neste exemplo, a tabela é chamada `pshtesttable`.
 
 ```powershell
 $tableName = "pshtesttable"
-New-AzureStorageTable –Name $tableName –Context $ctx
+New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Recuperar uma lista de tabelas na conta de armazenamento
 
-Recupere uma lista de tabelas na conta de armazenamento usando [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Recuperar uma lista de tabelas na conta de armazenamento usando [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
 
 ```powershell
-Get-AzureStorageTable –Context $ctx | select Name
+Get-AzStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Recuperar uma referência a uma tabela específica
 
-Para executar operações em uma tabela, você precisa de uma referência à tabela específica. Obtenha uma referência usando [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable). 
+Para executar operações em uma tabela, você precisa de uma referência à tabela específica. Obtenha uma referência usando [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
+$storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
+```
+
+## <a name="reference-cloudtable-property-of-a-specific-table"></a>Propriedade de CloudTable de referência de uma tabela específica
+
+> [!IMPORTANT]
+> Uso de CloudTable é obrigatório ao trabalhar com **AzureRmStorageTable** módulo do PowerShell. Chame o **Get-AzTableTable** comando para obter a referência a esse objeto. Esse comando também cria a tabela se ela ainda não existir.
+
+Para executar operações em uma tabela usando **AzureRmStorageTable**, você precisa de uma referência à propriedade CloudTable de uma tabela específica.
+
+```powershell
+$cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
 
-Para excluir uma tabela, use [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable). Esse cmdlet remove a tabela, incluindo todos os seus dados.
+Para excluir uma tabela, use [AzStorageTable remover](/powershell/module/az.storage/Remove-AzStorageTable). Esse cmdlet remove a tabela, incluindo todos os seus dados.
 
 ```powershell
-Remove-AzureStorageTable –Name $tableName –Context $ctx
+Remove-AzStorageTable –Name $tableName –Context $ctx
 
 # Retrieve the list of tables to verify the table has been removed.
-Get-AzureStorageTable –Context $Ctx | select Name
+Get-AzStorageTable –Context $Ctx | select Name
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -128,7 +141,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 Se você criou um novo grupo de recursos e uma conta de armazenamento no início destas instruções, remova todos os ativos criados neste exercício removendo o grupo de recursos. Esse comando exclui todos os recursos contidos no grupo, bem como o próprio grupo de recursos.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -145,8 +158,8 @@ Neste artigo de instruções, você aprendeu sobre operações comuns do armazen
 
 Para obter mais informações, consulte os seguintes artigos
 
-* [Cmdlets do PowerShell do Armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage#storage)
 
-* [Trabalhando com Tabelas do Armazenamento do Azure no PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
+* [Trabalhando com tabelas do Azure do PowerShell – AzureRmStorageTable PS módulo v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

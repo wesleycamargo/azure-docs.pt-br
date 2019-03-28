@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261257"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541070"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Criar campos personalizados no Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados em um espaço de trabalho do Log Analytics no Azure Monitor
 
 > [!NOTE]
-> Este artigo descreve como analisar dados de texto no Log Analytics conforme são coletados. Há vantagens na análise de dados de texto em uma consulta depois que eles são coletados, conforme descrito em [Analisar dados de texto no Log Analytics](../log-query/parse-text.md).
+> Este artigo descreve como analisar dados de texto em um espaço de trabalho do Log Analytics conforme ele é coletado. Há vantagens para análise de dados de texto em uma consulta depois de coletadas conforme descrito em [analisar dados de texto no Azure Monitor](../log-query/parse-text.md).
 
-O recurso **Campos Personalizados** do Log Analytics permite que você estenda os registros existentes no Log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
+O **campos personalizados** recurso do Azure Monitor permite que você estenda os registros existentes no seu espaço de trabalho do Log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
 ![Visão geral dos campos personalizados](media/custom-fields/overview.png)
 

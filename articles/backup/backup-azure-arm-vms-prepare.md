@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403656"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520166"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -220,7 +220,8 @@ Depois de habilitar o backup:
 - Um backup inicial será executado de acordo com sua agenda de backup.
 - O serviço de Backup instala a extensão de backup independentemente de a VM estar em execução.
     - Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo.
-    -  No entanto, o backup da VM é feito mesmo se ela esteja desativada e a extensão não poderá ser instalada. Isso é conhecido como uma VM offline. Nesse caso, o ponto de recuperação será consistente com falha. [Saiba mais]() Observe que o Backup do Azure não dá suporte a ajuste automático do relógio para alterações de horário de verão para backups de VM do Azure. Modifique as políticas de backup manualmente, conforme necessário.
+    -  No entanto, o backup da VM é feito mesmo se ela esteja desativada e a extensão não poderá ser instalada. Isso é conhecido como uma VM offline. Nesse caso, o ponto de recuperação será consistente com falha.
+    Observe que o Backup do Azure não oferece suporte ao ajuste automático do relógio para alterações de horário de verão para backups de VMs do Azure. Modifique as políticas de backup manualmente, conforme necessário.
 
 ## <a name="run-the-initial-backup"></a>Executar o backup inicial
 

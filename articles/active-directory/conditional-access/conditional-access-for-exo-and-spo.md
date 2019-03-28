@@ -3,7 +3,7 @@ title: Configurar o SharePoint Online e o Exchange Online para acesso condiciona
 description: Saiba como configurar o SharePoint Online e o Exchange Online para acesso condicional do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a90cd381dbe3feaad110c7f10ae328915c051d0a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311013"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517718"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Como: Configurar o SharePoint Online e o Exchange Online para acesso condicional do Azure Active Directory 
 
@@ -79,7 +79,7 @@ Embora o Exchange Active Sync dê suporte à autenticação moderna, há algumas
 
 - Ao selecionar **os clientes do Exchange Active Sync** em sua política, não é possível configurar outras condições.  
 
-    ![Plataforma de dispositivo](./media/conditional-access-for-exo-and-spo/05.png)
+    ![Plataformas de dispositivo](./media/conditional-access-for-exo-and-spo/05.png)
 
 - Não há suporte para a definição do requisito de autenticação multifator  
 
@@ -89,13 +89,13 @@ Para proteger efetivamente o acesso ao Exchange Online do Exchange ActiveSync, v
 
 - Configurar uma política de acesso condicional com suporte executando estas etapas:
 
-    a. Selecione apenas **Exchange Online do Office 365** como aplicativo de nuvem.  
+     a. Selecione apenas **Exchange Online do Office 365** como aplicativo de nuvem.  
 
     ![Acesso condicional](./media/conditional-access-for-exo-and-spo/04.png)
 
     b. Selecione **Exchange Active Sync** como **aplicativo de cliente**.  
 
-    ![Plataforma de dispositivo](./media/conditional-access-for-exo-and-spo/03.png)
+    ![Plataformas de dispositivo](./media/conditional-access-for-exo-and-spo/03.png)
 
 - Bloqueie o Exchange ActiveSync usando regras do AD FS (Serviços de Federação do Active Directory).
 

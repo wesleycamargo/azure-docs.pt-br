@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319441"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519741"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -72,7 +72,7 @@ Você pode configurar o gateway de aplicativo para ter um endereço IP público 
 
 Há suporte para apenas um endereço IP público ou um endereço IP privado. Você pode escolher o IP de front-end ao criar o Gateway de aplicativo. 
 
-- No caso de um IP público, você pode optar por criar um novo IP público ou usar um IP público existente no mesmo local que o Gateway de aplicativo. Se você criar um novo endereço IP público, o tipo de endereço IP estiver selecionado (estático ou dinâmico) não pode ser alterado posteriormente. Para obter mais informações, consulte [portas estáticas vs IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- No caso de um IP público, você pode optar por criar um novo IP público ou usar um IP público existente no mesmo local que o Gateway de aplicativo. Se você criar um novo endereço IP público, o tipo de endereço IP estiver selecionado (estático ou dinâmico) não pode ser alterado posteriormente. Para obter mais informações, consulte [portas estáticas vs IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - No caso de um endereço IP privado, você pode optar por especificar um endereço IP privado da sub-rede na qual o Gateway de aplicativo é criado. Se não for especificado explicitamente, um endereço IP arbitrário será selecionado automaticamente da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicativo com um ponto de extremidade do (ILB) do balanceador de carga interno.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Você precisa escolher entre o protocolo HTTP e HTTPS.
 
 - Se você optar por HTTP, o tráfego entre o gateway de aplicativo cliente e fará o fluxo não criptografados.
 
-- Selecione HTTPS, se você estiver interessado em [terminação de Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) ou [criptografia de SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se você optar por HTTPS, o tráfego entre o gateway de aplicativo do cliente será criptografado e a conexão SSL no gateway de aplicativo será encerrado.  Se desejar que a criptografia SSL de ponta a ponta, você precisará escolher o protocolo HTTPS ao configurar adicionalmente *configuração de HTTP de back-end*. Isso garantirá que o tráfego é criptografado novamente quando são transmitidos entre o Gateway de aplicativo e o back-end.
+- Selecione HTTPS, se você estiver interessado em [terminação de Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview) ou [criptografia de SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se você optar por HTTPS, o tráfego entre o gateway de aplicativo do cliente será criptografado e a conexão SSL no gateway de aplicativo será encerrado.  Se desejar que a criptografia SSL de ponta a ponta, você precisará escolher o protocolo HTTPS ao configurar adicionalmente *configuração de HTTP de back-end*. Isso garantirá que o tráfego é criptografado novamente quando são transmitidos entre o Gateway de aplicativo e o back-end.
 
   Para configurar a criptografia SSL de ponta a ponta e o término de Secure Sockets Layer (SSL), é necessário um certificado a ser adicionado ao ouvinte de modo a habilitar o Gateway de aplicativo para derivar uma chave simétrica de acordo com a especificação do protocolo SSL. A chave simétrica, em seguida, é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado do gateway precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego. 
 
@@ -220,7 +220,7 @@ O gateway de aplicativo roteia o tráfego para os servidores de back-end usando 
 
 Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor. Usando cookies gerenciados pelo gateway, o gateway de aplicativo pode direcionar o tráfego seguinte de uma sessão de usuário para o mesmo servidor para processamento. Isso é importante em casos em que o estado de sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não pode lidar com a afinidade de baseada em cookies, em seguida, você não poderá usar esse recurso. Para usar a afinidade de sessão baseada em cookies, você deve garantir que os clientes devem oferecer suporte a cookies. 
 
-### <a name="connection-draining"></a>Descarga de conexão
+### <a name="connection-draining"></a>Descarregamento de conexão
 
 O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Uma vez habilitada, o gateway de aplicativo garante que todas as instâncias de cancelar o registro de um pool de back-end não recebe novas solicitações, permitindo que solicitações existentes ser concluída dentro de um limite de tempo configurado. Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma chamada à API e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade.
 
@@ -232,7 +232,7 @@ O gateway de aplicativo dá suporte a protocolos HTTP e HTTPS para rotear solici
 
 Essa é a porta que os servidores de back-end estão escutando o tráfego proveniente do Gateway de aplicativo. Você pode configurar as portas que variam de 1 a 65535.
 
-### <a name="request-timeout"></a>Solicitar tempo limite
+### <a name="request-timeout"></a>Tempo limite da solicitação
 
 O número de segundos que o gateway de aplicativo espera receber a resposta do pool de back-end antes de retornar um erro de "Conexão atingiu o tempo limite".
 

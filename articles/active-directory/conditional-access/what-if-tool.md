@@ -4,7 +4,7 @@ description: Saiba como é possível reconhecer o impacto das políticas de aces
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec279b9c3333c365e5e516fb61fc10016fefe80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170115"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521866"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Qual é a ferramenta “e se” de acesso condicional do Azure Active Directory?
 
@@ -37,7 +37,7 @@ A **ferramenta de políticas “e se” de acesso condicional** permite que voc�
 
 As ferramentas “e se” também fornecem uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se você precisar solucionar um problema.  
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Na **ferramenta “e se” de acesso condicional**, primeiro você precisa configurar as defições do cenário de logon que você deseja simular. Essas configurações incluem:
 
@@ -75,7 +75,7 @@ Esta seção fornece informações sobre as configurações de execução de sim
 
 Você só pode selecionar um usuário. Este é o único campo obrigatório.
 
-### <a name="cloud-apps"></a>Aplicativos de nuvem
+### <a name="cloud-apps"></a>Aplicativos na nuvem
 
 O padrão para essa configuração é **Todos os aplicativos de nuvem**. A configuração padrão executa uma avaliação de todas as políticas disponíveis em seu ambiente. Você pode restringir o escopo para políticas que afetem aplicativos de nuvem específicos.
 
@@ -84,7 +84,7 @@ O padrão para essa configuração é **Todos os aplicativos de nuvem**. A confi
 
 O endereço IP é um único endereço IPv4 para imitar a [condição local](location-condition.md). O endereço representa o endereço de internet do dispositivo usado pelo usuário para fazer acesso. Você pode verificar o endereço IP de um dispositivo, por exemplo, navegando até [Qual é o meu endereço IP](https://whatismyipaddress.com).    
 
-### <a name="device-platforms"></a>Plataforma de dispositivo
+### <a name="device-platforms"></a>Plataformas de dispositivo
 
 Essa configuração imita a [condição de plataformas de dispositivo](conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)**. 
 ### <a name="client-apps"></a>Aplicativos cliente

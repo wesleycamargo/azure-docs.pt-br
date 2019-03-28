@@ -1,5 +1,5 @@
 ---
-title: Coletar e analisar logs de atividades do Azure no Log Analytics | Microsoft Docs
+title: Coletar e analisar logs de atividades do Azure no espaço de trabalho do Log Analytics | Microsoft Docs
 description: Você pode usar a solução de Logs de atividade do Azure para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540224"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540424"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Coletar e analisar os logs de atividades do Azure no Log Analytics
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar logs de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor
 
 ![Símbolo dos logs de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log 
 
 Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* para qualquer operação de gravação (PUT, POST, DELETE) feitas para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo de implantação Clássico.
 
-Quando você conecta os logs de atividades do Azure ao Log Analytics, é possível:
+Quando você conectar seus logs de atividades do Azure para um espaço de trabalho do Log Analytics, você pode:
 
 - Analisar os logs de atividade com exibições predefinidas
 - Analisar e pesquisar logs de atividade de várias assinaturas do Azure
@@ -40,15 +40,15 @@ Quando você conecta os logs de atividades do Azure ao Log Analytics, é possív
 - Identificar problemas de integridade ou interrupção de serviço que afetam os recursos
 - Usar pesquisa de logs para correlacionar atividades do usuário, operações de dimensionamento automático, alterações de autorização e integridade do serviço a outros logs ou métricas do seu ambiente
 
-<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de workspace inferior a 90 dias. Se o workspace tiver retenção com mais de 90 dias, os logs de atividades serão mantidos com base no período de retenção do workspace.
+<sup>1</sup>por padrão, Monitor do Azure mantém seus logs de atividades do Azure em um espaço de trabalho do Log Analytics por 90 dias, mesmo se você estiver usando a camada gratuita. Ou, se você tiver uma configuração de retenção de workspace inferior a 90 dias. Se o workspace tiver retenção com mais de 90 dias, os logs de atividades serão mantidos com base no período de retenção do workspace.
 
-O Log Analytics coleta os logs de atividade e os armazena por 90 dias gratuitamente. Se você armazenar os logs por mais de 90 dias, incorrerá em encargos de retenção de dados para os dados armazenados por mais de 90 dias.
+O espaço de trabalho do Log Analytics coleta os logs de atividade gratuitamente e armazena os logs por 90 dias gratuitamente. Se você armazenar os logs por mais de 90 dias, incorrerá em encargos de retenção de dados para os dados armazenados por mais de 90 dias.
 
 Quando você está no tipo de preço Gratuito, os logs de atividade não se aplicam ao consumo de dados diário.
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-Ao contrário da maioria das outras soluções do Log Analytics, dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
+Ao contrário da maioria das outras soluções do Azure Monitor, os dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
 | Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |

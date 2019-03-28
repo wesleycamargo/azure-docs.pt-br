@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336296"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517741"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativos para verificação em duas etapas
 
@@ -40,7 +40,7 @@ Ao usar senhas de aplicativos, é importante lembrar:
 
 Você recebe uma senha do aplicativo durante o registro inicial da verificação em duas etapas. Se você precisar de mais do que uma senha, poderá criar senhas adicionais com base em como você usa a verificação em duas etapas:
 
-- **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o portal MyApps.** Crie e exclua suas senhas de aplicativos usando as instruções em [Criar e excluir senhas de aplicativos usando a seção MyApps do portal](#create-and-delete-app-passwords-using-the-my-apps-portal) deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [O que é o portal MyApps no Active Directory do Azure?](active-directory-saas-access-panel-introduction.md).
+- **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o portal MyApps.** Criar e excluir suas senhas de aplicativo usando as instruções para criar e excluir senhas de aplicativo usando a portal MyApps seção deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [O que é o portal MyApps no Active Directory do Azure?](active-directory-saas-access-panel-introduction.md).
 
 - **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o portal do Office 365.** Crie e exclua suas senhas de aplicativos usando as instruções em [Criar e excluir senhas de aplicativos usando a seção do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) deste artigo.
 

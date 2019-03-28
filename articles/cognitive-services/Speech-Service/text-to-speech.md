@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226905"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521237"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
-Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar seus próprios [voz personalizada](#custom-voice-fonts) exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 Tecnologia de texto para fala permite que os criadores de conteúdo interagir com seus usuários de diferentes maneiras. Texto para fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo de forma audível. Se o usuário tem uma deficiência visual, uma deficiência de aprendizagem, ou exige informações de navegação enquanto dirige, uma experiência existente pode melhorar o texto para fala. Texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
 
@@ -56,23 +56,23 @@ Nós oferecemos guias de início rápido foi projetados para ter está executand
 
 | Início rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Exemplo de código
 
 Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
 
-* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
 * [SDK da fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md)
-* [API REST: Text-to-speech](rest-text-to-speech.md)
-* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 

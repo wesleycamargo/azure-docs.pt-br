@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371376"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539991"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Excluir SKUs ou ofertas do Azure Marketplace e do AppSource
 
@@ -28,7 +28,7 @@ Por motivos diversos, você pode optar por retirar a oferta do seu Microsoft Mar
 - A *remoção de oferta* garante que novos clientes não possam adquirir ou implantar sua oferta, mas não tem impacto sobre clientes existentes, aos quais você precisa dar suporte de acordo com seu contrato de licença e leis pertinentes. 
 - O *encerramento de oferta* é o processo de encerrar o contrato de licenciamento e/ou serviço entre você e seus clientes existentes. 
 
-Diretrizes e políticas relacionadas à remoção e o término da oferta são governadas pelas [contrato de Editor do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (seção 7) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [ Oferta de suspensão e remoção](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Diretrizes e políticas relacionadas à remoção e o término da oferta são governadas pelas [contrato de Editor do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [oferta suspensão e remoção](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Este artigo aborda os diferentes cenários de exclusão compatíveis e as etapas necessárias para executar cada um deles.  
 

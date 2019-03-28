@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369149"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520999"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar um espaço de trabalho do serviço de Azure Machine Learning
 
@@ -24,7 +24,7 @@ Para usar o serviço Azure Machine Learning, você precisa de um [ **espaço de 
 Neste artigo, você aprenderá a criar um espaço de trabalho usando qualquer um destes métodos: 
 * O [portal do Azure](#portal) interface
 * O [do Azure Machine Learning do SDK para Python](#sdk)
-* Um [modelo do Resource Manager](#template)
+* Um modelo do Azure Resource Manager
 * O [CLI de aprendizado de máquina do Azure](#cli)
 
 O espaço de trabalho que você criar usando as etapas aqui-in pode ser usado como um pré-requisito para outros tutoriais e artigos de instruções. 
@@ -116,7 +116,7 @@ As instruções neste artigo instalará todos os pacotes que você precisa execu
     ```
 
 > [!IMPORTANT]
-> Em algumas ferramentas de linha de comando, você talvez precise adicionar aspas da seguinte maneira:
+> Em algumas ferramentas de linha de comando, talvez seja necessário adicionar aspas conforme a seguir:
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 >

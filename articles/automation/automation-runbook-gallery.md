@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337080"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518993"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e de módulos para a Automação do Azure
 
 Em vez de criar seus próprios runbooks e módulos na Automação do Azure, você pode acessar cenários que já foram desenvolvidos pela Microsoft e pela comunidade.
 
-Você pode obter [runbooks do PowerShell](#runbooks-in-runbook-gallery) e [módulos](#modules-in-powerShell-gallery) da Galeria do PowerShell e [runbooks Python](#python-runbooks) da Galeria do Centro de Script. Você também pode contribuir com a comunidade compartilhando os cenários que desenvolver. Para saber mais sobre isso, consulte [Adicionando um runbook à galeria](#adding-a-runbook-to-the-runbook-gallery)
+Você pode obter os runbooks do PowerShell e [módulos](#modules-in-powershell-gallery) da Galeria do PowerShell e [runbooks Python](#python-runbooks) da Galeria do Centro de Script. Você também pode contribuir para a comunidade compartilhando os cenários que você desenvolve, consulte Adicionar um runbook à Galeria
 
 ## <a name="runbooks-in-powershell-gallery"></a>Runbooks na Galeria do PowerShell
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096768"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517259"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Controlar os custos associados a um laboratório no Azure DevTest Labs
 Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como exibir a estimados trent de custo para o mês do calendário atual para o laboratório. O artigo também mostra como exibir month-to-date custo por recurso no laboratório.
@@ -71,7 +71,7 @@ O DevTest Labs lhe permite gerenciar melhor os custos em seu laboratório defini
    - Especifique uma **Meta de custo**. Por exemplo, quanto você planeja gastar neste laboratório no período de tempo que você definiu.
    - Selecione para habilitar ou desabilitar qualquer limite que você deseja que seja relatado – em incrementos de 25% –, até 125% de sua **Meta de custo** especificada.
       - **Notificar**: Quando esse limite for atingido, você será notificado por uma URL de webhook que você especificar.
-      - **Plotar no gráfico**: Quando esse limite for atingido, os resultados serão plotados no gráfico de tendência de custo que você pode exibir, conforme descrito em [visualizando o gráfico de tendência de custo estimado mensal](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Plotar no gráfico**: Quando esse limite for atingido, os resultados serão plotados no gráfico de tendência de custo que você pode exibir, conforme descrito em visualizando o gráfico de tendência de custo estimado mensal.
    - Se optar por **Notificar** quando o limite for atingido, você precisará especificar uma URL de webhook. Na área de integração de custos, selecione **Clique aqui para adicionar uma integração**. Insira um **URL de Webhook** no painel Configurar notificação e, em seguida, selecione **Okey**.
 
        ![Painel Configurar notificação](./media/devtest-lab-configure-cost-management/configure-notification.png)

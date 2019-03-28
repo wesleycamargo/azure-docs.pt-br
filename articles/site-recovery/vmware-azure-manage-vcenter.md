@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855122"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518075"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerenciar o servidor VMware vCenter
 
@@ -108,7 +108,7 @@ Para mover algumas máquinas virtuais para um novo vCenter:
 4. Agora, proteger as máquinas virtuais migradas por [selecionando o novo vCenter ao habilitar a proteção](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Se for o número de máquinas virtuais que estão sendo migrados **superior** que o número de número de máquinas virtuais retidos no vCenter antigo, atualize o endereço IP do novo vCenter usando as instruções fornecidas [aqui](#modify-vcenter-ip-address-port). Algumas das máquinas virtuais que são mantidos no vCenter antigo, [desabilitar a replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [adicionar novos detalhes do vCenter ao servidor de configuração](#add-vmware-server-to-the-vault)e inicie  **[habilitar a proteção](vmware-azure-tutorial.md#enable-replication)**.
+> Se for o número de máquinas virtuais que estão sendo migrados **superior** que o número de número de máquinas virtuais retidos no vCenter antigo, atualize o endereço IP do novo vCenter usando as instruções fornecidas aqui. Algumas das máquinas virtuais que são mantidos no vCenter antigo, [desabilitar a replicação](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [adicionar novos detalhes do vCenter ao servidor de configuração](#add-vmware-server-to-the-vault)e inicie  **[habilitar a proteção](vmware-azure-tutorial.md#enable-replication)**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5b21c16a166a3a264156b7719be6a331e00e6e8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881360"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520047"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recursos no SQL Data Warehouse do Azure
 
@@ -130,7 +130,21 @@ Algumas consultas sempre são executadas na classe de recurso smallrc, mesmo se 
 
 As instruções a seguir estão isentas das classes de recursos e sempre são executadas em smallrc:
 
--Criar ou descartar tabela - ALTER TABLE... SWITCH, dividir ou Mesclar partição-desabilitar o índice de ALTER - DROP INDEX-criar, atualizar ou DROP STATISTICS-TRUNCATE TABLE-ALTER AUTHORIZATION-CREATE LOGIN-criar, ALTER ou DROP USER-criar, ALTER ou DROP PROCEDURE-criar ou descartar VIEW - inserir valores - selecionar exibições do sistema e DMVs-EXPLIQUE - DBCC
+- CREATE ou DROP TABLE
+- ALTER TABLE ... SWITCH, SPLIT ou MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE, UPDATE ou DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE, ALTER ou DROP USER
+- CREATE, ALTER ou DROP PROCEDURE
+- CREATE ou DROP VIEW
+- INSERT VALUES
+- SELECT de exibições do sistema e DMVs
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW

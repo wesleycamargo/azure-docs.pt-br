@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372396"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517310"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
-A [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede privada segura, que inclui filtragem, roteamento e emparelhamento, para seus recursos locais e do Azure. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
+[Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede segura e privada para o Azure e recursos locais. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
 
 Os grupos de contêineres implantados em uma rede virtual do Azure permitem cenários como:
 
@@ -34,7 +34,6 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 Algumas limitações se aplicam ao implantar grupos de contêineres em uma rede virtual.
 
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remova todos os recursos existentes de uma sub-rede existente antes de implantar grupos de contêineres nela ou crie uma nova sub-rede.
-* No momento, os grupos de contêineres implantados em uma rede virtual não dão suporte a endereços IP públicos ou rótulos de nome DNS.
 * Não é possível usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantados em uma rede virtual.
 * Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é um pouco mais lenta do que a implantação de uma instância de contêiner padrão.
 
@@ -46,10 +45,14 @@ Embora esse recurso está em visualização, as seguintes limitações se aplica
 
 Limites de recursos de contêineres podem ser diferente dos limites para as instâncias de contêiner fora da rede nessas regiões. Atualmente, há suporte apenas para contêineres do Linux para esse recurso. O suporte para Windows está planejado.
 
-### <a name="unsupported-network-resources-and-features"></a>Recursos e recursos de rede sem suporte
+### <a name="unsupported-networking-scenarios"></a>Não há suporte para cenários de rede 
 
-* Azure Load Balancer
-* Emparelhamento de rede virtual
+* **O Azure Load Balancer** -não há suporte para colocar um balanceador de carga na frente de instâncias de contêiner do Azure em um grupo de contêineres em rede
+* **Emparelhamento de rede virtual** -só é possível emparelhar uma rede virtual que contém uma sub-rede delegada a instâncias de contêiner do Azure a outra rede virtual
+* **Tabelas de rotas** -rotas definidas pelo usuário não podem ser configuradas em uma sub-rede delegada a instâncias de contêiner do Azure
+* **Grupos de segurança de rede** -regras de segurança de saída em NSGs aplicados a uma sub-rede delegada a instâncias de contêiner do Azure atualmente não são impostas 
+* **Rótulo IP ou DNS público** -grupos de contêineres implantados em uma rede virtual atualmente não dão suporte a contêineres expor diretamente à internet com um endereço IP público ou um nome de domínio totalmente qualificado
+* **Resolução de nomes interna** -não há suporte para a resolução de nomes para recursos do Azure na rede virtual por meio do Azure DNS interno
 
 A **exclusão de recursos de rede** requer [etapas adicionais](#delete-network-resources) depois da implantação de grupos de contêineres na rede virtual.
 

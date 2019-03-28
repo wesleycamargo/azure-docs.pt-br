@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a528fad10144ec733a3db5340ef12dee5ce5411c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3dc09de6afaddeb06b0243eb46e888b673109545
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553222"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505823"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "57553222"
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [usar modelos vinculados ao implantar recursos do Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
 
-Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. Você pode excluir as entradas do histórico com [excluir implantação de grupo az](/cli/azure/group/deployment) da CLI do Azure. Você também pode usar [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) no PowerShell. Excluindo uma entrada de histórico de implantação não afeta os recursos de implantação. 
+Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. Você pode excluir as entradas do histórico com [excluir implantação de grupo az](/cli/azure/group/deployment) da CLI do Azure. Você também pode usar [AzResourceGroupDeployment remover](/powershell/module/az.resources/remove-azresourcegroupdeployment) no PowerShell. Excluindo uma entrada de histórico de implantação não afeta os recursos de implantação. 

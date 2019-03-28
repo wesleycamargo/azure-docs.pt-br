@@ -5,40 +5,33 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228348"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521509"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner Clássico
 
 O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de serviço, [conhecidas como SKUs](container-registry-skus.md). A versão inicial do ACR oferecia um único SKU, o Clássico, que não tinha vários recursos inerentes aos SKUs Básico, Standard e Premium (coletivamente conhecidos como registros *gerenciados*).
 
-O SKU clássico está sendo preterido e não estará disponível depois de março de 2019. Este artigo fornece detalhes sobre como migrar seu registro Clássico não gerenciado para um dos SKUs gerenciados para que você possa tirar proveito do seu conjunto de recursos aprimorado.
+A SKU clássica está sendo preterida e não estará disponível depois de abril de 2019. Este artigo fornece detalhes sobre como migrar seu registro Clássico não gerenciado para um dos SKUs gerenciados para que você possa tirar proveito do seu conjunto de recursos aprimorado.
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-O SKU de registro clássico está sendo **preterido** e não estará disponível a partir de **março de 2019**. Todos os Registros Clássicos existentes devem ser atualizados antes de março de 2019.
+O registro clássico SKU está sendo **preterido**e não estará disponível após **abril de 2019**. Todos os registros clássicos existentes devem ser atualizados antes de abril de 2019. Recursos de portal de gerenciamento de registros clássicos serão descontinuados. Criação de novos registros de clássicos será desabilitada depois de abril de 2019.
 
-Devido às funcionalidades limitadas e ao planejamento de se preterir os registros não gerenciados Clássicos, todos os registros Clássicos devem ser atualizados para registros gerenciados Básico, Standard ou Premium. Essas SKUs de nível superior integram o registro aos recursos do Azure mais profundamente.
-
-Os registros gerenciados fornecem:
-
-* Integração com o Azure Active Directory para [logon individual](container-registry-authentication.md#individual-login-with-azure-ad)
-* Suporte a exclusão de marca e imagem
-* [Replicação geográfica](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
+Devido à substituição planejada e funcionalidades limitadas dos registros não gerenciados clássicos, todos os registros clássicos devem ser atualizados para registros gerenciados (Basic, Standard ou Premium). Essas SKUs de nível superior integram o registro aos recursos do Azure mais profundamente. Para obter mais informações sobre os preços e recursos das camadas de serviço diferentes, consulte [SKUs de registro de contêiner](container-registry-skus.md).
 
 O registro Clássico depende da conta de armazenamento que o Azure provisionou automaticamente na sua assinatura do Azure quando você criou o registro. Por outro lado, SKUs Básico, Standard e Premium aproveitam os [recursos de armazenamento avançados](container-registry-storage.md) do Azure, manipulando de modo transparente o armazenamento das imagens para você. Uma conta de armazenamento separada não é criada em sua própria assinatura.
 
 Um armazenamento de registro gerenciado oferece os seguintes benefícios:
 
 * As imagens de contêiner são [criptografadas em repouso](container-registry-storage.md#encryption-at-rest).
-* As imagens são armazenadas usando [armazenamento com redundância geográfica](container-registry-storage.md#geo-redundant-storage), garantindo o backup das imagens com a replicação em várias regiões.
+* As imagens são armazenadas [armazenamento com redundância geográfica](container-registry-storage.md#geo-redundant-storage), garantindo seu backup de suas imagens com replicação de várias regiões (SKU Premium somente).
 * Capacidade de [movimentação entre SKUs](container-registry-skus.md#changing-skus) de modo livre, permitindo uma maior taxa de transferência ao escolher um SKU de nível superior. Com cada SKU, o ACR pode atender a seus requisitos de taxa de transferência conforme a necessidade.
 * O modelo de segurança unificada para o registro e seu armazenamento fornece gerenciamento de direitos simplificado. Você pode gerenciar permissões apenas para o registro de contêiner, sem a necessidade de gerenciar também permissões para uma conta de armazenamento separada.
 
@@ -46,13 +39,13 @@ Para obter detalhes adicionais sobre o armazenamento de imagens no ACR, consulte
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 
-Ao alterar um registro Clássico para um registro gerenciado, o Azure deve copiar todas as imagens de contêiner existentes da conta de armazenamento criada por ACR na sua assinatura para uma conta de armazenamento gerenciada pelo Azure. Dependendo do tamanho do registro, esse processo pode demorar de alguns minutos a várias horas.
+Quando você atualiza um registro clássico para um registro gerenciado, Azure deve copiar todas as imagens de contêiner existentes da conta de armazenamento criada por ACR na sua assinatura para uma conta de armazenamento gerenciada pelo Azure. Dependendo do tamanho do registro, esse processo pode demorar de alguns minutos a várias horas. Para fins de estimativa, espere um tempo de migração de aproximadamente 0,5 GiB por minuto.
 
-Durante o processo de conversão, todas as operações `docker push` são bloqueadas, enquanto o `docker pull` continua a funcionar.
+Durante o processo de conversão, `docker push` operações são desabilitadas durante os últimos 10% da migração. `docker pull` continua a funcionar normalmente.
 
 Não exclua nem modifique o conteúdo da conta de armazenamento que dá suporte ao seu registro Clássico durante o processo de conversão. Isso pode resultar na corrupção de suas imagens de contêiner.
 
-Quando a migração é concluída, a conta de armazenamento em sua assinatura que originalmente dava suporte ao Registro Clássico não é mais usada pelo ACR. Depois de verificar que a migração foi bem-sucedida, considere a exclusão da conta de armazenamento para ajudar a minimizar o custo.
+Depois que a migração for concluída, a conta de armazenamento na sua assinatura que originalmente dava suporte ao registro clássico não é usada pelo registro de contêiner do Azure. Depois de verificar que a migração foi bem-sucedida, considere a exclusão da conta de armazenamento para ajudar a minimizar o custo.
 
 >[!IMPORTANT]
 > A atualização do Clássico para um dos SKUs gerenciados é um **processo unidirecional**. Depois de converter um registro Clássico para Básico, Standard ou Premium, não será possível reverter para o Clássico. É possível, no entanto, mover livremente entre SKUs gerenciados com uma capacidade suficiente para o registro.
@@ -69,7 +62,7 @@ Para atualizar um registro Clássico na CLI do Azure, execute o comando [az acr 
 az acr update --name myclassicregistry --sku Premium
 ```
 
-Quando a migração for concluída, você verá uma saída semelhante à seguinte. Observe que o `sku` é "Premium" e o `storageAccount` é "null", o que indica que o Azure agora gerencia o armazenamento de imagens para esse registro.
+Quando a migração for concluída, você verá uma saída semelhante à seguinte. Observe que o `sku` é "Premium" e o `storageAccount` é `null`, indicando que o Azure agora gerencia o armazenamento de imagens para esse registro.
 
 ```JSON
 {
@@ -100,7 +93,7 @@ Se receber um erro semelhante, execute o comando [az acr update][az-acr-update] 
 
 ## <a name="upgrade-in-azure-portal"></a>Atualizar no Portal do Azure
 
-Ao atualizar um registro Clássico usando o Portal do Azure, o Azure seleciona automaticamente o SKU de nível mais baixo que pode acomodar suas imagens. Por exemplo, se o registro contiver 12 GiB em imagens, o Azure selecionará e converterá automaticamente o registro Clássico para o Standard (máximo de 100 GiB).
+Quando você atualiza um registro clássico usando o portal do Azure, o Azure seleciona automaticamente a Standard ou Premium SKU, dependendo de qual SKU pode acomodar suas imagens. Por exemplo, se o registro contiver menos de 100 GiB em imagens, Azure automaticamente seleciona e converte o registro clássico para o Standard (máximo de 100 GiB).
 
 Para atualizar o registro Clássico usando o Portal do Azure, navegue até o registro de contêiner **Visão geral** e selecione **Atualizar para o registro gerenciado**.
 
@@ -108,19 +101,17 @@ Para atualizar o registro Clássico usando o Portal do Azure, navegue até o reg
 
 Selecione **OK** para confirmar que você deseja atualizar um registro gerenciado.
 
-![Confirmação da atualização do registro Clássico na interface do usuário do Portal do Azure][update-classic-02-confirm]
-
-Durante a migração, o portal indica que o **estado de provisionamento** do registro é *Atualizando*. Como mencionado anteriormente, as operações `docker push` são desabilitadas durante a migração e você não deve excluir nem atualizar a conta de armazenamento usada pelo registro Clássico enquanto a migração estiver em andamento. Isso poderá resultar na corrupção da imagem.
+Durante a migração, o portal indica que o **estado de provisionamento** do registro é *Atualizando*. Como mencionado anteriormente, `docker push` operações são desabilitadas durante os últimos 10% da migração. Não excluir ou atualizar a conta de armazenamento usada pelo registro clássico enquanto a migração está em andamento. Isso pode resultar na corrupção da imagem.
 
 ![Progresso da atualização do registro Clássico na interface do usuário do Portal do Azure][update-classic-03-updating]
 
-Quando a migração for concluída, o **Estado de provisionamento** indicará *Êxito*, e você poderá `docker push` novamente no registro.
+Quando a migração for concluída, o **estado de provisionamento** indica *Succeeded*, e você pode retomar as operações normais com o registro.
 
 ![Estado de conclusão da atualização do registro Clássico na interface do usuário do Portal do Azure][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que você tiver atualizado um registro Clássico para Básico, Standard ou Premium, o Azure não usará a conta de armazenamento que originalmente deu suporte ao registro Clássico. Para reduzir o custo, considere a possibilidade de excluir a conta de armazenamento ou o contêiner de Blob dentro da conta que contém as imagens do contêiner antigo.
+Depois que você tiver atualizado um registro clássico para um registro gerenciado, o Azure não usa a conta de armazenamento que originalmente dava suporte ao registro clássico. Para reduzir o custo, considere a possibilidade de excluir a conta de armazenamento ou o contêiner de Blob dentro da conta que contém as imagens do contêiner antigo.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png

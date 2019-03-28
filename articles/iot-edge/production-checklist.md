@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433443"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521747"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -134,7 +134,7 @@ Nos tutoriais e em outra documentação, instruímos você a usar as mesmas cred
 
 ### <a name="use-tags-to-manage-versions"></a>Use tags para gerenciar versões
 
-Uma tag é um conceito do Docker que você pode usar para distinguir entre as versões dos contêineres do Docker. As tags são sufixos como **1.0**, que vão no final de um repositório contêiner. Por exemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. As tags são mutáveis e podem ser alteradas para apontar para outro contêiner a qualquer momento, portanto, sua equipe deve concordar com uma convenção a seguir à medida que você atualiza as imagens do seu módulo no futuro. 
+Uma marca é um conceito do docker que você pode usar para fazer a distinção entre as versões de contêineres do docker. As tags são sufixos como **1.0**, que vão no final de um repositório contêiner. Por exemplo, **mcr.microsoft.com/azureiotedge-agent:1.0**. As tags são mutáveis e podem ser alteradas para apontar para outro contêiner a qualquer momento, portanto, sua equipe deve concordar com uma convenção a seguir à medida que você atualiza as imagens do seu módulo no futuro. 
 
 As tags também ajudam a impor atualizações nos seus dispositivos IoT Edge. Quando você envia uma versão atualizada de um módulo para seu registro de contêiner, incremente a tag. Em seguida, envie uma nova implantação para seus dispositivos com a tag incrementada. O mecanismo do contêiner reconhecerá a tag incrementada como uma nova versão e baixará a versão mais recente do módulo para o seu dispositivo. 
 
@@ -172,7 +172,7 @@ Esta lista de verificação é um ponto de partida para regras de firewall:
    | \*.azurecr.io | 443 | Registros de contêiner pessoal e parceiro comercial |
    | \*.blob.core.windows.net | 443 | Download de deltas de imagem | 
    | \*.azure-devices.net | 5671, 8883, 443 | Acesso do Hub IoT |
-   | \*. docker.io  | 443 | Acesso de docker (opcional) |
+   | \*. docker.io  | 443 | Acesso de Hub do docker (opcional) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurar a comunicação por meio de um proxy
 
@@ -186,16 +186,57 @@ Se os dispositivos forem implantados em uma rede que usa um servidor proxy, eles
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar logs e diagnósticos
 
-No Linux, o daemon do IoT Edge usa diários como o driver de log padrão. Você pode usar a ferramenta de linha de comando `journalctl` para consultar os logs do daemon. No Windows, o daemon IoT Edge usa diagnósticos do PowerShell. Use `Get-WinEvent` para consultar logs do daemon. Os módulos da IoT Edge usam o driver JSON para criação de log, que é o padrão do Docker.  
+No Linux, o daemon do IoT Edge usa diários como o driver de log padrão. Você pode usar a ferramenta de linha de comando `journalctl` para consultar os logs do daemon. No Windows, o daemon IoT Edge usa diagnósticos do PowerShell. Use `Get-WinEvent` para consultar logs do daemon. Módulos do IoT Edge usam o driver JSON para registro em log, que é o padrão.  
 
 Ao testar uma implantação do IoT Edge, você geralmente pode acessar seus dispositivos para recuperar logs e solucionar problemas. Em um cenário de implantação, talvez você não tenha essa opção. Pense em como você coletará informações sobre seus dispositivos em produção. Considere como você coletará informações sobre seus dispositivos em produção. Uma opção é usar um módulo de registro que coleta informações dos outros módulos e as envia para a nuvem. Um exemplo de um módulo de registro é [log-logan-analytics](https://github.com/veyalla/logspout-loganalytics), ou você pode criar o seu próprio. 
 
-Se você estiver preocupado com o fato de os logs se tornarem muito grandes em um dispositivo com recursos restritos, você terá algumas opções para reduzir o uso da memória. 
+### <a name="place-limits-on-log-size"></a>Colocar limites no tamanho do log
 
-* Você pode limitar especificamente o tamanho de todos os arquivos de log do docker no próprio daemon do Docker. Para Linux, configure o daemon em `/etc/docker/daemon.json`. Para Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* Se você deseja ajustar o tamanho do arquivo de log para cada contêiner, você pode fazer isso no CreateOptions de cada módulo. 
-* Configure o Docker para gerenciar automaticamente os logs definindo diários como o driver de log padrão para o Docker. 
-* Periodicamente, remova logs antigos do seu dispositivo instalando uma ferramenta de logrotate para o Docker. Use a seguinte especificação de arquivo: 
+Por padrão o mecanismo de contêiner Moby não define limites de tamanho de log do contêiner. Ao longo do tempo, isso pode levar a dispositivo cheio de logs e espaço em disco insuficiente. Considere as seguintes opções para evitar isso:
+
+**Opção: Definir limites globais que se aplicam a todos os módulos de contêiner**
+
+Você pode limitar o tamanho de todos os arquivos de log do contêiner nas opções de log do mecanismo de contêiner. O exemplo a seguir define o driver de log como `json-file` (recomendado) com limites de tamanho e número de arquivos:
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Adicionar (ou acrescentar) essas informações em um arquivo chamado `daemon.json` e coloque-o local certo para sua plataforma de dispositivo.
+
+| Plataforma | Local padrão |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+|  Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+O mecanismo de contêiner deve ser reiniciado para que as alterações entrem em vigor.
+
+**Opção: Ajustar as configurações de log para cada módulo de contêiner**
+
+Você pode fazer isso na **createOptions** de cada módulo. Por exemplo: 
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Opções adicionais em sistemas Linux**
+
+* Configurar o mecanismo de contêiner para enviar logs para `systemd` [diário](https://docs.docker.com/config/containers/logging/journald/) definindo `journald` como o driver de log padrão. 
+
+* Remova periodicamente os logs antigos do seu dispositivo ao instalar uma ferramenta de logrotate. Use a seguinte especificação de arquivo: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

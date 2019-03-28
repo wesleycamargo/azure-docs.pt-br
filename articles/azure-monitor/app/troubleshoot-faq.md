@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905045"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521802"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas frequentes
 
@@ -153,7 +153,7 @@ Isso é possível se o seu código envia tais dados. Isso também pode acontecer
 
 **Todos** os octetos do endereço web do cliente são sempre definidos como 0 depois que os atributos de localização geográfica são pesquisados.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Meu iKey está visível na minha fonte da página da Web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Minha chave de instrumentação é visível na minha página da web de origem. 
 
 * Essa é uma prática comum em soluções de monitoramento.
 * Ele não pode ser usado para roubar seus dados.
@@ -162,7 +162,7 @@ Isso é possível se o seu código envia tais dados. Isso também pode acontecer
 
 Você pode:
 
-* Usar dois iKeys separados (recursos do Application Insights separados) para dados do servidor e cliente. Ou
+* Use dois separado chaves de instrumentação (separar os recursos do Application Insights), para dados de cliente e servidor. Ou
 * Gravar um proxy que execute no seu servidor e o cliente Web envie dados através desse proxy.
 
 ## <a name="post"></a>Como eu vejo dados de POST na pesquisa de Diagnóstico?

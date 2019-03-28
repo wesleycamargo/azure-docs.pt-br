@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213918"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519129"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -100,12 +100,16 @@ A detecção de ameaças aprimora a auditoria analisando logs de auditoria para 
 
 O Banco de Dados SQL protege os dados do cliente por meio da criptografia de dados em movimento com o [protocolo TLS](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server impõe a criptografia (SSL/TLS) em todos os momentos para todas as conexões. Isso garante que todos os dados são criptografados "em trânsito" entre o cliente e servidor, independentemente da configuração da **Encrypt** ou **TrustServerCertificate** na cadeia de conexão.
+
+Como prática recomendada, é recomendável que, na conexão do seu aplicativo, de cadeia de caracteres você especificar uma conexão criptografada e _**não**_ confiar no certificado do servidor. Isso força o seu aplicativo para verificar o certificado do servidor e, portanto, impede que seu aplicativo seja vulnerável as ataques do tipo intermediária de.
+
+Por exemplo, ao usar o driver do ADO.NET, isso é feito por meio **Encrypt = True** e **TrustServerCertificate = False**. Se você obtiver sua cadeia de caracteres de conexão do portal do Azure, ele terá as configurações corretas.
+
 > [!IMPORTANT]
-> O Banco de Dados SQL do Azure aplica a criptografia (SSL / TLS) a todo momento para todas as conexões, o que garante que todos os dados sejam criptografados "em trânsito" entre o banco de dados e o cliente. Isso acontecerá independentemente da configuração de **Criptografar** ou **TrustServerCertificate** na cadeia de conexão.
+> Observe que alguns drivers não sejam da Microsoft não podem usar o TLS por padrão ou contam com uma versão mais antiga do TLS (< 2.0) para funcionar. Nesse caso, o SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir tais drivers e aplicativos para se conectar ao banco de dados SQL, especialmente se você armazenar dados confidenciais. 
 >
-> Na cadeia de conexão do seu aplicativo, assegure-se de especificar uma conexão criptografada e _não_ para confiar no certificado do servidor (Para o driver ADO.NET, isso é **Encrypt = True** e **TrustServerCertificate = Falso**). Isso ajuda a impedir que seu aplicativo seja atacado por um homem no meio, forçando o aplicativo a verificar o servidor e impor a criptografia. Se você obtiver sua cadeia de conexão do portal do Azure, ela terá as configurações corretas.
->
-> Para obter informações sobre TLS e conectividade, consulte [Considerações sobre TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Para obter mais informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (Criptografia em repouso)
 

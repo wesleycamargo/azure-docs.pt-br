@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317061"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518721"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317061"
 
 ![Metrics Explorer do Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-O Azure Functions também tem [internos de monitoramento que não usam o Application Insights](#monitoring-without-application-insights). Recomendamos o Application Insights porque ele oferece mais dados e maneiras melhores de analisar os dados.
+O Azure Functions também tem monitoramento interno que não usa o Application Insights. Recomendamos o Application Insights porque ele oferece mais dados e maneiras melhores de analisar os dados.
 
 ## <a name="application-insights-pricing-and-limits"></a>Preços e limites do Application Insights
 
@@ -77,7 +77,7 @@ A próxima etapa é [desabilitar o registro em log interno](#disable-built-in-lo
 
 ## <a name="disable-built-in-logging"></a>Desabilitar o registro em log interno
 
-Quando você habilita o Application Insights, desabilite o [registro em log interno que usa o armazenamento do Azure](#logging-to-storage). O registro em log interno é útil para testes com cargas de trabalho leves, mas não se destina para uso em produção carga alta. Para o monitoramento de produção, recomendamos o Application Insights. Se o registro em log interno é usado em produção, o registro de log pode ser incompleto devido à limitação no armazenamento do Azure.
+Quando você habilita o Application Insights, desabilite o registro em log interno que usa o armazenamento do Azure. O registro em log interno é útil para testes com cargas de trabalho leves, mas não se destina para uso em produção carga alta. Para o monitoramento de produção, recomendamos o Application Insights. Se o registro em log interno é usado em produção, o registro de log pode ser incompleto devido à limitação no armazenamento do Azure.
 
 Para desabilitar o registro em log interno, exclua a configuração de aplicativo `AzureWebJobsDashboard`. Para obter informações sobre como excluir configurações do aplicativo no portal do Azure, consulte a seção **Configurações do aplicativo** em [Como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de excluir a configuração do aplicativo, verifique se que nenhuma função existente no mesmo aplicativo de funções usando a configuração para associações ou gatilhos de armazenamento do Azure.
 
@@ -125,7 +125,7 @@ Na [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), você pode cria
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Na guia [Falha](../azure-monitor/app/asp-net-exceptions.md), você pode criar gráficos e alertas com base em falhas de função e de exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implemente [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
+Na guia [Falha](../azure-monitor/app/asp-net-exceptions.md), você pode criar gráficos e alertas com base em falhas de função e de exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implementa a telemetria personalizada para dependências.
 
 ![Falhas](media/functions-monitoring/failures.png)
 
@@ -201,8 +201,8 @@ O agente do Azure Functions também inclui um *nível de log* com cada log. [Log
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
-|Crítica    | 5 |
-|Nenhuma        | 6 |
+|Crítico    | 5 |
+|Nenhum        | 6 |
 
 Nível de log `None` é explicado na próxima seção. 
 
@@ -322,7 +322,7 @@ Logs gravados pelo seu código de função têm a categoria `Function` e pode se
 
 ## <a name="configure-the-aggregator"></a>Configurar o agregador
 
-Conforme observado na seção anterior, o tempo de execução agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host.json](functions-host-json.md).  Veja um exemplo:
+Conforme observado na seção anterior, o tempo de execução agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host.json](functions-host-json.md).  Aqui está um exemplo:
 
 ```json
 {
@@ -335,7 +335,7 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um recurso de [amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando a taxa de telemetria de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é cinco. Você pode configurar a amostragem em [host.json](functions-host-json.md).  Veja um exemplo:
+O Application Insights tem um recurso de [amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando a taxa de telemetria de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é cinco. Você pode configurar a amostragem em [host.json](functions-host-json.md).  Aqui está um exemplo:
 
 ### <a name="version-2x"></a>Versão 2.x 
 
@@ -423,7 +423,7 @@ Em funções de script C#, você pode usar o método de extensão `LogMetric` em
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Esse código é uma alternativa à chamada `TrackMetric` por meio [API do Application Insights para .NET](#custom-telemetry-in-c-functions).
+Esse código é uma alternativa à chamada `TrackMetric` usando a API do Application Insights para .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Gravar logs em funções de JavaScript
 
@@ -441,7 +441,7 @@ Quando você estiver executando [versão 1.x](functions-versions.md#creating-1x-
 context.log.metric("TestMetric", 1234);
 ```
 
-Esse código é uma alternativa à chamada `trackMetric` por meio [SDK do Node. js para Application Insights](#custom-telemetry-in-javascript-functions).
+Esse código é uma alternativa à chamada `trackMetric` , usando o SDK do Node. js para Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Telemetria personalizada de log C# funções
 
@@ -632,7 +632,7 @@ O `tagOverrides` conjuntos de parâmetros a `operation_Id` para ID de invocaçã
 
 ### <a name="dependencies"></a>Dependências
 
-As dependências que a função tem a outros serviços não são exibidas automaticamente. Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo a [ C# seção de telemetria personalizada](#custom-telemetry-in-c-functions). O código de exemplo resulta em uma *mapa de aplicativo* no Application Insights que se parece com a imagem a seguir:
+As dependências que a função tem a outros serviços não são exibidas automaticamente. Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo a [ C# seção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta em uma *mapa de aplicativo* no Application Insights que se parece com a imagem a seguir:
 
 ![Mapa do aplicativo](media/functions-monitoring/app-map.png)
 

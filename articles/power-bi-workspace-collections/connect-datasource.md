@@ -1,21 +1,19 @@
 ---
 title: Conectando-se a uma fonte de dados nas Coleções de Workspaces do Power BI | Microsoft Docs
 description: Saiba como se conectar a uma fonte de dados dentro de Coleções de Workspaces do Power BI.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 143213b148518fdf936974152d5d9196c42febd8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870088"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521492"
 ---
 # <a name="connect-to-a-data-source"></a>Conectar-se a uma fonte de dados
 
@@ -43,7 +41,7 @@ Com as Coleções de Workspaces do Power BI, você pode usar o DirectQuery com f
 
 **Importaçãoação**
 
-É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Workspaces do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis. 
+É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Workspaces do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis.
 
 ## <a name="benefits-of-using-directquery"></a>Benefícios do uso do DirectQuery
 
@@ -73,4 +71,3 @@ Para garantir que as consultas enviadas à fonte de dados subjacente tenham um d
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Mais perguntas? [Experimentar a comunidade do Power BI](https://community.powerbi.com/)
-

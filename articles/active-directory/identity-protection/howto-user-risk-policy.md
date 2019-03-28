@@ -4,7 +4,7 @@ description: Saiba como configurar a política de risco do usuário no Azure AD 
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8caf7d0670246d14c5197fda763826b970bd125e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993082"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518398"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de risco de usuário
 
@@ -64,7 +64,7 @@ Ao configurar a política de risco de entrada, será necessário definir:
 
 - O tipo de acesso que deverá ser imposto quando o nível de risco de entrada for alcançado:  
 
-    ![Acessar](./media/howto-user-risk-policy/13.png)
+    ![Access](./media/howto-user-risk-policy/13.png)
 
 - O estado da sua política:
 
@@ -78,7 +78,7 @@ A caixa de diálogo de configuração de política fornece uma opção para esti
 
 É possível definir uma política de segurança de risco do usuário para bloquear os usuários ao entrar dependendo do nível do risco.
 
-![Bloqueando](./media/howto-user-risk-policy/16.png)
+![Bloqueio](./media/howto-user-risk-policy/16.png)
 
 
 Bloquear a entrada:

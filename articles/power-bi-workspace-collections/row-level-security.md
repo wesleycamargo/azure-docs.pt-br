@@ -1,20 +1,19 @@
 ---
 title: Segurança em nível de linha com Coleções de Workspaces do Power BI
 description: Detalhes sobre a segurança em nível de linha com as Coleções de Workspaces do Power BI
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 1f9d012754cdfa5b0f4c4e7a102d826080166484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ae9819cd5b27d794f26227f342cb0fdf1b0ab644
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864619"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518381"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança em nível de linha com Coleções de Workspaces do Power BI
 

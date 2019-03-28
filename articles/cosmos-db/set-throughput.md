@@ -1,19 +1,19 @@
 ---
-title: Provisionar taxa de transferência nos contêineres e bancos de dados do Azure Cosmos
+title: Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos
 description: Saiba como definir a taxa de transferência provisionada para os contêineres e bancos de dados do Azure Cosmos.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005056"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520897"
 ---
-# <a name="provision-throughput-on-containers-and-databases"></a>Provisionar taxa de transferência nos contêineres e bancos de dados
+# <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
 Um banco de dados do Azure Cosmos é uma unidade de gerenciamento para um conjunto de contêineres. Um banco de dados é composto por um conjunto de contêineres independentes de esquema. Um contêiner do Azure Cosmos é a unidade de escalabilidade para taxa de transferência e armazenamento. Um contêiner é particionado horizontalmente em um conjunto de máquinas em uma região do Azure e é distribuído em todas as regiões do Azure associadas à sua conta do Azure Cosmos.
 
@@ -76,6 +76,20 @@ A imagem a seguir mostra como uma partição física pode hospedar uma ou mais p
 * A taxa de transferência de RUs "K" é compartilhada entre os quatro contêineres A, C, D e E e o valor exato de taxa de transferência disponível para A, C, D ou E varia. Não há SLAs para taxa de transferência de cada contêiner individual.
 * O contêiner nomeado B tem a garantia de obter a taxa de transferência de RUs "P" o tempo todo. É respaldado por SLAs.
 
+## <a name="update-throughput-on-a-database-or-a-container"></a>Taxa de transferência de atualização em um banco de dados ou um contêiner
+
+Depois de criar um contêiner do Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há nenhum limite na taxa de transferência provisionada máxima que você pode configurar o banco de dados ou o contêiner. Taxa de transferência provisionada mínima depende dos seguintes fatores: 
+
+* O tamanho máximo dos dados armazenados no contêiner
+* A taxa de transferência máxima que provisionar no contêiner
+* O número máximo de contêineres do Cosmos do Azure que você nunca cria um banco de dados com taxa de transferência compartilhada. 
+
+Você pode recuperar a taxa de transferência mínima de um contêiner ou um banco de dados programaticamente usando os SDKs ou exibir o valor no portal do Azure. Ao usar o SDK do .NET, o [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) método permite que você dimensione o valor de taxa de transferência provisionada. Ao usar o SDK do Java, o [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) método permite que você dimensione o valor de taxa de transferência provisionada. 
+
+Ao usar o SDK do .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite que você recupere a taxa de transferência mínima de um contêiner ou um banco de dados. 
+
+Você pode dimensionar a taxa de transferência provisionada de um contêiner ou um banco de dados a qualquer momento. Você pode executar a operação de redução de escala após o período de ociosidade de 4 horas. O período ocioso é definido como a hora de período quando não havia nenhuma oferta de operações de substituição (que inclui a ampliação e redução) em um contêiner ou um banco de dados. 
+
 ## <a name="comparison-of-models"></a>Comparação de modelos
 
 |**Cota**  |**Taxa de transferência provisionada em um banco de dados**  |**Taxa de transferência provisionada em um contêiner**|
@@ -93,5 +107,5 @@ A imagem a seguir mostra como uma partição física pode hospedar uma ou mais p
 
 * Saiba mais sobre [partições lógicas](partition-data.md).
 * Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).
-* Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+* Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
 
