@@ -18,6 +18,8 @@ ms.author: carolz
 
 Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de Mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 
+**OBSERVAÇÃO:** Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução aos Serviços de Mídia do Azure usando o Portal do Azure</h3>
+                        <h3>Introdução aos Serviços de Mídia do Azure usando o portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Criar uma conta dos Serviços de Mídia do Azure usando o Portal do Azure</h3>
+                        <h3>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao fornecimento de conteúdo usando o Portal do Azure</h3>
+                        <h3>Introdução ao fornecimento de conteúdo usando o portal do Azure</h3>
                     </div>
                 </div>
             </div>

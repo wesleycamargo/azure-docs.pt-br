@@ -1,0 +1,75 @@
+items:
+- name: Documentação da versão prévia do ASC para IoT
+  href: index.yml
+- name: Visão geral
+  href: overview.md
+  items:
+  - name: Arquitetura da solução
+    href: architecture.md
+  - name: Agentes de segurança
+    href: security-agent-architecture.md
+  - name: Pré-requisitos do serviço
+    href: service-prerequisites.md
+  - name: Introdução ao ASC para IoT
+    href: getting-started.md
+- name: Guia de início rápido
+  items:
+  - name: Habilitar ASC para IoT no Hub IoT
+    href: quickstart-onboard-iot-hub.md
+  - name: Configurar sua solução
+    href: quickstart-configure-your-solution.md
+  - name: Criar um módulo gêmeo do ASC para IoT
+    href: quickstart-create-security-twin.md
+  - name: Crie alertas de segurança personalizados
+    href: quickstart-create-custom-alerts.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Implantar agentes de segurança
+    items:
+    - name: Implantar um agente de segurança baseado em C# em um dispositivo Windows
+      href: tutorial-deploy-windows-cs.md
+    - name: Implantar um agente de segurança baseado em C# em um dispositivo Linux
+      href: tutorial-deploy-linux-cs.md
+    - name: Implantar um agente de segurança baseado em C em um dispositivo Linux
+      href: tutorial-deploy-linux-c.md
+  - name: Investigar um dispositivo
+    href: tutorial-investigate-device.md
+  - name: Enviar suas próprias mensagens de segurança
+    href: tutorial-send-security-messages.md
+- name: Conceitos
+  items:
+  - name: Qual agente devo implantar?
+    href: select-deploy-agent.md
+  - name: Configurar agentes de segurança
+    href: concept-agent-configuration.md
+  - name: Autenticação do agente de segurança
+    href: concept-security-agent-authentication-methods.md
+  - name: Módulo de segurança
+    href: concept-security-module.md
+  - name: Alertas de segurança
+    href: concept-security-alerts.md
+  - name: Recomendações de segurança
+    href: concept-recommendations.md
+- name: Guias de instruções
+  items:
+  - name: Acessar dados de segurança brutos
+    href: how-to-security-data-access.md
+  - name: Modificar um módulo gêmeo de segurança
+    href: how-to-modify-security-module-twin.md
+- name: Recursos
+  items:
+  - name: Perguntas frequentes
+    href: resources-frequently-asked-questions.md
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog Segurança, Privacidade e Conformidade do Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541308"

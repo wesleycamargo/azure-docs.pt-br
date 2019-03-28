@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cdb34766617a27848a68ee1b4227153bd6ab63f8
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 418410bfe1cb7c10d6095ee7175a2637501ce40f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359612"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520438"
 documentType: LandingData
 title: Documentação do HDInsight do Azure
 metadata:
@@ -15,9 +15,9 @@ metadata:
   ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 10/18/2018
+  ms.date: 03/26/2019
 abstract:
-  description: Saiba como usar o HDInsight do Azure para analisar o dados de streaming ou históricos. Os tutoriais e outras documentações mostram como criar clusters, processar e analisar big data e desenvolver soluções usando as estruturas de software livre mais populares, como o Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm e Microsoft Machine Learning Server.<p>O HDInsight do Azure é um serviço de análise totalmente gerenciado, completo e de fonte aberta para empresas. O HDInsight é um serviço de nuvem que torna mais fácil, rápido e econômico processar grandes quantidades de dados. Também oferece suporte a uma grande variedade de cenários, como extração, transformação e carregamento (ETL); data warehouse; aprendizado de máquina; e IoT.</p>
+  description: Saiba como usar o HDInsight do Azure para analisar o dados de streaming ou históricos. Os tutoriais e outras documentações mostram como criar clusters, processar e analisar big data e desenvolver soluções usando as estruturas de software livre mais populares, como o Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm e Microsoft Machine Learning Server.<p>O Azure HDInsight é um serviço de análise de software livre gerenciado e de amplo espectro para empresas. O HDInsight é um serviço de nuvem que torna mais fácil, rápido e econômico processar grandes quantidades de dados. Também oferece suporte a uma grande variedade de cenários, como extração, transformação e carregamento (ETL); data warehouse; aprendizado de máquina; e IoT.</p>
   aside:
     image:
       alt: 
