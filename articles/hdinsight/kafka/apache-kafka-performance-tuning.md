@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373144"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576751"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para clusters do Apache Kafka HDInsight
 
@@ -66,7 +66,7 @@ Discos de armazenamento têm limitado o IOPS (entrada/saída operações por seg
 
 ### <a name="number-of-topics-and-partitions"></a>Número de tópicos e partições
 
-Os produtores de Kafka gravam tópicos. Consumidores do Kafka ler de tópicos. Um tópico é associado um log, que é uma estrutura de dados no disco. Kafka acrescenta os registros de um producer(s) para o final do log de um tópico. Um log de tópico consiste em várias partições são distribuídas por vários arquivos. Esses arquivos são, por sua vez, distribuídos em vários nós de cluster do Kafka. Os consumidores leem de tópicos do Kafka em uma cadência de seu e e pode escolher sua posição (deslocamento) no log de tópico.
+Os produtores de Kafka gravam tópicos. Consumidores do Kafka ler de tópicos. Um tópico é associado um log, que é uma estrutura de dados no disco. Kafka acrescenta os registros de um producer(s) para o final do log de um tópico. Um log de tópico consiste em várias partições são distribuídas por vários arquivos. Esses arquivos são, por sua vez, distribuídos em vários nós de cluster do Kafka. Os consumidores leiam os tópicos do Kafka em seu ritmo e podem escolher sua posição (deslocamento) no log de tópico.
 
 Cada partição do Kafka é um arquivo de log do sistema e threads de produtor podem gravar simultaneamente em vários logs. Da mesma forma, uma vez que cada thread de consumidor lê as mensagens de uma partição, consumo de várias partições é tratada em paralelo também.
 

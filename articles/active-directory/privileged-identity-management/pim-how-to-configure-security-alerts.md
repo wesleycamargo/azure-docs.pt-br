@@ -1,6 +1,6 @@
 ---
-title: Configurar alertas de segurança para funções de diretório do Azure AD no PIM | Microsoft Docs
-description: Saiba como configurar alertas de segurança para funções do diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
+title: Configurar alertas de segurança para funções do Azure AD no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como configurar alertas de segurança para funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cb78d048559a011756362b58848c5e91ca40dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172375"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577222"
 ---
-# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções do diretório do Azure AD no PIM
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de segurança para funções do Azure AD no PIM
 
-Azure Active Directory Privileged Identity Management (PIM) do Azure AD gera alertas quando há atividades suspeitas ou inseguras em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou as funções que dispararam o alerta.
+Azure Active Directory (Azure AD) PIM Privileged Identity Management () gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou as funções que dispararam o alerta.
 
 ![Alertas de segurança do PIM - captura de tela](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
-Esta seção lista todos os alertas de segurança para funções de diretório, além de como corrigir e prevenir. Severidade tem o seguinte significado:
+Esta seção lista todos os alertas de segurança para funções do Azure AD, juntamente com como corrigir e como evitar. Severidade tem o seguinte significado:
 
 * **Alta**: Exige ação imediata devido a uma violação da política.
 * **Média**: Não exige ação imediata, mas sinaliza uma possível violação da política.
@@ -130,4 +130,4 @@ Você pode personalizar os alertas de segurança no PIM para trabalhar com seu a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir configurações de função do diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Definir configurações de função do AD do Azure no PIM](pim-how-to-change-default-settings.md)

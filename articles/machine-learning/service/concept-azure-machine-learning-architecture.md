@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361091"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577315"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
@@ -46,11 +46,13 @@ O workspace mantém uma lista de destinos de computação que podem ser usados p
 
 Os modelos são registrados no workspace. Um modelo registrado e scripts de pontuação são usados para criar uma imagem. A imagem, em seguida, pode ser implantada em Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure, ou uma matriz de portas programáveis em campo (FPGA) como um ponto de extremidade HTTP baseado em REST. Ele também pode ser implantado em um dispositivo Azure IoT Edge como um módulo.
 
-Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um workspace, controle o acesso ao atribuir as funções a seguir para os usuários:
+Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Quando você compartilha um espaço de trabalho, você pode controlar o acesso a ele, atribuindo usuários a funções a seguir:
 
 * Proprietário
 * Colaborador
 * Leitor
+
+Para obter mais informações sobre essas funções, consulte o [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md) artigo.
 
 Quando você cria um novo workspace, ele automaticamente cria vários recursos do Azure que são usados pelo workspace:
 

@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de expressão do OData para cláusulas filter e order-by – Azure Search
 description: Sintaxe de expressão do OData para cláusulas filter e order-by para consultas do Azure Search.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541024"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578400"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxe de expressão do OData para cláusulas filter e order-by no Azure Search
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Localizar todos os hotéis com o nome igual a “Roach Motel” ou “Budget Hotel”):  
+Localize todos os hotéis com o nome igual a 'Roach motel' ou 'Hotel orçamento'). Frases contenham espaços, que é um delimitador padrão. Para especificar uma delimitador de substituição, coloque o novo delimitador entre aspas como parte da expressão de filtro:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Localizar todos os hotéis com a marca “wifi” ou “piscina”:
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Localize uma correspondência em várias marcas, 'toalha aquecido racks' ou 'hairdryer incluído'. Lembre-se de especificar um delimitador alternativo quando o delimitador de espaço padrão não está funcionando. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Localizar todos os hotéis sem as marcas “motel” ou “cabana”:  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486012"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574970"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Transferir dados com AzCopy v10 (visualização)
 
@@ -175,7 +175,7 @@ O comando de sincronização sincroniza conteúdo de um diretório de origem par
 
 > [!NOTE] 
 > Use o `--delete-destination` sinalizador com cuidado. Habilitar o [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de habilitar o comportamento de exclusão em sincronia para impedir exclusões acidentais na sua conta de recurso. 
-
+>
 > Quando `--delete-destination` é definido como true, o AzCopy excluirá os arquivos que não existem na fonte de destino sem qualquer solicitação para o usuário. Se você quiser ser solicitado a confirmar, use `--delete-destination=prompt`.
 
 Para sincronizar seu sistema de arquivos local com uma conta de armazenamento, use o seguinte comando:

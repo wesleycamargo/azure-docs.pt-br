@@ -1,5 +1,5 @@
 ---
-title: Começar a usar o PIM – Azure | Microsoft Docs
+title: Começar a usar o PIM - Azure Active Directory | Microsoft Docs
 description: Saiba como ativar e começar a usar o PIM (Gerenciamento de Identidades Privilegiadas) do Azure Active Directory Privileged Identity Management no portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546850"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576734"
 ---
 # <a name="start-using-pim"></a>Comece a usar o PIM
 
@@ -38,7 +38,7 @@ Para obter mais informações, veja [Requisitos de licença para usar o PIM](sub
 
 ## <a name="first-person-to-use-pim"></a>Primeira pessoa a usar o PIM
 
-Se você for a primeira pessoa a usar o PIM em seu diretório, receberá automaticamente as funções [Administrador de Segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Administrador de Função Privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório. Somente os administradores com privilégios de função podem gerenciar atribuições de função de usuários do diretório do Azure AD. Além disso, você pode optar por executar o [assistente de segurança](pim-security-wizard.md) que o orientará na experiência inicial de descoberta e atribuição.
+Se você for a primeira pessoa a usar o PIM em seu diretório, receberá automaticamente as funções [Administrador de Segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Administrador de Função Privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório. Somente os administradores com privilégios de função podem gerenciar atribuições de função do AD do Azure de usuários. Além disso, você pode optar por executar o [assistente de segurança](pim-security-wizard.md) que o orientará na experiência inicial de descoberta e atribuição.
 
 ## <a name="enable-pim"></a>Habilita o PIM
 
@@ -108,7 +108,7 @@ Depois que o PIM é configurado, você pode executar suas tarefas de gerenciamen
 | **Minhas solicitações** | Exibe as solicitações pendentes para ativar atribuições de função qualificadas. |
 | **Aprovar solicitações** | Exibe uma lista de solicitações de usuários para ativar funções qualificadas em seu diretório, que você pode aprovar. |
 | **Análise de acesso** | Lista as revisões de acesso ativas atribuídas a você para completar, esteja você revisando o acesso para si mesmo ou para outra pessoa. |
-| **Funções do Microsoft Azure Active Directory** | Exibe um painel e configurações para que administradores com função com privilégios gerenciem atribuições de função do diretório do Azure AD. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
+| **Funções do Microsoft Azure Active Directory** | Exibe um painel de controle e configurações para os administradores de função com privilégios gerenciam atribuições de função do AD do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
 | **Recursos do Azure** | Exibe um painel e configurações para que administradores com função com privilégios gerenciem atribuições de função de recurso do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicionar um bloco PIM ao painel
@@ -133,5 +133,5 @@ Para que seja mais fácil abrir o PIM, adicione um bloco do PIM ao painel do por
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
+- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Descobrir os recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md)

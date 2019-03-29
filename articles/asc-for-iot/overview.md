@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 9ca55a1c977b887e8d1ea51186068e57627e78f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542016"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578808"
 ---
-# <a name="introducing-asc-for-iot"></a>Introdução ao ASC para IoT 
+# <a name="introducing-asc-for-iot"></a>Introdução ao ASC para IoT
 
 > [!IMPORTANT]
 > ASC para IoT está atualmente em visualização pública.
@@ -45,7 +45,7 @@ Obtenha uma visão unificada de segurança em todos os seus locais e na nuvem ca
 
 ### <a name="adaptive-threat-prevention"></a>Prevenção de ameaças adaptável
 
-Use o ASC para IoT para monitorar continuamente a segurança de computadores, redes e serviços do Azure, incluindo sua solução de IoT do Azure dos dispositivos de borda para aplicativos. Você pode optar por usar de centenas de avaliações de segurança internas ou criar suas próprias no ASC central para o painel do IoT Hub. Otimizar as configurações de segurança e melhorar a sua pontuação de segurança com recomendações viáveis em máquinas virtuais, redes, aplicativos e dados. Com os recursos de IoT recém-adicionada, agora você pode reduzir a superfície de ataque para sua solução de IoT do Azure e corrigir problemas antes que elas podem ser exploradas. 
+Use o ASC para IoT para monitorar continuamente a segurança de computadores, redes e serviços do Azure, incluindo sua solução de IoT do Azure dos dispositivos de borda para aplicativos. Você pode optar por usar de centenas de avaliações de segurança internas ou criar suas próprias no ASC central para o painel do IoT Hub. Otimizar as configurações de segurança e melhorar a sua pontuação de segurança com recomendações viáveis em máquinas virtuais, redes, aplicativos e dados. Com os recursos de IoT recém-adicionada, agora você pode reduzir a superfície de ataque para sua solução de IoT do Azure e corrigir problemas antes que elas podem ser exploradas.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Detecção de ameaças inteligente e resposta
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082833"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621763"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -297,7 +297,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 *Por que apenas as 10 principais recomendações são exibidas?* Em vez de apresentar uma lista enorme e cansativa de tarefas, é recomendável que você se concentre em endereçar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se você preferir ver a lista detalhada, poderá ver todas as recomendações usando a Pesquisa de Log.
 
-*É possível ignorar uma recomendação?* Sim, consulte [Ignorar recomendações](#Ignore-recommendations).
+*É possível ignorar uma recomendação?* Sim, consulte [Ignorar recomendações](#ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Próximas etapas

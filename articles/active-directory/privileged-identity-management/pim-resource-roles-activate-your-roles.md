@@ -1,5 +1,5 @@
 ---
-title: Ativar minhas funções de recurso do Azure no PIM | Microsoft Docs
+title: Ativar minhas funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
 description: Saiba como ativar suas funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002042"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575494"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar minhas funções de recurso do Azure no PIM
 
-Usando o Azure AD Privileged Identity Management (PIM), os membros de função qualificada para recursos do Azure podem agendar a ativação para uma data e hora futura. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores).
+Usando o Azure Active Directory (Azure AD) PIM Privileged Identity Management (), os membros de função qualificada para recursos do Azure podem agendar a ativação para uma data e hora futura. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores).
 
 Este artigo é para membros que precisam ativar sua função de recurso do Azure no PIM.
 
@@ -38,7 +38,7 @@ Quando você precisar assumir uma função de recurso do Azure, poderá solicita
 
 1. Clique em **Minhas funções**.
 
-    ![Funções de diretório do Azure AD e funções de recursos do Azure - Meus papéis](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Funções do Azure AD e funções de recurso do Azure - minhas funções](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Clique em **funções de recurso do Azure** para ver uma lista das suas funções qualificadas em recursos do Azure.
 
@@ -84,7 +84,7 @@ No caso de qualquer atraso após a ativação, siga estas etapas depois de ativa
 
 1. Abra o Azure AD Privileged Identity Management.
 
-1. Clique em **Minhas funções** para ver uma lista das suas funções de diretório do Azure AD elegíveis e funções de recursos do Azure.
+1. Clique em **minhas funções** para ver uma lista de seus qualificados para funções do Azure AD e funções dos recursos do Azure.
 
 1. Clique em **funções de recurso do Azure**.
 
@@ -100,9 +100,9 @@ Você pode exibir o status das suas solicitações pendentes a serem ativadas.
 
 1. Abra o Azure AD Privileged Identity Management.
 
-1. Clique em **Minhas solicitações** para ver uma lista de sua função de diretório do Azure AD e solicitações de função de recurso do Azure.
+1. Clique em **Minhas solicitações** ver uma lista de sua função do Azure AD e a função de recurso do Azure solicita.
 
-    ![Funções de diretório do AD do Azure e funções de recurso do Azure - Minhas solicitações](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Funções do Azure AD e funções de recurso do Azure - Minhas solicitações](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Role para a direita para exibir o **Status da solicitação** coluna.
 
@@ -138,4 +138,4 @@ Se você receber uma mensagem de que um recurso do Azure está bloqueado ao tent
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md)
-- [Ativar minhas funções de diretório do Azure AD no PIM](pim-how-to-activate-role.md)
+- [Ativar minhas funções do Azure AD no PIM](pim-how-to-activate-role.md)

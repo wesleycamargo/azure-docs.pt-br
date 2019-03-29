@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541806"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577793"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 
@@ -41,10 +41,12 @@ Os dois métodos para o agente AzureIoTSecurity realizar a autenticação:
 
  - **Módulo** modo de autenticação<br>
    O módulo é autenticado, independentemente do dispositivo gêmeo.
-   As informações necessárias para esse tipo de autenticação está definido pelo arquivo Authentication para C# e o LocalConfiguration.json para C.
+   Use esse tipo de autenticação se desejar que o agente de segurança para usar um método de autenticação dedicado por meio do módulo de segurança (somente a chave simétrica).
         
  - **Dispositivo** modo de autenticação<br>
-    Nesse método, o agente de segurança pela primeira vez é autenticado em dispositivo. Após a autenticação inicial, o ASC para agente do IoT realiza **Rest** chamada para o IoT Hub usando a API Rest com os dados de autenticação do dispositivo. O ASC para agente do IoT, em seguida, solicita o método de autenticação do módulo de segurança e os dados do IoT Hub. Na etapa final, o ASC para agente do IoT executa uma autenticação em relação a ASC para o módulo do IoT.    
+    Nesse método, o agente de segurança pela primeira vez é autenticado com a identidade do dispositivo. Após a autenticação inicial, o ASC para agente do IoT executa um **REST** chamada para o IoT Hub usando a API REST com os dados de autenticação do dispositivo. O ASC para agente do IoT, em seguida, solicita o método de autenticação do módulo de segurança e os dados do IoT Hub. Na etapa final, o ASC para agente do IoT executa uma autenticação em relação a ASC para o módulo do IoT.
+    
+    Use esse tipo de autenticação se desejar que o agente de segurança reutilizar um método de autenticação de dispositivo existente (autoassinado certificado ou chave simétrica). 
 
 Ver [parâmetros de instalação do agente de segurança](#security-agent-installation-parameters) para aprender a configurar.
                                 
@@ -55,7 +57,7 @@ Ver [parâmetros de instalação do agente de segurança](#security-agent-instal
 
 ## <a name="security-agent-installation-parameters"></a>Parâmetros de instalação do agente de segurança
 
-Quando [implantar um agente de segurança](select-deploy-agent.md), detalhes de autenticação devem ser fornecidos como argumentos.
+Quando [implantar um agente de segurança](how-to-deploy-agent.md), detalhes de autenticação devem ser fornecidos como argumentos.
 Esses argumentos são documentados na tabela a seguir.
 
 
@@ -111,5 +113,5 @@ Edite _LocalConfiguration.json_ com os seguintes parâmetros:
 
 ## <a name="see-also"></a>Consulte também
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
-- [Implantar o agente de segurança](select-deploy-agent.md)
+- [Implantar o agente de segurança](how-to-deploy-agent.md)
 - [Acessar os dados brutos de segurança](how-to-security-data-access.md)

@@ -1,5 +1,5 @@
 ---
-title: Funções que não podem ser gerenciadas no PIM - Azure | Microsoft Docs
+title: As funções que você não pode gerenciar no PIM - Azure Active Directory | Microsoft Docs
 description: Descreve as funções que não podem ser gerenciadas no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181568"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579539"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Funções que não podem ser gerenciadas no PIM
 
-O Azure AD Privileged Identity Management (PIM) permite que você gerencie todas as [funções de diretório do Azure AD](../users-groups-roles/directory-assign-admin-roles.md) e todas as [funções de recurso do Azure](../../role-based-access-control/built-in-roles.md). Essas funções também incluem as funções personalizadas anexadas a grupos de gerenciamento, assinaturas, grupos de recursos e recursos. No entanto, há algumas poucas funções que não podem ser gerenciadas. Este artigo descreve as funções que você não pode gerenciar no PIM.
+Azure Active Directory (Azure AD) PIM Privileged Identity Management () permite que você gerencie todos os [funções do Azure AD](../users-groups-roles/directory-assign-admin-roles.md) e todos os [funções de recurso do Azure](../../role-based-access-control/built-in-roles.md). Essas funções também incluem as funções personalizadas anexadas a grupos de gerenciamento, assinaturas, grupos de recursos e recursos. No entanto, há algumas poucas funções que não podem ser gerenciadas. Este artigo descreve as funções que você não pode gerenciar no PIM.
 
 ## <a name="classic-subscription-administrator-roles"></a>Funções de administrador de assinatura Clássico
 
@@ -44,5 +44,5 @@ As funções no Exchange Online ou no SharePoint Online, exceto de administrador
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
+- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541836"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579369"
 ---
 # <a name="security-module"></a>Módulo de segurança
 
@@ -35,16 +35,18 @@ Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um pap
 
 ASC para IoT oferece uma integração completa com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie seu status de segurança de dispositivo, bem como a marca usar recursos de controle de dispositivo existente. Integração é obtida por fazendo uso do IoT Hub de mecanismo de gêmeos.  
 
-Saiba mais sobre o conceito de [dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) gêmeos no IoT Hub do Azure. 
+Saiba mais sobre o conceito de [gêmeos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) no IoT Hub do Azure. 
 
 ## <a name="security-module-twins"></a>Gêmeos de módulo de segurança
 
-ASC para IoT mantém um gêmeo de módulo de segurança para cada dispositivo no serviço. O gêmeo do módulo de segurança contém todas as informações relevantes para a segurança de dispositivo para cada dispositivo específico em sua solução. Propriedades de segurança de dispositivo são mantidas em um gêmeo de módulo de segurança dedicado para comunicação mais segura e para habilitar as atualizações e manutenção que exigem menos recursos.  
+ASC para IoT mantém um gêmeo de módulo de segurança para cada dispositivo no serviço.
+O gêmeo do módulo de segurança contém todas as informações relevantes para a segurança de dispositivo para cada dispositivo específico em sua solução.
+Propriedades de segurança de dispositivo são mantidas em um gêmeo de módulo de segurança dedicado para comunicação mais segura e para habilitar as atualizações e manutenção que exigem menos recursos.  
 
-Ver [gêmeo do módulo de segurança de criação](quickstart-create-security-twin.md) e [configurar agentes de segurança](concept-agent-configuration.md) para aprender a criar, personalizar e configurar o gêmeo. Ver [Gêmeos de módulo de compreensão](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito de módulos gêmeos no IoT Hub. 
+Ver [gêmeo do módulo de segurança de criação](quickstart-create-security-twin.md) e [configurar agentes de segurança](how-to-agent-configuration.md) para aprender a criar, personalizar e configurar o gêmeo. Ver [Gêmeos de módulo de compreensão](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito de módulos gêmeos no IoT Hub. 
  
 
 ## <a name="see-also"></a>Consulte também
 - [ASC para versão prévia do IoT](overview.md)
-- [Implantar agentes de segurança](select-deploy-agent.md)
+- [Implantar agentes de segurança](how-to-deploy-agent.md)
 - [Métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)

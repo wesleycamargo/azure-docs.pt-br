@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541851"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576183"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
@@ -27,24 +27,25 @@ ms.locfileid: "58541851"
 > ASC para IoT está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com base na análise de solução em andamento, o ASC para IoT fornece as seguintes recomendações quando necessário, para ajudar a aprimorar e proteger seus dispositivos, o status operacional e o ambiente geral do IoT Hub. 
+ASC para IoT examina seus dispositivos IoT e os recursos do Azure e fornece recomendações de segurança para reduzir a superfície de ataque. Recomendações de segurança são acionáveis e ter como objetivo ajudar os clientes em conformidade com práticas recomendadas de segurança.
 
+Neste artigo, você encontrará uma lista de recomendações que podem ser disparados em seu IoT Hub e/ou dispositivos IoT.
 
-## <a name="device-recommendations"></a>Recomendações de dispositivo
+## <a name="recommendations-for-iot-devices"></a>Recomendações para dispositivos IoT
 
-Recomendações do dispositivo fornecem ideias e sugestões para melhorar o comportamento e a segurança do dispositivo. 
+Recomendações do dispositivo fornecem ideias e sugestões para melhorar a postura de segurança de dispositivo. 
 
 | Severity | NOME                                                      | Fonte de dados | DESCRIÇÃO                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Média   | Abrir portas no dispositivo                                      | Agente       | Foi encontrado um ponto de extremidade de escuta no dispositivo                                                                                                                                                          |
+| Média   | Abrir portas no dispositivo                                      | Agente       | Um ponto de extremidade de escuta foi encontrado no dispositivo                                                                                                                                                          |
 | Média   | Política de firewall permissivo encontrada em uma das cadeias de. | Agente       | Permitido encontrada (entrada/saída) de diretiva de firewall. Política de firewall deve negar todo o tráfego por padrão e definem regras para permitir a comunicação necessária de/para o dispositivo.                               |
 | Média   | Regra de firewall permissivas na cadeia de entrada foi encontrada     | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma ampla variedade de portas ou endereços IP.                                                                                    |
 | Média   | Regra de firewall permissivas na cadeia de saída foi encontrada    | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma ampla variedade de portas ou endereços IP.                                                                                   |
 | Média   | Falha na validação de linha de base do sistema de operação           | Agente       | Dispositivo não está em conformidade com [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>Recomendação operacional
+### <a name="operational-recommendations-for-iot-devices"></a>Recomendações operacionais para dispositivos IoT
 
-Recomendações operacionais fornecem ideias e sugestões para melhorar a configuração do agente.
+Recomendações operacionais fornecem ideias e sugestões para melhorar a configuração do agente de segurança.
 
 | Severity | NOME                                    | Fonte de dados | DESCRIÇÃO                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Recomendações operacionais fornecem ideias e sugestões para melhorar a config
 | Baixo      | Conflito de configuração de gêmeo de segurança    | Agente       | Conflitos foram identificados na configuração de gêmeo de segurança.                           |
 
 
-## <a name="iot-hub-recommendations"></a>Recomendações do IoT Hub
+## <a name="recommendations-for-iot-hub"></a>Recomendações para o Hub IoT
 
 Os alertas de recomendação fornecem informações e sugestões de ações para melhorar a postura de segurança do seu ambiente.  
 

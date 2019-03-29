@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482083"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622035"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -57,13 +57,11 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
-A seção a seguir lista os sistemas operacionais com suporte para o agente de dependência no Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (com Kernel RHEL).  
+A seção a seguir listam os sistemas operacionais com suporte para o agente de dependência no Linux.  
 
 - Somente as versões de kernel padrão e Linux SMP têm suporte.
 - Nenhuma distribuição do Linux dá suporte às versões de kernel não padrão, como PAE e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão "2.6.16.21-0.8-xen".
 - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
-- Há suporte para o kernel CentOSPlus.
-- O UEK (Unbreakable Enterprise Kernel) da Oracle é abordado em uma seção posterior deste artigo.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

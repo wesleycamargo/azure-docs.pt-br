@@ -1,5 +1,5 @@
 ---
-title: Aprovar ou negar as solicitações para funções de recurso do Azure no PIM | Microsoft Docs
+title: Aprovar ou negar as solicitações para funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
 description: Saiba como aprovar ou negar solicitações para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5ecb55dd2798241ca0ae1754ecf95a79f8aeb134
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245568"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575106"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprovar ou negar as solicitações para funções de recurso do Azure no PIM
 
-Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores representantes têm 24 horas para aprovar as solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá reenviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores representantes têm 24 horas para aprovar as solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá enviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
 
 Siga as etapas neste artigo para aprovar ou negar solicitações de funções de recursos do Azure.
 
@@ -84,4 +84,4 @@ Veja algumas informações sobre notificações de fluxo de trabalho:
 
 - [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md)
 - [Notificações por email no PIM](pim-email-notifications.md)
-- [Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM](azure-ad-pim-approval-workflow.md)
+- [Aprovar ou negar as solicitações para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)

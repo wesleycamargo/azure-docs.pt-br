@@ -4,17 +4,17 @@ description: Atribua analisadores a campos de pesquisa de texto pesquisáveis em
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343265"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578749"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores para processamento de texto no Azure Search
 
@@ -97,16 +97,18 @@ Se uma pesquisa não retornar os resultados esperados, o cenário mais provável
 
 A [Demonstração do analisador de pesquisa](https://alice.unearth.ai/) é um aplicativo de demonstração de terceiros que mostra uma comparação lado a lado do analisador Lucene padrão, do analisador do idioma inglês do Lucene e do processador de idioma natural inglês da Microsoft. O índice é fixo; ele contém o texto de uma história popular. Para cada entrada de pesquisa fornecida, os resultados de cada analisador são exibidos nos painéis adjacentes, dando uma ideia de como cada analisador processa a mesma cadeia de caracteres. 
 
-## <a name="examples"></a>Exemplos
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>Exemplos de REST
 
 Os exemplos abaixo mostram definições do analisador para alguns cenários principais.
 
-+ [Exemplo de analisador personalizado](#Example1)
-+ [Atribuir analisadores a um exemplo de campo](#Example2)
-+ [Misturando analisadores para indexação e pesquisa](#Example3)
-+ [Exemplo de analisador de linguagem](#Example4)
++ [Exemplo de analisador personalizado](#Custom-analyzer-example)
++ [Atribuir analisadores a um exemplo de campo](#Per-field-analyzer-assignment-example)
++ [Misturando analisadores para indexação e pesquisa](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Exemplo de analisador de linguagem](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Exemplo de analisador personalizado
 
@@ -180,7 +182,7 @@ Percorrendo este exemplo:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Exemplo de atribuição do analisador por campo
 
@@ -213,7 +215,7 @@ O elemento "analisador" substitui o analisador Standard, campo por campo. Não h
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Misturando analisadores para operações de indexação e de pesquisa
 
@@ -241,7 +243,7 @@ As APIs incluem atributos de índice adicionais para especificar diferentes anal
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Exemplo de analisador de linguagem
 
@@ -273,6 +275,69 @@ Campos que contêm cadeias de caracteres em idiomas diferentes podem usar um ana
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#exemplos
+
+Se você estiver usando os exemplos de código do SDK do .NET, você pode acrescentar esses exemplos para usar ou configurar os analisadores.
+
++ [Atribuir um analisador interno](#Assign-a-language-analyzer)
++ [Configure um analisador](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Atribuir um analisador de idioma
+
+Qualquer analisador que é usado como-está, sem nenhuma configuração, é especificado em uma definição de campo. Não há nenhum requisito para a criação de uma construção de analisador. 
+
+Este exemplo atribui os analisadores Microsoft English e francês para campos de descrição. É um trecho de código obtido de uma definição maior do índice de hotéis, criando usando a classe de Hotel no arquivo do hotels.cs a [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemplo.
+
+Chame [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), especificando as [AnalyzerName classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) que fornece todos os analisadores de texto com suporte no Azure Search.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Definir um analisador personalizado
+
+Quando a personalização ou configuração é necessária, você precisará adicionar uma construção de analisador para um índice. Depois de você defini-lo, você pode adicioná-lo a definição de campo conforme demonstrado no exemplo anterior.
+
+Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) para criar o objeto. Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

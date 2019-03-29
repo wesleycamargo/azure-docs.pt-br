@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541821"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574730"
 ---
 # <a name="asc-for-iot-prerequisites"></a>ASC para pré-requisitos de IoT
 
@@ -59,7 +59,7 @@ Verifique seu local de IoT Hub para verificar a disponibilidade de serviço ante
 
 ## <a name="supported-platforms-for-agents"></a>Plataformas com suporte para agentes 
 
-ASC para agentes do IoT dá suporte a uma lista crescente de dispositivos e plataformas. Consulte a [suporte para a lista de plataformas](select-deploy-agent.md) para verificar sua biblioteca de dispositivo existente ou planejada.  
+ASC para agentes do IoT dá suporte a uma lista crescente de dispositivos e plataformas. Consulte a [suporte para a lista de plataformas](how-to-deploy-agent.md) para verificar sua biblioteca de dispositivo existente ou planejada.  
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Visão geral](overview.md)

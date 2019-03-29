@@ -4,17 +4,17 @@ description: Saiba como integrar uma máquina virtual do Azure com soluções de
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837755"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619710"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitar as soluções
 
-Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de alterações**. A máquina virtual pode existir em qualquer região não importa o local de sua conta de automação.
+Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de alterações**. A máquina virtual pode existir em qualquer região não importa o local de sua conta de automação. Quando uma solução de uma VM de integração que você precisa ter o `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se a VM estiver integrado a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessários em geral, consulte [permissões necessárias para integrar máquinas](automation-role-based-access-control.md#onboarding).
 
 Para habilitar a solução somente para a VM, assegure-se de que **Habilitar para esta VM** está selecionado. Para integrar várias máquinas à solução, selecione **Habilitar para VMs nesta assinatura** e, em seguida, selecione **Clique para selecionar as máquinas para habilitar**. Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Workspace vinculado** na seção **Recursos Relacionados** à esquerda.
 
-1. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
+2. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
 
    ![Página Desvincular workspace](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-1. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+3. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

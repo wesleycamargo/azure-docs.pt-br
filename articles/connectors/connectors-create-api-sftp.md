@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910277"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578366"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando os Aplicativos Lógicos do Azure
 
@@ -27,10 +27,18 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Comparado ao [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md), o conector SFTP pode ler ou gravar arquivos de até 50 MB, a menos que você use o [agrupamento de mensagens nas ações](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, não é possível usar o agrupamento para gatilhos. Para arquivos de até 1 GB, use o conector [SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para arquivos maiores que 1 GB, é possível usar o conector SFTP-SSH mais o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). 
-
 Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com.
 Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>limites
+
+* Ações de SFTP podem ler ou gravar arquivos que tenham *50 MB ou menor* a menos que você use [mensagem agrupamento em ações](../logic-apps/logic-apps-handle-large-messages.md), que permitem que você exceda esse limite. Atualmente, os gatilhos SFTP não dão suporte a agrupamento.
+
+* Para arquivos *até 1 GB*, use o [conector de SFTP SSH](../connectors/connectors-sftp-ssh.md).
+
+* Para arquivos *maior que 1 GB*, use o SFTP SSH o conector do sinal de adição [mensagem agrupamento](../logic-apps/logic-apps-handle-large-messages.md).
+
+Para outras diferenças entre o conector SFTP e o conector SFTP SSH, examine [comparar SFTP SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) o artigo SFTP SSH.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

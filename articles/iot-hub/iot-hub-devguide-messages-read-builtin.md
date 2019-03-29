@@ -8,23 +8,23 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538554"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579403"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
 Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/). Esse ponto de extremidade é atualmente apenas exposto usando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
 
-| Propriedade            | Descrição |
+| Propriedade            | DESCRIÇÃO |
 | ------------------- | ----------- |
 | **Contagem de partição** | Defina essa propriedade no momento da criação para determinar o número de [partições](../event-hubs/event-hubs-features.md#partitions) para inclusão do evento de dispositivo para nuvem. |
 | **Período de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
 
-O IoT Hub permite a retenção de dados em Hubs de eventos interno para um máximo de 7 dias. Você pode definir o tempo de retenção durante a criação do IoT Hub. Tamanho de retenção de dados no IoT Hub depende de sua camada do hub IoT e o tipo de unidade. Em termos de tamanho, os Hubs de eventos interno pode manter as mensagens do tamanho máximo da mensagem até pelo menos 24 horas da cota. Por exemplo, por 1 unidade de S1 que do IoT Hub fornece armazenamento suficiente para manter pelo menos 400 mil mensagens de 4k de tamanho cada. Se seu dispositivos estiver enviando mensagens menores, eles podem ser mantidos para maior (até 7 dias), dependendo da quantidade de armazenamento é consumido. Garantimos que retém os dados para o tempo de retenção especificado, no mínimo.
+O IoT Hub permite a retenção de dados em Hubs de eventos interno para um máximo de 7 dias. Você pode definir o tempo de retenção durante a criação do IoT Hub. Tempo de retenção de dados no IoT Hub depende de sua camada do hub IoT e o tipo de unidade. Em termos de tamanho, os Hubs de eventos interno pode manter as mensagens do tamanho máximo da mensagem até pelo menos 24 horas da cota. Por exemplo, por 1 unidade de S1 que do IoT Hub fornece armazenamento suficiente para manter pelo menos 400 mil mensagens de 4k de tamanho cada. Se seu dispositivos estiver enviando mensagens menores, eles podem ser mantidos para maior (até 7 dias), dependendo da quantidade de armazenamento é consumido. Garantimos que retém os dados para o tempo de retenção especificado, no mínimo.
 
 O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno.
 
@@ -46,13 +46,13 @@ Quando você usar SDKs dos Hubs de eventos ou integrações de produtos que não
 
 3. O **eventos** seção contém os seguintes valores: **Partições**, **nome do Hub de eventos compatível**, **ponto de extremidade do Hub de eventos compatível**, **tempo de retenção**, e **gruposdeconsumidores**.
 
-    ![Configurações do dispositivo para nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![Configurações de dispositivo para a nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 No portal, o campo de ponto de extremidade compatível com Hub de eventos contém uma cadeia de caracteres de conexão dos Hubs de eventos completa que se parece com: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se o SDK que você está usando requer outros valores, em seguida, eles seria:
 
-| Nome | Valor |
+| NOME | Valor |
 | ---- | ----- |
-| Ponto de Extremidade | sb://abcd1234namespace.servicebus.windows.net/ |
+| Ponto de extremidade | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome do host | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
@@ -60,7 +60,7 @@ Dessa forma, você poderá usar qualquer política de acesso compartilhado com p
 
 Os SDKs que você pode usar para conectar-se para o ponto de extremidade compatível com Hub de eventos internos expostos pelo IoT Hub incluem:
 
-| Idioma | SDK | Exemplo | Notes |
+| Linguagem | . | Exemplo | Observações |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Usa as informações de evento Hubs compatível |
  Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Usa as informações de evento Hubs compatível |

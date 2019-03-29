@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432134"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622069"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Verifique se você tem o seguinte antes de prosseguir
 * Os intervalos de endereços IP usados para configurar os emparelhamentos (particular do Azure, público do Azure e Microsoft). Reveja os exemplos de atribuição de endereço IP na [página de requisitos de roteamento do ExpressRoute](expressroute-routing.md) para entender como os endereços IP são mapeados para interfaces em seu lado e no lado do ExpressRoute. Saiba mais sobre a configuração de emparelhamento conferindo a [página de configuração de emparelhamento do ExpressRoute](expressroute-howto-routing-arm.md).
 * Informações de sua equipe de rede/provedor de conectividade sobre os endereços MAC de interfaces usadas com esses endereços IP.
 * Você deve ter o módulo mais recente do PowerShell do Azure (versão 1.50 ou mais recente).
+
+> [!NOTE]
+> Se a camada 3 for fornecida pelo provedor de serviços e as tabelas ARP estiverem em branco no portal/saída abaixo, atualize a configuração de circuito usando o botão Atualizar no portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Como obter as tabelas ARP para o circuito de ExpressRoute
 Esta seção fornece instruções sobre como você pode exibir as tabelas ARP por emparelhamento usando o PowerShell. Você, ou seu provedor de conectividade, deve ter configurado o emparelhamento antes de prosseguir. Cada circuito tem dois caminhos (primário e secundário). Você pode verificar a tabela ARP para cada caminho de forma independente.
@@ -149,7 +154,7 @@ Se houver problemas com o local ou provedor de conectividade, que você poderá 
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-ou
+ou o
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   
@@ -168,7 +173,7 @@ ou
 * Você não verá uma tabela ARP para um emparelhamento se houver problemas no lado da Microsoft. 
 * Abra um tíquete com o suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que você tem um problema de conectividade de camada 2. 
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 * Validar as configurações de Camada 3 para o circuito de ExpressRoute
   * Obter o resumo de rota para determinar o estado das sessões BGP 
   * Obter a tabela de rota para determinar quais prefixos são anunciados pelo ExpressRoute

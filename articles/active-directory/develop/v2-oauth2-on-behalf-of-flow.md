@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445748"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576923"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Fluxo em nome de do OAuth 2.0 e Azure Active Directory v2.0
 
@@ -72,8 +72,8 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório | A ID do aplicativo (cliente) que o [portal de Registro de aplicativos](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou o novo [portal de registros de aplicativo (versão prévia)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) atribuiu ao seu aplicativo. |
-| `client_secret` | Obrigatório | O segredo do aplicativo que você gerou para seu aplicativo no portal que usou para registrá-lo. |
+| `client_id` | Obrigatório | ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
+| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal do Azure - página de registros do aplicativo. |
 | `assertion` | Obrigatório | O valor do token usado na solicitação. |
 | `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
@@ -104,7 +104,7 @@ Uma solicitação de token de acesso de serviço para serviço com certificado c
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório | A ID do aplicativo (cliente) que o [Portal de Registro de aplicativos](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou o novo [Portal de registros de aplicativo (versão prévia)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) atribuiu ao seu aplicativo. |
+| `client_id` | Obrigatório |  ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
 | `client_assertion_type` | Obrigatório | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obrigatório | Uma asserção (um token web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
 | `assertion` | Obrigatório | O valor do token usado na solicitação. |
@@ -205,7 +205,7 @@ Atualmente, o sistema de conta pessoal da Microsoft não oferece suporte ao cons
 
 #### <a name="pre-authorized-applications"></a>Aplicativos pré-autorizados
 
-Um novo recurso da versão prévia do portal de aplicativo são os "aplicativos pré-autorizados". Dessa forma, um recurso pode indicar que um determinado aplicativo sempre terá permissão para receber determinados escopos. Isso é útil principalmente para estabelecer conexões entre um cliente de front-end e um recurso de back-end de forma mais contínua. Um recurso pode declarar vários aplicativos pré-autorizados: qualquer aplicativo desse tipo pode solicitar essas permissões em um fluxo OBO e recebê-las sem que o usuário forneça o consentimento.
+Um recurso do portal do aplicativo é "aplicativos pré-autorizados". Dessa forma, um recurso pode indicar que um determinado aplicativo sempre terá permissão para receber determinados escopos. Isso é útil principalmente para estabelecer conexões entre um cliente de front-end e um recurso de back-end de forma mais contínua. Um recurso pode declarar vários aplicativos pré-autorizados: qualquer aplicativo desse tipo pode solicitar essas permissões em um fluxo OBO e recebê-las sem que o usuário forneça o consentimento.
 
 #### <a name="admin-consent"></a>Consentimento do administrador
 

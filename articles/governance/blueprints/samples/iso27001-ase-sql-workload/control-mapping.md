@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014204"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579692"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapeamento de controle do exemplo de especificações técnicas do Azure BluePrint ISO 27001
 
@@ -122,7 +122,7 @@ Noções básicas sobre onde os recursos do Azure podem ter configurações de c
 
 ## <a name="a1241-event-logging"></a>Log de eventos A.12.4.1
 
-Esta especificação técnica ajuda a garantir que os eventos de sistema são registrados por meio da atribuição sete [política do Azure](../../../policy/overview.md) definições que Auditar configurações em recursos do Azure de log. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho de análise de log especificado.
+Esta especificação técnica ajuda a garantir que os eventos de sistema são registrados por meio da atribuição sete [política do Azure](../../../policy/overview.md) definições de configurações de auditoria log em recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho de análise de log especificado.
 
 - [Visualização]: Implantação de agente de dependência de auditoria - VM imagem (SO) não listados
 - [Visualização]: Implantação do agente de dependência em VMSS - VM imagem (SO) removido da lista de auditoria

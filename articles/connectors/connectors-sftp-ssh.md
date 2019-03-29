@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886653"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575089"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -27,10 +27,16 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Comparado ao [conector SFTP](../connectors/connectors-create-api-sftp.md), o conector SFTP-SSH pode ler ou gravar arquivos com até *1 GB* de tamanho, gerenciando dados em pacotes de 50 MB. Para arquivos maiores que 1 GB, as ações podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Para mais diferenças, reveja [Compare SFTP-SSH versus SFTP](#comparison) mais adiante neste artigo.
-
 Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com.
 Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>limites
+
+* Ações de SFTP SSH podem ler ou gravar arquivos que são *1 GB ou menor* por meio do gerenciamento de dados como *partes de 50 MB*, não 1 GB partes.
+
+* Para arquivos *maior que 1 GB*, ações podem usar [mensagem agrupamento](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, gatilhos de SFTP SSH não dão suporte a agrupamento.
+
+Para obter mais diferenças, revise [comparar SFTP SSH versus SFTP](#comparison) posterior na próxima seção.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 
 Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conector SFTP, onde o conector SFTP-SSH tem esses recursos:
 
-* Usa a biblioteca <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, que é uma biblioteca Secure Shell (SSH) de código aberto que suporta o .NET. 
+* Usa a biblioteca <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, que é uma biblioteca Secure Shell (SSH) de código aberto que suporta o .NET.
 
   > [!NOTE]
   >
   > O conector SFTP-SSH suporta *somente* essas chaves privadas, formatos, algoritmos e impressões digitais:
-  > 
+  >
   > * **Formatos de chave privada**: chaves RSA (Rivest Shamir Adleman) e DSA (Algoritmo de Assinatura Digital) nos formatos OpenSSH e ssh.com
   > * **Algoritmos de criptografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impressão digital**: MD5
 
-* Lê ou grava arquivos de até *1 GB* em tamanho em comparação com o conector SFTP, mas lida com os dados em porções de 50 MB, não de 1 GB. Para arquivos maiores que 1 GB, as ações também podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os gatilhos não são compatíveis com o agrupamento.
+* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector SFTP, mas lida com dados em partes de 50 MB, não 1 GB partes. Para arquivos maiores que 1 GB, as ações também podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, gatilhos de SFTP SSH não dão suporte a agrupamento.
 
 * Fornece a ação **Criar pasta**, que cria uma pasta no caminho especificado no servidor SFTP.
 
 * Fornece a ação **Renomear arquivo**, que renomeia um arquivo no servidor SFTP.
 
-* Armazena em cache a conexão com o servidor SFTP *por até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> na configuração do SSH em seu servidor SFTP. 
+* Armazena em cache a conexão com o servidor SFTP *por até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> na configuração do SSH em seu servidor SFTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

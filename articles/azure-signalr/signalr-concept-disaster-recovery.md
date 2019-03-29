@@ -6,17 +6,17 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 69a2d9e7858c0f152056e821c19caa9852b420d5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556598"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620269"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
 Resiliência e recuperação de desastre são necessidades comuns de sistemas online. O Serviço do Azure SignalR já garante uma disponibilidade de 99,9%, mas ainda é um serviço regional.
-Sua instância de serviço sempre está em execução em uma região e não faz failover para outra região quando há uma interrupção em toda a região.
+A instância do serviço está sempre em execução em uma região e não fazer o failover para outra região quando houver uma interrupção em toda a região.
 
 Em vez disso, nosso SDK do serviço fornece uma funcionalidade para dar suporte a várias instâncias de serviço do SignalR e alternar automaticamente para outras instâncias quando algumas delas não estão disponíveis.
 Com esse recurso, você poderá se recuperar quando houver um desastre, mas precisará configurar a topologia correta do sistema por conta própria. Você aprenderá a fazer isso neste documento.
@@ -28,8 +28,8 @@ Ao conectar várias instâncias de serviço ao servidor de aplicativos, há duas
 A primária é uma instância que está recebendo o tráfego online e a secundária é uma instância de backup, mas totalmente funcional, da primária.
 Em nossa implementação do SDK, negociar retornará apenas pontos de extremidade primários, de modo que durante o uso normal os clientes se conectam apenas a pontos de extremidade primários.
 No entanto, quando a instância primária estiver inativa, negociar retornará pontos de extremidade secundários para que o cliente ainda possa fazer conexões.
-A instância primária e o servidor de aplicativos são conectados por meio de conexões de servidor normais, mas a instância secundária e o servidor de aplicativos são conectados por meio de um tipo especial de conexão chamada de conexão fraca.
-A principal diferença de uma conexão fraca é que ela não aceita o roteamento de conexão de cliente, porque normalmente a instância secundária está localizada em outra região. De modo geral, fazer o roteamento de um cliente para outra região não é a opção ideal (fazer isso aumenta a latência).
+Instância primária e o servidor de aplicativos são conectados por meio de conexões de servidor normal, mas a instância secundária e o servidor de aplicativos são conectados por meio de um tipo especial de conexão denominado conexão fraco.
+A principal diferença entre uma conexão de baixa segurança é que ela não aceita roteamento de conexão de cliente, porque a instância secundária está localizada em outra região. Roteamento de um cliente para outra região não é uma opção ideal (aumenta a latência).
 
 Uma instância de serviço pode ter funções diferentes ao se conectar a vários servidores de aplicativos.
 Uma configuração típica do cenário com várias regiões é ter dois (ou mais) pares de instâncias do Serviço do SignalR e servidores de aplicativos.
@@ -51,7 +51,7 @@ Há duas maneiras de fazer isso:
 
 ### <a name="through-config"></a>Usando a configuração
 
-Você já deve saber como definir a cadeia de conexão do Serviço do SignalR por meio de variáveis de ambiente/configurações de aplicativo/web.config, usando uma entrada de configuração chamada `Azure:SignalR:ConnectionString`.
+Você deveria saber como definir a cadeia de conexão de serviço SignalR por meio de settings/web.cofig de aplicativo/variáveis de ambiente, por meio de uma entrada de configuração chamada `Azure:SignalR:ConnectionString`.
 Se você tiver vários pontos de extremidade, você poderá defini-los em várias entradas de configuração, cada uma no seguinte formato:
 
 ```
@@ -121,7 +121,7 @@ O Serviço do SignalR pode dar suporte aos dois padrões, a principal diferença
 Se os servidores de aplicativos forem do tipo ativo/passivo, o Serviço do SignalR também será ativo/passivo (pois o servidor de aplicativos primário retorna apenas sua instância primária do Serviço do SignalR).
 Se os servidores de aplicativos forem do tipo ativo/ativo, o Serviço do SignalR também será ativo/ativo (pois todos os servidores de aplicativos retornarão suas próprias instâncias primárias do SignalR, para que todos eles possam receber tráfego).
 
-Observe que, não importa quais padrões escolha usar, você precisará conectar cada instância do Serviço do SignalR a um servidor de aplicativos como primário.
+Se Observe que, independentemente de quais padrões que você optar por usar, você precisará conectar cada instância de serviço SignalR a um servidor de aplicativo como primário.
 
 Além disso, devido à natureza da conexão do SignalR (trata-se de uma conexão longa), os clientes enfrentarão quedas de conexão quando houver um desastre e o failover ocorrer.
 Você precisará lidar com tais casos no lado do cliente para torná-los transparentes para seus clientes finais. Por exemplo, reconecte-se após uma conexão ser encerrada.
@@ -129,3 +129,5 @@ Você precisará lidar com tais casos no lado do cliente para torná-los transpa
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a configurar seu aplicativo para ter resiliência para o Serviço do SignalR. Para obter mais detalhes sobre a conexão de cliente/servidor e o roteamento de conexão no Serviço do SignalR, você pode ler [este artigo](signalr-concept-internals.md) sobre recursos internos do Serviço do SignalR.
+
+Para dimensionar cenários como fragmentação, que usam várias instâncias em conjunto para lidar com grande número de conexões, leia [como várias instâncias de dimensionar](signalr-howto-scale-multi-instances.md)?

@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314867"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577197"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 
 O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
+
+<a name="add-datasource"></a>
 
 ## <a name="edit-your-knowledge-base-content"></a>Editar o conteúdo da base de conhecimento
 
@@ -52,7 +54,7 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
 
 ## <a name="add-a-qna-pair"></a>Adicionar um par de QnA
 
-Selecione **Adicionar par QnA** para adicionar uma nova linha à tabela de base de dados de conhecimento.
+Sobre o **as configurações** página, selecione **QnA adicionar par** para adicionar uma nova linha à tabela de base de Conhecimento.
 
 ![Adicionar par QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

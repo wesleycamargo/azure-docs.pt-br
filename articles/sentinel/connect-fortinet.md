@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5310d85b73f4485c27b61735afab9ad5ed3fb9ea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2164969de4198d381a5c7a5f5ab73128a67ccbda
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898917"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576838"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Conectar seu dispositivo Fortinet 
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode conectar Sentinel do Azure para qualquer dispositivo Fortinet salvando os arquivos de log como Syslog CEF. A integração com o Azure Sentinel permite que você executar facilmente consultas e análises entre os dados do arquivo de log de Fortinet. Para obter mais informações sobre como o Azure Sentinel ingere dados CEF, consulte [appliances conectar CEF](connect-common-event-format.md).
@@ -34,7 +34,7 @@ Você pode conectar Sentinel do Azure para qualquer dispositivo Fortinet salvand
 
 ## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>Etapa 1: Conectar seu dispositivo Fortinet usando um agente
 
-Para conectar seu dispositivo Fortinet Sentinel do Azure, você precisará implantar um agente em um computador dedicado (VM ou no local) para dar suporte a comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. Implantação automática só estará disponível se a sua máquina dedicada é uma nova VM que você está criando no Azure. 
+Para conectar seu dispositivo Fortinet Sentinel do Azure, você precisará implantar um agente em um computador dedicado (VM ou no local) para dar suporte a comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. A implantação automática só estará disponível se o computador dedicado for uma nova VM que você está criando no Azure. 
 
 Como alternativa, você pode implantar o agente manualmente em uma VM do Azure existente em uma VM em outra nuvem ou em um computador local.
 
@@ -138,10 +138,11 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 1. Se ambos os comandos fornecidos resultados bem-sucedidos, verifique o Log Analytics para ver se os logs chegam. Todos os eventos que são transmitidos desses dispositivos são exibidos em formato bruto no Log Analytics em `CommonSecurityLog ` tipo.
 1. Para verificar se há erros ou se os logs não são recebidos, procure `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. Certifique-se de que seu tamanho de padrão de mensagem do Syslog é limitado a 2048 bytes (2KB). Se os logs são muito longos, atualize o security_events usando este comando: `message_length_limit 4096`
+6. Para usar o esquema relevante no Log Analytics para os eventos Fortinet, pesquise **CommonSecurityLog**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar dispositivos Fortinet ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar dispositivos Fortinet ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

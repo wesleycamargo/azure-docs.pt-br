@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977228"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579743"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 
@@ -43,16 +43,52 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 4. Adicione um alerta em seu conjunto de dimensionamento de máquinas virtuais usando uma notificação de webhook.
 
 > [!NOTE]
-> O dimensionamento automático vertical só pode ocorrer em determinadas faixas de tamanhos de VM. Compare as especificações de cada tamanho antes de decidir dimensionar de um para outro (o número mais alto nem sempre indica uma VM maior). Você pode optar por dimensionar entre os seguintes pares de tamanhos:
+> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para a máquina de Virtual restrita tamanhos reduzir/escalar verticalmente. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
 > 
 > | Par de dimensionamento de tamanhos de VM |  |
 > | --- | --- |
-> | Standard_A0 |Standard_A11 |
-> | Standard_D1 |Standard_D14 |
-> | Standard_DS1 |Standard_DS14 |
-> | Standard_D1v2 |Standard_D15v2 |
+> | Basic_A0 |Basic_A4 |
+> | Standard_A0 |Standard_A4 |
+> | Standard_A5 |Standard_A7 |
+> | Standard_A8 |Standard_A9 |
+> | Standard_A10 |Standard_A11 |
+> | Standard_A1_v2 |Standard_A8_v2 |
+> | Standard_A2m_v2 |Standard_A8m_v2  |
+> | Standard_B1s |Standard_B2s |
+> | Standard_B1ms |Standard_B8ms |
+> | Standard_D1 |Standard_D4 |
+> | Standard_D11 |Standard_D14 |
+> | Standard_DS1 |Standard_DS4 |
+> | Standard_DS11 |Standard_DS14 |
+> | Standard_D1_v2 |Standard_D5_v2 |
+> | Standard_D11_v2 |Standard_D14_v2 |
+> | Standard_DS1_v2 |Standard_DS5_v2 |
+> | Standard_DS11_v2 |Standard_DS14_v2 |
+> | Standard_D2_v3 |Standard_D64_v3 |
+> | Standard_D2s_v3 |Standard_D64s_v3 |
+> | Standard_DC2s |Standard_DC4s |
+> | Standard_E2_v3 |Standard_E64_v3 |
+> | Standard_E2s_v3 |Standard_E64s_v3 |
+> | Standard_F1 |Standard_F16 |
+> | Standard_F1s |Standard_F16s |
+> | Standard_F2sv2 |Standard_F72sv2 |
 > | Standard_G1 |Standard_G5 |
 > | Standard_GS1 |Standard_GS5 |
+> | Standard_H8 |Standard_H16 |
+> | Standard_H8m |Standard_H16m |
+> | Standard_L4s |Standard_L32s |
+> | Standard_L8s_v2 |Standard_L80s_v2 |
+> | Standard_M8ms  |Standard_M128ms |
+> | Standard_M32ls  |Standard_M64ls |
+> | Standard_M64s  |Standard_M128s |
+> | Standard_M64  |Standard_M128 |
+> | Standard_M64m  |Standard_M128m |
+> | Standard_NC6 |Standard_NC24 |
+> | Standard_NC6s_v2 |Standard_NC24s_v2 |
+> | Standard_NC6s_v3 |Standard_NC24s_v3 |
+> | Standard_ND6s |Standard_ND24s |
+> | Standard_NV6 |Standard_NV24 |
+> | Standard_NV6s_v2 |Standard_NV24s_v2 |
 > 
 > 
 

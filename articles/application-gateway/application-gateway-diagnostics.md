@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309121"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620869"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo
 
@@ -131,7 +131,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Habilitar o log por meio do portal do Azure
 
-1. No portal do Azure, encontre o recurso e clique em **Logs de diagnóstico**.
+1. No portal do Azure, localize seu recurso e selecione **configurações de diagnóstico**.
 
    Para o Gateway de Aplicativo, três logs estão disponíveis:
 
@@ -139,21 +139,15 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
    * Log de desempenho
    * Log de firewall
 
-2. Para iniciar a coleta de dados., clique em **Ativar diagnóstico**.
+2. Para iniciar a coleta de dados, selecione **ativar o diagnóstico**.
 
    ![Ativando o diagnóstico][1]
 
-3. A folha **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. Neste exemplo, o Log Analytics armazena os logs. Clique em **Configurar** em **Log Analytics** para configurar seu workspace. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
+3. A página **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. Neste exemplo, o Log Analytics armazena os logs. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
 
    ![Iniciando o processo de configuração][2]
 
-4. Escolha um workspace existente do Log Analytics ou crie um novo. Este exemplo usa um existente.
-
-   ![Opções para workspaces do Log Analytics][3]
-
-5. Confirme as configurações e clique em **Salvar**.
-
-   ![Folha Configurações de diagnóstico com seleções][4]
+5. Digite um nome para as configurações, confirme as configurações e selecione **salvar**.
 
 ### <a name="activity-log"></a>Log de atividades
 
@@ -334,7 +328,7 @@ Métricas são um recurso para alguns recursos do Azure, nas quais você pode ex
 
    É possível filtrar por pool de back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
 
-Procure um gateway de aplicativo, e em **Monitoramento**, clique em **Métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
+Procure um gateway de aplicativo, sob **Monitoring** selecionar **métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
 
 Na imagem a seguir, você pode ver um exemplo com três métricas exibidas para os últimos 30 minutos:
 
@@ -348,11 +342,11 @@ Você pode iniciar as regras de alerta com base nas métricas de um recurso. Por
 
 O seguinte exemplo orientará você pela criação de uma regra de alerta que envia um email para um administrador após um limite de vazão de dados ter sido violado:
 
-1. Clique em **Adicionar alerta de métrica** para abrir a folha **Adicionar regra**. Também acesse essa folha na folha de métricas.
+1. Selecione **adicionar alerta de métrica** para abrir o **Adicionar regra** página. Você também pode acessar essa página da página de métricas.
 
    ![Botão “Adicionar alerta de métrica”][6]
 
-2. Na folha **Adicionar regra**, preencha as seções de nome, condição e notificação e clique em **OK**.
+2. Sobre o **Adicionar regra** página, insira o nome, condição e notificar seções e selecione **Okey**.
 
    * No seletor **Condição**, selecione um dos quatro valores: **Maior que**, **Maior ou igual a**, **Menor que**, ou **Menor ou igual a**.
 
@@ -360,7 +354,7 @@ O seguinte exemplo orientará você pela criação de uma regra de alerta que en
 
    * Se você selecionar **Proprietários, colaboradores e leitores de email**, o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
 
-   ![Folha Adicionar regra][7]
+   ![Adicionar página de regra][7]
 
 Se o limite for violado, um email semelhante ao mostrado na seguinte imagem chegará:
 

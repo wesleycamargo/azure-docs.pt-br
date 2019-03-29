@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762918"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621260"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
-No Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os tipos incluem: **Gratuito**, **Básico** ou **Standard**, considerando que **Standard** está disponível em várias configurações e capacidades. A maioria dos clientes inicia com a camada **Gratuita** para avaliação e, em seguida, mudam para a **Standard** para desenvolvimento e implantações de produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso. 
+No Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os níveis incluem **livre**, **básica**, **padrão**, ou **otimizados para armazenamento**.  **Standard** e **otimizados para armazenamento** estão disponíveis em várias configurações e capacidades. A maioria dos clientes começam com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para uma das camadas pagas mais altas para implantações de desenvolvimento e produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso.
+
+> [!NOTE]
+> As camadas de serviço com otimização de armazenamento estão atualmente disponíveis como uma visualização a um preço com desconto para fins de teste e experimentação com o objetivo de coletar comentários. Preço final será anunciado posteriormente quando essas camadas são geralmente disponíveis. É recomendável usar essas camadas para aplicativos de produção.
 
 As camadas refletem as características do hardware que hospeda o serviço (em vez dos recursos) e são diferenciadas pelo:
 
@@ -42,11 +45,16 @@ A tabela a seguir lista as camadas disponíveis. Incluem outras fontes de inform
 |-----|-------------|
 |Grátis | Compartilhado com outros assinantes. Não Evolutivo, limitado a 3 índices e 50 MB de armazenamento. |
 |Basic | Recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Uma partição de 2 GB e até três réplicas. |
-|1 Standard (S1) | De S1 em Inscrever computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Tamanho da partição é 25 GB/partição (máximo de 300 GB de documentos por serviço) para S1. |
-|Standard 2 (S2) | Semelhante à S1, mas com 100 GB/partições (documentos de máximo de 1,2 TB por serviço) |
-|Standard 3 (S3) | 200 GB/partição (documentos de máximo de 2,4 TB por serviço). |
+|1 Standard (S1) | De S1 em Inscrever computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Tamanho da partição é 25 GB/partição (máximo de 300 GB por serviço) para S1. |
+|Standard 2 (S2) | Semelhante à S1, mas com 100 GB/partições (máximo 1,2 TB por serviço) |
+|Standard 3 (S3) | 200 GB/partição (máximo 2,4 TB por serviço) |
 |Padrão 3 alta densidade (S3-HD) | Alta densidade é uma *modo de hospedagem* S3. O hardware subjacente é otimizado para um grande número de índices menores, destinados a cenários de multilocação. S3 HD tem o mesmo encargo por unidade, mas o hardware de S3 é otimizado para leituras rápidas de arquivos em um grande número de índices menores.|
+|Armazenamento otimizado 1 (L1) | 1 TB/partição (máximo 12 TB por serviço) |
+|Armazenamento otimizado 2 (L2) | 2 TB/partição (máximo 24 TB por serviço) |
 
+> [!NOTE] 
+> As camadas de armazenamento otimizado oferecem maior capacidade de armazenamento a um preço menor por TB do que as camadas Standard.  A desvantagem principal é mais alta latência da consulta, que você deve validar para seus requisitos de aplicativo específico.  Para saber mais sobre as considerações de desempenho desta camada, consulte [considerações de desempenho e otimização](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
 
@@ -56,7 +64,7 @@ No Azure Search, há três maneiras de incorrer em custos no Azure Search, e há
 
 Para o serviço em si, a taxa mínima é a primeira unidade de pesquisa (partição 1 réplica x 1), e esse valor é constante para o tempo de vida do serviço porque o serviço não pode ser executado em nada menos do que essa configuração. 
 
-Na seguinte captura de tela, por preço por unidade é indicado para gratuita, Basic e S1 (S2 e S3 não são mostrados). Se você criou um serviço básico ou um serviço padrão, seu custo mensal seria o valor que aparece para médio *preço-1* e *preço 2* , respectivamente. Custos unitários subir para cada camada porque a capacidade de armazenamento e energia computacional é maior em cada camadas consecutivos.
+Na seguinte captura de tela, por preço por unidade é indicado para gratuita, Basic e S1 (S2, S3, L1 e L2 não são mostrados). Se você tiver criado uma **básicas**, **padrão**, ou **otimizados para armazenamento** serviço, seu custo mensal teria o valor médio que aparece para *preço-1*e *preço 2* , respectivamente. Custos unitários subir para cada camada como a capacidade de armazenamento e energia computacional é maior em cada camada consecutiva.
 
 ![Por preço por unidade](./media/search-sku-tier/per-unit-pricing.png "por preço por unidade")
 
@@ -117,7 +125,7 @@ No Azure Search, a capacidade é estruturada como *réplicas* e *partições*.
 + As partições armazenam índices e automaticamente dividem os dados pesquisados: duas partições de divisão para o seu índice na metade, três participações em três e assim por diante. Em termos de capacidade, o *tamanho da partição* é o principal recurso de diferenciação em camadas.
 
 > [!NOTE]
-> Todas as camadas **Padrão** suportam [a réplica de combinações flexíveis e partições](search-capacity-planning.md#chart) para que você possa [pesar seu sistema de armazenamento ou velocidade](search-performance-optimization.md) alterando o equilíbrio. **Básico** oferece até três réplicas para alta disponibilidade, mas possui apenas uma partição. As camadas **Gratuitas** não fornecem recursos dedicados: os recursos de computação são compartilhados por vários assinantes.
+> Todos os **Standard** e **otimizados para armazenamento** camadas suporte [partições e réplicas de combinações flexíveis](search-capacity-planning.md#chart) para que você possa [seu sistema para velocidade de peso ou armazenamento](search-performance-optimization.md) alterando o saldo. **Básico** oferece até três réplicas para alta disponibilidade, mas possui apenas uma partição. As camadas **Gratuitas** não fornecem recursos dedicados: os recursos de computação são compartilhados por vários assinantes.
 
 ### <a name="more-about-service-limits"></a>Mais informações sobre limites de serviço
 
@@ -125,7 +133,7 @@ Serviços de recursos de host, como índices, indexadores e assim por diante. Ca
 
 ## <a name="consumption-patterns"></a>Padrões de consumo
 
-A maioria dos clientes inicia com o serviço **Livre**, que eles mantêm indefinidamente e, em seguida, escolha uma das camadas **Padrão** para desenvolvimento grave ou cargas de trabalho de produção. 
+A maioria dos clientes começam com o **livre** de serviço, que eles mantêm indefinidamente e, em seguida, escolha uma da **padrão** ou **otimizados para armazenamento** camadas para desenvolvimento sério ou cargas de trabalho de produção. 
 
 ![Camadas de pesquisa do Azure](./media/search-sku-tier/tiers.png "camadas de preços de pesquisa do Azure")
 
@@ -147,6 +155,15 @@ Páginas de portal e preços colocam o foco no tamanho de partição e de armaze
 > [!NOTE]
 > Anteriormente, os limites de documentos eram uma preocupação, mas não são mais aplicáveis para novos serviços. Para obter mais informações sobre as condições sob as quais os limites de documento ainda se aplicam, confira [Limites de serviço: limites de documentos](search-limits-quotas-capacity.md#document-limits).
 >
+
+Camadas de armazenamento otimizado, **L1 L2**, são ideais para aplicativos com requisitos de dados grandes, mas um número relativamente baixo de usuários finais em que a minimizar a latência da consulta não é a principal prioridade.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| tamanho da partição|  1 TB | 2 TB |  |  |  |  |  |
+| limites de índice e indexador| 10 | 10 |  |  |  |  |  |
+
+*L2* oferece duas vezes a capacidade geral de armazenamento para um *L1*.  Escolha seu tipo com base na quantidade máxima de dados que você acha que precisa de seu índice.  O *L1* camada particiona o dimensionamento para cima em incrementos de 1 TB para um máximo de 12 TB, embora o *L2* aumentar por 2 TBs por partição até um máximo de 24 TB.
 
 ## <a name="evaluate-capacity"></a>Avaliação da capacidade
 
@@ -174,16 +191,17 @@ Supondo que o exemplo foi representante e dez por cento da fonte de dados inteir
 
 Alguns clientes preferem iniciar com recursos dedicados que podem acomodar amostragem maior e tempos de processamento, e em seguida desenvolve estimativas realistas da quantidade do índice, tamanho e volumes de consulta durante o desenvolvimento. Inicialmente, um serviço é provisionado com base em uma estimativa melhor alternativa e, em seguida, como o projeto de desenvolvimento amadurece, as equipes geralmente sabem se o serviço existente está acima ou abaixo de capacidade para cargas de trabalho de produção projetadas. 
 
-1. [Examine os limites de serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se os níveis mais baixos podem dar suporte a quantidade de índices que você precisa. Entre as camadas **Básico**-**S1**- **S2**, os limites de índice são 50-15-200, respectivamente.
+1. [Examine os limites de serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se os níveis mais baixos podem dar suporte a quantidade de índices que você precisa. Entre as camadas **Básico**-**S1**-**S2**, os limites de índice são 50-15-200, respectivamente.  O **otimizados para armazenamento** camada tem um limite de 10 índices, pois se trata de designer para dar suporte a um número baixo de índices muito grandes.
 
 1. [Criar um serviço em uma camada faturável](search-create-service-portal.md):
 
     + Iniciar pouca em **Básico** ou **S1** se você estiver no início de sua curva de aprendizado.
     + Iniciar alto, em **S2** ou até mesmo **S3**, se indexação de larga escala e cargas de consulta são auto-confiantes.
+    + Armazenamento otimizado, no **L1** ou **L2**, se você estiver indexando uma grande quantidade de dados e carga de consulta é relativamente baixa, como um aplicativo de negócios internos.
 
 1. [Criar um índice inicial](search-create-index-portal.md) para determinar como a fonte de dados traduz para um índice. Essa é a única maneira de estimar o tamanho do índice.
 
-1. [Monitorar armazenamento, limites de serviço, volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra consultas por segundo, consultas de restrição e latência de pesquisa; todos dos quais podem ajudar você a decidir se está na camada certa. Além de métricas de portal, você pode configurar monitoramento profundo, como a análise de clickthrough, habilitando [análise de tráfego de pesquisa](search-traffic-analytics.md). 
+1. [Monitorar armazenamento, limites de serviço, volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra consultas por segunda, limitadas consultas e latência de pesquisa; todos os quais podem ajudá-lo a decidir se você tiver selecionado a camada certa. Além de métricas de portal, você pode configurar monitoramento profundo, como a análise de clickthrough, habilitando [análise de tráfego de pesquisa](search-traffic-analytics.md). 
 
 O número de índice e o tamanho são igualmente relevantes para sua análise porque os limites máximos são alcançados por meio de utilização total de armazenamento (partições) ou limites máximo de recursos (índices, indexadores e assim por diante), o que ocorrer primeiro. O portal ajuda a manter o controle de ambos, mostrando o uso atual e os limites máximos lado a lado na página Visão geral.
 
@@ -197,8 +215,9 @@ A QPS (consultas por segundo) é uma medida que obtém importância durante o aj
 
 As camadas padrão podem fornecer um equilíbrio entre réplicas para partições, dando suporte a retorno mais rápido de consulta por meio de réplicas adicionais para carregar as partições adicionais e balanceamento para processamento paralelo. Você pode ajustar o desempenho depois que o serviço é fornecido.
 
-O cliente que espera volumes de consulta sustentadas do início deve considerar camadas maiores, apoiado por hardware mais potente. Você pode colocar as partições e réplicas offline ou até mesmo alternar para um serviço de camada inferior, se os volumes de consulta não materializarem. Para obter mais informações sobre como calcular a taxa de transferência de consulta, consulte [desempenho do Azure Search e otimização](search-performance-optimization.md).
+Os clientes que esperam volumes de consulta sustentada forte desde o início devem considerar maior **Standard** camadas, apoiadas por um hardware mais potente. Você pode colocar as partições e réplicas offline ou até mesmo alternar para um serviço de camada inferior, se os volumes de consulta não materializarem. Para obter mais informações sobre como calcular a taxa de transferência de consulta, consulte [desempenho do Azure Search e otimização](search-performance-optimization.md).
 
+O armazenamento com otimização de camadas lean em direção a cargas de trabalho de dados grandes, que dão suporte a mais geral armazenamento de índice disponível, onde os requisitos de latência de consulta são um pouco reduzidos.  Réplicas adicionais ainda devem ser utilizadas para carregar as partições de balanceamento e adicionais para processamento paralelo. Você pode ajustar o desempenho depois que o serviço é fornecido.
 
 **Contratos de nível de serviço**
 
@@ -216,7 +235,7 @@ A camada **Gratuita** não vêm com [SLAs (contratos de nível de serviço)](htt
 
 Inicie com uma camada **Gratuita** crie um índice inicial com um subconjunto de seus dados para entender suas características. A estrutura de dados no Azure é um índice invertido, onde o tamanho e complexidade de um índice invertido são determinados pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar em um índice menor que o conteúdo altamente irregular. Como tal, são as características de conteúdo e não o tamanho do conjunto de dados que determinam os requisitos de armazenamento de índice.
 
-Depois que você tiver uma ideia inicial do tamanho do índice, [provisione um serviço faturável](search-create-service-portal.md) em uma das camadas discutidas neste artigo, seja camada**Básico** ou **Padrão**. Relaxe quaisquer restrições artificiais em subconjuntos de dados e [recrie o índice](search-howto-reindex.md) para incluir todos os dados que você realmente deseja que sejam pesquisados.
+Depois que você tiver uma ideia inicial do tamanho do índice [provisionar um serviço faturável](search-create-service-portal.md) em uma das camadas discutidas neste artigo, tanto **básica**, **padrão**, ou **Otimizados para armazenamento** camada. Relaxe quaisquer restrições artificiais no dimensionamento de dados e [recriar o índice](search-howto-reindex.md) para incluir todos os dados desejados, na verdade, ser pesquisada.
 
 [Alocar partições e réplicas](search-capacity-planning.md) conforme necessário para obter o desempenho e escalabilidade que você precisa.
 

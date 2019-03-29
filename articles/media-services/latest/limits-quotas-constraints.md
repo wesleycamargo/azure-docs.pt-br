@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897547"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621678"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cotas e limitações dos Serviços de Mídia do Azure v3
 
@@ -27,7 +27,8 @@ Este artigo descreve cotas e limitações nos Serviços de Mídia do Azure v3.
 | Ativos por conta de Serviços de Mídia do Azure | 1.000.000|
 | Filtros de Manifesto Dinâmico|100|
 | JobInputs por trabalho | 50  (fixo)|
-| JobOutputs por Trabalho/TransformOutputs em uma Transformação | 20 (fixo) |
+| JobOutputs por trabalho | 20 (fixo) |
+| TransformOutputs em uma transformação | 20 (fixo) |
 | Arquivos por JobInput|10 (fixo)|
 | Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>(1)</sup> |
 | Trabalhos por conta dos Serviços de Mídia | 500.000 <sup>(2)</sup> (fixo)|
@@ -35,13 +36,14 @@ Este artigo descreve cotas e limitações nos Serviços de Mídia do Azure v3.
 | Listar Trabalhos|Paginar a resposta, com 500 Trabalhos por página|
 | Eventos ao vivo por conta dos Serviços de Mídia |5|
 | Contas de Serviços de Mídia em uma única assinatura | 25 (fixo) |
-| Saídas ao vivo em estado de execução por LiveEvent |3|
+| Saídas em tempo real no estado de execução por um evento ao vivo |3|
+| Duração Máx Live saída | 25 horas |
 | Contas de armazenamento | 100<sup>(4)</sup> (fixo) |
 | Pontos de extremidade de streaming (interrompidos ou em execução) por conta dos Serviços de Mídia|2 (fixas)|
 | Políticas de Streaming | 100 <sup>(3)</sup> |
 | Transformações por conta dos Serviços de Mídia | 100  (fixo)|
 | Localizadores de streaming exclusivos associados a um Ativo ao mesmo tempo | 100<sup>(5)</sup> (fixado) |
-| Política de chave de conteúdo |30 | 
+| Política de Chave de Conteúdo |30 | 
 
 <sup>1</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no Azure Blob Storage. No entanto, os limites adicionais aplicam-se nos Serviços de Mídia do Azure com base nos tamanhos de VM usados pelo serviço. Se o arquivo de origem for maior que 260 GB, o trabalho provavelmente falhará. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB, entre em contato conosco em amshelp@microsoft.com para se informar sobre atenuantes possíveis que darão suporte ao seu cenário.
 

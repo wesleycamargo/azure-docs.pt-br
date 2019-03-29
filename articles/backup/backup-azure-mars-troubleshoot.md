@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008164"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621610"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente do MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -21,7 +21,7 @@ Veja como resolver possíveis erros durante a configuração, registro, backup e
 
 ## <a name="invalid-vault-credentials-provided"></a>Credenciais do cofre fornecidas inválidas
 
-| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | **Erro** </br> *Credenciais do cofre inválidas fornecidas. O arquivo está corrompido ou não possui as credenciais mais recentes associadas ao serviço de recuperação. (ID: 34513)* | <ul><li> As credenciais do cofre são inválidas (ou seja, elas são baixadas mais de 48 horas antes da hora de registro).<li>MARS Agent não consegue fazer o download de arquivos para o diretório Temp do Windows. <li>As credenciais do cofre estão em um local de rede. <li>TLS 1.0 está desabilitado<li> Um servidor proxy configurado está bloqueando a conexão. <br> |  <ul><li>Faça o download das novas credenciais do cofre. (**Observação**: Se vários arquivos de credenciais do cofre forem baixados anteriormente, somente o último arquivo baixado será válido dentro de 48 horas.) <li>Inicie **IE** > **Configuração** > **Opções da Internet** > **Segurança** > **Internet**. Em seguida, selecione **Nível personalizado** e role até encontrar a seção de download de arquivo. Em seguida, selecione **Habilitar**.<li>Você também precisará adicionar esses sites no IE [sites confiáveis](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy. <li> Sincronize a data e a hora com as de seu computador.<li>Se você receber um erro informando que os downloads de arquivos não são permitidos, é provável que haja um grande número de arquivos no diretório C: / Windows / Temp directory.<li>Vá para C:/Windows/Temp e verifique se há mais de 60.000 ou 65.000 arquivos com a extensão .tmp. Se houver, exclua esses arquivos.<li>Certifique-se de que tenha o .NET Framework 4.6.2 instalado. <li>Se você desabilitou o TLS 1.0 devido à conformidade de PCI, consulte esta [página de solução de problemas](https://support.microsoft.com/help/4022913). <li>Se você tiver um antivírus instalado no servidor, exclua os seguintes arquivos da verificação de antivírus: <ul><li>CBengine.exe<li>CSC.exe, relacionado ao .NET Framework. Há um CSC.exe para cada versão .NET instalada no servidor. Exclua os arquivos CSC.exe vinculados a todas as versões do .NET Framework no servidor afetado. <li>Pasta de Rascunho ou local do cache. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>A pasta bin C: \ Arquivos de Programas \ Microsoft Agente dos Serviços de Recuperação do Azure \ Bin
 
@@ -33,26 +33,26 @@ Veja como resolver possíveis erros durante a configuração, registro, backup e
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
-| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | **Erro** <br /><ol><li>*O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure. (ID: 100050) Verifique as configurações de rede e veja se é possível conectar a Internet*<li>*(407) Autenticação de Proxy Obrigatória* |Proxy bloqueando a conexão. |  <ul><li>Inicie **IE** > **Configuração** > **Opções da Internet** > **Segurança** > **Internet**. Em seguida, selecione **Nível personalizado** e role até encontrar a seção de download de arquivo. Selecione **Habilitar**.<li>Você também precisará adicionar esses sites no IE [sites confiáveis](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy. <li>Se você tiver um antivírus instalado no servidor, exclua os seguintes arquivos da verificação de antivírus. <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado ao .NET Framework). Há um CSC.exe para cada versão .NET instalada no servidor. Exclua os arquivos CSC.exe vinculados a todas as versões do .NET Framework no servidor afetado. <li>Pasta de Rascunho ou local do cache. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>A pasta bin C: \ Arquivos de Programas \ Microsoft Agente dos Serviços de Recuperação do Azure \ Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao configurar a chave de criptografia para backups seguros
 
-| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | **Erro** <br />*Falha ao configurar a chave de criptografia para backups seguros. A ativação não foi bem-sucedida, mas a frase secreta de criptografia foi salva no seguinte arquivo* . |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a frase secreta foi corrompida.| Cancele o registro do servidor do cofre e registre-se novamente com uma nova frase secreta.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>A ativação não foi concluída com êxito
 
-| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 |**Erro** <br /><ol>*A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft*      | <li> A pasta de Rascunho está localizada em um volume que não possui espaço suficiente. <li> A pasta de Rascunho é movida incorretamente para outro local. <li> O arquivo OnlineBackup.KEK está ausente.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta temporária ou o local do cache para um volume com espaço livre igual a 5-10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [Perguntas sobre o Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>A frase secreta de criptografia não está configurada corretamente
 
-| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 |**Erro** <br /><ol>*Erro 34506. A senha de criptografia armazenada neste computador não está configurada corretamente*.    | <li> A pasta de Rascunho está localizada em um volume que não possui espaço suficiente. <li> A pasta de Rascunho é movida incorretamente para outro local. <li> O arquivo OnlineBackup.KEK está ausente.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [Perguntas sobre o Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -60,7 +60,7 @@ Veja como resolver possíveis erros durante a configuração, registro, backup e
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Os backups não são executados de acordo com o agendamento
 Se os backups agendados não forem acionados automaticamente, mas os backups manuais funcionarem sem problemas, tente estas ações:
 
-- Certifique-se de que o agendamento de backup do Windows Server não está em conflito com o agendamento de backup de Pastas e Arquivos do Azure.
+- Certifique-se de agendamento de backup do Windows Server não está em conflito com o Azure agenda de backup de arquivos e pastas.
 - Acesse o **Painel de Controle** > **Ferramentas Administrativas** > **Agendador de Tarefas**. Expanda **Microsoft** e selecione **Backup Online**. Clique duas vezes em **Microsoft-OnlineBackup** e acesse a guia **Gatilhos**. Certifique-se de que o status esteja definido como **Habilitado**. Se não estiver, selecione **Editar**, selecione a caixa de seleção **Habilitado** e clique em **OK**. Na guia **Geral**, vá até **Opções de segurança** e certifique-se de que a conta de usuário selecionada para execução da tarefa seja **SYSTEM** ou o **grupo de Administradores Locais** no servidor.
 
 - Verifique se o PowerShell 3.0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute o seguinte comando e verifique se o número da versão *Principal* é igual ou maior do que 3.

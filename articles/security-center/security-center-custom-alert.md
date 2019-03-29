@@ -14,28 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9bf4f604386b47e4ca36df69fb140124b097f548
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500144"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576889"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de alerta personalizadas na Central de Segurança do Azure (versão prévia)
 Este documento ajuda você a criar regras de alerta personalizadas na Central de Segurança do Azure.
 
+> [!NOTE]
+> Alertas personalizados serão desativadas em breve, leia mais em alternativas serviços abaixo.
+
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Regras de desativação de alerta personalizadas na Central de segurança do Azure
 
+A experiência de alertas personalizados será desativada em 30 de junho de 2019, devido a desativação do serviço de alertas clássicos do Azure Monitor. No período de tempo até que a substituição, os usuários poderão editar regras de alerta personalizadas existentes, mas não poderá adicionar novos.
+Os usuários são aconselhados a habilitar [Sentinel Azure](https://azure.microsoft.com/en-us/services/azure-sentinel/) com integração de um clique ao migrar seus alertas existentes e criar novas ou como alternativa, recrie seus alertas com o Azure Monitor automaticamente alertas de log.
+                                     
+Para manter os alertas existentes e migrá-los para o Azure Sentinel, por favor [inicie o Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeira etapa, selecione o espaço de trabalho onde os alertas personalizados são armazenados e, em seguida, selecione o item de menu 'Analytics' migrar automaticamente os alertas.
+
 > [!NOTE]
-> A experiência de alertas personalizados será desativada em 30 de junho de 2019, devido a desativação do serviço de alertas clássicos do Azure Monitor. No período de tempo até que a substituição, os usuários poderão editar regras de alerta personalizadas existentes, mas não poderá adicionar novos.
-> Os usuários são aconselhados a habilitar [Sentinel Azure](https://azure.microsoft.com/en-us/services/azure-sentinel/) com integração de um clique ao migrar seus alertas existentes e criar novas ou como alternativa, recrie seus alertas com o Azure Monitor automaticamente alertas de log.
->                                      
-> Para manter os alertas existentes e migrá-los para o Azure Sentinel, por favor [inicie o Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeira etapa, selecione o espaço de trabalho onde os alertas personalizados são armazenados e, em seguida, selecione o item de menu 'Analytics' migrar automaticamente os alertas.
+> Migração de alertas personalizados para o Azure Sentinel é uma migração única de todos os alertas personalizados no espaço de trabalho selecionado. Após a migração for concluída, os alertas personalizados para esse espaço de trabalho selecionado não poderão ser acessados por meio da Central de segurança do Azure.
 >
-> * * Observe que a migração de alertas personalizados para o Azure Sentinel é uma migração única de todos os alertas personalizados no espaço de trabalho selecionado. Após a migração for concluída, os alertas personalizados para esse espaço de trabalho selecionado não poderão ser acessados por meio da Central de segurança do Azure.
 > Alertas personalizados usando [pesquisa](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) ou [união](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) consultas de instruções não têm suporte no Azure Sentinel e não serão migradas. Edite esses alertas antes de executar a migração.
->
-> Para recriar seus alertas usando alertas de log do Azure Monitor, consulte: [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) para obter instruções sobre como criar alertas de log. Para obter uma visão geral de alertas de log no Azure Monitor, clique em [aqui](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
+
+Para recriar seus alertas usando alertas de log do Azure Monitor, consulte: [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) para obter instruções sobre como criar alertas de log. Para obter uma visão geral de alertas de log no Azure Monitor, clique em [aqui](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>O que são regras de alerta personalizadas na Central de Segurança?
 

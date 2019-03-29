@@ -1,5 +1,5 @@
 ---
-title: Usar um dashboard de recursos para executar uma revisão de acesso no PIM - Azure | Microsoft Docs
+title: Usar um dashboard de recursos para executar uma revisão de acesso no PIM - Azure Active Directory | Microsoft Docs
 description: Descreve como usar um painel de recursos para executar uma análise de acesso no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012686"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574953"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Usar um dashboard de recursos para executar uma revisão de acesso no PIM
 
-Você pode usar um painel para executar uma análise de acesso no Privileged Identity Management (PIM) para recursos do Azure. O painel de exibição do administrador possui três componentes principais:
+Você pode usar um dashboard de recursos para executar uma revisão de acesso no Azure Active Directory (Azure AD) gerenciamento de PIM (Privileged Identity). O painel de exibição do administrador possui três componentes principais:
 
 - Uma representação gráfica das ativações de função de recurso.
 - Dois gráficos que exibem a distribuição de atribuições de função por tipo de atribuição.

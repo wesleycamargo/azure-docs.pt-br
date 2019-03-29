@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541926"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575140"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre o ASC para IoT  
 
@@ -77,7 +77,7 @@ Informações detalhadas de implantação de instalação e o agente podem ser e
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quais são as dependências e pré-requisitos do agente?
 
-ASC para IoT dá suporte a uma ampla variedade de plataformas. Ver [plataformas de dispositivos com suporte](select-deploy-agent.md) para confirmar o suporte para seus dispositivos específicos. 
+ASC para IoT dá suporte a uma ampla variedade de plataformas. Ver [plataformas de dispositivos com suporte](how-to-deploy-agent.md) para confirmar o suporte para seus dispositivos específicos. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Quais dados são coletados pelo agente?
 
@@ -97,9 +97,9 @@ Sim. Os dados do agente transmitida são contados em sua cota de IoT Hub.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Próximos passos Eu tiver instalado um agente e não vir quaisquer atividades ou logs
 
-1. Verifique o [tipo de agente se ajusta a plataforma do sistema operacional designada do dispositivo](select-deploy-agent.md)
+1. Verifique o [tipo de agente se ajusta a plataforma do sistema operacional designada do dispositivo](how-to-deploy-agent.md)
 
-1. Confirme se o [agent está em execução no dispositivo](concept-agent-configuration.md).
+1. Confirme se o [agent está em execução no dispositivo](how-to-agent-configuration.md).
 
 2. Verifique as [serviço foi habilitado com êxito](quickstart-onboard-iot-hub.md) à **segurança** em seu IoT Hub. 
 

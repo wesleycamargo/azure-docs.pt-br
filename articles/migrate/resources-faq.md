@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003724"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578638"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -108,9 +108,7 @@ A descoberta baseada em agente é uma opção disponível sobre a descoberta bas
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Haveria qualquer impacto no desempenho no ambiente de host ESXi analisado?
 
-No caso da [abordagem de descoberta única](https://docs.microsoft.com/azure/migrate/concepts-collector), para coletar dados de desempenho, o nível de estatísticas no vCenter Server precisa ser definido como 3. Defini-lo com esse nível causaria a coleta de uma grande quantidade de dados de solução de problemas, que seriam armazenados no banco de dados do vCenter Server. Portanto, isso poderá resultar em alguns problemas de desempenho no vCenter Server. Deve haver impacto irrelevante no host ESXi.
-
-Introduzimos a criação de perfil contínua de dados de desempenho (que está em visualização). Com a criação de perfil contínua, não é mais necessário alterar o nível de estatísticas do vCenter Server para executar uma avaliação baseada em desempenho. O dispositivo coletor agora analisará os computadores locais para medir os dados de desempenho das máquinas virtuais. Isso teria impacto quase zero no desempenho dos hosts ESXi, bem como no vCenter Server.
+Com a criação de perfil contínua de dados de desempenho, não é necessário alterar o nível de estatísticas do servidor para executar uma avaliação de desempenho do vCenter. O dispositivo coletor criará o perfil de máquinas locais para medir os dados de desempenho das máquinas virtuais. Isso teria impacto quase zero no desempenho dos hosts ESXi, bem como no vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Onde e por quanto tempo os dados coletados são armazenados?
 

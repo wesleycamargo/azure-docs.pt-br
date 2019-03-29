@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259679"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619434"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure 
 > [!NOTE]
@@ -73,11 +73,6 @@ Um nome amigável que permite identificar o trabalho. [Esse](media-services-port
 
 ### <a name="output-file"></a>Arquivo de saída
 Um nome amigável que permite identificar o conteúdo de saída. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-O Azure Media Hyperlapse é um MP que cria vídeos suaves de lapso de tempo de conteúdo de primeira pessoa ou de uma câmera de ação.  Para obter mais informações, consulte [este](media-services-hyperlapse-content.md) tópico. Esta seção fornece alguns detalhes sobre as opções que você especifica para esse MP.
-
-![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Velocidade
 Especifique a velocidade com a qual acelerar o vídeo de entrada. A saída é uma representação estabilizada e de lapso de tempo do vídeo de entrada.

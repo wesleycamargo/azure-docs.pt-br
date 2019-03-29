@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092269"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574711"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Conectar seu dispositivo Barracuda 
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Conector do Barracuda Web Application WAF (Firewall) permite que você se conecte facilmente seus logs do Barracuda com seu Sentinel do Azure, para exibir painéis, criar alertas personalizados e melhorará a investigação. Isso fornece mais informações sobre a rede da sua organização e aprimora sua capacidade de operação de segurança. Sentinela Azure tira proveito da integração nativa entre **Barracuda** e Microsoft Azure OMS para fornecer integração perfeita. 
@@ -42,6 +42,7 @@ Firewall do aplicativo Web Barracuda pode integrar e exportar logs diretamente p
 2. No portal do Azure Sentinel, vá para o espaço de trabalho no qual você implantou Sentinel do Azure e selecione as reticências (...) no final da linha e selecione **configurações avançadas**. 
 1. Selecione **dados** e, em seguida **Syslog**.
 1. Verifique se o recurso que você definir no Barracuda existe e definir a gravidade e clique em **salvar**.
+6. Para usar o esquema relevante no Log Analytics para os eventos de Barracuda, pesquise **CommonSecurityLog**.
 
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
@@ -51,7 +52,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar dispositivos Barracuda ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar dispositivos Barracuda ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

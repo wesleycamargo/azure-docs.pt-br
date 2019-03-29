@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de recurso do Azure no PIM | Microsoft Docs
+title: Atribuir funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
 description: Saiba como atribuir funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086183"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578655"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recurso do Azure no PIM
 
-O Azure AD PIM pode gerenciar as funções internas de recurso do Azure, bem como funções (RBAC) personalizadas, incluindo (mas sem se limitar a):
+Azure Active Directory (Azure AD) PIM Privileged Identity Management () pode gerenciar as funções de recurso do Azure internas, bem como funções personalizadas, incluindo (mas não limitado a):
 
 - Proprietário
 - Administrador de Acesso do Usuário
-- Contribuidor
-- Admin de Segurança
+- Colaborador
+- Administrador de Segurança
 - Gerenciador de Segurança e muito mais
 
 > [!NOTE]
@@ -129,4 +129,4 @@ Siga estas etapas para atualizar ou remover uma atribuição de função existen
 
 - [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md)
 - [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
+- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)

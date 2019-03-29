@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544965"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621372"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 
@@ -231,6 +231,9 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |Verificação do estado da integração – Ler solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
 |Verificação do estado da integração – Ler VM      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
 |Verificação do estado da integração – Ler conta      | Microsoft.Automation/automationAccounts/read  |  Conta de automação   |
+| Verificação de espaço de trabalho de integração de VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Assinatura         |
+
+<sup>1</sup> essa permissão é necessária para carregar por meio da experiência do portal de VM.
 
 ### <a name="onboarding-from-automation-account"></a>Integração da conta de automação
 

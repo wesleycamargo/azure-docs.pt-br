@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bcab43869b488eed1cc6693a2970b6ea4bb2e7c1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403554"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576336"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Conectar seu dispositivo Palo Alto Networks
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode conectar Sentinel do Azure para qualquer dispositivo Palo Alto Networks, salvando os arquivos de log como Syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas entre os dados do arquivo de log da Palo Alto Networks. Para obter mais informações sobre como o Azure Sentinel ingere dados CEF, consulte [appliances conectar CEF](connect-common-event-format.md).
@@ -34,7 +34,7 @@ Você pode conectar Sentinel do Azure para qualquer dispositivo Palo Alto Networ
 
 ## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Etapa 1: Conectar seu dispositivo Palo Alto Networks usando um agente
 
-Para conectar seu dispositivo Palo Alto Networks Sentinel do Azure, você precisa implantar um agente em um computador dedicado (VM ou no local) para dar suporte a comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. Implantação automática só estará disponível se a sua máquina dedicada é uma nova VM que você está criando no Azure. 
+Para conectar seu dispositivo Palo Alto Networks Sentinel do Azure, você precisa implantar um agente em um computador dedicado (VM ou no local) para dar suporte a comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. A implantação automática só estará disponível se o computador dedicado for uma nova VM que você está criando no Azure. 
 
 Como alternativa, você pode implantar o agente manualmente em uma VM do Azure existente em uma VM em outra nuvem ou em um computador local.
 
@@ -122,6 +122,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 3. Se ambos os comandos fornecidos resultados bem-sucedidos, verifique o Log Analytics para ver se os logs chegam. Todos os eventos que são transmitidos desses dispositivos são exibidos em formato bruto no Log Analytics em `CommonSecurityLog ` tipo.
 1. Para verificar se há erros ou se os logs não são recebidos, procure `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Certifique-se de que seu tamanho de padrão de mensagem do Syslog é limitado a 2048 bytes (2KB). Se os logs são muito longos, atualize o security_events usando este comando: `message_length_limit 4096`
+6. Para usar o esquema relevante no Log Analytics para os eventos do Palo Alto Networks, pesquise **CommonSecurityLog**.
 
 
 
@@ -130,7 +131,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar dispositivos Palo Alto Networks a Sentinela do Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar dispositivos Palo Alto Networks a Sentinela do Azure. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e394f6025f7898aad7dde7b1acefd9f95029a554
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541986"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576632"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança 
 
@@ -39,20 +39,20 @@ Para configurar qual espaço de trabalho do Log Analytics é usado:
 
 Para acessar seu espaço de trabalho do Log Analytics após a configuração:
 
-1. Escolha um alerta no ASC para IoT. 
+1. Escolha um alerta ou uma recomendação no ASC para IoT. 
 2. Clique em **investigação adicional**, em seguida, clique em **para ver quais dispositivos têm esse alerta, clique aqui e exibir a coluna DeviceId**.
 
 Para obter detalhes sobre como consultar dados do Log Analytics, consulte [Introdução às consultas no Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
-Alertas de segurança são armazenados em do **ASCforIoT.SecurityAlert** tabela dentro do seu espaço de trabalho do Log Analytics configurado.
+Alertas de segurança são armazenados no _AzureSecurityOfThings.SecurityAlert_ tabela no espaço de trabalho do Log Analytics configurado para o ASC para solução de IoT.
 
-Use as seguintes consultas kql básicas para começar a explorar os alertas de segurança.
+Fornecemos um número de consultas úteis para ajudar você a começar a explorar os alertas de segurança.
 
-### <a name="sample-records-query"></a>Exemplo de consulta de registros
+### <a name="sample-records"></a>Exemplos de registros
 
-Para selecionar aleatoriamente alguns registros: 
+Selecione alguns registros aleatórios
 
 ```
 // Select a few random records
@@ -69,17 +69,15 @@ SecurityAlert
 | take 3
 ```
 
-#### <a name="sample-query-results"></a>Resultados da consulta de exemplo 
-
 | TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | DESCRIÇÃO                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta foi bem-sucedida           | Um ataque de força bruta no dispositivo foi bem-sucedida        |    {"Endereço de código-fonte completo": "[\"10.165.12.18:\"]", "Nomes de usuário": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Logon local com êxito no dispositivo      | Um logon bem-sucedido de local para o dispositivo foi detectado     | {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Login Shell": "/ bin/su", "Id do processo de logon": "28207", "User Name": "invasor", "DeviceId": "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Falha na tentativa de logon local no dispositivo  | Uma tentativa de logon local com falha para o dispositivo foi detectada |  {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Login Shell": "/ bin/su", "Id do processo de logon": "22644", "User Name": "invasor", "DeviceId": "IoT-Device-Linux" } |
 
-### <a name="device-summary-query"></a>Consulta de resumo do dispositivo
+### <a name="device-summary"></a>Resumo do dispositivo
 
-Use esta consulta kql para selecionar um número de alertas de segurança distintas detectado na semana passada pelo IoT Hub, dispositivo, severidade do alerta, o tipo de alerta.
+Selecione o número de alertas de segurança distintas detectado na semana passada pelo IoT Hub, dispositivo, severidade do alerta, o tipo de alerta.
 
 ```
 // Select number of distinct security alerts detected last week by 
@@ -94,19 +92,16 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="device-summary-query-results"></a>Resultados da consulta de resumo de dispositivo
-
-| IoTHubId | deviceId| AlertSeverity| DisplayName | Contagem |
-|----------|---------|------------------|---------|---------|
-|/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta foi bem-sucedida           | 9   |    
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Contagem |
+|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta foi bem-sucedida           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | Falha na tentativa de logon local no dispositivo  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Logon local com êxito no dispositivo      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | Minerador de moeda de criptografia                     | 4   |
-|
 
-### <a name="iot-hub-summary"></a>Resumo do IoT Hub
+### <a name="iot-hub-summary"></a>Resumo de hub IoT
 
-Use esta consulta kql para selecionar um número de dispositivos distintos que não teve alertas na última semana, pelo hub IoT, severidade do alerta, o tipo de alerta:
+Selecione um número de dispositivos distintos que não teve alertas na última semana, pelo IoT Hub, severidade do alerta, o tipo de alerta
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -121,8 +116,6 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="iot-hub-summary-query-results"></a>Resultados de resumo de consulta do IoT Hub
-
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Ataque de força bruta foi bem-sucedida           | 1          |    
@@ -130,6 +123,58 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Logon local com êxito no dispositivo      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Média        | Minerador de moeda de criptografia                     | 1          |
 
+## <a name="security-recommendations"></a>Recomendações de segurança
+
+Recomendações de segurança são armazenadas no _AzureSecurityOfThings.SecurityRecommendation_ tabela no espaço de trabalho do Log Analytics configurado para o ASC para solução de IoT.
+
+Nós fornecemos um número de consultas úteis para ajudá-lo a começar Explorando as recomendações de segurança.
+
+### <a name="sample-records"></a>Exemplos de registros
+
+Selecione alguns registros aleatórios
+
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+    
+| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | DESCRIÇÃO | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para um amplo intervalo de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para um amplo intervalo de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+
+### <a name="device-summary"></a>Resumo do dispositivo
+
+Selecione o número de recomendações de segurança ativos distintos por tipo, o IoT Hub, dispositivos e severidade de recomendação.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
+```
+
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Contagem |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | 4   |
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -137,3 +182,4 @@ SecurityAlert
 - Leia o ASC para IoT [visão geral](overview.md)
 - Saiba mais sobre o ASC para IoT [arquitetura](architecture.md)
 - Compreender e explorar [ASC para alertas de IoT](concept-security-alerts.md)
+- Compreender e explorar [ASC para a recomendação de IoT](concept-recommendations.md)

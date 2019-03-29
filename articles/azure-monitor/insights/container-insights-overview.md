@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: f292ad5802af6765ec26df7de1aa271e1214e0e9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: a31380c8581503a340c55c374afc02c6e1fa290b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983006"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577162"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Visão geral do Azure Monitor para contêineres
 
@@ -31,9 +31,12 @@ O Azure Monitor para contêineres oferece visibilidade de desempenho coletando m
 O Azure Monitor para contêineres inclui vários modos de exibição predefinidos que mostram as cargas de trabalho de contêiner residentes e o que afeta a integridade do desempenho do cluster do Kubernetes monitorado para que você possa:  
 
 * Identificar contêineres AKS que estão em execução no nó e sua utilização média de processador e memória. Esse conhecimento pode ajudá-lo a identificar gargalos de recursos.
-* Identifique a utilização de processador e de memória de grupos de contêineres e seus contêineres hospedados em Instâncias de Contêiner do Azure.  * Identifique em que local o contêiner reside em um controlador ou um pod. Esse conhecimento pode ajudá-lo a exibir o desempenho geral do controlador ou do pod.
+* Identifique a utilização de processador e de memória de grupos de contêineres e seus contêineres hospedados em Instâncias de Contêiner do Azure.  
+* Identificar em que local o contêiner reside em um controlador ou em um pod. Esse conhecimento pode ajudá-lo a exibir o desempenho geral do controlador ou do pod.
 * Examine a utilização de recursos de cargas de trabalho em execução no host não relacionadas aos processos padrão que dão suporte ao pod.
 * Compreender o comportamento do cluster sob cargas mais pesadas e médias. Esse conhecimento pode ajudá-lo a identificar as necessidades de capacidade e determinar a carga máxima que o cluster pode sustentar. 
+
+Você também pode configurar alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites.  
 
 ## <a name="how-do-i-access-this-feature"></a>Como acessar esse recurso?
 Acesse o Azure Monitor para contêineres de duas maneiras, pelo Azure Monitor ou diretamente no cluster AKS selecionado. No Azure Monitor, você tem uma perspectiva global de todos os contêineres implantados, quais são monitorados e quais não são, permitindo que você pesquise e filtre suas assinaturas e grupos de recursos e depois faça drill no Azure Monitor para contêineres a partir do contêiner selecionado.  Caso contrário, você pode simplesmente acessar o recurso diretamente de um contêiner AKS selecionado na página do AKS.  

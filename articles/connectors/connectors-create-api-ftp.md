@@ -1,21 +1,21 @@
 ---
-title: Conectar ao servidor FTP - Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectar ao servidor FTP - aplicativos lógicos do Azure
 description: Crie, monitore e gerencie arquivos em um servidor FTP com os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913352"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576319"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
@@ -28,10 +28,11 @@ Com o conector FTP e dos Aplicativos Lógicos do Azure, você pode criar tarefas
 
 Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibilizar a saída para outras ações. Use ações de execução nos aplicativos lógicos para gerenciar arquivos no servidor FTP. Você também pode ter outro uso de ações para usar a saída das ações do FTP. Por exemplo, se você obter arquivos regularmente do servidor FTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou do Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> O conector de FTP dá suporte apenas a arquivos com 50 MB ou menores, a menos que você use o [agrupamento de mensagens nas ações](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, não é possível usar o agrupamento para gatilhos.
->
-> Além disso, o conector do FTP dá suporte a apenas FTP explícito sobre SSL (FTPS) e não é compatível com FTPS implícito. 
+## <a name="limits"></a>limites
+
+* FTP ações têm suporte para apenas os arquivos que estão *50 MB ou menor* a menos que você use [mensagem agrupamento](../logic-apps/logic-apps-handle-large-messages.md), que permitem que você exceda esse limite. Atualmente, os gatilhos FTP não oferecem suporte a agrupamento.
+
+* O conector de FTP dá suporte a apenas explícita FTP sobre SSL (FTPS) e não é compatível com FTPS implícito.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +52,7 @@ Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibiliz
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
    -ou-
 
@@ -82,7 +83,7 @@ Esse gatilho inicia um fluxo de trabalho do aplicativo lógico ao detectar quand
 
 **Exemplo corporativo**: Use esse gatilho para monitorar uma pasta do FTP em busca de novos arquivos que descrevem os pedidos de clientes. Você pode, então, usar uma ação de FTP como **Obter conteúdo do arquivo**, para que possa obter o conteúdo da ordem para mais processamento e armazenar essa ordem em um banco de dados de ordens.
 
-Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+Ao solicitar o conteúdo do arquivo, os gatilhos não é possível obter arquivos de mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
 
 * Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
 
@@ -121,7 +122,7 @@ Agora que seu aplicativo lógico tem um gatilho, adicione as ações que você d
 
 Esta ação obtém o conteúdo de um arquivo em um servidor FTP quando esse arquivo é adicionado ou atualizado. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma ação que obtém o conteúdo do arquivo depois que esse arquivo é adicionado ou editado. 
 
-Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+Ao solicitar o conteúdo do arquivo, os gatilhos não é possível obter arquivos de mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
 
 * Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
 
@@ -151,7 +152,7 @@ Este é um exemplo que mostra essa ação: **Obter conteúdo**
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/ftpconnector/) do conector.
+Para obter detalhes técnicos sobre limites, ações e gatilhos, que são descritos por OpenAPI do conector (anteriormente conhecido como Swagger) descrição, examine os [página de referência do conector](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Obtenha suporte
 

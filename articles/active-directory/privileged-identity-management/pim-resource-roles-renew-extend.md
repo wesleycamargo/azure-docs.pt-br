@@ -1,5 +1,5 @@
 ---
-title: Estender ou renovar atribuições de função de recurso do Azure no PIM | Microsoft Docs
+title: Estender ou renovar atribuições de função de recursos do Azure no PIM - Azure Active Directory | Microsoft Docs
 description: Saiba como estender ou renovar atribuições de função de recurso do Azure no PIM (Azure AD Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004235"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578383"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estender ou renovar atribuições de função de recurso do Azure no PIM
 
-O PIM (Privileged Identity Management) para recursos do Azure apresenta novos controles para gerenciar o ciclo de vida de acesso e atribuição dos recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e término. Quando a atribuição termina, o PIM envia notificações por e-mail aos usuários ou grupos afetados. Ele também envia notificações por e-mail aos administradores do recurso para garantir que o acesso apropriado seja mantido. As atribuições podem ser renovadas e permanecer visíveis em um estado expirado por até 30 dias, mesmo que o acesso não seja estendido.
+Do Azure Active Directory (Azure AD) Privileged identidade Management (PIM) introduz novos controles para gerenciar o ciclo de vida de atribuição e de acesso para recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e término. Quando a atribuição termina, o PIM envia notificações por e-mail aos usuários ou grupos afetados. Ele também envia notificações por e-mail aos administradores do recurso para garantir que o acesso apropriado seja mantido. As atribuições podem ser renovadas e permanecer visíveis em um estado expirado por até 30 dias, mesmo que o acesso não seja estendido.
 
 ## <a name="who-can-extend-and-renew"></a>Quem pode estender e renovar?
 

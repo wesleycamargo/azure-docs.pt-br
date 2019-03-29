@@ -1,6 +1,6 @@
 ---
-title: Termos de uso do Azure Active Directory | Microsoft Docs
-description: Descreve como começar a usar os Termos de uso do Azure AD para apresentar informações aos funcionários ou convidados antes de obter acesso.
+title: Termos de uso - Azure Active Directory | Microsoft Docs
+description: Descreve como começar a usar o Azure Active Directory termos de uso para apresentar informações aos funcionários ou convidados antes de obter acesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 25a3eb6fdfc6928e2e414dcbe799861c3b2eb999
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418956"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576166"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.

@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f655db8643a16e6818f5becf25c8761fb4c9093b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58007994"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576098"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapeamento de controle do exemplo de especificações técnicas do Azure BluePrint ISO 27001
 
@@ -122,7 +122,7 @@ Noções básicas sobre onde os recursos do Azure podem ter configurações de c
 
 ## <a name="a1241-event-logging"></a>Log de eventos A.12.4.1
 
-Esta especificação técnica ajuda a garantir que os eventos de sistema são registrados por meio da atribuição sete [política do Azure](../../../policy/overview.md) definições que Auditar configurações em recursos do Azure de log. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho de análise de log especificado.
+Esta especificação técnica ajuda a garantir que os eventos de sistema são registrados por meio da atribuição sete [política do Azure](../../../policy/overview.md) definições de configurações de auditoria log em recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho de análise de log especificado.
 
 - [Visualização]: Implantação de agente de dependência de auditoria - VM imagem (SO) não listados
 - [Visualização]: Implantação do agente de dependência em VMSS - VM imagem (SO) removido da lista de auditoria
@@ -187,10 +187,10 @@ Agora que você analisou o mapeamento de controle, o projeto de serviços compar
 > [Diagrama de ISO 27001 Shared Services - visão geral](./index.md)
 > [ISO 27001 Shared Services blueprint - as etapas de implantação](./deploy.md)
 
-Artigos de adição sobre plantas e como usá-los:
+Outros artigos sobre blueprints e como usá-los:
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
-- Entenda como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](../../concepts/sequencing-order.md).
-- Saiba como fazer uso de [recurso de bloqueio do plano gráfico](../../concepts/resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](../../concepts/sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](../../concepts/resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../../how-to/update-existing-assignments.md).

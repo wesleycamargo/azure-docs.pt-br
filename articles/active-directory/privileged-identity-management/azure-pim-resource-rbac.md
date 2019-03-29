@@ -1,5 +1,5 @@
 ---
-title: Exibir a atividade e o histórico de auditoria para funções de recurso do Azure no PIM | Microsoft Docs
+title: Exibir histórico de atividade e auditoria para funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
 description: Exiba a atividade e o histórico de auditoria para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afbbad9b956d41252ff9121c99a91669c71aaab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6fb97c416d0e34635b8aa4c19fc6b94889f566c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211726"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578128"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Exibir a atividade e o histórico de auditoria para funções de recurso do Azure no PIM
 
@@ -113,4 +113,4 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)
 - [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
-- [Exibir histórico de auditoria para funções de diretório do Azure AD no PIM](pim-how-to-use-audit-log.md)
+- [Exibir o histórico de auditoria para funções do Azure AD no PIM](pim-how-to-use-audit-log.md)

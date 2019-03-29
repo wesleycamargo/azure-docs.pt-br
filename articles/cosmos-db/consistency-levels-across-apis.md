@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001948"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620642"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-Os cinco modelos de consistência oferecidos pelo Azure Cosmos DB são nativamente compatíveis com a API SQL. Quando você usa o Azure Cosmos DB, a API do SQL é o padrão. 
+O Azure Cosmos DB oferece suporte nativo para transmissão compatível com o protocolo de APIs para bancos de dados populares. Eles incluem armazenamento Apache Cassandra, MongoDB, Gremlin e tabelas do Azure. Esses bancos de dados não oferecem precisamente os modelos de consistência definidos ou garantias com suporte de SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB. 
 
-O Azure Cosmos DB também oferece suporte nativo para transmissão compatível com o protocolo de APIs para bancos de dados populares. Bancos de dados incluem armazenamento MongoDB, Apache Cassandra, Gremlin e armazenamento de Tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência precisamente definidos nem garantias por SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB. Para a API de SQL, a API do Gremlin e a API de Tabela, o nível de coerência padrão configurado na conta do Azure Cosmos é usado. 
+Ao usar a API do SQL, API do Gremlin e API de tabela, o nível de consistência padrão configurado na conta de Cosmos do Azure é usado. 
 
-As seções a seguir mostram o mapeamento entre a consistência de dados solicitada por um driver cliente do OSS para o Apache Cassandra e o MongoDB e os níveis de consistência correspondentes no Azure Cosmos DB.
+Ao usar a API Cassandra API ou o Azure Cosmos DB para MongoDB, os aplicativos obter um conjunto completo de níveis de consistência oferecidos pelo Apache Cassandra e MongoDB, respectivamente, com ainda mais forte garantias de consistência e durabilidade. Este documento mostra os níveis de consistência do Azure Cosmos DB correspondentes para o Apache Cassandra e MongoDB níveis de consistência.
+
 
 ## <a id="cassandra-mapping"></a>O mapeamento entre os níveis de consistência do Apache Cassandra e o Azure Cosmos DB
 
-A tabela abaixo descreve a combinação de consistência que uma pessoa pode usar na API do Cassandra e o mapeamento de nível de consistência nativo equivalente do Cosmos DB. Todas as combinações de modos de leitura e gravação do Apache Cassandra são nativamente compatíveis com o Cosmos DB. Em todas as combinações do modelo de consistência de leitura e gravação do Apache Cassandra, o Cosmos DB fornece garantias de consistência igual ou maior que a do Apache Cassandra. Além disso, o Cosmos DB fornece maior garantias de durabilidade que o Apache Cassandra, até mesmo no modo mais fraco de gravação.
+Diferentemente AzureCosmos DB, Apache Cassandra não fornece garantias de consistência definidos com precisão.  Em vez disso, o Apache Cassandra fornece um nível de consistência de gravação e um nível de consistência de leitura, para habilitar as compensações de alta disponibilidade, consistência e latência. Ao usar a API do Cassandra do Azure Cosmos DB: 
 
-A seguinte tabela mostra o **mapeamento de consistência de gravação** entre o Azure Cosmos DB e o Cassandra:
+* O nível de consistência de gravação do Apache Cassandra é mapeado para o nível de consistência padrão configurado em sua conta do Cosmos do Azure. 
 
-| Cassandra | Azure Cosmos DB | Garantia |
-| - | - | - |
-|ALL|Strong  | Transação atômica |
-| EACH_QUORUM   | Strong    | Transação atômica | 
-| QUORUM, SERIAL |  Strong |    Transação atômica |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente |Prefixo Coerente Global |
-| EACH_QUORUM   | Strong    | Transação atômica |
-| QUORUM, SERIAL |  Strong |    Transação atômica |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente | Prefixo Coerente Global |
-| QUORUM, SERIAL | Strong   | Transação atômica |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo consistente | Prefixo Coerente Global |
-| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Bounded staleness | <ul><li>Desatualização limitada.</li><li>No máximo, K versões ou T tempo anteriores.</li><li>Último valor lido confirmado na região.</li></ul> |
-| ONE, LOCAL_ONE, ANY   | Prefixo consistente | Prefixo Coerente por Região |
+* O Azure Cosmos DB mapeará dinamicamente o nível de consistência de leitura especificado pelo driver do cliente do Cassandra para um dos níveis de consistência do Azure Cosmos DB configurados dinamicamente em uma solicitação de leitura. 
 
-A seguinte tabela mostra o **mapeamento de consistência de leitura** entre o Azure Cosmos DB e o Cassandra:
+A tabela a seguir ilustra como os níveis de consistência de Cassandra nativos são mapeados para níveis de consistência do Azure Cosmos DB ao usar a API do Cassandra:  
 
-| Cassandra | Azure Cosmos DB | Garantia |
-| - | - | - |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Strong  | Transação atômica|
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Strong |   Transação atômica |
-|LOCAL_ONE, ONE | Prefixo consistente | Prefixo Coerente Global |
-| ALL, QUORUM, SERIAL   | Strong    | Transação atômica |
-| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Prefixo consistente   | Prefixo Coerente Global |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Prefixo consistente   | Prefixo Coerente Global |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Strong |   Transação atômica |
-| LOCAL_ONE, ONE    | Prefixo consistente | Prefixo Coerente Global|
-| ALL, QUORUM, SERIAL   Forte  Transação atômica
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo consistente  | Prefixo Coerente Global |
-|ALL    |Strong |Transação atômica |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Prefixo consistente  |Prefixo Coerente Global|
-|ALL, QUORUM, SERIAL    Forte  Transação atômica
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo consistente  |Prefixo Coerente Global |
-|ALL    |Strong | Transação atômica |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo consistente | Prefixo Coerente Global |
-| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Bounded staleness   | <ul><li>Desatualização limitada.</li><li>No máximo, K versões ou T tempo anteriores. </li><li>Último valor lido confirmado na região.</li></ul>
-| LOCAL_ONE, ONE |Prefixo consistente | Prefixo Coerente por Região |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo consistente | Prefixo Coerente por Região |
+[ ![Mapeamento do modelo de consistência de Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência do MongoDB e o Azure Cosmos DB
 
-## <a id="mongo-mapping"></a>Mapeamento entre os níveis de coerência do MongoDB 3.4 do Azure Cosmos DB
+Ao contrário do Azure Cosmos DB, o MongoDB nativo não oferece garantias de consistência definidos com precisão. Em vez disso, o MongoDB nativo permite aos usuários configurar as seguintes garantias de consistência: uma preocupação de gravação, uma preocupação de leitura e a diretiva isMaster - para direcionar as operações de leitura para réplicas primárias ou secundárias para atingir o nível desejado de consistência. 
 
-A tabela a seguir mostra o mapeamento de "preocupações de leitura" entre o MongoDB 3.4 e o nível de consistência padrão no Azure Cosmos DB. A tabela mostra as implantações de região única e de várias regiões.
+Ao usar a API do Azure Cosmos DB para MongoDB, o driver do MongoDB trata sua região de gravação como a réplica primária e todas as outras regiões são lidas a réplica. Você pode escolher qual região associada à sua conta do Azure Cosmos como uma réplica primária. 
 
-| **MongoDB 3.4** | **Azure Cosmos DB (várias regiões)** | **Azure Cosmos DB (região única)** |
-| - | - | - |
-| Linearizável | Strong | Strong |
-| Maioria | Bounded staleness | Strong |
-| Local | Prefixo consistente | Prefixo consistente |
+Ao usar a API do Azure Cosmos DB para MongoDB:
+
+* A preocupação de gravação é mapeada para o nível de consistência padrão configurado em sua conta do Cosmos do Azure.
+ 
+* O Azure Cosmos DB dinamicamente mapeará a preocupação de leitura especificada pelo driver do cliente MongoDB para um dos níveis de consistência do Azure Cosmos DB que está configurado dinamicamente em uma solicitação de leitura. 
+
+* É possível anotar uma região específica associada com sua conta do Azure Cosmos como "Mestre", tornando a região como a primeira região gravável. 
+
+A tabela a seguir ilustra como o MongoDB nativo leitura/gravação preocupações são mapeados para os níveis de consistência do Azure Cosmos ao usar a API do Azure Cosmos DB para MongoDB:
+
+[ ![Mapeamento de modelos de consistência do MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 

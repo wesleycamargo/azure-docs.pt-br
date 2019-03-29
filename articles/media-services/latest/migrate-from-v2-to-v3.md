@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317741"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621729"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -79,12 +79,14 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 A API de v3 tem as seguintes falhas de recurso em relação a API v2. Fechar as lacunas está em andamento.
 
 * O [Codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e os legados [processadores analíticos de mídia](../previous/media-services-analytics-overview.md) (Visualização do Azure Media Indexer 2, API de Detecção Facial, etc.) não podem ser acessados pela v3.<br/>Os clientes que desejam migrar da visualização do Indexador de Mídia 1 ou 2 podem usar imediatamente a predefinição AudioAnalyzer na API v3.  Essa nova predefinição contém mais recursos que o antigo Indexador de Mídia 1 ou 2. 
-* Muitos dos recursos avançados do Media Encoder Standard nas APIs v2 não estão disponíveis no momento na v3, como:
+* Muitas da [recursos avançados do Media Encoder Standard no v2](../previous/media-services-advanced-encoding-with-mes.md) APIs atualmente não estão disponíveis na v3, tais como:
     * Recorte (para cenários sob demanda e ao vivo)
     * A união de ativos
     * Sobreposições
     * Corte
     * Sprites em miniatura
+    * Inserir uma faixa de áudio silenciosa quando a entrada não tiver áudio
+    * Inserir uma faixa de vídeo de entrada quando não tiver vídeo
 * Atualmente, os Eventos ao Vivo com transcodificação não dão suporte à inserção em curso de imagem fixa e à inserção de marcador de anúncio por meio da chamada à API. 
 
 > [!NOTE]

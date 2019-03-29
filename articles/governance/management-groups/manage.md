@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622052"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -67,9 +67,9 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
 1. Não existem grupos de gerenciamento filhos ou assinaturas no grupo de gerenciamento.
 
-   - Para mover uma assinatura de um grupo de gerenciamento, confira [Mover assinatura para outro grupo de gerenciamento](#Move-subscriptions-in-the-hierarchy).
+   - Para mover uma assinatura de um grupo de gerenciamento, confira [Mover assinatura para outro grupo de gerenciamento](#move-subscriptions-in-the-hierarchy).
 
-   - Para mover um grupo de gerenciamento para outro grupo de gerenciamento, consulte [Mover grupos de gerenciamento na hierarquia](#Move-management-groups-in-the-hierarchy).
+   - Para mover um grupo de gerenciamento para outro grupo de gerenciamento, consulte [Mover grupos de gerenciamento na hierarquia](#move-management-groups-in-the-hierarchy).
 
 1. Você tem permissões de gravação no grupo de gerenciamento ("Proprietário", "Colaborador" ou "Colaborador do grupo de gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).  
 

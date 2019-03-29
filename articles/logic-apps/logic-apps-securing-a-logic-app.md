@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369931"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620607"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso nos Aplicativos Lógicos do Azure
 
@@ -52,7 +52,7 @@ A assinatura é gerada usando o algoritmo SHA256 com uma chave de acesso secreta
 Eis aqui mais informações sobre como proteger o acesso com Assinatura de Acesso Compartilhado:
 
 * [Regenerar chaves de acesso](#access-keys)
-* [Criar URLs de retorno de chamada prestes a expirar](#expiring-URLs)
+* [Criar URLs de retorno de chamada prestes a expirar](#expiring-urls)
 * [Criar URLs com chave primária ou secundária](#primary-secondary-key)
 
 <a name="access-keys"></a>

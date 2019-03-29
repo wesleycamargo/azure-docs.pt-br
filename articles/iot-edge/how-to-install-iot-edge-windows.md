@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481868"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621066"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o tempo de execução do IoT Edge no Windows
 
@@ -26,7 +26,16 @@ Para saber mais sobre o tempo de execução do IoT Edge, consulte [Reconhecer o 
 Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no sistema Windows x64 (AMD/Intel). Atualmente, o suporte do Windows está em versão prévia.
 
 > [!NOTE]
-> O uso de contêineres do Linux no sistema Windows não é uma configuração de produção com suporte ou recomendada para o Azure IoT Edge. No entanto, pode ser utilizado para fins de desenvolvimento e teste.
+> Um problema conhecido do sistema operacional Windows impede que a transição para o modo de suspensão e hibernação estados de energia quando módulos do IoT Edge (processo isolado contêineres do Windows Nano Server) estiverem em execução. Esse problema afeta a duração da bateria do dispositivo.
+>
+> Como alternativa, use o comando `Stop-Service iotedge` para interromper todos os módulos do IoT Edge em execução antes de usar esses estados de energia. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Usando o Linux contêiner nos sistemas Windows não é uma configuração recomendada ou suporte de produção para o Azure IoT Edge. No entanto, pode ser utilizado para fins de desenvolvimento e teste. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

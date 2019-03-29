@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888746"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576387"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navegadores e dispositivos com suporte para o Portal do Azure
-Você pode executar o [Portal do Azure](https://portal.azure.com) em todos os dispositivos de tablet, desktop e navegadores modernos.
+# <a name="supported-devices"></a>Dispositivos com suporte
 
-### <a name="supported-devices"></a>Dispositivos com suporte
-O Portal do Azure é executado sem problemas em computadores, Macs e tablets modernos. Se for necessário gerenciar os recursos do Azure a partir de um dispositivo móvel, experimente o aplicativo móvel do Azure disponível no iPhone e no Android. Para obter mais informações, consulte [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+O [portal do Azure](https://portal.azure.com) é um console baseado na web e é executado no navegador de todos os desktops modernos e dispositivos de tablet. Se você precisar gerenciar recursos do Azure de um dispositivo móvel, experimente o [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Ele está disponível para iOS e Android.
 
-### <a name="supported-browsers"></a>Navegadores com suporte
+## <a name="recommended-browsers"></a>Navegadores recomendados
+
 É recomendável que você use o navegador mais atualizado compatível com o sistema operacional. Há suporte para os seguintes navegadores:
 
 * Microsoft Edge (última versão)
@@ -36,4 +35,3 @@ O Portal do Azure é executado sem problemas em computadores, Macs e tablets mod
 * Safari (última versão, apenas Mac)
 * Chrome (última versão)
 * Firefox (última versão)
-

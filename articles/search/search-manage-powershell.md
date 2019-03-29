@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520557"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620590"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520557"
 > * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Você pode executar scripts e cmdlets do PowerShell no Windows, Linux, ou em [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar [do Azure Search](https://docs.microsoft.com/azure/search/). O [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) estende o módulo [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) com paridade completa para o [APIs de REST de gerenciamento do Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Com o Azure PowerShell e **Az.Search**, você pode executar as seguintes tarefas:
+Você pode executar scripts e cmdlets do PowerShell no Windows, Linux, ou em [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o Azure Search. O **Az.Search** estende o módulo Azure PowerShell] com paridade completa para o [APIs de REST de gerenciamento do Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Com o Azure PowerShell e **Az.Search**, você pode executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * [Listar todos os serviços de pesquisa em sua assinatura](#list-search-services)
 > * [Obter informações sobre um serviço de pesquisa específica](#get-search-service-information)
 > * [Criar ou excluir um serviço](#create-or-delete-a-service)
-> * Regenerar chaves de API do administrador
+> * [Regenerar chaves de API do administrador](#regenerate-admin-keys)
 > * [Criar ou excluir chaves de api de consulta](#create-or-delete-query-keys)
 > * [Dimensionar um serviço, aumentando ou diminuindo réplicas e partições](#scale-replicas-and-partitions)
 
-PowerShell não pode ser usado para alterar o nome, região ou camada do seu serviço. Recursos dedicados são alocados quando um serviço é criado. Alteração do hardware subjacente (local ou tipo de nó) requer um novo serviço. Há não há ferramentas ou APIs para transferência de conteúdo. Todo o gerenciamento de conteúdo é por meio [restante](https://docs.microsoft.com/rest/api/searchservice/) ou [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, e se você quiser mover índices, você precisará recriar e recarregá-los em um novo serviço. 
+PowerShell não pode ser usado para alterar o nome, região ou camada do seu serviço. Recursos dedicados são alocados quando um serviço é criado. Alteração do hardware subjacente (local ou tipo de nó) requer um novo serviço. Não há nenhuma APIs ou ferramentas para transferir o conteúdo de um serviço para outro. Todo o gerenciamento de conteúdo é por meio [restante](https://docs.microsoft.com/rest/api/searchservice/) ou [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, e se você quiser mover índices, você precisará recriar e recarregá-los em um novo serviço. 
 
 Embora não haja nenhum dedicados comandos do PowerShell para gerenciamento de conteúdo, você pode escrever um script do PowerShell que chama a REST ou .NET para criar e carregar índices. O **Az.Search** módulo por si só não fornece essas operações.
 

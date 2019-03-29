@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499318"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621221"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
@@ -148,7 +148,7 @@ Você pode configurar um recurso de instância gerenciada para coletar a telemet
 
 | Recurso | Telemetria de monitoramento |
 | :------------------- | ------------------- |
-| **Instância gerenciada** | ResourceUsageStats contém a contagem de vCores, porcentagem média de CPU, solicitações de e/s, bytes de espaço de armazenamento reservado lidos/gravados e espaço de armazenamento usado. |
+| **Instância gerenciada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contém a contagem de vCores, o percentual médio de CPU, as solicitações de E/S, os bytes lidos/gravados, o espaço de armazenamento reservado e o espaço de armazenamento usado. |
 
 Para configurar a transmissão de telemetria de diagnóstico para a instância gerenciada e bancos de dados de instância, você precisará configurar separadamente **ambos** das seguintes opções:
 

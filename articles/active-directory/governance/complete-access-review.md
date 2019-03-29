@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso de grupos ou aplicativos em revisões de acesso do AD do Azure | Microsoft Docs
-description: Saiba como concluir uma revisão de acesso de membros do grupo ou o acesso de aplicativo em revisões de acesso do AD do Azure.
+title: Concluir uma revisão de acesso de aplicativos - Azure Active Directory ou grupos | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso de membros do grupo ou o acesso de aplicativo em revisões de acesso do Active Directory do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729603"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579590"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou aplicativos em revisões de acesso do AD do Azure
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou revisões de acesso de aplicativos no Azure AD
 
 Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo. O Azure AD envia automaticamente, para os revisores, um email solicitando que analisem o acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [revisar o acesso a grupos ou aplicativos](perform-access-review.md). (Observe que os convidados que forem designados como revisores, mas não aceitarem o convite, não receberão um email das revisões de acesso, pois eles devem primeiro aceitar um convite antes da revisão.) Depois que o período de análise de acesso tiver acabado ou se um administrador interromper a análise de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
 

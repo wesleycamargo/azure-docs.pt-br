@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547004"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574851"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Coletar dados de Logs do Office 365
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode transmitir os logs de auditoria do [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) em Azure Sentinel com um único clique. Você pode transmitir logs de auditoria de vários locatários para um único espaço de trabalho no Azure Sentinel. O conector do log de atividades do Office 365 fornece informações sobre as atividades do usuário em andamento. Você obterá informações sobre vários usuário, administrador, sistema e as ações de política e eventos do Office 365. Conectando-se em logs do Office 365 no Azure Sentinel, você pode usar esses dados para exibir painéis, criar alertas personalizados e melhorar o processo de investigação.
@@ -33,7 +33,7 @@ Você pode transmitir os logs de auditoria do [Office 365](https://docs.microsof
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ser um administrador global ou administrador de segurança em seu locatário
-- Para adicionar um locatário, abra a porta 4433 para tráfego da web no computador em que você executar a conexão.
+- Em seu computador, do qual você se conectou Sentinel do Azure para criar a conexão, verifique suretha porta 4433 está aberta para tráfego da web.
 
 ## <a name="connect-to-office-365"></a>Conectar ao Office 365
 
@@ -50,7 +50,7 @@ Você pode transmitir os logs de auditoria do [Office 365](https://docs.microsof
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar o Office 365 para Sentinel do Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar o Office 365 para Sentinel do Azure. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

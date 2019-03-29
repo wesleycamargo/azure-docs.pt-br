@@ -1,6 +1,6 @@
 ---
-title: Convidar pessoas externas e atribuir funções de administrador do AD do Azure - Privileged Identity Management | Microsoft Docs
-description: Saiba como convidar usuários e atribuir funções de administrador do Active Directory do Azure no Azure AD Privileged Identity Management.
+title: Convidar pessoas e atribuir funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como convidar usuários externos e atribuir funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853249"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576872"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>Convidar usuários e atribuir acesso aos recursos do Azure no PIM
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Convidar usuários e atribuir funções de recurso do Azure no PIM
 
 Azure Active Directory (Azure AD) business-to-business (B2B) é um conjunto de recursos dentro do Azure AD que permite às organizações colaborar com fornecedores usando qualquer conta e usuários convidados externo (convidados). Quando você combina B2B com Azure AD Privileged Identity Management (PIM), você pode continuar a aplicar seus requisitos de governança e conformidade aos convidados. Por exemplo, você pode usar esses recursos PIM para tarefas de identidade do Azure com convidados:
 

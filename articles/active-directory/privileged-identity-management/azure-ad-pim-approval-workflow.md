@@ -1,6 +1,6 @@
 ---
-title: Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM | Microsoft Docs
-description: Saiba como aprovar ou negar solicitações para funções de diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
+title: Aprovar ou negar as solicitações para funções do Azure AD no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como aprovar ou negar as solicitações para funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,32 +16,32 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244974"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576787"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprovar ou negar as solicitações para funções do Azure AD no PIM
 
-Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores delegados têm 24 horas para aprovar solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá enviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores representantes têm 24 horas para aprovar as solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá enviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
 
-Siga as etapas neste artigo para aprovar ou negar solicitações de funções de diretório do AD do Azure.
+Siga as etapas neste artigo para aprovar ou negar as solicitações das funções do AD do Azure.
 
 ## <a name="view-pending-requests"></a>Exibir solicitações pendentes
 
-Como um aprovador delegado, você receberá uma notificação por e-mail quando uma solicitação de função de diretório do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
+Como um aprovador delegado, você receberá uma notificação por email quando uma solicitação de função do AD do Azure está aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **Funções do diretório do Azure AD**.
+1. Clique em **funções do Microsoft Azure Active Directory**.
 
 1. Clique em **aprovar solicitações**.
 
-    ![Funções de diretório do AD do Azure do PIM - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Funções do AD do Azure do PIM - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Você verá uma lista de solicitações aguardando sua aprovação.
 
