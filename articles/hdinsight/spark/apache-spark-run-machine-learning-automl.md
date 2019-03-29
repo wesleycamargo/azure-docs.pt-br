@@ -1,5 +1,5 @@
 ---
-title: Executar cargas de trabalho do Azure Machine Learning com AutoML (machine learning automatizado) no Apache Spark no Azure HDInsight
+title: Executar cargas de trabalho do Azure Machine Learning com AutoML (aprendizado de máquina automatizado) no Apache Spark no Azure HDInsight
 description: Saiba como executar cargas de trabalho do Azure Machine Learning com AutoML (aprendizado de máquina automatizado) no Apache Spark no Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -15,16 +15,16 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57762544"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Executar cargas de trabalho do Azure Machine Learning com AutoML (machine learning automatizado) no Apache Spark no Azure HDInsight
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Executar cargas de trabalho do Azure Machine Learning com AutoML (aprendizado de máquina automatizado) no Apache Spark no Azure HDInsight
 
-O Azure Machine Learning é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Azure Machine Learning publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel. AutoML (aprendizado de máquina automatizado) ajuda a criar modelos de aprendizado de máquina de alta qualidade usando otimização e automação inteligentes. AutoML decide o algoritmo e os hiperparâmetros certos a serem usados para tipos de problema específicos.
+O Azure Machine Learning é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Azure Machine Learning publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel. O AutoML (aprendizado de máquina automatizado) ajuda a criar modelos de aprendizado de máquina de alta qualidade usando otimização e automação inteligentes. AutoML decide o algoritmo e os hiperparâmetros certos a serem usados para tipos de problema específicos.
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instalar o Azure Machine Learning em um cluster do HDInsight
 
 > [!Note]
 > O workspace do Azure ML está disponível atualmente nas seguintes regiões: eastus, eastus2 e westcentralus. O cluster do HDInsight também deve ser criado em uma dessas regiões.
 
-Para obter tutoriais gerais do Azure Machine Learning e de aprendizado de máquina automatizado, veja [Tutorial: Crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) e [Tutorial: Usar o aprendizado de máquina automatizado para compilar o modelo de regressão](../../machine-learning/service/tutorial-auto-train-models.md).
+Para obter tutoriais gerais do Azure Machine Learning e de aprendizado de máquina automatizado, veja [Tutorial: Crie seu primeiro experimento de ciência de dados no Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) e [Tutorial: Usar o aprendizado de máquina automatizado para compilar o modelo de regressão](../../machine-learning/service/tutorial-auto-train-models.md).
 Para instalar o AzureML em seu cluster do Azure HDInsight, execute a ação de script [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) nos nós principais e nos nós de trabalho de um cluster do HDInsight 3.6 Spark 2.3.0 (recomendado). Essa ação de script pode ser executada como parte do processo de criação de cluster ou em um cluster existente no portal do Azure.
 
 Para saber mais sobre as ações de script, leia [Personalizar clusters HDInsight com base em Linux usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md). Além de instalar os pacotes do Azure Machine Learning e suas dependências, o script também baixa um exemplo de Jupyter Notebook (no caminho `HdiNotebooks/PySpark` do armazenamento padrão). Este Jupyter Notebook demonstra como usar um classificador de aprendizado de máquina automatizado para classificação simples de problema.

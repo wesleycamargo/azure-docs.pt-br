@@ -19,7 +19,7 @@ ms.locfileid: "57759875"
 
 *Este tópico aplica-se a construtores e administradores.*
 
-Use Aplicativos Lógicos do Azure para criar fluxos de trabalho automatizados e escalonáveis que integram aplicativos e dados nos serviços de nuvem e sistemas locais. O recurso Aplicativos Lógicos do Azure tem muitos conectores em muitos serviços do Azure, serviços da Microsoft e outros produtos de SaaS (Software como Serviço). Usando o conector de IoT Central em Aplicativos Lógicos do Azure, você pode disparar fluxos de trabalho quando uma regra é acionada na IoT Central. Você também pode usar as ações no conector do IoT Central para criar um dispositivo, atualizar as propriedades e as configurações de um dispositivo ou excluir um dispositivo.
+Use Aplicativos Lógicos do Azure para criar fluxos de trabalho automatizados e escalonáveis que integram aplicativos e dados nos serviços de nuvem e sistemas locais. O recurso Aplicativos Lógicos do Azure tem muitos conectores em muitos serviços do Azure, serviços da Microsoft e outros produtos de SaaS (Software como Serviço). Usando o conector de IoT Central em Aplicativos Lógicos do Azure, você pode disparar fluxos de trabalho quando uma regra é disparada na IoT Central. Você também pode usar as ações no conector do IoT Central para criar um dispositivo, atualizar as propriedades e as configurações de um dispositivo ou excluir um dispositivo.
 
 Você pode usar o conector do IoT Central no Microsoft Flow. Tanto Aplicativos Lógicos do Azure quanto o Microsoft Flow são serviços de integração primeiro do designer, mas têm públicos-alvo um pouco diferentes. O Flow permite que qualquer trabalho possa criar os fluxos de trabalho de negócios de que precisa. O recurso Aplicativos Lógicos capacita os Profissionais de TI a criar as integrações de que eles precisam para conectar dados. Compare Flow e Aplicativos Lógicos [aqui](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs). Saiba mais sobre como criar fluxos de trabalho com o conector do IoT Central no Microsoft Flow [aqui](howto-add-microsoft-flow.md).
 
@@ -42,7 +42,7 @@ Esta seção mostra como postar uma mensagem no Microsoft Teams quando uma regra
 
     ![Criar um aplicativo lógico em branco](./media/howto-build-azure-logic-apps/blanklogicapp.png)
 
-1. No designer, pesquise "iot central" e escolha o gatilho **Quando uma regra for disparada**. Entrar no conector com a conta usada para entrar no aplicativo IoT Central.
+1. No designer, pesquise "iot central" e escolha o gatilho **Quando uma regra for disparada**. Entre no conector com a conta usada para entrar no aplicativo IoT Central.
 
     ![Entrar no conector do IoT Central](./media/howto-build-azure-logic-apps/addtrigger.png)
 
@@ -69,7 +69,7 @@ Você sempre pode começar a criar um fluxo de trabalho usando o conector do IoT
 Quando você estiver criando um fluxo de trabalho em seu aplicativo lógico, poderá adicionar uma ação usando o conector do IoT Central. As ações disponíveis são as **criar um dispositivo**, **atualize um dispositivo**, e **excluir um dispositivo**.
 
 > [!NOTE]
-> Para **Atualize um dispositivo** e **Excluir um dispositivo**, você precisará de uma ID de dispositivo existente que deseje atualizar ou excluir. É possível obter a ID do dispositivo da IoT Central na URL do **Device Explorer**
+> Para **Atualizar um dispositivo** e **Excluir um dispositivo**, você precisará de uma ID de dispositivo existente que deseje atualizar ou excluir. É possível obter a ID do dispositivo da IoT Central na URL do **Device Explorer**
 
 ![ID do dispositivo do Device Explorer IoT Central](./media/howto-build-azure-logic-apps/iotcdeviceid.png)
 

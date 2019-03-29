@@ -23,7 +23,7 @@ Este artigo explica como instalar o Presto em clusters de HDInsight do Azure com
 O HDInsight também oferece o aplicativo Starburst Presto para clusters do Apache Hadoop. Para saber mais, confira [Instalar aplicativos de terceiros do Apache Hadoop no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
 > [!IMPORTANT]  
-> As etapas deste artigo exigem um cluster Hadoop do HDInsight 3.5 que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [Versões do HDInsight](hdinsight-component-versioning.md).
+> As etapas deste artigo exigem um cluster Hadoop do HDInsight 3.5 que usa o Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [Versões do HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>O que é o Presto?
 [Presto](https://prestodb.io/overview.html) é um mecanismo de consulta SQL de distribuição rápida para big data. O Presto é ideal para consultas interativas de petabytes de dados. Para saber mais sobre os componentes do Presto e como eles funcionam juntos, confira [Conceitos do Presto](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
@@ -31,7 +31,7 @@ O HDInsight também oferece o aplicativo Starburst Presto para clusters do Apach
 > [!WARNING]  
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 > 
-> Componentes personalizados, como o Presto, recebem suporte comercial razoável para ajudá-lo a solucionar o problema. Esse suporte pode resolver o problema. Ou você pode ser solicitado a buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Há muitos sites de comunidades que podem ser usados. Por exemplo, o [Fórum do MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) e o [Stack Overflow](https://stackoverflow.com). 
+> Componentes personalizados, como o Presto, recebem suporte comercial razoável para ajudá-lo a solucionar o problema. Esse suporte pode resolver o problema. Ou você pode ser solicitado a buscar nos canais disponíveis as tecnologias de software livre, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Há muitos sites de comunidades que podem ser usados. Por exemplo, o [Fórum do MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) e o [Stack Overflow](https://stackoverflow.com). 
 >
 > Os projetos do Apache têm sites de projeto no [site do Apache](https://apache.org). Um exemplo é o [Hadoop](https://hadoop.apache.org/).
 
@@ -44,7 +44,7 @@ Esta seção explica como usar o script de exemplo durante a criação de um nov
 
    * Ele deve ser um cluster Hadoop com o HDInsight versão 3.6.
 
-   * Ele deve usar o Armazenamento do Azure como armazenamento de dados. O uso do Presto em um cluster que utiliza o Azure Data Lake Storage como a opção de armazenamento ainda não é uma opção.
+   * Ele deve usar o Armazenamento do Azure como armazenamento de dados. O uso do Presto em um cluster que utiliza o Azure Data Lake Storage como a opção de armazenamento ainda não é possível.
 
      ![HDInsight, Personalizado (tamanho, configurações, aplicativos)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -153,7 +153,7 @@ Para personalizar a instalação, siga estas etapas:
 
 2. Faça as alterações de configuração no arquivo `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Para saber mais sobre a configuração do Presto, confira [Opções de configuração do Presto para clusters baseados em YARN](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
 
-3. Pare e elimine a instância do Presto em execução no momento:
+3. Pare e encerre a instância do Presto em execução no momento:
 
     `sudo slider stop presto1 --force` `sudo slider destroy presto1 --force`
 
