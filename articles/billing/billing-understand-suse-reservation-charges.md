@@ -1,5 +1,5 @@
 ---
-title: Entenda o desconto e uso do plano SUSE - Reservas do Azure | Microsoft Docs
+title: Entender o desconto de plano de reserva do SUSE e o uso - Azure | Microsoft Docs
 description: Saiba como os descontos de planos do SUSE são aplicados ao software SUSE em máquinas virtuais.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649249"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Entenda como o desconto do plano de software do SUSE Linux Enterprise é aplicado
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Entender como o SUSE Linux Enterprise software plano o desconto de reserva é aplicado para o Azure
 
 Depois de adquirir um plano do SUSE Linux, o desconto é aplicado automaticamente às máquinas virtuais (VMs) do SUSE implantadas que correspondem à reserva. Um plano do SUSE Linux cobre o custo de execução do software SUSE em uma VM do Azure.
 
 Para comprar o plano correto do SUSE Linux, você precisa entender quais VMs do SUSE são executadas e o número de vCPUs nessas VMs. Use as seções a seguir para ajudar a identificar, a partir do arquivo CSV de uso, qual plano comprar.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>O desconto se aplica a diferentes tamanhos de VM com flexibilidade de tamanho de instância
+## <a name="discount-applies-to-different-vm-sizes"></a>Desconto aplica-se aos diferentes tamanhos de VM
 
 Como as instâncias de VMs reservadas, as compras do plano do SUSE oferecem flexibilidade no tamanho da instância. Isso significa que seu desconto se aplica mesmo quando você implanta uma VM com uma contagem diferente de vCPU. O desconto se aplica a diferentes tamanhos de VM dentro do plano de software.
 
@@ -40,7 +40,7 @@ Por exemplo, se você comprar um plano para o SUSE Linux Enterprise Server para 
 
 A taxa de 5 ou mais vCPUs é 2.6. Portanto, uma reserva para o SUSE com uma VM com 5 ou mais vCPUs cobre apenas uma parte do custo do software, que é de cerca de 77%.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>Entenda o uso da VM do SUSE antes de comprar um plano do SUSE Linux
+## <a name="understand-suse-vm-usage-before-you-buy"></a>Entender o uso da VM SUSE antes de comprar
 
 As tabelas a seguir mostram os planos de software para os quais você pode comprar uma reserva, os medidores de uso associados e as taxas de cada uma.
 
@@ -133,6 +133,6 @@ Para saber mais sobre as reservas, consulte os seguintes artigos:
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

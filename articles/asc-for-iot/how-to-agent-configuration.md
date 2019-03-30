@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580697"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649366"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
@@ -42,7 +42,7 @@ ASC para objeto de configuração gêmeo do agente de segurança do IoT é um ob
 
 Essas configurações ajudam a personalizar o agente para cada cenário exigido. Por exemplo, automaticamente excluindo alguns eventos ou manter o consumo de energia para um nível mínimo são possíveis por meio da configuração dessas propriedades.  
 
-Use o ASC para configuração do agente de segurança de IoT [esquema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) para fazer alterações.  
+Use o ASC para configuração do agente de segurança de IoT [esquema](https://aka.ms/iot-security-github-module-schema) para fazer alterações.  
 
 ## <a name="configuration-objects"></a>Objetos de configuração 
 
@@ -64,7 +64,7 @@ O agente não será iniciado se o objeto de configuração não coincide com o e
 
 ## <a name="configuration-schema-and-validation"></a>Esquema de configuração e validação 
 
-Certifique-se de validar a configuração do agente em relação a este [esquema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Um agente não serão iniciados se o objeto de configuração não coincide com o esquema.
+Certifique-se de validar a configuração do agente em relação a este [esquema](https://aka.ms/iot-security-github-module-schema). Um agente não serão iniciados se o objeto de configuração não coincide com o esquema.
 
  
 Se, enquanto o agente é executado, o objeto de configuração é alterado para uma configuração inválida (a configuração não coincide com o esquema), o agente irá ignorar a configuração inválida e continuarão a usar a configuração atual. 

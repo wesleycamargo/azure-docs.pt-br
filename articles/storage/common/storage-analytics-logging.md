@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351313"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652052"
 ---
 # <a name="azure-storage-analytics-logging"></a>Log da análise de armazenamento do Azure
 
@@ -27,7 +27,6 @@ A análise de armazenamento registra informações detalhadas sobre solicitaçõ
 >  Log do Storage Analytics está disponível atualmente apenas para os serviços Blob, fila e tabela. No entanto, não há suporte para a conta de armazenamento premium.
 
 ## <a name="requests-logged-in-logging"></a>Solicitações registradas em log
-
 ### <a name="logging-authenticated-requests"></a>Solicitações de registro em log autenticadas
 
  Os seguintes tipos de solicitações autenticadas são registrados:
@@ -63,13 +62,13 @@ Se você tiver um alto volume de dados com vários arquivos de log para cada hor
 
 A maioria das ferramentas de navegação de armazenamento que você possa exibir os metadados de blobs; Você também pode ler essas informações usando o PowerShell ou programaticamente. O seguinte trecho do PowerShell é um exemplo de filtragem da lista de blobs de log usando o nome para especificar uma hora e pelos metadados para identificar apenas os logs que contêm **gravar** operações.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Você pode especificar os serviços de armazenamento que você deseja fazer logo
 
  O seguinte comando ativa o registro em log para leitura, gravação e exclusão de solicitações no serviço de fila em sua conta de armazenamento padrão com retenção definido para cinco dias:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  O comando a seguir desativa o registro em log para o serviço de tabela em sua conta de armazenamento padrão:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Para saber mais sobre como configurar os cmdlets do Azure PowerShell para funcionar com sua assinatura do Azure e como escolher a conta de armazenamento padrão para usar, confira: [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Habilitar o armazenamento de registro em log programaticamente  
+
  Além de usar o portal do Azure ou os cmdlets do PowerShell do Azure para controlar o log de armazenamento, você também pode usar uma das APIs de armazenamento do Azure. Por exemplo, se você estiver usando uma linguagem .NET, você pode usar a biblioteca de cliente de armazenamento.  
 
  As classes **CloudBlobClient**, **CloudQueueClient**, e **CloudTableClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que utilizam um **ServiceProperties** objeto como um parâmetro. Você pode usar o **ServiceProperties** objeto para configurar o log de armazenamento. Por exemplo, a seguinte C# trecho de código mostra como alterar o que é registrado e o período de retenção para o log de fila:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  O exemplo a seguir mostra como você pode baixar os dados de log para o serviço de fila para as horas, começando em 09 AM, 10h e 11h forem em 20 de maio de 2014. O **/S** parâmetro faz com que o AzCopy criar uma estrutura de pasta local com base em datas e horários nos nomes de arquivo de log; a **/V** parâmetro faz com que o AzCopy produzir saída detalhada; o **/Y** parâmetro faz com que o AzCopy substituir todos os arquivos locais. Substitua **< yourstorageaccount\>**  pelo nome da sua conta de armazenamento e substitua **< yourstoragekey\>**  com sua chave de conta de armazenamento.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  Quando você tiver baixado os dados de log, você pode exibir as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas log lendo as ferramentas são capazes de analisar, incluindo Microsoft Message Analyzer (para obter mais informações, consulte o guia [monitorando, diagnosticando e Solucionando problemas de armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação, pesquisar o conteúdo dos arquivos de log do ad. Para obter mais informações sobre o formato de arquivo de log do log de armazenamento e o conteúdo, consulte [formato de Log de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format) e [operações registradas do Storage Analytics e mensagens de Status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Formato de Log de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 * [Mensagens de operações e status registradas de análise de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Métricas de análise de armazenamento (clássico)](storage-analytics-metrics.md)

@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 7903ea1ccd646644e667ec9173f2084c5217d5af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c5ca85c0dfe8d601821a78c02b2230c0909c8003
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751646"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631977"
 ---
 Não é possível atualizar o local de uma âncora, depois de ele ter sido criado no serviço – você deve criar uma nova âncora e excluir o antigo para acompanhar uma nova posição.
 
-Se você não precisar localizar uma âncora para atualizar suas propriedades, você pode usar o método GetAnchorPropertiesAsync, que retorna um objeto CloudSpatialAnchor com propriedades.
+Se você não precisar localizar uma âncora para atualizar suas propriedades, você pode usar o `GetAnchorPropertiesAsync()` método, que retorna um `CloudSpatialAnchor` objeto com propriedades.

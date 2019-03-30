@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4a4ec51430242cc3e3d6a0b801f2b4be7858ab50
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516061"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671700"
 ---
 <!-- put the ## header in the file that includes this file -->
 
 Nesta seção, você cria uma identidade de dispositivo no registro de identidade no hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [guia do desenvolvedor do Hub IoT ](../articles/iot-hub/iot-hub-devguide-identity-registry.md) 
 
-1. No menu de navegação do Hub IoT, abra **Dispositivos IoT** e, em seguida, clique em **Adicionar** para registrar um novo dispositivo no hub IoT.
+1. No menu de navegação de hub IoT, abra **dispositivos IoT**, em seguida, selecione **Add** para registrar um novo dispositivo no hub IoT.
 
     ![Criar identidade do dispositivo no portal](./media/iot-hub-include-create-device/create-identity-portal.png)
 
-1. Forneça um nome para o novo dispositivo, como **myDeviceId** e clique em **Salvar**. Essa ação cria uma nova identidade do dispositivo para o Hub IoT.
+1. Forneça um nome para o novo dispositivo, tais como **myDeviceId**e selecione **salvar**. Essa ação cria uma nova identidade do dispositivo para o Hub IoT.
 
    ![Adicionar um novo dispositivo](./media/iot-hub-include-create-device/create-a-device.png)
 

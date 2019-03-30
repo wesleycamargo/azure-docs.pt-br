@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855862"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652086"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-use-custom-activities.md)
 > * [Versão atual](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 * [Novo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet para criar um pool do lote do Azure.
 
 ## <a name="azure-batch-linked-service"></a>Serviço vinculado do Lote do Azure
+
 O JSON a seguir define um serviço vinculado de exemplo do Lote do Azure. Para obter detalhes, consulte [Compute environments supported by Azure Data Factory](compute-linked-services.md) (Ambientes de computação com suporte do Azure Data Factory)
 
 ```json
@@ -114,7 +116,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 &#42; As propriedades `resourceLinkedService` e `folderPath` devem ser ambas especificadas ou ambas omitidas.
 
 > [!NOTE]
-> Se você estiver passando serviços vinculados como referenceObjects na atividade personalizada, é uma boa prática de segurança para passar um Azure Key Vault habilitado fetch e o serviço vinculado (já que ele não contém quaisquer cadeias de caracteres seguras) as credenciais usando o nome do segredo diretamente da chave Cofre do código. Você pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que referências AKV habilitado o serviço vinculado, recupera as credenciais do Cofre de chaves e, em seguida, acessa o armazenamento no código.  
+> Se você estiver passando serviços vinculados como referenceObjects na atividade personalizada, é uma boa prática de segurança para passar um Azure Key Vault habilitado fetch e o serviço vinculado (já que ele não contém quaisquer cadeias de caracteres seguras) as credenciais usando o nome do segredo diretamente da chave Cofre do código. Você pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que referências AKV habilitado o serviço vinculado, recupera as credenciais do Cofre de chaves e, em seguida, acessa o armazenamento no código.
 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
@@ -147,7 +149,6 @@ A atividade personalizada define a conta de usuário automático do Lote do Azur
 ## <a name="passing-objects-and-properties"></a>Passando objetos e propriedades
 
 Este exemplo mostra como você pode usar referenceObjects e extendedProperties para passar objetos do Data Factory e propriedades definidas pelo usuário para seu aplicativo personalizado.
-
 
 ```json
 {
@@ -191,15 +192,15 @@ Este exemplo mostra como você pode usar referenceObjects e extendedProperties p
 
 Quando a atividade é executada, referenceObjects e extendedProperties são armazenados nos seguintes arquivos que são implantados na mesma pasta de execução do SampleApp.exe:
 
-- activity.json
+- `activity.json`
 
   Armazena extendedProperties e as propriedades da atividade personalizada.
 
-- linkedServices.json
+- `linkedServices.json`
 
   Armazena uma matriz de serviços vinculados definidos na propriedade referenceObjects.
 
-- datasets.json
+- `datasets.json`
 
   Armazena uma matriz de conjuntos de dados definidos na propriedade referenceObjects.
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 É possível iniciar uma execução de pipeline, usando este comando do PowerShell:
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 Quando o pipeline é executado, verifique a saída de execução usando os seguintes comandos:
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 O **stdout** e **stderr** do aplicativo personalizado são salvos no contêiner **adfjobs** no serviço vinculado do Armazenamento do Azure que você definiu durante a criação do serviço vinculado do Lote do Azure com um GUID da tarefa. Você pode obter o caminho detalhado da saída da execução da atividade, conforme é mostrado no snippet de código a seguir:
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 Se você deseja consumir o conteúdo de stdout.txt nas atividades de downstream, você pode obter o caminho para o arquivo stdout.txt na expressão "\@activity('MyCustomActivity').output.outputs [0]".
 
-  > [!IMPORTANT]
-  > - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Para esse exemplo, o activity.json, linkedServices.json e o datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Caso seja necessário, limpe-os separadamente.
-  > - Como os serviços vinculados que usam o Integration Runtime (auto-hospedado), as informações confidenciais, como chaves ou senhas, são criptografadas pelo Integration Runtime (auto-hospedado) para garantir que a credencial permaneça no ambiente de rede privada definido pelo cliente. Por esse motivo, alguns campos confidenciais podem ficar faltando na referência do código do aplicativo personalizado. Use SecureString em extendedProperties em vez de usar a referência do serviço vinculado, se necessário.
+> [!IMPORTANT]
+> - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Para esse exemplo, o activity.json, linkedServices.json e o datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Caso seja necessário, limpe-os separadamente.
+> - Como os serviços vinculados que usam o Integration Runtime (auto-hospedado), as informações confidenciais, como chaves ou senhas, são criptografadas pelo Integration Runtime (auto-hospedado) para garantir que a credencial permaneça no ambiente de rede privada definido pelo cliente. Por esse motivo, alguns campos confidenciais podem ficar faltando na referência do código do aplicativo personalizado. Use SecureString em extendedProperties em vez de usar a referência do serviço vinculado, se necessário.
 
 ## <a name="pass-outputs-to-another-activity"></a>Saídas de passagem para outra atividade
 
@@ -311,10 +314,10 @@ Os valores de propriedades confidenciais designados como tipo *SecureString*, co
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Com as alterações apresentadas na Atividade Personalizada do Data Factory V2, 
 
 A tabela a seguir descreve as diferenças entre a Atividade Personalizada do Data Factory V2 e a Atividade de DotNet do Data Factory versão 1 (Personalizada):
 
-
 |Diferenças      | Atividade personalizada      | versão 1 da Atividade do DotNet (personalizada)      |
 | ---- | ---- | ---- |
 |Como a lógica personalizada é definida      |Fornecendo um executável      |Com a implementação de uma DLL do .NET      |
@@ -344,7 +346,6 @@ A tabela a seguir descreve as diferenças entre a Atividade Personalizada do Dat
 |Transmitir informações de atividade para lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas)      |Por meio de conjuntos de dados de ExtendedProperties (propriedades personalizadas), de entrada e de saída      |
 |Recuperar informações em lógica personalizada      |Analisa o activity.json, o linkedServices.json e o datasets.json armazenados na mesma pasta do executável      |Por meio do .NET SDK (quadro para .NET 4.5.2)      |
 |Registro em log      |Grava diretamente no STDOUT      |Implementando agente na DLL do .NET      |
-
 
 Se você tiver um código .NET escrito para uma versão 1 atividade de DotNet (personalizada), você precisa modificar o código para que ele funcione com a versão atual da atividade personalizada. Atualize seu código seguindo estas diretrizes de alto nível:
 
@@ -358,6 +359,7 @@ Se você tiver um código .NET escrito para uma versão 1 atividade de DotNet (p
 Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta descritos na versão de fábrica de dados 1 artigo [usar atividades personalizadas em um pipeline da fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrita como uma atividade personalizada de fábrica de dados, consulte [ Exemplo de atividade personalizado de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
+
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes.
 
 A fórmula de exemplo aqui obtém o comportamento a seguir: Quando o pool é criado inicialmente, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila). A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.

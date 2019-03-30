@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575208"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648309"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Começar com o Azure Security Center (ASC) para IoT 
 
@@ -53,7 +53,7 @@ Para habilitar o monitoramento de seu dispositivo gerenciamento de identidade, d
 
 1. [Habilitar ASC para o serviço de IoT em seu IoT Hub](quickstart-onboard-iot-hub.md)
 1. Se o seu IoT Hub não tem nenhum dispositivo registrado, [registrar um novo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Criar um módulo de segurança ascforiot](quickstart-create-security-twin.md) para seus dispositivos. 
+1. [Criar um módulo de segurança para seus dispositivos azureiotsecurity](quickstart-create-security-twin.md) para seus dispositivos. 
 1. Definir o comportamento normal do sistema e de dispositivo por meio [alertas personalizados](quickstart-create-custom-alerts.md). 
 1. Execute os testes para verificar o status do serviço e dispositivo do sistema. 
 1. Explore [alertas](concept-security-alerts.md), [recomendações](concept-recommendations.md), e [usando o Log Analytics de aprofundamento](how-to-security-data-access.md) usando o IoT Hub. 
@@ -69,8 +69,7 @@ Certifique-se de usar ASC para recursos de segurança aprimorada de IoT, como o 
 1. Para instalar o agente em um dispositivo simulado do Azure em vez de instalar em um dispositivo real, [backup de um novo Azure VM (Máquina Virtual) de rotação](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) em uma zona disponível. 
 1. [Implantar um ASC para agente de segurança de IoT](how-to-deploy-linux-cs.md) em seu dispositivo IoT ou nova VM.
 1. Siga as instruções para [trigger_events](https://aka.ms/iot-security-github-trigger-events) para executar uma simulação de um ataque inofensivo.
-1. Verifique se ASC para alertas de IoT em resposta ao ataque simulado na etapa anterior. 
-    - Iniciar verificação de cinco minutos após a execução do script.
+1. Verifique se ASC para alertas de IoT em resposta ao ataque simulado na etapa anterior. Iniciar verificação de cinco minutos após a execução do script.
 1. Explore [alertas](concept-security-alerts.md), [recomendações](concept-recommendations.md), e [usando o Log Analytics de aprofundamento](how-to-security-data-access.md) usando o IoT Hub. 
 
 ## <a name="next-steps"></a>Próximas etapas

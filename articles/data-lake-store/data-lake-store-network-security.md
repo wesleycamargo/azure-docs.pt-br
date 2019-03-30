@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772901"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652122"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para o Azure Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Algumas opções disponíveis:
 
 - Os clusters HDInsight que foram criados antes de o suporte à integração de rede virtual do Data Lake Storage Gen1 ficar disponível precisam ser recriados para dar suporte a esse novo recurso.
  
-- Quando você cria um novo cluster HDInsight e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual habilitada, o processo falha. Primeiro, desabilite a regra de rede virtual. Ou, na folha **Redes virtuais e firewall** da conta do Data Lake Storage, selecione **Permitir o acesso de todas as redes e serviços**. Em seguida, crie o cluster HDInsight antes de, por fim, habilitar novamente a regra de rede virtual ou desmarcar a opção **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, confira a seção [Exceções](##Exceptions).
+- Quando você cria um novo cluster HDInsight e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual habilitada, o processo falha. Primeiro, desabilite a regra de rede virtual. Ou, na folha **Redes virtuais e firewall** da conta do Data Lake Storage, selecione **Permitir o acesso de todas as redes e serviços**. Em seguida, crie o cluster HDInsight antes de, por fim, habilitar novamente a regra de rede virtual ou desmarcar a opção **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, confira a seção [Exceções](#exceptions).
 
 - A integração de rede virtual do Data Lake Storage Gen1 não funciona com [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   

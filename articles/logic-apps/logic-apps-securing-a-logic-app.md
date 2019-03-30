@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620607"
+ms.locfileid: "58649281"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso nos Aplicativos Lógicos do Azure
 
@@ -156,8 +156,9 @@ Para adicionar mais protocolos de autorização ao seu aplicativo lógico, consi
 
 Para permitir que somente usuários ou grupos específicos executem operações em seu aplicativo lógico, você pode restringir o acesso em tarefas, como gerenciar, editar e exibir. Aplicativos Lógicos dão suporte a [RBAC (Controle de Acesso Baseado em Função) do Azure](../role-based-access-control/role-assignments-portal.md), que você pode personalizar ou atribuir funções internas a membros em sua assinatura, por exemplo:
 
-* **Colaborador de Aplicativo Lógico**: os usuários podem exibir, editar e atualizar seu aplicativo lógico. Essa função não pode excluir o aplicativo lógico nem executar operações de administrador.
-* **Operador de Aplicativo Lógico**: os usuários podem exibir o histórico de execução e o seu aplicativo lógico e habilitar ou desabilitar seu aplicativo lógico. Essa função não pode editar nem atualizar seu aplicativo lógico.
+* [Colaborador de Aplicativo Lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor): os usuários podem exibir, editar e atualizar seu aplicativo lógico. 
+
+* [Operador de Aplicativo Lógico](../role-based-access-control/built-in-roles.md#logic-app-operator): os usuários podem exibir o histórico de execução e o seu aplicativo lógico e habilitar ou desabilitar seu aplicativo lógico. Essa função não pode editar nem atualizar seu aplicativo lógico.
 
 Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você pode usar [Bloqueio de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md). Essa funcionalidade ajuda a evitar que outras pessoas alterem ou excluam recursos de produção.
 

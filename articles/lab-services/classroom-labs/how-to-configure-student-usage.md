@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650064"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -44,14 +44,20 @@ Para enviar o link de registro para os alunos, use um dos métodos a seguir. O p
 Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
 
 ### <a name="send-email-to-users"></a>Enviar email para usuários
+O Azure Lab Services permite que os professores convites de laboratório para todos os de email ou alunos escolhidos sem precisar usar outro cliente de email. Professores passar o mouse sobre estudantes individuais na lista para ver o ícone de email para cada aluno ou selecione os alunos de um ou mais e usar **Enviar convite** na barra de ferramentas. Esse recurso envia um email com um link de registro e uma mensagem (se houver) adicionados com o professor. Depois que o convite é enviado, o estado de convite muda para **convite enviado** para que os professores podem manter o controle de que os alunos já receberam o link de registro e a data em que ele foi enviado.
+
 1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
-2. Selecione específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**nome**) ou marque todas as caixas de seleção para todos os usuários na lista.
-3. Selecione **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome do aluno na lista e enviar o ícone de email. 
+2. Selecione usuário específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**Nome**) ou marque todas as caixas de seleção para todos os usuários na lista. Você pode ver o status do **estado de convite** nessa lista.  Na imagem a seguir, o estado de convite para todos os alunos é definido como **convite não enviado**. 
+
+    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de email (envelope)** em uma das linhas (ou) select **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome do aluno na lista para ver o ícone de email. 
 
     ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Sobre o **link de registro de envio por email** página, siga estas etapas: 
-    1. Tipo de um **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
-    2. Sobre o **link de registro de envio por email** página, selecione **enviar**. 
+4. Em **Enviar link de registro pela página de email**, siga estas etapas: 
+    1. Digite uma **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
+    2. Em **Enviar link de registro pela página de email**, selecione **Enviar**. Você verá o status do convite para a alteração **Enviando convite** e, em seguida, para **convite enviado**. 
+        
+        ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Obter link de registro
 1. Alterne para a exibição **Usuários** selecionando **usuários** no menu à esquerda. 

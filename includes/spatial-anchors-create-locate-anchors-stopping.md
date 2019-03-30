@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 8e02067b32d9404a5bbdf7362b2cc32712b96250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d6886996d926ce778600dfa1d69caaa1c7ac004
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907606"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632014"
 ---
 ## <a name="pause-reset-or-stop-the-session"></a>Pausar, redefinir ou parar a sessão
 
-Para interromper a sessão temporária, você pode invocar Stop (). Isso irá parar qualquer processamento de ambiente e observadores, mesmo se você invocar ProcessFrame(). Em seguida, você pode chamar Start () para continuar o processamento. Ao retomar, dados de ambiente já capturados na sessão são mantidos.
+Para parar a sessão temporária, você pode invocar `Stop()`. Isso irá parar qualquer processamento de ambiente e observadores, mesmo se você invocar ProcessFrame(). Em seguida, você pode invocar `Start()` para continuar o processamento. Ao retomar, dados de ambiente já capturados na sessão são mantidos.

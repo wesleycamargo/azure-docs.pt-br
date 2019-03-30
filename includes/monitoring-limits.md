@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 4360196a33381d1a9c8316430339b9a80cb0dba3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4700573d3f5319599a6437d092e20d8013d2f7fb
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58016493"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632892"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -33,4 +33,4 @@ ms.locfileid: "58016493"
 | Runbook | 10 ações de runbook em um grupo de ação. | Contate o suporte. |
 | sms | 10 ações de SMS em um grupo de ação. Consulte também o [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contate o suporte. |
 | Voz | 10 ações de voz em um grupo de ação. Consulte também o [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contate o suporte. |
-| webhook | 10 ações de webhook em um grupo de ação. Outros limites estão disponíveis em [informações específicas da ação](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contate o suporte. |
+| webhook | 10 ações de webhook em um grupo de ação.  Número máximo de chamadas de webhook é 1500 por minuto para cada assinatura. Outros limites estão disponíveis em [informações específicas da ação](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contate o suporte. |

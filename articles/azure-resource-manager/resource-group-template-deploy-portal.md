@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816888"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652443"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
@@ -134,7 +134,8 @@ O portal permite que você salve um modelo em sua conta do Azure e o reimplante 
    ![Implantar modelo salvo](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para exibir os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](./resource-group-audit.md).
-* Para solucionar erros de implantação, confira [View deployment operations](./resource-manager-deployment-operations.md) (Exibir operações de implantação).
-* Para exportar um modelo de implantação ou grupo de recursos, consulte [exportação do Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Para distribuir seu serviço com segurança em várias regiões, confira [Gerenciador de Implantação do Azure](./deployment-manager-overview.md).
+
+- Para exibir os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](./resource-group-audit.md).
+- Para solucionar erros de implantação, confira [View deployment operations](./resource-manager-deployment-operations.md) (Exibir operações de implantação).
+- Para exportar um modelo de implantação ou grupo de recursos, consulte [exportação do Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Para distribuir seu serviço com segurança em várias regiões, confira [Gerenciador de Implantação do Azure](./deployment-manager-overview.md).

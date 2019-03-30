@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904296"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650216"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Exibir as reservas do Azure no portal do Azure
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Exibir reservas do Azure no portal do Azure
 
-Dependendo do tipo de assinatura e das permissões, há duas maneiras de exibir reservas para recursos do Azure.
+Dependendo do tipo de assinatura e permissões, há duas maneiras para exibir as reservas para o Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Exibir reservas como Proprietário ou Leitor
 
@@ -62,15 +62,26 @@ Para obter os dados usando uma API, consulte [Obter Cobranças de Transação de
 
 Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
+- [Gerenciar reservas para o Azure](billing-manage-reserved-vm-instance.md)
+
+Compre um plano de serviço:
+
 - [Pagar antecipadamente por capacidade reservada do Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md)
-- [Entenda o uso de instâncias reservadas para sua assinatura de Pagamento Conforme o Uso](billing-understand-reserved-instance-usage.md)
+
+Compre um plano de software:
+
+- [Pagar antecipadamente por planos de software do Red Hat das reservas do Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Pré-pagamento para planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Entenda o uso:
+
+- [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entenda o uso de reservas para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

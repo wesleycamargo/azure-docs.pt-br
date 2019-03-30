@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309530"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652341"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definir filtros de contas e de ativos  
 
@@ -26,7 +26,7 @@ Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo so
 
 Os filtros são regras do lado do servidor que permitem que seus clientes façam coisas como: 
 
-- Reproduza apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro). Por exemplo:
+- Reproduza apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro). Por exemplo: 
   - Reduzir o manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe"), ou
   - Corte do início de um vídeo ("corte de um vídeo").
 - Entregue apenas as execuções especificadas e / ou faixas de idioma especificadas que são suportadas pelo dispositivo usado para reproduzir o conteúdo ("filtragem de renderização"). 
@@ -55,17 +55,17 @@ Dependendo do seu cenário, você decide qual tipo de filtro é mais adequado (F
 
 Você usa as seguintes propriedades para descrever os filtros. 
 
-|Nome|Descrição|
+|NOME|DESCRIÇÃO|
 |---|---|
 |firstQuality|A primeira taxa de bits de qualidade do filtro.|
-|presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar os pontos de início / fim do manifesto, a duração da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar os pontos de início / fim do manifesto, a duração da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
 |faixas|As condições de seleção de faixas. Para obter mais informações, consulte [faixas](#tracks)|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange
 
 Use essa propriedade com **filtros de ativo**. Não é recomendável definir a propriedade com **filtros de conta**.
 
-|Nome|Descrição|
+|NOME|DESCRIÇÃO|
 |---|---|
 |**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela será silenciosamente ignorada e aplicada quando as extremidades de apresentação e o fluxo se torna VoD.<br/>Isso é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início de GOP mais próximo. A unidade é a escala de tempo, portanto, seria um endTimestamp de 1800000000 para 3 minutos.<br/>Use startTimestamp e endTimestamp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala de tempo padrão irá gerar uma lista de reprodução que contém os fragmentos de intervalo entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
 |**forceEndTimestamp**|Aplica-se à transmissão ao vivo.<br/>Indica se a propriedade endTimestamp deve estar presente. Se for true, endTimestamp deve ser especificado ou um código de solicitação incorreta é retornado.<br/>Valores permitidos: false, true.|
@@ -80,7 +80,7 @@ Você especifica uma lista de condições de propriedade de controle de filtro (
 
 As condições de propriedade da faixa de filtro descrevem tipos de trilha, valores (descritos na tabela a seguir) e operações (Equal, NotEqual). 
 
-|Nome|Descrição|
+|NOME|DESCRIÇÃO|
 |---|---|
 |**Bitrate**|Use a taxa de bits da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora você possa usar um valor de taxa de bits específico, como 250000 (bits por segundo), essa abordagem não é recomendada, pois as taxas de bits exatas podem variar de um ativo para outro.|
 |**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas em um ativo, obter e examine o arquivo de manifesto.|

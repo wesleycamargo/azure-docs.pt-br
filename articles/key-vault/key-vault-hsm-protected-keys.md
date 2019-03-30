@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 49bc3c22eecf804e6930899478fe3be189677382
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985896"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630621"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -534,4 +534,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-overview.md) .
+Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para obter mais informações, consulte esse preço e o recurso [comparação](https://azure.microsoft.com/pricing/details/key-vault/).

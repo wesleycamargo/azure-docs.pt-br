@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839807"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652375"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Exibir e baixar sua fatura do Microsoft Azure
 
@@ -28,7 +28,7 @@ Para a maioria das assinaturas, você pode fazer o download da sua fatura no [po
 
 Somente certas funções tem permissão para exibir faturas, como o administrador da conta ou administrador corporativo. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
-Se você tiver um [contrato de cliente do Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de suas faturas de nota fiscal. Para saber mais sobre as funções de cobrança para contratos de clientes da Microsoft, consulte [perfil de funções e tarefas de cobrança](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se você tiver um [contrato de cliente do Microsoft](#check-your-access-to-a-microsoft-customer-agreement), você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de suas faturas de nota fiscal. Para saber mais sobre as funções de cobrança para contratos de clientes da Microsoft, consulte [perfil de funções e tarefas de cobrança](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-your-azure-invoices-pdf"></a>Baixe suas faturas do Azure (. PDF)
 
@@ -127,7 +127,7 @@ Pode haver vários motivos pelos quais você não vê uma fatura:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verifique o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

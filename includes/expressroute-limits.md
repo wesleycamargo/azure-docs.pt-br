@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fa448975a5275e5aab4dc82b75433d188422e507
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633030"
 ---
 #### <a name="expressroute-limits"></a>Limites do ExpressRoute
 Os seguintes limites se aplicam aos recursos do Azure ExpressRoute por assinatura.
@@ -24,6 +24,7 @@ Os seguintes limites se aplicam aos recursos do Azure ExpressRoute por assinatur
 | Circuitos do ExpressRoute por região por assinatura, com o Azure Resource Manager |10 |
 | Número máximo de rotas para emparelhamento privado do Azure com o padrão do ExpressRoute |4.000 |
 | Número máximo de rotas para emparelhamento privado do Azure com o complemento ExpressRoute Premium |10.000 |
+| Número máximo de rotas para emparelhamento privado do Azure do espaço de endereço de rede virtual para uma conexão de ExpressRoute |200 | 
 | Número máximo de rotas para emparelhamento do Microsoft Azure com o padrão do ExpressRoute |200 |
 | Número máximo de rotas para emparelhamento do Microsoft Azure com o complemento ExpressRoute Premium |200 |
 | Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual em diferentes locais de emparelhamento |4 |

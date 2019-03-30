@@ -6,18 +6,21 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7bfd94cb4940c33cb72a39827f67d04a5540ccdb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859684"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663427"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
 Este artigo mostrará como criar, programaticamente, Alertas de Log de Atividades do Resource Health usando modelos do Azure Resource Manager e o Azure PowerShell.
 
 O Azure Resource Health mantém você informado sobre o status de integridade atual e histórico de seus recursos do Azure. Os alertas do Azure Resource Health podem notificar você quase em tempo real quando esses recursos tiverem uma alteração no seu status de integridade. Criar alertas do Resource Health por meio de programação permite que usuários criem e personalizem alertas em massa.
+
+> [!NOTE]
+> Alertas de integridade do recurso estão atualmente em visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

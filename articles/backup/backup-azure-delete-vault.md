@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620110"
+ms.locfileid: "58652205"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 
@@ -108,7 +108,7 @@ Esse procedimento fornece um exemplo que mostra como remover dados de backup de 
 
 
 3. Na **parar Backup** > **escolha uma opção**, selecione **excluir dados de Backup**.
-4. Digite o nome do item e, em seguida, clique em **parar backup**. 
+4. Digite o nome do item e, em seguida, clique em **parar backup**.
    - Isso confirma que você deseja excluir o item.
    - O **parar Backup** botão é ativado depois de verificar.
    - Se você mantém e não exclua os dados, você não poderá excluir o cofre.
@@ -126,7 +126,7 @@ Esse procedimento fornece um exemplo que mostra como remover dados de backup de 
 ### <a name="remove-backup-infrastructure-servers"></a>Remova os servidores de infraestrutura de backup
 
 1. No menu do painel do cofre, clique em **infraestrutura de Backup**.
-2. Clique em **servidores de gerenciamento de Backup** para exibir os servidores. 
+2. Clique em **servidores de gerenciamento de Backup** para exibir os servidores.
 
     ![selecione seu cofre para abrir o painel dele](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Esse procedimento fornece um exemplo que mostra como remover dados de backup de 
     ![selecione o tipo de backup](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . Na **parar Backup** > **escolha uma opção**, selecione **excluir dados de Backup**.
-4. Digite o nome do item e, em seguida, clique em **parar backup**. 
+4. Digite o nome do item e, em seguida, clique em **parar backup**.
    - Isso confirma que você deseja excluir o item.
    - O **parar Backup** botão é ativado depois de verificar.
    - Se você mantém e não exclua os dados, você não poderá excluir o cofre.

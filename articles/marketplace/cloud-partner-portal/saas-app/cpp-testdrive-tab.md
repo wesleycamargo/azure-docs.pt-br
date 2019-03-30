@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649026"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia Test Drive do aplicativo SaaS
 
@@ -53,7 +53,7 @@ Há quatro tipos diferentes de Test Drives disponíveis, cada um com base no tip
 |     Azure Resource Manager               |    Um test drive do Azure Resource Manager é um modelo de implantação que contém todos os recursos do Azure que compõem a solução que o publicador está construindo. Os produtos adequados para esse tipo de Test Drive são aqueles que usam recursos somente do Azure.               |       [Test Drive do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Hospedado             |       Um test drive hospedado elimina a complexidade da instalação porque a Microsoft instala e mantém o serviço que executa o provisionamento e o desprovisionamento do usuário do test drive.             |         [Test Drive Hospedado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Aplicativo Lógico              |       Um Test Drive de Aplicativo Lógico é um modelo de implantação que serve para abranger todas as arquiteturas complexas da solução. Todos os aplicativos ou produtos personalizados do Dynamics devem usar esse tipo de Test Drive.            |      [Test Drive de Aplicativo Lógico](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Um Test Drive do Power BI consiste em um link incorporado a um painel personalizado. Qualquer produto que deseja demonstrar um objeto visual interativo do Power BI deve usar esse tipo de Test Drive. Basta fazer o upload da URL interna do Power BI.          |        [Test Drive do Power BI](#Power-BI-test-drive)           |
+|       Power BI             |         Um Test Drive do Power BI consiste em um link incorporado a um painel personalizado. Qualquer produto que deseja demonstrar um objeto visual interativo do Power BI deve usar esse tipo de Test Drive. Basta fazer o upload da URL interna do Power BI.          |        [Test Drive do Power BI](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Test Drive do Power BI
 

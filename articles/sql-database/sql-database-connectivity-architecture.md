@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521458"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661779"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -39,7 +39,7 @@ Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azur
 >
 > Se não foi possível estabelecer conexões do ponto de extremidade de serviço com o servidor SQL do Azure e você suspeita que foi afetado por essa alteração, verifique se o tipo de conexão está explicitamente definido como `Redirect`. Se esse for o caso, você precisará abrir as regras de firewall da VM e o NSG (Grupos de Segurança de Rede) para todos os endereços IP do Azure na região que pertencem à [marca de serviço](../virtual-network/security-overview.md#service-tags) Sql para as portas 11000-12000. Se essa não for uma opção para você, alterne o servidor explicitamente para `Proxy`.
 > [!NOTE]
-> Este tópico se aplica a servidores de Banco de Dados SQL do Azure que hospedam bancos de dados únicos, pools elásticos e Bancos de Dados SQL Data Warehouse. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+> Este tópico se aplica a servidores de banco de dados SQL que hospedam bancos de dados únicos e pools Elásticos, bancos de dados SQL Data Warehouse, banco de dados do Azure para MySQL, banco de dados do Azure para MariaDB e banco de dados do Azure para PostgreSQL. Para simplificar, o banco de dados SQL é usado ao fazer referência ao banco de dados SQL, o SQL Data Warehouse, o banco de dados do Azure para MySQL, o banco de dados do Azure para MariaDB e o banco de dados do Azure para PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 

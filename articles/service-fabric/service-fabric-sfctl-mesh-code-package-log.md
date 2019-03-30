@@ -4,7 +4,7 @@ description: Descreve os comandos do sfctl mesh code-package-log da CLI do Servi
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 81ddcc8c5685a839afabc1e82ecf4246cb813c21
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661064"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 Obter os logs para o contêiner do pacote de código especificado para a réplica de um determinado serviço.

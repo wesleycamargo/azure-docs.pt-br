@@ -4,7 +4,7 @@ description: Saiba mais sobre como visualizar e analisar eventos usando os logs 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246909"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662152"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Visualização e análise de eventos com os logs do Azure Monitor
- Os logs do Azure Monitor coleta e analisa a telemetria de aplicativos e serviços hospedados na nuvem e fornece ferramentas de análise para ajudá-lo a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas nos logs do Azure Monitor para obter insights e solucionar problemas que está acontecendo em seu cluster. As seguintes perguntas comuns são abordadas:
+ O Azure Monitor coleta e analisa a telemetria dos aplicativos e serviços hospedados na nuvem e fornece as ferramentas de análise para ajudar a maximizar sua disponibilidade e desempenho. Este artigo descreve como executar consultas nos logs do Azure Monitor para obter insights e solucionar problemas que está acontecendo em seu cluster. As seguintes perguntas comuns são abordadas:
 
 * Como solucionar problemas de eventos de integridade?
 * Como saber quando um nó fica inoperante?
@@ -49,7 +49,7 @@ No `Summary`, você verá o bloco na forma de um gráfico para cada uma das solu
 
 ![Solução do Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-A imagem a seguir mostra a home page da solução de análise do Service Fabric. Essa página fornece uma exibição de instantâneo do que está acontecendo em seu cluster.
+A imagem acima é a home page da solução de Análise do Service Fabric. Essa home page fornece uma visão instantânea do que está acontecendo no seu cluster.
 
 ![Solução do Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
@@ -62,13 +62,13 @@ A imagem a seguir mostra a home page da solução de análise do Service Fabric.
 >[!NOTE]
 >Além dos eventos do Service Fabric prontos para uso, é possível coletar eventos do sistema mais detalhados ao [atualizar a configuração da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Exibir eventos de malha de serviço, incluindo ações em nós
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Exibir eventos do Service Fabric, incluindo ações em nós
 
 Na página Análise do Service Fabric, clique no grafo para **Eventos do Service Fabric**.
 
 ![Canal Operacional de Solução do Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-Clique em **Lista** para exibir os eventos em uma lista. Uma vez aqui, você verá todos os eventos do sistema que foram coletados. Para referência, esses são do **WADServiceFabricSystemEventsTable** no armazenamento do Azure conta e da mesma forma os eventos de serviços e atores confiáveis, você vê ao lado são dessas respectivas tabelas.
+Clique em **Lista** para exibir os eventos em uma lista. Uma vez aqui, você verá todos os eventos do sistema que foram coletados. Para referência, esses são os de **WADServiceFabricSystemEventsTable** na conta de Armazenamento do Microsoft Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
     
 ![Canal Operacional de Consulta](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -114,5 +114,5 @@ A linguagem de consulta Kusto é eficiente. Outra consulta valiosa que você pod
 * Para habilitar o monitoramento de infraestrutura, ou seja, contadores de desempenho, vá para [Adicionando o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente coleta contadores de desempenho e os adiciona ao workspace existente.
 * Para clusters locais, os logs do Azure Monitor oferece um Gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para os logs do Azure Monitor. Leia mais sobre isso na [conectar computadores sem acesso à Internet para os logs do Azure Monitor usando o gateway do Log Analytics](../azure-monitor/platform/gateway.md).
 * Configure os [alertas automatizados](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico.
-* Familiarize-se com o [pesquisa e consulta de log](../log-analytics/log-analytics-log-searches.md) recursos oferecidos como parte dos logs do Azure Monitor.
+* Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs do Azure Monitor.
 * Obtenha uma visão mais detalhada do logs do Azure Monitor e o que ele oferece, leia [What ' s logs do Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md).

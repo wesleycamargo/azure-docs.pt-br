@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630544"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de mídia
 
@@ -30,7 +30,7 @@ Este tópico fornece uma visão geral dos conceitos de serviços de mídia do Az
 
 Para começar a gerenciar, criptografar, codificação, analisar e streaming de conteúdo de mídia no Azure, você precisa criar uma conta de serviços de mídia e carregar seus arquivos digitais em **ativos**.
 
-- [Upload de nuvem e armazenamento](storage-account-concept.md)
+- [Upload e armazenamento na nuvem](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
 ## <a name="encoding"></a>Codificação
@@ -102,6 +102,11 @@ Para ver o andamento do trabalho, você deve usar **grade de eventos**. Os servi
 
 - [Manipulação de eventos da grade de eventos](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+Monitorar métricas e logs de diagnóstico que ajudam você a entendem como os seus aplicativos são executados com o Azure Monitor.
+
 - [As métricas e logs de diagnóstico](media-services-metrics-diagnostic-logs.md)
 - [Esquemas de logs de diagnóstico](media-services-diagnostic-logs-schema.md)
 
@@ -109,8 +114,13 @@ Para ver o andamento do trabalho, você deve usar **grade de eventos**. Os servi
 
 Você pode usar o Player de mídia do Azure para reproduzir conteúdo de mídia transmitido pelos serviços de mídia em uma grande variedade de navegadores e dispositivos. O Player de Mídia do Azure usa padrões do setor, como HTML5, MSE (Media Source Extensions) e EME (Encrypted Media Extensions) para fornecer uma experiência avançada de streaming adaptável. 
 
-- [Visão geral do Player de mídia do Azure](use-azure-media-player.md)
+- [Visão geral do Player de Mídia do Azure](use-azure-media-player.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Carregar, codificar e transmitir usando os Serviços de Mídia do Microsoft Azure](stream-files-tutorial-with-api.md)
+* [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
+* [Codificar o arquivo carregado e o fluxo de vídeo - .NET](stream-files-tutorial-with-api.md)
+* [Stream ao vivo - .NET](stream-live-tutorial-with-api.md)
+* [Analisar seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
+* [Criptografia dinâmica AES-128 - .NET](protect-with-aes128.md)
+* [Criptografar dinamicamente com DRM múltiplo - .NET](protect-with-drm.md) 

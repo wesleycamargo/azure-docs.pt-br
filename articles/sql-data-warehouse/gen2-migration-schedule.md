@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648566"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu data warehouse para Gen2
 
 A Microsoft está ajudando a reduzir o custo da execução de um data warehouse de nível básico.  Quanto menor de computação camadas capazes de tratar mais exigentes de consultas agora estão disponíveis para o Azure SQL Data Warehouse. Leia o comunicado completo [inferior computação suporte de camada para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta está disponível nas regiões observados na tabela a seguir. Para regiões compatíveis, data warehouses Gen1 existentes podem ser atualizados para Gen2 por um destes processos:
 
 - **O processo de atualização automática:** As atualizações automáticas não comece assim que o serviço está disponível em uma região.  Quando as atualizações automáticas são iniciadas em uma região específica, as atualizações individuais do data warehouse ocorrem durante o agendamento de manutenção selecionado.
-- [**Atualização automática para Gen2:**](#Self-upgrade-to-Gen2) Você pode controlar quando a atualização, fazendo uma atualização automática para Gen2. Se ainda não há suporte para a sua região, você pode restaurar de um ponto de restauração diretamente a uma instância de Gen2 em uma região com suporte.
+- [**Atualização automática para Gen2:**](#self-upgrade-to-gen2) Você pode controlar quando a atualização, fazendo uma atualização automática para Gen2. Se ainda não há suporte para a sua região, você pode restaurar de um ponto de restauração diretamente a uma instância de Gen2 em uma região com suporte.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Agendamento automatizado e tabela de disponibilidade na região
 

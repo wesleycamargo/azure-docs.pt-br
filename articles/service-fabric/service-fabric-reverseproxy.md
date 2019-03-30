@@ -4,7 +4,7 @@ description: Usar o proxy reverso do Service Fabric para comunicação com micro
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097735"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661914"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -61,7 +61,7 @@ Em vez de configurar a porta de um serviço individual no Load Balancer, você p
 >
 > * Um usuário mal-intencionado pode lançar um ataque de negação de serviço chamando repetidamente o serviço interno que não tem uma superfície de ataque protegida.
 > * Um usuário mal-intencionado poderá entregar pacotes mal formados a um serviço interno resultando em comportamento não intencionado.
-> * Um serviço destinado a ser interno pode retornar informações particulares ou confidenciais não destinadas a serem expostas a serviços fora do cluster e, desse modo, expondo essas informações confidenciais a um usuário mal-intencionado. 
+> * Um serviço destinado a ser interno pode devolver informações particulares ou sensíveis não destinadas a serem expostas a serivoços fora do cluster, assim expondo essas informações sensíveis a um usuário mal-intencionado. 
 >
 > Certifique-se de entender totalmente e reduza as implicações de segurança potenciais para o cluster e os aplicativos em execução, antes de tornar pública a porta do proxy reverso. 
 >
@@ -111,7 +111,7 @@ Se o serviço usar o esquema de particionamento Int64 Uniforme, os parâmetros d
 * Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 * Internamente: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
-Para acessar os recursos que o serviço expõe, basta colocar o caminho do recurso após o nome do serviço na URL:
+Para acessar os recursos expostos pelo serviço, basta coloca o caminho do recurso após o nome do serviço na URL:
 
 * Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
 * Internamente: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`

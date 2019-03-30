@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648895"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -22,10 +22,6 @@ Quando você [faz failover](site-recovery-failover.md) de VMs do Azure de uma re
 
 - Proteja novamente as VMs na região secundária, para que elas iniciem a replicação para a região primária.
 - Depois que a nova proteção é concluída e as VMs estão replicando, você pode fazer failover delas da região secundária para a primária.
-
-> [!WARNING]
-> Se você [migrar](migrate-overview.md#what-do-we-mean-by-migration) máquinas da região primária para a secundária, mover a VM para outro grupo de recursos ou excluir a VM do Azure, você não poderá protegê-la novamente nem fazer failback dela.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. O failover de VM da região primária para a secundária deve ser confirmado.
@@ -48,7 +44,7 @@ Você pode personalizar as propriedades a seguir da VM de destino ao proteger no
 
 ![Personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Propriedade |Anotações  |
+|Propriedade |Observações  |
 |---------|---------|
 |Grupo de recursos de destino     | Modifique o grupo de recursos de destino no qual a VM é criada. Como parte da nova proteção, a VM de destino é excluída. Você pode escolher um novo grupo de recursos sob o qual criar a VM após o failover.        |
 |Rede virtual de destino     | A rede de destino não pode ser alterada durante o trabalho de nova proteção. Para alterar a rede, refaça o mapeamento de rede.         |

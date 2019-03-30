@@ -4,7 +4,7 @@ description: Uma introdução ao balanceamento de cluster com o Gerenciador de R
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123225"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662016"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric oferece suporte a alterações de carga dinâmico, reagindo a inclusões ou remoções de nós ou serviços. Ele também corrige automaticamente as violações de restrição e, proativamente, balanceia novamente o cluster. Mas com que frequência essas ações são executadas, e o que as dispara?

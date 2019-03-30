@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399967"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648632"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
-Após comprar uma Reserva do Azure, talvez seja necessário aplicar a reserva a uma assinatura diferente, alterar quem pode gerenciar a reserva ou alterar o escopo da reserva. Também é possível dividir uma reserva em duas reservas para aplicar algumas das instâncias que você comprou para outra assinatura.
+Depois de comprar uma reserva para o Azure, você precisa aplicar a reserva para uma assinatura diferente, altere a quem pode gerenciar a reserva, ou alterar o escopo da reserva. Também é possível dividir uma reserva em duas reservas para aplicar algumas das instâncias que você comprou para outra assinatura.
 
 Se você comprou Instâncias de Máquinas Virtuais Reservadas do Azure, poderá alterar a configuração de otimização da reserva. O desconto de reserva pode ser aplicado a VMs na mesma série ou você pode reservar a capacidade do data center para um tamanho de VM específico.
 
@@ -123,12 +123,20 @@ Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suport
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-- [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
+
+Compre um plano de serviço:
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Compre um plano de software:
+- [Pagar antecipadamente por planos de software do Red Hat das reservas do Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pré-pagamento para planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Entenda o uso e desconto:
 - [Entender como o desconto de reserva de VM é aplicado](billing-understand-vm-reservation-charges.md)
+- [Entender como o desconto de plano de software do Red Hat Enterprise Linux é aplicado](../billing/billing-understand-rhel-reservation-charges.md)
 - [Entender como o desconto do plano de software do SUSE Linux Enterprise é aplicado](../billing/billing-understand-suse-reservation-charges.md)
 - [Entender como outros descontos de reserva são aplicados](billing-understand-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)

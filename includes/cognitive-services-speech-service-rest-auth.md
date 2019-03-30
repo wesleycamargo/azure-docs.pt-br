@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e8f7c18c50085d6baf17cc0c9103b2c4bcacbaf
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58052050"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671886"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -89,9 +89,6 @@ curl -v -X POST
 Esta classe C# ilustra como obter um token de acesso. Passar sua chave de assinatura do serviço de Fala quando você instanciar a classe. Se a sua assinatura não estiver na região Oeste dos EUA, altere o valor de `FetchTokenUri` para que corresponda à região da sua assinatura.
 
 ```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =

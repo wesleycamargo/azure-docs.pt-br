@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593311"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651661"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 
@@ -83,17 +83,17 @@ Certificados de cliente são necessários para autenticar solicitações ao serv
 3. [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
 4. [Emitir certificados de cliente](#issue-client-certificates)
 5. [Criar arquivos PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
-6. [Importar o certificado de cliente](#Import-Client-Certificate)
+6. [Importar o certificado de cliente](#import-client-certificate)
 7. [Copie as impressões digitais de certificados de cliente](#copy-client-certificate-thumbprints)
 8. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Usar certificados de cliente existente
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#Upload-CA-certificate-to-cloud-service)
-3. [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Copie as impressões digitais de certificados de cliente](#Copy-Client-Certificate-Thumbprints)
+2. [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#upload-ca-certificate-to-cloud-service)
+3. [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
+4. [Copie as impressões digitais de certificados de cliente](#copy-client-certificate-thumbprints)
 5. [Configurar clientes permitidos no arquivo de configuração de serviço](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configurar a verificação de revogação de certificado do cliente](#Configure-Client-Certificate-Revocation-Check)
+6. [Configurar a verificação de revogação de certificado do cliente](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Acesso aos pontos de extremidade de serviço pode ser restrito a intervalos específicos de endereços IP.

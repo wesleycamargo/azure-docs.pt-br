@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648839"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Exibir e baixar seus encargos e o uso do Azure
 
@@ -28,7 +28,7 @@ Se você for um cliente EA ou têm uma [contrato de cliente do Microsoft](#check
 
 Somente certas funções têm permissão para obter informações de uso do Azure, como o administrador corporativo ou de administrador da conta. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
-Se você tiver um [contrato de cliente do Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou manager para exibir seu uso do Azure e os encargos de nota fiscal. Para saber mais sobre as funções de cobrança para contratos de clientes da Microsoft, consulte [perfil de funções e tarefas de cobrança](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se você tiver um [contrato de cliente do Microsoft](#check-your-access-to-a-microsoft-customer-agreement), você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou manager para exibir seu uso do Azure e os encargos de nota fiscal. Para saber mais sobre as funções de cobrança para contratos de clientes da Microsoft, consulte [perfil de funções e tarefas de cobrança](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Baixar uso do Centro de Contas (.csv)
 
@@ -104,7 +104,7 @@ Você também pode baixar uso month-to-date para o período de cobrança atual. 
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verifique o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104481"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652579"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
 
@@ -114,7 +114,7 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
      - Ambiente de Serviço de Aplicativo do Azure
      - Cache Redis do Azure
      - Gerenciamento de API do Azure
-     - Instância gerenciada do Azure SQL
+     - Instância Gerenciada do Azure SQL
      - Azure Active Directory Domain Services
      - Gateway de Aplicativo do Azure (Clássico)
      - Gateway de VPN do Azure (Clássico)
@@ -145,7 +145,7 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
 - **Redes virtuais emparelhadas, conectadas ou múltiplas**: Para filtrar o tráfego em redes virtuais emparelhadas, as políticas de ponto de extremidade devem ser aplicadas individualmente a elas.
 - **Filtrando o tráfego da Internet com Dispositivos de Rede ou o Firewall do Azure**: Filtre o tráfego do serviço do Azure com políticas, em pontos de extremidade, e filtre o restante do tráfego da Internet ou do Azure por meio de dispositivos ou do Firewall do Azure. 
 - **Filtrando o tráfego nos serviços do Azure implantados em Redes Virtuais**: Durante a versão prévia, não há suporte para políticas de ponto de extremidade de serviço em nenhum serviço gerenciado do Azure implantado na rede virtual. 
- Para serviços específicos, veja as [limitações.](#Limitations)
+ Para serviços específicos, veja as [limitações.](#limitations)
 - **Filtrando o tráfego para serviços do Azure do local**: As políticas de ponto de extremidade de serviço se aplicam somente ao tráfego de sub-redes associadas às políticas. Para permitir o acesso a recursos de Serviço do Azure específicos do local, o tráfego deve ser filtrado usando firewalls ou dispositivos virtuais de rede ou.
 
 ## <a name="logging-and-troubleshooting"></a>Registro em log e solução de problemas
@@ -188,7 +188,7 @@ Os limites a seguir são impostos em políticas de ponto de extremidade de servi
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [configurar políticas de ponto de extremidade de serviço de rede virtual](virtual-network-service-endpoint-policies-portal.md)
 - Saiba mais sobre [Pontos de Extremidade de Serviço de rede virtual](virtual-network-service-endpoints-overview.md)
