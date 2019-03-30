@@ -4,7 +4,7 @@ description: Aprenda a atualizar a configuração que executa um cluster autôno
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857871"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665588"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
 
@@ -73,13 +73,13 @@ Um certificado de cluster é usado para autenticação entre os nós de cluster.
 
 Há suporte para quatro opções:  
 
-* Atualização de um certificado: o caminho de atualização é Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->....
+* Atualização de um certificado: O caminho de atualização é certificado A (primário) -> certificado B (primário) -> certificado C (primário) ->...
 
-* Atualização de dois certificados: o caminho de atualização é Certificado A (Primário) - > Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário)->....
+* Atualização de dois certificados: O caminho de atualização é certificado A (primário) -> certificado A (primário) e B (secundário) -> certificado B (primário) -> certificado B (primário) e C (secundário) -> certificado C (primário) ->...
 
-* Atualização do tipo de certificado: configuração de certificados com base em CommonName configuração <-> com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
+* Atualização do tipo de certificado: Configuração de certificados com base em CommonName configuração <> – com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
 
-* Atualização da impressão digital do emissor do certificado: o caminho de atualização é Certificado CN=A,IssuerThumbprint=IT1 (Principal) -> Certificado CN=A,IssuerThumbprint=IT1,IT2 (Principal) -> Certificado CN=A,IssuerThumbprint=IT2 (Principal).
+* Atualização da impressão digital do emissor do certificado: O caminho de atualização é certificado CN = A, IssuerThumbprint CN=a,issuerthumbprint=IT1 (primário) -> certificado = A, IssuerThumbprint = IT1, IT2 (primário) -> certificado CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=it2 (principal).
 
 
 ## <a name="next-steps"></a>Próximas etapas

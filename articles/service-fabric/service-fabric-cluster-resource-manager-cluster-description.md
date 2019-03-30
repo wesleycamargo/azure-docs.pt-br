@@ -4,7 +4,7 @@ description: Descrever um cluster do Service Fabric especificando domínios de f
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cd4a54a62d7304587c55338f088c504e40a74af
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670658"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Cluster Resource Manager usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster. Ao aplicar essas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -32,7 +32,7 @@ Os recursos do Gerenciador de Recursos de Cluster oferecem suporte a vários rec
 * Propriedades de nó
 * Capacidades de nó
 
-## <a name="fault-domains"></a>Domínios com falha
+## <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é qualquer área da falha coordenada. Um único computador é um domínio de falha (já que ele pode falhar sozinho por vários motivos diferentes, desde falhas de fornecimento de energia até falhas de unidade devido a firmware NIC inválido). Computadores conectados ao mesmo comutador Ethernet estão no mesmo domínio de falha, assim como computadores que compartilham uma única fonte de alimentação ou em um único local. Uma vez que é natural que essas falhas de hardware se sobreponham, os domínios de falha são hierárquicos por natureza e são representados como URIs no Service Fabric.
 
 É importante que os domínios de falha sejam definidos corretamente uma vez que o Service Fabric usa essas informações para posicionar os serviços com segurança. O Service Fabric não quer posicionar os serviços de modo que a perda de um domínio de falha (causada pela falha de algum componente) faça com que os serviços fiquem inativos. No ambiente do Azure, o Service Fabric usa as informações do domínio de falha fornecidas pelo ambiente para configurar corretamente os nós no cluster em seu nome. Para o Service Fabric Autônomo, os Domínios de Falha são definidos no momento em que o cluster é configurado 
@@ -339,7 +339,7 @@ por meio de ClusterConfig.json para implantações autônomas
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Restrições de posicionamento e propriedades do nó
-Às vezes (na verdade, na maioria das vezes), convém assegurar que determinadas cargas de trabalho sejam executadas apenas em alguns tipos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Um ótimo exemplo de direcionamento de hardware para cargas de trabalho específicas é praticamente toda arquitetura de n camadas por aí. Determinados computadores servem como o lado de serviço de front-end ou API do aplicativo e, portanto, são expostos aos clientes ou à Internet. Diferentes computadores, normalmente com recursos de hardware diferentes, lidam com o trabalho das camadas de computação ou armazenamento. Normalmente, eles _não_ são expostos diretamente a clientes ou à Internet. O Service Fabric espera que haja casos em que cargas de trabalho específicas precisem ser executadas em configurações de hardware específicas. Por exemplo:
+Às vezes (na verdade, na maioria das vezes), convém assegurar que determinadas cargas de trabalho sejam executadas apenas em alguns tipos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Um ótimo exemplo de direcionamento de hardware para cargas de trabalho específicas é praticamente toda arquitetura de n camadas por aí. Determinados computadores servem como o lado de serviço de front-end ou API do aplicativo e, portanto, são expostos aos clientes ou à Internet. Diferentes computadores, normalmente com recursos de hardware diferentes, lidam com o trabalho das camadas de computação ou armazenamento. Normalmente, eles _não_ são expostos diretamente a clientes ou à Internet. O Service Fabric espera que haja casos em que cargas de trabalho específicas precisem ser executadas em configurações de hardware específicas. Por exemplo: 
 
 * um aplicativo de n camadas existente foi "transferido e posicionado" em um ambiente do Service Fabric
 * uma carga de trabalho deseja ser executada em um hardware específico por motivos de desempenho, escala ou isolamento de segurança
@@ -365,7 +365,7 @@ O valor especificado na propriedade do nó pode ser uma cadeia de caracteres, bo
 
 1) verificações condicionais para a criação de instruções
 
-| Demonstrativo | Sintaxe |
+| Instrução | Sintaxe |
 | --- |:---:|
 | "igual a" | "==" |
 | "diferente de" | "!=" |
@@ -474,7 +474,7 @@ As métricas são diferentes das restrições de posicionamento e das propriedad
 
 É importante observar que assim como as restrições de posicionamento e as propriedades de nó, o Cluster Resource Manager do Service Fabric não entende o que os nomes das métricas significam. Os nomes de métrica são apenas cadeias de caracteres. É uma boa prática declarar as unidades como parte dos nomes de métrica que você criar quando puderem ser ambíguos.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a>Capacity
 Se você desativasse todo o *balanceamento* de recursos, o Gerenciador de Recursos de Cluster do Service Fabric ainda garantiria que nenhum nó ficasse acima de sua capacidade. É possível gerenciar saturações de capacidade, a menos que o cluster esteja muito cheio ou que a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que usa o Cluster Resource Manager para entender o quanto um nó tem de um recurso. A capacidade restante também é rastreada para o cluster como um todo. A capacidade e o consumo no nível de serviço são expressos em termos de métricas. Então, por exemplo, a métrica poderia ser "ClientConnections" e um determinado nó poderia ter uma capacidade de "ClientConnections" igual a 32768. Outros nós podem ter outros limites; algum serviço em execução nesse nó pode informar que atualmente está consumindo 32256 da métrica "ClientConnections".
 
 No tempo de execução, o Gerenciador de Recursos de Cluster acompanha a capacidade restante no cluster e nos nós. Para acompanhar a capacidade, o Gerenciador de Recursos de Cluster subtrai o uso de cada serviço da capacidade do nó em que o serviço é executado. Com essas informações, o Cluster Resource Manager do Service Fabric pode descobrir onde inserir ou mover réplicas para que os nós não ultrapassem a capacidade.

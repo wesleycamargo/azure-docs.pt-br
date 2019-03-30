@@ -4,7 +4,7 @@ description: Descreve os comandos de telemetria de configurações do sfctl da C
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e0e229f0edb078fe9ce289d0089f34d7cbf9dbf8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 42a82ab0be37f260a48a1da6cecab5120c24d293
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283762"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669258"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Defina as configurações de telemetria locais para esta instância do sfctl.

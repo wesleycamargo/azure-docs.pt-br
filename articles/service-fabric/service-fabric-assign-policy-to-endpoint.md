@@ -3,8 +3,8 @@ title: Atribuir políticas de acesso aos pontos de extremidade de serviço do Az
 description: Saiba como atribuir políticas de segurança acesso aos pontos de extremidade HTTP ou HTTPS em seu serviço Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: dac15f0b96e9e295f92f250fe387e5b6ba9ae000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567597"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670397"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Atribuir uma política de acesso de segurança a pontos de extremidade HTTP e HTTPS
 Se você aplicar uma política run-as a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade, você deverá especificar um **SecurityAccessPolicy**.  O **SecurityAccessPolicy** garante que portas alocadas para esses pontos de extremidade sejam restritos corretamente para a conta de usuário que o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir aplica a conta Customer1 a um ponto de extremidade chamado **EndpointName**, concedendo a ele direitos de acesso completo.
@@ -48,7 +48,8 @@ Para o ponto de extremidade HTTPS, também indique o nome do certificado para re
 > Ao usar HTTPS, não use a mesma porta e o certificado de instâncias de serviço diferente (independentemente do aplicativo) implantados no mesmo nó. O upgrade de dois serviços diferentes usando a mesma porta em instâncias de aplicativo diferentes resultará em uma falha de upgrade. Para obter mais informações, consulte [Atualizando vários aplicativos com pontos de extremidade HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Para as próximas etapas, leia os seguintes artigos:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Para as próximas etapas, leia os seguintes artigos:
 * [Entenda o modelo de aplicativo](service-fabric-application-model.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)

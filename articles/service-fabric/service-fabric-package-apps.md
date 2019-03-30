@@ -3,8 +3,8 @@ title: Empacotar um aplicativo do Azure Service Fabric | Microsoft Docs
 description: Como empacotar um aplicativo do Service Fabric antes de implantar em um cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
-ms.openlocfilehash: 24cb1fd0666b404d92dfb803f55c850226ff59b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: d32d593fcc93ec2e27676b1bb174940c12c24193
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205803"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667643"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 Este artigo descreve como empacotar um aplicativo do Service Fabric e deixá-lo pronto para implantação.

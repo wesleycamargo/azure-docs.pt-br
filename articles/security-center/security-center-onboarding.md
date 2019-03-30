@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100063"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665484"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Você pode experimentar o Standard gratuitamente. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -33,7 +33,7 @@ A Central de Segurança Standard inclui:
 ## <a name="detecting-unprotected-resources"></a>Detectando recursos desprotegidos     
 A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
 
-Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura ou você pode definir uma política exclusiva para atualizar somente um grupo de recursos específico. Se as configurações de política do grupo de recursos forem exclusivas, a Central de Segurança não substituirá as políticas de preço quando você atualizar a assinatura para a camada Standard. Aplicando o padrão de camada a uma assinatura se aplica a todos os recursos com suporte na assinatura. Aplicando o padrão de camada a um espaço de trabalho se aplica a todos os recursos de emissão de relatórios no espaço de trabalho.
+Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que é herdada por todos os recursos com suporte dentro da assinatura. Aplicando o padrão de camada a um espaço de trabalho se aplica a todos os recursos de emissão de relatórios no espaço de trabalho.
 
 > [!NOTE]
 > Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes. O [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite que você aplique um escopo à solução e direcione a um subconjunto de computadores no workspace.  Se você estiver usando o direcionamento de solução, a Central de Segurança listará o workspace como não tendo uma solução.

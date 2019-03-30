@@ -3,8 +3,8 @@ title: Implantar um executável existente ao Service Fabric do Azure | Microsoft
 description: Aprenda sobre como empacotar um aplicativo existente como um executável do convidado, para que ele possa ser implementado em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell
-ms.openlocfilehash: cdaf3dae12c2c9da1f6bcbebbff560b98e62bade
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212833"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670586"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
 Você pode executar qualquer tipo de código, como Node.js, Java ou C++ no Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados.
@@ -33,7 +33,7 @@ Há várias vantagens de executar um convidado executável em um cluster de Serv
 * Monitoramento de integridade. O monitoramento de integridade do Service Fabric detecta se um aplicativo está em execução e fornece informações de diagnóstico se houver uma falha.   
 * Gerenciamento do ciclo de vida do aplicativo. Além de oferecer atualizações sem tempo de inatividade, o Service Fabric fornecerá reversão automática da versão anterior, se houver um evento de integridade deficiente durante uma atualização.    
 * Densidade. Você pode executar vários aplicativos no cluster, o que elimina a necessidade um hardware próprio para a execução de cada aplicativo.
-* Capacidade de descoberta: usando o REST, você pode chamar o serviço Nomenclatura do Service Fabric para localizar outros serviços no cluster. 
+* Capacidade de descoberta: Usando o REST, você pode chamar o serviço de nomenclatura do Service Fabric para localizar outros serviços no cluster. 
 
 ## <a name="samples"></a>Exemplos
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

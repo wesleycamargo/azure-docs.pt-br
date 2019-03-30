@@ -4,7 +4,7 @@ description: Entender a cadeia de conexão de armazenamento de imagens
 services: service-fabric
 documentationcenter: .net
 author: alexwun
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 5f69de9ba9a3226209a339c6f6fa778d9ded9755
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050975"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667542"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Noções básicas sobre a configuração ImageStoreConnectionString
 
-Em algumas das documentações, devemos mencionar brevemente a existência de um parâmetro "ImageStoreConnectionString" sem descrevendo o que realmente significa. E depois de passar por um artigo como [Implantar e remover aplicativos usando o PowerShell][10], tudo o que você faz é copiar / colar o valor, conforme mostrado no manifesto do cluster do cluster de destino. Então, a configuração deve ser configurável por cluster, mas quando você cria um cluster por meio de [Portal do Azure][11], não há nenhuma opção para definir esta configuração e é sempre "fabric: ImageStore". Qual é a finalidade dessa configuração?
+Em algumas das documentações, devemos mencionar brevemente a existência de um parâmetro "ImageStoreConnectionString" sem descrevendo o que realmente significa. E depois de passar por um artigo como [Implantar e remover aplicativos usando o PowerShell][10], tudo o que você faz é copiar / colar o valor, conforme mostrado no manifesto do cluster do cluster de destino. Então, a configuração deve ser configurável por cluster, mas quando você cria um cluster por meio de [portal do Azure][11], não há nenhuma opção para definir esta configuração e é sempre "fabric: ImageStore". Qual é a finalidade dessa configuração?
 
 ![Manifesto do cluster][img_cm]
 

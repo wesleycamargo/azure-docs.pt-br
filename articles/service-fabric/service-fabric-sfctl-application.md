@@ -4,7 +4,7 @@ description: Descreve os comandos do aplicativo sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278535"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665535"
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
 Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
@@ -450,7 +450,7 @@ Valida os parâmetros de atualização de aplicativo fornecidos e começa a atua
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | -tempo limite ao domínio de upgrade | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado.  Padrão\: P10675199DT02H48M05.4775807S. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | -tempo limite de upgrade | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado.  Padrão\: P10675199DT02H48M05.4775807S. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
-| --aviso-como-erro | Indica se os avisos são tratados com a mesma gravidade que os erros. |
+| --aviso-como-erro | Indica se os avisos são ou não tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

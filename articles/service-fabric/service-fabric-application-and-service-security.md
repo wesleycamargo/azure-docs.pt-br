@@ -3,8 +3,8 @@ title: Saiba mais sobre a segurança de aplicativos do Azure Service Fabric | Mi
 description: Uma visão geral de como executar com segurança aplicativos de microsserviço no Service Fabric. Saiba como executar um script de inicialização e serviços em diferentes contas de segurança, autenticar e autorizar usuários, gerenciar segredos de aplicativo, proteger as comunicações de serviço, usar um gateway de API e proteger dados em repouso de aplicativos.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: mfussell
-ms.openlocfilehash: fd90bdba94a985a2a3529f605972217382b23b2a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.author: aljo
+ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498342"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670414"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric
 Uma arquitetura de microsserviços pode trazer [muitos benefícios](service-fabric-overview-microservices.md). Porém, o gerenciamento da segurança de microsserviços é um desafio que difere do gerenciamento da segurança de aplicativos monolítica tradicional. 
