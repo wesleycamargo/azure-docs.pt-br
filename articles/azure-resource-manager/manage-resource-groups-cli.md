@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c9e6cc68cbd629642849d323d4271722f3232aa3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824931"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650726"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerenciar grupos de recursos do Azure Resource Manager usando a CLI do Azure
 
@@ -82,6 +82,10 @@ Ver [implantar recursos em um grupo de recursos](./manage-resources-cli.md#deplo
 ## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
 Você pode criar um grupo de recursos e implantar recursos no grupo, usando um modelo do Resource Manager. Para saber mais, confira [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources) (Criar grupo de recursos e implantar recursos).
+
+## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando ocorrer falha na implantação
+
+Esse recurso também é conhecido como *reversão em erro*. Para obter mais informações, consulte [reimplantar quando ocorre falha na implantação](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Mover para outro grupo de recursos ou assinatura
 

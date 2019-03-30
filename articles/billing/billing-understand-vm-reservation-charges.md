@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: e2ad086e767afc47fe72b52f934cb3bfc7cc146e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c8994041d525186dd55bb4f4475f7e68036454f6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849798"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649822"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Entenda como é aplicado o desconto em reserva do Azure a máquinas virtuais
 
@@ -61,15 +61,15 @@ Ao comprar uma instância de VM Reservada, se você selecionar **Otimizado para*
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-- [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
+- [Gerenciar reservas para o Azure](billing-manage-reserved-vm-instance.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entenda o uso de reservas para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+- [ Entenda o uso da reserva para assinaturas do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

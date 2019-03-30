@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 0f36ab9ab7703dd9677b6c2989eddb91593af79f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105100"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650557"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais usando o Portal do Azure
 
@@ -36,7 +36,7 @@ Se quiser criar uma VM com vários endereços IP ou um endereço IP privado est�
 
 ## <a name="add"></a>Adicionar endereços IP a uma VM
 
-Você pode adicionar endereços IP públicos e privados a uma interface de rede do Azure executando as etapas a seguir. Os exemplos nas seções a seguir pressupõem que você já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario), mas isso não é obrigatório.
+Você pode adicionar endereços IP públicos e privados a uma interface de rede do Azure executando as etapas a seguir. Os exemplos nas seções a seguir pressupõem que você já tem uma VM com as três configurações de IP descritas no [cenário](#scenario), mas isso não é obrigatório.
 
 ### <a name="coreadd"></a>Principais etapas
 
@@ -44,7 +44,7 @@ Você pode adicionar endereços IP públicos e privados a uma interface de rede 
 2. No portal, clique em **Mais serviços** > digite *máquinas virtuais* na caixa de filtro e clique em **Máquinas virtuais**.
 3. No painel **Máquinas virtuais**, clique na VM na qual você deseja adicionar os endereços IP. Clique em **Adaptadores de rede** no painel da máquina virtual que aparece e selecione o adaptador de rede na qual você deseja adicionar os endereços IP. No exemplo mostrado na figura a seguir, o NIC chamado *myNIC* da VM denominada *myVM* está selecionada:
 
-    ![Interface de rede](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
+    ![interface de rede](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
 4. No painel que é exibido para a NIC selecionada, clique em **Configurações de IP**.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870139"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650471"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -31,10 +31,10 @@ A primeira metade deste guia descreve problemas típicos de negócios, os benef�
 
 | Começar com... | Se você for… |
 |:---------------|:---------------|
-| [Caso de negócios para manutenção preventiva](#Business-case-for-predictive-maintenance) |um tomador de decisões comerciais (BDM) procurando para reduzir os custos operacionais e tempo de inatividade e melhorar a utilização do equipamento |
-| [Ciência de Dados para manutenção preventiva](#Data-Science-for-predictive-maintenance) |um tomador de decisões técnicas (TDM) avaliando as tecnologias de PdM para entender o processamento de dados exclusivo e requisitos de IA para manutenção preditiva |
-| [Modelos de solução para manutenção preventiva](#Solution-templates-for-predictive-maintenance)|um arquiteto de software ou o desenvolvedor de IA procurando para preparar rapidamente uma demonstração ou uma prova de conceito |
-| [Recursos de treinamento para manutenção preditiva](#Training-resources-for-predictive-maintenance) | qualquer ou todos os itens acima e quiser aprender os conceitos fundamentais por trás da ciência de dados, ferramentas e técnicas.
+| [Caso de negócios para manutenção preventiva](#business-case-for-predictive-maintenance) |um tomador de decisões comerciais (BDM) procurando para reduzir os custos operacionais e tempo de inatividade e melhorar a utilização do equipamento |
+| [Ciência de Dados para manutenção preventiva](#data-science-for-predictive-maintenance) |um tomador de decisões técnicas (TDM) avaliando as tecnologias de PdM para entender o processamento de dados exclusivo e requisitos de IA para manutenção preditiva |
+| [Modelos de solução para manutenção preventiva](#solution-templates-for-predictive-maintenance)|um arquiteto de software ou o desenvolvedor de IA procurando para preparar rapidamente uma demonstração ou uma prova de conceito |
+| [Recursos de treinamento para manutenção preditiva](#training-resources-for-predictive-maintenance) | qualquer ou todos os itens acima e quiser aprender os conceitos fundamentais por trás da ciência de dados, ferramentas e técnicas.
 
 ### <a name="prerequisite-knowledge"></a>Pré-requisito de conhecimento
 O conteúdo BDM não espera que o leitor tenha qualquer conhecimento de ciência de dados anteriores. Para o conteúdo TDM, um conhecimento básico de ciência de dados e de estatísticas é útil. Recomenda-se o conhecimento de dados do Azure e serviços IA, Python, R, XML e JSON. As técnicas de IA são implementadas em pacotes Python e R. Modelos de solução são implementados usando os serviços do Microsoft Azure, ferramentas de desenvolvimento e SDKs.
@@ -78,7 +78,7 @@ Esses objetivos de meta são os pontos de partida para:
 
 - O problema deve ser preventivo por natureza; ou seja, deve haver um destino ou a um resultado para prever. O problema também deve ter um caminho claro de ação para evitar falhas quando são detectadas.
 - O problema deve ter um registro do histórico operacional do equipamento que contém _bons e maus resultados_. O conjunto de ações tomadas para reduzir os resultados incorretos também deve estar disponível como parte desses registros. Relatórios de erro, logs de manutenção de degradação de desempenho, reparo e logs de substituição também são importantes. Além disso, os reparos assumidos para melhorar e os registros de substituição também são úteis.
-- O histórico gravado deve ser refletido nos _dados_ relevantes que seja de qualidade _suficiente_ para ser compatível com o caso de uso. Para obter mais informações sobre a relevância dos dados e suficiência, consulte [Requisitos de dados para manutenção preventiva](#Data-requirements-for-predictive-maintenance).
+- O histórico gravado deve ser refletido nos _dados_ relevantes que seja de qualidade _suficiente_ para ser compatível com o caso de uso. Para obter mais informações sobre a relevância dos dados e suficiência, consulte [Requisitos de dados para manutenção preventiva](#data-requirements-for-predictive-maintenance).
 - Por fim, a empresa deve ter especialistas de domínio que tenham uma compreensão clara do problema. Devem estar cientes dos processos internos e práticas recomendadas para ajudar o analista a entender e interpretar os dados. Também devem ser capazes de fazer as alterações necessárias para processos de negócios existentes para ajudar a coletar os dados certos problemas, se necessário.
 
 ## <a name="sample-pdm-use-cases"></a>Casos de uso da PdM modelo
@@ -103,10 +103,10 @@ A seção a seguir oferece detalhes de como obter os benefícios de PdM discutid
 
 ## <a name="data-science-for-predictive-maintenance"></a>Ciência de Dados para manutenção preventiva
 
-Esta seção fornece diretrizes gerais de princípios de ciência de dados e prática para PdM. Se destina a ajudar um TDM, arquiteto de soluções, ou um desenvolvedor compreender os pré-requisitos e o processo de criação de aplicativos de IA de ponta a ponta para PdM. Você pode ler esta seção e analisar as demonstrações e modelos de prova de conceito listados em [Modelos de Solução para manutenção preditiva](#Solution-templates-for-predictive-maintenance). Em seguida, você pode usar esses princípios e práticas recomendadas para implementar sua solução PdM no Microsoft Azure.
+Esta seção fornece diretrizes gerais de princípios de ciência de dados e prática para PdM. Se destina a ajudar um TDM, arquiteto de soluções, ou um desenvolvedor compreender os pré-requisitos e o processo de criação de aplicativos de IA de ponta a ponta para PdM. Você pode ler esta seção e analisar as demonstrações e modelos de prova de conceito listados em [Modelos de Solução para manutenção preditiva](#solution-templates-for-predictive-maintenance). Em seguida, você pode usar esses princípios e práticas recomendadas para implementar sua solução PdM no Microsoft Azure.
 
 > [!NOTE]
-> Este guia NÃO se destina a ensinar o leitor de Ciência de Dados. Várias fontes úteis são fornecidas para ler mais na seção de [recursos de treinamento para manutenção preventiva](#Training-resources-for-predictive-maintenance). Os [modelos de solução](#Solution-templates-for-predictive-maintenance) listados na guia demonstram algumas dessas técnicas de IA para problemas PdM específicos.
+> Este guia NÃO se destina a ensinar o leitor de Ciência de Dados. Várias fontes úteis são fornecidas para ler mais na seção de [recursos de treinamento para manutenção preventiva](#training-resources-for-predictive-maintenance). Os [modelos de solução](#solution-templates-for-predictive-maintenance) listados na guia demonstram algumas dessas técnicas de IA para problemas PdM específicos.
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>Requisitos de dados para manutenção preventiva
 
@@ -114,10 +114,10 @@ O sucesso de qualquer aprendizado depende da (a) qualidade do que está sendo en
 
 ### <a name="relevant-data"></a>Dados relevantes
 
-Em primeiro lugar, os dados precisam ser _pertinentes ao problema_. Considere o caso de uso de _falha de roda_ discutido acima - os dados de treinamento devem conter recursos relacionados a operações de roda. Se o problema ocorreu ao prever a falha do _sistema de tração_, os dados de treinamento devem abranger todos os componentes do sistema de tração. O primeiro caso tem como alvo um componente específico, enquanto o segundo caso tem como alvo a falha de um subsistema maior. A recomendação geral é criar sistemas de previsão sobre componentes específicos em vez de subsistemas maiores, uma vez que o último terá mais dados dispersados. O especialista de domínio (consulte [Problemas de qualificação para manutenção preditiva](#Qualifying-problems-for-predictive-maintenance)) deve ajudar na seleção de subconjuntos de dados para a análise mais relevante. As fontes de dados relevantes são discutidas com mais detalhes na [Preparação de dados para manutenção preditiva](#Data-preparation-for-predictive-maintenance).
+Em primeiro lugar, os dados precisam ser _pertinentes ao problema_. Considere o caso de uso de _falha de roda_ discutido acima - os dados de treinamento devem conter recursos relacionados a operações de roda. Se o problema ocorreu ao prever a falha do _sistema de tração_, os dados de treinamento devem abranger todos os componentes do sistema de tração. O primeiro caso tem como alvo um componente específico, enquanto o segundo caso tem como alvo a falha de um subsistema maior. A recomendação geral é criar sistemas de previsão sobre componentes específicos em vez de subsistemas maiores, uma vez que o último terá mais dados dispersados. O especialista de domínio (consulte [Problemas de qualificação para manutenção preditiva](#qualifying-problems-for-predictive-maintenance)) deve ajudar na seleção de subconjuntos de dados para a análise mais relevante. As fontes de dados relevantes são discutidas com mais detalhes na [Preparação de dados para manutenção preditiva](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Dados suficientes
-Duas perguntas são frequentes em relação aos históricos de dados de falha: (1) “Quantos eventos de falha são necessários para treinar um modelo”? (2) "Quantos registros são considerados como "suficientes"?" Não há respostas definitivas, apenas regras gerais. Para (1), quanto mais o número de eventos de falha, melhor o modelo. Para (2), e o número exato de eventos de falha depende dos dados e o contexto do problema que está sendo resolvido. Mas, por outro lado, se uma máquina falhar com muita frequência, em seguida, a empresa a substituirá, o que irá reduzir instâncias de falha. Aqui, novamente, a orientação do domínio especialista é importante. No entanto, há métodos para lidar com o problema de _eventos raros_. Eles são discutidos na seção [Tratamento dos dados em desequilíbrio](#Handling-imbalanced-data).
+Duas perguntas são frequentes em relação aos históricos de dados de falha: (1) “Quantos eventos de falha são necessários para treinar um modelo”? (2) "Quantos registros são considerados como "suficientes"?" Não há respostas definitivas, apenas regras gerais. Para (1), quanto mais o número de eventos de falha, melhor o modelo. Para (2), e o número exato de eventos de falha depende dos dados e o contexto do problema que está sendo resolvido. Mas, por outro lado, se uma máquina falhar com muita frequência, em seguida, a empresa a substituirá, o que irá reduzir instâncias de falha. Aqui, novamente, a orientação do domínio especialista é importante. No entanto, há métodos para lidar com o problema de _eventos raros_. Eles são discutidos na seção [Tratamento dos dados em desequilíbrio](#handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Dados de qualidade
 A qualidade dos dados é essencial - cada valor de atributo de previsão deve ser _preciso_ em conjunto com o valor da variável de destino. A qualidade de dados é uma área bem estudada em estatísticas e gerenciamento de dados e, portanto, fora do escopo deste guia.
@@ -151,7 +151,7 @@ Dados de fluxo de sensor com base (ou outros) do equipamento na operação são 
 #### <a name="static-feature-data"></a>Dados de recursos estatísticos
 Recursos estáticos são metadados sobre o equipamento. Os exemplos são a marca do equipamento, modelo, data fabricada, data de início do serviço, local do sistema e outras especificações técnicas.
 
-Exemplos de dados relevantes para o [casos de uso do exemplo PdM](#Sample-PdM-use-cases) estão tabulados abaixo:
+Exemplos de dados relevantes para o [casos de uso do exemplo PdM](#sample-pdm-use-cases) estão tabulados abaixo:
 
 | Caso de uso | Exemplos de dados relevantes |
 |:---------|---------------------------|
@@ -186,7 +186,7 @@ Para dados estáticos,
 
 Outros etapas de pré-processamento de dados incluem _lidar com valores ausentes_ e _normalização_ de valores de atributo. Uma discussão detalhada está além do escopo deste guia - consulte a próxima seção para algumas referências úteis.
 
-Com as fontes de dados pré-processados acima no local, as transformação final mediante a engenharia do recurso é unir as tabelas acima com base no identificador do ativo e carimbo de data/hora. A tabela resultante teria valores nulos para a coluna de falha quando a máquina estivesse em operação normal. Esses valores nulos podem ser inseridos por um indicador para operação normal. Use essa coluna de falha para criar _rótulos para o modelo de previsão_. Para obter mais informações, consulte a seção sobre a [modelagem técnica para manutenção preditiva](#Modeling-techniques-for-predictive-maintenance).
+Com as fontes de dados pré-processados acima no local, as transformação final mediante a engenharia do recurso é unir as tabelas acima com base no identificador do ativo e carimbo de data/hora. A tabela resultante teria valores nulos para a coluna de falha quando a máquina estivesse em operação normal. Esses valores nulos podem ser inseridos por um indicador para operação normal. Use essa coluna de falha para criar _rótulos para o modelo de previsão_. Para obter mais informações, consulte a seção sobre a [modelagem técnica para manutenção preditiva](#modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Engenharia de recursos
 A engenharia de recursos é a primeira etapa antes da modelagem de dados. Sua função no processo de ciência de dados [é descrita aqui](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). Um _recurso_ é um atributo de previsão para o modelo - como a temperatura, pressão, vibração e assim por diante. Para PdM, a engenharia de recurso envolve a abstração de integridade da máquina em dados históricos coletados em uma duração dimensionável. Nesse sentido, é diferente de seus colegas, como monitoramento remoto, detecção de anomalias e detecção de falha. 
@@ -205,7 +205,7 @@ Para cada registro de um ativo, uma janela sem interrupção de tamanho "W" é e
 
 ![Figura 1. Recursos de agregação sem interrupção](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Figura 1. Recursos de agregação sem interrupção
 
-Exemplos de agregações sem interrupção em uma janela de tempo são contagem, média, médias CUMESUM (soma acumulada), valores mín./máx. Além disso, a variação, desvio padrão e contagem de exceções além dos desvios de padrão N são geralmente usadas. Exemplos de agregações que podem ser aplicadas para os [casos de uso](#Sample-PdM-use-cases) neste guia estão listados abaixo. 
+Exemplos de agregações sem interrupção em uma janela de tempo são contagem, média, médias CUMESUM (soma acumulada), valores mín./máx. Além disso, a variação, desvio padrão e contagem de exceções além dos desvios de padrão N são geralmente usadas. Exemplos de agregações que podem ser aplicadas para os [casos de uso](#sample-pdm-use-cases) neste guia estão listados abaixo. 
 - _Atraso de voo_: contagem de códigos de erro sobre o último dia/semana.
 - _Falha de parte do motor de aeronave_: sobrepõe soma, desvio padrão e significa o dia anterior, semana etc. Essa métrica deve ser determinada com especialistas de domínio da empresa.
 - _Falhas de caixa eletrônico_: sem interrupção significa, mediana, intervalo, desvios padrão, a contagem de exceções, além dos três desvios, CUMESUM superior e inferior.
@@ -325,7 +325,7 @@ Quando a série temporal é estática e fácil de prever, ambas abordagens aleat
 ### <a name="time-dependent-split"></a>Divisão dependente do tempo
 Esta seção descreve as práticas recomendadas para implementar a divisão dependente de tempo. Uma divisão bidirecional dependente de tempo entre o treinamento e conjuntos de teste está descrita abaixo.
 
-Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Define os recursos e rótulos de treinamento e exemplos de teste sobre os períodos que contenham vários eventos. Por exemplo, para classificação binária, cria os recursos com base nos eventos passados e cria rótulos com base em eventos dentro de “X” unidades de tempo no futuro (veja as seções em [engenharia de recursos](#Feature-engineering) e técnicas de modelagem). Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos.
+Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Define os recursos e rótulos de treinamento e exemplos de teste sobre os períodos que contenham vários eventos. Por exemplo, para classificação binária, cria os recursos com base nos eventos passados e cria rótulos com base em eventos dentro de “X” unidades de tempo no futuro (veja as seções em [engenharia de recursos](#feature-engineering) e técnicas de modelagem). Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos.
 
 Para divisão dependente de tempo, escolhemos um _tempo de corte de treinamento T<sub>c</sub>_  em que treinar um modelo, com hiperparâmetros ajustados usando dados históricos T<sub>c</sub>. Para impedir o vazamento de rótulos futuros que são além de T<sub>c</sub> nos dados de treinamento, escolha a hora mais recente para rotular exemplos de treinamento como unidades X antes de T<sub>c</sub>. No exemplo mostrado na Figura 7, cada quadrado representa um registro no conjunto de dados onde os recursos e os rótulos são computados conforme descrito acima. A figura mostra os registros que deveriam ir para conjuntos de treinamento e testes para  X=2 e W=3:
 
@@ -352,7 +352,7 @@ No caso de desequilíbrio de classe, o desempenho da maioria dos algoritmos de a
 - Pontuações F1
 - Custo ajustado ROC (características operacionais do destinatário)
 
-Para obter mais informações sobre essas métricas, consulte [avaliação de modelo](#Model-evaluation).
+Para obter mais informações sobre essas métricas, consulte [avaliação de modelo](#model-evaluation).
 
 No entanto, existem alguns métodos que ajudam a solucionar o problema de desequilíbrio de classe. Os dois principais são _técnicas de amostragem_ e _aprendizagem sensível ao custo_.
 

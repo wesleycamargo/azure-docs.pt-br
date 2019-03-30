@@ -1,32 +1,32 @@
 ---
-title: Solução de Cofre de Chaves do Azure no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs do Cofre de Chaves do Azure.
+title: Solução de Cofre de chaves do Azure no Azure Monitor | Microsoft Docs
+description: Você pode usar a solução de Azure Key Vault no Azure Monitor para examinar logs do Azure Key Vault.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: bwren
+manager: carmonm
 editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/09/2017
-ms.author: richrund
-ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.author: bwren
+ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078748"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629282"
 ---
-# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução do Azure Key Vault Analytics no Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de Azure Key Vault Analytics no Azure Monitor
 
 ![Símbolo do Cofre de Chaves](media/azure-key-vault/key-vault-analytics-symbol.png)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure.
+Você pode usar a solução de Azure Key Vault no Azure Monitor para examinar logs AuditEvent do Cofre de chave do Azure.
 
 Para usar a solução, você precisa habilitar o registro em log de diagnóstico do Azure Key Vault e direcionar tal diagnóstico para um workspace do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
 
@@ -38,23 +38,23 @@ Para usar a solução, você precisa habilitar o registro em log de diagnóstico
 ## <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as instruções a seguir para instalar e configurar a solução de Cofre de Chaves do Azure:
 
-1. Habilite a solução de Azure Key Vault do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
+1. Use o processo descrito em [soluções de adicionar o Azure Monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md) para adicionar a solução de Cofre de chaves do Azure para seu espaço de trabalho do Log Analytics.
 2. Habilitar o registro em log de diagnóstico para os recursos do Key Vault a serem monitorados usando o [portal](#enable-key-vault-diagnostics-in-the-portal) ou o [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Habilitar o diagnóstico de Key Vault no portal
 
 1. No Portal do Azure, navegue até o recurso do Key Vault a ser monitorado
-2. Selecione *Logs de diagnóstico* para abrir a página seguinte
+2. Selecione *as configurações de diagnóstico* para abrir a página seguinte
 
    ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Clique em *Ativar diagnóstico* para abrir a página seguinte
 
    ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Para ativar o diagnóstico, clique em *Ativar* em *Status*
+4. Dê um nome para a configuração de diagnóstico.
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
 6. Selecione um workspace existente do Log Analytics ou crie um workspace
 7. Para habilitar logs do *AuditEvent*, clique na caixa de seleção sob o Log
-8. Clique em *Salvar* para habilitar o registro em log de diagnóstico para o Log Analytics
+8. Clique em *salvar* para habilitar o registro em log de diagnóstico para o espaço de trabalho do Log Analytics.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Habilitar o diagnóstico do Key Vault usando o PowerShell
 O script do PowerShell a seguir fornece um exemplo de como usar o `Set-AzDiagnosticSetting` para habilitar o registro em log de diagnóstico para o Key Vault:
@@ -79,11 +79,11 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 | Azure |  |  |&#8226; |  |  | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
-Após a [instalação da solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), consulte os dados do Key Vault clicando no bloco **Azure Key Vault** na página **Visão geral** do Log Analytics.
+Depois que você [instalar a solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), exibir os dados do Key Vault clicando o **Key Vault Analytics** lado a lado do Azure Monitor **visão geral** página. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. 
 
 ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
-Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus logs e então aprofundar-se nos detalhes das seguintes categorias:
+Depois de clicar na **Key Vault Analytics** lado a lado, você pode exibir resumos dos seus logs e, em seguida, aprofundar-se nos detalhes para as seguintes categorias:
 
 * Volume de todas as operações do Cofre de Chaves ao longo do tempo
 * Volumes de operação com falha ao longo do tempo
@@ -95,12 +95,12 @@ Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus l
 ![imagem do painel Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Para exibir detalhes de qualquer operação
-1. Na página **Visão Geral**, clique no bloco **Cofre de Chaves do Azure**.
+1. Sobre o **visão geral** , clique no **Key Vault Analytics** lado a lado.
 2. Na painel **Cofre de Chaves do Azure**, examine as informações resumidas em uma das folhas e, em seguida, clique em uma para exibir informações detalhadas sobre ela na página pesquisa de log.
 
     Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados por tempo, resultados detalhados e o histórico de pesquisa de log. Você também pode filtrar por facetas para restringir os resultados.
 
-## <a name="log-analytics-records"></a>Registros do Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de log do Azure Monitor
 A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de **KeyVaults** que são coletados de [logs de AuditEvent](../../key-vault/key-vault-logging.md) no Diagnóstico do Azure.  As propriedades desses registros são descritas na tabela a seguir:  
 
 | Propriedade | DESCRIÇÃO |
@@ -128,15 +128,15 @@ A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrar da solução antiga de Key Vault
 Em janeiro de 2017, ocorreu uma mudança na maneira correta de envio de logs do Key Vault para o Log Analytics. Essas alterações oferecem as seguintes vantagens:
-+ Os logs são gravados diretamente no Log Analytics sem a necessidade de usar uma conta de armazenamento
++ Os logs são gravados diretamente a um espaço de trabalho do Log Analytics sem a necessidade de usar uma conta de armazenamento
 + Menor latência do momento em que os logs são gerados até eles serem disponibilizados no Log Analytics
 + Menos etapas de configuração
 + Um formato comum para todos os tipos de diagnóstico do Azure
 
 Para usar a solução atualizada:
 
-1. [Configure o envio do diagnóstico diretamente para o Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Habilite a solução de Azure Key Vault usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md)
+1. [Configurar o diagnóstico sejam enviadas diretamente para um espaço de trabalho do Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Habilite a solução do Azure Key Vault usando o processo descrito em [soluções de adicionar o Azure Monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar todas as consultas salvas, painéis ou alertas para usar o novo tipo de dados
    + O tipo é uma alteração de: KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os registros do Key Vault.
    + Em vez de: `KeyVaults`, use`AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -153,4 +153,4 @@ Os dados coletados antes da alteração não estão visíveis na nova solução.
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Usar [Pesquisas de Log](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados do Cofre de Chaves do Azure.
+* Use [Log de consultas no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados do Azure Key Vault.

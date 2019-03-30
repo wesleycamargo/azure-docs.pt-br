@@ -4,7 +4,7 @@ description: Saiba como acessar, salvar e remover o estado dos Reliable Actors d
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: ac3afe144b9cf9e2fb307087edb175a603ffe4e9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206740"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664719"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acessar, salvar e remover estado dos Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos single-threaded que podem encapsular a lógica e o estado e manter o estado de forma confiável. Cada instância de ator tem seu próprio [gerenciador de estado](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-lo para armazenar dados, independentemente da [configuração de persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) utilizada.

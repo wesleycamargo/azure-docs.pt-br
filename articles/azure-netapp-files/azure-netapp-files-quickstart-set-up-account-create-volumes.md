@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2b9b3cdcb712fcf6c415f574dc687e80ae9ee3b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078067"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660503"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Configurar o Azure NetApp Files e criar um volume 
 
@@ -105,9 +105,9 @@ Este artigo mostra como configurar os arquivos do Azure NetApp rapidamente e cri
    4. Use o valor padrão para a cota. 
    5. Em uma rede virtual, clique em **criar novo** para criar uma nova rede do Azure virtual (Vnet).  Em seguida, preencha as informações a seguir:
        * Insira **myvnet1** como o nome de rede virtual.
-       * Especifique um espaço de endereço, por exemplo, 10.7.0.0/16.
+       * Especifique um espaço de endereço para a sua configuração, por exemplo, 10.7.0.0/16
        * Insira **myANFsubnet** como o nome da sub-rede.
-       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24.
+       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24. Observe que você não pode compartilhar a sub-rede dedicada com outros recursos.
        * Selecione **Microsoft.NetApp/volumes** para delegação de sub-rede.
        * Clique em **Okey** para criar a rede virtual.
    6. Na sub-rede, selecione a rede virtual recém-criada (**myvnet1**) como a sub-rede de delegado.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088665"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650284"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -35,7 +35,6 @@ Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure
 > [!NOTE]
 > [Os alertas mais recentes](../../azure-monitor/platform/alerts-overview.md) oferecem uma experiência aprimorada ao criar e gerenciar regras de alerta do log de atividades.  [Saiba mais](../../azure-monitor/platform/alerts-activity-log.md).
 
-
 ## <a name="categories-in-the-activity-log"></a>Categorias no Log de Atividades
 O Log de Atividades contém várias categorias de dados. Para obter todos os detalhes sobre o esquema dessas categorias, [veja este artigo](../../azure-monitor/platform/activity-log-schema.md). Estão incluídos:
 * **Administrativos** -essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui alterações de controle de acesso baseado em função em uma assinatura.
@@ -48,9 +47,11 @@ O Log de Atividades contém várias categorias de dados. Para obter todos os det
 * **Política**: esta categoria contém registros de todas as operações de ação de efeito executadas pelo Azure Policy. Os exemplos dos tipos de eventos que você vê nessa categoria incluem Auditar e Negar. Cada ação tomada pelo Policy é modelada como uma operação em um recurso.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
+
 [Veja este artigo para compreender o esquema de evento do Log de Atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
+
 Veja algumas coisas que você pode fazer com o Log de Atividades:
 
 ![Log de Atividades do Azure](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,12 +59,13 @@ Veja algumas coisas que você pode fazer com o Log de Atividades:
 
 * Consultar e exibi-lo no **Portal do Azure**.
 * [Criar um alerta em um evento do Log de Atividades.](../../azure-monitor/platform/activity-log-alerts.md)
-* [Transmiti-lo para um **Hub de Eventos**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
-* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Stream-lo para um **Hub de eventos** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou uma solução de análises personalizadas, como o Power BI.
+* Analisá-los no Power BI usando o [ **o pacote de conteúdo do Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](../../azure-monitor/platform/archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando o **Perfil de Log**.
 * Consultar por meio de Cmdlet do PowerShell, da CLI ou da API REST.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o Log de Atividades no Portal do Azure
+
 No Portal do Azure, você pode exibir seu Log de Atividades em vários locais:
 * O **Log de Atividades**, que pode ser acessado pesquisando o Log de Atividades em **Todos os Serviços** no painel de navegação esquerdo.
 * **Monitor**, que é exibido por padrão no painel de navegação esquerdo. O Log de Atividades é uma seção do Azure Monitor.
@@ -86,6 +88,7 @@ Depois de definir um conjunto de filtros, você pode fixar uma consulta ao seu p
 Para ainda mais poder, você pode clicar no ícone **Logs**, que exibe os dados do log de atividades na [solução de Coleta e análise dos Logs de Atividades](../../azure-monitor/platform/collect-activity-logs.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o recurso de logs do Azure Monitor permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o Log de Atividades com um Perfil de Log
+
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
 * Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
@@ -102,13 +105,14 @@ Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que
 >  Atualmente, você não pode arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar os perfis de log usando o Portal do Azure
+
 Você pode transmitir o log de atividades para um hub de eventos ou armazená-los em uma conta de armazenamento usando a opção "Exportar para o hub de eventos" no portal do Azure.
 
 1. Navegue até **Log de Atividades** usando o menu no lado esquerdo do portal.
@@ -117,7 +121,7 @@ Você pode transmitir o log de atividades para um hub de eventos ou armazená-lo
 2. Clique no botão **Exportar para o Hub de Eventos** na parte superior da lâmina.
 
     ![Botão Exportar no portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. Na folha que aparece, você pode selecionar:  
+3. Na folha que aparece, você pode selecionar:
    * regiões para as quais você deseja exportar eventos
    * a conta de armazenamento na qual você deseja salvar os eventos
    * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
@@ -132,27 +136,28 @@ Você pode transmitir o log de atividades para um hub de eventos ou armazená-lo
 
 #### <a name="get-existing-log-profile"></a>Obter o perfil de log existente
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de log
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | Name |Sim |Nome de seu perfil de log. |
-| StorageAccountId |Não |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
-| serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Localizaçãoização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+| StorageAccountId |Não  |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
+| serviceBusRuleId |Não  |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Local padrão |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
 | RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
-| Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
+| Categoria |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de log
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -184,7 +189,7 @@ Para obter a documentação completa para criar um perfil do monitor com a CLI, 
 az monitor log-profiles delete --name <profile name>
 ```
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
+
 * [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../../azure-resource-manager/resource-group-audit.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

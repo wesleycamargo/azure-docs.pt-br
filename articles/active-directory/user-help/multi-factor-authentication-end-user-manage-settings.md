@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210502"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665042"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
 Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.
@@ -50,7 +50,7 @@ Se clicar nesse link não funcionar para você, você também pode acessar a pá
     ![Prova](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Desejo alterar meu número de telefone ou adicionar um número secundário
-É importante configurar um número de telefone de autenticação secundário.  Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
+É importante configurar um número de telefone de autenticação secundário.  Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a maneira mais rápida, você poderá voltar à sua conta se o seu telefone for perdido ou roubado.
 
 > [!NOTE]
 > Se você não tem acesso ao seu número de telefone principal e precisa de ajuda para entrar em sua conta, confira os o artigo [Tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para obter mais ajuda.  

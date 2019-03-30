@@ -1,6 +1,6 @@
 ---
-title: Transmitir logs de diagnóstico do Azure para o Log Analytics
-description: Saiba como transmitir logs de diagnóstico do Azure para um workspace do Log Analytics.
+title: Logs de diagnóstico do Azure Stream ao espaço de trabalho do Log Analytics no Azure Monitor
+description: Saiba como transmitir logs de diagnóstico do Azure para um espaço de trabalho do Log Analytics no Azure Monitor.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351535"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630781"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir logs de diagnóstico do Azure para o Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Logs de diagnóstico do Azure Stream ao espaço de trabalho do Log Analytics no Azure Monitor
 
-**[Os Logs de diagnósticos do Azure](diagnostic-logs-overview.md)** podem ser transmitidos quase em tempo real para o Azure Log Analytics usando o portal, cmdlets do PowerShell ou a CLI do Azure.
+**[Os logs de diagnóstico do Azure](diagnostic-logs-overview.md)**  podem ser transmitidos quase em tempo real para um espaço de trabalho do Log Analytics no Azure Monitor usando o portal, cmdlets do PowerShell ou CLI do Azure.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>O que você pode fazer com os logs de diagnóstico no Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>O que você pode fazer com o diagnóstico registra em log em um espaço de trabalho do Log Analytics
 
-O Azure Log Analytics é uma ferramenta de análise e pesquisa de logs flexível que permite que você obtenha informações sobre os dados brutos de log gerados de recursos do Azure. Algumas funcionalidades incluem:
+O Azure Monitor fornece uma ferramenta de consulta e análise de log flexível que permite que você obtenha informações sobre os dados brutos de log gerados a partir de recursos do Azure. Algumas funcionalidades incluem:
 
-* **Pesquisa de logs** -gravar de consultas avançadas sobre os dados de log, correlacionar logs de várias origens e até mesmo gerar gráficos que podem ser fixados no painel do Azure.
-* **Alerta** -detectar quando um ou mais eventos corresponderem a uma consulta específica e ser notificados com uma chamada de webhook ou email.
-* **Soluções** -usar exibições predefinidas e painéis que fornecem ideias imediatas sobre seus dados de log.
+* **Consulta de log** -gravação de consultas avançadas sobre seus dados de log, correlacionar logs de várias fontes e geram gráficos que podem ser fixadas no painel do Azure.
+* **Alertas** -detectar quando um ou mais eventos correspondem a uma consulta específica e ser notificados com uma chamada de email ou webhook usando alertas do Azure Monitor.
 * **Análise avançada** – aplicar o aprendizado de máquina e algoritmos de correspondência de padrão para identificar possíveis problemas revelados por seus logs.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Habilitar o streaming de logs de diagnóstico para o Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Habilitar o streaming de logs de diagnóstico ao espaço de trabalho do Log Analytics
 
 Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um workspace do Log Analytics e as categorias de log e as métricas que deseja enviar para esse workspace. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
 
@@ -42,9 +41,8 @@ O workspace do Log Analytics não precisa estar na mesma assinatura que o recurs
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Transmitir logs de diagnóstico usando o portal
-1. No portal, navegue até o Azure Monitor e clique em **Configurações de Diagnóstico**
+1. No portal, navegue para o Azure Monitor e clique em **configurações de diagnóstico** na **configurações** menu.
 
-    ![Seção de monitoramento do Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Se desejar filtrar a lista por tipo de recurso ou grupo de recursos, clique no recurso para o qual você deseja definir uma configuração de diagnóstica.
 
@@ -97,9 +95,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 O argumento `--resource-group` somente será necessário se `--workspace` não for uma ID de objeto.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Como faço para consultar os dados do Log Analytics?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Como faço para consultar os dados de espaço de trabalho do Log Analytics?
 
-Na folha de Pesquisa de Logs no portal ou na experiência do Advanced Analytics como parte do Log Analytics, você pode consultar os logs de diagnóstico como parte da solução de Gerenciamento de Log na tabela do AzureDiagnostics. Também há [várias soluções para recursos do Azure](../../azure-monitor/insights/solutions.md) que podem ser instaladas para obter informações imediatas sobre os dados de log que você está enviando para o Log Analytics.
+Na folha de Logs no portal do Azure Monitor, você pode consultar os logs de diagnóstico como parte da solução de gerenciamento de Log na tabela do AzureDiagnostics. Também há [várias soluções de monitoramento para recursos do Azure](../../azure-monitor/insights/solutions.md) podem ser instalados para obter informações imediatas sobre os dados de log que está enviando para o Azure Monitor.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitação conhecida: limite de coluna em AzureDiagnostics
 Porque muitos recursos enviar todos os tipos de dados são enviados para a mesma tabela (_AzureDiagnostics_), o esquema da tabela é o conjunto de superusuários dos esquemas de todos os tipos de dados diferentes que estão sendo coletados. Por exemplo, se você tiver criado as configurações de diagnóstico para a coleção dos seguintes tipos de dados, todos sendo enviados para o mesmo espaço de trabalho:

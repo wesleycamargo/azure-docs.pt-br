@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076268"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649622"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -101,7 +101,7 @@ A saída é um objeto JSON com todos os pontos de extremidade que seu dispositiv
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Pontos de extremidade de streaming do dispositivo da lista de permissões
 
-Conforme mencionado [anteriormente](#Overview), o dispositivo cria uma conexão de saída para o ponto de extremidade de streaming do Hub IoT durante o processo de iniciação dos fluxos de dispositivos. Os firewalls no dispositivo ou em sua rede devem permitir a conectividade de saída para o gateway de streaming pela porta 443 (observe que a comunicação ocorre em uma conexão WebSocket que é criptografada usando TLS).
+Conforme mencionado [anteriormente](#overview), o dispositivo cria uma conexão de saída para o ponto de extremidade de streaming do Hub IoT durante o processo de iniciação dos fluxos de dispositivos. Os firewalls no dispositivo ou em sua rede devem permitir a conectividade de saída para o gateway de streaming pela porta 443 (observe que a comunicação ocorre em uma conexão WebSocket que é criptografada usando TLS).
 
 O nome do host do ponto de extremidade de streaming do dispositivo pode ser encontrado no portal do Hub IoT do Azure, na guia Visão geral. ![Texto ALT](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Pontos de extremidade de fluxo de dispositivo")
 

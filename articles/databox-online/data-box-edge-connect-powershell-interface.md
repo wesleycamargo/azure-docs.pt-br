@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403588"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660453"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo de borda de caixa de dados do Azure por meio do Windows PowerShell
 
@@ -43,6 +43,20 @@ Este artigo inclui os seguintes procedimentos:
 ## <a name="upload-certificate"></a>Carregar um certificado
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+Você também pode carregar certificados de IoT Edge para habilitar uma conexão segura entre seu dispositivo IoT Edge e os dispositivos downstream que podem se conectar a ele. Há três certificados do IoT Edge (*. PEM* formato) que você precisa instalar:
+
+- Certificado de autoridade de certificação raiz ou o proprietário da autoridade de certificação
+- Certificado de autoridade de certificação de dispositivo
+- Certificado de chave do dispositivo
+
+O exemplo a seguir mostra o uso desse cmdlet para instalar certificados do IoT Edge:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+Para obter mais informações sobre certificados, vá para [certificados do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instalar certificados em um gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Exibir informações de dispositivo
  

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902868"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630398"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -54,10 +54,6 @@ Os seguintes recursos estão em versão prévia privada.
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Deserializador personalizado do C# para o Azure Stream Analytics no IoT Edge
 
 Os desenvolvedores agora podem implementar deserializadores personalizados em C# para desserializar os eventos recebidos pelo Azure Stream Analytics. Exemplos de formatos que podem ser desserializados incluem Parquet, Protobuf, XML ou qualquer formato binário.
-
-### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Identidades gerenciadas para autenticação de recursos do Azure Data Lake Storage
-
-Agora você pode operacionalizar seus pipelines em tempo real com identidades gerenciadas para autenticação baseada em recursos do Azure enquanto grava no Azure Data Lake Storage Gen1, permitindo que você crie tarefas programaticamente. Para obter mais informações, visite [Use as identidades gerenciadas dos recursos do Azure para autenticar as tarefas do Azure Stream Analytics para a saída Gen1 do armazenamento do Lake Data do Azure](stream-analytics-managed-identities-adls.md).
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
 

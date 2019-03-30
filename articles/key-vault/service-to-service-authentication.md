@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097899"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629846"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -101,7 +101,7 @@ Para usar a CLI do Azure para o desenvolvimento local:
 
 Use `az account get-access-token` para verificar o acesso.  Caso receba um erro, verifique se a Etapa 1 foi concluída com êxito. 
 
-Se a CLI do Azure não estiver instalada no diretório padrão, você poderá receber um erro relatando que o `AzureServiceTokenProvider` não pode localizar o caminho para a CLI do Azure.  Use a variável de ambiente **AzureCLIPath** para definir a pasta de instalação da CLI do Azure. `AzureServiceTokenProvider` adiciona o diretório especificado na variável de ambiente **AzureCLIPath** à variável de ambiente **Path**, quando necessário.
+Se a CLI do Azure não estiver instalada no diretório padrão, você poderá receber um erro relatando que o `AzureServiceTokenProvider` não pode localizar o caminho para a CLI do Azure.  Use o **AzureCLIPath** variável de ambiente para definir a pasta de instalação da CLI do Azure. `AzureServiceTokenProvider` adiciona o diretório especificado na variável de ambiente **AzureCLIPath** à variável de ambiente **Path**, quando necessário.
 
 Caso esteja conectado à CLI do Azure com várias contas ou caso sua conta tenha acesso a várias assinaturas, você precisará especificar a assinatura específica a ser usada.  Para fazer isso, use:
 

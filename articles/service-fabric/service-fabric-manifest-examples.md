@@ -4,7 +4,7 @@ description: Saiba como definir as configurações do aplicativo e do manifesto 
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 552ff326ed38175f711924873daab4fcc48f0d09
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 85a3066095cfc30da19b06d26f41bdc156f85832
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500382"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664685"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exemplos do manifesto de serviço e aplicativo do Service Fabric
 Esta seção contém exemplos de manifestos de serviço e aplicativo. Esses exemplos não devem mostrar cenários importantes, mas mostrar as diferentes configurações disponíveis e como usá-las. 
