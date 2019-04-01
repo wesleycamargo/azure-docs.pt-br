@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650267"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi provisionada. O cer
    4. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
    5. Clique em **Ok**, expanda os nós **Certificados - Pessoal** e clique em **Certificados**. O certificado recebe o nome com base no nome DNS da VM e termina com **cloudapp.net**. Clique com o botão direito do mouse no nome do certificado e clique em **Copiar**.
    6. Expanda o nó **Autoridades de Certificação Raiz Confiáveis**, clique com botão direito do mouse em **Certificados** e clique em **Colar**.
-   7. Para validar, clique duas vezes no nome do certificado em **Autoridades de Certificação Raiz Confiáveis** , verifique se não há erros e veja seu certificado. Se você quiser usar o script HTTPS incluído neste tópico para configurar o servidor de relatório, o valor da **Impressão digital** dos certificados será exigido como um parâmetro do script. **Para obter o valor da impressão digital**, preencha o seguinte. Também há um exemplo do PowerShell para recuperar a impressão digital na seção [Usar o script para configurar o servidor de relatório e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. Para validar, clique duas vezes no nome do certificado em **Autoridades de Certificação Raiz Confiáveis** , verifique se não há erros e veja seu certificado. Se você quiser usar o script HTTPS incluído neste tópico para configurar o servidor de relatório, o valor da **Impressão digital** dos certificados será exigido como um parâmetro do script. **Para obter o valor da impressão digital**, preencha o seguinte. Também há um exemplo do PowerShell para recuperar a impressão digital na seção [Usar o script para configurar o servidor de relatório e HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Clique duas vezes no nome do certificado, por exemplo, ssrsnativecloud.cloudapp.net.
       2. Clique na guia **Detalhes** .

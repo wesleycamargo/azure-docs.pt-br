@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578213"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757337"
 documentType: LandingData
-title: Documentação da versão prévia do ASC para IoT
+title: Central de Segurança do Azure para documentação da versão prévia da IoT
 metadata:
-  title: Documentação da versão prévia do ASC para IoT – Tutoriais, guias de início rápido | Microsoft Doc
-  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Central de Segurança do Azure para documentação da versão prévia da IoT – Tutoriais, Guias de início rápido | Microsoft Doc
+  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Use a versão prévia do ASC para IoT para estender sua exibição de segurança cibernética existente para sua solução IoT como um todo. Obtenha uma exibição panorâmica verdadeira da segurança de todos os seus recursos relacionados ao Azure. Opções rápidas de implantação e integração total com os módulos gêmeos do Hub IoT oferecem uma ampla variedade de opções de personalização e fácil integração com as ferramentas atuais de gerenciamento de dispositivo. 
+  description: Use a ASC (Central de Segurança do Azure) para a Versão Prévia da IoT para ampliar sua exibição de segurança cibernética existente para toda a sua solução da IoT. Obtenha uma exibição panorâmica verdadeira da segurança de todos os seus recursos relacionados ao Azure. Opções rápidas de implantação e integração total com os módulos gêmeos do Hub IoT oferecem uma ampla variedade de opções de personalização e fácil integração com as ferramentas atuais de gerenciamento de dispositivo. 
 sections:
 - title: Guia de início rápido de 5 minutos
   items:

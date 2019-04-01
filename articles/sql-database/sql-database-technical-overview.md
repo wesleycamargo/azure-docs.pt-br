@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670828"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure?
 
@@ -95,13 +95,21 @@ Use as ferramentas de [monitoramento de desempenho interno](sql-database-perform
 
 - **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um preço baixo
 - **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos
-- **Azure Log Analytics**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
+- **Logs do Azure Monitor**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
-Os acordos de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/)de disponibilidade de 99,99% de líderes do setor do Azure, alimentados por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma do Azure gerencia completamente cada banco de dados e garante alto percentual de disponibilidade de dados sem perda de dados. O Azure controla automaticamente a aplicação de patches, potenciais falhas subjacentes de hardware, software ou rede, a implantação de correções de bug, failovers, upgrades de banco de dados e outras tarefas de manutenção. A disponibilidade padrão é obtida por uma separação de camadas de computação e armazenamento. A disponibilidade premium é obtida integrando computação e armazenamento em um único nó para desempenho e, em seguida, implementando uma tecnologia semelhante a Always On Availability Groups nas capas. Para conferir uma discussão completa sobre os recursos de alta disponibilidade do Banco de Dados SQL do Azure, veja [Disponibilidade do Banco de Dados SQL](sql-database-high-availability.md). Além disso, o Banco de Dados SQL fornece recursos internos de [continuidade dos negócios e a escalabilidade global](sql-database-business-continuity.md), incluindo:
+Em um ambiente tradicional do SQL Server, você normalmente teria (pelo menos) 2 máquinas localmente definidas com cópias exatas de (mantidas de forma síncrona) dos dados (usando recursos como grupos de disponibilidade AlwaysOn ou instâncias de Cluster de Failover) para proteger contra um Falha de um único computador/componente.  Isso fornece alta disponibilidade, mas não protege contra um desastre natural destruir seu data center.
+ 
+Recuperação de desastres pressupõe que um evento catastrófico serão geograficamente localizados suficiente para ter outra máquina/conjunto de máquinas com uma cópia dos seus dados à mão.  No SQL Server, você pode usar grupos de disponibilidade AlwaysOn em execução no modo assíncrono para obter essa funcionalidade.  A velocidade da luz problemas geralmente significa que as pessoas não deseja aguardar a replicação aconteça que longe antes de confirmar uma transação, portanto, há um potencial para perda de dados ao fazer failovers não planejados.
+
+Tipos de bancos de dados no serviço premium e de negócios essencial já [fazer algo muito semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para a sincronização de um grupo de disponibilidade. Bancos de dados em camadas de serviço inferiores fornecem redundância por meio de armazenamento usando um [mecanismo diferente mas equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Há lógica que protege contra uma falha de única máquina.  O recurso de replicação geográfica ativa fornece a capacidade de proteger contra desastres em que uma região inteira é destruída.
+
+As zonas de disponibilidade do Azure é uma opção sobre o problema de alta disponibilidade.  Ele tenta proteger contra a interrupção de um único data center compilar dentro de uma única região.  Portanto, ela deseja proteger contra a perda de energia ou de rede para a criação. No SQL Azure, isso funcionará, colocando as diferentes réplicas nas zonas de disponibilidade diferente (prédios, efetivamente) e funcionando como antes. 
+
+Na verdade, a disponibilidade de 99,99% líder no mercado do Azure de contrato de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/), alimentado por uma rede global de datacenters gerenciada pela Microsoft, ajuda a manter seu aplicativo em execução 24 horas, 7. A plataforma do Azure gerencia completamente cada banco de dados e garante alto percentual de disponibilidade de dados sem perda de dados. O Azure controla automaticamente a aplicação de patches, potenciais falhas subjacentes de hardware, software ou rede, a implantação de correções de bug, failovers, upgrades de banco de dados e outras tarefas de manutenção. A disponibilidade padrão é obtida por uma separação de camadas de computação e armazenamento. A disponibilidade premium é obtida integrando computação e armazenamento em um único nó para desempenho e, em seguida, implementando uma tecnologia semelhante a Always On Availability Groups nas capas. Para conferir uma discussão completa sobre os recursos de alta disponibilidade do Banco de Dados SQL do Azure, veja [Disponibilidade do Banco de Dados SQL](sql-database-high-availability.md). Além disso, o Banco de Dados SQL fornece recursos internos de [continuidade dos negócios e a escalabilidade global](sql-database-business-continuity.md), incluindo:
 
 - **[Backups automáticos](sql-database-automated-backups.md)**:
 
@@ -141,11 +149,14 @@ Há dois aspectos de ajuste automático [disponíveis no Banco de Dados SQL](sql
 
 ### <a name="adaptive-query-processing"></a>Processamento de consulta adaptável
 
-Também estamos adicionando a família de recursos de [processamento de consulta adaptável](/sql/relational-databases/performance/adaptive-query-processing) de recursos ao Banco de Dados SQL, incluindo execução intercalada de funções com valor de tabela com várias instruções, comentários de concessão de memória de modo em lotes e junções adaptáveis do modo de lote. Cada um desses recursos de processamento de consulta adaptável aplica técnicas "aprender e adaptar" semelhantes, ajudando a solucionar problemas de otimização de consulta relacionados a problemas de otimização de consultas historicamente problemáticos.
+Também estamos adicionando a família de recursos de [processamento de consulta adaptável](/sql/relational-databases/performance/intelligent-query-processing) de recursos ao Banco de Dados SQL, incluindo execução intercalada de funções com valor de tabela com várias instruções, comentários de concessão de memória de modo em lotes e junções adaptáveis do modo de lote. Cada um desses recursos de processamento de consulta adaptável aplica técnicas "aprender e adaptar" semelhantes, ajudando a solucionar problemas de otimização de consulta relacionados a problemas de otimização de consultas historicamente problemáticos.
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
 O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
+
+> [!IMPORTANT]
+> Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada contra Ameaças
 
@@ -234,7 +245,7 @@ Clientes do Banco de Dados SQL terão os direitos associados ao Benefício Híbr
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver-se com a equipe de engenharia do SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): faça perguntas de administração de banco de dados
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): faça perguntas sobre desenvolvimento
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): faça perguntas sobre desenvolvimento
 - [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): faça perguntas técnicas
 - [Comentários](https://aka.ms/sqlfeedback): relate bugs e solicite recursos
 - [Reddit](https://www.reddit.com/r/SQLServer/): discuta o SQL Server

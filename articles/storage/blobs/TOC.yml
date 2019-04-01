@@ -97,17 +97,37 @@ items:
     items:
     - name: Contas de armazenamento
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Autorização
-      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Segurança
       items:
-      - name: Autenticar com o Azure AD
-        href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autorizar com Chave Compartilhada
-        href: /rest/api/storageservices/authorize-with-shared-key
-      - name: Autorizar com SAS
-        href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Acesso anônimo aos blobs
-        href: storage-manage-access-to-resources.md
+      - name: Autorização
+        href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Autenticar com o Azure AD
+          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autorizar com Chave Compartilhada
+          href: /rest/api/storageservices/authorize-with-shared-key
+        - name: Autorizar com SAS
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Acesso anônimo aos blobs
+          href: storage-manage-access-to-resources.md
+      - name: Guia de segurança
+        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Configurar firewalls e redes virtuais
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Criptografia para dados em repouso
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Criptografia em repouso com chaves do cliente
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPs
+        href: storage-https-custom-domain-cdn.md
+      - name: Blobs imutáveis
+        href: storage-blob-immutable-storage.md
+      - name: Proteção Avançada contra Ameaças
+        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
+        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Requer transferência segura
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Redundância de dados
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -127,26 +147,6 @@ items:
         href: storage-blob-storage-tiers.md
       - name: Gerenciar ciclo de vida do Armazenamento de Blobs do Azure
         href: storage-lifecycle-management-concepts.md
-    - name: Segurança
-      items:
-      - name: Guia de segurança
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configurar firewalls e redes virtuais
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Criptografia para dados em repouso
-        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Criptografia em repouso com chaves do cliente
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPs
-        href: storage-https-custom-domain-cdn.md
-      - name: Blobs imutáveis
-        href: storage-blob-immutable-storage.md
-      - name: Proteção Avançada contra Ameaças
-        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Requer transferência segura
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Desempenho e dimensionamento
       items:
       - name: Escalabilidade e metas de desempenho
@@ -295,40 +295,40 @@ items:
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Atualizar uma conta de armazenamento
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Autorizar acesso aos dados de blob
-      items:
-      - name: Opções de autorização para usuários
-        items:
-        - name: Portal
-          href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI ou PowerShell
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Gerenciar direitos de acesso com RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autenticar com o Azure AD
-        items:
-        - name: Autenticar a partir de um aplicativo
-          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Autenticar com identidades gerenciadas
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autorizar com Chave Compartilhada
-        items:
-        - name: Configurar cadeias de conexão
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Usar a API REST do Armazenamento do Azure
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Segurança
       items:
+      - name: Autorizar acesso aos dados de blob
+        items:
+        - name: Opções de autorização para usuários
+          items:
+          - name: Portal
+            href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: CLI ou PowerShell
+            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gerenciar direitos de acesso com RBAC
+          items:
+          - name: Portal
+            href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: CLI
+            href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: PowerShell
+            href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autenticar com o Azure AD
+          items:
+          - name: Autenticar a partir de um aplicativo
+            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Autenticar com identidades gerenciadas
+            href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autorizar com Chave Compartilhada
+          items:
+          - name: Configurar cadeias de conexão
+            href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          - name: Usar a API REST do Armazenamento do Azure
+            href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configurar firewalls e redes virtuais
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
-        href: ../common/storage-security-tls.md
+      - name: Criptografar e descriptografar blobs usando o Azure Key Vault
+        href: storage-encrypt-decrypt-blobs-key-vault.md
       - name: Criptografia do cliente
         items:
         - name: .NET
@@ -337,10 +337,10 @@ items:
           href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Python
           href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
+        href: ../common/storage-security-tls.md
       - name: Requer transferência segura
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Criptografar e descriptografar blobs usando o Azure Key Vault
-        href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Recuperação de desastre
       items:
       - name: Iniciar failover da conta
@@ -558,10 +558,8 @@ items:
       items:
       - name: Guia de segurança de análise de Big Data
         href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Criptografia para dados em repouso
+      - name: Criptografia de Armazenamento do Azure
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Criptografia para dados em repouso com chaves do cliente
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Controle de Acesso
         href: data-lake-storage-access-control.md
   - name: Como
@@ -576,6 +574,8 @@ items:
       items:
       - name: Configurar firewalls e redes virtuais
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Gerenciar chaves personalizadas para criptografia do Armazenamento do Azure
+        href: ../common/storage-service-encryption-customer-managed-keys.md
       - name: Gerenciar direitos de acesso com RBAC
         href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Definir permissões de nível de diretório e arquivo
@@ -632,9 +632,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 1f831e742f034d210a59c5723526442114f594ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 78f3ab4e007f5da8986d5e59fdf78905e172d0aa
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446893"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758356"

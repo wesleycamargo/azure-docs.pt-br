@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629152"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectar-se, configurar e ativar a borda de caixa de dados do Azure 
 
@@ -75,7 +75,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
     ![Página de "Nome do dispositivo" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Opcional) No painel esquerdo, selecione **Configurações de rede** e, em seguida, defina as configurações.  
-    No dispositivo físico, você verá seis adaptadores de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. A porta 3, 4 de porta, porta 5 e 6 de porta são todas as interfaces de rede de 25 Gbps também podem servir como interfaces de rede de 10 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto as PORTA 2 a 6 são portas de dados. O **as configurações de rede** página é conforme mostrado abaixo.
+    Em seu dispositivo físico, há seis interfaces de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. A porta 3, 4 de porta, porta 5 e 6 de porta são todas as interfaces de rede de 25 Gbps também podem servir como interfaces de rede de 10 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto as PORTA 2 a 6 são portas de dados. O **as configurações de rede** página é conforme mostrado abaixo.
     
     ![Página de "Configurações de rede" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
         ![Página de "Configurações de tempo" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Data Box Edge no portal do Azure.
+5. (Opcional) No painel esquerdo, selecione **configurações de armazenamento** para configurar a resiliência de armazenamento em seu dispositivo. Esse recurso está atualmente na visualização. Por padrão, o armazenamento no dispositivo não é resiliente e há perda de dados se um disco de dados falhar no dispositivo. Quando você habilita a opção resiliente, o armazenamento do dispositivo será reconfigurado e o dispositivo pode suportar a falha de um disco de dados sem perda de dados. Configurando o armazenamento como resiliente reduzirá a capacidade utilizável do seu dispositivo.
+
+    > [!IMPORTANT] 
+    > A resiliência só pode ser configurada antes de ativar o dispositivo. 
+
+    ![Página de "Configurações de armazenamento" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Data Box Edge no portal do Azure.
     
     1. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
     2. Escolha **Aplicar**.
@@ -132,7 +139,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
         ![Página de "Configurações de nuvem" de interface do usuário da web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Talvez você precise aguardar vários minutos após a atualização for concluída com êxito. A página é atualizada para indicar que o dispositivo é ativado com êxito.
+    4. Talvez você precise aguardar alguns minutos após a atualização for concluída com êxito. A página é atualizada para indicar que o dispositivo é ativado com êxito.
 
         ![Página de "Configurações de nuvem" de interface do usuário da web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 

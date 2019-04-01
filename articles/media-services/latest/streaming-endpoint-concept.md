@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845596"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757175"
 ---
-# <a name="streaming-endpoints"></a>Extremidades de Streaming
+# <a name="streaming-endpoints"></a>Ponto de extremidade de streaming
 
 No AMS (Serviços de Mídia do Microsoft Azure), a entidade [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição adicional. O fluxo de saída de um serviço de **Ponto de Extremidade de Streaming** pode ser uma transmissão ao vivo ou um Ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o Ponto de Extremidade de Streaming **padrão**. Ponto de Extremidade de Streaming adicionais podem ser criados na conta. 
 
@@ -33,14 +33,34 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}-{Datacenter
 
 ## <a name="types"></a>Tipos  
 
-Há dois **ponto de extremidade de Streaming** tipos: Standard e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
+Há dois tipos de **Ponto de extremidade de streaming**: Standard e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
 
 A tabela descreve os tipos:  
 
-|Digite|Unidades de escala|Descrição|
+|Type|Unidades de escala|DESCRIÇÃO|
 |--------|--------|--------|  
-|**Ponto de Extremidade de Streaming Standard** (recomendado)|0|O tipo **Standard** é a opção recomendada para praticamente todos os cenários de streaming e tamanhos de público-alvo. O tipo **Standard** dimensiona automaticamente a largura de banda de saída. <br/>Para clientes com muito mais exigentes requisitos de serviços de mídia oferecem **Premium** streaming pontos de extremidade, que podem ser usados para expandir a capacidade para o maior público de internet. Se você espera grandes públicos e visualizadores simultâneos, entre em contato conosco em amsstreaming\@microsoft.com para obter orientação sobre como se você precisa mover para o **Premium** tipo. |
+|**Ponto de Extremidade de Streaming Standard** (recomendado)|0|O padrão de ponto de extremidade de Streaming é uma **padrão** de tipo, mas pode ser alterado para o tipo Premium.<br/> O tipo padrão é a opção recomendada para virtualmente todos os cenários de transmissão e tamanhos de público-alvo. O tipo **Standard** dimensiona automaticamente a largura de banda de saída. A taxa de transferência desse tipo de ponto de extremidade de Streaming é até 600 Mbps. Fragmentos de vídeo armazenado em cache na CDN, não use a largura de banda do ponto de extremidade de Streaming.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Mídia oferecem pontos de extremidade de streaming **Premium**, que podem ser usados para dimensionar a capacidade dos maiores públicos-alvo da Internet. Se você espera grandes públicos e visualizadores simultâneos, entre em contato conosco em amsstreaming\@microsoft.com para obter orientação sobre como se você precisa mover para o **Premium** tipo. |
 |**Ponto de Extremidade de Streaming Premium**|>0|Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. É possível mudar para um tipo **Premium**, ajustando `scaleUnits`. `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium**, cada unidade habilitada fornece capacidade adicional de largura de banda ao aplicativo. |
+ 
+## <a name="comparing-streaming-types"></a>Comparando tipos de streaming
+
+### <a name="features"></a>Recursos
+
+Recurso|Standard|Premium
+---|---|---
+Gratuito pelos primeiros 15 dias| Sim |Não 
+Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
+Contrato de Nível de Serviço | 99.9|99,9 (200 Mbps por UA).
+CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
+A cobrança é rateada| Diário|Diário
+Criptografia dinâmica|Sim|Sim
+Empacotamento dinâmico|Sim|Sim
+Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais
+Host de filtragem/G20/personalizado da IP <sup>1</sup>|Sim|Sim
+Download progressivo|Sim|Sim
+Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.<br/>Se você achar que pode ter necessidades além do Standard. Contate-nos (amsstreaming@microsoft.com) se você espera ter uma audiência simultânea superior a 50.000 visualizadores.
+
+<sup>1</sup> só é usado diretamente no ponto de extremidade de Streaming quando o CDN não está habilitado no ponto de extremidade.
 
 ## <a name="working-with-cdn"></a>Trabalhando com CDN
 
@@ -55,7 +75,7 @@ Não há nenhum valor de largura de banda específico ao adicionar a CDN porque 
  
 Também é necessário considerar como o streaming adaptável funciona. Cada fragmento de vídeo individual é armazenado em cache como sua própria entidade. Por exemplo, se a primeira vez que um determinado vídeo é assistido e a pessoa ignora assistindo apenas alguns segundos de trechos aleatórios, apenas os fragmentos de vídeo associados ao que a pessoa assistiu são armazenados em cache no CDN. Com o streaming adaptável, você normalmente tem de 5 a 7 taxas de bits diferentes de vídeo. Se uma pessoa estiver assistindo a uma taxa de bits e outra pessoa estiver assistindo a uma taxa de bits diferente, cada uma delas será armazenada separadamente na CDN. Mesmo que duas pessoas estejam assistindo a mesma taxa de bits, é possível que estejam transmitindo por stream em diferentes protocolos. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é armazenado em cache separadamente. Portanto, cada taxa de bits e protocolo são armazenados em cache separadamente e apenas os fragmentos de vídeo que foram solicitados são armazenados em cache.
  
-## <a name="properties"></a>Propriedades 
+## <a name="properties"></a>propriedades 
 
 Esta seção fornece detalhes sobre algumas das propriedades de fluxo contínuo do ponto de extremidade. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
@@ -70,7 +90,7 @@ Esta seção fornece detalhes sobre algumas das propriedades de fluxo contínuo 
     Se você receber esse erro, o data center não dará suporte. Você deve experimentar outro data center.
 - `cdnProfile` -Quando `cdnEnabled` é definido como true, você também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN no qual o ponto de extremidade CDN será criado. Você pode fornecer um cdnProfile existente ou usar um novo. Se o valor for NULL e `cdnEnabled` for verdadeiro, o valor padrão "AzureMediaStreamingPlatformCdnProfile" será usado. Se o perfil `cdnProfile` fornecido já existir, um ponto de extremidade será criado sob ele. Se o perfil não existe, um novo perfil automaticamente será criado.
 - `cdnProvider` -Quando CDN está habilitado, você também pode passar `cdnProvider` valores. `cdnProvider` controla qual provedor será usado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" é usado (ou seja, o valor padrão).
-- `crossSiteAccessPolicies` – Usado para especificar as políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` – Usado para especificar as políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>As configurações se aplicam somente para Smooth Streaming.
 - `customHostNames` – Usado para configurar um ponto de extremidade de Streaming para aceitar o tráfego direcionado para um nome de host personalizado.  Essa propriedade é válida para Standard e pontos de extremidade de Streaming Premium e pode ser definida quando `cdnEnabled`: false.
     
     A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verifica a propriedade de nome de domínio, exigindo um `CName` registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto por verifydns.\<mediaservices-dns-zone>. 

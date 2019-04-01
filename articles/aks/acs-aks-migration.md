@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385023"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649961"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migração do ACS (Serviço de Contêiner do Azure) para o AKS (Serviço de Kubernetes do Azure)
 
@@ -35,7 +35,7 @@ O ACS e o AKS diferem em algumas áreas importantes que afetam a migração. Voc
 
 ### <a name="differences-between-kubernetes-versions"></a>Diferenças entre as versões do Kubernetes
 
-Se você estiver migrando para uma versão mais recente do Kubernetes (ex.: 1.7.x para 1.9.x), há algumas alterações na API k8s que exigirão sua atenção.
+Se você estiver migrando para uma versão mais recente do Kubernetes (ex: 1.7.x para 1.9.x), há algumas alterações para a API k8s que exigirão sua atenção.
 
 * [Migrar um ThirdPartyResource para CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Alterações de API de cargas de trabalho nas versões 1.8 e 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
@@ -51,7 +51,7 @@ Exemplo:
 | NOME | Contagem | Tamanho da VM | Sistema operacional |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool1 | 1 | Standard_D2_v2 |  Windows |
 
 Como as máquinas virtuais serão implantadas na sua assinatura durante a migração, você precisa verificar se suas cotas e limites são suficientes para esses recursos. Saiba mais examinando [Assinatura do Azure e limites de serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits). Para verificar suas cotas atuais, acesse a [folha de assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no Portal do Azure, selecione sua assinatura e, em seguida, selecione `Usage + quotas`.
 
@@ -91,7 +91,7 @@ Há vários fatores a considerar se você estiver migrando Volumes Persistentes 
 7. Validar
 8. Direcionar o tráfego para o cluster do AKS
 
-> **Importante**: se você optar por não fechar as gravações para novas sessões, será preciso replicar os dados para a nova implantação, pois os dados que foram gravados desde o instantâneo do disco estarão ausentes
+> **Importante**: Se você optar por não gravações de fechamento para novas sessões, você precisará replicar os dados para a nova implantação, como você perderá os dados que foram gravados desde o instantâneo do disco
 
 Existem ferramentas de software livre que podem ajudar a criar Discos Gerenciados e migrar volumes entre clusters de Kubernetes.
 
@@ -144,7 +144,7 @@ Faça as modificações necessárias nas suas definições YAML. Exemplo: substi
 
 ### <a name="3-optional-migrate-volumes"></a>3. (Opcional) Migrar volumes
 
-Migre volumes do seu cluster do ACS para o cluster do AKS. Mais detalhes podem ser encontrados na seção [Migrar volumes persistentes](#Migrating-Persistent-Volumes).
+Migre volumes do seu cluster do ACS para o cluster do AKS. Mais detalhes podem ser encontrados na seção [Migrar volumes persistentes](#migrating-persistent-volumes).
 
 ### <a name="4-deploy-applications"></a>4. Implantar aplicativos
 

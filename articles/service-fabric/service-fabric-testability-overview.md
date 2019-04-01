@@ -4,7 +4,7 @@ description: Este artigo descreve o Serviço de Análise de Falha no Service Fab
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425231"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662346"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falha
 O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Microsoft Azure Service Fabric. Com o Serviço de Análise de Falha, é possível induzir falhas significativas e executar cenários de teste completos para seus aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.
@@ -46,9 +46,9 @@ Quando uma ação de falha ou cenário de teste é iniciado, um comando é envia
 ## <a name="testing-distributed-systems"></a>Testando sistemas distribuídos
 A Malha do Serviço facilita muito o trabalho de escrever e gerenciar aplicativos escalonáveis distribuídos. O Serviço de Análise de Falha facilita da mesma forma o teste de um aplicativo distribuído. Há três problemas principais que precisam ser resolvidos durante o teste:
 
-1. Simulação/geração de falhas que podem ocorrer em cenários reais: um dos aspectos importantes do Service Fabric é que ele permite que os aplicativos distribuídos se recuperem de várias falhas. No entanto, a fim de testar se o aplicativo é capaz de recuperar-se dessas falhas, precisamos de um mecanismo para simular/gerar essas falhas reais em um ambiente de teste controlado.
-1. A capacidade de gerar as falhas correlacionadas: falhas básicas no sistema, tais como falha de rede e falhas do computador, são fáceis de produzir individualmente. Gerar uma quantidade considerável de cenários que podem ocorrer no mundo real como resultado de interações dessas falhas individuais não é algo simples.
-1. Experiência unificada em vários níveis de desenvolvimento e implantação: há muitos sistemas de injeção de falha que podem executar vários tipos de falhas. No entanto, a experiência em todos eles é ruim ao mudar de um cenário de desenvolvedor one box para a execução dos mesmos testes em ambientes de teste de grande porte a fim de usá-los para teste em produção.
+1. Simulação/geração de falhas que podem ocorrer em cenários do mundo real: Um dos aspectos importantes do Service Fabric é que ele permite que aplicativos distribuídos se recuperem de várias falhas. No entanto, a fim de testar se o aplicativo é capaz de recuperar-se dessas falhas, precisamos de um mecanismo para simular/gerar essas falhas reais em um ambiente de teste controlado.
+1. A capacidade de gerar falhas correlacionadas: Falhas básicas no sistema, como falhas de rede e de máquina, são fáceis de produzir individualmente. Gerar uma quantidade considerável de cenários que podem ocorrer no mundo real como resultado de interações dessas falhas individuais não é algo simples.
+1. Experiência unificada em vários níveis de desenvolvimento e implantação: Há muitos sistemas de injeção de falhas que podem executar vários tipos de falhas. No entanto, a experiência em todos eles é ruim ao mudar de um cenário de desenvolvedor one box para a execução dos mesmos testes em ambientes de teste de grande porte a fim de usá-los para teste em produção.
 
 Embora haja muitos mecanismos para resolver esses problemas, falta um sistema que faça o mesmo com as garantias exigidas completamente, desde o ambiente de desenvolvedor one box até o teste em clusters de produção. O Serviço de Análise de Falha ajuda o desenvolvedor de aplicativos a se concentrar no teste da sua lógica de negócios. O Serviço de Análise de Falha fornece todos os recursos necessários para testar a interação do serviço com o sistema distribuído subjacente.
 
@@ -58,7 +58,7 @@ A fim de testar a robustez de um sistema distribuído contra falhas, precisamos 
 1. No cliente, emita uma solicitação de desligamento do nó.
 1. Envie a solicitação ao nó correto.
    
-    a. Se o nó não for encontrado, a solicitação falhará.
+     a. Se o nó não for encontrado, a solicitação falhará.
    
     b. Se o nó for encontrado, haverá retorno apenas se ele for desligado.
 

@@ -4,7 +4,7 @@ description: Uma visão geral conceitual para a migração de aplicativos dos Se
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206475"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669439"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
 O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
@@ -29,11 +29,11 @@ Este é um guia introdutório para migrar aplicativos dos Serviços de Nuvem par
 ## <a name="applications-and-infrastructure"></a>Aplicativos e infraestrutura
 Uma diferença fundamental entre os Serviços de Nuvem e o Service Fabric é a relação entre as VMs, as cargas de trabalho e os aplicativos. Aqui, uma carga de trabalho é definida como o código que você escreve para executar uma tarefa específica ou fornecer um serviço.
 
-* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.** O código que você escreve está acoplado a uma instância de VM, como uma função de trabalho ou Web. A implantação de uma carga de trabalho nos Serviços de Nuvem é a implantação de uma ou mais instâncias de VM que executam a carga de trabalho. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
+* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.**  O código que você escreve está acoplado a uma instância de VM, como uma função de trabalho ou Web. A implantação de uma carga de trabalho nos Serviços de Nuvem é a implantação de uma ou mais instâncias de VM que executam a carga de trabalho. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
 
 ![Topologia e aplicativos dos Serviços de Nuvem][1]
 
-* **O Service Fabric diz respeito à implantação de aplicativos em máquinas virtuais existentes ou computadores que executam o Service Fabric no Windows ou no Linux.** Os serviços que você escreve são completamente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicativo Service Fabric, para que um aplicativo possa ser implantado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo Service Fabric. Vários aplicativos podem ser implantados em um único cluster do Service Fabric.
+* **O Service Fabric diz respeito à implantação de aplicativos em máquinas virtuais existentes ou computadores que executam o Service Fabric no Windows ou no Linux.**  Os serviços que você escreve são completamente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicativo Service Fabric, para que um aplicativo possa ser implantado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo Service Fabric. Vários aplicativos podem ser implantados em um único cluster do Service Fabric.
 
 ![Topologia e aplicativos Service Fabric][2]
 
@@ -73,7 +73,7 @@ Com a comunicação direta, as camadas podem se comunicar diretamente por meio d
 
  A comunicação direta é um modelo de comunicação comum no Service Fabric. A principal diferença entre o Service Fabric e os Serviços de Nuvem é que você se conectar a uma máquina virtual, ao passo que no Service Fabric você se conecta a um serviço. Essa é uma distinção importante por duas razões:
 
-* Os serviços no Service Fabric não são associados às VMs que os hospedam. Os serviços podem mover-se pelo cluster e, na verdade, é o que se espera por vários motivos: balanceamento de recursos, failover, atualizações de aplicativos e da infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora. 
+* Serviços no Service Fabric não são associados às VMs que hospedam-los; serviços podem mover-se no cluster e, na verdade, são esperados para mover-se por vários motivos: Balanceamento de recursos, failover, as atualizações de aplicativo e a infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora. 
 * Uma VM no Service Fabric pode hospedar vários serviços, cada um com pontos de extremidade exclusivos.
 
 O Service Fabric fornece um mecanismo de descoberta de serviço chamado Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços. 

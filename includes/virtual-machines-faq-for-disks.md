@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407908"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671709"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -219,7 +219,7 @@ Sim, você pode optar por fazer failover para uma VM com os Managed Disks.
 
 **A migração tem algum impacto sobre as VMs do Azure protegidas pelo Azure Site Recovery por meio da replicação do Azure para o Azure?**
 
-Sim. Atualmente, a proteção do Azure Site Recovery de Azure para Azure para VMs com Managed Disks está disponível somente como um serviço de visualização pública.
+Sim. Atualmente, o Azure Site Recovery Azure para proteção do Azure para VMs com Managed Disks está disponível como um serviço GA.
 
 **Posso migrar VMs com discos não gerenciados localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
@@ -339,7 +339,7 @@ Sim.
 
 **Quais são os maiores tamanhos de disco com suporte pelo serviço de Backup do Azure e o Azure Site Recovery?**
 
-O maior tamanho de disco compatível pelo Backup do Azure e serviço do Azure Site Recovery é 4 TiB.
+O maior tamanho de disco compatível pelo Backup do Azure e serviço do Azure Site Recovery é 4 TiB. Suporte para os discos maiores até 32 TiB será adicionado em breve.
 
 **Quais são a VM recomendada tamanhos para os tamanhos de disco maiores (> 4 TiB) otimizado SSD Standard e discos de padrão HDD para alcançar o disco IOPS e largura de banda?**
 

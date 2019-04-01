@@ -28,7 +28,7 @@ items:
     href: ecommerce-retail-catalog-moderation.md
   - name: Moderação de conteúdo do Facebook
     href: facebook-post-moderation.md
-  - name: Moderação de vídeo e transcrição
+  - name: moderação de vídeos e transcrições
     href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Conceitos
   items:
@@ -38,80 +38,60 @@ items:
     href: text-moderation-api.md
   - name: Moderação de vídeo
     href: video-moderation-human-review.md
-  - name: Trabalhos e análises
+  - name: Ferramenta de análise
+    href: Review-Tool-User-Guide/human-in-the-loop.md
+  - name: Revisões, fluxos de trabalho e trabalhos
     href: review-api.md
-  - name: Fluxos de trabalho
-    href: workflow-api.md
 - name: Guias de instruções
   items:
-  - name: Usar os Serviços de moderação
+  - name: Moderar conteúdo
     items:
-    - name: APIs de Moderação
+    - name: API REST
       items:
-      - name: Usar o .NET SDK
-        items:
-        - name: Verificar conteúdo do vídeo
-          href: video-moderation-api.md
-        - name: Verificar imagens em listas personalizadas
-          href: image-lists-quickstart-dotnet.md
-        - name: Verificar texto em termos personalizados
-          href: term-lists-quickstart-dotnet.md
-      - name: Usando APIs REST
-        items:
-        - name: Imagens – console de API
-          href: try-image-api.md
-        - name: Imagens personalizadas – console de API
-          href: try-image-list-api.md
-        - name: Texto – console de API
-          href: try-text-api.md
-        - name: Termos personalizados – console de API
-          href: try-terms-list-api.md
-  - name: Usar a ferramenta de Análise
+      - name: Imagens – console de API
+        href: try-image-api.md
+      - name: Imagens personalizadas – console de API
+        href: try-image-list-api.md
+      - name: Texto – console de API
+        href: try-text-api.md
+      - name: Termos personalizados – console de API
+        href: try-terms-list-api.md
+    - name: SDK .NET
+      items:
+      - name: Verificar conteúdo do vídeo
+        href: video-moderation-api.md
+      - name: Verificar imagens em listas personalizadas
+        href: image-lists-quickstart-dotnet.md
+      - name: Verificar texto em termos personalizados
+        href: term-lists-quickstart-dotnet.md
+  - name: Definir e usar revisões
     items:
-    - name: Analisar APIs
-      items:
-      - name: Usar o .NET SDK
-        items:
-        - name: Trabalhos – .NET
-          href: moderation-jobs-quickstart-dotnet.md
-        - name: Análises – .NET
-          href: moderation-reviews-quickstart-dotnet.md
-        - name: Análises de vídeo – .NET
-          href: video-reviews-quickstart-dotnet.md
-        - name: Análises de transcrição do vídeo – .NET
-          href: video-transcript-reviews-quickstart-dotnet.md
-      - name: Usando APIs REST
-        items:
-        - name: Trabalhos – console de API
-          href: try-review-api-job.md
-        - name: Análises – console de API
-          href: try-review-api-review.md
-        - name: Fluxos de trabalho – console de API
-          href: try-review-api-workflow.md
-    - name: Revisar visão geral da ferramenta
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Revisar configurações da ferramenta
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Gerenciar equipe
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Usar marcações
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Analisar imagens
+    - name: Ferramenta de revisão (navegador)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Analisar texto
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Gerenciar credenciais
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: Usar conectores
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: Usar os fluxos de trabalho
+    - name: API REST
+      href: try-review-api-review.md
+    - name: SDK .NET
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Análises de vídeo (.NET)
+      href: video-reviews-quickstart-dotnet.md
+    - name: Análises de transcrição do vídeo (.NET)
+      href: video-transcript-reviews-quickstart-dotnet.md
+  - name: Definir e usar fluxos de trabalho
+    items:
+    - name: Ferramenta de revisão (navegador)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Exibir painel
-      href: Review-Tool-User-Guide/View-Dashboard.md
+    - name: API REST
+      href: try-review-api-workflow.md
+  - name: Definir e usar trabalhos
+    items:
+    - name: API REST
+      href: try-review-api-job.md
+    - name: SDK .NET
+      href: moderation-jobs-quickstart-dotnet.md
+  - name: Configurar a ferramenta de análise
+    href: Review-Tool-User-Guide/Configure.md
   - name: Exportar ou excluir dados da conta
     href: ./export-delete-data.md
-  - name: Série de webinars do Azure
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Referência
   items:
   - name: API do Content Moderator
@@ -142,6 +122,8 @@ items:
       href: samples-rest.md
     - name: Outros exemplos do Azure
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+  - name: Série de webinars do Azure
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Perguntas frequentes
     href: FAQs.md
   - name: Preços e limites
@@ -158,9 +140,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: cee9e6c585dfa65ccee5c0f4631b5efc81dde760
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8948caa31d1fa464f13295a4dd4c1174b88543f5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900702"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758144"

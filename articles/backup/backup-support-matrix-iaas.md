@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649804"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e máquinas virtuais (VMs). Este artigo resume as configurações de suporte e limitações quando você faz backup de VMs do Azure com o Backup do Azure.
@@ -129,7 +129,7 @@ Restaure em região/assinatura/zona. | Sem suporte.
 Restaurar uma VM existente | Use a opção para substituir disco.
 Restaurar o disco com a conta de armazenamento habilitada com a Criptografia do Serviço de Armazenamento do Azure (SSE) | Sem suporte.<br/><br/> Restaure em uma conta que não esteja habilitado com SSE.
 Restaurar as contas de armazenamento mistas | Sem suporte.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados serão premium ou standard e não mistos.
-Restaurar a conta de armazenamento usando o armazenamento com redundância de zona (ZRS) | Sem suporte.
+Restaurar a conta de armazenamento usando o armazenamento com redundância de zona (ZRS) | Com suporte (para VM que são armazenados em backup depois de janeiro de 2019 e onde [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) estão disponíveis)
 Restaurar VM diretamente em um conjunto de disponibilidade | Para discos gerenciados, você pode restaurar o disco e use a opção de conjunto de disponibilidade no modelo.<br/><br/> Sem suporte para discos não gerenciados. Para discos não gerenciados, restaure o disco e crie uma VM no conjunto de disponibilidade.
 Restaurar o backup de VMs não gerenciadas, depois de atualizar para gerenciar a VM|  Com suporte.<br/><br/> Você pode restaurar discos e depois criar uma VM gerenciada.
 Restaurar uma VM em um ponto de restauração antes de migrar a VM para discos gerenciados |  Com suporte.<br/><br/> Restaure os discos não gerenciados (padrão), converta os discos restaurados para discos gerenciados e crie uma VM com discos gerenciados.
@@ -149,6 +149,7 @@ Fazer backup de VMs que são implantadas em um [conjunto de dimensionamento](htt
 Fazer backup de VMs implantadas por meio do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, por terceiros) |   Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs que são implantadas de uma imagem personalizada (terceiros) |    Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs que são migradas para o Azure  |  Com suporte.<br/><br/> Para fazer backup da VM, o agente da VM deve estar instalado no computador migrado.
+Fazer backup de consistência de VMs | Sem suporte. <br/><br/>O Backup do Azure não dá suporte à consistência de várias VMs.
 
 
 
@@ -165,6 +166,7 @@ Discos com o Acelerador de Gravação habilitado | Sem suporte.<br/><br/> Se voc
 Fazer backup de discos com eliminação de duplicação | Sem suporte.
 Adicionar o disco à VM protegida |  Com suporte.
 Redimensionar o disco em uma VM protegida |  Com suporte.
+Armazenamento compartilhado| Não é recomendável fazer backup de VMs usando CSV ou servidor de arquivos de escalabilidade horizontal. Os gravadores de CSV provavelmente falharão.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 

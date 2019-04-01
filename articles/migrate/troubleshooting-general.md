@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482905"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652630"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -102,7 +102,7 @@ Você pode acessar a seção **Essentials** na página **Visão geral** do proje
    - Clique em Arquivo > Implantar modelo OVF > navegue até o arquivo OVA e conclua a implantação
 4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Não é possível selecionar o Azure na nuvem no dispositivo
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Não é possível selecionar o Azure na nuvem no dispositivo, falha com o erro "Falha na seleção de nuvem do Azure"
 
 Esse é um problema conhecido e uma correção está disponível para o problema. Baixe o [mais recente atualização bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para o dispositivo e o dispositivo para aplicar a correção de atualização.
 
