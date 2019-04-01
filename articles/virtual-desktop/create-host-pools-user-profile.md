@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403707"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628997"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configure um compartilhamento de perfil de usuário para um pool de host
+# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar um compartilhamento de perfil do usuário para um pool de host
 
 O serviço de visualização de área de trabalho Virtual do Windows oferece FSLogix contêineres de perfil como a solução de perfil do usuário recomendada. Não recomendamos usar a solução de disco de perfil de usuário (UDP), e ele será preterido em versões futuras do Windows de área de trabalho Virtual.
 
-Esta seção informa como configurar um compartilhamento de contêiner FSLogix perfil para um pool de host.
+Esta seção informa como configurar um compartilhamento de contêiner FSLogix perfil para um pool de host. Para obter documentação geral sobre FSLogix, consulte o [FSLogix site](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Criar uma nova máquina virtual que atuará como um compartilhamento de arquivos
 
@@ -48,14 +48,14 @@ A seguir estão as instruções gerais sobre como preparar uma máquina virtual 
 6. Pesquise o grupo de segurança ao qual você adicionou as máquinas de virtuais do host de sessão e, em seguida, verifique se esse grupo tem **controle total**.
 7. Depois de adicionar o grupo de segurança, clique com botão direito na pasta, selecione **propriedades**, selecione **compartilhamento**, em seguida, copie o **caminho de rede** usar para uso posterior.
 
-Para obter recomendações sobre permissões, consulte o seguinte [FSLogix documentação](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Para obter mais informações sobre permissões, consulte a [FSLogix documentação](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurar o contêiner de perfil FSLogix
 
 Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte em cada computador registrado para o pool de host:
 
 1. [Conectar-se à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais que você forneceu ao criar a máquina virtual.
-2. Inicie um navegador da internet e navegue até o seguinte [link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente FSLogix. Como parte da demonstração pública do Windows de área de trabalho Virtual, você obterá uma chave de licença para ativar o software FSLogix. A chave é o arquivo LicenseKey.txt incluído no arquivo. zip FSLogix agente.
+2. Inicie um navegador da internet e navegue até [esse link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente FSLogix. Como parte da demonstração pública do Windows de área de trabalho Virtual, você obterá uma chave de licença para ativar o software FSLogix. A chave é o arquivo LicenseKey.txt incluído no arquivo. zip FSLogix agente.
 3. Instale o agente FSLogix.
 4. Navegue até **Program Files** > **FSLogix** > **aplicativos** para confirmar se o agente instalado.
 5. No menu Iniciar, executar **RegEdit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfis**
@@ -65,7 +65,7 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 |---------------------|--------------------|-----------------------------------|
 | habilitado             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos" |
-| VolumeType          | Cadeia de caracteres             |  VHDX                              |
+| VolumeType          | Cadeia de caracteres             | VHDX                              |
 | SizeInMBs           | DWORD              | "inteiro para o tamanho do perfil de"     |
 | IsDynamic           | DWORD              | 1                                 |
 | LockedRetryCount    | DWORD              | 1                                 |
