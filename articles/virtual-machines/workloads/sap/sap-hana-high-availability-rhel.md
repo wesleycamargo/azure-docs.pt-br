@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082170"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669037"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -108,7 +108,7 @@ Para implantar o modelo, siga estas etapas:
     * **Tipo de banco de dados**: Selecionar **HANA**.
     * **Tamanho do Sistema SAP**: Insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     * **Disponibilidade do Sistema**: Selecione **HA**.
-    * **Chave de Admin Username, a senha de administrador ou SSH**: É criado um novo usuário que pode ser usado para fazer logon no computador.
+    * **Chave de Admin Username, a senha de administrador ou SSH**: Um novo usuário é criado que pode ser usado para fazer logon máquina.
     * **ID da Sub-rede**: Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>**. Deixe em branco, se você quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implantação manual
@@ -185,7 +185,7 @@ Para obter mais informações sobre as portas necessárias para SAP HANA, leia o
 
 > [!IMPORTANT]
 > Não habilite os carimbos de hora do TCP em VMs do Azure colocadas por trás do balanceador de carga do Azure. Habilitar TCP carimbos de hora fará com que as investigações de integridade falha. Defina o parâmetro **net.ipv4.tcp_timestamps** à **0**. Para obter detalhes, consulte [investigações de integridade do balanceador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> Nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) atualmente contém a instrução contraditória, indicando que você deve definir net.ipv4.tcp_timestamps como 1. Para VMs do Azure colocadas por trás do balanceador de carga do Azure, defina o parâmetro **net.ipv4.tcp_timestamps** à **0**.
+> Consulte também SAP Observação [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Instalar SAP HANA
 
@@ -382,14 +382,14 @@ As etapas nesta seção usam os seguintes prefixos:
 
    Se você estiver usando o SAP HANA 2.0 ou o MDC, crie um banco de dados de locatário para o sistema SAP NetWeaver. Substitua **NW1** pelo SID do sistema SAP.
 
-   Faça o logon como \<hanasid>adm e execute o comando a seguir:
+   Executar como < hanasid\>adm o seguinte comando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó:
 
-   Faça logon como \<hanasid>adm e faça backup dos bancos de dados:
+   Fazer backup de bancos de dados, como < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no segundo nó:
     
-   Registre o segundo nó para iniciar a replicação de sistema. Faça logon como \<hanasid>adm e execute o comando a seguir:
+   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando, como < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Crie os usuários necessários.
 
-   Faça login como raiz e execute o seguinte comando. Certifique-se de substituir as cadeias em negrito (ID do Sistema HANA **HN1** e o número da instância **03**) pelos valores da sua instalação do SAP HANA:
+   Execute o comando a seguir como raiz. Certifique-se de substituir as cadeias em negrito (ID do Sistema HANA **HN1** e o número da instância **03**) pelos valores da sua instalação do SAP HANA:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[A]** Crie a entrada do repositório de chaves.
 
-   Faça logon como raiz e execute o seguinte comando para criar uma nova entrada de repositório de chaves:
+   Execute o comando a seguir como raiz para criar uma nova entrada de repositório de chaves:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Faça backup do banco de dados.
 
-   Faça logon como raiz e faça backup dos bancos de dados:
+   Fazer backup de bancos de dados como raiz:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó.
 
-   Faça logon como \<hanasid>adm e crie o site primário:
+   Criar o site primário como < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no nó secundário.
 
-   Faça logon como \<hanasid>adm e registre o site secundário:
+   Registre o site secundário como < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
