@@ -1,6 +1,6 @@
 ---
-title: Entender o ASC para recomendações de segurança de IoT visualização | Microsoft Docs
-description: Saiba mais sobre o conceito de recomendações de segurança e como eles são usados no ASC para IoT.
+title: Entender a Central de segurança do Azure para as recomendações de segurança de IoT Preview | Microsoft Docs
+description: Saiba mais sobre o conceito de recomendações de segurança e como eles são usados na Central de segurança do Azure para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576183"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754812"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT examina seus dispositivos IoT e os recursos do Azure e fornece recomendações de segurança para reduzir a superfície de ataque. Recomendações de segurança são acionáveis e ter como objetivo ajudar os clientes em conformidade com práticas recomendadas de segurança.
+Central de segurança (ASC) do Azure para IoT examina seus dispositivos IoT e os recursos do Azure e fornece recomendações de segurança para reduzir a superfície de ataque. Recomendações de segurança são acionáveis e ter como objetivo ajudar os clientes em conformidade com práticas recomendadas de segurança.
 
 Neste artigo, você encontrará uma lista de recomendações que podem ser disparados em seu IoT Hub e/ou dispositivos IoT.
 
@@ -37,7 +37,7 @@ Recomendações do dispositivo fornecem ideias e sugestões para melhorar a post
 
 | Severity | NOME                                                      | Fonte de dados | DESCRIÇÃO                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Média   | Abrir portas no dispositivo                                      | Agente       | Um ponto de extremidade de escuta foi encontrado no dispositivo                                                                                                                                                          |
+| Média   | Abrir portas no dispositivo                                      | Agente       | Foi encontrado um ponto de extremidade de escuta no dispositivo                                                                                                                                                          |
 | Média   | Política de firewall permissivo encontrada em uma das cadeias de. | Agente       | Permitido encontrada (entrada/saída) de diretiva de firewall. Política de firewall deve negar todo o tráfego por padrão e definem regras para permitir a comunicação necessária de/para o dispositivo.                               |
 | Média   | Regra de firewall permissivas na cadeia de entrada foi encontrada     | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma ampla variedade de portas ou endereços IP.                                                                                    |
 | Média   | Regra de firewall permissivas na cadeia de saída foi encontrada    | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma ampla variedade de portas ou endereços IP.                                                                                   |

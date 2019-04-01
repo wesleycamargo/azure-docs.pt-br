@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338234"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754897"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usar versões para editar e testar sem afetar aplicativos de preparo ou produção
 
@@ -59,13 +59,13 @@ Selecione uma versão na lista e selecione **Tornar Ativa** na barra de ferramen
 
 ### <a name="import-errors"></a>Erros de importação
 
-* Erros de criador de token: Se você receber um **erro tokenizer** durante a importação, você está tentando importar uma versão que usa outro [tokenizer](luis-language-support.md#custom-tokenizer-versions) que o aplicativo usa atualmente. Para corrigir isso, você tem duas opções. Ver [migrar entre as versões do tokenizer](luis-language-support.md#migrating-between-tokenizer-versions) para obter mais informações.
+* Erros de criador de token: Se você receber um **erro tokenizer** durante a importação, você está tentando importar uma versão que usa outro [tokenizer](luis-language-support.md#custom-tokenizer-versions) que o aplicativo usa atualmente. Para corrigir esse problema, consulte [migrar entre as versões do tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
 ## <a name="other-actions"></a>Outras ações
 
-* Para **excluir** uma versão, selecione-a na lista e selecione **Excluir** na barra de ferramentas. Selecione **Okey**. 
+* Para **excluir** uma versão, selecione-a na lista e selecione **Excluir** na barra de ferramentas. Selecione **Ok**. 
 * Para **renomear** uma versão, selecione-a na lista e selecione **Renomear** na barra de ferramentas. Insira o novo nome e selecione **Concluído**. 
 * Para **exporta** uma versão, selecione-a na lista e selecione **Exportar aplicativo** na barra de ferramentas. O arquivo é baixado em seu computador local. 
 

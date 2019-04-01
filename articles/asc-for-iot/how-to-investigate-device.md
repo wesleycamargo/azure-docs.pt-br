@@ -1,6 +1,6 @@
 ---
-title: ASC para guia básico de investigação de dispositivo IoT Preview | Microsoft Docs
-description: Este guia de instruções explica como usar o ASC para IoT para investigar um dispositivo IoT suspeito usando o Log Analytics.
+title: Central de segurança do Azure para guia básico de investigação de dispositivo IoT Preview | Microsoft Docs
+description: Este guia de instruções explica como usar a Central de segurança do Azure para IoT para investigar um dispositivo IoT suspeito usando o Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580532"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755235"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para alertas de serviço de IoT e evidência fornecem indicações claras quando dispositivos IoT são suspeitos de envolvimento com atividades suspeitas ou quando indicações existem que um dispositivo está comprometido. 
+Central de segurança do Azure (ASC) para a evidência e os alertas do serviço IoT fornecem indicações claras quando dispositivos IoT são suspeitos de envolvimento com atividades suspeitas ou quando indicações existem que um dispositivo está comprometido. 
 
 Neste guia, use as sugestões de investigação fornecidas para ajudar a determinar os riscos potenciais para sua organização, decida como corrigir e descobrir as melhores maneiras de evitar ataques semelhantes no futuro.  
 

@@ -3,16 +3,16 @@ title: Tutorial - Implemente do GitHub para o Azure Kubernetes Service (AKS) com
 description: Configurar o Jenkins para integração contínua (CI) do GitHub e da implantação contínua (CD) para o Serviço de Kubernetes do Azure (AKS)
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188446"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756071"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar o GitHub para o AKS (Serviço de Kubernetes do Azure) com a integração e implantação contínuas do Jenkins
 
@@ -227,15 +227,15 @@ Clique em **OK** e retorne ao portal do Jenkins.
 Na página inicial do portal do Jenkins, selecione **Novo item** no lado esquerdo:
 
 1. Insira *azure-vote* como nome do trabalho. Escolha **Projeto Freestyle** e selecione **OK**
-1. Na seção **Geral**, selecione o **projeto do GitHub** e insira a URL do repositório bifurcado, como *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Na seção **Gerenciamento de código-fonte**, selecione **Git** e insira a URL *.git* do repositório bifurcado, por exemplo, *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Sob o **gerais** seção, selecione **projeto GitHub** e insira a URL do repositório bifurcado, como *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Sob o **gerenciamento de código-fonte** seção, selecione **Git**, insira seu repositório bifurcado *. git* URL, como *https:\//github.com/\<sua conta github\>/azure-voting-app-redis.git*
 
 1. Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**
 1. Em **Ambiente de Build**, selecione **Usar arquivos ou textos secretos**
 1. Em **Associações**, selecione **Adicionar** > **Nome de usuário e senha (separados)**
-    - Digite `ACR_ID` para a **Variável de Nome de Usuário** e `ACR_PASSWORD` para a **Variável de Senha**
+   - Digite `ACR_ID` para a **Variável de Nome de Usuário** e `ACR_PASSWORD` para a **Variável de Senha**
 
-    ![Associações do Jenkins](media/aks-jenkins/bindings.png)
+     ![Associações do Jenkins](media/aks-jenkins/bindings.png)
 
 1. Opte por adicionar uma **Etapa de Build** do tipo **Executar shell** e use o texto a seguir. Esse script compila uma nova imagem de contêiner e envia-a por push para o registro de ACR.
 

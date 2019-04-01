@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094847"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758182"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Ao provisionar um ambiente de versão prévia do Azure Time Series Insights, é 
 Saiba [como planejar o ambiente](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Se você estiver usando uma conta v2, não habilite as propriedades de arquivamento/frio na conta de armazenamento que será utilizada.
+> Para a visualização, verifique se você estiver usando um armazenamento do Azure, uso geral v1 (GPv1) de conta.  Suporte para GPv2 e posterior será adicionado em breve.  
 
 Opcionalmente, você poderá associar cada ambiente de Versão Prévia do Azure Time Series Insights a uma origem do evento. Para obter mais informações, leia [Adicionar uma origem de Hub de Eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md) e [Adicionar uma origem de Hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Durante essa etapa, você fornecerá uma propriedade de ID de carimbo de data/hora e um grupo de consumidores exclusivo. Isso garante que o ambiente tenha acesso aos eventos apropriados.
 

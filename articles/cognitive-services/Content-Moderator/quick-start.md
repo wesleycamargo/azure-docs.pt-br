@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Experimentar o Content Moderator na Web – Content Moderator'
+title: 'Início Rápido: Experimentar o Content Moderator na Web – Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861163"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756461"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
@@ -69,5 +69,5 @@ Ou então, continue com as próximas etapas para começar a usar as APIs de mode
 
 Aprenda a usar as próprias APIs de moderação no seu aplicativo.
 - Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou o [C# quickstart](image-moderation-quickstart-dotnet.md) para varrer imagens e detectar conteúdo adulto e vigoroso usando tags, índices de confiança e outras informações extraídas.
-- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou use o [C# quickstart](text-moderation-quickstart-dotnet.md) para verificar conteúdo de texto em busca de palavrões, classificação de texto indesejado assistido por computador (preview) e informações de identificação pessoal (PII). 
+- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou usar o [ C# guia de início rápido](text-moderation-quickstart-dotnet.md) para examinar o conteúdo de texto para possíveis palavrões, classificação de texto indesejado auxiliada por computador (visualização) e dados pessoais.
 - Implementar a moderação de vídeo. Siga as [guia de instruções de moderação de vídeo para C# ](video-moderation-api.md) para verificar a vídeos e detectar possível conteúdo adulto. 

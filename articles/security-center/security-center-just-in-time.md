@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199827"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758309"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando JIT
 
@@ -162,9 +162,13 @@ No portal do Azure, ao tentar se conectar a uma VM, o Azure verifica se você co
 
   ![Solicitação de JIT](./media/security-center-just-in-time/jit-prompt.png)
 
-- Se houver uma política JIT configurada na VM, é possível clicar em **Solicitar acesso** para poder ter acesso de acordo com a política JIT definida para a VM.
+- Se houver uma política JIT configurada na VM, é possível clicar em **Solicitar acesso** para poder ter acesso de acordo com a política JIT definida para a VM. O acesso é solicitado com os seguintes parâmetros de padrão:
+    - **IP de origem**: 'Any' (*) (não pode ser alterado)
+    - **intervalo de tempo**: 3 horas (não pode ser alterado)
+    - **número da porta** RDP da porta 3389 para Windows / porta 22 para Linux (você pode alterar o número da porta a **conectar-se a máquina virtual** caixa de diálogo.)
 
-  ![Solicitar acesso JIT](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![Solicitar acesso JIT](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Auditar a atividade do acesso JIT
 

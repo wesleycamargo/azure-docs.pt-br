@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223147"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756013"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acessar a API dos Serviços de Mídia do Azure com a CLI do Azure
  
@@ -40,10 +40,19 @@ Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome d
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
-
-[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
-
 ## <a name="see-also"></a>Consulte também
+
+- [Dimensionar as unidades reservadas para mídia – CLI](media-reserved-units-cli-how-to.md)
+- [Criar uma conta dos Serviços de Mídia – CLI](./scripts/cli-create-account.md) 
+- [Redefinir as credenciais da conta – CLI](./scripts/cli-reset-account-credentials.md)
+- [Criar ativos – CLI](./scripts/cli-create-asset.md)
+- [Carregar um arquivo – CLI](./scripts/cli-upload-file-asset.md)
+- [Criar transformações – CLI](./scripts/cli-create-transform.md)
+- [Criar trabalhos – CLI](./scripts/cli-create-jobs.md)
+- [Criar uma EventGrid – CLI](./scripts/cli-create-event-grid.md)
+- [Publicar um ativo – CLI](./scripts/cli-publish-asset.md)
+- [Filtro – CLI](filters-dynamic-manifest-cli-howto.md)
+
+## <a name="next-steps"></a>Próximas etapas
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

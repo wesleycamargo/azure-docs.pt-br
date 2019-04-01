@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075059"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758109"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserir widgets do Video Indexer em seus aplicativos
 
 Este artigo mostra como inserir widgets do Video Indexer em seus aplicativos. O Video Indexer é compatível com a inserção de dois tipos de widgets em seu aplicativo: **Insights Cognitivos** e **Player**. 
-
-> [!NOTE]
-> Desde 1º de fevereiro de 2018, a versão 1 do widget **Insights Cognitivos** foi preterida. A versão de URL de inserção usará como padrão `version=2`.
 
 A partir da versão 2, a URL base do widget inclui a região da conta. Por exemplo, uma conta da região Oeste dos EUA gera: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ Um widget **Insights cognitivos** inclui todos os insights visuais que foram ext
 |NOME|Definição|DESCRIÇÃO|
 |---|---|---|
 |widgets|Cadeias de caracteres separadas por vírgula|Permite controlar os insight que você deseja renderizar. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderizará apenas insights de interface do usuário de pessoas e marcas<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>não tem suporte por meio de URL na versão = 2<br/><br/>**Observação:** O parâmetro de URL **widgets** não tem suporte quando a **versão = 2** é usada. |
-|version|Versões do widget de **Insights Cognitivos**|Para obter as mais recentes atualizações do widget de insights, adicione o parâmetro de consulta `?version=2` à URL de inserção. Por exemplo, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obter a versão mais antiga, basta remover `version=2` da URL.
 
 ### <a name="player-widget"></a>Widget do player
 

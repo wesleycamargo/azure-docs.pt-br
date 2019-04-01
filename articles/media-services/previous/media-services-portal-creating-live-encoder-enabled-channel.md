@@ -1,5 +1,5 @@
 ---
-title: Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal do Azure | Microsoft Docs
+title: Executar uma transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits com o portal do Azure | Microsoft Docs
 description: Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258081"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757787"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como executar uma transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com o portal do Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar uma transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com o portal do Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+1. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produção de transmissão ao vivo com o OBS).
 
     Essa etapa também pode ser realizada após a criação do canal.
-2. Crie e inicie um Canal. 
-3. Recupere a URL de ingestão do canal. 
+1. Crie e inicie um Canal. 
+1. Recupere a URL de ingestão do canal. 
 
     A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-4. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal. 
 
     Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
-5. Crie um evento/programa (que também criará um ativo). 
-6. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).    
-7. Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento.
-8. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-9. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
-10. Exclua o evento (e, opcionalmente, exclua o ativo).   
-
-## <a name="in-this-tutorial"></a>Neste tutorial
-Neste tutorial, o portal do Azure é usado para realizar as seguintes tarefas: 
-
-1. Crie um canal que esteja habilitado para realizar a codificação ao vivo.
-2. Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal.
-3. Criar um evento/programa (e um ativo).
-4. Publicar o ativo e obter URLs de streaming.  
-5. Reproduzir o conteúdo.
-6. Limpar.
+1. Crie um evento/programa (que também criará um ativo). 
+1. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).    
+1. Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento.
+1. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
+1. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
+1. Exclua o evento (e, opcionalmente, exclua o ativo).   
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Os itens a seguir são necessários para concluir o tutorial.
 
 * Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. 
@@ -78,6 +70,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 * Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
 
 ## <a name="create-a-channel"></a>Criar um canal
+
 1. No [Portal do Azure](https://portal.azure.com/), selecione Serviços de Mídia e clique no nome da conta dos Serviços de Mídia.
 2. Escolha **Transmissão ao Vivo**.
 3. Escolha **Criação personalizada**. Essa opção permitirá a criação de um canal habilitado para codificação ativa.
@@ -120,9 +113,10 @@ Para obter mais informações, consulte [Transmissão ao vivo usando os Serviço
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![urls de ingestão](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerenciar eventos
+
 ### <a name="overview"></a>Visão geral
 Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos/programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 
@@ -154,7 +148,7 @@ Há duas maneiras de começar o evento:
 
     Especifique: nome do evento, nome do ativo, janela de arquivo e opção de criptografia.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Criar programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Se você deixou a opção **Publicar este evento ao vivo agora** marcada, o evento PUBLICANDO URLS será criado.
 

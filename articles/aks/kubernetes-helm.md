@@ -2,17 +2,17 @@
 title: Implantar contêineres com Helm no Kubernetes no Azure
 description: Saiba como usar a ferramenta de empacotamento Helm para implantar contêineres em um cluster do serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2019
-ms.author: iainfou
-ms.openlocfilehash: ccd98f5bf859673ae69b80dfcd0e5020ba289682
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: zarhoads
+ms.openlocfilehash: 0ebf317bf29a378f8cbbed647d3d3e07d2aa6bab
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768545"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757183"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)
 

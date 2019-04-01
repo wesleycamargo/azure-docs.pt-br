@@ -1,5 +1,5 @@
 ---
-title: Revisar imagens marcadas – Content Moderator
+title: Usar revisões de conteúdo por meio da ferramenta de revisão - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Saiba como a ferramenta de revisão permite que moderadores humanos revisem imagens em um portal da Web.
 services: cognitive-services
@@ -8,39 +8,52 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: e096e65e3016f33361f772a75ab8f71603970a5f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096598"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758498"
 ---
-# <a name="let-human-reviewers-review-images"></a>Deixar os revisores humanos revisarem imagens
+# <a name="create-human-reviews"></a>Criar análises humanas
 
-Depois que você se inscreveu para o moderação de conteúdo e obteve uma chave de assinatura, você pode testar os recursos de análise de imagem.
+Neste guia, você aprenderá como configurar [revisa](../review-api.md#reviews) no site da ferramenta de revisão. Revisões de armazenam e exibem o conteúdo para moderadores humanos avaliar. Os moderadores podem alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas conforme apropriado. Quando um usuário conclui uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
 
-1. Abra a [ferramenta de análise humana](https://contentmoderator.cognitive.microsoft.com/) e faça logon. 
-2. Clique na guia Try e carregue algumas imagens para analisar.
-3. Clique na guia Análise e selecione a imagem.
+## <a name="prerequisites"></a>Pré-requisitos
 
-   ![Navegador Chrome que mostra a ferramenta de análise com a opção de examinar imagem realçada](images/review-images-1.png)
+- Entrar ou criar uma conta no Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) site.
 
-   As imagens aparecem com os rótulos que foram atribuídos pela ferramenta de análise. As imagens não estão disponíveis para outros revisores na sua equipe enquanto você as tiver revisando.
+## <a name="image-reviews"></a>Análises de imagem
 
-4. Mova o controle deslizante "Análises para exibir" (1) para ajustar o número de imagens exibidas na tela. Clique nos botões marcados ou desmarcados (2) para classificar as imagens adequadamente. Clique em uma marca (3) para ativá-lo ou desativá-lo.
+1. Vá para o [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione o **tente** guia e, em seguida, carregar algumas imagens para examinar.
+1. Depois de terminar processamento de imagens carregadas, vá para o **revisão** e selecione **imagem**.
 
-   ![Navegador Chrome mostrando a ferramenta Revisar com imagens marcadas para revisão](images/review-images-2.png)
- 
-5. Para obter mais informações sobre uma imagem, clique nas reticências em uma miniatura, seguido da opção **Exibir detalhes**. Para atribuir a imagem a um subequipe, selecione a opção **Mover para**.
- 
-   ![Uma imagem com a opção de exibição de detalhes realçada](images/review-images-3.png)
+    ![Navegador Chrome que mostra a ferramenta de análise com a opção de examinar imagem realçada](images/review-images-1.png)
 
-6. Procure as informações de moderação de imagem na página de detalhes.
+    As imagens exibidas com os rótulos que foram atribuídos pelo processo de moderação automática. As imagens que você tiver enviado por meio da ferramenta de revisão não são visíveis para outros revisores.
 
-   ![Uma imagem com detalhes de moderação listados em um painel separado](images/review-images-4.png)
- 
-7. Depois de ter revisado e atualizado as atribuições de marca, conforme necessário, clique em **Próximo** para enviar suas revisões.
+1. Se preferir, mova o **revisões para exibir** controle deslizante (1) para ajustar o número de imagens que são exibidas na tela. Clique no **marcadas** ou **sem marcas** botões (2) para classificar as imagens de forma adequada. Clique em um painel de marcas (3) para ativá-lo ativado ou desativado.
 
-Depois de enviar, você tem cerca de cinco segundos para clicar no botão **Prev** para retornar à tela anterior e examinar imagens novamente. Depois disso, as imagens não estarão mais na fila de envio e o botão **Prev** não estará mais disponível.
+    ![Navegador Chrome mostrando a ferramenta Revisar com imagens marcadas para revisão](images/review-images-2.png)
+
+1. Para obter mais informações sobre uma imagem, clique nas reticências na miniatura e marque **exibir detalhes**. Você pode atribuir uma imagem para uma subequipe com o **mover para** opção (consulte a [equipes](./configure.md#manage-team-and-subteams) seção para saber mais sobre subequipes).
+
+    ![Uma imagem com a opção de exibição de detalhes realçada](images/review-images-3.png)
+
+1. Procure as informações de moderação de imagem na página de detalhes.
+
+    ![Uma imagem com detalhes de moderação listados em um painel separado](images/review-images-4.png)
+
+1. Depois de ter revisado e atualizado as atribuições de marca, conforme necessário, clique em **Próximo** para enviar suas revisões. Depois de enviar, você tem cerca de cinco segundos para clicar no botão **Prev** para retornar à tela anterior e examinar imagens novamente. Depois disso, as imagens não estarão mais na fila de envio e o botão **Prev** não estará mais disponível.
+
+## <a name="text-reviews"></a>Análises de texto
+
+Texto examina a função da mesma forma que as revisões de imagem. Em vez de carregar o conteúdo, você simplesmente escreve ou colar em texto (até 1.024 caracteres). Em seguida, o Content Moderator analisa o texto e aplica marcas (além de outras informações de moderação, como conteúdo ofensivo e dados pessoais). Análises de texto, você pode alternar as marcas aplicadas e/ou aplicar marcações personalizadas antes de enviar a revisão.
+
+![Captura de tela da ferramenta de revisão mostrando o texto sinalizado em uma janela do navegador Chrome](../images/reviewresults_text.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste guia, você aprendeu a configurar e usar as revisões do Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com). Em seguida, consulte a [guia da API REST](../try-review-api-review.md) ou o [guia de SDK do .NET](../moderation-reviews-quickstart-dotnet.md) para aprender a criar as revisões de forma programática.

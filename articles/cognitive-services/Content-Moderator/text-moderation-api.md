@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864291"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757752"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
@@ -26,7 +26,7 @@ A resposta de serviço inclui as informações a seguir:
 
 - Conteúdo ofensivo: correspondência baseada em termos com lista interna de termos ofensivos em vários idiomas
 - Classificação: classificação assistida por computador em três categorias
-- PII (Informações de Identificação Pessoal)
+- Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
 - Linguagem
@@ -73,9 +73,9 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 - `Category2` refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou para adulto em determinadas situações.
 - `Category3` refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
 - `Score` fica entre 0 e 1. Quanto maior a pontuação, mais o modelo irá prever que a categoria pode ser aplicável. Esse recurso se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
-- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
+- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se é para usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
-## <a name="personally-identifiable-information-pii"></a>PII (Informações de Identificação Pessoal)
+## <a name="personal-data"></a>Dados pessoais
 
 O recurso PII detecta a presença potencial dessa informação:
 

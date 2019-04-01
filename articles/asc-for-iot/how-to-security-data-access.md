@@ -1,6 +1,6 @@
 ---
-title: Acessando dados com o ASC para versão prévia do IoT | Microsoft Docs
-description: Saiba mais sobre como acessar seus dados de alerta e a recomendação de segurança ao usar o ASC para IoT.
+title: Acessando dados usando a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
+description: Saiba mais sobre como acessar seus dados de alerta e a recomendação de segurança ao usar a Central de segurança do Azure para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576632"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758519"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança 
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT armazena dados brutos de segurança, recomendações e alertas de segurança (se você optar por salvá-lo) em seu espaço de trabalho do Log Analytics.
+Central de segurança (ASC) do Azure para IoT armazena dados brutos de segurança, recomendações e alertas de segurança (se você optar por salvá-lo) em seu espaço de trabalho do Log Analytics.
 
 ## <a name="log-analytics"></a>Log Analytics
 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | DESCRIÇÃO | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para um amplo intervalo de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para um amplo intervalo de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média | Ativo | Regra de firewall permissivas na cadeia de entrada foi encontrada | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou Portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>Resumo do dispositivo
 

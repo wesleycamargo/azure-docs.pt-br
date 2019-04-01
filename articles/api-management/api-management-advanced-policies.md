@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401912"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756606"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -253,7 +253,7 @@ Essa política de nível de operação não encaminha solicitações para o serv
 
 | Atributo                               | DESCRIÇÃO                                                                                                      | Obrigatório | Padrão     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | O intervalo de tempo limite em segundos antes de a chamada para o serviço de back-end falhar. Valor mínimo é 0 segundos. Valores máximos é de 240 segundos.| Não        | 240 segundos |
+| timeout="integer"                       | A quantidade de tempo em segundos a esperar para os cabeçalhos de resposta HTTP a ser retornado pelo serviço de back-end antes de um erro de tempo limite é gerada. Valor mínimo é 0 segundos. Valores superiores a 240 segundos não podem ser considerados como a infraestrutura de rede subjacente podem descartar conexões ociosas após esse período. | Não        | Nenhum |
 | follow-redirects="true &#124; false"    | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.      | Não        | falso       |
 | buffer-request-body="true &#124; false" | Quando definido como "true" solicitação é armazenada em buffer e será reutilizado na [Repita](api-management-advanced-policies.md#Retry). | Não        | falso       |
 

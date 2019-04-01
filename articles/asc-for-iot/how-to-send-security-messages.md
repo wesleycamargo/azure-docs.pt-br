@@ -1,6 +1,6 @@
 ---
-title: Enviar suas mensagens de segurança para o ASC para versão prévia do IoT | Microsoft Docs
-description: Saiba como enviar suas mensagens de segurança usando ASC para IoT.
+title: Enviar suas mensagens de segurança à Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
+description: Saiba como enviar suas mensagens de segurança usando a Central de segurança do Azure para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650148"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754783"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança do SDK
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este guia de instruções explica ASC para recursos do serviço de IoT quando você escolhe coletar e enviar mensagens de segurança de seu dispositivo sem usar um ASC para agente do IoT e explica como fazer isso.  
+Este guia de instruções explica a Central de segurança do Azure (ASC) para recursos do serviço de IoT quando você escolhe coletar e enviar mensagens de segurança de seu dispositivo sem usar um ASC para agente do IoT e explica como fazer isso.  
 
 Neste guia, você aprenderá a: 
 > [!div class="checklist"]

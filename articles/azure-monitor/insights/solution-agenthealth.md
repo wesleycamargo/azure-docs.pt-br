@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983364"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757959"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Solução de integridade do agente do Azure
-A solução de integridade do agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente para o espaço de trabalho do Log Analytics ou um grupo de gerenciamento do System Center Operations Manager conectados ao Azure Monitor, que não estão respondendo e enviando operacionais dados.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Solução de integridade do agente no Azure Monitor
+A solução de integridade do agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou um grupo de gerenciamento do System Center Operations Manager conectados ao Azure Monitor, que não estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
@@ -62,7 +62,7 @@ Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do A
 | Distribuição por tipo de sistema operacional | Uma partição de quantos agentes de Windows e Linux você tem em seu ambiente.|
 | Distribuição por versão do agente | Uma partição de diferentes versões do agente instaladas em seu ambiente e uma contagem de cada uma delas.|
 | Distribuição por categoria de agente | Uma partição das diferentes categorias de agentes que estão enviando eventos de pulsação: agentes diretos, agentes do OpsMgr ou o servidor de gerenciamento do OpsMgr.|
-| Distribuição por grupo de gerenciamento | Uma partição dos diferentes grupos de gerenciamento do SCOM em seu ambiente.|
+| Distribuição por grupo de gerenciamento | Uma partição de diferentes grupos de gerenciamento do Operations Manager em seu ambiente.|
 | Localização geográfica de agentes | Uma partição de diferentes países em que você tem agentes e uma contagem total do número de agentes que foram instalados em cada país.|
 | Contagem de gateways instalados | O número de servidores que possuem o Log Analytics Gateway instalado e uma lista desses servidores.|
 
@@ -117,4 +117,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas do Log Analytics. 
+* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas de consultas de log. 

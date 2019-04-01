@@ -1,6 +1,6 @@
 ---
-title: Métodos de autenticação para o ASC para versão prévia do IoT | Microsoft Docs
-description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao usar o ASC para o serviço de IoT.
+title: Métodos de autenticação para a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
+description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao usar a Central de segurança do Azure para o serviço de IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577793"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758391"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica os diferentes métodos de autenticação que você pode usar com o agente AzureIoTSecurity para autenticar com o IoT Hub.
 
-Para cada integrado de dispositivo ao ASC para IoT no IoT Hub, um módulo de segurança é necessário. Para autenticar o dispositivo, ASC para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente. 
+Para cada dispositivo integrada ao Azure Security ASC (Central) para IoT no IoT Hub, um módulo de segurança é necessário. Para autenticar o dispositivo, ASC para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente. 
 
 > [!div class="checklist"]
 > * Opção de módulo de segurança

@@ -8,19 +8,21 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
-ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.date: 03/29/2019
+ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337564"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755700"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e acessar os recursos com identidades gerenciadas em Aplicativos Lógicos do Azure
 
 Para acessar recursos em outros locatários do Azure AD (Azure Active Directory) e autenticar sua identidade sem precisar entrar, o aplicativo lógico pode usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como Identidade de Serviço Gerenciada ou MSI), em vez de credenciais ou segredos. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, porque você não precisa fornecer ou trocar segredos. Este artigo mostra como é possível configurar e usar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico. Para obter mais informações sobre identidades gerenciadas, confira [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
+> Seu aplicativo lógico pode usar identidades gerenciadas somente com os conectores que oferecem suporte a identidades gerenciadas. Atualmente, apenas o conector HTTP dá suporte a identidades gerenciadas.
+>
 > No momento, pode haver até 10 fluxos de trabalho de aplicativo lógico com identidades gerenciadas atribuídas pelo sistema em cada assinatura do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -57,7 +59,7 @@ Para habilitar uma identidade gerenciada atribuída pelo sistema para o seu apli
 
    ![GUIDs para ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Valor | DESCRIÇÃO | 
    |----------|-------|-------------| 
    | **ID do objeto** | <*identity-resource-ID*> | Um GUID (Identificador Global Exclusivo) que representa a identidade gerenciada atribuída pelo sistema para o seu aplicativo lógico em um locatário do Azure Active Directory | 
    ||| 
@@ -74,7 +76,7 @@ Se você desejar automatizar a criação e a implantação de recursos do Azure,
 }
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 {
@@ -109,7 +111,7 @@ Quando o Azure cria o aplicativo lógico, a definição de fluxo de trabalho do 
 }
 ```
 
-| Propriedade | Valor | Descrição | 
+| Propriedade | Valor | DESCRIÇÃO | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Um GUID (Identificador Global Exclusivo) que representa o aplicativo lógico no locatário do Azure Active Directory e, às vezes, aparece como "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um GUID (identificador global exclusivo) que representa o locatário do Azure AD do qual o aplicativo lógico agora é membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. | 
@@ -148,7 +150,7 @@ Para fornecer acesso a outro recurso do Azure para a identidade gerenciada atrib
 
 Depois de configurar o aplicativo lógico com uma identidade gerenciada atribuída pelo sistema e atribuir o acesso ao recurso desejado para essa identidade, você poderá usar essa identidade para autenticação. Por exemplo, você pode usar uma ação de HTTP para que seu aplicativo lógico possa enviar uma solicitação HTTP ou chamar esse recurso. 
 
-1. No aplicativo lógico, adicione a ação **HTTP**. 
+1. No aplicativo lógico, adicione a ação **HTTP**.
 
 1. Forneça os detalhes necessários sobre essa ação, como o local do **Método** e do **URI** da solicitação ao recurso que você deseja chamar.
 
@@ -158,7 +160,7 @@ Depois de configurar o aplicativo lógico com uma identidade gerenciada atribuí
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
-1. Na ação de HTTP, escolha **Mostrar opções avançadas**. 
+1. Na ação de HTTP, escolha **Mostrar opções avançadas**.
 
 1. Na lista **Autenticação**, selecione **Identidade Gerenciada**. Depois de selecionar essa autenticação, a propriedade **Público-alvo** aparece com o valor da ID do recurso padrão:
 
@@ -176,7 +178,7 @@ Depois de configurar o aplicativo lógico com uma identidade gerenciada atribuí
 
 ## <a name="remove-managed-identity"></a>Remover a identidade gerenciada
 
-Para desabilitar uma identidade gerenciada atribuída pelo sistema no aplicativo lógico, siga as etapas semelhantes às de configuração da identidade usando o portal do Azure, dos modelos de implantação do Azure Resource Manager ou do Azure PowerShell. 
+Para desabilitar uma identidade gerenciada atribuída pelo sistema no aplicativo lógico, siga as etapas semelhantes às de configuração da identidade usando o portal do Azure, dos modelos de implantação do Azure Resource Manager ou do Azure PowerShell.
 
 Quando você exclui o aplicativo lógico, o Azure remove automaticamente a identidade atribuída pelo sistema ao aplicativo lógico do Azure AD.
 
@@ -194,7 +196,7 @@ Para remover uma identidade gerenciada atribuída pelo sistema para o seu aplica
 
 ### <a name="deployment-template"></a>Modelo de implantação
 
-Se você criou a identidade gerenciada atribuída pelo sistema do aplicativo lógico com um modelo de implantação do Azure Resource Manager, defina a propriedade `"type"` do elemento `"identity"` para `"None"`. Essa ação também exclui a ID da entidade de segurança do Azure AD. 
+Se você criou a identidade gerenciada atribuída pelo sistema do aplicativo lógico com um modelo de implantação do Azure Resource Manager, defina a propriedade `"type"` do elemento `"identity"` para `"None"`. Essa ação também exclui a ID da entidade de segurança do Azure AD.
 
 ```json
 "identity": {
@@ -202,7 +204,7 @@ Se você criou a identidade gerenciada atribuída pelo sistema do aplicativo ló
 }
 ```
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

@@ -1,6 +1,6 @@
 ---
-title: Filtragem, classificação, paginação de entidades dos Serviços de Mídia do Azure - Azure | Microsoft Docs
-description: Este artigo discute a filtragem, a classificação e a paginação de entidades dos Serviços de Mídia do Azure.
+title: Desenvolver com APIs v3 – Azure | Microsoft Docs
+description: Este artigo discute as regras que se aplicam às entidades e APIs ao desenvolver com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,16 +12,38 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745089"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758543"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
+# <a name="developing-with-media-services-v3-apis"></a>Desenvolver com os serviços de mídia APIs v3
 
-## <a name="overview"></a>Visão geral
+Este artigo discute as regras que se aplicam às entidades e APIs ao desenvolver com os serviços de mídia v3.
+
+## <a name="naming-conventions"></a>Convenções de nomenclatura
+
+Nomes de recursos do Serviços de Mídia do Azure v3 (por exemplo, ativos, trabalhos, transformações) estão sujeitos a restrições de nomenclatura do Azure Resource Manager. De acordo com o Azure Resource Manager, os nomes dos recursos são sempre exclusivos. Desse modo, é possível usar qualquer cadeia de caracteres de identificador exclusivo (por exemplo, GUIDs) para os nomes dos recursos. 
+
+Nomes de recurso dos Serviços de Mídia não podem incluir: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', o caractere de aspas simples ou quaisquer caracteres de controle. Todos os outros caracteres são permitidos. O comprimento máximo de um nome de recurso é de 260 caracteres. 
+
+Para obter mais informações sobre a atribuição de nome do Azure Resource Manager, confira: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+## <a name="v3-api-design-principles"></a>Princípios de design da API v3
+
+Um dos princípios de design de chave da API v3 é tornar a API mais segura. As APIs v3 não retornam segredos ou as credenciais em uma operação **Get** ou **List**. As chaves são sempre nulas, vazias ou corrigidas na resposta. Você precisa chamar um método de ação separada para obter as credenciais ou segredos. As ações separadas permitem que você defina permissões de segurança RBAC diferentes no caso de algumas APIs recuperar/exibir segredos enquanto outras APIs, não. Para saber mais sobre como gerenciar o acesso usando o RBAC, veja [Usar RBAC para gerenciar o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Exemplos incluem:
+
+* Não retornando valores de ContentKey em Get do StreamingLocator.
+* Não, retornando as chaves de restrição em Get do ContentKeyPolicy.
+* Não retornando a parte da cadeia de caracteres de consulta da URL (para remover a assinatura) de URLs de entrada de HTTP de trabalhos.
+
+Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
 
 Os Serviços de Mídia dão suporte às seguintes opções de consulta OData para entidades dos Serviços de Mídia v3: 
 
@@ -41,7 +63,7 @@ Descrição do operador:
 
 As propriedades das entidades que são do tipo Datetime estão sempre no formato UTC.
 
-## <a name="page-results"></a>Resultados da página
+### <a name="page-results"></a>Resultados da página
 
 Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. O tamanho da página varia por tipo de entidade. Leia as seções individuais a seguir para obter detalhes.
 
@@ -50,9 +72,9 @@ Se entidades são criadas ou excluídas durante a paginação por meio da coleç
 > [!TIP]
 > Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
 
-## <a name="assets"></a>Ativos
+### <a name="assets"></a>Ativos
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela a seguir mostra como as opções de filtragem e classificação podem ser aplicadas às propriedades [Asset](https://docs.microsoft.com/rest/api/media/assets): 
 
@@ -77,11 +99,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### <a name="pagination"></a>Paginação 
+#### <a name="pagination"></a>Paginação 
 
 A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 1000.
 
-#### <a name="c-example"></a>Exemplo de C#
+##### <a name="c-example"></a>Exemplo de C#
 
 O exemplo de C# a seguir mostra como enumerar todos os ativos na conta.
 
@@ -95,7 +117,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-#### <a name="rest-example"></a>Exemplo REST
+##### <a name="rest-example"></a>Exemplo REST
 
 Considere o seguinte exemplo de onde $skiptoken é usado. Certifique-se de substituir *amstestaccount* pelo seu nome de conta e defina o valor *api-version* valor para a versão mais recente.
 
@@ -137,9 +159,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 Para obter exemplos REST, consulte [Ativos - Lista](https://docs.microsoft.com/rest/api/media/assets/list)
 
-## <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
+### <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades [ContentKeyPolicies](https://docs.microsoft.com/rest/api/media/contentkeypolicies): 
 
@@ -154,7 +176,7 @@ A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades 
 |properties.policyId|eq, ne||
 |Tipo|||
 
-### <a name="pagination"></a>Paginação
+#### <a name="pagination"></a>Paginação
 
 A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 10.
 
@@ -172,9 +194,9 @@ while (currentPage.NextPageLink != null)
 
 Para exemplos de REST, consulte [Políticas de Chave de Conteúdo - Lista](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## <a name="jobs"></a>Trabalhos
+### <a name="jobs"></a>Trabalhos
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades [Jobs](https://docs.microsoft.com/rest/api/media/jobs): 
 
@@ -186,7 +208,7 @@ A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades 
 | properties.lastModified | gt, ge, lt, le | ordem crescente e decrescente| 
 
 
-### <a name="pagination"></a>Paginação
+#### <a name="pagination"></a>Paginação
 
 A paginação de trabalhos é compatível com os Serviços de Mídia do Microsoft Azure v3.
 
@@ -220,9 +242,9 @@ while (!exit);
 
 Para obter exemplos REST, consulte [Trabalhos - Lista](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-## <a name="streaming-locators"></a>Localizadores de Streaming
+### <a name="streaming-locators"></a>Localizadores de Streaming
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades do StreamingLocator: 
 
@@ -241,7 +263,7 @@ A tabela a seguir mostra como essas opções podem ser aplicadas às propriedade
 |properties.streamingPolicyName |||
 |Tipo   |||
 
-### <a name="pagination"></a>Paginação
+#### <a name="pagination"></a>Paginação
 
 A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 10.
 
@@ -259,9 +281,9 @@ while (currentPage.NextPageLink != null)
 
 Para obter exemplos REST, consulte [localizadores de Streaming - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
-## <a name="streaming-policies"></a>Políticas de Streaming
+### <a name="streaming-policies"></a>Políticas de Streaming
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades StreamingPolicy: 
 
@@ -277,7 +299,7 @@ A tabela a seguir mostra como essas opções podem ser aplicadas às propriedade
 |properties.noEncryption|||
 |Tipo|||
 
-### <a name="pagination"></a>Paginação
+#### <a name="pagination"></a>Paginação
 
 A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 10.
 
@@ -296,9 +318,9 @@ while (currentPage.NextPageLink != null)
 Para obter exemplos REST, consulte [Políticas de Streaming - Lista](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 
-## <a name="transform"></a>Transformar
+### <a name="transform"></a>Transformar
 
-### <a name="filteringordering"></a>Filtragem/pedidos
+#### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades [Transforms](https://docs.microsoft.com/rest/api/media/transforms): 
 

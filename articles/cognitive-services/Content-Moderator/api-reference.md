@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a6bd92a675885cb343b07ef981c38571af0a931c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862455"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756052"
 ---
 # <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
 
@@ -31,7 +31,7 @@ Você pode usar as seguintes APIs do Content Moderator para configurar seus flux
 | DESCRIÇÃO | Referência |
 | -------------------- |-------------|
 | **API de moderação de imagem**<br /><br />Examine imagens e detecte possíveis conteúdos adultos e obscenos usando marcas, pontuações de confiança e outras informações extraídas. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação. <br /><br />| [Referência da API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Referência da API de moderação de imagem")   |
-| **API de moderação de texto**<br /><br />Examine o conteúdo do texto. São retornados termos de obscenidades e informações de identificação pessoal (PII). <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referência da API de moderação de texto")   |
+| **API de moderação de texto**<br /><br />Examine o conteúdo do texto. Termos de conteúdo ofensivo e dados pessoais são retornados. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referência da API de moderação de texto")   |
 | **API de moderação de vídeo**<br /><br />Examine vídeos e detectar potencial conteúdo adulto e obsceno. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Visão geral da API de moderação vídeo](video-moderation-api.md "Visão geral da API de moderação de vídeo")   |
 | **API de Gerenciamento de Lista**<br /><br />Crie e gerencie listas personalizadas de exclusão ou inclusão de imagens e texto. Se habilitada, as operações **Imagem - Corresponder** e **Texto - Tela** fazem correspondência difusa do conteúdo enviado em suas listas personalizadas. <br /><br />Para eficiência, você pode ignorar a etapa de moderação com base em aprendizado de máquina.<br /><br /> | [Referência de API de gerenciamento de lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Referência de API de gerenciamento de lista")   |
 

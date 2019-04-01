@@ -7,23 +7,25 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164435"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755269"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Visualização – criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para usar os nós virtuais no portal do Azure
 
 Para implantar rapidamente as cargas de trabalho em um cluster do AKS (Serviço de Kubernetes do Azure) é possível usar nós virtuais. Com nós virtuais, você tem provisionamento rápido de pods e paga somente por segundo pelo seu tempo de execução. Em um cenário de dimensionamento, não é necessário aguardar o dimensionador automático de cluster do Kubernetes para implantar nós de computação de VM para executar os pods adicionais. Este artigo mostra como criar e configurar os recursos de rede virtual e um cluster do AKS com nós virtuais habilitados.
 
 > [!IMPORTANT]
-> Os nós virtuais para AKS estão atualmente em **versão prévia**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+> Recursos de visualização do AKS são Self-service e aceitação. As visualizações são fornecidas para reunir opiniões e bugs de nossa comunidade. No entanto, eles não são suportados pelo suporte técnico do Azure. Se você cria um cluster ou adicionar esses recursos para clusters existentes, há suporte para esse cluster até que o recurso não está mais em visualização e muda para GA (disponibilidade geral).
+>
+> Se você encontrar problemas com recursos de visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome do recurso de visualização no título do bug.
 
-## <a name="preview-limitations"></a>Limitações de visualização
+## <a name="regional-availability"></a>Disponibilidade regional
 
-Embora esse recurso está em visualização, as regiões a seguir têm suporte para implantações:
+As regiões a seguir têm suporte para implantações de nó virtual:
 
 * Leste da Austrália (australiaeast)
 * Leste dos EUA (eastus)
@@ -182,6 +184,8 @@ Os nós virtuais são um componente de uma solução de dimensionamento no AKS. 
 
 - [Usar o dimensionamento automático de pod horizontal do Kubernetes][aks-hpa]
 - [Usar o dimensionador automático de cluster do Kubernetes][aks-cluster-autoscaler]
+- [Confira o exemplo de dimensionamento automático para os nós virtuais][virtual-node-autoscale]
+- [Leia mais sobre a biblioteca de software livre Virtual Kubelet][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -190,6 +194,9 @@ Os nós virtuais são um componente de uma solução de dimensionamento no AKS. 
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -198,4 +205,3 @@ Os nós virtuais são um componente de uma solução de dimensionamento no AKS. 
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
-

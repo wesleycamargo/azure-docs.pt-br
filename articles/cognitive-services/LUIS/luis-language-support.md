@@ -1,5 +1,5 @@
 ---
-title: Suporte de idioma
+title: Suporte ao idioma
 titleSuffix: Azure Cognitive Services
 description: LUIS tem uma variedade de recursos dentro do serviço. Nem todos os recursos estão na mesma paridade de idioma. Verifique se os recursos em que você está interessado têm suporte na cultura do idioma de destino. Um aplicativo LUIS é específico à cultura e não pode ser alterado após a definição.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339509"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757650"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -30,7 +30,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Linguagem |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações de lista de frase | \**[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Recomendações de lista de frase | \**[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -105,10 +105,10 @@ As culturas a seguir têm versões de criador de token personalizado:
 |Alemão<br>`de-de`|1.0.1|Cria tokens palavras dividindo-os em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como uma expressão, ele permanecerá um único token. Portanto, `krankenwagen` está marcado como uma única entidade. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrando entre as versões do criador de token
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Sua primeira opção é alterar a versão do criador de token no arquivo do aplicativo, em seguida, importe a versão. Esta ação altera como as declarações são indexadas, mas permite que você mantenha a mesma ID de aplicativo. 
-
-Criador de token JSON para 1.0.0. Observe o valor da propriedade `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Criador de token JSON para 1.0.0. Observe o valor da propriedade `tokenizerVersi
 }
 ```
 
-Criador de token JSON para a versão 1.0.1. Observe o valor da propriedade `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Criador de token JSON para a versão 1.0.1. Observe o valor da propriedade `toke
     "settings": []
 }
 ```
+-->
 
-A segunda opção é [importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão do criador de token especificada no arquivo. 
+Geração de tokens ocorre no nível do aplicativo. Não há nenhum suporte para geração de tokens de nível de versão. 
+
+[Importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md#import-an-app-from-file), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão do criador de token especificada no arquivo. 

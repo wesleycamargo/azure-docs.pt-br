@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258693"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758515"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Executar transmissão ao vivo com codificadores locais usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Os itens a seguir são necessários para concluir o tutorial:
 * [Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Cenário comum de streaming ao vivo
+
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
 
->[!NOTE]
->Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
+> [!NOTE]
+> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
     
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+1. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Além disso, confira este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produção de transmissão ao vivo com o OBS).
    
     Essa etapa também pode ser realizada após a criação do canal.
-2. Crie e inicie um Canal de passagem.
-3. Recupere a URL de ingestão do canal. 
+1. Crie e inicie um Canal de passagem.
+1. Recupere a URL de ingestão do canal. 
    
     A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-4. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal. 
    
     Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
-5. Crie um evento ao vivo/programa. 
+1. Crie um evento ao vivo/programa. 
    
     Ao usar o portal do Azure, a criação de um evento ao vivo também cria um ativo. 
 
-6. Inicie o evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento.
-7. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-8. Interrompa o evento/programa sempre que você quiser parar a transmissão e o arquivamento do evento.
-9. Exclua o evento/programa (e, opcionalmente, exclua o ativo).     
+1. Inicie o evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento.
+1. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
+1. Interrompa o evento/programa sempre que você quiser parar a transmissão e o arquivamento do evento.
+1. Exclua o evento/programa (e, opcionalmente, exclua o ativo).     
 
 > [!IMPORTANT]
 > Examine a [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md) para saber mais sobre os conceitos e considerações relacionados à transmissão ao vivo com codificadores locais e canais de passagem.

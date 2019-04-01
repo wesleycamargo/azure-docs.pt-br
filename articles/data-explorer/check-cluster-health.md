@@ -2,18 +2,18 @@
 title: Verificar a integridade de um cluster do Azure Data Explorer
 description: Este artigo descreve as etapas para determinar se o cluster do Azure Data Explorer está íntegro.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d07873b34a41ff20b5007a88743f6b150d4d8a3d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 8930c2a7538ca33622de68c9a888349b3301cd98
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212810"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755847"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verificar a integridade de um cluster do Azure Data Explorer
 

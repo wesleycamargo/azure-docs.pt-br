@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487357"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755713"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -84,7 +84,7 @@ Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI*
 
 Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters usados por seus sistemas SAP. No exemplo a seguir, os dispositivos SBD para vários clusters são criados. Ele mostra como você usaria um servidor de destino iSCSI para vários clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que você tenha espaço suficiente.
 
-**NFS** é usado para identificar o cluster de NFS **ascsnw1** é usado para identificar o cluster de ASCS **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **nfs-0** e **nfs-1** são os nomes de host dos nós de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1** são os nomes de host dos nós de cluster ASCS de **NW1** e **nw1-db-0** e **nw1-db-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
+**` nfs`** é usado para identificar o cluster NFS **ascsnw1** é usado para identificar o cluster do ASCS **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1** , **nfs-0** e **nfs 1** são os nomes de host de nós do cluster NFS **nw1-xscs-0** e **nw1-xscs-1**são os nomes de host a **NW1** nós de cluster ASCS e **nw1-db-0** e **nw1-db-1** são os nomes de host do banco de dados em nós do cluster. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Crie o arquivo de configuração do softdog
+   Criar o ` softdog` arquivo de configuração
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Configurar o sistema operacional
+1. **[A]**  Configurar o sistema operacional
 
    Em alguns casos, o Pacemaker cria muitos processos e esgota, assim, o número permitido de processos. Nesse caso, uma pulsação entre os nós de cluster pode falhar e levar a failover de seus recursos. Recomendamos aumentar o máximo permitido de processos definindo o parâmetro a seguir.
 
@@ -346,6 +346,18 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  Configurar netconfig-azure-nuvem para o Cluster de HA
+
+   Altere o arquivo de configuração para o adaptador de rede, conforme mostrado abaixo para impedir que o plug-in de rede de nuvem removendo o endereço IP virtual (Pacemaker deve controlar a atribuição de VIP). Para obter mais informações, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]** Habilitar o acesso ssh

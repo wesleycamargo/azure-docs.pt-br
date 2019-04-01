@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes para ASC para versão prévia do IoT | Microsoft Docs
-description: Encontre respostas para as perguntas frequentes sobre ASC para o serviço e os recursos de IoT.
+title: Perguntas frequentes sobre a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
+description: Encontre respostas para as perguntas frequentes sobre a Central de segurança do Azure para o serviço e os recursos de IoT.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575140"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755323"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre o ASC para IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre a Central de segurança do Azure para IoT  
 
 > [!IMPORTANT]
-> ASC para IoT está atualmente em visualização pública.
+> Central de segurança do Azure para IoT está atualmente em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo fornece uma lista de perguntas frequentes e respostas sobre ASC para IoT. 
+Este artigo fornece uma lista de perguntas frequentes e respostas sobre o Azure Security Center (ASC) para IoT. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>O Azure oferece suporte para segurança de IoT?
 
