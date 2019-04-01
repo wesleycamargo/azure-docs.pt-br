@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472799"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755523"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -41,7 +41,9 @@ Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma fu
 
    A partir da versão 2018-05-01-preview, a Grade de Eventos dá suporte a um handshake de validação manual. Se você estiver criando uma inscrição de evento com um SDK ou ferramenta que usa a versão da API 2018-05-01-preview ou posterior, a Grade de Eventos envia uma propriedade `validationUrl` na parte de dados do evento de validação da assinatura. Para concluir o handshake, encontre essa URL nos dados do evento e manualmente enviar uma solicitação GET para ela. Você pode usar um cliente REST ou o navegador da web.
 
-   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 10 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
+   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual dentro de 5 minutos, o estado de provisionamento é definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
+
+    Esse mecanismo de autenticação também requer o ponto de extremidade de webhook para retornar um código de status HTTP de 200 para que ele saiba que o POST para o evento de validação foi aceito antes que ele possa ser colocado no modo de validação manual. Em outras palavras, se o ponto de extremidade retorna 200, mas não retorna uma resposta de validação por meio de programação, o modo é transferido para o modo de validação manual. Se houver um GET na URL de validação dentro de 5 minutos, o handshake de validação é considerado bem-sucedida.
 
 ### <a name="validation-details"></a>Detalhes da validação
 

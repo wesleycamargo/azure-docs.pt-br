@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295667"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755808"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Gerenciar o uso e custos do Log Analytics
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gerenciar o uso e custos para o Log Analytics no Azure Monitor
 
 > [!NOTE]
 > Este artigo descreve como controlar os custos no Log Analytics configurando o período de retenção de dados.  Consulte os seguintes artigos para informações relacionadas.
 > - [Analisar o uso de dados no Log Analytics](manage-cost-storage.md) descreve como analisar e alertar sobre o uso de dados.
 > - [Monitoramento de uso e custos estimados](usage-estimated-costs.md) descreve como exibir o uso e os custos estimados nos vários recursos de monitoramento do Azure para diferentes modelos de preços. Também descreve como alterar seu modelo de preços.
 
-O Log Analytics foi projetado para dimensionar e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, a partir de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para esse fim, é importante entender que o custo de um workspace do Log Analytics não se baseia apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados por suas fontes conectadas.  
+Log Analytics no Azure Monitor é projetado para escala e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para esse fim, é importante entender que o custo de um workspace do Log Analytics não se baseia apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados por suas fontes conectadas.  
 
 Neste artigo, analisamos como você pode monitorar proativamente o volume de dados e o aumento do armazenamento e definir limites para controlar esses custos associados. 
 
@@ -114,8 +114,6 @@ Se o workspace do Log Analytics tem acesso aos tipos de preço herdados, para al
 
 Se quiser mover seu workspace para o tipo de preço atual, você precisará [alterar o modelo de preços de monitoramento de sua assinatura no Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model), o que alterará o tipo de preço de todos os workspaces nessa assinatura.
 
-> [!NOTE]
-> Se o seu workspace está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do workspace, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
 
 > [!NOTE]
 > Você pode saber mais sobre [definir o tipo de preço por meio do ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) e como garantir que sua implantação do ARM terá êxito, independentemente se a assinatura está no herdado ou no novo modelo de preços. 
