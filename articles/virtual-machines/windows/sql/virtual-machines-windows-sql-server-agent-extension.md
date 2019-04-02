@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767118"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762694"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -70,17 +70,31 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 > Neste momento, a [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) não é compatível com a FCI do SQL Server no Azure. É recomendável que você desinstale a extensão de VMs que participam de um FCI. Os recursos compatíveis com a extensão não estão disponíveis para as VMs do SQL depois que o agente é desinstalado.
 
 ## <a name="installation"></a>Instalação
-A Extensão do Agente IaaS do SQL Server é instalada automaticamente quando você provisiona uma das imagens da galeria de máquinas virtuais do SQL Server. Se você precisar reinstalar manualmente a extensão em uma dessas VMs do SQL Server, use o seguinte comando do PowerShell:
+A Extensão do Agente IaaS do SQL Server é instalada automaticamente quando você provisiona uma das imagens da galeria de máquinas virtuais do SQL Server. A extensão SQL IaaS oferece a capacidade de gerenciamento para uma única instância na VM do SQL Server. Se houver uma instância padrão, em seguida, a extensão funcionará com a instância padrão e ele não oferecerá suporte a gerenciamento de outras instâncias. Se não houver nenhuma instância padrão, mas apenas uma instância nomeada, em seguida, ele irá gerenciar a instância nomeada. Se não houver nenhuma instância padrão e houver várias instâncias nomeadas, a extensão conseguirá instalar. 
+
+
+
+Se você precisar reinstalar manualmente a extensão em uma dessas VMs do SQL Server, use o seguinte comando do PowerShell:
 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
-> [!IMPORTANT]
+> [!WARNING]
 > Se a extensão já não estiver instalada, a instalação da extensão reiniciará o serviço do SQL Server. No entanto, atualizar a extensão IaaS do SQL não reinicia o serviço do SQL Server. 
 
 > [!NOTE]
-> A extensão do SQL Server IaaS Agent é compatível apenas com [imagens da galeria de VM do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (paga conforme o uso ou traga sua própria licença). Ela não será compatível se você instalar manualmente o SQL Server em uma máquina virtual do Windows Server somente de sistema operacional ou se você implantar um VHD de VM do SQL Server personalizado. Nesses casos, talvez seja possível instalar e gerenciar a extensão manualmente usando o PowerShell, mas você não obterá as definições de configuração do SQL Server no portal do Azure. No entanto, é altamente recomendável, em vez disso, instalar uma imagem da galeria de VM do SQL Server e, em seguida, personalizá-la.
+> Embora seja possível instalar a extensão do agente IaaS do SQL Server para imagens personalizadas do SQL Server, a funcionalidade é atualmente limitada a [alterando o tipo de licença](virtual-machines-windows-sql-ahb.md). Outros recursos fornecidos pela extensão SQL IaaS funcionarão apenas em [imagens da Galeria de VM do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pré-pago ou traga-your-própria licença).
+
+### <a name="use-a-single-named-instance"></a>Usar uma única instância nomeada
+A extensão SQL IaaS funcionará com uma instância nomeada em uma imagem do SQL Server se a instância padrão for desinstalada corretamente e se a extensão IaaS é reinstalada.
+
+Para usar uma instância nomeada do SQL Server, faça o seguinte:
+   1. Implante uma VM do SQL Server do marketplace. 
+   1. Desinstalar a extensão IaaS de dentro de [portal do Azure](https://portal.azure.com).
+   1. Desinstale o SQL Server completamente dentro de VM do SQL Server.
+   1. Instale o SQL Server com uma instância nomeada em VM do SQL Server. 
+   1. Instale a extensão de IaaS de dentro do portal do Azure.  
 
 ## <a name="status"></a>Status
 Uma maneira de verificar se a extensão está instalada é exibir o status do agente no portal do Azure. Escolha **Todas as configurações** na janela da máquina virtual e clique em **Extensões**. Você deverá ver a extensão **SqlIaasExtension** na lista.
@@ -98,7 +112,7 @@ O comando anterior confirma se o agente está instalado e fornece informações 
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>Remoção
-No Portal do Azure, você pode desinstalar a extensão clicando nas reticências na janela **Extensões** das propriedades de sua máquina virtual. Em seguida, clique em **Excluir**.
+No portal do Azure, você pode desinstalar a extensão clicando no botão de reticências na **extensões** janela de propriedades de sua máquina virtual. Em seguida, clique em **Excluir**.
 
 ![Desinstalar a Extensão do Agente IaaS do SQL Server no portal do Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

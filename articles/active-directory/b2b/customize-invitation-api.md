@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111303"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793367"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
 
 Muitos clientes nos disseram que desejam personalizar o processo de convite de forma que funcione melhor para suas organizações. Com nossa API, você pode fazer exatamente isso. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Recursos da API de convite
+
 A API oferece os seguintes recursos:
 
 1. Convidar um usuário com *qualquer* endereço de email.
@@ -68,21 +69,25 @@ A API oferece os seguintes recursos:
 
 
 ## <a name="authorization-model"></a>Modelo de autorização
+
 A API pode ser executada nos seguintes modos de autorização:
 
 ### <a name="app--user-mode"></a>Modo Aplicativo + Usuário
+
 Nesse modo, a pessoa que está usando a API precisa ter as permissões para criar convites de B2B.
 
 ### <a name="app-only-mode"></a>Modo Somente aplicativo
+
 No contexto somente aplicativo, o aplicativo precisa do escopo User.Invite.All para que o convite tenha êxito.
 
 Para obter mais informações, consulte: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 You can use PowerShell to add and invite external users to an organization easily. Crie um convite usando o cmdlet:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ Depois que você envia um convite por um usuário externo, você pode usar o **G
 
 Você pode usar o **filtro** opção para filtrar os resultados por **UserState**. O exemplo a seguir mostra como filtrar resultados para mostrar apenas os usuários que têm um convite pendente. O exemplo também mostra a **Format-List** opção, que permite que você especifique as propriedades a serem exibidas. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Confira a referência de API de convite nas [https://developer.microsoft.com/gra
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md) (Os elementos do email de convite para colaboração B2B)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
 - [Adicionar usuários de colaboração B2B sem um convite](add-user-without-invite.md)
-

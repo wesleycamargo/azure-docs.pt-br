@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113258"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762677"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -139,12 +139,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Posso usar uma instância nomeada do SQL Server com a extensão IaaS**?
    
-   Sim, se a instância nomeada é a única instância no SQL Server, e se a instância padrão original foi desinstalada corretamente. Para usar uma instância nomeada, faça o seguinte:
-    1. Implante uma VM do SQL Server do marketplace. 
-    1. Desinstale a extensão IaaS.
-    1. Desinstale completamente o SQL Server.
-    1. Instale o SQL Server com uma instância nomeada. 
-    1. Instale a extensão IaaS. 
+   Sim, se a instância nomeada é a única instância no SQL Server e se a instância padrão original tiver sido [desinstalado corretamente](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Se não houver nenhuma instância padrão e há várias instâncias nomeadas em uma única VM do SQL Server, a extensão IaaS conseguirá instalar. 
 
 1. **Posso remover o SQL Server completamente de uma VM de SQL?**
 
@@ -176,6 +171,10 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 1. **Como instalar as ferramentas de Dados do SQL em minha VM do Azure?**
 
     Baixe e instale as ferramentas de Dados SQL por meio do [Microsoft SQL Server Data Tools – Business Intelligence para Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **São distribuídas com o MSDTC tem suportada em VMs do SQL Server?**
+   
+    Sim. DTC local tem suporte para SQL Server 2016 SP2 e superior. No entanto, os aplicativos devem ser testados quando utilizando grupos de disponibilidade Always On, como transações em andamento durante um failover falhará e deverá ser repetida. DTC clusterizado está disponível a partir do Windows Server 2019. 
 
 ## <a name="resources"></a>Recursos
 

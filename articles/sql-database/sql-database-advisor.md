@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560865"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793658"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 
@@ -85,6 +85,10 @@ A recomendação para “Corrigir problemas do esquema” aparece quando o servi
 | 213 |O nome da coluna ou o número de valores fornecidos não corresponde à definição da tabela. |
 | 2812 |Não foi possível encontrar o procedimento armazenado '*'. |
 | 8144 |Função ou procedimento * tem muitos argumentos especificados. |
+
+## <a name="custom-applications"></a>Aplicativos personalizados
+
+Os desenvolvedores podem considerar desenvolvendo aplicativos personalizados usando as recomendações de desempenho para o banco de dados SQL. Todas as recomendações listadas no portal para um banco de dados pode ser acessado por meio [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Próximas etapas
 Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O Assistente do Banco de Dados SQL continua a monitorar e fornecer recomendações que podem potencialmente melhorar o desempenho do seu banco de dados. 

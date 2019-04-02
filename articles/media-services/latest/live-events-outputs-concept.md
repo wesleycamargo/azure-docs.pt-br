@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189352"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762347"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos ao Vivo e Saídas Dinâmicas
 
-O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. Para configurar os eventos de transmissão ao vivo nos Serviços de Mídia do Azure v3, é necessário entender os conceitos discutidos neste artigo:
-
-* [Eventos ao Vivo](#live-events)
-* Tipos de eventos ao vivo
-* Comparação de tipos de Eventos ao Vivo
-* [Opções de criação de Evento ao vivo](#live-event-creation-options)
-* [URLs de ingestão de Evento ao vivo](#live-event-ingest-urls)
-* [URL de visualização do evento ao vivo](#live-event-preview-url)
-* [Saídas ao vivo](#live-outputs).
+O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. Para configurar os eventos de transmissão ao vivo nos serviços de mídia v3, você precisa entender os conceitos discutidos neste artigo. <br/>A lista das seções é listada no lado direito da página.
 
 ## <a name="live-events"></a>Eventos ao Vivo
 
@@ -62,10 +54,10 @@ Usando a codificação dinâmica com os Serviços de Mídia, você configuraria 
 
 Você pode enviar a alimentação de contribuição com resolução de até 1080p a uma taxa de quadros de 30 quadros/segundo, com codec de vídeo H.264/AVC e codec de áudio AAC (AAC-LC, HE-AAC v1 ou HE-AAC v2). Confira o artigo [Comparação de tipos de Eventos ao Vivo](live-event-types-comparison.md) para saber mais.
 
-Ao usar a codificação ao vivo (conjunto de eventos ao vivo **Standard**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Para obter informações, consulte [predefinições do sistema](live-event-types-comparison.md#system-presets).
+Ao usar a codificação ao vivo (Eventos ao vivo definidos como **Padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Para obter informações, confira [Predefinições do sistema](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Atualmente, a única predefinição valor permitido para o tipo padrão de evento ao vivo está *Default720p*. Se você precisar usar uma predefinição de codifica ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e taxas de bits. Verifique se há apenas uma camada em 720p e no máximo de 6 camadas.
+> No momento, a única predefinição de valor permitida para o tipo Padrão de Evento ao vivo é *Default720p*. Caso precise usar uma predefinição de codificação ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 720p e no máximo seis camadas.
 
 ## <a name="live-event-creation-options"></a>Opções de criação de Evento ao vivo
 
@@ -132,6 +124,10 @@ Quando o **Evento ao vivo** começar a receber o feed de contribuição, você p
 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está fluindo para a URL de visualização antes de continuar!
+
+## <a name="live-event-long-running-operations"></a>Operações de longa duração de evento ao vivo
+
+Para obter detalhes, consulte [operações de longa execução](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Saídas ao Vivo
 

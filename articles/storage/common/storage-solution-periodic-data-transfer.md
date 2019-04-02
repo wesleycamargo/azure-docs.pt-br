@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772850"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801974"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
  
@@ -52,7 +52,7 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ingestão de dados contínua pela rede
 
-| Recurso                                       | Data Box Gateway (versão prévia) | Azure Data Box Edge (visualização)  | Fábrica de dados do Azure        |
+| Recurso                                       | Data Box Gateway | Data Box Edge   | Fábrica de dados do Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fator forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, agente local                                                            |
 | Hardware                                      | Seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |

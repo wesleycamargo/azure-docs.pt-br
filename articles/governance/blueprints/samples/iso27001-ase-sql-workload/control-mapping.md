@@ -1,6 +1,6 @@
 ---
-title: Exemplo – ISO 27001 diagrama - mapeamento de controle
-description: Mapeamento de controle de exemplo de plano gráfico ISO 27001.
+title: Mapeamento de controle de exemplo - diagrama de carga de trabalho do ISO 27001 ASE/SQL-
+description: Mapeamento de controle de exemplo ISO 27001 App Service ambiente/SQL Database carga de trabalho plano gráfico para a política do Azure e o RBAC.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579692"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802704"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapeamento de controle do exemplo de especificações técnicas do Azure BluePrint ISO 27001
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle de exemplo de plano gráfico de carga de trabalho ISO 27001 ASE/SQL
 
 O artigo a seguir fornece detalhes sobre como o exemplo de plano gráfico da carga de trabalho do Azure BluePrint ISO 27001 ASE/SQL é mapeada para os controles do ISO 27001. Para obter mais informações sobre os controles, consulte [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

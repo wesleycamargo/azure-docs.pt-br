@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825767"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807388"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é o ExpressRoute Direct?
 
@@ -32,13 +32,13 @@ As portas disponíveis serão dinâmicas e estarão disponíveis pelo PowerShell
 * Chicago
 * Washington, D.C.
 * Dallas 
-* Hong Kong
+* RAE de Hong Kong
 * Los Angeles
 * Cidade de Nova York
 * Paris
 * San Antonio
 * Vale do Silício
-* Cingapura 
+* Singapura 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>O que é o SLA para ExpressRoute Direct?
 
@@ -52,6 +52,6 @@ O ExpressRoute Direct oferece aos clientes pares de portas diretas de 100 Gbps n
 
 O ExpressRoute Direct será cobrado um valor fixo pelo par de portas. Circuitos padrão serão incluídos sem horas adicionais e o premium terá um pequeno encargo por complemento. A saída será cobrada por circuito na zona do local de emparelhamento.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>Quando ocorre a cobrança pelos pares de portas do ExpressRoute Direct?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Quando é o início de cobrança para os pares de porta direta ExpressRoute?
 
 Os pares de portas do ExpressRoute Direct são cobrados 45 dias a partir da criação do recurso ou quando um ou os dois links são habilitados, o que vier primeiro. O período de cortesia de 45 dias é concedido para permitir aos clientes concluir o processo de conexão cruzada com o provedor de colocação.

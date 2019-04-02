@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338387"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802534"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -44,7 +44,7 @@ Criar uma conta de armazenamento do Azure Data Lake Storage Gen2. Certifique-se 
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurar as permissões para a identidade gerenciada na conta do Data Lake armazenamento Gen2
 
-Atribua a identidade gerenciada à função **Proprietário de dados do blob de armazenamento (versão prévia)** na conta de armazenamento. Para obter mais informações, consulte [Gerenciar direitos de acesso para dados de Blob e fila do Azure com RBAC (visualização)](../storage/common/storage-auth-aad-rbac.md).
+Atribuir a identidade gerenciada para o **proprietário de dados do armazenamento de Blob** função na conta de armazenamento. Para obter mais informações, consulte [Gerenciar direitos de acesso para dados de Blob e fila do Azure com RBAC (visualização)](../storage/common/storage-auth-aad-rbac.md).
 
 1. No [portal do Microsoft Azure](https://portal.azure.com), acesse sua conta de armazenamento.
 1. Selecione sua conta de armazenamento e, em seguida, selecione **controle de acesso (IAM)** para exibir as configurações de controle de acesso para a conta. Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
@@ -52,7 +52,7 @@ Atribua a identidade gerenciada à função **Proprietário de dados do blob de 
     ![Captura de tela mostrando as configurações de controle de acesso de armazenamento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Selecione o **+ Adicionar atribuição de função** botão para adicionar uma nova função.
-1. Na janela **Adicionar atribuição de função**, selecione a função **Proprietário de dados de blob de armazenamento (versão prévia)**. Em seguida, selecione a assinatura que tem a conta de armazenamento e a identidade gerenciada. Em seguida, pesquise para localizar a identidade gerenciada atribuída pelo usuário que você criou anteriormente. Por fim, selecione a identidade gerenciada e ele será listado sob **membros selecionados**.
+1. No **Adicionar atribuição de função** janela, selecione a **proprietário de dados do armazenamento de Blob** função. Em seguida, selecione a assinatura que tem a conta de armazenamento e a identidade gerenciada. Em seguida, pesquise para localizar a identidade gerenciada atribuída pelo usuário que você criou anteriormente. Por fim, selecione a identidade gerenciada e ele será listado sob **membros selecionados**.
     
     ![Captura de tela que mostra como atribuir uma função do RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Em seguida, entre no portal. Adicionar a nova identidade atribuída pelo usuário gerenciada para o **Colaborador de dados de Blob de armazenamento (versão prévia)** função na conta de armazenamento, conforme descrito na etapa 3 abaixo [usando o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Em seguida, entre no portal. Adicionar a nova identidade atribuída pelo usuário gerenciada para o **Colaborador de dados de Blob de armazenamento** função na conta de armazenamento, conforme descrito na etapa 3 abaixo [usando o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Depois de atribuir a função para a identidade atribuída pelo usuário gerenciada, implante o modelo usando o seguinte trecho de código.
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444274"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793032"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -64,13 +64,13 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 
-**Objetivo:** verificar se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um aplicativo administrador ou administrador global para a instalação tenha êxito.
+**Objetivo:** verificar se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser pelo menos um administrador do aplicativo para a instalação tenha êxito.
 
 **Para verificar se as credenciais estão corretas:**
 
 Conecte-se ao <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt;**Usuários e grupos** -&gt;**Todos os usuários**. 
 
-Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é “Administrador de Aplicativo” ou "Administrador Global". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
+Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "Administrador do aplicativo". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

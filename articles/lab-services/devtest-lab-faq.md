@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337690"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803367"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -44,7 +44,7 @@ Estamos trabalhando na migração postagens de blog existentes (excluindo as atu
 Publicaremos as atualizações de interrupção usando o nosso manipulador do Twitter no futuro. Siga-no Twitter para obter as últimas atualizações sobre interrupções e erros conhecidos.
 
 ### <a name="twitter"></a>Twitter 
-O identificador do nosso Twitter: azlabservices
+Identificador do nosso Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 Se sua pergunta não estiver listada aqui, fale conosco e podemos ajudá-lo a encontrar uma resposta.
@@ -139,7 +139,9 @@ Você tem duas opções para criar simultaneamente várias VMs do mesmo modelo:
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Como mover minhas VMs do Azure existentes para meu laboratório do DevTest Labs?
 Para copiar suas VMs existentes para o DevTest Labs:
 
-1. Copie o arquivo VHD da VM existente usando um [script do Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Copie o arquivo VHD da VM existente usando um script do PowerShell:
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * Clássico: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. [Crie a imagem personalizada](devtest-lab-create-template.md) em seu laboratório do DevTest Labs.
 3. Crie uma VM no laboratório com sua imagem personalizada.
 
@@ -229,7 +231,7 @@ Não há nenhum limite específico quanto ao número de VMs que podem ser criada
 >
 >
 
-## <a name="what-is-a-microsoft-account"></a>O que é uma conta da Microsoft?
+## <a name="what-is-a-microsoft-account"></a>O que é uma conta da Microsoft?
 Uma conta da Microsoft é uma conta que você utiliza para quase tudo o que faz com os serviços e dispositivos da Microsoft. É um endereço de email e senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows phone e Xbox Live. Uma conta única significa que seus arquivos, fotos, contatos e configurações, podem seguir você em qualquer dispositivo.
 
 > [!NOTE]

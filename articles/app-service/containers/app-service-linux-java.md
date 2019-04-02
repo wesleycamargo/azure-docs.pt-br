@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335837"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803505"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -154,6 +154,14 @@ Os desenvolvedores do Spring Boot podem usar o [inicializador do Spring Boot do 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
 Siga as instruções em [Associar um certificado SSL personalizado existente](/azure/app-service/app-service-web-tutorial-custom-ssl) para carregar um certificado SSL existente e associá-lo ao nome de domínio do aplicativo. Por padrão, o aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor o SSL e o TLS.
+
+### <a name="use-keyvault-references"></a>Usar referências de Cofre de chaves
+
+[Azure KeyVault](../../key-vault/key-vault-overview.md) fornece gerenciamento centralizado de segredos com histórico de auditoria e políticas de acesso. Você pode armazenar segredos (como senhas ou cadeias de caracteres de conexão) no cofre de chaves e acessar esses segredos em seu aplicativo por meio de variáveis de ambiente.
+
+Primeiro, siga as instruções para [concedendo acesso ao aplicativo para o Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [fazer uma referência ao seu segredo do KeyVault em uma configuração de aplicativo](../app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência será resolvida para o segredo, imprimindo a variável de ambiente ao acessar remotamente o terminal de serviço de aplicativo.
+
+Para injetar esses segredos no arquivo de configuração Spring ou Tomcat, use a sintaxe de injeção de variável de ambiente (`${MY_ENV_VAR}`). Para arquivos de configuração de Spring, consulte esta documentação sobre [externalizados configurações](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## <a name="data-sources"></a>Fontes de dados
 

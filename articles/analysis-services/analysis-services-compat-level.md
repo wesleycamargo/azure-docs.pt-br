@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880119"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803486"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nível de compatibilidade para modelos de tabela do Analysis Services
 
@@ -27,7 +27,11 @@ O Azure Analysis Services dá suporte a modelos de tabela no nível de compatibi
 *  Segurança em nível de objeto para nomes de tabela e coluna, além dos dados dentro deles.
 *  Suporte aprimorado para hierarquias desbalanceadas.
 *  Monitoramento de desempenho e melhorias.
- 
+
+> [!NOTE]
+> O Azure Analysis Services dá suporte a arquivos do Power BI Desktop importados no nível de compatibilidade 1465. No entanto, a importação da funcionalidade do Power BI Desktop, que sempre era um recurso de visualização, foi descontinuada e removida do serviço em março de 2019. Os modelos existentes no nível de compatibilidade 1465 permanecem com suportados.  
+
+
 ## <a name="set-compatibility-level"></a>Configuração de nível de compatibilidade
 
  Ao criar um novo projeto de modelo de tabela no SSDT, você pode especificar o nível de compatibilidade na caixa de diálogo **Designer de modelo de tabela**. 
@@ -47,6 +51,9 @@ O Azure Analysis Services dá suporte a modelos de tabela no nível de compatibi
  No SSMS, clique o botão direito do mouse no nome do servidor > **Propriedades** > **Nível de Compatibilidade com Suporte**.  
   
  Essa propriedade especifica o nível mais alto de compatibilidade de um banco de dados que será executado no servidor (exceto a visualização). O nível de compatibilidade com suporte não pode ser alterado.  
+
+> [!NOTE]
+> No SSMS, quando conectado a um servidor do Azure Analysis Services, o **nível de compatibilidade com suporte** propriedade mostrará **1200**. Isso é um problema conhecido e será resolvido no SSMS futuro atualização. Quando resolvido, essa propriedade será mostrada o mais alto nível de compatibilidade com suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816549"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802551"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -139,11 +139,11 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
-   ![Pesquisar pela política](../media/remediate-resources/search-policy.png)
+   ![Pesquisa de política em todos os serviços](../media/remediate-resources/search-policy.png)
 
 1. Selecione **Correção** no lado esquerdo da página do Azure Policy.
 
-   ![Selecionar correção](../media/remediate-resources/select-remediation.png)
+   ![Selecione correção na página de política](../media/remediate-resources/select-remediation.png)
 
 1. Todas as atribuições de política **deployIfNotExists** com recursos sem conformidade estão incluídas na tabela de dados e na guia **Políticas a corrigir**. Clique em uma política com recursos sem conformidade. A página **Nova tarefa de correção** é aberta.
 
@@ -152,11 +152,11 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Na página **Nova tarefa de correção**, filtre os recursos a serem corrigidos usando as reticências de **Escopo** para escolher os recursos filho nos quais a política está atribuída (incluindo até os objetos do recurso individuais). Além disso, use a lista suspensa **Locais** para filtrar ainda mais os recursos. Somente os recursos listados na tabela serão corrigidos.
 
-   ![Corrigir – selecionar recursos](../media/remediate-resources/select-resources.png)
+   ![Corrigir - selecionar quais recursos para corrigir](../media/remediate-resources/select-resources.png)
 
 1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página de conformidade de política será aberta na guia **Tarefas de correção** para mostrar o estado do progresso das tarefas.
 
-   ![Corrigir – progresso da tarefa](../media/remediate-resources/task-progress.png)
+   ![Corrigir - progresso das tarefas de correção](../media/remediate-resources/task-progress.png)
 
 1. Clique na **tarefa de correção** na página de conformidade de política para obter detalhes sobre o progresso. A filtragem usada para a tarefa é mostrada junto com uma lista dos recursos que estão sendo corrigidos.
 

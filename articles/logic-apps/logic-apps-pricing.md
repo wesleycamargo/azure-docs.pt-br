@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 4e5b63642b5090b50d29d6d3adc49ea683b90faa
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805157"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
 
@@ -38,12 +38,12 @@ Aplicativos lógicos do Azure medidores todas as ações que são executados em 
 
 ## <a name="fixed-pricing-model"></a>Modelo de preços fixo
 
-Para novos aplicativos lógicos que são executados dentro de um [ *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), você paga um preço mensal fixo para conectores padrão e as ações internas. Um ISE fornece uma maneira de criar e executar aplicativos lógicos isolados que podem acessar recursos em uma rede virtual do Azure.
+Uma [ *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fornece uma maneira particular, isolada e dedicada para que você possa criar e executar aplicativos lógicos que podem acessar recursos em uma rede virtual do Azure. Para novos aplicativos lógicos que são executados dentro de um ISE, você paga um preço mensal fixo para conectores padrão e as ações internas. O ISE também inclui um conector gratuito do Enterprise, que inclui todas as conexões que você deseja. Uso de conectores adicionais do Enterprise é cobrado com base no preço de consumo do Enterprise. 
+
+A unidade base do ISE corrigiu capacidade, portanto, se você precisar de mais taxa de transferência, você pode [adicionar mais unidades de escala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante a criação ou posteriormente.
 
 > [!NOTE]
 > O ISE está na [ *visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para informações específico sobre preços, consulte [preços de aplicativos lógicos do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
-
-A unidade base do ISE corrigiu capacidade, portanto, se você precisar de mais taxa de transferência, você pode [adicionar mais unidades de escala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante a criação ou posteriormente. Seu ISE inclui um conector corporativo gratuito, que inclui quantas conexões você desejar. Uso de conectores adicionais do Enterprise é cobrado com base no preço de consumo do Enterprise.
 
 <a name="connectors"></a>
 

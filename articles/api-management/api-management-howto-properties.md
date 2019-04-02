@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082697"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791619"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure
 As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados. 
@@ -34,7 +34,7 @@ Cada instância de serviço do Gerenciamento de API tem uma coleção de proprie
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
 
-Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
+Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
 
 | NOME | Valor | Segredo | Marcas |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Os valores de propriedade podem conter cadeias de caracteres literais e [express
 
 Quando a propriedade é criada, você pode editá-la clicando na propriedade. Se você alterar o nome da propriedade, todas as políticas que fizerem referência a essa propriedade serão automaticamente atualizadas para usar o novo nome.
 
-Para saber mais sobre como editar uma propriedade usando a API REST, confira [Editar uma propriedade usando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Para saber mais sobre como editar uma propriedade usando a API REST, confira [Editar uma propriedade usando a API REST](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Para excluir uma propriedade
 
@@ -66,7 +66,7 @@ Para excluir uma propriedade, clique em **Excluir** ao lado da propriedade que v
 > 
 > 
 
-Para saber mais sobre como excluir uma propriedade usando a API REST, confira [Excluir uma propriedade usando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Para saber mais sobre como excluir uma propriedade usando a API REST, confira [Excluir uma propriedade usando a API REST](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Para pesquisar e filtrar Valores Nomeados
 
@@ -111,8 +111,8 @@ Enquanto os valores de propriedade podem conter expressões de política, os val
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como trabalhar com políticas
   * [Políticas no Gerenciamento de API](api-management-howto-policies.md)
-  * [Referência de política](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Referência de política](/azure/api-management/api-management-policies)
+  * [Expressões de política](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

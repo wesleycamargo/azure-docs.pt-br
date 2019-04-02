@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Azure DevTest Labs
-description: Este artigo oferece os principais cenários para usar o Azure DevTest Labs e dois caminhos gerais para começar a usar o serviço em sua organização.
+description: Este artigo fornece os principais cenários para usar o Azure DevTest Labs e dois caminhos gerais para começar a usar o serviço em sua organização.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,57 +10,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 21837265a963829539f12cf7911191a61be43fbc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243029"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803790"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Introdução ao Azure DevTest Labs
-Depois de decidir explorar o DevTest Labs, há dois caminhos gerais: implantação de prova de conceito versus implantação dimensionada. 
-
-Uma **implantação dimensionada** consiste em semanas/meses de revisão e planejamento com a intenção de implantar o DevTest Labs em toda a empresa que possui centenas ou milhares de desenvolvedores. 
-
-Uma **implantação de prova de conceito** tem como foco um esforço concentrado de uma única equipe para estabelecer o valor organizacional. Embora possa ser tentador pensar em uma implantação dimensionada, a abordagem tende a falhar com mais frequência do que a opção de prova de conceito. Portanto, recomendamos que você comece pelo mais simples, aprenda com a primeira equipe, repita a mesma abordagem com outras duas ou três equipes e planeje uma implantação dimensionada com base no conhecimento adquirido. Para que sua prova de conceito seja bem-sucedida, recomendamos escolher uma ou duas equipes e identificar seus cenários (ambiente de desenvolvimento versus ambientes de teste), documentar seus casos de uso atuais e implantar o DevTest Labs. 
-
-## <a name="scenarios"></a>Cenários
-Há três cenários principais para uma implementação do DevTest Labs: 
+Dependendo das necessidades de uma empresa, o DevTest Labs pode ser configurado para atender aos requisitos diferentes.  Este artigo aborda os cenários populares. Cada cenário aborda os benefícios trazidos por meio de laboratórios de desenvolvimento/teste e recursos para usar para implementar esses cenários.  
 
 - Áreas de trabalho de desenvolvedor
 - Ambientes de teste
-- Laboratórios/treinamento/hackathon
+- Sessões de treinamento, laboratórios práticos e hackathons
+- Investigações em área restrita
+- Laboratórios de sala de aula
 
 ## <a name="developer-desktops"></a>Áreas de trabalho de desenvolvedor
-Os desenvolvedores geralmente têm requisitos diferentes para os computadores de desenvolvimento de projetos diferentes. Com o DevTest Labs, os desenvolvedores podem ter acesso a VMs sob demanda que são pré-configuradas para atender seus cenários mais comuns. O DevTest Labs oferece os seguintes benefícios:
+Os desenvolvedores geralmente têm requisitos diferentes para os computadores de desenvolvimento de projetos diferentes. Com o DevTest Labs, os desenvolvedores podem ter acesso às máquinas virtuais sob demanda que estão configurados para atender a seus cenários mais comuns. O DevTest Labs oferece os seguintes benefícios:
 
-- As organizações podem fornecer ambientes comuns de desenvolvimento e teste, garantindo consistência entre as equipes
-- Os desenvolvedores podem provisionar rapidamente seus computadores de desenvolvimento sob demanda
-- Os desenvolvedores podem provisionar recursos em forma de autosserviço sem precisar de permissões no nível da assinatura
-- A TI ou os administradores podem predefinir a topologia de rede e os desenvolvedores podem aproveitá-la diretamente, de forma simples e intuitiva, sem exigir acessos especiais
-- Os desenvolvedores podem personalizar facilmente seus computadores de desenvolvimento sempre que for necessário
+- As organizações podem fornecer garantindo a consistência entre as equipes de computadores de desenvolvimento comuns.
+- Os desenvolvedores podem provisionar rapidamente seus computadores de desenvolvimento sob demanda ou [declaração de uma máquina pré-configurada existente](devtest-lab-add-claimable-vm.md).
+- Os desenvolvedores podem provisionar recursos de uma maneira de autoatendimento sem precisar de permissões de nível de assinatura.
+- IT ou os administradores podem [Pre-define a topologia de rede](devtest-lab-configure-vnet.md) e os desenvolvedores podem diretamente usá-lo de uma maneira simple e intuitiva sem a necessidade de qualquer acesso especial.
+- Os desenvolvedores podem facilmente [personalizar](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) seu desenvolvimento máquinas conforme necessário.
 - Os administradores podem controlar os custos garantindo que:
-    - Os desenvolvedores não podem utilizar mais VMs do que o necessário para o desenvolvimento
-    - As VMs ficam fechadas quando não estão em uso
-    - Elas permitem apenas um subconjunto de tamanhos de instância de VM para as cargas de trabalho específicas
+    - Os desenvolvedores [não é possível obter mais VMs](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user) do que o necessário para o desenvolvimento
+    - [VMs são desligadas](devtest-lab-set-lab-policy.md#set-auto-shutdown) quando não estiver em uso
+    - Somente [permitindo que um subconjunto de tamanhos de instância VM](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) para os laboratórios específicos
+    - [Gerenciando as metas de custo e notificações](devtest-lab-configure-cost-management.md) para cada laboratório.
+
+Para ler mais, veja [uso do Azure DevTest Labs para desenvolvedores](devtest-lab-developer-lab.md). 
 
 ## <a name="test-environments"></a>Ambientes de teste
-Criar e gerenciar ambientes de teste em toda a empresa pode exigir um esforço significativo. Com o DevTest Labs, os ambientes de teste podem ser facilmente criados, atualizados ou duplicados e isso permite que as equipes acessem um ambiente totalmente configurado quando necessário. Neste cenário, o DevTest Labs oferece os seguintes benefícios:
+Criar e gerenciar ambientes de teste em toda a empresa pode exigir um esforço significativo. Com o DevTest Labs, ambientes de teste podem ser facilmente criados, atualizados ou duplicados. Ele permite que as equipes acessar um ambiente totalmente configurado, quando for necessário. Neste cenário, o DevTest Labs oferece os seguintes benefícios:
 
-- Os testadores podem testar a última versão de seus aplicativos provisionando ambientes Windows e Linux rapidamente com modelos e artefatos reutilizáveis.
-- Os testadores podem escalar verticalmente seu teste de carga provisionando vários agentes de teste
-- Os administradores podem conectar o laboratório ao DevOps para habilitar cenários de DevOps
-- Os administradores podem controlar os custos garantindo que:
-    - Os testadores não podem obter mais VMs do que o necessário
-    - As VMs ficam fechadas quando não estão em uso
-    - Elas permitem apenas um subconjunto de tamanhos de instância de VM para as cargas de trabalho específicas
+- As organizações podem fornecer ambientes de teste comuns, garantindo a consistência entre as equipes.
+- Os testadores podem testar a versão mais recente de seu aplicativo ao provisionar rapidamente ambientes Windows e Linux usando modelos reutilizáveis.
+- Os administradores possam conectar o laboratório de DevOps do Azure para habilitar cenários de DevOps
+- Os proprietários de laboratório podem controlar os custos, garantindo que:
+    - [Máquinas virtuais em ambientes são desligados](devtest-lab-set-lab-policy.md#set-auto-shutdown) quando não estiver em uso
+    - Somente [permitindo que um subconjunto de tamanhos de instância VM para](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) os laboratórios específicos
+    - [Gerenciando as metas de custo e notificações](devtest-lab-configure-cost-management.md) para cada laboratório.
 
-## <a name="labs-workshops-trainings-and-hackathons"></a>Laboratórios, workshops, treinamentos e hackathons  
-Um laboratório no Azure DevTest Labs funciona como um ótimo contêiner para atividades transitórias, como workshops, laboratórios práticos, treinamento ou hackathons. O serviço permite que você crie um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinamento. Você pode aplicar políticas para garantir que os ambientes de treinamento estejam disponíveis para cada estagiário apenas quando necessário e contém recursos suficientes, como máquinas virtuais, para o treinamento. Por fim, você pode compartilhar facilmente o laboratório com estagiários, que podem acessá-lo com apenas um clique. Após a conclusão da aula, excluir o laboratório e todos os recursos relacionados é uma tarefa simples.
+Para obter mais informações, consulte [ambientes de teste de uso do Azure DevTest Labs para VM e PaaS](devtest-lab-test-env.md).
 
+## <a name="sandboxed-investigations"></a>Investigações em área restrita
+Os desenvolvedores geralmente investigar tecnologias diferentes ou design de infraestrutura. Por padrão, todos os ambientes criados com o DevTest Labs são criados em seu próprio grupo de recursos. O usuário do DevTest Labs obtém apenas acesso de leitura a esses recursos. No entanto, para os desenvolvedores que precisam de mais controle, uma configuração de laboratório pode ser atualizada para fornecer [direitos de Colaborador](https://azure.microsoft.com/updates/azure-devtest-labs-view-and-set-access-rights-to-an-environment-rg/) para o usuário de DevTest Labs de origem para cada ambiente, eles criam.  Com o DevTest Labs, os desenvolvedores podem receber permissão de Colaborador automaticamente para ambientes que eles criam no laboratório.  Esse cenário permite aos desenvolvedores adicionar e/ou alterar os recursos do Azure que precisam para seus ambientes de desenvolvimento ou teste. O [custo por recurso](devtest-lab-configure-cost-management.md#view-cost-by-resource) página permite que os proprietários de laboratório controlar o custo de cada ambiente usado para investigações.
+
+Para obter mais informações, consulte [conjunto de direitos de acesso a um grupo de recursos do ambiente](https://aka.ms/dtl-sandbox).
+
+## <a name="trainings-hands-on-labs-and-hackathons"></a>Treinamento, laboratórios práticos e hackathons 
+Um laboratório no Azure DevTest Labs atua como um contêiner excelente para atividades transitórios como workshops, laboratórios práticos, treinamentos ou hackathons.  O serviço permite que você crie um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinamento. Neste cenário, o DevTest Labs oferece os seguintes benefícios:
+
+- [Políticas de](devtest-lab-set-lab-policy.md) garantir que os estagiários apenas obtém o número de recursos, como máquinas virtuais, o que eles precisam.
+- São pré-configurados e criadas máquinas [solicitadas](devtest-lab-add-claimable-vm.md) com uma ação única de estagiário.
+- Laboratórios são compartilhados com os estagiários acessando [URL para o laboratório](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab).
+- [Datas de validade](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs) em máquinas virtuais, verifique se que as máquinas são excluídas depois que eles não são mais necessários.
+- É fácil [excluir um laboratório](devtest-lab-delete-lab-vm.md#delete-a-lab) e todos os [recursos relacionados](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) quando o está sobre o treinamento.
+
+Para obter mais informações, consulte [uso do Azure DevTest Labs para treinamento](devtest-lab-training-lab.md).  
+
+## <a name="proof-of-concept-vs-scaled-deployment"></a>Prova de conceito vs. implantação em escala
+Depois que você decidir explore os DevTest Labs, há dois caminhos gerais para frente: Prova de conceito vs implantação de escala.  
+
+Uma **implantação dimensionada** consiste em semanas/meses de revisão e planejamento com a intenção de implantar o DevTest Labs em toda a empresa que possui centenas ou milhares de desenvolvedores.
+
+Um **prova de conceito** implantação concentra-se em um esforço concentrado de uma única equipe para estabelecer o valor organizacional. Embora possa ser tentador pensar em uma implantação dimensionada, a abordagem tende a falhar com mais frequência do que a opção de prova de conceito. Portanto, recomendamos que você comece pelo mais simples, aprenda com a primeira equipe, repita a mesma abordagem com outras duas ou três equipes e planeje uma implantação dimensionada com base no conhecimento adquirido. Para que sua prova de conceito seja bem-sucedida, recomendamos escolher uma ou duas equipes e identificar seus cenários (ambiente de desenvolvimento versus ambientes de teste), documentar seus casos de uso atuais e implantar o DevTest Labs.
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte o próximo artigo desta série: [Escalar verticalmente sua implantação dos Laboratórios de Desenvolvimento/Teste](devtest-lab-guidance-scale.md)
+Leia os artigos a seguir:
+
+- [Conceitos dos Laboratórios de Desenvolvimento/Teste](devtest-lab-concepts.md)
+- [Perguntas frequentes do DevTest Labs](devtest-lab-faq.md)
+

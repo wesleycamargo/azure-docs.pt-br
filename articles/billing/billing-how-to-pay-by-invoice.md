@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852331"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762235"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Enviar uma solicitação para pagar uma assinatura do Azure por fatura
 
@@ -36,17 +36,39 @@ Você pode alterar o método de pagamento para a sua assinatura do Azure para fa
 
     ![botão de ajuda e suporte](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Selecione **Cobrança** como o tipo de problema, selecione a assinatura que você deseja pagar por fatura, selecione um plano de suporte e, em seguida, selecione **Avançar**.
+2. Selecione **Cobrança** como o tipo de problema, selecione a assinatura que você deseja pagar por fatura, selecione um plano de suporte e, em seguida, selecione **Avançar**.
 
-1. Selecione a opção **Pagar por Fatura** na caixa **Tipo de Problema**.
+3. Selecione a opção **Pagar por Fatura** na caixa **Tipo de Problema**.
 
-1. Insira as informações a seguir na caixa **detalhes** e, em seguida, selecione **Avançar**.
+ 4. Insira as informações a seguir na caixa **detalhes** e, em seguida, selecione **Avançar**.
 
-    * Nome da empresa
-    * Endereço de cobrança
-    * [Endereço de email do administrador da conta](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - O **nome da empresa** e **endereço da empresa** deve corresponder com as informações que você forneceu para a conta do Azure.  Para exibir ou atualizar as informações, consulte [alterar suas informações de perfil de conta do Azure](billing-how-to-change-azure-account-profile.md).
+    - Você deve adicionar seu contato de cobrança no portal do Azure antes que o limite de crédito poderá ser aprovado. Os detalhes de contato devem estar relacionados ao departamento de contas a pagar ou finanças da empresa. Para atualizar o contato de cobrança, acesse [Centro de contas do Azure](https://account.azure.com/Profile).
 
-1. Verifique suas informações de contato e o método de contato preferencial e clique em **Criar**.
+5. Verifique suas informações de contato e o método de contato preferencial e clique em **Criar**.
 
 Se for necessário executar uma verificação de crédito devido à quantidade de crédito que você precisa, enviaremos a que você um aplicativo de verificação de crédito. Depois de enviar o aplicativo, o processamento do aplicativo de crédito pode levar de cinco a sete dias.
 

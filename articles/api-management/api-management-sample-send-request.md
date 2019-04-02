@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970171"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792477"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
@@ -27,7 +27,7 @@ As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem
 Você viu como interagir com o [serviço de Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-log-to-eventhub-sample.md). Este artigo demonstra políticas que permitem interagir com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que são usadas para manipular a solicitação e resposta originais de alguma forma.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request
-Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. A política de fluxo de controle `choose` pode ser usada para detectar qualquer tipo de condição que você esteja interessado.  Se as condições forem atendidas, será possível fazer uma solicitação HTTP externa usando a política [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens possuem APIs HTTP simples que podem ser invocadas.
+Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. A política de fluxo de controle `choose` pode ser usada para detectar qualquer tipo de condição que você esteja interessado.  Se as condições forem atendidas, será possível fazer uma solicitação HTTP externa usando a política [send-one-way-request](/azure/api-management/api-management-advanced-policies#SendOneWayRequest). Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens possuem APIs HTTP simples que podem ser invocadas.
 
 ### <a name="alerting-with-slack"></a>Alertas com Slack
 O exemplo a seguir demonstra como enviar uma mensagem a uma sala de bate-papo do Slack, se o código de status de resposta HTTP for maior ou igual a 500. Um erro de intervalo 500 indica um problema com a API de back-end que o cliente da API não pode resolver sozinho. Geralmente, isso requer algum tipo de intervenção na parte de Gerenciamento de API.  
@@ -62,7 +62,7 @@ O Slack tem a noção de ganchos de entrada da Web. Ao configurar um webhook de 
 ![Gancho da Web do Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>O método "disparar e esquecer" é o suficiente?
-Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se por algum motivo a solicitação falhar, então, a falha não será relatada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) é uma opção mais adequada.
+Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se por algum motivo a solicitação falhar, então, a falha não será relatada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) é uma opção mais adequada.
 
 ## <a name="send-request"></a>send-request
 A política `send-request` permite o uso de um serviço externo para executar funções complexas de processamento e retornar dados para o serviço de gerenciamento de API, que pode ser usado para um processamento adicional da política.
@@ -209,7 +209,7 @@ Assim que tiver essas informações, você poderá fazer solicitações a todos 
 Essas solicitações executam em sequência, o que não é ideal. 
 
 ### <a name="responding"></a>Respondendo
-Para construir a resposta composta, é possível usar a política [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
+Para construir a resposta composta, é possível usar a política [return-response](/azure/api-management/api-management-advanced-policies#ReturnResponse). O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">

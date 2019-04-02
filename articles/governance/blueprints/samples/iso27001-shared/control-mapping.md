@@ -1,6 +1,6 @@
 ---
-title: Exemplo – ISO 27001 diagrama - mapeamento de controle
-description: Mapeamento de controle de exemplo de plano gráfico ISO 27001.
+title: Mapeamento de controle de exemplo - diagrama de serviços compartilhados do ISO 27001-
+description: Mapeamento de controle de exemplo de especificação técnica ISO 27001 Shared Services à política do Azure e o RBAC.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3ce755b62ce2ba0328852b551225ffa828a6c1bf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576098"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804676"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapeamento de controle do exemplo de especificações técnicas do Azure BluePrint ISO 27001
+# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico de serviços compartilhados do ISO 27001
 
 O artigo a seguir fornece detalhes sobre como os serviços compartilhados do Azure BluePrint ISO 27001 especificações técnicas de mapas de exemplo para os controles do ISO 27001. Para obter mais informações sobre os controles, consulte [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

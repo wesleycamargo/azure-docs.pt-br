@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759341"
+ms.locfileid: "58762915"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
 
@@ -31,8 +31,6 @@ Clusters de HDInsight do Azure têm diferentes tipos de máquinas virtuais ou n�
 | Nó de região | Para o tipo de cluster HBase, o nó de região (também conhecido como um nó de dados) executa o servidor de região. Servidores de região servem e gerenciar uma parte dos dados gerenciados pelo HBase. Nós de região podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar os custos.|
 | Nó Nimbus | Para o tipo de cluster Storm, o nó Nimbus fornece uma funcionalidade semelhante para o nó principal. O nó Nimbus atribui tarefas a outros nós em um cluster por meio do Zookeeper, que coordena a execução de topologias Storm. |
 | Nó Supervisor | Para o tipo de cluster Storm, o nó supervisor executa as instruções fornecidas pelo nó do Nimbus para executar o processamento desejado. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase e tipos de cluster do R Server
 
 ## <a name="basic-virtual-network-resources"></a>Recursos de rede virtual básica
 

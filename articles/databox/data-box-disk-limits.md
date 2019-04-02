@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880442"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791636"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
 
@@ -50,11 +50,11 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 - Todos os arquivos gravados nos compartilhamentos *BlockBlob* e *PageBlob* são carregados como um blob de blocos e um blob de páginas, respectivamente.
 - Qualquer hierarquia de diretórios vazios (sem nenhum arquivo) criada sob as pastas *BlockBlob* e *PageBlob* não é carregada.
 - Se há erros ao carregar dados no Azure, um log de erros é criado na conta de armazenamento de destino. O caminho para esse log de erros está disponível no portal quando o upload é concluído e você pode examinar o log para tomar uma ação corretiva. Não exclua os dados da origem sem verificar os dados carregados.
-- Se você tiver especificado o discos gerenciados na ordem, examine as seguintes considerações adicionais:
+- Se você especificou discos gerenciados no pedido, analise as seguintes considerações adicionais:
 
-    - Você só pode ter um disco gerenciado com um determinado nome em um grupo de recursos entre todas as pastas pré-criada e em todos os dados de caixa de disco. Isso implica que os VHDs carregados as pastas pré-criada devem ter nomes exclusivos. Certifique-se de que o nome fornecido não coincide com um disco gerenciado já existente em um grupo de recursos. Se os VHDs têm os mesmos nomes, apenas um VHD é convertido em um disco gerenciado com esse nome. Os outros VHDs serão carregados como blobs de página conta de armazenamento temporário.
-    - Sempre copie os VHDs em uma das pastas pré-criada. Se você copiar os VHDs fora essas pastas ou em uma pasta que você criou, os VHDs são carregados para a conta de armazenamento do Azure como blobs de páginas e discos gerenciados não.
-    - Somente os VHDs fixos podem ser carregados para criar discos gerenciados. VHDs dinâmicos, VHDs diferenciais ou VHDX arquivos não têm suporte.
+    - Só é possível ter um disco gerenciado com um determinado nome em um grupo de recursos em todas as pastas pré-criadas e em todo o Data Box Disk. Isso implica que os VHDs enviados para as pastas pré-criadas deverão ter nomes exclusivos. Certifique-se de que o nome determinado não corresponda a um disco gerenciado já existente em um grupo de recursos. Se os VHDs tiverem nomes iguais, somente um VHD será convertido em disco gerenciado com esse nome. Os outros VHDs serão carregados como blobs de páginas na conta de armazenamento temporário.
+    - Sempre copie os VHDs para uma das pastas pré-criadas. Se você copiar os VHDs fora dessas pastas ou em uma pasta que você criou, os VHDs serão carregados na conta do Armazenamento do Azure como blobs de páginas e não como discos gerenciados.
+    - Apenas os VHDs fixos podem ser carregados para criar discos gerenciados. VHDs dinâmicos, VHDs diferenciais ou arquivos VHDX não têm suporte.
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
@@ -71,8 +71,8 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 
 | Tipo de objeto do Azure | Limite padrão                                             |
 |-------------------|-----------------------------------------------------------|
-| Bloquear Blob        | Aproximadamente 4,75 TiB                                                 |
-| Blob de Páginas         | 8 TiB <br> (Todos os arquivos carregados no formato de Blob de páginas devem ser 512 bytes alinhados, caso contrário o carregamento falhará. <br> O VHD e VHDX são 512 bytes alinhados.) |
+| Blob de blocos        | Aproximadamente 4,75 TiB                                                 |
+| Blob de páginas         | 8 TiB <br> (Todos os arquivos carregados no formato de Blob de páginas devem ser 512 bytes alinhados, caso contrário o carregamento falhará. <br> O VHD e VHDX são 512 bytes alinhados.) |
 |Arquivos do Azure        | 1 TiB <br> Máx. tamanho do compartilhamento é de 5 TiB     |
 | Discos gerenciados     |4 TiB <br> Para obter mais informações sobre o tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
@@ -93,4 +93,4 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os [requisitos de sistema do Data Box](data-box-system-requirements.md)
+- Revisão [requisitos de sistema do disco Data Box](data-box-disk-system-requirements.md)

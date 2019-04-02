@@ -1,5 +1,5 @@
 ---
-title: Exemplo - diagrama de carga de trabalho de banco de dados do ISO 27001 App Service ambiente/SQL - as etapas de implantação
+title: Exemplo - diagrama de carga de trabalho do ISO 27001 ASE/SQL - as etapas de implantação
 description: As etapas do exemplo de especificações técnicas do ISO 27001 App Service ambiente/SQL Database carga de trabalho de implantação.
 services: blueprints
 author: DCtheGeek
@@ -8,22 +8,22 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 80c98170fc136c20d8489cec5d145f96e207bc9f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4ed51ee5f8cbdc50fa65a189d8f468bd7713a74b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201901"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804149"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar o exemplo de plano gráfico de carga de trabalho do Azure BluePrint ISO 27001 aplicativo serviço ambiente/banco de dados SQL
+# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar o exemplo de plano gráfico de carga de trabalho de banco de dados do ISO 27001 App Service ambiente/SQL
 
 Para implantar o exemplo de plano gráfico de carga de trabalho do Azure BluePrint ISO 27001 aplicativo serviço ambiente/banco de dados SQL, as etapas a seguir devem ser executadas:
 
 > [!div class="checklist"]
 > - Implantar o [ISO 27001 Shared Services](../iso27001-shared/index.md) exemplo de plano gráfico
 > - Criar um novo projeto de exemplo
-> - Marcar sua cópia da amostra como **publicado**
-> - Atribuir a sua cópia do plano gráfico para uma assinatura existente
+> - Marcar sua cópia do exemplo como **Publicado**
+> - Atribuir a sua cópia do blueprint a uma assinatura existente
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -40,48 +40,48 @@ Primeiro, implemente o exemplo de projeto, criando um novo projeto em seu ambien
 
 1. Selecione **todos os serviços** e pesquise e selecione **diretiva** no painel esquerdo. Sobre o **diretiva** página, selecione **plantas**.
 
-1. Do **guia de Introdução** página à esquerda, selecione o **Create** botão sob _criar um plano gráfico_.
+1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
 1. Encontre o **ISO 27001: Carga de trabalho do SQL/ASE** exemplo de plano gráfico em _outras amostras_ e selecione **usar este exemplo**.
 
-1. Insira o _Noções básicas de_ do exemplo de plano gráfico:
+1. Insira as informações _Básicas_ do exemplo de blueprint:
 
-   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo de plano gráfico de carga de trabalho do ISO 27001 ASE/SQL.
-   - **Local da definição**: Use nas reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo para.
+   - **Nome do blueprint**: Forneça um nome para a sua cópia do exemplo de plano gráfico de carga de trabalho do ISO 27001 ASE/SQL.
+   - **Localização da definição**: Use nas reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo para.
 
-1. Selecione o _artefatos_ guia na parte superior da página ou **Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _Artefatos_ na parte superior da página ou selecione **Avançar: Artefatos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo de plano gráfico. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar rascunho** quando tiver terminado, examinando o exemplo de plano gráfico.
+1. Examine a lista de artefatos que compõem o exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+## <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 
-Sua cópia do exemplo de plano gráfico agora foi criada em seu ambiente. Ele é criado no **rascunho** modo e deve ser **publicado** antes de ser atribuída e implantada. A cópia do exemplo de plano gráfico pode ser personalizada ao seu ambiente e as necessidades, mas essa modificação pode movê-lo para fora da norma ISO 27001.
+Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia do exemplo de plano gráfico pode ser personalizada ao seu ambiente e as necessidades, mas essa modificação pode movê-lo para fora da norma ISO 27001.
 
 1. Selecione **todos os serviços** e pesquise e selecione **diretiva** no painel esquerdo. Sobre o **diretiva** página, selecione **plantas**.
 
-1. Selecione o **Blueprint definições** página à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecioná-lo.
+1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecioná-lo.
 
-1. Selecione **publicar blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** de sua cópia do exemplo de plano gráfico. Essa propriedade é útil para se você fizer uma modificação mais tarde. Fornecer **alterar notas** , como "primeira versão publicada do exemplo ISO 27001 blueprint." Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **Publicar blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** de sua cópia do exemplo de plano gráfico. Essa propriedade será útil se você fizer uma modificação mais tarde. Fornecer **alterar notas** , como "primeira versão publicada do exemplo ISO 27001 blueprint." Em seguida, selecione **Publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Depois que a cópia do exemplo de plano gráfico foi atualizado com êxito **publicado**, ele pode ser atribuído a uma assinatura dentro do grupo de gerenciamento que ele foi salvo. Esta etapa é onde os parâmetros são fornecidos para tornar cada implantação da cópia do exemplo de plano gráfico exclusivo.
+Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poderá ser atribuído a uma assinatura do grupo de gerenciamento em que ele foi salvo. Esta é a etapa em que os parâmetros são fornecidos para tornar exclusiva cada implantação da cópia do exemplo de blueprint.
 
 1. Selecione **todos os serviços** e pesquise e selecione **diretiva** no painel esquerdo. Sobre o **diretiva** página, selecione **plantas**.
 
-1. Selecione o **Blueprint definições** página à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecioná-lo.
+1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecioná-lo.
 
-1. Selecione **Assign blueprint** na parte superior da página de definição de plano gráfico.
+1. Selecione **Atribuir blueprint** na parte superior da página de definição de blueprint.
 
-1. Forneça os valores de parâmetro para a atribuição de planta:
+1. Forneça os valores de parâmetro para a atribuição de blueprint:
 
    - Noções básicas
 
-     - **Assinaturas**: Selecione um ou mais assinaturas que estão no grupo de gerenciamento que você salvou sua cópia do exemplo de plano gráfico para. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada um usando os parâmetros inseridos.
+     - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
      - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do projeto.
        Alterar conforme necessário ou deixar como está.
-     - **Localização**: Selecione uma região para a identidade gerenciada seja criado. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição de plano gráfico**: Escolher uma **publicado** versão da sua cópia do exemplo de plano gráfico.
+     - **Localização**: Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição de blueprint**: Escolher uma **publicado** versão da sua cópia do exemplo de plano gráfico.
 
    - Bloquear atribuição
 
@@ -103,9 +103,9 @@ Depois que a cópia do exemplo de plano gráfico foi atualizado com êxito **pub
 
    - Parâmetros do artefato
 
-     Os parâmetros definidos nesta seção se aplicam para o artefato sob a qual ele está definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois elas são definidas durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele está definido. Esses são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters), pois são definidos durante a atribuição do blueprint. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
-1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição de planta é criada e começa a implantação de artefato. Implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição de planta.
+1. Depois que todos os parâmetros forem inseridos, selecione **Atribuir** na parte inferior da página. A atribuição de planta é criada e começa a implantação de artefato. Implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição de planta.
 
 > [!WARNING]
 > O serviço de especificações técnicas do Azure e os exemplos de especificações técnicas internas estão **sem custos,**. Recursos do Azure são [com preço por produto](https://azure.microsoft.com/pricing/). Use o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de plano gráfico.

@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314119"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802738"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
@@ -46,7 +46,7 @@ Para exibir os detalhes de conformidade, siga estas etapas:
 
 1. O **detalhes de conformidade** painel exibe informações de avaliação mais recente do recurso para a atribuição de política atual. Neste exemplo, o campo **Microsoft.Sql/servers/version** for _12.0_ enquanto a definição de política esperada _14.0_. Se o recurso não está em conformidade por vários motivos, cada um é listado nesse painel.
 
-   ![Painel de detalhes de conformidade](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Painel de detalhes de conformidade e os motivos para não conformidade](../media/determine-non-compliance/compliance-details-pane.png)
 
    Para um **auditIfNotExists** ou **deployIfNotExists** definição de política, os detalhes incluem o **details.type** propriedade e qualquer propriedade opcional. Para obter uma lista, consulte [propriedades auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [deployIfNotExists propriedades](../concepts/effects.md#deployifnotexists-properties). **Avaliado pela última vez resource** é um recurso relacionado do **detalhes** seção da definição.
 
@@ -118,11 +118,11 @@ Como parte de uma nova **visualização pública**, dos últimos 14 dias de alte
 
 1. Escolha a guia **Histórico de Alterações (versão prévia)** na página **Conformidade do Recurso**. Se houver uma lista de alterações detectadas, ela será exibida.
 
-   ![Histórico de alterações de política - Guia](../media/determine-non-compliance/change-history-tab.png)
+   ![Guia de histórico de alterações de política na página de conformidade do recurso](../media/determine-non-compliance/change-history-tab.png)
 
 1. Escolha uma das alterações detectadas. O _comparação visual_ para o recurso é apresentado na **histórico de alterações** página.
 
-   ![Histórico de alterações de política - Comparação visual](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Histórico de alteração de política Visual Diff na página de histórico de alteração](../media/determine-non-compliance/change-history-visual-diff.png)
 
 A _comparação visual_ ajuda a identificar alterações em um recurso. Não podem estar relacionadas as alterações detectadas para o estado atual de conformidade do recurso.
 

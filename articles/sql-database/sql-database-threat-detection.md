@@ -12,18 +12,18 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002149"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793746"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Detecção de ameaças do Banco de Dados SQL do Azure para bancos de dados individuais ou em pool
 
-A [detecção de ameaças](sql-database-threat-detection-overview.md) para os bancos de dados individuais ou em pool detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar os bancos de dados. A detecção de ameaças pode identificar **Possíveis injeções de SQL**, **Acesso de um data center ou localização incomum**, **Acesso de uma entidade de segurança desconhecida ou de um aplicativo potencialmente prejudicial** e **Credenciais SQL de força bruta**, veja mais detalhes em [Alertas da detecção de ameaças](sql-database-threat-detection-overview.md#threat-detection-alerts).
+A [detecção de ameaças](sql-database-threat-detection-overview.md) para os bancos de dados individuais ou em pool detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar os bancos de dados. A detecção de ameaças pode identificar **Possíveis injeções de SQL**, **Acesso de um data center ou localização incomum**, **Acesso de uma entidade de segurança desconhecida ou de um aplicativo potencialmente prejudicial** e **Credenciais SQL de força bruta**, veja mais detalhes em [Alertas da detecção de ameaças](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-Você pode receber notificações sobre as ameaças detectadas por meio de [notificações por email](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou do [Portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+Você pode receber notificações sobre as ameaças detectadas por meio de [notificações por email](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou do [Portal do Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
 A [detecção de ameaças](sql-database-threat-detection-overview.md) faz parte da oferta de [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS), um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de ameaças pode ser acessada e gerenciada por meio do portal central da ADS do SQL. O pacote de segurança avançada de dados é cobrado a USD 15/mês por Servidor lógico, com os primeiros 30 dias gratuitos.
 

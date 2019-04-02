@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182125"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793747"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
@@ -62,6 +62,8 @@ Esta seção resume as principais diferenças entre uma implantação básica e 
 
 ### <a name="basic"></a>Basic
 
+Você pode fazer uma implantação básica do [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou usando a CLI.
+
 Implantação Basic é voltada para a apresentação da solução. Para reduzir custos, todos os micros services são implantados em uma única máquina virtual. Esta implantação não usa uma arquitetura pronta para produção.
 
 Uma implantação básica cria os seguintes serviços em sua assinatura do Azure:
@@ -80,6 +82,8 @@ Uma implantação básica cria os seguintes serviços em sua assinatura do Azure
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 
 ### <a name="standard"></a>Standard
+
+Você pode fazer uma implantação padrão somente usando a CLI.
 
 Uma implantação padrão é uma implantação pronta para produção que um desenvolvedor pode personalizar e estender. Use a opção de implantação padrão quando estiver pronto para personalizar uma arquitetura pronta para produção, criada para dimensionamento e extensibilidade. Os micros serviços de aplicativos são criados como contêineres do Docker e implantados usando o Serviço do Azure Kubernetes. O orquestrador do Kubernetes implementa, dimensiona e gerencia os micros serviços.
 

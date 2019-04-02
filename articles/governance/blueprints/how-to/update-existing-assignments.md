@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999857"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805747"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -32,17 +32,17 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique o **atualizar atribuição** botão ou a atribuição de planta com o botão direito e selecione **atualizar atribuição**.
 
-   ![Atualizar atribuição](../media/update-existing-assignments/update-assignment.png)
+   ![Atualizar uma atribuição de planta existente](../media/update-existing-assignments/update-assignment.png)
 
 1. O **Assign blueprint** página será carregada previamente preenchido com todos os valores da atribuição original. Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   ![Atribuição atualizada – bloqueada](../media/update-existing-assignments/updated-assignment.png)
+   ![Atualizado de uma atribuição de planta existente - alterada de modo de bloqueio](../media/update-existing-assignments/updated-assignment.png)
 
 1. Explorar os detalhes sobre outros **operações de atribuição** usando a lista suspensa. A tabela de **os recursos gerenciados** atualizações pela operação de atribuição selecionado.
 
-   ![Operações de atribuição](../media/update-existing-assignments/assignment-operations.png)
+   ![Operações de atribuição de uma atribuição de planta](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 

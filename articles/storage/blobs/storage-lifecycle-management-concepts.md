@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: df38fd30c1bfba4993e9992783a130262a703370
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579505"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803232"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -42,7 +42,7 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política 
 
-Você pode adicionar, editar ou remover uma política por meio do portal do Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, APIs REST ou uma ferramenta de cliente. Este artigo mostra como gerenciar a política usando o portal e métodos do PowerShell.  
+Você pode adicionar, editar ou remover uma política por meio do portal do Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [APIs REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerenciar a política usando o portal e métodos do PowerShell.  
 
 > [!NOTE]
 > Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838010"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805560"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -67,11 +67,11 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Clique na linha do artefato para editar os seus parâmetros.
 
-   ![Parâmetros de blueprint](../media/parameters/parameter-column.png)
+   ![Parâmetros de plano gráfico em uma definição de planta](../media/parameters/parameter-column.png)
 
 1. A página **Editar artefato** exibe opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, pois está desmarcado e _Nome do Grupo de Recursos_ está marcado.
 
-   ![Parâmetros estáticos do Blueprint](../media/parameters/static-parameter.png)
+   ![Parâmetros estáticos do plano gráfico em um artefato do blueprint](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definindo parâmetros estáticos com base na API REST
 
@@ -182,7 +182,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 1. No **Assign blueprint** página, localize o **parâmetros de artefato** seção. Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
-   ![Parâmetro dinâmico do blueprint](../media/parameters/dynamic-parameter.png)
+   ![Parâmetro dinâmico do BluePrint durante a atribuição de planta](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos com base na API REST
 
@@ -241,8 +241,8 @@ Os artefatos de um grupo de recursos são definidos com as propriedades "nome do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md).
-- Saiba como fazer uso de [recurso de bloqueio do plano gráfico](resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [solução de problemas gerais](../troubleshoot/general.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

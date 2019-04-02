@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444719"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801109"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Use o portal do Azure para acessar os dados blob ou fila
 
@@ -47,11 +47,11 @@ O **leitor** atribuição de função ou outra atribuição de função do Azure
 
 As funções internas que oferecem suporte ao acesso aos seus dados de blob ou fila incluem:
 
-- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Para POSIX controle de acesso de armazenamento do Azure Data Lake Gen2 (visualização).
-- [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Permissões de leitura/gravação/exclusão de blobs.
-- [Leitor de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Permissões de somente leitura para blobs.
-- [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Permissões de leitura/gravação/exclusão de filas.
-- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Permissões de somente leitura para filas.
+- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para POSIX controle de acesso de armazenamento do Azure Data Lake Gen2 (visualização).
+- [Colaborador de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Permissões de leitura/gravação/exclusão de blobs.
+- [Leitor de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permissões de somente leitura para blobs.
+- [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permissões de leitura/gravação/exclusão de filas.
+- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Permissões de somente leitura para filas.
     
 Funções personalizadas podem dar suporte a diferentes combinações das mesmas permissões fornecidas por funções internas. Para obter mais informações sobre como criar funções de RBAC personalizadas, consulte [funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md) e [entender as definições de função para recursos do Azure](../../role-based-access-control/role-definitions.md).
 

@@ -1,17 +1,17 @@
 ---
-title: Como alterar, excluir ou gerenciar seus grupos de gerenciamento no Azure – Azure Governance
+title: Como alterar, excluir ou gerenciar seus grupos de gerenciamento - governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622052"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801753"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -37,11 +37,11 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
 1. Selecione a opção **Renomear grupo** na parte superior da página.
 
-   ![Renomear opção de grupo](./media/detail_action_small.png)
+   ![Opção Renomear grupo na página do grupo de gerenciamento](./media/detail_action_small.png)
 
 1. Quando o menu for aberto, digite o novo nome que gostaria de exibir.
 
-   ![Renomear painel de grupo](./media/rename_context.png)
+   ![Painel Renomear grupo para renomear o grupo de gerenciamento](./media/rename_context.png)
 
 1. Clique em **Salvar**.
 
@@ -223,7 +223,7 @@ Para ver quais permissões você tem no portal do Azure, selecione o gerenciamen
 
 1. Selecione a assinatura na lista com a ID correta.
 
-   ![Filhos](./media/add_context_sub.png)
+   ![Assinaturas disponíveis para adicionar a um grupo de gerenciamento](./media/add_context_sub.png)
 
 1. Selecione "Salvar".
 
@@ -237,13 +237,13 @@ Para ver quais permissões você tem no portal do Azure, selecione o gerenciamen
 
 1. Selecione a elipse no final da linha da assinatura na lista que você deseja mover.
 
-   ![Opção de mover](./media/move_small.png)
+   ![Opção move em um grupo de gerenciamento](./media/move_small.png)
 
 1. Selecione **Mover**.
 
 1. No menu aberto, selecione o **Grupo de gerenciamento pai**.
 
-   ![Mover painel](./media/move_small_context.png)
+   ![Mover o painel para alterar o grupo pai](./media/move_small_context.png)
 
 1. Clique em **Salvar**.
 
@@ -294,7 +294,7 @@ Quando você move um grupo de gerenciamento pai, a hierarquia de grupo será mov
    - A seleção de um novo criará um novo grupo de gerenciamento.
    - A seleção de um existente apresentará uma lista suspensa de todos os grupos de gerenciamento que você pode mover para esse grupo de gerenciamento.  
 
-   ![mover](./media/add_context_MG.png)
+   ![Mover um grupo de gerenciamento para o grupo novo ou existente](./media/add_context_MG.png)
 
 1. Clique em **Salvar**.
 
@@ -318,7 +318,7 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md). Você pode consultar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que outros recursos do Azure.  Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
-![Logs de atividades com grupos de gerenciamento](media/al-mg.png)
+![Logs de atividade com grupos de gerenciamento](media/al-mg.png)
 
 Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o escopo de destino dos grupos de gerenciamento é semelhante a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29712861"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793629"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
 
@@ -59,11 +59,11 @@ A configuração é dividida em `inbound`, `backend`, `outbound` e `on-error`. A
 </policies> 
 ```
 
-Se houver um erro durante o processamento de uma solicitação, quaisquer etapas restantes nas seções `inbound`, `backend` ou `outbound` serão ignoradas e a execução saltará para as instruções na seção `on-error`. Ao colocar instruções de políticas na seção `on-error`, você pode revisar o erro usando a propriedade `context.LastError`, inspecionar e personalizar a resposta de erro usando a política `set-body` e configurar o que acontece se ocorrer um erro. Há códigos de erro para obter as etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [Tratamento de erros em políticas de gerenciamento de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+Se houver um erro durante o processamento de uma solicitação, quaisquer etapas restantes nas seções `inbound`, `backend` ou `outbound` serão ignoradas e a execução saltará para as instruções na seção `on-error`. Ao colocar instruções de políticas na seção `on-error`, você pode revisar o erro usando a propriedade `context.LastError`, inspecionar e personalizar a resposta de erro usando a política `set-body` e configurar o que acontece se ocorrer um erro. Há códigos de erro para obter as etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [Tratamento de erros em políticas de gerenciamento de API](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="scopes"> </a>Como configurar políticas
 
-Para obter informações sobre como configurar as políticas, consulte [Definir ou editar políticas](set-edit-policies.md).
+Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](set-edit-policies.md).
 
 ## <a name="policy-reference"></a>Referência de política
 
@@ -97,7 +97,7 @@ Para adicionar uma nova instrução para restringir as solicitações de entrada
 
 ![Políticas de restrição][policies-restrict]
 
-Isto adicionará um trecho XML ao elemento `inbound` que fornecerá diretrizes de como configurar a instrução.
+Isto adicionará um snippet XML ao elemento `inbound` que fornecerá diretrizes de como configurar a instrução.
 
 ```xml
 <ip-filter action="allow | forbid">

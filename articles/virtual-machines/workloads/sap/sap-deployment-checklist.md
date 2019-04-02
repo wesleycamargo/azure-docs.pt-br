@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096003"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802789"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de verificação de planejamento e implantação de carga de trabalho SAP no Azure 
 
@@ -88,19 +88,21 @@ Nesta fase, uma migração da carga de trabalho SAP para a nuvem pública do Azu
 O piloto pode ser executado antes ou junto com o planejamento e a preparação do projeto. A fase também pode ser usada para testar abordagens e o design feito nas fases de planejamento e preparação. A fase piloto pode ser estendida para uma prova de conceitos real. É recomendável configurar e validar uma solução completa de HA/DR, bem como o design de segurança, durante uma implantação piloto. Em alguns casos de cliente, testes de escalabilidade também podem ser realizados nessa fase. Outros clientes usam a implantação de sistemas de área restrita do SAP como fase piloto. Portanto, vamos supor que você tenha identificado um sistema que você queira migrar para o Azure para executar um piloto.
 
 1. Otimize a transferência de dados no Azure. Altamente dependente de casos do cliente, a transferência por meio do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) do local era mais rápida quando o circuito do Express tinha a largura de banda suficiente. Com outros clientes, passar pela Internet se mostrou mais rápido
-2. No caso de uma migração de plataformas heterogêneas da SAP, que envolve exportação e importação do banco de dados, teste e otimização das fases de exportação e importação. Para migrações grandes que envolvem o SQL Server como a plataforma de destino, as recomendações podem ser encontradas [aqui](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Você poderá usar a abordagem do Monitor de Migração/SWPM caso não precise de uma atualização de versão combinada ou processo [DMO SAP](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando combinar a migração com uma atualização de versão do SAP e atender a determinadas combinações de plataforma DBMS de origem e destino conforme documentado, por exemplo, em [DMO (Opção de Migração de Banco de Dados) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+2. No caso de uma migração de plataformas heterogêneas da SAP, que envolve exportação e importação do banco de dados, teste e otimização das fases de exportação e importação. Para migrações grandes que envolvem o SQL Server como a plataforma de destino, as recomendações podem ser encontradas [aqui](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Você poderá usar a abordagem do Monitor de Migração/SWPM caso não precise de uma atualização de versão combinada ou processo [DMO SAP](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando combinar a migração com uma atualização de versão do SAP e atender a determinadas combinações de plataforma DBMS de origem e destino conforme documentado, por exemplo, em [DMO (Opção de Migração de Banco de Dados) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Exportar para a origem, Exportar upload de arquivo para o Azure e Desempenho de importação.  Maximizar a sobreposição entre exportação e importação
    2.  Avaliar o volume do banco de dados entre a plataforma alvo e de destino para refletir o dimensionamento da infraestrutura    
    3.  Validar e otimizar o tempo 
 3. Validação técnica 
    1. Tipos de VM
       1.  Valide os recursos nas notas de suporte SAP, no diretório de hardware do SAP HANA e no SAP PAM novamente para verificar se não houve alterações a VMs com suporte para o Azure, versões do sistema operacional com suporte nesses tipos de VMs e versões SAP e DBMS com suporte
-      2.  Valide novamente o dimensionamento do seu aplicativo e a infraestrutura que você implanta no Azure. No caso de mover aplicativos existentes, você geralmente pode derivar os SAPS necessários da infraestrutura que você usa e a [página da Web de parâmetro de comparação SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) e compará-los com os números SAPS listados na nota suporte SAP [nº 1928533](https://launchpad.support.sap.com/#/notes/1928533). Também leve em conta [este artigo](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/)
+      2.  Valide novamente o dimensionamento do seu aplicativo e a infraestrutura que você implanta no Azure. No caso de mover aplicativos existentes, você geralmente pode derivar os SAPS necessários da infraestrutura que você usa e a [página da Web de parâmetro de comparação SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) e compará-los com os números SAPS listados na nota suporte SAP [nº 1928533](https://launchpad.support.sap.com/#/notes/1928533). Também leve em conta [este artigo](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208)
       3.  Avalie e teste o dimensionamento de suas VMs do Azure em relação à taxa de transferência máxima de armazenamento e à taxa de transferência de rede de diferentes tipos de VM que você escolheu na fase de planejamento. Os dados podem ser encontrados em:
           1.  [Tamanhos das Máquinas Virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
           2.  [Tamanhos para Máquinas Virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
    2. Armazenamento
-      1.  Usar o Armazenamento Premium do Azure para VMs de banco de dados
+      1.  Use [armazenamento de SSD Standard do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) como mínimo para VMs que representam as camadas de aplicativos SAP e para implantação de DBMS confidencial não relacionados a desempenho
+      2.  Recomendamos não deve para usar [discos de HDD Standard do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) em geral
+      2.  Use [armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) para todas as VMs de DBMS que são dependentes do desempenho de remotamente
       2.  Usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)
       3.  Use o Acelerador de Gravação do Azure para unidades de log do DBMS com a série M. Esteja ciente dos limites e do uso do Acelerador de gravação conforme documentado em [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
       4.  Para os diferentes tipos DBMS, confira a [documentação genérica de DBMS relacionado a SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e a documentação específica do DBMS
@@ -124,6 +126,7 @@ O piloto pode ser executado antes ou junto com o planejamento e a preparação d
               4.  Oracle Linux 7.5. Usando o kernel RHCKL, a versão deve ser 3.10.0-862.13.1.el7. É necessário usar o kernel Oracle UEK versão 5
           4.   Teste e avalie a latência de rede entre a VM da camada de aplicativo SAP e a VM do DBMS de acordo com a nota de suporte SAP [nº 500235](https://launchpad.support.sap.com/#/notes/500235) e a nota de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação à orientação de latência de rede da observação de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado e bom. Exceções aplicam-se a o tráfego entre VMs e unidades de Instância Grande do HANA conforme documentado [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
           5.   Verifique se as implantações de ILB são configuradas para usar o Retorno de Servidor Direto. Essa configuração reduzirá a latência em casos em que ILBs do Azure são usados para configurações de alta disponibilidade na camada de DBMS
+          6.   Se você estiver usando o balanceador de carga do Azure em conjunto com a seleção de sistemas operacionais convidados de Linux que o Linux rede parâmetro **net.ipv4.tcp_timestamps** é definido como **0**. Em relação às recomendações em versões mais antigas do SAP note [2382421 #](https://launchpad.support.sap.com/#/notes/2382421). Enquanto isso, a Observação SAP é atualizada para refletir o fato de que o parâmetro precisa ser definido como 0 para funcionar em conjunto com os balanceadores de carga do Azure.
    4. Implantações de alta disponibilidade e recuperação de desastre. 
       1. Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade específica do Azure, verifique se todas as VMs que estão executando a instância de diálogo SAP ou instâncias de middleware de um único sistema SAP estão implantadas em um [Conjunto de Disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
          1.   Caso você não precise de alta disponibilidade para o SAP Central Services e o DBMS, essas VMs poderão ser implantadas no mesmo conjunto de disponibilidade que a camada de aplicativo SAP

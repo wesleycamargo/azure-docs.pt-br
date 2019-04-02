@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441501"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793624"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
@@ -44,7 +44,7 @@ Termine de configurar sua Implantação de Atualização.
 
 Quando sua Implantação de Atualização for concluída, você poderá acessar **Implantações de atualização** para exibir os resultados. Como pode ver, são informados os status do pré-script e do pós-script.
 
-![Atualizar Resultados](./media/pre-post-scripts/update-results.png)
+![Atualizar resultados](./media/pre-post-scripts/update-results.png)
 
 Ao clicar na execução da implantação de atualização, você recebe detalhes adicionais dos pré-scripts e pós-scripts. Um link para a fonte do script no momento da execução é fornecido.
 
@@ -70,7 +70,7 @@ Além dos parâmetros do runbook padrão, um parâmetro adicional é fornecido. 
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | O nome da configuração da atualização de software        |
 |SoftwareUpdateConfigurationRunId     | A ID exclusiva para a execução.        |
@@ -115,6 +115,9 @@ A seguir há um exemplo de cadeia de caracteres JSON passada para o parâmetro *
 ```
 
 Um exemplo completo com todas as propriedades pode ser encontrado em: [Configurações de atualização de software – obter por nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
+
+> [!NOTE]
+> O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para as máquinas. Isso pode causar scripts pré e pós seja executada várias vezes na mesma máquina. Solução alternativa para esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes exclusivos de VM em seu script.
 
 ## <a name="samples"></a>Exemplos
 
@@ -167,7 +170,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428458"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793553"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -40,7 +40,7 @@ Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Substitua `{your service}` pelo nome da sua instância do serviço de Gerenciamento de API.
-* Substitua `{new logger name}` pelo nome desejado para o novo agente. Você referencia este nome quando configura a política [log-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+* Substitua `{new logger name}` pelo nome desejado para o novo agente. Você referencia este nome quando configura a política [log-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
 
 Adicione os seguintes cabeçalhos à solicitação:
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484247"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793740"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
 
@@ -116,8 +116,10 @@ Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmd
     $ErrorActionPreference = "Continue"
    }
    ```
+
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Criar um script T-SQL para execução em bancos de dados
-   ```
+
+   ```powershell
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -137,7 +139,7 @@ Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmd
 
 ## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Criar o trabalho para executar um script no grupo personalizado de bancos de dados
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -148,50 +150,53 @@ Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmd
    ```
 
 ## <a name="execute-the-job"></a>Executar o trabalho
+
 O script do PowerShell a seguir pode ser usado para executar um trabalho existente:
 
 Atualize a variável a seguir para refletir o nome do trabalho desejado a ser executado:
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
    ```
 
 ## <a name="retrieve-the-state-of-a-single-job-execution"></a>Recuperar o estado de uma única execução de trabalho
+
 Use o mesmo cmdlet **Get-AzureSqlJobExecution** com o parâmetro **IncludeChildren** para exibir o estado de execuções de trabalhos filho, ou seja, o estado específico de cada execução do trabalho em relação a cada banco de dados a que o trabalho se destina.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>Exibir o estado em várias execuções de trabalho
+
 O cmdlet **Get-AzureSqlJobExecution** tem vários parâmetros opcionais que podem ser usados para exibir várias execuções de trabalho, filtradas por meio dos parâmetros fornecidos. O exemplo a seguir demonstra algumas das possíveis maneiras de usar o Get-AzureSqlJobExecution:
 
 Recupere todas as execuções de trabalho de nível superior ativas:
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution
    ```
 
 Recupere todas as execuções de trabalho de nível superior, incluindo execuções de trabalhos inativas:
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
 Recupere todas as execuções de trabalhos filho de uma ID de execução de trabalho fornecida, incluindo execuções de trabalhos inativos:
 
-   ```
+   ```powershell
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
 Recupere todas as execuções de trabalho criadas usando uma combinação de agenda/trabalho, incluindo trabalhos inativos:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
@@ -199,7 +204,7 @@ Recupere todas as execuções de trabalho criadas usando uma combinação de age
 
 Recupere todos os trabalhos direcionados a um mapa de fragmentos especificado, incluindo trabalhos inativos:
 
-   ```
+   ```powershell
     $shardMapServerName = "{Shard Map Server Name}"
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
@@ -209,7 +214,7 @@ Recupere todos os trabalhos direcionados a um mapa de fragmentos especificado, i
 
 Recupere todos os trabalhos direcionados a uma coleção personalizada especificada, incluindo trabalhos inativos:
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
@@ -217,7 +222,7 @@ Recupere todos os trabalhos direcionados a uma coleção personalizada especific
 
 Recupere a lista de execuções de tarefas de trabalho contidas na execução de um trabalho específico:
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Write-Output $jobTaskExecutions
@@ -226,16 +231,18 @@ Recupere a lista de execuções de tarefas de trabalho contidas na execução de
 Recupere detalhes de execução de tarefa de trabalho:
 
 O script do PowerShell a seguir pode ser usado para exibir os detalhes de uma execução de tarefa de trabalho, o que é especialmente útil ao depurar falhas de execução.
-   ```
+
+   ```powershell
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Recuperar falhas em execuções de tarefa de trabalho
+
 O objeto JobTaskExecution inclui uma propriedade Ciclo de Vida da tarefa, junto com uma propriedade Mensagem. Se uma execução de tarefa de trabalho falhar, a propriedade de Ciclo de Vida será definida como *Falha* e a propriedade de Mensagem será definida como a mensagem de exceção resultante e sua pilha. Se um trabalho não foi bem-sucedido, é importante exibir os detalhes das tarefas de trabalho que não foram bem-sucedidas para um determinado trabalho.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Foreach($jobTaskExecution in $jobTaskExecutions)
@@ -248,14 +255,16 @@ O objeto JobTaskExecution inclui uma propriedade Ciclo de Vida da tarefa, junto 
    ```
 
 ## <a name="waiting-for-a-job-execution-to-complete"></a>Aguardando a conclusão da execução de um trabalho
+
 O script do PowerShell a seguir pode ser usado para aguardar a conclusão de uma tarefa de trabalho:
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Criar uma política de execução personalizada
+
 O recurso trabalhos de Banco de Dados Elástico dá suporte à criação de políticas de execução personalizadas, que podem ser aplicadas ao iniciar trabalhos.
 
 Atualmente, as políticas de execução permitem definir:
@@ -278,7 +287,7 @@ A política de execução padrão usa os seguintes valores:
 
 Crie a política de execução desejada:
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -290,9 +299,10 @@ Crie a política de execução desejada:
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>Atualizar uma política de execução personalizada
+
 Atualize a política de execução que deseja atualizar:
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -329,38 +339,41 @@ Em vez disso, Stop-AzureSqlJobExecution deve ser chamado para cancelar as execu�
 
 Para disparar a exclusão de trabalho, use o cmdlet **Remove-AzureSqlJob** e defina o parâmetro **JobName**.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
 ## <a name="create-a-custom-database-target"></a>Criar um destino de banco de dados personalizado
+
 Destinos personalizados de banco de dados podem ser definidos no recurso trabalhos de Banco de Dados Elástico, que podem ser usados para execução direta ou para inclusão em um grupo personalizado de bancos de dados. Uma vez que **pools elásticos** ainda não têm suporte direto por meio das APIs do PowerShell, basta criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizada que englobe todos os bancos de dados no pool.
 
 Defina as variáveis a seguir para refletirem as informações de banco de dados desejadas:
 
-   ```
+   ```powershell
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>Criar um destino para a coleção de bancos de dados personalizada
+
 Um destino para coleção de bancos de dados personalizada pode ser definido para habilitar a execução de vários destinos de banco de dados definidos. Após a criação de um grupo de banco de dados, bancos de dados podem ser associados ao destino da coleção personalizada.
 
 Defina as variáveis a seguir para refletir a configuração desejada para destino da coleção personalizada:
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Adicionar bancos de dados a um destino da coleção de bancos de dados personalizada
+
 Destinos de banco de dados podem ser associados com destino de coleção de bancos de dados personalizada para criar um grupo de bancos de dados. Sempre que é criado um trabalho que tem como alvo um destino de coleção de bancos de dados personalizada, esse trabalho é expandido para bancos de dados associados ao grupo no momento da execução.
 
 Adicione o banco de dados desejado a uma coleção personalizada específica:
 
-   ```
+   ```powershell
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,9 +381,10 @@ Adicione o banco de dados desejado a uma coleção personalizada específica:
    ```
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Examinar os bancos de dados contidos em um destino de coleção de bancos de dados personalizada
+
 Use o cmdlet **Get-AzureSqlJobTarget** para recuperar os bancos de dados filho dentro de um destino de coleção de bancos de dados personalizada.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -378,9 +392,10 @@ Use o cmdlet **Get-AzureSqlJobTarget** para recuperar os bancos de dados filho d
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Criar um trabalho para executar um script em um destino de coleção de bancos de dados personalizada
+
 Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. O recurso trabalhos de Banco de Dados Elástico expande o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $customCollectionName = "{Custom Collection Name}"
@@ -391,6 +406,7 @@ Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos 
    ```
 
 ## <a name="data-collection-across-databases"></a>Coleta de dados em bancos de dados
+
 **Trabalhos do Banco de Dados Elástico** dá suporte à execução de uma consulta em um grupo de bancos de dados e envia os resultados a uma tabela do banco de dados especificado. A tabela pode ser consultada após o fato para ver os resultados da consulta provenientes de cada banco de dados. Isso fornece um mecanismo assíncrono para executar uma consulta em vários bancos de dados. Casos de falha - como, por exemplo, um dos bancos de dados estar temporariamente indisponível - são tratados automaticamente por meio de novas tentativas.
 
 A tabela de destino especificada será criada automaticamente, se ela ainda não existir, correspondendo ao esquema do conjunto de resultados retornado. Se uma execução de script retornar vários conjuntos de resultados, o recurso trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino fornecida.
@@ -399,7 +415,7 @@ O script PowerShell a seguir pode ser usado para executar um script coletando os
 
 Defina o seguinte para refletir o script, credenciais e destino de execução desejados:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $executionCredentialName = "{Execution Credential Name}"
@@ -413,7 +429,8 @@ Defina o seguinte para refletir o script, credenciais e destino de execução de
    ```
 
 ### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Criar e iniciar um trabalho para cenários de coleta de dados
-   ```
+
+   ```powershell
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -421,10 +438,12 @@ Defina o seguinte para refletir o script, credenciais e destino de execução de
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Criar um agendamento para execução de trabalho usando um gatilho de trabalho
+
 O script de PowerShell a seguir pode ser usado para criar uma agenda recorrente. Esse script usa um intervalo de minutos, mas o New-AzureSqlJobSchedule também dá suporte aos parâmetros -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Agendas que são executadas apenas uma vez podem ser criadas pela passagem de -OneTime.
 
 Crie uma nova agenda:
-   ```
+
+   ```powershell
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
@@ -433,11 +452,12 @@ Crie uma nova agenda:
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Criar um gatilho de trabalho para que um trabalho seja executado segundo um cronograma
+
 Um gatilho de trabalho pode ser definido para fazer com que um trabalho seja executado segundo um cronograma. O script de PowerShell a seguir pode ser usado para criar um gatilho de trabalho.
 
 Defina as variáveis a seguir para corresponder ao trabalho e agenda desejados:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
@@ -445,16 +465,18 @@ Defina as variáveis a seguir para corresponder ao trabalho e agenda desejados:
    ```
 
 ### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Remover uma associação agendada para impedir o trabalho de ser executado segundo a agenda
+
 Para interromper a execução do trabalho recorrente por meio de um gatilho de trabalho, esse gatilho pode ser removido.
 Remova um gatilho de trabalho para impedir que um trabalho seja executado de acordo com um agendamento usando o cmdlet **Remove-AzureSqlJobTrigger** .
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importar resultados de consulta de banco de dados elástico para o Excel
+
  Você pode importar os resultados de uma consulta para um arquivo do Excel.
 
 1. Inicie o Excel 2013.
@@ -471,9 +493,11 @@ Remova um gatilho de trabalho para impedir que um trabalho seja executado de aco
 Todas as linhas da tabela **Clientes** , armazenada em fragmentos diferentes, populam a planilha do Excel.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora você pode usar funções de dados do Excel. Use a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Consulte o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
 ### <a name="cost"></a>Custo
+
 Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, atualmente esse recurso está disponível apenas em bancos de dados Premium e Comercialmente Crítico e em pools elásticos como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
 
 Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).

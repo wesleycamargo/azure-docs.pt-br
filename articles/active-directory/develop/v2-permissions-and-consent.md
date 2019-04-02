@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123752"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793451"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 
@@ -260,7 +260,7 @@ Para saber mais sobre o protocolo OAuth 2.0 e como obter tokens de acesso, consu
 
 Você pode usar o escopo `/.default` para ajudar na migração de seus aplicativos do ponto de extremidade v1.0 para o ponto de extremidade v2.0. Esse é o escopo interno para cada aplicativo que se refere à lista estática de permissões configuradas no registro de aplicativo. Um valor `scope` de `https://graph.microsoft.com/.default` tem funcionalidade igual à dos pontos de extremidade v1.0 `resource=https://graph.microsoft.com`, isto é, solicita um token com os escopos no Microsoft Graph para os quais o aplicativo foi registrado no portal do Azure.
 
-O escopo /.default pode ser usado em qualquer fluxo do OAuth 2.0, mas é particularmente necessário no [fluxo On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) e no [fluxo de credenciais do cliente](v2-oauth2-client-creds-grant-flow.md).  
+O escopo de /.default pode ser usado em qualquer fluxo de OAuth 2.0, mas é particularmente necessário na [fluxo On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) e [fluxo de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > Os clientes não podem combinar consentimento estático (`/.default`) e dinâmico em uma única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.

@@ -4,17 +4,17 @@ description: A definição do Azure Policy tem vários efeitos que determinam co
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551171"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802624"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -23,7 +23,7 @@ Cada definição de política no Azure Policy tem um único efeito. Esse efeito 
 Atualmente, há seis efeitos com suporte em uma definição de política:
 
 - Acrescentar
-- Auditoria
+- Audit
 - AuditIfNotExists
 - Negar
 - DeployIfNotExists
@@ -144,7 +144,7 @@ Exemplo: Usando o efeito deny.
 }
 ```
 
-## <a name="audit"></a>Auditoria
+## <a name="audit"></a>Audit
 
 Audit é usado para criar um evento de aviso no log de atividades ao avaliar um recurso fora de conformidade, mas ela não para a solicitação.
 
@@ -180,9 +180,10 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
 
 - **Tipo** [obrigatório]
   - Especifica o tipo do recurso relacionado a ser correspondido.
-  - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
+  - Se **details.type** é um tipo de recurso sob a **se** condição recurso, a política de consulta para os recursos deste **tipo** dentro do escopo do recurso avaliado. Caso contrário, consultas de política dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
+  - Quando a condição de valores para **if.field.type** e **then.details.type** corresponderem, em seguida, **nome** se torna _necessária_ e deve ser `[field('name')]`. No entanto, uma [auditoria](#audit) efeito deve ser considerado em vez disso.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -253,6 +254,7 @@ A propriedade **detalhes** dos efeitos DeployIfNotExists tem todas as subproprie
   - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
+  - Quando a condição de valores para **if.field.type** e **then.details.type** corresponderem, em seguida, **nome** se torna _necessária_ e deve ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -339,7 +341,7 @@ Exemplo: Avalia os bancos de dados do SQL Server para determinar se transparentD
 
 ## <a name="layering-policies"></a>Políticas de camadas
 
-Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. A condição e o efeito de cada política são avaliados independentemente. Por exemplo:
+Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. A condição e o efeito de cada política são avaliados independentemente. Por exemplo: 
 
 - Política 1
   - Restringe o local do recurso para 'westus'

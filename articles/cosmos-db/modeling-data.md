@@ -8,40 +8,37 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295089"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762575"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
+# <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
 
-Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados.
+Embora bancos de dados sem esquema, como o Azure Cosmos DB, facilitem muito armazenar e consultar dados não estruturados e semi-estruturados, você deve gastar algum tempo pensando sobre o modelo de dados para obter o máximo do serviço em termos de desempenho e escalabilidade e menor custo.
 
-Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? O aplicativo realizará grandes volumes de leitura e gravação?
+Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? É o seu aplicativo com uso intenso de leitura ou gravação intensa?
 
 Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
-* Como devo pensar em um documento num banco de dados de documentos?
 * O que é modelagem de dados e como ele me afeta?
-* Como a modelagem de dados em um banco de dados de documentos difere da modelagem de dados em um banco de dados relacional?
+* Como a modelagem de dados no Azure Cosmos DB é diferente para um banco de dados relacional?
 * Como posso expressar relações de dados em um banco de dados não relacional?
 * Quando eu insiro dados e quando vinculo a eles?
 
 ## <a name="embedding-data"></a>Inserindo dados
 
-Ao começar a modelar dados em um repositório de documentos, como o Azure Cosmos DB, tente tratar as entidades como **documentos independentes** representados em JSON.
+Quando você começar a modelar dados no Azure Cosmos DB tente tratar suas entidades como **autocontidos itens** representadas como documentos JSON.
 
-Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamos algo num banco de dados relacional, que é um processo que muitos de nós já conhecemos. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional.
+Para comparação, vamos primeiro ver como modelaríamos dados em um banco de dados relacional. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional.
 
 ![Modelo de banco de dados relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
-Durante anos trabalhando com bancos de dados relacionais, aprendemos a normalizar, normalizar e normalizar.
+Ao trabalhar com bancos de dados relacionais, a estratégia é normalizar todos os seus dados. Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa e dividi-la em componentes discretos. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Detalhes de contato podem ser dividido por meio da extração mais comuns, como campos de um tipo. O mesmo se aplica ao endereço, cada registro pode ser do tipo *página inicial* ou *Business*.
 
-Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa, e dividi-la em dados separados. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Nós ainda vamos além e dividimos os detalhes de contato extraindo campos comuns, como tipo. O mesmo endereço, cada registro tem um tipo como *página inicial* ou *Business*.
-
-A premissa que orienta a normalização de dados é **evitar armazenar dados redundantes** em cada registro e, em vez disso, referir-se a eles. Neste exemplo, para ler uma pessoa, com todos os endereços e detalhes de contato, você precisa usar junções para agregar os dados de modo eficaz em tempo de execução.
+A premissa que orienta a normalização de dados é **evitar armazenar dados redundantes** em cada registro e, em vez disso, referir-se a eles. Neste exemplo, para ler uma pessoa, com todos os seus detalhes de contato e endereços, você precisa usar junções efetivamente compor novamente (ou desnormalizar) seus dados em tempo de execução.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -51,7 +48,7 @@ A premissa que orienta a normalização de dados é **evitar armazenar dados red
 
 Atualizar uma pessoa, com seus detalhes de contato e endereço, demanda várias operações de gravação em várias tabelas individuais.
 
-Agora, vejamos como nós modelaríamos os mesmos dados como uma entidade autossuficiente em um banco de dados de documentos.
+Agora vamos dar uma olhada em como nós modelaríamos os mesmos dados como uma entidade autossuficiente no Azure Cosmos DB.
 
     {
         "id": "1",
@@ -72,10 +69,10 @@ Agora, vejamos como nós modelaríamos os mesmos dados como uma entidade autossu
         ]
     }
 
-Usando a abordagem acima, nós **desnormalizamos** o registro da pessoa, no qual **inserimos** todas as informações relacionadas à pessoa, como seus detalhes de contato e endereços, criando um único documento JSON.
+Usando a abordagem acima podemos ter **desnormalizado** o registro da pessoa, por **inserindo** todas as informações relacionadas à pessoa, como seus detalhes de contato e endereços, em um *único JSON* documento.
 Além disso, como não estamos restritos a um esquema fixo, nós temos a flexibilidade de, por exemplo, ter detalhes de contato com formas totalmente diferentes.
 
-Agora, a recuperação do registro completo de uma pessoa do banco de dados é feita em somente uma operação de leitura, de uma única coleção e para um único documento. A atualização do registro de uma pessoa, com seus detalhes de contato e endereços, também é feita em uma única operação de gravação, de um único documento.
+Recuperar o registro de uma pessoa completo do banco de dados é agora uma **única operação de leitura** em relação a um único contêiner e para um único item. Atualizando o registro de uma pessoa, com seus detalhes de contato e endereços, também é um **operação de gravação única** em relação a um único item.
 
 Com a desnormalização dos dados, seu aplicativo possivelmente precisará emitir menos consultas e atualizações para concluir operações comuns.
 
@@ -86,15 +83,15 @@ De modo geral, use modelos de dados inseridos quando:
 * Há **contido** relações entre entidades.
 * Houver relações **de um para poucos** entre entidades.
 * Houver dados inseridos que são **alterados com pouca frequência**.
-* Houver dados inseridos que não crescerão **sem limite**.
-* Houver dados inseridos que são **integrais** aos dados de um documento.
+* Houver dados inseridos não crescerá **sem limite**.
+* Não há dados inseridos que são **consultados frequentemente juntos**.
 
 > [!NOTE]
 > De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura** .
 
 ### <a name="when-not-to-embed"></a>Quando não inserir
 
-Embora o princípio básico do banco de dados de documentos seja desnormalizar tudo e inserir todos os dados em um único documento, isso pode levar a alguma situações que devem ser evitadas.
+Embora a regra geral no Azure Cosmos DB seja desnormalizar tudo e inserir todos os dados em um único item, isso pode levar a alguma situações que devem ser evitadas.
 
 Veja este snippet de JSON.
 
@@ -114,13 +111,13 @@ Veja este snippet de JSON.
         ]
     }
 
-Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso se tornará um problema, pois o tamanho do documento poderá aumentar significativamente.
+Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso pode se tornar um problema de como o tamanho do item poderia aumentar muito grande.
 
-Conforme o tamanho do documento aumenta, a capacidade de transmitir dados eletronicamente, bem como de ler e atualizar o documento, em escala, será afetada.
+À medida que o tamanho do item aumenta a capacidade de transmitir dados de transmissão, bem como para ler e atualizar o item, em grande escala, será afetado.
 
-Nesse caso, seria melhor considerar o modelo a seguir.
+Nesse caso, seria melhor considerar o seguinte modelo de dados.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -132,7 +129,7 @@ Nesse caso, seria melhor considerar o modelo a seguir.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -151,9 +148,9 @@ Nesse caso, seria melhor considerar o modelo a seguir.
         ]
     }
 
-Este modelo tem os três comentários mais recentes inseridos na postagem em si, que é uma matriz com limite fixo. Os outros comentários são agrupados em lotes de 100 e armazenados em documentos separados. O tamanho de 100 foi escolhido para o lote porque nosso aplicativo fictício permite ao usuário carregar 100 comentários por vez.  
+Esse modelo tem três comentários mais recentes inseridos no contêiner de postagem, o que é uma matriz com um conjunto fixo de atributos. Os outros comentários são agrupados em lotes de 100 e armazenados como itens separados. O tamanho de 100 foi escolhido para o lote porque nosso aplicativo fictício permite ao usuário carregar 100 comentários por vez.  
 
-Inserir dados também não é recomendado em casos em que os dados inseridos são usados em diferentes documentos e são alterados com frequência.
+Outro caso em que a inserção de dados não são uma boa ideia é quando os dados inseridos são usados com frequência em itens e serão alterados com frequência.
 
 Veja este snippet de JSON.
 
