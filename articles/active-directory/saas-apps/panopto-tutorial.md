@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Panopto, execute as seguintes e
 
     ![Informações de domínio e de URLs do Panopto para logon único](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<tenant-name>.panopto.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<tenant-name>.panopto.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Panopto](mailto:support@panopto.com%E2%80%8E) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -130,31 +130,31 @@ Para configurar o logon único do Azure AD com o Panopto, execute as seguintes e
 
 1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Panopto como administrador.
 
-2. Na barra de ferramentas à esquerda, clique em **Sistema** e, em seguida, clique em **Provedores de Identidade**.
+2. Na barra de ferramentas à esquerda, clique em **System** (Sistema) e, em seguida, clique em **Identity Providers** (Provedores de Identidade).
    
-    ![Sistema](./media/panopto-tutorial/ic777670.png "Sistema")
+    ![System](./media/panopto-tutorial/ic777670.png "System")
 
-3. Clique em **Adicionar Provedor**.
+3. Clique em **Add Provider** (Adicionar Provedor).
    
-    ![Provedores de Identidade](./media/panopto-tutorial/ic777671.png "Provedores de Identidade")
+    ![Identity Providers](./media/panopto-tutorial/ic777671.png "Identity Providers")
    
 4. Na seção de provedor SAML, execute as seguintes etapas:
    
-    ![Configuração de SaaS](./media/panopto-tutorial/ic777672.png "Configuração de SaaS")
+    ![SaaS configuration](./media/panopto-tutorial/ic777672.png "SaaS configuration")
     
-     a. Na lista **Tipo de Provedor**, selecione **SAML20**.    
+    a. Na lista **Provider Type** (Tipo de Provedor), selecione **SAML20**.    
     
-    b. Na caixa de texto **Nome da Instância** , digite um nome para a instância.
+    b. Na caixa de texto **Instance Name** (Nome da Instância), digite um nome para a instância.
 
-    c. Na caixa de texto **Descrição Amigável** , digite uma descrição amigável.
+    c. Na caixa de texto **Friendly Description** (Descrição Amigável) , digite uma descrição amigável.
     
-    d. Na caixa de texto **Bounce Page Url** (URL da página de entrada), cole o valor da **URL de Logon** copiado do portal do Azure.
+    d. Na caixa de texto **Bounce Page Url** (URL da página de devolução), cole o valor da **URL de Logon** copiado do portal do Azure.
 
     e. Na caixa de texto **Issuer** (Emissor), cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
 
-    f. Abra seu certificado codificado em Base 64, que você baixou do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Chave Pública**.
+    f. Abra seu certificado codificado em Base 64, que você baixou do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Public Key** (Chave Pública).
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
