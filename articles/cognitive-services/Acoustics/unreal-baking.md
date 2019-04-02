@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136556"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311538"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unreal
 Este documento descreve o processo de envio de um bake da acústica usando a extensão do editor do Unreal.
@@ -32,7 +32,7 @@ Há cinco etapas para fazer um assar:
 
 Importe o pacote de plug-ins do Projeto Acústico para o projeto. Para obter ajuda, consulte o tópico [Integração do Unreal](unreal-integration.md). Quando o plug-in estiver integrado, abra a IU da Acústica, clicando no ícone do novo Modo de Acústica.
 
-![Abrir Modo de Acústica](media/acoustics-mode.png)
+![Captura de tela da opção Modo Acústico do Editor do Unreal](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Marcar atores para acústica
 
@@ -42,7 +42,7 @@ Selecione um ou mais objetos no World Outliner ou use a seção **Seleção em M
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes da guia Objetos
 
-![Detalhes da guia Objetos do Unreal](media/unreal-objects-tab-details.png)
+![Captura de tela da guia Objetos Acústicos no Unreal](media/unreal-objects-tab-details.png)
 
 1. Botões de seleção da guia (**objetos** guia selecionada). Use esses botões para percorrer as várias etapas de execução de bake da acústica, de cima para baixo.
 2. Uma breve descrição do que você precisa fazer usando esta página.
@@ -75,11 +75,11 @@ Os materiais acústicos controlam a quantidade de energia sonora refletida de vo
 
 O tempo de reverberação de um determinado material em uma sala é inversamente relacionado ao seu coeficiente de absorção, com a maioria dos materiais tendo valores de absorção na faixa de 0,01 a 0,20. Materiais com coeficientes de absorção acima dessa faixa são muito absorventes. Por exemplo, se uma sala parece muito reverberante, mude o material acústico das paredes, do piso ou do teto para algo de maior capacidade de absorção. A atribuição de material acústico aplica-se a todos os atores que usam esse material de cena.
 
-![Gráfico de tempo de reverberação](media/reverb-time-graph.png)
+![Grafo mostrando a correlação negativa do tempo de reverberação com coeficiente de absorção](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes do guia de materiais
 
-![Detalhes da guia Objetos do Unreal](media/unreal-materials-tab-details.png)
+![Captura de tela da guia Objetos Acústicos no Unreal](media/unreal-materials-tab-details.png)
 
 1. O botão da guia **Materiais**, usado para abrir esta página.
 2. Uma breve descrição do que você precisa fazer usando esta página.
@@ -94,7 +94,7 @@ Depois de atribuir os materiais, alterne para o **investigações** guia.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes do guia de testes
 
-![Detalhe da guia de testes](media/unreal-probes-tab-details.png)
+![Captura de tela da guia Investigações Acústicas no Unreal](media/unreal-probes-tab-details.png)
 
 1. O **investigações** botão guia usada para abrir essa página
 2. Uma breve descrição do que você precisa fazer usando essa página
@@ -124,11 +124,11 @@ Depois que esses cálculos forem concluídos, você poderá visualizar os dados 
 
 Após o cálculo da sonda, um novo ator aparecerá no World Outliner chamado **AcousticsDebugRenderer**. Marcar as caixas de seleção **Renderizar Sondas** e **Renderizar Voxels** habilitará a exibição de depuração dentro do visor do editor.
 
-![Renderizador de Depuração Acústica](media/acoustics-debug-renderer.png)
+![Captura de tela mostrando o ator Renderizador de Depuração Acústica no Editor do Unreal](media/acoustics-debug-renderer.png)
 
 Se você não visualizar voxels nem sondas sobrepostas no nível, certifique-se de que a renderização em tempo real está habilitada no visor.
 
-![Habilitar renderização em tempo real](media/unreal-real-time-rendering.png)
+![Captura de tela da opção de renderização em tempo real no Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Movimente pela cena e verifique se a geometria de oclusão acústica tem voxels.
 
 Se você comparar os voxels criados com resolução grossa vs resolução fina, verá que os voxels grossos serão duas vezes maiores.
 
-![Visualização de Voxel](media/unreal-voxel-preview.png)
+![Captura de tela da Versão prévia de voxels acústicos no editor do Unreal](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Pontos de teste
 
@@ -145,7 +145,7 @@ Os pontos de teste são sinônimos de possíveis locais do player (ouvinte). Ao 
 
 É importante verificar se os pontos de sonda existem em qualquer lugar onde o player deverá percorrer na cena. Os pontos de sonda são colocados na malha de navegação pelo mecanismo do Projeto Acústico e não podem ser movidos ou editados, portanto, assegure-se de que a malha de navegação cubra todos os possíveis locais do player, inspecionando os pontos de sonda.
 
-![Visualização de investigações](media/unreal-probes-preview.png)
+![Captura de tela da Versão prévia de investigações acústicas no Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Resolução grossa vs fina
 
@@ -159,9 +159,9 @@ Embora isso possa parecer simples, tem várias implicações na simulação acú
 * Fontes de som não podem ser localizadas dentro de voxels "preenchidos", ou seja, voxels que contêm geometria - isso resulta em nenhum som. É mais difícil colocar fontes de som de modo que não estejam dentro dos voxels maiores do que quando usam a configuração fina.
 * Os voxels maiores se intrometem mais nos portais, como mostrado abaixo. A primeira imagem foi criada usando resolução grossa, enquanto a segunda é a mesma porta usando resolução fina. Como indicado pelas marcas vermelhas, há muito menos intrusão na entrada usando a configuração fina. A linha azul é a porta conforme definida pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho do voxel. Como essa intrusão ocorre em uma determinada situação depende completamente de como os voxels se alinham com a geometria do portal, que é determinada pelo tamanho e localização de seus objetos na cena.
 
-![Porta de entrada grosso](media/unreal-coarse-bake.png)
+![Captura de tela de voxels grossos preenchendo uma porta de entrada no Unreal](media/unreal-coarse-bake.png)
 
-![Porta de entrada bem](media/unreal-fine-bake.png)
+![Captura de tela de voxels finos preenchendo uma porta de entrada no Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Fazer o bake do nível usando Lote do Azure
 
@@ -169,7 +169,7 @@ Embora isso possa parecer simples, tem várias implicações na simulação acú
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes da guia tortas
 
-![Detalhe da guia tortas](media/unreal-bake-tab-details.png)
+![Captura de tela da guia Bake da Acústica no Unreal](media/unreal-bake-tab-details.png)
 
 1. O botão de incorporar essa guia usado para abrir essa página.
 2. Uma breve descrição do que fazer nesta página.

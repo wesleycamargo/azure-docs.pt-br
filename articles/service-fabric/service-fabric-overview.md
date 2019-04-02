@@ -15,18 +15,21 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4e686d314c1b6550c2c782e9a1e1dc681ff154e1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294426"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539676"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços e contêineres escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem nativos. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de camada 1 e nível corporativo.
 
 Este breve vídeo apresenta o Service Fabric e os microsserviços:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## <a name="compliance"></a>Conformidade
+O provedor de recursos do Azure Service Fabric está disponível em todas as regiões do Azure e está em conformidade com todos os certificados de conformidade que o Azure tem; Isso inclui o seguinte: SOC, ISO, PCI DSS, HIPAA e GDRP. Examine o seguinte para obter uma lista completa dos certificados de conformidade: [Ofertas de conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Aplicativos compostos por microsserviços 
 O Service Fabric permite compilar e gerenciar aplicativos escalonáveis e confiáveis compostos por microsserviços executados a uma densidade alta em um pool compartilhado de computadores, conhecido como um cluster. Ele fornece um tempo de execução leve e sofisticado para compilar microsserviços distribuídos e escalonáveis com e sem estado que são executados em contêineres. Também fornece recursos de gerenciamento de aplicativos abrangentes para provisionar, implantar, monitorar, atualizar/aplicar patch e excluir aplicativos implantados incluindo serviços em contêineres.

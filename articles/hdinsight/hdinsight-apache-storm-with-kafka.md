@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111847"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316942"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -129,7 +129,7 @@ Existem duas topologias fornecidas com esse tutorial:
     >
     > Se você não usar o modelo deste documento para criar o cluster Storm, deverá aplicar manualmente a ação de script ao seu cluster.
     >
-    > A ação de script está localizada em `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` e é aplicada aos nós nimbus e de supervisor do cluster Storm. Para saber mais sobre o uso de ações de script, consulte o documento [Personalizar o HDInsight usando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
+    > A ação de script está localizada em [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) e é aplicada aos nós nimbus e de supervisor do cluster Storm. Para saber mais sobre o uso de ações de script, consulte o documento [Personalizar o HDInsight usando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 As topologias são definidas usando o [Flux](https://storm.apache.org/releases/1.1.2/flux.html). O Flux foi introduzido no Storm 0.10.x e permite que você separe a configuração de topologia do código. Para topologias que usam a estrutura Flux, a topologia é definida em um arquivo YAML. O arquivo do YAML pode ser incluído como parte da topologia. Ele também pode ser um arquivo autônomo usado ao enviar a topologia. O Flux também dá suporte à substituição de variáveis em tempo de execução, o que é usado neste exemplo.
 

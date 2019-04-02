@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK da Visão Personalizada para Node.js'
+title: 'Início Rápido: Criar um projeto de classificação de imagem com o SDK da Visão Personalizada para Node.js'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione tags, faça upload de imagens, treine seu projeto e faça uma previsão usando o SDK do Node.js.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 3ae3a70ff1cfdda356c99e734b7078a54ab48171
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751546"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482446"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: criar um projeto de classificação de imagem com o SDK da Visão Personalizada do Node.js
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início Rápido: criar um projeto de classificação de imagem com o SDK da Visão Personalizada do Node.js
 
-Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Node.js para criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo do Node.js. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Node.js para criar um modelo de classificação de imagem. Depois de criá-lo, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar uma imagem de forma programática. Use este exemplo como um modelo para criar seu próprio aplicativo do Node.js. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este artigo fornece informações e código de exemplo para ajudar você a come�
 
 Para instalar o SDK de Serviço de Visão Personalizada para Node.js, execute o seguinte comando no PowerShell:
 
-```PowerShell
+```powershell
 npm install azure-cognitiveservices-customvision-training
 npm install azure-cognitiveservices-customvision-prediction
 ```
@@ -56,9 +56,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "classifyModel";
 
 const trainer = new TrainingApiClient(trainingKey, endPoint);
 
@@ -102,9 +105,9 @@ Para adicionar imagens de exemplo ao projeto, insira o código a seguir após a 
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier"></a>Treinar o classificador
+### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 ```javascript
     console.log("Training...");
@@ -119,12 +122,11 @@ Esse código cria a primeira iteração no projeto e a marca como a iteração p
     }
     console.log("Training status: " + trainingIteration.status);
     
-    // Update iteration to be default
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e usar o ponto de extremidade de previsão padrão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -132,7 +134,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
+    const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
 
     // Step 6. Show results
     console.log("Results:");
@@ -146,7 +148,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
 
 Execute *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

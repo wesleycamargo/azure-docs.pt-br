@@ -9,17 +9,17 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: f0fc1e693f3eccd0b6f6b69339f210785df6ea69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5d89ac6a0a8918b30cac31580e7fc95c3f770b1a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773225"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436754"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### <a name="make-a-code-change"></a>Alterar um código
-Vá para a janela do VS Code para `mywebapi` e faça uma edição de código no manipulador GET `/` padrão, por exemplo:
+Vá para a janela do VS Code para `mywebapi` e faça uma edição de código no manipulador GET `/` padrão em `server.js`. Por exemplo:
 
 ```javascript
 app.get('/', function (req, res) {

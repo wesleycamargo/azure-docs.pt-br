@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: e00c086e0b91c0f48821143ff118c62afdd76e82
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225375"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485162"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -51,7 +51,7 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
 1. Adicione uma referência ao pacote NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, executando o seguinte comando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Execute o seguinte comando para restaurar pacotes do projeto:
 
@@ -60,6 +60,11 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 3. Abra o *Program.cs* e atualize o método `Main` para usar a Configuração de Aplicativo chamando o método `builder.AddAzureAppConfiguration()`.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();
@@ -100,7 +105,7 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Início Rápido, você criou um repositório de configurações de aplicativo e usou-o com um aplicativo de console .NET Core. Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
+Neste início rápido, você criou um repositório de configurações de aplicativos e o usou com um aplicativo de console .NET Core por meio do [Provedor de Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
 > [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)

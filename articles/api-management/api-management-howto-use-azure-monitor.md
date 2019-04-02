@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454797"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517939"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -184,7 +184,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
 | httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
-| ResourceId | string | "ID do recurso Gerenciamento de API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupo-de-recursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| ResourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | propriedades | objeto | Propriedades da solicitação atual |
 | estático | string | Método HTTP da solicitação de entrada |
 | url | string | URL da solicitação de entrada |

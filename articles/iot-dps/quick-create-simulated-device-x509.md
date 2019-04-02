@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 16942e183152720dc958b6c0ccecde1dee2e5cde
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8f60cce99606b1a92cba62847b060c49cb0c2c0d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185164"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485248"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo simulado X.509 usando o SDK de C do IoT do Azure
 
@@ -45,20 +45,22 @@ Este artigo irá demonstrar registros individuais.
 
 Nesta seção, você vai preparar um ambiente de desenvolvimento usado para criar o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) que inclui o código de exemplo para a sequência de inicialização do X.509.
 
-1. Baixe a versão 3.11.4 do [sistema de build CMake](https://cmake.org/download/). Verifique o binário baixado usando o valor de hash criptográfico correspondente. O exemplo a seguir usou o Windows PowerShell para verificar o hash criptográfico da versão 3.11.4 da distribuição MSI x64:
+1. Baixe o [sistema de build CMake](https://cmake.org/download/). Verifique o binário baixado usando o valor de hash criptográfico que corresponde à versão baixada. Os valores de hash criptográfico também estão localizados no link de download de CMake já fornecido.
 
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    O exemplo a seguir usou o Windows PowerShell para verificar o hash criptográfico da versão 3.13.4 da distribuição MSI x64:
+
+    ```powershell
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Os valores de hash a seguir para a versão 3.11.4 foram listados no site do CMake no momento da redação deste material:
+
+    Os seguintes valores de hash da versão 3.13.4 foram listados no site do CMake no momento da redação deste artigo:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.

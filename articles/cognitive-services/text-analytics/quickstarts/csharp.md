@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: usando C# para chamar a API de Análise de Texto'
+title: 'Início Rápido: usando C# para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189641"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371325"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-t
 1. Clique com o botão direito do mouse na solução e em **Gerenciar pacotes NuGet para a solução**
 1. Marque a caixa de seleção **Incluir pré-lançamento**.
 1. Selecione a guia **Procurar** e pesquise por **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selecione o pacote NuGet e instale-o. Por enquanto, talvez você precise da v2.8.0 (3-18-2019), em vez da v3.0.0, até que um bug no software seja corrigido.
+1. Selecione o pacote NuGet e instale-o. Talvez seja necessário fazer downgrade para a v2.8.0 por enquanto (a partir de 18/03/2019) até que o código de exemplo seja atualizado com a v3.0.0.
 
 > [!Tip]
 >  Embora você possa chamar os [pontos de extremidade HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) diretamente do C#, o SDK Microsoft.Azure.CognitiveServices.Language torna mais fácil chamar o serviço sem precisar se preocupar com a serialização e desserialização do JSON.

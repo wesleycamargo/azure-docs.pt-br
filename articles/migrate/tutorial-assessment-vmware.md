@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104515"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313100"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -185,7 +185,7 @@ Importe o arquivo baixado para o vCenter Server.
    - Se a VM acessa a internet através de um proxy, clique em **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade com a Internet e a [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) acessada pelo coletor.
 
      > [!NOTE]
-     > O endereço de proxy deve ser inserido no formato <http://ProxyIPAddress> ou <http://ProxyFQDN>. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
+     > O endereço de proxy precisa ser inserido na forma http:\//ProxyIPAddress ou http:\//ProxyFQDN. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
 
    - O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
    - Baixe e instale o VMware PowerCLI.

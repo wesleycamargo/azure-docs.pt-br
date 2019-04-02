@@ -5,17 +5,17 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729150"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369438"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
 
 Use as Instâncias de Contêiner do Azure para executar contêineres do Docker sem servidor no Azure de maneira simples e rápida. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisa de uma plataforma de orquestração de contêiner completa como o Serviço de Kubernetes do Azure.
 
@@ -38,12 +38,12 @@ Selecione **Criar um recurso** > **Contêineres** > **Instâncias de Contêiner*
 Insira os seguintes valores nas caixas de texto **Nome do contêiner**, **Imagem de contêiner** e **Grupo de recursos**. Deixe os outros valores com seus padrões e selecione **OK**.
 
 * Nome do contêiner: `mycontainer`
-* Imagem de contêiner: `microsoft/aci-helloworld`
+* Imagem de contêiner: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Grupo de recursos: **Criar novo** > `myResourceGroup`
 
 ![Configurando as definições básicas para uma nova instância de contêiner no Portal do Azure][aci-portal-03]
 
-Para este início rápido, deixe a configuração padrão **Público** para implantar a imagem `microsoft/aci-helloworld` pública. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
+Para este início rápido, deixe a configuração padrão **Público** para implantar a imagem `aci-helloworld` da Microsoft pública. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
 
 Em **Configuração**, especifique um **rótulo do nome DNS** para seu contêiner. O nome precisa ser exclusivo dentro da região do Azure em que você cria a instância de contêiner. Seu contêiner estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
@@ -89,7 +89,7 @@ Escolha **Sim** quando a caixa de diálogo de confirmação aparecer.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
+Neste início rápido, você criou uma instância de contêiner do Azure com base em uma imagem da Microsoft pública. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)

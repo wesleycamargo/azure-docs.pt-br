@@ -1,5 +1,5 @@
 ---
-title: Autenticação de usuário do Azure Active Directory
+title: Autenticação de usuário do Azure Active Directory – Azure Active Directory
 description: Como administrador do Azure AD, como proteger a autenticação de usuário, reduzindo o impacto no usuário final?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b054dd8c78968ffb65b92ab7ee4fe1b21501b0d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192500"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314647"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quais métodos estão disponíveis para autenticação?
 

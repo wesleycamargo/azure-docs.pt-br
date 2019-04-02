@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um cluster e banco de dados do Azure Data Explorer usando PowerShell'
+title: 'Início Rápido: Criar um cluster e banco de dados do Azure Data Explorer usando PowerShell'
 description: Saiba como criar um cluster e banco de dados do Azure Data Explorer usando PowerShell
 services: data-explorer
 author: oflipman
@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287344"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472473"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster e banco de dados do Azure Data Explorer usando PowerShell
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287344"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Este início rápido descreve como criar um cluster e um banco de dados do Azure Data Explorer usando PowerShell.
-
-É possível executar cmdlets e scripts do PowerShell no Windows, no Linux ou no [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o [Azure Data Explorer](https://docs.microsoft.com/azure/kusto/ ).
-
-O [**Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ). Com o Azure PowerShell e o **Az.Kusto**, é possível executar as seguintes tarefas:
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste início rápido, você criará um cluster e um banco de dados usando Powershell. É possível executar cmdlets e scripts do PowerShell no Windows, no Linux ou no [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) com [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar o banco de dados e clusters do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se você optar por instalar e usar a CLI do Azure localmente, este Início Rápido exigirá a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar sua versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Configurar parâmetros
 
-As etapas a seguir não serão necessárias se você estiver executando comandos no Azure Cloud Shell. Se você estiver executando a CLI localmente, siga estas etapas para entrar no Azure e definir a assinatura atual:
+As etapas a seguir não serão necessárias se você estiver executando comandos no Azure Cloud Shell. Se você estiver executando a CLI localmente, siga as etapas 1 e 2 para entrar no Azure e definir a assinatura atual:
 
 1. Execute o comando a seguir para entrar no Azure:
 
@@ -46,12 +47,12 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
     Connect-AzAccount
     ```
 
-2. Defina a assinatura em que deseja criar o cluster.
+1. Defina a assinatura em que deseja criar o cluster:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Instale o módulo Az.Kusto no dispositivo:
+1. Durante a execução da CLI do Azure localmente ou no Azure Cloud Shell, você precisa instalar o módulo Az.Kusto em seu dispositivo:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -73,7 +74,7 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
 
     Há outros parâmetros opcionais que podem ser usados, como a capacidade do cluster.
 
-2. Execute o comando a seguir para verificar se o cluster foi criado com êxito:
+1. Execute o comando a seguir para verificar se o cluster foi criado com êxito:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -97,7 +98,7 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
    | SoftDeletePeriod | *3650:00:00:00* | O tempo durante o qual os dados serão mantidos disponíveis para consulta. |
    | HotCachePeriod | *3650:00:00:00* | O tempo durante o qual os dados serão mantidos no cache. |
 
-2. Execute o seguinte comando para ver o banco de dados criado:
+1. Execute o seguinte comando para ver o banco de dados criado:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
@@ -116,7 +117,5 @@ Agora você tem um cluster e um banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode encontrar mais comandos do Az.Kusto [**aqui**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )
-
-> [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+* [Comandos adicionais do Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [Início Rápido: Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)

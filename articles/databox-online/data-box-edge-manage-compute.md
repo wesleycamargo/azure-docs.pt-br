@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002071"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499023"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerenciar computação no Azure Data Box Edge
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="manage-triggers"></a>Gerenciar disparadores
 
-Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Os gatilhos são a resposta a esses eventos. Os gatilhos podem ajudar a executar uma função sempre que o evento é acionado. Para o Data Box Edge, os gatilhos podem ser em resposta a eventos de arquivo ou a um agendamento.
+Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para o Data Box Edge, os gatilhos podem ser em resposta a eventos de arquivo ou a um agendamento.
 
 - **Arquivo**: esses gatilhos são em resposta a eventos de arquivo, como a criação de um arquivo, a modificação de um arquivo.
 - **Scheduled**: esses gatilhos são em resposta a uma agenda que você pode definir com uma data de início, hora de início e o intervalo de repetição.
@@ -132,6 +132,23 @@ Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para s
      ![Selecione Sim quando solicitado](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
+
+## <a name="enable-a-network-interface-for-compute"></a>Habilitar um adaptador de rede para computação
+
+Talvez você precise acessar um módulo em execução no dispositivo Data Box Edge. Para acessar o módulo externamente, você precisará atribuir um endereço IP a um adaptador de rede no dispositivo. Você pode gerenciar essas configurações de computação por meio da IU da Web local.
+
+Siga as seguintes etapas na IU da Web local para definir as configurações de computação.
+
+1. Na IU da Web local, vá para **Configuração > Configurações de computação**.  
+
+2. **Habilite** o adaptador de rede que você deseja usar para se conectar aos módulos de computação no dispositivo. 
+
+    - Se estiver usando endereços IP estáticos, insira um endereço IP para o adaptador de rede.
+    - Se estiver usando o DHCP, os endereços IP serão automaticamente atribuídos.
+
+3. Selecione **Aplicar** para aplicar as configurações.
+
+    ![Habilitar configurações de computação](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

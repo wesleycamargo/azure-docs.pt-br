@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352879"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447247"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
-   ![Novo -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na página **Novo data factory**, insira **ADFIncCopyTutorialDF** como o **nome**. 
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
@@ -307,7 +308,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
         | NOME | Tipo | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Cadeia de caracteres | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

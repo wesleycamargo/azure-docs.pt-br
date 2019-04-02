@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5361dc41aeaab0d44ee9a28ad0d7e40d98b17b8a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9afc2e2362721fd2905b2a241960507aec9b15a5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013000"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310193"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -161,7 +161,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Insira o endereço IP público do balanceador de carga em um navegador da Web no formato *http://publicIpAddress:9000/do_work*. O balanceador de carga distribui o tráfego para uma de suas instâncias de VM, conforme mostrado no exemplo a seguir:
+Insira o endereço IP público do balanceador de carga em um navegador da Web no formato *http:\//publicIpAddress:9000/do_work*. O balanceador de carga distribui o tráfego para uma de suas instâncias de VM, conforme mostrado no exemplo a seguir:
 
 ![Página da Web padrão em NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

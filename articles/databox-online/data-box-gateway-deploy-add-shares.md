@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592648"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400655"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Azure Data Box Gateway (versão prévia)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com o Azure Data Box Gateway
 
 
 ## <a name="introduction"></a>Introdução
 
-Este artigo descreve como adicionar e conectar-se aos compartilhamentos no Data Box Gateway. Depois que os compartilhamentos são adicionados, o dispositivo Data Box Gateway pode transferir dados para o Azure.
+Este artigo descreve como adicionar e conectar-se aos compartilhamentos no Data Box Gateway. Depois que você adicionar os compartilhamentos, o dispositivo Data Box Gateway poderá transferir dados para o Azure.
 
-Esse procedimento leva cerca de 10 minutos para ser concluído. 
+Esse procedimento leva cerca de 10 minutos para ser concluído.
 
 Neste tutorial, você aprenderá como:
 
@@ -30,62 +30,63 @@ Neste tutorial, você aprenderá como:
 > * Adicionar um compartilhamento
 > * Conectar-se para compartilhar
 
-> [!IMPORTANT]
-> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
- 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de adicionar compartilhamentos ao Data Box Gateway, verifique se:
 
-* Você provisionou um dispositivo virtual e se conectou a ele conforme detalhado em [Provisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md). 
+- Você provisionou um dispositivo virtual e se conectou a ele, conforme detalhado em [Provisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    O dispositivo virtual foi ativado conforme detalhado em [Conectar e ativar o Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) e está pronto para criar compartilhamentos e transferir dados.
+- Você ativou o dispositivo virtual descrito em [Conectar e ativar o Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md).
 
+- O dispositivo está pronto para você criar compartilhamentos e transferir dados.
 
 ## <a name="add-a-share"></a>Adicionar um compartilhamento
 
-Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
+Para criar um compartilhamento, realize o seguinte procedimento:
 
-1. Volte para o portal do Azure. Vá para **Todos os recursos** e procure o recurso Data Box Gateway.
-    
-2. Na lista filtrada de recursos, selecione o recurso Data Box Gateway e, em seguida, navegue para **Visão Geral**. Clique em **+ Adicionar compartilhamento** na barra de comandos do dispositivo.
+1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Data Box Gateway e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online. Selecione **+ Adicionar compartilhamento** na barra de comandos do dispositivo.
    
    ![Adicionar um compartilhamento](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. Em **Adicionar compartilhamento**, especifique as configurações de compartilhamento. Forneça um nome exclusivo para seu compartilhamento. 
+4. Em **Adicionar Compartilhamento**, realize o seguinte procedimento:
 
-   Os nomes de compartilhamentos só podem conter números, letras minúsculas e hifens. O nome do compartilhamento deve ter entre 3 e 63 caracteres e começar com uma letra ou um número. Cada hífen deve ser precedido e seguido por um caractere que não seja um hífen.
+    1. Forneça um nome exclusivo para seu compartilhamento. Os nomes de compartilhamentos podem conter apenas letras minúsculas, números e hifens. O nome do compartilhamento precisa ter entre 3 e 63 caracteres e começar com uma letra ou um número. Cada hífen deve ser precedido e seguido por um caractere que não seja um hífen.
     
-5. Escolha um **Tipo** para o compartilhamento. O tipo pode ser SMB ou NFS, em que SMB é o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux. Dependendo da escolha entre compartilhamentos SMB ou NFS, as opções apresentadas serão ligeiramente diferentes. 
+    2. Escolha um **Tipo** para o compartilhamento. O tipo pode ser SMB ou NFS, em que SMB é o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux. Dependendo da escolha entre compartilhamentos SMB ou NFS, as opções apresentadas serão ligeiramente diferentes.
 
-6. Você deve fornecer uma conta de armazenamento onde o compartilhamento residirá. Um contêiner será criado na conta de armazenamento com o nome do compartilhamento se o contêiner já não existir. Se o contêiner já existir, ele será usado. 
+    3. Forneça uma conta de armazenamento na qual o compartilhamento residirá. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente. Se o contêiner já existir, esse contêiner será usado.
     
-7. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nesta instância, queremos que os dados residam como blocos de blob no Azure e, portanto, vamos escolher o Blob de Blocos. Se escolher o Blob de Páginas, você deverá fazer com que seus dados sejam alinhados com 512 bytes. Observe que o VHDX é sempre de 512 bytes alinhados.
+    4. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nesta instância, queremos que os dados residam como blocos de blob no Azure e, portanto, vamos escolher o Blob de Blocos. Se escolher o Blob de Páginas, você deverá fazer com que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
    
-8. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS. 
+    5. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
      
-    - **Se a criação for de um compartilhamento SMB**: no campo Usuário local com todos os privilégios, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha**e **confirme a senha**. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+    - **Compartilhamento SMB** – em **Todos os usuários locais com privilégios**, selecione **Criar** ou **Usar existente**. Se você criar um usuário local, insira um **nome de usuário** e uma **senha** e, em seguida, **confirme a senha**. Essa ação atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você poderá usar o Explorador de Arquivos para modificá-las.
     
         ![Adicionar compartilhamento SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Se você marcar **Permitir somente operações de leitura** para esses dados de compartilhamento, terá a opção de especificar usuários somente leitura.
+        Se você marcar a caixa de seleção **Permitir operações somente leitura** para esses dados de compartilhamento, poderá especificar usuários somente leitura.
         
-    - **Se a criação for de um compartilhamento NFS**: você precisa fornecer os endereços IP dos clientes permitidos que podem acessar o compartilhamento.
+    - **Compartilhamento NFS** – insira os endereços IP dos clientes permitidos que podem acessar o compartilhamento.
 
         ![Adicionar compartilhamento NFS](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Clique em **Criar** para criar o compartilhamento. 
+9. Selecione **Criar** para criar o compartilhamento.
     
-    Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento. 
+    Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, o bloco **Compartilhamentos** será atualizado para refletir o novo compartilhamento.
     
-    ![Lista atualizada de compartilhamentos](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Bloco Compartilhamentos atualizado](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Conectar-se ao compartilhamento
 
-Execute estas etapas no cliente do Windows Server conectado ao Data Box Gateway para se conectar aos compartilhamentos.
+Agora, você pode se conectar a um ou mais compartilhamentos que criou na etapa anterior. As etapas podem ser diferentes dependendo de seu compartilhamento ser SMB ou NFS.
+
+### <a name="connect-to-an-smb-share"></a>Conectar-se a um compartilhamento SMB
+
+No cliente do Windows Server conectado ao Data Box Gateway, conecte-se a um compartilhamento SMB inserindo os comandos:
 
 
-1. Abra uma janela de comando. No prompt de comando, digite:
+1. Em uma janela Comando, digite:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -93,17 +94,18 @@ Execute estas etapas no cliente do Windows Server conectado ao Data Box Gateway 
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. O File Explorer será aberto. Agora você deverá ser capaz de ver os compartilhamentos que criou como pastas. Selecione e clique duas vezes em um compartilhamento (pasta) para exibir o conteúdo.
+2. No teclado, selecione Windows + R. 
+3. Na janela **Executar**, especifique `\\<device IP address>` e, em seguida, selecione **OK**. O Explorador de Arquivos é aberto. Agora você deverá ser capaz de exibir os compartilhamentos que criou como pastas. No Explorador de Arquivos, clique duas vezes em um compartilhamento (pasta) para exibir o conteúdo.
  
     ![Conectar-se ao compartilhamento SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,7 +113,7 @@ Execute estas etapas no cliente do Windows Server conectado ao Data Box Gateway 
 
 ### <a name="connect-to-an-nfs-share"></a>Conectar-se a um compartilhamento NFS
 
-Execute estas etapas no cliente Linux conectado ao Edge do Data Box.
+No cliente Linux conectado ao seu dispositivo do Data Box Edge, siga o procedimento a seguir:
 
 1. Verifique se o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, use o seguinte comando:
 
@@ -130,8 +132,8 @@ Execute estas etapas no cliente Linux conectado ao Edge do Data Box.
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> As seguintes condições são aplicáveis à versão prévia:
-> - Depois que um arquivo é criado nos compartilhamentos, não há suporte para a renomeação do arquivo. 
+> As seguintes condições são aplicáveis a esta versão:
+> - Depois que um arquivo é criado nos compartilhamentos, não há suporte para a renomeação do arquivo.
 > - A exclusão de um arquivo de um compartilhamento não exclui a entrada na conta de armazenamento.
 > - Se estiver usando `rsync` para copiar dados, a opção `rsync -a` não é compatível.
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplo – Blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 – Visão geral
+title: Exemplo – blueprint de carga de trabalho do ASE/SQL do ISO 27001 – visão geral
 description: Visão geral e arquitetura do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001.
 services: blueprints
 author: DCtheGeek
@@ -8,8 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.openlocfilehash: b4bd8d3ed18a5b30871fc5e61636104f3eb5a770
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802721"
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Visão geral do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 do Azure Blueprints
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Visão geral do exemplo de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001
 
 O exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 oferece mais infraestrutura para o exemplo de blueprint dos [Serviços Compartilhados ISO 27001](../iso27001-shared/index.md).
 Este blueprint ajuda os clientes a implantar arquiteturas baseadas em nuvem que oferecem soluções para os cenários com requisitos de conformidade ou de credenciamento.
@@ -23,7 +29,7 @@ Há dois exemplos de blueprint ISO 27001, este exemplo e o exemplo de blueprint 
 
 O exemplo de blueprint do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 implanta um ambiente Web baseado em plataforma como serviço. O ambiente pode ser usado para hospedar vários aplicativos Web, APIs Web e instâncias do Banco de Dados SQL que seguem os padrões ISO 27001. Este exemplo de blueprint depende do exemplo de blueprint dos [Serviços Compartilhados ISO 27001](../iso27001-shared/index.md).
 
-![Design do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Projeto de exemplo de blueprint de carga de trabalho do ASE/SQL do ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Este ambiente é composto de vários serviços do Azure usados para oferecer uma infraestrutura de carga de trabalho segura, totalmente monitorada e pronta para empresas, baseada nas normas ISO 27001. Esse ambiente é composto de:
 

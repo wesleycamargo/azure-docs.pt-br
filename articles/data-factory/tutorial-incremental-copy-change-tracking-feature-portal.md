@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121869"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449171"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -152,9 +152,10 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
-   ![Novo -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)

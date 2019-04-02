@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958704"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401654"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Início Rápido: Reconhecer a intenção usando Java
 
@@ -29,9 +29,8 @@ Neste início rápido, passe enunciados para um ponto de extremidade LUIS e obte
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) ou seu IDE favorito
 * ID do aplicativo público: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ Neste início rápido, passe enunciados para um ponto de extremidade LUIS e obte
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática 
+## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
-Você pode usar o Java para acessar os mesmos resultados que você viu na janela do navegador na etapa anterior. 
+Você pode usar o Java para acessar os mesmos resultados que você viu na janela do navegador na etapa anterior. Lembre-se de adicionar as bibliotecas do Apache ao projeto.
 
 1. Copie o código a seguir para criar uma classe em um arquivo chamado `LuisGetRequest.java`:
 
@@ -53,9 +52,9 @@ Você pode usar o Java para acessar os mesmos resultados que você viu na janela
 
 2. Substitua o valor da variável `YOUR-KEY` pela sua chave do LUIS.
 
-3. Crie o programa Java com `javac -cp ":lib/*" LuisGetRequest.java`. 
+3. Substitua isso pelo caminho do arquivo e compile o programa Java em uma linha de comando: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Execute o aplicativo com `java -cp ":lib/*" LuisGetRequest.java`. Ele exibe o mesmo JSON que você viu anteriormente na janela do navegador.
+4. Substitua isso pelo caminho do arquivo e execute o aplicativo em uma linha de comando: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Ele exibe o mesmo JSON que você viu anteriormente na janela do navegador.
 
     ![A janela de console exibe resultados JSON do LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ Você pode usar o Java para acessar os mesmos resultados que você viu na janela
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Exclua o arquivo Java. 
+Exclua a pasta de arquivo/projeto Java.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

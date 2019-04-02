@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a33001216fb805b700d077aa8c9d42fae9bd6bae
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 704c26670f9fe2a3d7d0011fee4621a8e8c33028
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416795"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314953"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -189,7 +189,7 @@ Você pode usar um EncoderNamedPreset interno ou usar as predefinições persona
 
 Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real aos Serviços de Mídia para aplicar a **Transformação** criada em um determinado vídeo de entrada ou conteúdo de áudio. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída.
 
-Neste exemplo, a entrada do trabalho é baseada em uma URL HTTPS ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+Neste exemplo, a entrada do trabalho é baseada na URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. Na janela esquerda do Postman, selecione "Codificação e Análise".
 2. Em seguida, selecione "Criar ou Atualizar Trabalho".

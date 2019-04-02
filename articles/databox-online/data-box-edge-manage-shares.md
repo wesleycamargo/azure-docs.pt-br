@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897785"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519826"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Usar o portal do Azure para gerenciar compartilhamentos no Azure Data Box Edge
 
 Este artigo descreve como gerenciar compartilhamentos no Azure Data Box Edge. Você pode gerenciar o Azure Data Box Edge por meio do portal do Azure ou da IU da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para a conta de armazenamento associada aos compartilhamentos.
-
-> [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
-
 
 ## <a name="about-shares"></a>Sobre compartilhamentos
 
@@ -67,8 +63,10 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
         ![Adicionar compartilhamento NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Clique em **Criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
- 
+7. Para acessar com facilidade os compartilhamentos por meio dos módulos de computação de borda, use o ponto de montagem local. Selecione **Usar o compartilhamento com a Computação de borda** para que o compartilhamento seja montado automaticamente depois que ele é criado. Quando essa opção é selecionada, o módulo de borda também pode usar a computação com o ponto de montagem local.
+
+8. Clique em **Criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
+
 ## <a name="add-a-local-share"></a>Adicionar um compartilhamento local
 
 1. No portal do Azure, acesse seu recurso do Data Box Edge e, em seguida, acesse **Gateway > Compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
@@ -93,11 +91,56 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
     Você verá uma notificação indicando que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
 
-    ![Exibir atualizações da folha Compartilhamentos](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Exibir atualizações da folha Compartilhamentos](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Selecione o compartilhamento para exibir o ponto de montagem local para os módulos de computação de borda para esse compartilhamento.
 
     ![Exibir detalhes do compartilhamento local](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+## <a name="mount-a-share"></a>Montar um compartilhamento
+
+Se você criou um compartilhamento antes de configurar a computação em seu dispositivo Data Box Edge, você precisará montar o compartilhamento. Siga as etapas a seguir para montar um compartilhamento.
+
+
+1. No portal do Azure, acesse seu recurso do Data Box Edge e, em seguida, acesse **Gateway > Compartilhamentos**. Na lista de compartilhamentos, selecione o compartilhamento que você deseja montar. A coluna **Usados para computação** mostrará o status como **Desabilitado** para o compartilhamento selecionado.
+
+    ![Selecionar compartilhamento](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Selecione **Montar**.
+
+    ![Selecione montar](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Quando solicitado a confirmar, selecione **Sim**. Isso montará o compartilhamento.
+
+    ![Confirme a montagem](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Depois que o compartilhamento estiver montado, vá para a lista de compartilhamentos. Você verá que a coluna **Usados para computação** mostra o status do compartilhamento como **Habilitado**.
+
+    ![Compartilhamento montado](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Selecione o compartilhamento novamente para exibir o ponto de montagem local para o compartilhamento. O módulo de computação de Borda usa esse ponto de montagem local para o compartilhamento.
+
+    ![Ponto de montagem local para o compartilhamento](media/data-box-edge-manage-shares/share-mountpoint.png)
+
+## <a name="unmount-a-share"></a>Desmontar um compartilhamento
+
+Execute as etapas a seguir no portal do Azure para desmontar um compartilhamento.
+
+1. No portal do Azure, acesse seu recurso do Data Box Edge e, em seguida, acesse **Gateway > Compartilhamentos**.
+
+    ![Selecionar compartilhamento](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Na lista de compartilhamentos, selecione o compartilhamento que você deseja desmontar. Você deseja certificar-se de que o compartilhamento que você desmontar não é usado por todos os módulos. Se o compartilhamento for usado por um módulo, então você verá problemas com o módulo correspondente. Selecione **Desmontar**.
+
+    ![Selecione desmontar](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Quando solicitado a confirmar, selecione **Sim**. Isso desmontará o compartilhamento.
+
+    ![Confirmar desmontagem](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Depois que o compartilhamento estiver desmontado, vá para a lista de compartilhamentos. Você verá que a coluna **Usados para computação** mostra o status do compartilhamento como **Desabilitado**.
+
+    ![Compartilhamento desmontado](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Excluir um compartilhamento
 
@@ -123,7 +166,8 @@ A lista de compartilhamentos é atualizada para refletir a exclusão.
 O recurso de atualização permite atualizar o conteúdo de um compartilhamento. Quando você atualiza um compartilhamento, uma pesquisa é iniciada para localizar todos os objetos do Azure, incluindo os blobs e arquivos adicionados à nuvem desde a última atualização. Esses arquivos adicionais são então baixados para atualizar o conteúdo do compartilhamento no dispositivo.
 
 > [!IMPORTANT]
-> Não é possível atualizar compartilhamentos locais.
+> - Não é possível atualizar compartilhamentos locais.
+> - As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização. 
 
 Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 

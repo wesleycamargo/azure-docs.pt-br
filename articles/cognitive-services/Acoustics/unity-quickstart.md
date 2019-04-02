@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136200"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317180"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Início Rápido do Unity do Projeto Acústico
 Use o conteúdo de exemplo do Projeto Acústico para Unity para fazer experimento com controles de design com suporte de simulação.
 
 Requisitos de software:
 * [Unity 2018.2+](http://unity3d.com) para Windows
-* [Pacote de conteúdo de exemplo do Projeto Acústico](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Pacote de conteúdo de exemplo do Projeto Acústico](https://www.microsoft.com/download/details.aspx?id=57346)
 
 O que está incluído no pacote de exemplo?
 * Cena do Unity com geometria, fontes de som e controles de jogo
@@ -33,7 +33,7 @@ O que está incluído no pacote de exemplo?
 Importe o pacote de exemplo para um novo projeto do Unity. 
 * No Unity, vá para **ativos > Importar pacote > pacote personalizado...**
 
-    ![Importar pacote](media/import-package.png)  
+    ![Captura de tela das opções Importar Pacote do Unity](media/import-package.png)  
 
 * Escolha **ProjectAcoustics.unitypackage**
 
@@ -44,28 +44,28 @@ A parte de assar do kit de ferramentas de acústica requer a versão de tempo de
 
 Você pode verificar se essa configuração entrou em vigor abrindo as **Configurações do Player**:
 
-![Configurações do Player](media/player-settings.png)
+![Captura de tela do painel Configurações do Player do Unity](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Captura de tela do painel Configurações do Player do Unity com .NET 4.5 selecionado](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimente com os controles de design
 Abra a cena de exemplo na pasta **ProjectAcousticsSample** e clique no botão reproduzir no editor do Unity. Use W, A, S, D e o mouse para mover-se. Para comparar o som da cena com e sem acústica, pressione o botão **R** até que o texto de sobreposição fique vermelho e informe "Acústica: desabilitada". Para ver os atalhos de teclado de outros controles, pressione **F1**. Os controles também podem ser usados clicando com o botão direito do mouse para selecionar a ação a ser executada e clicando com o botão esquerdo para executar a ação.
 
 O script **AcousticsAdjust** é anexado às fontes de som na cena de exemplo, que permite os parâmetros de design por origem. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Captura de tela do script AcousticsAdjust do Unity](media/acoustics-adjust.png)
 
 O exemplo a seguir explora alguns dos efeitos que podem ser produzidos com os controles fornecidos. Para obter informações detalhadas sobre cada controle, consulte o [Tutorial de Design do Unity do Projeto Acústico](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Modificar atenuação de distância
 O DSP de áudio fornecido pelo plug-in spatializer do Unity do **Projeto Acústico** respeita a atenuação baseada em distância por origem incorporada no Editor do Unity. Controles de atenuação de distância estão na **Audio Source** componente encontrado na **Inspetor** fontes de painel de som, em **configurações de som 3D**:
 
-![Atenuação de distância](media/distance-attenuation.png)
+![Captura de tela do painel de opções de atenuação de distância do Unity](media/distance-attenuation.png)
 
 O Projeto Acústico executa o cálculo em uma caixa de “região da simulação” centralizada em torno do local do player. Uma vez que os ativos acústicos no pacote de exemplo foram preparados com um tamanho de região de simulação de 45 m em torno do player, a atenuação do som deve ser projetada para cair para 0 em cerca de 45 m.
 
 ### <a name="modify-occlusion-and-transmission"></a>Modificar oclusão e transmissão
-* Se o multiplicador de **Oclusão** for maior do que 1 (o padrão é 1), a oclusão será exagerada. Defini-la em menos de 1 torna o efeito da oclusão mais sutil.
+* Se o multiplicador de **Oclusão** for maior do que 1 (o padrão é 1), a oclusão será exagerada. Defini-la para menos de 1 torna o efeito da oclusão mais sutil.
 
 * Para habilitar a transmissão através da parede, mova o controle deslizante **Transmissão (dB)** para seu nível mais baixo. 
 

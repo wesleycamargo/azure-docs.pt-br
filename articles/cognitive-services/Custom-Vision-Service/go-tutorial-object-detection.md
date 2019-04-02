@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: daauld
-ms.openlocfilehash: 93a6d923aff49811a4b5b0bc2236af8d0bd4c067
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77ba3144afcc48d68466341c154bc1d8eef54d3b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479199"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Go para Visão Personalizada
 
-Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com o Go para criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criação de seu próprio aplicativo Go.
+Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com o Go para criar um modelo de detecção de objeto. Depois de criá-lo, você poderá adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criação de seu próprio aplicativo Go.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample OD Project"
+    iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -211,16 +213,16 @@ Em seguida, use esse mapa de associações para carregar cada imagem de exemplo 
         
     scissor_batch, _ := trainer.CreateImagesFromFiles(ctx, *project.ID, training.ImageFileCreateBatch{ 
         Images: &scissor_images,
-     })
+    })
      
     if (!*scissor_batch.IsBatchSuccessful) {
         fmt.Println("Batch upload failed.")
-    }    
+    }     
 ```
 
-### <a name="train-the-project"></a>Treinar o projeto
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 ```go
     iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -234,12 +236,10 @@ Esse código cria a primeira iteração no projeto e a marca como a iteração p
         fmt.Println("Training status:", *iteration.Status)
     }
 
-    // Mark iteration as default
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e usar o ponto de extremidade de previsão padrão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -248,9 +248,9 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_od_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.DetectImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
-    for _, prediction := range *results.Predictions {
+    for _, prediction := range *results.Predictions    {
         boundingBox := *prediction.BoundingBox
 
         fmt.Printf("\t%s: %.2f%% (%.2f, %.2f, %.2f, %.2f)", 
@@ -269,7 +269,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
 
 Execute *sample.go*.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

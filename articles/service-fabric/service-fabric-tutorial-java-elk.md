@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112496"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312998"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorar seus aplicativos do Service Fabric usando ELK
 
@@ -66,7 +66,7 @@ Você pode usar um ambiente ELK pré-configurado para este tutorial e, se você 
 2. Vá até o seu recurso no Portal do Azure e entra na guia **Diagnósticos de Inicialização** na seção **Suporte + Solução de problemas**. Em seguida, clique na guia **Log Serial**.
 
     ![Diagnóstico de inicialização](./media/service-fabric-tutorial-java-elk/bootdiagnostics.png)
-3. Faça uma pesquisa nos logs em busca da senha necessária para acessar a instância do Kibana. Ela é semelhante ao trecho a seguir:
+3. Faça uma pesquisa nos logs em busca da senha necessária para acessar a instância do Kibana. Ela é semelhante ao snippet a seguir:
 
     ```bash
     [   25.932766] bitnami[1496]: #########################################################################
@@ -109,7 +109,7 @@ Você pode usar um ambiente ELK pré-configurado para este tutorial e, se você 
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Crie ou modifique o arquivo de configuração Logstash existente com o seguinte conteúdo: se você estiver criando o arquivo, ele deverá ser criado em ```/opt/bitnami/logstash/conf/access-log.conf```, se você estiver usando a imagem ELK Bitnami no Azure.
+4. Crie ou modifique o arquivo de configuração do Logstash existente com o seguinte conteúdo: Se você estiver criando o arquivo, ele deverá ser criado em ```/opt/bitnami/logstash/conf/access-log.conf``` se você estiver usando a imagem ELK Bitnami no Azure.
 
     ```json
     input
@@ -149,7 +149,7 @@ Você pode usar um ambiente ELK pré-configurado para este tutorial e, se você 
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Acesse o painel do Kibana em **http://SERVER-IP** e insira o nome de usuário e a senha do Kibana. Se você usou a imagem ELK no Azure, o nome de usuário padrão será "user", e a senha será aquela obtida no **Diagnóstico de Inicialização**.
+8. Acesse o painel do Kibana em **http:\//SERVER-IP** e insira o nome de usuário e a senha do Kibana. Se você usou a imagem ELK no Azure, o nome de usuário padrão será "user", e a senha será aquela obtida no **Diagnóstico de Inicialização**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

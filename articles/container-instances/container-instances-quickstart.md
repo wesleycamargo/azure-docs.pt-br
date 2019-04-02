@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732283"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368503"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando a CLI do Azure
 
@@ -41,14 +41,14 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner com a CLI do Azure, forneça um nome de grupo de recursos, um nome da instância de contêiner e uma imagem de contêiner do Docker para o comando [az container create][az-container-create]. Neste início rápido, você usa a imagem pública `microsoft/aci-helloworld`. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
+Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner com a CLI do Azure, forneça um nome de grupo de recursos, um nome da instância de contêiner e uma imagem de contêiner do Docker para o comando [az container create][az-container-create]. Neste início rápido, você usa a imagem pública `mcr.microsoft.com/azuredocs/aci-helloworld`. Esta imagem empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
 
 Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste início rápido, você implanta um contêiner com um rótulo de nome DNS para que o aplicativo Web fique publicamente acessível.
 
 Execute um comando similar ao seguinte para iniciar uma instância de contêiner. Defina um valor de `--dns-name-label` que seja exclusivo na região do Azure em que você criará a instância. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique o status dele usando o comando [az container show][az-container-show]:
@@ -87,9 +87,9 @@ A saída exibe os logs para o contêiner e deve mostrar as solicitações HTTP G
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
 listening on port 80
-::ffff:10.240.255.105 - - [01/Oct/2018:18:25:51 +0000] "GET / HTTP/1.0" 200 1663 "-" "-"
-::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
-::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ```
 
 ## <a name="attach-output-streams"></a>Anexar fluxos de saída
@@ -107,17 +107,19 @@ Depois de anexados, atualize seu navegador algumas vezes para gerar algumas saí
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
-(count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
-(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
-(count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Created container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
-(count: 1) (last timestamp: 2018-03-15 21:18:06+00:00) Started container with id 3534a1e2ee392d6f47b2c158ce8c1808d1686fc54f17de3a953d356cf5f26a45
+(count: 1) (last timestamp: 2019-03-21 17:27:20+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-helloworld"
+(count: 1) (last timestamp: 2019-03-21 17:27:24+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-helloworld"
+(count: 1) (last timestamp: 2019-03-21 17:27:27+00:00) Created container
+(count: 1) (last timestamp: 2019-03-21 17:27:27+00:00) Started container
 
 Start streaming logs:
 listening on port 80
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.107 - - [15/Mar/2018:21:18:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+
+::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:47:01 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.56 - - [21/Mar/2019:17:47:12 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -144,7 +146,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Início Rápido, você criou uma Instância de Contêiner do Azure usando uma imagem em no Registro do Hub do Docker público. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
+Neste início rápido, você criou uma instância de contêiner do Azure usando uma imagem da Microsoft pública. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)

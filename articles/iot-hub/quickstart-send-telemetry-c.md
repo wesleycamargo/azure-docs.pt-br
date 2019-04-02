@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 634755f6fc144a5817774b16ccd1bf09ffcf6700
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: be8418059ae80b6bcc4c86c677491b5fc9a27e12
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886971"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481851"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (C)
 
@@ -52,15 +52,16 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
 No entanto, neste início rápido, você preparará um ambiente de desenvolvimento usado para clonar e criar o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) no GitHub. O SDK no GitHub inclui o código de exemplo usado neste início rápido. 
 
+1. Baixe o [sistema de build CMake](https://cmake.org/download/). Verifique o binário baixado usando o valor de hash criptográfico que corresponde à versão baixada. Os valores de hash criptográfico também estão localizados no link de download de CMake já fornecido.
 
-1. Baixe a versão 3.13.4 do [sistema de build CMake](https://cmake.org/download/). Verifique o binário baixado usando o valor de hash criptográfico correspondente. O exemplo a seguir usou o Windows PowerShell para verificar o hash criptográfico da versão 3.11.4 da distribuição MSI x64:
+    O exemplo a seguir usou o Windows PowerShell para verificar o hash criptográfico da versão 3.13.4 da distribuição MSI x64:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
+
     Os seguintes valores de hash da versão 3.13.4 foram listados no site do CMake no momento da redação deste artigo:
 
     ```

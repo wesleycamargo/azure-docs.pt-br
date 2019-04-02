@@ -1,6 +1,6 @@
 ---
-title: Criar um índice no código usando a API do .NET – Azure Search
-description: Saiba como criar um índice de texto completo pesquisável usando o SDK do .NET do Azure Search e código de exemplo C#.
+title: Criar um índice em C# – Azure Search
+description: Saiba como criar um índice de texto completo pesquisável em C# usando o SDK do .NET do Azure Search.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,21 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287138"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370577"
 ---
-# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Início rápido: 1 - Criar um índice de pesquisa do Azure Search em C#
+# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Início Rápido: 1 - Criar um índice de pesquisa do Azure Search em C#
 
 Este artigo descreve o processo para criar [um índice do Azure Search](search-what-is-an-index.md) usando C# e o [SDK do .NET](https://aka.ms/search-sdk). Esta é a primeira lição em um exercício de três partes para criar, carregar e consultar um índice. A criação de índice é realizada executando estas tarefas:
 
 > [!div class="checklist"]
 > * Criar um objeto [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) para conectar um serviço de pesquisa.
-> * Criar um objeto [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para passar como um parâmetro em `Indexes.Create`.
+> * Crie um objeto [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) a ser passado como um parâmetro para `Indexes.Create`.
 > * Chamar `Indexes.Create` em `SearchServiceClient` para enviar `Index` a um serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Este artigo descreve o processo para criar [um índice do Azure Search](search-w
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualquer edição. O código de exemplo e as instruções foram testados na edição gratuita da Comunidade.
 
-Um ponto de extremidade de URL e uma chave de api de administração do serviço de pesquisa. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+Obtenha o ponto de extremidade de URL e uma chave de API de administração do serviço de pesquisa. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
   1. No portal do Azure, na página **Visão geral**, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste início rápido, você criou um índice do Azure Search vazio com base em um esquema que define os comportamentos e tipos de dados de campo. O próximo início rápido desta série aborda como carregar o índice com conteúdo pesquisável.
+Neste início rápido, você criou um índice do Azure Search vazio com base em um esquema que define os comportamentos e tipos de dados de campo. O índice é um índice de funções básicas que consiste em um nome e uma coleção de campos atribuídos. Um índice mais realista incluiria outros elementos, como [perfis de pontuação](index-add-scoring-profiles.md), [sugestores](index-add-suggesters.md) para obter suporte de digitação antecipada [sinônimos](search-synonyms.md) e, possivelmente, [analisadores personalizados](index-add-custom-analyzers.md). É recomendável que você visite novamente esses recursos depois de entender o fluxo de trabalho básico.
+
+O próximo início rápido desta série aborda como carregar o índice com conteúdo pesquisável.
 
 > [!div class="nextstepaction"]
 > [Carregar dados em um índice do Azure Search usando C#](search-import-data-dotnet.md)

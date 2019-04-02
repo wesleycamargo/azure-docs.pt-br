@@ -1,28 +1,25 @@
 ---
-title: Gerenciar usuários do Azure Data Box Gateway | Microsoft Docs
+title: Use o portal do Azure para gerenciar agendamentos da largura de banda no Azure Data Box Gateway | Microsoft Docs
 description: Descreve como usar o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d560698ca47c0be39e0533f264bfef211a33d0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102089"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500399"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway  
 
 Este artigo descreve como gerenciar usuários em seu Azure Data Box Gateway. As agendas de largura de banda permitem configurar o uso da largura de banda da rede em diferentes agendamentos ao longo das horas do dia. Essas agendas podem ser aplicadas às operações de download e upload de seu dispositivo para a nuvem. 
 
 Você pode adicionar, modificar ou excluir as agendas de largura de banda de seu Data Box Gateway usando o portal do Azure.
-
-> [!IMPORTANT]
-> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 Neste artigo, você aprenderá a:
 

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cda6c9cd1f9c8b9305349f0904aeb744ba373711
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889838"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350242"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs/ferramentas
 
@@ -34,6 +34,7 @@ Este tópico fornece links para os SDKs, as ferramentas e a documentação. Tamb
 Para iniciar o desenvolvimento nos Serviços de Mídia, você precisará:
 
 - Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [Saiba mais sobre conceitos fundamentais](concepts-overview.md)
 - [Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
 
 ## <a name="start-developing"></a>Comece a desenvolver

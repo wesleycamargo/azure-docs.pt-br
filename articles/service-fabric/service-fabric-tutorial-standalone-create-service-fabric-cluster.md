@@ -3,7 +3,7 @@ title: Tutorial de instalação do cliente do Service Fabric autônomo - Azure S
 description: Neste tutorial você aprenderá como instalar o cliente do Service Fabric autônomo no cluster que você criou no artigo do tutorial anterior.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240334"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370407"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Abrir o Service Fabric Explorer
 
-Agora, você pode conectar o cluster com o Service Fabric Explorer diretamente de um dos computadores com http://localhost:19080/Explorer/index.html ou remotamente com http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+Agora, você pode se conectar ao cluster com o Service Fabric Explorer diretamente de um dos computadores com http:\//localhost:19080/Explorer/index.html ou remotamente com http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Adicionar e remover nós
 

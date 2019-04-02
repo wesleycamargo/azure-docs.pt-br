@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python'
+title: 'Início Rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, faça upload de imagens, treine seu projeto e detecte objetos usando o SDK do Python.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727018"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485961"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Python de Visão Personalizada
 
-Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Python para criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo Python.
+Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Python para criar um modelo de detecção de objeto. Depois de criá-lo, você poderá adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este artigo fornece informações e código de exemplo para ajudar você a come�
 
 Para instalar o SDK do Serviço de Visão Personalizada para Python, execute o seguinte comando no PowerShell:
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -57,11 +57,14 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
+
+publish_iteration_name = "detectModel"
 
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
+obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
 
 # Create a new project
 print ("Creating project...")
@@ -131,9 +134,13 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 Em seguida, use esse mapa de associações para carregar cada imagem de exemplo com suas coordenadas de região. Adicione os códigos a seguir.
 
 ```Python
+# Update this with the path to where you downloaded the images.
+base_image_url = "<path to the images>"
+
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -142,23 +149,27 @@ for file_name in fork_image_regions.keys():
     x,y,w,h = fork_image_regions[file_name]
     regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
 for file_name in scissors_image_regions.keys():
     x,y,w,h = scissors_image_regions[file_name]
     regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
-
-trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+upload_result = trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-### <a name="train-the-project"></a>Treinar o projeto
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 ```Python
 import time
@@ -170,12 +181,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e usar o ponto de extremidade de previsão padrão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -187,19 +198,19 @@ from azure.cognitiveservices.vision.customvision.prediction import CustomVisionP
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
-with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.predict_image(project.id, test_data, iteration.id)
+with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:
+    results = predictor.detect_image(project.id, publish_iteration_name, test_data)
 
-# Display the results.
+# Display the results.    
 for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
+    print("\t" + prediction.tag_name + ": {0:.2f}% bbox.left = {1:.2f}, bbox.top = {2:.2f}, bbox.width = {3:.2f}, bbox.height = {4:.2f}".format(prediction.probability * 100, prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height))
 ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
 Execute *sample.py*.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 

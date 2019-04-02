@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855947"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539489"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 
@@ -61,7 +61,7 @@ Este tutorial realçará o código fundamental para o projeto, mas não abordar�
 
 ## <a name="define-api-keys-and-endpoints"></a>Definir chaves de API e pontos de extremidade
 
-Conforme mencionado acima, este tutorial usa três serviços cognitivos; portanto, ele exige três chaves e pontos de extremidade de API correspondentes. Confira os seguintes campos na classe **Program**: 
+Conforme mencionado acima, este tutorial usa três serviços cognitivos; portanto, ele exige três chaves e pontos de extremidade de API correspondentes. Confira os seguintes campos na classe **Program**:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Confira o método **EvaluateAdultRacy** na classe **Program**. Esse método usa 
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>Método EvaluateCustomVisionTags
+## <a name="evaluatecomputervisiontags-method"></a>Método EvaluateComputerVisionTags
 
-O próximo método usa uma URL de imagem e suas informações de assinatura da Pesquisa Visual Computacional e analisa na imagem a presença de celebridades. Se uma ou mais celebridades forem encontradas, ele definirá o valor correspondente na matriz **ReviewTags** como **True**. 
+O próximo método usa uma URL de imagem e suas informações de assinatura da Pesquisa Visual Computacional e analisa na imagem a presença de celebridades. Se uma ou mais celebridades forem encontradas, ele definirá o valor correspondente na matriz **ReviewTags** como **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>Método EvaluateCustomVisionTags
 
-Em seguida, confira o método **EvaluateCustomVisionTags**, que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guia para criar seu próprio classificador de imagem personalizada, a fim de detectar a presença de bandeiras, brinquedos e canetas (ou qualquer coisa que você escolheu como marcas personalizadas) nas imagens.
+Em seguida, confira o método **EvaluateCustomVisionTags**, que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guia para criar seu próprio classificador de imagem personalizada, a fim de detectar a presença de bandeiras, brinquedos e canetas (ou qualquer coisa que você escolheu como marcas personalizadas) nas imagens. Você pode usar as imagens na pasta **sample-images** do [repositório GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para treinar rapidamente algumas das categorias neste exemplo.
 
 ![Página da Web da Visão Personalizada com imagens de treinamento de canetas, brinquedos e bandeiras](images/tutorial-ecommerce-custom-vision.PNG)
 
-Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores para aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True**. 
+Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores para aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

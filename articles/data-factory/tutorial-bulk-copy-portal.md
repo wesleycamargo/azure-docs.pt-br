@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112561"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445551"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -74,9 +74,10 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
-   ![Novo -> DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. Na página **Novo data factory**, insira **ADFTutorialBulkCopyDF** como o **nome**. 
       
      ![Página de novo data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)

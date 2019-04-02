@@ -2,17 +2,18 @@
 title: Migrar máquinas locais para o Azure com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como migrar máquinas locais para o Azure, usando o Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110300"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360360"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -37,7 +38,7 @@ Este é o terceiro tutorial de uma série. Este tutorial presume que você já t
 Antes de começar, é aconselhável examinar as arquiteturas do [VMware](vmware-azure-architecture.md) ou [Hyper-V](hyper-v-azure-architecture.md) quanto à recuperação de desastre.
 
 > [!TIP]
-> Procurando uma maneira sem uso de agente para migrar VMs VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
+> Deseja participar da nossa nova experiência sem agente para migrar VMs VMware para o Azure? [Saiba mais](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,7 +114,7 @@ Execute um failover para as máquinas que você deseja migrar.
 5. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
 6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso faz o seguinte:
 
-   - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+   - Conclui o processo de migração, interrompe a replicação da VM local e interrompe a cobrança do Site Recovery para a VM.
    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
      ![Migração completa](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
@@ -128,7 +129,7 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 Depois que as máquinas são migradas para o Azure, há uma série de etapas que devem ser concluídas.
 
-Algumas etapas podem ser automatizadas como parte do processo de migração usando a funcionalidade dos scripts de automação internos nos [planos de recuperação]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+Algumas etapas podem ser automatizadas como parte do processo de migração usando a funcionalidade dos scripts de automação internos nos [planos de recuperação](site-recovery-runbook-automation.md)   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Etapas pós-migração no Azure
@@ -139,7 +140,7 @@ Algumas etapas podem ser automatizadas como parte do processo de migração usan
     - Se você estiver migrando máquinas VMware e servidores físicos, o instalador do Serviço de Mobilidade instalará o agente de VM do Azure disponível nos computadores Windows. Em VMs do Linux, é recomendável instalar o agente após o failover.
     - Se você estiver migrando VMs do Azure para uma região secundária, o agente de VM do Azure precisará ser provisionado na VM antes da migração.
     - Se você estiver migrando VMs Hyper-V para o Azure, instale o agente de VM do Azure na VM do Azure após a migração.
-- Remova manualmente todos os provedores/agentes do Site Recovery da VM. Se você migrar VMs VMware ou servidores físicos, [desinstale o Serviço de Mobilidade][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] da VM do Azure.
+- Remova manualmente todos os provedores/agentes do Site Recovery da VM. Se você migrar VMs VMware ou servidores físicos, desinstale o Serviço de mobilidade do VM.
 - Para aumentar a resiliência:
     - Proteja os dados fazendo backup das VMs do Azure por meio do serviço Backup do Azure. [Saiba mais]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar as VMs do Azure em uma região secundária com o Site Recovery. [Saiba mais](azure-to-azure-quickstart.md).

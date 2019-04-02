@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK da Visão Personalizada para Node.js'
+title: 'Início Rápido: Criar um projeto de detecção de objeto com o SDK da Visão Personalizada para Node.js'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione tags, faça upload de imagens, treine seu projeto e detecte objetos usando o SDK do Node.js.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9cc1e2cd3735d8292ebca803b83351bb97de8b83
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751549"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487253"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o SDK do Node.js para Visão Personalizada
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Node.js para Visão Personalizada
 
-Este artigo fornece informações e exemplos de código para ajudar você a começar a usar o SDK da Visão Personalizada com o Node.js a fim de criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo do Node.js.
+Este artigo fornece informações e exemplos de código para ajudar você a começar a usar o SDK da Visão Personalizada com o Node.js a fim de criar um modelo de detecção de objeto. Depois de criá-lo, você poderá adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo do Node.js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,9 +58,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
@@ -181,9 +184,9 @@ Para adicionar imagens, marcas e regiões ao projeto, insira o código a seguir 
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project"></a>Treinar o projeto
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 ```javascript
     console.log("Training...");
@@ -198,11 +201,11 @@ Esse código cria a primeira iteração no projeto e a marca como a iteração p
     }
     console.log("Training status: " + trainingIteration.status);
 
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e usar o ponto de extremidade de previsão padrão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -210,7 +213,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
+    const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
 
     // Show results
     console.log("Results:");
@@ -224,7 +227,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
 
 Execute *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

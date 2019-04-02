@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 393fca972676f2584a9ef4fc457b33161a325089
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477770"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521628"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>O que é o SQL Data Warehouse do Azure?
 
-O SQL Data Warehouse é um EDW (Enterprise Data Warehouse) que aproveita o MPP (Massively Parallel Processing) para executar rapidamente consultas complexas em petabytes de dados. Use o SQL Data Warehouse como um componente fundamental de uma solução de big data. Importe big data para o SQL Data Warehouse com consultas T-SQL simples do PolyBase e, em seguida, use o poder do MPP para executar a análise de alto desempenho. À medida que você integrar e analisar, o data warehouse se tornará a única versão da verdade com que sua empresa poderá contar para obter informações.  
+O SQL Data Warehouse é um EDW (Enterprise Data Warehouse) que aproveita o MPP (Massively Parallel Processing) para executar rapidamente consultas complexas em petabytes de dados. Use o SQL Data Warehouse como um componente fundamental de uma solução de big data. Importe big data para o SQL Data Warehouse com consultas T-SQL simples do [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) e, em seguida, use o poder do MPP para executar a análise de alto desempenho. À medida que você integrar e analisar, o data warehouse se tornará a única versão da verdade com que sua empresa poderá contar para obter informações.  
 
 
 ## <a name="key-component-of-big-data-solution"></a>Componente fundamental da solução de big data

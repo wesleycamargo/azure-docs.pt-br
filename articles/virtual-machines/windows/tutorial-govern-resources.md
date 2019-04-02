@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: baa8be0a7da2b8f56c334f14fcdb15da0a406e15
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341820"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540645"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquina virtual do Windows com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
 
@@ -69,7 +71,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Se você receber um erro informando **Entidade de segurança <guid> não existe no diretório**, o novo grupo ainda não foi propagado em todo o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando: **A Entidade de Segurança \<guid> não existe no diretório**, o novo grupo ainda não foi propagado por todo o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador da Conta de Armazenamento*, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 

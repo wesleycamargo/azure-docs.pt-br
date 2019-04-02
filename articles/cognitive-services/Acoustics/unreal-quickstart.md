@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1314e393d292145ef112e700abf6ab1ef199db7d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138160"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313015"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Início Rápido do Projeto Acústico Unreal/Wwise
 Neste início rápido, você experimentará os controles de design do Projeto Acústico usando o conteúdo de amostra fornecido para o Unreal Engine e Wwise.
@@ -25,7 +25,7 @@ Requisitos de software:
 * [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
 
 ## <a name="download-the-sample-package"></a>Baixar o pacote de exemplo
-Baixe o [pacote de exemplo do Projeto Acústico Unreal + Wwise](http://www.microsoft.com/downloads/details.aspx?FamilyID=f03dff5a-5780-462e-87ef-e6d039d0748d). O pacote de exemplo contém um projeto do Unreal Engine, o projeto Wwise para esse projeto Unreal e o plug-in do Projeto Acústico Wwise.
+Baixe o [pacote de exemplo do Projeto Acústico Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). O pacote de exemplo contém um projeto do Unreal Engine, o projeto Wwise para esse projeto Unreal e o plug-in do Projeto Acústico Wwise.
 
 ## <a name="set-up-the-project-acoustics-sample-project"></a>Configurar o projeto de exemplo do Projeto Acústico
 Para configurar o projeto de exemplo do Projeto Acústico Unreal/Wwise, você precisará, em primeiro lugar, instalar o login do Projeto Acústico no Wwise. Em seguida, implante os binários de Wwise ao projeto Unreal e ajuste plugin Unreal do Wwise para dar suporte ao Projeto Acústico.
@@ -33,26 +33,26 @@ Para configurar o projeto de exemplo do Projeto Acústico Unreal/Wwise, você pr
 ### <a name="install-the-project-acoustics-wwise-plugin"></a>Instale o plugin Wwise do Projeto Acústico
 Abra o inicializador de Wwise, em seguida, na guia **Plugins**, em **Instalar novos plug-ins**, selecione **Adicionar do diretório**. Escolha o `AcousticsWwisePlugin\ProjectAcoustics` diretório que foi incluído no pacote baixado.
 
-![Instale o plug-in do Wwise](media/wwise-install-new-plugin.png)
+![Captura de tela do iniciador do Wwise mostrando a opção Instalar plug-in do Wwise](media/wwise-install-new-plugin.png)
 
 ### <a name="add-wwise-binaries-to-the-project-acoustics-unreal-sample-project"></a>Adicione os binários de Wwise para o projeto de exemplo Unreal do Projeto Acústico
 No inicializador do Wwise, clique na **Unreal Engine**, em seguida, clique no menu de hambúrguer próximo a **Projetos recentes do Unreal Engine** e selecione **Procurar projeto**. Abra o arquivo de projeto do `.uproject` Unreal no pacote `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
 
-![Guia Wwise Unreal](media/wwise-unreal-tab.png)
+![Captura de tela da guia do Unreal do Iniciador do Wwise](media/wwise-unreal-tab.png)
 
 Em seguida, ao lado do projeto de exemplo do Projeto Acústico, clique em **Integrar Wwise ao Projeto**.
 
-![Projeto do Unreal Acoustics Game Wwise](media/wwise-acoustics-game-project.png)
+![Captura de tela do Iniciador do Wwise mostrando o Projeto do Unreal de Jogo Acústico](media/wwise-acoustics-game-project.png)
 
 ### <a name="extend-wwises-unreal-plugin-functionality"></a>Estender a funcionalidade de plug-in Unreal do Wwise
 O plugin do Unreal do Projeto Acústico requer que o comportamento adicional seja exposto a partir da API de plugin Unreal do Wwise. Execute o arquivo de lote fornecido com o plugin Unreal do Projeto Acústico para automatizar essas modificações:
 * Dentro `AcousticsGame\Plugins\ProjectAcoustics\Resources`, execute `PatchWwise.bat`.
 
-    ![Script do Wwise de Patch](media/patch-wwise-script.png)
+    ![Captura de tela da janela do Windows Explorer mostrando o script para aplicar patch no projeto do Wwise](media/patch-wwise-script.png)
 
 * Se você não tiver instalado o SDK do DirectX, precisará de comentar a linha que contém DXSDK_DIR no `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![Comentar DXSDK](media/directx-sdk-comment.png)
+    ![Captura de tela do editor de código mostrando o DXSDK comentado](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Abra o projeto Unreal. 
 Ele solicitará que você recompile os módulos; Clique em Sim.
@@ -65,7 +65,7 @@ Ouça como a cena parece clicando no botão reproduzir no editor do editor. Na �
 ### <a name="modify-occlusion-and-transmission"></a>Modificar oclusão e transmissão
 Há controles de design do Projeto Acústico por código-fonte em cada ator de som Unreal:
 
-![DemoSceneSoundSourceDesignControls](media/demo-scene-sound-source-design-controls.png)
+![Captura de tela dos controles de design de Acústica do Editor do Unreal](media/demo-scene-sound-source-design-controls.png)
 
 Se o multiplicador de **Oclusão** for maior do que 1 (o padrão é 1), a oclusão será exagerada. Defini-la para menos de 1 torna o efeito da oclusão mais sutil.
 
@@ -79,7 +79,7 @@ Aumente o tempo de decaimento por todo o espaço, ajustando a **Escala de Tempo 
 ### <a name="modify-distance-based-attenuation"></a>Modificar atenuação de distância
 O plugin do mixer Wwise do Projeto Acústico respeita a atenuação baseada em distância por fonte incorporado no Wwise. Alterar essa curva alterará o nível de caminho de caminho seco. O plugin do Projeto Acústico irá ajustar o nível úmido para manter a combinação da mistura de úmido-seco especificada pela simulação e controles de design.
 
-![DemoSoundsAttenuation](media/demo-sounds-attenuation.png)
+![Captura de tela do painel da curva de atenuação do Wwise com atenuação atingindo zero antes do limite de simulação](media/demo-sounds-attenuation.png)
 
 O Projeto Acústico executa o cálculo em uma caixa de “região da simulação” centralizada em torno de cada local simulado do player. Os ativos de acústica no pacote de exemplo foram incorporados com um raio de região de simulação de 45 m e os atenuações foram projetados para 0 antes de 45 m. Embora esse declínio não seja um requisito restrito, carrega a ressalva de que apenas a geometria dentro de 45 m do ouvinte ocluirá os sons.
 

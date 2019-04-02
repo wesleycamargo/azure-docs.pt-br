@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 5e636617a61de3c2f8e3dd891b205c17caaaf454
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090365"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361193"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -31,9 +31,11 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* PowerShell do Azure. Para saber mais, veja o documento [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* PowerShell do Azure. Para saber mais, veja o documento [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 * Um cliente SSH. As etapas neste documento usam SSH para se conectar ao cluster.
 
@@ -50,54 +52,54 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o cmdlet `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o cmdlet `Login-AzAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir solicita o nome e o local e, em seguida, cria um novo grupo de recursos:
+Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir solicita o nome e o local e, em seguida, cria um novo grupo de recursos:
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Embora o Kafka no HDInsight use discos gerenciados do Azure para armazenar dados do Kafka, o cluster também usa o Armazenamento do Microsoft Azure para armazenar informações como logs. Use [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) para criar uma nova conta de armazenamento.
+Embora o Kafka no HDInsight use discos gerenciados do Azure para armazenar dados do Kafka, o cluster também usa o Armazenamento do Microsoft Azure para armazenar informações como logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma conta de armazenamento.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
         -ResourceGroupName $resourceGroup `
         -Name $storageName `
         -Type Standard_LRS `
         -Location $location
 ```
 
-O HDInsight armazena dados na conta de armazenamento em um contêiner de blob. Use [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer) para criar um novo contêiner.
+O HDInsight armazena dados na conta de armazenamento em um contêiner de blob. Use [New-AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer) para criar um contêiner.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
-$storageKey = (Get-AzureRmStorageAccountKey `
+$storageKey = (Get-AzStorageAccountKey `
                 -ResourceGroupName $resourceGroup `
                 -Name $storageName)[0].Value
-$storageContext = New-AzureStorageContext `
+$storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzureStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
-Crie um cluster do Apache Kafka no HDInsight com [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Crie um cluster do Apache Kafka no HDInsight com [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -115,7 +117,7 @@ $disksPerNode=2
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $kafkaConfig.Add("kafka", "1.0")
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
         -Location $location `
@@ -138,7 +140,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]  
 > O parâmetro `-DisksPerWorkerNode` configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight usa o disco local das máquinas virtuais no cluster para armazenar dados. Como o Kafka tem E/S bastante pesadas, os [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) são usados para fornecer alta taxa de transferência e mais armazenamento por nó. 
 >
-> O tipo de disco gerenciado pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM usado pelos nós de trabalho (agentes Kafka). Os discos Premium são usados automaticamente com VMs das séries DS e GS. Todos os outros tipos VM usam o padrão. Você pode definir o tipo da VM usando o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a documentação [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+> O tipo de disco gerenciado pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM usado pelos nós de trabalho (agentes Kafka). Os discos Premium são usados automaticamente com VMs das séries DS e GS. Todos os outros tipos VM usam o padrão. Você pode definir o tipo da VM usando o parâmetro `-WorkerNodeSize`. Para saber mais sobre parâmetros, confira a documentação [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 
 > [!IMPORTANT]  
@@ -333,10 +335,10 @@ Você também pode criar programaticamente produtores e consumidores. Para obter
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, use o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos, o HDInsight e todos os recursos relacionados.
+Quando não for mais necessário, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o HDInsight e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]  

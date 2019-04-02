@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835812"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405594"
 ---
 Nesta seção, você envia as últimas notícias como notificações de modelo marcadas, de um aplicativo de console do .NET. 
 
-1. No Visual Studio, crie um novo aplicativo de console em Visual C#:
+1. No Visual Studio, crie um aplicativo de console em Visual C#: a. No menu, selecione **Arquivo** > **Novo** > **Projeto**.
+    b. Expanda **Visual C#** e selecione **Área de Trabalho do Windows**. 
+    c. Selecione **Aplicativo de Console (.NET Framework)** na lista de modelos. 
+    d. Insira um **nome** para o aplicativo. 
+    e. Selecione uma **pasta** para o aplicativo.
+    f. Selecione **OK** para criar o projeto. 
+2. No menu principal do Visual Studio, selecione **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes** e, em seguida, no console da janela, insira a cadeia de caracteres a seguir:
    
-      ![O link de Aplicativo de Console][13]
-
-2. No menu principal do Visual Studio, selecione **Ferramentas** > **Gerenciador de Pacotes de Biblioteca** > **Console do Gerenciador de pacotes** e, em seguida, no console do janela, insira a cadeia de caracteres a seguir:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. Selecione **Inserir**.  
     Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o [pacote NuGet Microsoft.Azure.Notification Hubs].

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136902"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309633"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unity
 Este tutorial descreve a preparação de acústica com o Projeto Acústico no Unity.
@@ -28,7 +28,7 @@ Requisitos de software:
 ## <a name="open-the-project-acoustics-bake-window"></a>Abra a janela do bake do Projeto Acústico
 Escolha **Window > Acústica** no menu Unity:
 
-![Janela aberta acústica](media/window-acoustics.png)
+![Captura de tela do editor do Unity com a opção de menu da janela Acústico realçada](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Criar uma malha de navegação
 O Projeto Acústico usa uma malha de navegação para colocar pontos de investigação do ouvinte para simulação. Você pode usar o [fluxo de trabalho da malha de navegação](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) do Unity, ou usar outro pacote de modelagem 3D para criar sua própria malha. 
@@ -68,15 +68,15 @@ As partes da página da guia são:
 
 Se você não tiver selecionado nada em sua cena, a guia Objetos será semelhante à seguinte imagem:
 
-![Objetos de guia nenhuma seleção](media/objects-tab-no-selection-detail.png)
+![Captura de tela da guia Objetos Acústicos sem nenhuma seleção](media/objects-tab-no-selection-detail.png)
 
 Se você tiver algo selecionado em sua cena ou janela de hierarquia, será semelhante à seguinte imagem:
 
-![Objetos de guia nenhuma seleção](media/objects-tab-selection-detail.png)
+![Captura de tela da guia Objetos Acústicos com seleção mostrada](media/objects-tab-selection-detail.png)
 
 Se alguns objetos são marcados e outros não, a caixa de seleção apropriada mostrará um valor "misto":
 
-![Caixa de seleção valor misto](media/mixed-object-selection-detail.png)
+![Captura de tela da guia Objetos Acústicos com um ícone de seleção mista realçado](media/mixed-object-selection-detail.png)
 
 Clicar na caixa de seleção forçará todos os objetos a serem marcados, e clicar novamente desmarcará todos os objetos.
 
@@ -89,10 +89,10 @@ Os materiais acústicos controlam a quantidade de energia sonora refletida de vo
 
 O tempo de reverberação de um determinado material em uma sala é inversamente relacionado ao seu coeficiente de absorção, com a maioria dos materiais tendo valores de absorção na faixa de 0,01 a 0,20. Materiais com coeficientes de absorção fora desta faixa são muito absorventes.
 
-![Gráfico de tempo de reverberação](media/reverb-time-graph.png)
+![Grafo mostrando a correlação negativa do tempo de reverberação com coeficiente de absorção](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes do guia de materiais
-![Detalhe da guia de materiais](media/materials-tab-detail.png)
+![Captura de tela da guia Materiais Acústicos no Unity](media/materials-tab-detail.png)
 
 1. O botão da guia **Materiais**, usado para abrir esta página.
 2. Uma breve descrição do que você precisa fazer usando esta página.
@@ -117,23 +117,23 @@ Dependendo do tamanho da sua cena e da velocidade da sua máquina, esses cálcul
 ### <a name="review-voxel-and-probe-placement"></a>Voxel de revisão e posicionamento da investigação
 Visualize os dados voxel e os locais de ponto de investigação para garantir que você está pronto para implementar sua cena. Uma malha de navegação incompleta ou ausente ou geometria acústica extra geralmente estará rapidamente visível na versão prévia. O posicionamento do Voxel e da investigação pode ser habilitado ou desabilitado usando o menu Gizmos:
 
-![Menu gizmos](media/gizmos-menu.png)
+![Captura de tela do menu Gizmos no Unity](media/gizmos-menu.png)
 
 Voxels contendo geometria acústica são mostrados como cubos verdes. Explore sua cena e verifique se tudo o que deveria ser geometria tem voxels. A câmera cena deve estar a cerca de 5 metros do objeto para os voxels mostrarem.
 
 Se você comparar os voxels criados com resolução grossa vs resolução fina, verá que os voxels grossos serão duas vezes maiores.
 
-![Visualização de Voxel](media/voxel-cubes-preview.png)
+![Captura de tela da versão prévia de voxels grossos no editor do Unity](media/voxel-cubes-preview.png)
 
 Os resultados da simulação são interpolados entre os locais de ponto de investigação do ouvinte em tempo de execução. Verifique se existem pontos de investigação perto de qualquer lugar onde o player deve viajar na cena.
 
-![Visualização de investigações](media/probes-preview.png)
+![Captura de tela da versão prévia de investigação no editor do Unity](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Tenha cuidado com renomeações de cena
 O nome da cena é usado para conectar a cena a arquivos que armazenam o posicionamento do ponto de teste e a voxelização. Se a cena for renomeada depois que os pontos da sonda forem calculados, os dados de atribuição e posicionamento do material serão perdidos e deverão ser executados novamente.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes do guia de testes
-![Detalhe da guia de testes](media/probes-tab-detail.png)
+![Captura de tela da guia Investigação Acústica no Unity](media/probes-tab-detail.png)
 
 1. O **investigações** botão guia usada para abrir essa página
 2. Uma breve descrição do que você precisa fazer usando essa página
@@ -157,15 +157,15 @@ Embora isso possa parecer simples, tem várias implicações na simulação acú
 * Fontes de som não podem ser localizadas dentro de voxels "preenchidos", ou seja, voxels que contêm geometria - isso resulta em nenhum som. É mais difícil localizar fontes de som de forma que elas não estejam dentro dos voxels de configuração grossa do que usando a configuração fina.
 * Os voxels maiores se intrometem mais nos portais, como mostrado abaixo. A primeira imagem foi criada usando resolução grossa, enquanto a segunda é a mesma porta usando resolução fina. Como indicado pelas marcas vermelhas, há muito menos intrusão na entrada usando a configuração fina. A linha azul é a porta conforme definida pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho do voxel. Como essa intrusão ocorre em uma determinada situação depende completamente de como os voxels se alinham com a geometria do portal, que é determinada pelo tamanho e localização de seus objetos na cena.
 
-![Porta de entrada grosso](media/coarse-voxel-doorway.png)
+![Captura de tela de voxels grossos na porta de entrada](media/coarse-voxel-doorway.png)
 
-![Porta de entrada bem](media/fine-voxel-doorway.png)
+![Captura de tela de voxels finos na porta de entrada](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Fazer sua cena usando o Lote do Azure
 É possível fazer o bake da cena com um cluster de cálculo na nuvem usando o serviço do Lote do Azure. O plugin do Unity do Projeto Acústico conecta-se diretamente ao Lote do Azure para instanciar, gerenciar e desativar um cluster do Lote do Azure para cada bake. Na guia **Bake**, insira as credenciais do Azure, selecione um tipo e tamanho de computador de cluster e clique em **Bake**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes da guia Bake
-![Detalhe da guia tortas](media/bake-tab-details.png)
+![Captura de tela da guia Bake da Acústica no Unity](media/bake-tab-details.png)
 
 1. O botão de incorporar essa guia usado para abrir essa página.
 2. Uma breve descrição do que fazer nesta página.
@@ -209,8 +209,8 @@ Por exemplo, em nosso teste em uma máquina de 8 núcleos com Intel Xeon E5-1660
 ### <a name="setup-docker"></a>Configurar Docker
 Instalar e configurar o Docker no PC que processará a simulação -
 1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
-2. Inicie as configurações do Docker, navegue até as opções "Avançadas" e configure os recursos para terem pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápido será o bake. ![Exemplo de configurações do Docker](media/docker-settings.png)
-3. Navegue até "Unidades Compartilhadas" e ative o compartilhamento para a unidade usada no processamento.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Inicie as configurações do Docker, navegue até as opções "Avançadas" e configure os recursos para terem pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápido será o bake. ![Captura de tela do exemplo de configurações do Docker](media/docker-settings.png)
+3. Navegue até "Unidades Compartilhadas" e ative o compartilhamento para a unidade usada no processamento.![Captura de tela de opções do drive compartilhado do Docker](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Executar um bake local
 1. Clique no botão "Preparar Bake Local" na guia **Bake** e selecione uma pasta onde os arquivos de entrada e scripts de execução serão salvos. É possível executar o bake em qualquer máquina, desde que ela atenda aos requisitos mínimos de hardware e tenha o Docker instalado, copiando a pasta para essa máquina.
@@ -234,11 +234,11 @@ Arquivos de dados do editor:
 ## <a name="set-up-the-acoustics-lookup-table"></a>Configurar a tabela de pesquisa acústica
 Arraste e solte o **pré-fabricado do Projeto Acústico** do painel do projeto em sua cena:
 
-![Pré-fabricado acústica](media/acoustics-prefab.png)
+![Captura de tela do pré-fabricado Acústica no Unity](media/acoustics-prefab.png)
 
 Clique no **ProjectAcoustics** Game Object e vá até o painel de inspetores. Especifique a localização do seu resultado de cozimento (o arquivo .ACE, em **Assets / AcousticsData**) arrastando-o e soltando-o no script do Acoustics Manager, ou clicando no botão de círculo ao lado da caixa de texto.
 
-![Gerenciador de acústica](media/acoustics-manager.png)  
+![Captura de tela do pré-fabricado Gerenciador Acústico no Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Próximas etapas
 * Explore os [controles de design do Unity](unity-workflow.md)

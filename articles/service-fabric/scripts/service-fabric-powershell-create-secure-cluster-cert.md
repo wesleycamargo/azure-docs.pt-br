@@ -3,7 +3,7 @@ title: Exemplo de script do Azure PowerShell – criar um cluster do Service Fab
 description: Exemplo de script do Azure PowerShell – criar um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596544"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496064"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
 Esse script de exemplo cria um cluster do Service Fabric de cinco nós protegido com um certificado X.509.  O comando cria um certificado autoassinado e o carrega em um novo cofre de chaves. O certificado também é copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós de cluster.  Personalize os parâmetros conforme necessário.
 
-Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -38,7 +40,7 @@ Após a execução do exemplo de script, o comando a seguir pode ser usado para 
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
@@ -47,7 +49,7 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

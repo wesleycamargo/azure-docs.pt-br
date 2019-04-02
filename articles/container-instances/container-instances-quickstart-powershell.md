@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8c50a3069ea8b1303e45c571425a6f4c9b4c0d5b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732296"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368181"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o Azure PowerShell
 
@@ -43,14 +43,14 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner no Azure PowerShell, forneça um nome do grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker ao cmdlet [New-AzContainerGroup][New-AzContainerGroup]. Neste início rápido, você deve usar a imagem `microsoft/iis:nanoserver` do Windows do Registro do Hub do Docker público. Esta imagem de pacotes de IIS (Serviços de Informações da Internet) para executar no Nano Server.
+Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner no Azure PowerShell, forneça um nome do grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker ao cmdlet [New-AzContainerGroup][New-AzContainerGroup]. Neste início rápido, você usa a imagem pública `mcr.microsoft.com/windows/servercore/iis:nanoserver`. Esta imagem de pacotes do Microsoft IIS (Serviços de Informações da Internet) para executar no Nano Server.
 
 Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste início rápido, você implanta um contêiner com um rótulo de nome DNS para que o IIS fique publicamente acessível.
 
 Execute um comando similar ao seguinte para iniciar uma instância de contêiner. Defina um valor de `-DnsNameLabel` que seja exclusivo na região do Azure em que você criará a instância. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
  ```azurepowershell-interactive
-New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 Em alguns segundos, você deverá receber uma resposta do Azure. O `ProvisioningState` do contêiner inicialmente tem o status **Criando**, mas deve mudar para **Bem-sucedido** dentro de um ou dois minutos. Verifique o status de implantação usando o cmdlet [Get-AzContainerGroup][Get-AzContainerGroup]:

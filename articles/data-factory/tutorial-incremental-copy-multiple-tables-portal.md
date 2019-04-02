@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 12ca210e1fe7aa60515f5b8c4c0ad830dcdd9594
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8d96d929e55bd4423bdb0cd0dd064e275462ce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078951"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445351"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -226,9 +226,10 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
+1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
-   ![Novo -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
+   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. Na página **Novo data factory**, insira **ADFMultiIncCopyTutorialDF** como o **nome**. 
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)

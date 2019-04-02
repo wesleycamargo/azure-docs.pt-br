@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295803"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362043"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Usar o aprendizado de máquina automatizado para compilar o modelo de regressão
 
@@ -67,22 +67,11 @@ Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part2
 
 ### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
 
-Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador.  Após concluir as etapas, execute o notebook **tutorials/regression-part2-automated-ml.ipynb**.
+Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador.  Instale o `matplotlib` e os extras `automl` e `notebooks` em seu ambiente.
 
-1. Conclua o [Início rápido do Python do Azure Machine Learning](quickstart-create-workspace-with-python.md) para criar um ambiente Miniconda e um workspace.
-1. Instale os extras `automl` e `notebooks` em seu ambiente usando `pip install azureml-sdk[automl,notebooks]`.
-1. Instale o `maplotlib` usando o `pip install maplotlib`.
-1. Clone [o repositório do GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Inicie o servidor de notebook do seu diretório clonado.
-
-    ```shell
-    jupyter notebook
-    ```
+Após concluir as etapas, execute o notebook **tutorials/regression-part2-automated-ml.ipynb**.
 
 ## <a name="start"></a>Configurar seu ambiente de desenvolvimento
 

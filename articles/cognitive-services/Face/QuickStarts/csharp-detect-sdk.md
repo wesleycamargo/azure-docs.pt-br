@@ -10,14 +10,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313306"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372124"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início rápido: Detectar faces em uma imagem usando o SDK do .NET de Detecção Facial
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início Rápido: Detectar faces em uma imagem usando o SDK do .NET de Detecção Facial
 
 Neste início rápido, você usará o SDK de Detecção Facial com C# para detectar faces em uma imagem. Para obter um exemplo funcional do código neste início rápido, consulte o projeto de Detecção Facial no repositório [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) no GitHub.
 
@@ -32,8 +32,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. No Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)** e dê o nome de **FaceDetection**. 
 1. Se houver outros projetos em sua solução, selecione este como o único projeto de inicialização.
-1. Obtenha os pacotes necessários do NuGet. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e selecione **Incluir pré-lançamento**; depois, localize e instale o pacote a seguir:
+1. Obtenha os pacotes necessários do NuGet. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e selecione **Incluir pré-lançamento**; depois, localize e instale os pacotes a seguir:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>Adicionar código de detecção facial
 

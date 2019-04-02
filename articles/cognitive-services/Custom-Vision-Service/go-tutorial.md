@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK da Visão Personalizada para Go'
+title: 'Início Rápido: Criar um projeto de classificação de imagem com o SDK da Visão Personalizada para Go'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, carregue imagens, treine o projeto e faça uma previsão usando o SDK do Go.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9a45cc3f8aaae3fb000858f8903ed4aff248513c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f740974d17ad5f95bca6530a61619ee0283f819a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885222"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479967"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK do Go da Visão Personalizada
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK do Go da Visão Personalizada
 
-Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Go, a fim de criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criação de seu próprio aplicativo Go. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
+Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com Go, a fim de criar um modelo de classificação de imagem. Depois de criá-lo, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL do ponto de extremidade de previsão do projeto publicado e usar o ponto de extremidade para testar uma imagem de forma programática. Use este exemplo como modelo para criação de seu próprio aplicativo Go. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample Project"
+    iteration_publish_name = "classifyModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -89,7 +91,7 @@ func main() {
 Para criar marcas de classificação para o projeto, adicione o seguinte código ao final de *sample.go*:
 
 ```go
-    # Make two tags in the new project
+    // Make two tags in the new project
     hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
     cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
@@ -127,9 +129,9 @@ Para adicionar imagens de exemplo ao projeto, insira o código a seguir após a 
     }
 ```
 
-### <a name="train-the-classifier"></a>Treinar o classificador
+### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 ```go
     fmt.Println("Training...")
@@ -144,11 +146,10 @@ Esse código cria a primeira iteração no projeto e a marca como a iteração p
     }
     fmt.Println("Training status: " + *iteration.Status)
 
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e usar o ponto de extremidade de previsão padrão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o seguinte código ao final do arquivo:
 
@@ -157,7 +158,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.ClassifyImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
     for _, prediction := range *results.Predictions {
         fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
@@ -170,7 +171,7 @@ Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a pr
 
 Execute *sample.go*.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

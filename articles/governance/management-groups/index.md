@@ -1,12 +1,18 @@
 ---
 title: Organizar seus recursos com grupos de gerenciamento do Azure – Governança do Azure
-description: 'Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.'
+description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804813"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -18,7 +24,7 @@ Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiõ
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso. O diagrama a seguir mostra um exemplo de criação de uma hierarquia para governança usando grupos de gerenciamento.
 
-![árvore](./media/tree.png)
+![Exemplo de uma árvore de hierarquia do grupo de gerenciamento](./media/tree.png)
 
 Crie uma hierarquia para que você possa aplicar uma política. Por exemplo, limitar as localizações de VM à região Oeste dos EUA no grupo "Produção". Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
 

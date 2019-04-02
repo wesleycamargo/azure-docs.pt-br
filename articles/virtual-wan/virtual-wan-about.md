@@ -8,20 +8,20 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295684"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336245"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
 WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramificação otimizada e automatizada para e por meio do Azure. As regiões do Azure servem como hubs para os quais é possível optar por conectar suas ramificações. Depois que as ramificações estiverem conectadas, você poderá aproveitar o backbone do Azure para estabelecer conectividade de ramificação por ramificação e ramificação a VNet. Para obter uma lista de parceiros e localizações que dão suporte à VPN de WAN Virtual, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md).
 
-A WAN Virtual do Azure reúne muitos serviços de conectividade de nuvem do Azure, como VPN site a site (geralmente disponível), ExpressRoute (versão prévia), VPN de usuário ponto a site (versão prévia) em uma única interface operacional. A conectividade com VNets do Azure é estabelecida usando conexões de rede virtual.
+A WAN Virtual do Azure reúne muitos serviços de conectividade de nuvem do Azure, como VPN site a site (em disponibilidade geral), ExpressRoute (versão prévia), VPN de usuário ponto a site (versão prévia) em uma única interface operacional. A conectividade com VNets do Azure é estabelecida usando conexões de rede virtual.
 
-![Diagrama de WAN virtual](./media/virtual-wan-about/vwangraphic.png)
+![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwan1.png)
 
 Este artigo fornece uma visão rápida da conectividade de rede na WAN Virtual do Azure. A WAN Virtual oferece as seguintes vantagens:
 

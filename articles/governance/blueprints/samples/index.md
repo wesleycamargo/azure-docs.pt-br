@@ -1,6 +1,6 @@
 ---
 title: Índice de exemplos de blueprint
-description: Índice de exemplos do Azure Blueprints
+description: Índice de exemplos de conformidade e de ambiente padrão para a implantação do Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm
@@ -8,6 +8,12 @@ ms.service: blueprints
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: dacoulte
+ms.openlocfilehash: da38f4ef25a9e832b858027d3c6ad150d9eafd2a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803809"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 

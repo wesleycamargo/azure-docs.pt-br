@@ -1,93 +1,113 @@
 ---
-title: Tutorial – Configurar filtragem geográfica em um domínio para o Azure Front Door Service | Microsoft Docs
+title: Tutorial – Configure a política de firewall do aplicativo Web de filtragem geográfica para o Azure Front Door Service
 description: Neste tutorial, você aprenderá a criar uma política de filtragem geográfica simples e associar a política ao host de front-end Front Door existente
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
-ms.author: sharadag
-ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 03/21/2019
+ms.author: kumud;tyao
+ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214871"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472626"
 ---
-# <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Como configurar uma política de filtragem geográfica para o Front Door
+# <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Como configurar uma política de filtragem geográfica WAF para o Front Door
 Este tutorial mostra como usar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associar a política a seu host de front-end Front Door existente. Essa política de filtragem geográfica de exemplo bloqueará as solicitações de todos os outros países, exceto dos Estados Unidos.
 
-## <a name="1-set-up-your-powershell-environment"></a>1. Configurar o ambiente do PowerShell
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de configurar uma política de filtragem geográfica, configure o ambiente do PowerShell e crie um perfil de Front Door.
+### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 O Azure PowerShell fornece um conjunto de cmdlets que usa o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar os recursos do Azure. 
 
-Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar com suas credenciais do Azure e instale o AzureRM.
-```
-# Connect to Azure with an interactive dialog for sign-in
-Connect-AzureRmAccount
-Install-Module -Name AzureRM
-```
-> [!NOTE]
->  O suporte ao [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) estará disponível em breve.
+Você pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no computador local e usá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar com suas credenciais Azure e instale o módulo Az PowerShell.
 
-Antes de instalar o módulo Front Door, verifique se você tem a versão atual do PowerShellGet instalada. Execute o comando abaixo e reabra o PowerShell.
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conecte-se ao Azure com um diálogo interativo para entrar
+```
+Connect-AzAccount
+Install-Module -Name Az
+```
+Verifique se tem a versão atual do PowerShellGet instalada. Execute o comando abaixo e reabra o PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
-
-Módulo AzureRM.FrontDoor. 
-
-```
-Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
-```
-
-## <a name="2-define-geo-filtering-match-conditions"></a>2. Definir as condições de correspondência da filtragem geográfica
-Primeiro, crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US". Consulte o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) do PowerShell sobre parâmetros durante a criação de uma condição de correspondência. O código do país de duas letras para o mapeamento de país é fornecido [aqui](front-door-geo-filtering.md).
+#### <a name="install-azfrontdoor-module"></a>Instalar o módulo Az.FrontDoor 
 
 ```
-$nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"
+Install-Module -Name Az.FrontDoor -AllowPrerelease
+```
+
+### <a name="create-a-front-door-profile"></a>Criar um perfil de Front Door
+Crie um perfil de Front Door seguindo as instruções descritas no [Guia de Início Rápido: Crie um perfil de Front Door](quickstart-create-front-door.md).
+
+## <a name="define-geo-filtering-match-condition"></a>Definir condição de correspondência da filtragem geográfica
+
+Crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US" usando [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) nos parâmetros, ao criar uma condição de correspondência. Códigos de país de duas letras para o mapeamento de países são fornecidos [aqui](front-door-geo-filtering.md).
+
+```azurepowershell-interactive
+$nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
+-MatchVariable RemoteAddr `
+-OperatorProperty GeoMatch `
+-NegateCondition $true `
+-MatchValue "US"
 ```
  
-## <a name="3-add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>3. Adicionar condição de correspondência de filtragem geográfica a uma regra com Ação e Prioridade
+## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Adicionar condição de correspondência de filtragem geográfica a uma regra com Ação e Prioridade
 
-Em seguida, crie um objeto CustomRule `nonUSBlockRule` com base em uma Prioridade, em uma Ação e na condição de correspondência.  Uma CustomRule pode ter várias MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e a Prioridade como 1, a prioridade mais alta.
-
-```
-$nonUSBlockRule = New-AzureRmFrontDoorCustomRuleObject -Name "geoFilterRule" -RuleType MatchRule -MatchCondition $nonUSGeoMatchCondition -Action Block -Priority 1
-```
-
-Consulte o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorcustomruleobject) do PowerShell sobre parâmetros durante a criação de um CustomRuleObject.
-
-## <a name="4-add-rules-to-a-policy"></a>4. Adicionar regras a uma política
-Esta etapa cria um objeto de política `geoPolicy` que contém `nonUSBlockRule` da etapa anterior no grupo de recursos especificado. Use `Get-AzureRmResourceGroup` para localizar seu ResourceGroupName $resourceGroup.
+Crie um objeto CustomRule `nonUSBlockRule` baseado na condição de correspondência, uma Ação e uma Prioridade, usando [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject).  Uma CustomRule pode ter várias MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e a Prioridade como 1, a prioridade mais alta.
 
 ```
-$geoPolicy = New-AzureRmFrontDoorFireWallPolicy -Name "geoPolicyAllowUSOnly" -resourceGroupName $resourceGroup -Customrule $nonUSBlockRule  -Mode Prevention -EnabledState Enabled
+$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+-Name "geoFilterRule" `
+-RuleType MatchRule `
+-MatchCondition $nonUSGeoMatchCondition `
+-Action Block `
+-Priority 1
 ```
 
-Consulte o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorfirewallpolicy) do PowerShell sobre parâmetros durante a criação de uma política.
+## <a name="add-rules-to-a-policy"></a>Adicionar regras a uma política
+Encontre o nome do grupo de recursos que contém o perfil de Front Door usando `Get-AzResourceGroup`. Em seguida, crie um `geoPolicy` objeto de política contendo `nonUSBlockRule` usando [New AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) no grupo de recursos que contém o perfil de Front Door. Você deve fornecer um nome exclusivo para a política geográfica. 
 
-## <a name="5-link-policy-to-a-front-door-frontend-host"></a>5. Vincular a política a um host de front-end Front Door
-As últimas etapas são para vincular o objeto de política de proteção a um host de front-end Front Door existente e atualizar as propriedades do Front Door. Você primeiro recupera o objeto Front Door usando [Get-AzureRmFrontDoor](https://docs.microsoft.com/azure/frontdoor/get-azurermfrontdoor) e, em seguida, define sua propriedade WebApplicationFirewallPolicyLink de front-end como o resourceId da `geoPolicy`.
+O exemplo abaixo usa o nome do Grupo de Recursos *myResourceGroupFD1* supondo que você criou o perfil de Front Door usando as instruções fornecidas no [Guia de Início Rápido: Criar um artigo de Front Door](quickstart-create-front-door.md).
 
 ```
-$geoFrontDoorObjectExample = Get-AzureRmFrontDoor -ResourceGroupName $resourceGroup
+$geoPolicy = New-AzFrontDoorFireWallPolicy `
+-Name "geoPolicyAllowUSOnly" `
+-resourceGroupName myResourceGroupFD1 `
+-Customrule $nonUSBlockRule  `
+-Mode Prevention `
+-EnabledState Enabled
+```
+
+## <a name="link-waf-policy-to-a-front-door-frontend-host"></a>Vincular a política WAF a um host de front-end do Front Door
+Vincule o objeto de política WAF ao host de front-end do Front Door e atualize as propriedades do Front Door. 
+
+Para fazer isso, primeiro recupere o objeto de Front Door usando [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
+
+```
+$geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD1
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Use o seguinte [comando](https://docs.microsoft.com/azure/frontdoor/set-azurermfrontdoor) para atualizar o objeto Front Door.
+Em seguida, defina a propriedade de front-end WebApplicationFirewallPolicyLink para a ID do recurso do `geoPolicy`usando [AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
-Set-AzureRmFrontDoor -InputObject $geoFrontDoorObjectExample[0]
+Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 ```
 
 > [!NOTE] 
-> Você só precisará definir a propriedade WebApplicationFirewallPolicyLink uma vez para vincular uma política de proteção a um host de front-end Front Door. As atualizações subsequentes da política serão aplicadas automaticamente ao host de front-end.
+> Você só precisará definir a propriedade WebApplicationFirewallPolicyLink uma vez para vincular uma política WAF a um host de front-end do Front Door. As atualizações subsequentes da política serão aplicadas automaticamente ao host de front-end.
 
 ## <a name="next-steps"></a>Próximas etapas
 

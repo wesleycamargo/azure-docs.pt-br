@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201459"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439255"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS nativo
 
@@ -44,9 +44,9 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Etapa 1: Configurar seu aplicativo
-> Para que o exemplo de código deste início rápido funcione, você precisará adicionar uma URL de resposta como `msal<AppId>://auth` (em que msal<AppId> é a ID desse aplicativo).
+> Para que o exemplo de código deste início rápido funcione, você precisará adicionar uma URL de resposta como `msal<AppId>://auth` (em que msal\<AppId> é a ID desse aplicativo).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça essa alteração para mim]()
+> > [Fazer essa alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-ios/green-check.png) Seu aplicativo já está configurado com esse atributo
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Em que:||
 > |---------|---------|
-> | `forScopes` | Contém os escopos que estão sendo solicitados, ou seja, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
+> | `forScopes` | Contém os escopos que estão sendo solicitados [ou seja, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`)] |
 
 #### <a name="getting-an-access-token-silently"></a>Acessando um token de acesso silenciosamente
 

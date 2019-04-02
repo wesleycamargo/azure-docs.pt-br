@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 51398c893f212bc51f3edd20ee4c666d91779352
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243356"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519996"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Python)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os dois exemplos de aplicativo executados neste início rápido são escritos usando Python. Atualmente, os SDKs do IoT do Microsoft Azure para Python só são compatíveis com versões específicas do Python para cada plataforma. Para obter mais informações, consulte o [Leia-me do SDK de Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+O aplicativo de exemplo executado neste início rápido foi escrito com Python. Atualmente, os SDKs do IoT do Microsoft Azure para Python só são compatíveis com versões específicas do Python para cada plataforma. Para obter mais informações, consulte o [Leia-me do SDK de Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
 Este tutorial presume que você esteja usando uma máquina de desenvolvimento do Windows. Para sistemas Windows, apenas o [Python 3.6.x](https://www.python.org/downloads/release/python-368/) é compatível. O instalador do Python que você escolher deve ser baseado na arquitetura do sistema com a qual você está trabalhando. Se a arquitetura da CPU do sistema é de 32 bits, baixe o instalador de download x86; para a arquitetura de 64 bits, baixe o instalador de x86-64. Além disso, certifique-se de que os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) estão instalados para a sua arquitetura (x86 ou x64).
 

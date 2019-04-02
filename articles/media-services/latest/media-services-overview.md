@@ -13,19 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003406"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351449"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
 
 Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você for um desenvolvedor de aplicativos, call center, órgão governamental, empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo nos dispositivos móveis e navegadores mais populares da atualidade. 
+
+> [!NOTE]
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
 ## <a name="what-can-i-do-with-media-services"></a>O que posso fazer com os Serviços de Mídia?
 
@@ -74,24 +77,11 @@ Os exemplos disso incluem
 
 Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content-key-policy-dotnet-howto.md).
 
-## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
-
-Para obter informações sobre como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando uma variedade de ferramentas e SDKs, confira [Iniciar o desenvolvimento](developers-guide.md).
-
-## <a name="v3-content-map"></a>Mapa de conteúdo da v3
-
-O conteúdo dos Serviços de Mídia v3 é organizado de acordo com a seguinte estrutura (também refletida no sumário):
-
-|Seções| DESCRIÇÃO|
-|---|---|
-| Visão geral | Explica as funcionalidades dos Serviços de Mídia e o que é possível fazer com o serviço.|
-| Guia de início rápido | Mostra instruções iniciais básicas para que os novos clientes experimentem os Serviços de Mídia rapidamente.|
-| Tutoriais | Mostra procedimentos baseados em cenário para algumas das principais tarefas dos Serviços de Mídia.|
-| Exemplos | Links para exemplos de código. |
-| Conceitos | Contém explicações detalhadas sobre [os conceitos e as funcionalidades dos Serviços de Mídia v3](concepts-overview.md). Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.<br/><br/>* Upload e armazenamento na nuvem<br/>* Codificação<br/>* Análise de mídia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão ao vivo<br/>* Monitoramento<br/>* Clientes de player<br/><br/>e mais. |
-| Guias de instruções | Demonstra como concluir uma tarefa.|
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver como é fácil começar a codificar e transmitir arquivos de vídeo, confira [Arquivos de transmissão](stream-files-dotnet-quickstart.md). 
+Como posso começar a v3? 
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre conceitos fundamentais](concepts-overview.md)<br/>
+> [Desenvolver com a API dos Serviços de Mídia v3 usando SDKs](developers-guide.md) 
 

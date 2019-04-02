@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fb504e7c2f76f2edd0921cae0fb02ea0849ff4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2de6eb0171e5e1c792e8860a56f014dad501f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878339"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314817"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -173,7 +173,7 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
     | Campo | DESCRIÇÃO |
     | :---- | :---------- |
     | **Nome** | O nome do aplicativo que será exibido no painel de acesso e no portal do Azure. |
-    | **URL Interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Você pode fornecer um caminho específico no servidor back-end para publicar, enquanto o restante do servidor é não publicado. Assim, você pode publicar sites diferentes no mesmo servidor como diferentes aplicativos, e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se você publicar um caminho, verifique se ele inclui todas as imagens, scripts e folhas de estilo necessários para seu aplicativo. Por exemplo, se o aplicativo estiver em <https://yourapp/app> e utilizar imagens localizadas em <https://yourapp/media>, você deverá publicar <https://yourapp/> como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [Definir uma página inicial personalizada para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
+    | **URL Interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Você pode fornecer um caminho específico no servidor back-end para publicar, enquanto o restante do servidor é não publicado. Assim, você pode publicar sites diferentes no mesmo servidor como diferentes aplicativos, e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se você publicar um caminho, verifique se ele inclui todas as imagens, scripts e folhas de estilo necessários para seu aplicativo. Por exemplo, se seu aplicativo estiver em https:\//yourapp/app e usar as imagens localizadas em https:\//yourapp/media, você deverá publicar https:\//yourapp/ como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [Definir uma página inicial personalizada para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
     | **URL Externa** | O endereço para os usuários acessarem o aplicativo de fora da sua rede. Se você não quiser usar o domínio padrão de Proxy de Aplicativo, leia sobre [domínios personalizados no Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md).|
     | **Pré-autenticação** | Como o Proxy de Aplicativo verifica os usuários antes de conceder a eles o acesso ao aplicativo.<br><br>**Azure Active Directory** – o Proxy de Aplicativo redireciona os usuários para entrar com o Azure AD, que autentica as permissões para o diretório e o aplicativo. É recomendável manter essa opção como padrão, para que você possa tirar proveito dos recursos de segurança do Azure AD como acesso condicional e Autenticação Multifator. O **Azure Active Directory** é necessário para monitorar o aplicativo com o Microsoft Cloud App Security.<br><br>**Passagem** – os usuários não precisam ser autenticados no Azure Active Directory para acessar o aplicativo. Você ainda pode configurar os requisitos de autenticação no back-end. |
     | **Grupo de Conectores** | Conectores processam o acesso remoto ao seu aplicativo e o ajudam a organizar conectores e aplicativos por região, rede ou finalidade. Se você ainda não tiver grupos de conectores criados, seu aplicativo é atribuído a **Padrão**.<br><br>Se o aplicativo usa WebSockets para se conectar, todos os conectores do grupo devem ser da versão 1.5.612.0 ou posterior.|

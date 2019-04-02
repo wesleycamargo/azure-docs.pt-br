@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857701"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316884"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
@@ -341,9 +341,9 @@ Em seguida, na seção **ServiceManifestImport** do VotingWebPkg, configure uma 
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 
-No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** para “ <https://localhost:443> ”.
+No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** como "https:\//localhost:443".
 
-Salve todos os arquivos e pressione F5 para executar o aplicativo localmente.  Depois que o aplicativo é implantado, um navegador da Web abre como [https://localhost:443](https://localhost:443). Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
+Salve todos os arquivos e pressione F5 para executar o aplicativo localmente.  Depois que o aplicativo é implantado, um navegador da Web abre como https:\//localhost:443. Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
 
 ![Aplicativo de votação][image2]
 

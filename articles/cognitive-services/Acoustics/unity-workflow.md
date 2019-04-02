@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138004"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310618"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unity
 Este tutorial descreve as ferramentas de design e o fluxo de trabalho do Projeto Acústico no Unity.
@@ -37,16 +37,16 @@ O Projeto Acústico fornece vários controles de design acústico específicos d
 ### <a name="adjust-distance-based-attenuation"></a>Ajustar a atenuação baseada em distância
 O DSP de áudio fornecido pelo plug-in spatializer do Unity do **Projeto Acústico** respeita a atenuação baseada em distância por origem incorporada no Editor do Unity. Controles de atenuação de distância estão na **Audio Source** componente encontrado na **Inspetor** fontes de painel de som, em **configurações de som 3D**:
 
-![Atenuação de distância](media/distance-attenuation.png)
+![Captura de tela do painel de opções de atenuação de distância do Unity](media/distance-attenuation.png)
 
 A acústica executa o cálculo em uma caixa de “região da simulação” centralizada em torno do local do player. Se uma fonte de som estiver distante do player, localizada fora dessa região de simulação, somente a geometria dentro da caixa afetará a propagação do som (como causar oclusão), o que funciona razoavelmente bem quando os oclusores estão nas proximidades do player. No entanto, nos casos em que o player está em espaço aberto, mas os oclusores estão perto da fonte de som distante, o som pode passar por uma desoclusão irreal. A solução sugerida é garantir, em tais casos, que a atenuação do som caia para 0 a cerca de 45 m, a distância horizontal padrão do player em relação à borda da caixa.
 
-![SpeakerMode](media/speaker-mode.png)
+![Captura de tela do painel de opções SpeakerMode do Unity](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>Ajustar oclusão e transmissão
 Anexar o script **AcousticsAdjust** a uma fonte ativa os parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts > Acoustics Adjust**. O script tem seis controles:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Captura de tela do script AcousticsAdjust do Unity](media/acoustics-adjust.png)
 
 * **Ativar Acústica** - Controla se a acústica é aplicada a essa fonte. Quando desmarcada, a origem será espacializada com HRTFs ou movimento panorâmico, mas não haverá nenhuma acústica. Isso significa que não há obstrução, oclusão ou parâmetros de reverberação dinâmica, como nível e tempo de decaimento. A reverberação ainda é aplicada com um nível fixo e tempo de decaimento.
 * **Occlusion** – aplique um multiplicador ao nível de dB de oclusão calculado pelo sistema acústico. Se esse multiplicador for maior que 1, a oclusão será exagerada, enquanto valores menores que 1 tornam o efeito de oclusão mais sutil e um valor 0 desabilita a oclusão.
@@ -59,14 +59,14 @@ Anexar o script **AcousticsAdjust** a uma fonte ativa os parâmetros de ajuste p
 
 Anexe o script **AcousticsAdjustExperimental** a uma fonte ativa parâmetros adicionais de ajuste experimental para essa fonte. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts > Acoustics Adjust Experimental**. Atualmente, há um controle experimental:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Captura de tela do script AcousticsAdjustExperimental do Unity](media/acoustics-adjust-experimental.png)
 
 * **Perceptual Distance Warp** – aplique uma distorção exponencial à distância usada para calcular a relação seco-úmido. O sistema acústico calcula os níveis de umidade em todo o espaço, que variam levemente com a distância e fornecem pistas de distância perceptiva. Valores de distorção maiores que 1 exageram esse efeito, aumentando os níveis de reverberação relacionada à distância e tornando o som "distante". Valores de distorção inferiores a 1 tornam a alteração à reverberação com base em distância mais sutil, tornando o som mais "presente".
 
 ## <a name="design-acoustics-for-all-sources"></a>Design acústico para todas as fontes
 Para ajustar os parâmetros de todas as fontes, clique na faixa do canal no **Mixer de Áudio** do Unity e ajuste os parâmetros no efeito **Mixer do Projeto Acústico**.
 
-![Personalização do Mixer](media/mixer-parameters.png)
+![Captura de tela do painel de personalização Mixer do Unity do Projeto Acústico](media/mixer-parameters.png)
 
 * **Ajuste de Umidade** – ajusta o poder de reverberação, em dB, em todas as origens na cena com base na distância entre o ouvinte e a origem. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry.
 * **Escala de RT60** – escalar multiplicativo para tempo de reverberação.
@@ -75,7 +75,7 @@ Para ajustar os parâmetros de todas as fontes, clique na faixa do canal no **Mi
 ## <a name="check-proper-sound-source-placement"></a>Verifique o posicionamento correto da fonte de som
 Fontes de som colocadas dentro de voxels ocupados não receberão tratamento acústico. Como os voxels se estendem além da geometria de cena visível, será possível colocar uma fonte dentro de um voxel enquanto não tiver sido fechado pela geometria visual. É possível exibir os voxels do Projeto Acústico, ativando a caixa de seleção de grade de voxel no menu **Gizmos**, no canto superior direito da exibição da **Cena**.
 
-![Menu gizmos](media/gizmos-menu.png)  
+![Captura de tela do menu Gizmos do Unity](media/gizmos-menu.png)  
 
 A exibição do voxel também pode ajudar a determinar se os componentes visuais do jogo têm uma transformação aplicada a eles. Em caso afirmativo, aplique a mesma transformação ao GameObject que hospeda o **Acoustics Manager**.
 
@@ -84,11 +84,11 @@ A exibição do voxel também pode ajudar a determinar se os componentes visuais
 
 Voxels de tempo de design:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Captura de tela dos voxels do Projeto Acústico durante o tempo de design](media/voxels-design-time.png)
 
 Voxels de tempo de execução:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Captura de tela dos voxels do Projeto Acústico durante o tempo de execução](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Explore estudos de caso destacando os conceitos relacionados ao[processo de design](design-process.md)

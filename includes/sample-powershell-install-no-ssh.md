@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 8e82e0ebd988ab82e9090a83a061f36dfdb40341
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f04a4ca8c0b160dc2bcc762cc1c570737dc945d5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318216"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505686"
 ---
-O exemplo requer o módulo Azure PowerShell, versão 5.1.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Este exemplo exige o Azure PowerShell. Executar `Get-Module -ListAvailable Az` para ver se ele está instalado. Se é preciso instalar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
+Execute `Connect-AzAccount` para criar uma conexão com o Azure. 

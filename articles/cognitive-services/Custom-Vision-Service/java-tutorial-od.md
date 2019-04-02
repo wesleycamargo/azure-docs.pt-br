@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: a9ff0ae5488dfcda747d25724ef9917ba1a1f472
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 00684df614771437f33655538a808468ee778d29
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872281"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486998"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Java
 
-Este artigo fornece informações e exemplos de código para ajudar você a começar a usar o SDK de Visão Personalizada com Java a fim de criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criar seu próprio aplicativo Java. 
+Este artigo fornece informações e exemplos de código para ajudar você a começar a usar o SDK de Visão Personalizada com Java a fim de criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como modelo para criar seu próprio aplicativo Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,11 +28,12 @@ Este artigo fornece informações e exemplos de código para ajudar você a come
 - Maven instalado
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e um exemplo de código
+
 Para escrever um aplicativo Java que usa a Visão Personalizada, você precisará dos pacotes de maven da Visão Personalizada. Eles estão incluídos no projeto de exemplo que você vai baixar, mas é possível acessá-los individualmente aqui.
 
 Você pode instalar o SDK de Visão Personalizada do repositório central do Maven:
-* [SDK de treinamento](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [SDK de previsão](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+- [SDK de treinamento](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [SDK de previsão](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 Clone ou baixe o projeto [Exemplos de SDK de Java dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navegue até a pasta **Vision/CustomVision/**.
 
@@ -42,7 +43,7 @@ Esse projeto Java cria um novo projeto de detecção de objeto da Visão Persona
 
 O programa está configurado para armazenar seus dados de chave como variáveis de ambiente. Defina essas variáveis navegando até a pasta **Vision/CustomVision** no PowerShell. Em seguida, insira os comandos:
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -75,9 +76,9 @@ O trecho de código anterior faz uso de duas funções auxiliares que recuperam 
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-project"></a>Treinar o projeto
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Esse código cria a primeira iteração no projeto e a marca como a iteração padrão. A iteração padrão reflete a versão do modelo que responderá às solicitações de previsão. Você deve atualizar isso sempre que readaptar o modelo.
+Este código cria a primeira iteração no projeto e, em seguida, a publica no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
@@ -91,7 +92,7 @@ O ponto de extremidade de previsão, representado aqui pelo objeto `predictor`, 
 
 Para compilar e executar a solução usando o maven, execute o seguinte comando no diretório do projeto no PowerShell:
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

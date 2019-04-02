@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e483df4e3392d64619cc074d21ee560ef3c5df5d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459181"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370798"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -65,21 +65,15 @@ Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e e
 Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Ao escolher o tamanho de um disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for menor que 128 GB, o tipo de disco é P10. Se o tamanho do disco está entre 129 e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é um P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
-
-|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
-| IOPS máxima por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
-Taxa de transferência por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tamanhos da VM Linux](sizes.md).
 
-
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
+O Azure Cloud Shell é um shell interativo gratuito que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
+Para abrir o Cloud Shell, selecione **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 
@@ -187,8 +181,7 @@ Agora que o disco foi configurado, feche a sessão SSH.
 exit
 ```
 
-
-## <a name="snapshot-a-disk"></a>Instantâneo de um disco
+## <a name="take-a-disk-snapshot"></a>Tirar um instantâneo do disco
 
 Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas leitura, de um ponto no tempo. Instantâneos de máquina virtual do Azure são úteis para salvar rapidamente o estado de uma máquina virtual antes de fazer alterações de configuração. No caso de um problema ou erro, a VM pode ser restaurada usando um instantâneo. Quando uma máquina virtual tem mais de um disco, um instantâneo é tirado de cada disco independentemente dos outros. Para fazer backups consistentes de aplicativos, considere parar a máquina virtual antes de tirar instantâneos de disco. Como alternativa, utilize o [serviço de Backup do Azure](/azure/backup/), que permite realizar backups automáticos, enquanto a máquina virtual está em execução.
 

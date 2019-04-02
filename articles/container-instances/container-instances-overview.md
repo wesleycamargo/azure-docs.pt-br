@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863314"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499549"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
@@ -52,10 +52,11 @@ Alguns recursos estão restritos a contêineres Linux:
 
 * Vários contêineres por grupo de contêineres
 * Montagem de volume ([Arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
+* [Métricas de uso do recurso](container-instances-monitor.md) com o Azure Monitor
 * [Implantação da rede virtual (versão prévia](container-instances-vnet.md))
 * [Recursos da GPU](container-instances-gpu.md) (versão prévia)
 
-As Instâncias de Contêiner do Azure dão suporte a imagens do Windows Server 2016 baseadas nas versões do LTSC (Canal de Manutenção em Longo Prazo). Versões do Canal Semestral (SAC) do Windows como 1709 e 1803 não são suportadas.
+As Instâncias de Contêiner do Azure atualmente dão suporte a imagens do Windows Server 2016 baseadas nas versões do LTSC (Canal de Manutenção em Longo Prazo). Versões do Canal Semestral (SAC) do Windows como 1709 e 1803 não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 

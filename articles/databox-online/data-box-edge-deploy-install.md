@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093762"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399992"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalar o Azure Data Box Edge (versão prévia)
+# <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Azure Data Box Edge
 
 Este tutorial descreve como instalar um dispositivo físico do Data Box Edge. O procedimento de instalação envolve desempacotamento, montagem em rack e cabeamento do dispositivo. 
 
@@ -29,9 +29,6 @@ Neste tutorial, você aprenderá como:
 > * Montar o dispositivo em rack
 > * Cabear o dispositivo
 
-> [!IMPORTANT]
-> A solução Data Box Edge está em versão prévia. Antes de solicitar e implantar essa solução, examine os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos de instalação de um dispositivo físico são os seguintes:
@@ -40,7 +37,7 @@ Os pré-requisitos de instalação de um dispositivo físico são os seguintes:
 
 Antes de começar, verifique se:
 
-* Você concluiu todas as etapas descritas em [Preparar a implantação do Azure Data Box Edge (versão prévia)](data-box-edge-deploy-prep.md).
+* Você concluiu todas as etapas descritas em [Preparar a implantação do Azure Data Box Edge](data-box-edge-deploy-prep.md).
     * Você criou um recurso do Data Box Edge para implantar seu dispositivo.
     * Você já gerou a chave de ativação para ativar seu dispositivo com o recurso do Data Box Edge.
 
@@ -75,38 +72,90 @@ Este dispositivo é fornecido em uma única caixa. Conclua as etapas a seguir pa
 3. Abra a caixa. Depois de abrir a caixa, verifique se você tem estes itens:
     - Um dispositivo do Edge de compartimento único
     - Dois cabos de alimentação
-    - Um kit de montagem em rack corrediço sem ferramentas (dois trilhos laterais e hardware de montagem incluídos)
+    - Um conjunto de kit de trilho
+    - Um livreto Informações sobre Regulamentação, Segurança e Meio-ambiente
 
 Caso não tenha recebido todos os itens listados aqui, contate o suporte do Data Box Edge. A próxima etapa é montar o dispositivo em rack.
 
 
 ## <a name="rack-the-device"></a>Montar o dispositivo em rack
 
-O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o procedimento a seguir para montar o dispositivo em um rack padrão de 19 polegadas com colunas frontal e traseira.
+O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o procedimento a seguir para montar o dispositivo em um rack padrão de 19 polegadas.
 
 > [!IMPORTANT]
 > Os dispositivos Data Box Edge devem ser montados em rack para a operação apropriada.
 
 
-1. Puxe a liberação frontal para desbloquear o trilho interno do assembly de slides. Libere a trava de retenção e empurre o trilho intermediário para dentro para retrair o trilho.  
-    Os trilhos internos e externos agora devem estar separados.
+### <a name="prerequisites"></a>Pré-requisitos
 
-    ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- Antes de começar, leia as instruções de segurança no livreto Informações sobre Regulamentação, Segurança e Meio-ambiente. Esse livreto foi enviado com o dispositivo.
+- Comece a instalar os trilhos no espaço alocado mais próximo à parte inferior do compartimento de rack.
+- Para a configuração de montagem do trilho com ferramentas, você precisará fornecer oito parafusos: nº 10-32, nº 12-24, nº M5 ou nº M6. O diâmetro da cabeça dos parafusos precisa ser inferior a 10 mm (0,4").
 
-2. Instale os trilhos externos nos componentes verticais do gabinete de rack. Para ajudar com a orientação, os trilhos deslizantes estão marcados com **Frente** e essa extremidade está afixada apontando para a parte dianteira do compartimento.    
-   1. Localize os pinos do trilho na parte frontal e traseira do módulo do trilho. Estenda o trilho para que ele se encaixe entre as colunas do rack. Anexe o trilho externo na parte traseira do rack primeiro. Ajuste o suporte de montagem traseiro para posicioná-lo dentro dos orifícios de montagem do rack traseiro.   
+### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit de trilho
 
-   2. Empurre e segure o gatilho no suporte traseiro para expor os ganchos de metal. Alinhe o suporte traseiro e insira-o nos orifícios de montagem e, em seguida, libere o gatilho.
+Localize os componentes para instalação do conjunto do kit de trilho:
+1. Dois conjuntos de trilho deslizante A7 Dell ReadyRails II
+2. Duas tiras com fixador de contato
 
-   3. Alinhe o colchete dianteiro com o orifício de montagem.
+![Identificar o conteúdo do kit de trilho](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. O suporte dianteiro agora deverá estar fixado no rack. Opcionalmente, parafusos M5 x 10L podem ser usados para prender os trilhos nas colunas, se necessário. 
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instale e remova os trilhos sem ferramentas (racks de orifício quadrado ou redondo)
 
-      ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. Posicione as extremidades esquerda e direita do trilho rotuladas **FRENTE** voltadas para dentro e vire cada extremidade até encaixá-las nos orifícios no lado dianteiro das bordas verticais do rack.
+2. Alinhe cada extremidade nos orifícios inferior e superior dos espaços em U desejados.
+3. Encaixe a extremidade traseira do trilho até que ela se ajuste totalmente na borda vertical do rack e a trava se encaixe no lugar. Repita essas etapas para posicionar e encaixar a extremidade dianteira da borda vertical do rack.
+4. Para remover os trilhos, aperte o botão de liberação da trava no ponto médio da extremidade e remova cada trilho.
 
-3. Para anexar o trilho interno no chassi, verifique se as aberturas do buraco de fechadura no trilho interno estão alinhadas com os pinos de localização na lateral do chassi. As cabeças dos pinos de localização do chassi devem estar ressaltadas pelas aberturas de buraco de fechadura no trilho interno. Puxe o trilho em direção à parte frontal do chassi até que o trilho trave no lugar com clique audível. Repita com o outro trilho interno. Empurre o chassi com o trilho interno na corrediça para concluir a instalação do rack.
+![Instalar e remover os trilhos sem ferramentas](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover os trilhos com ferramentas (racks com orifício rosqueado)
+
+1. Remova os pinos dos suportes de montagem dianteiro e traseiro usando uma chave de fenda com ponta achatada.
+2. Puxe e gire os subconjuntos de trava de trilho para removê-los dos suportes de montagem.
+3. Fixe os trilhos de montagem esquerdo e direito nas bordas verticais dianteiras do rack usando dois pares de parafusos.
+4. Deslize os suportes traseiros esquerdo e direito para frente em direção às bordas verticais traseiras do rack e fixe-os usando dois pares de parafusos.
+
+![Instalar e remover trilhos com ferramentas](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>Instalar o sistema em um rack
+
+1. Puxe os trilhos deslizantes internos para fora do rack até eles fiquem travados.
+2. Localize o suporte do trilho traseiro em cada lado do sistema e abaixe-os até os slots J traseiros sobre os conjuntos deslizantes. Gire o sistema para baixo até todos os suportes do trilho serem encaixados nos slots J.
+3. Empurre o sistema para dentro até as alavancas de trava se encaixarem.
+4. Pressione os botões de trava de liberação deslizante em ambos os trilhos e deslize o sistema no rack.
+
+![Instalar o sistema em um rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>Remover o sistema do rack
+
+1. Localize as alavancas de trava nas laterais dos trilhos internos.
+2. Destrave cada alavanca girando-a até a posição de liberação.
+3. Segure as laterais do sistema com firmeza e puxe-o para frente até os suportes do trilho ficarem na frente dos slots J. Levante o sistema para cima e longe do rack e coloque-o em uma superfície nivelada.
+
+![Remover o sistema do rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>Encaixar e liberar a trava do tipo slam
+
+OBSERVAÇÃO:  Para sistemas não equipados com travas do tipo slam, fixe o sistema usando parafusos, conforme descrito na etapa 3 deste procedimento.
+
+1. Na parte dianteira, localize a trava do tipo slam em uma das laterais do sistema.
+2. As travas fecham automaticamente conforme o sistema é empurrado para o rack e são liberadas quando puxadas para cima.
+3. Para fixar o sistema de remessa no rack ou para outros ambientes instáveis, localize o parafuso de montagem rígida sob cada trava e aperte cada parafuso com uma chave Phillips nº 2.
+
+![Encaixar e liberar a trava do tipo slam](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### <a name="route-the-cables"></a>Rotear os cabos
+
+> [!NOTE]
+>  Se você não solicitou o CMA (Braço de Gerenciamento de Cabos) opcional, use as duas tiras com fixador de contato fornecidas no kit de trilho para rotear os cabos na parte traseira do sistema.
+
+1. Localize os suportes externos do CMA nas laterais interiores de ambas as bordas do rack.
+2. Agrupe os cabos com cuidado, afastando-os dos conectores do sistema nas laterais esquerda e direita.
+3. Passe as tiras com fixador de contato pelos slots com ferramentas nos suportes externos do CMA em cada lateral do sistema para fixar os conjuntos de cabos.
+
+
+![Rotear os cabos](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cabear o dispositivo
 
@@ -121,13 +170,26 @@ Antes de começar o cabeamento do dispositivo, você precisará do seguinte:
 - Acesso a duas unidades de distribuição de energia (recomendado).
 
 > [!NOTE]
-> - Se você estiver conectando somente um adaptador de rede de dados. recomendamos que você use um adaptador de rede de 25 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
+> - Se você está conectando somente um adaptador de rede de dados, recomendamos que você use um adaptador de rede de 25/10 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
 > - Para melhor desempenho e para lidar com grandes volumes de dados, considere a possibilidade de se conectar a todas as portas de dados.
-> - O dispositivo do Edge deve estar conectado à rede de datacenter de modo que possa receber dados de servidores de fonte de dados. 
+> - O dispositivo do Edge deve estar conectado à rede de datacenter de modo que possa receber dados de servidores de fonte de dados.
 
-O dispositivo do Edge tem 8 SSDs NVMe. O painel frontal também tem botões de energia e LEDs de status. O dispositivo inclui PSUs (unidades de alimentação) redundantes na parte traseira. O dispositivo tem seis adaptadores de rede: dois adaptadores de 1 Gbps e quatro de 25 Gbps. O dispositivo tem um BMC (controlador de gerenciamento de placa base). Identifique as várias portas de dados no backplane do dispositivo.
+O dispositivo do Edge tem 8 SSDs NVMe. O painel frontal também tem botões de energia e LEDs de status. O dispositivo inclui PSUs (unidades de alimentação) redundantes na parte traseira. Seu dispositivo tem seis adaptadores de rede:
+
+- Duas interfaces de 1 Gbps
+- Quatro interfaces de 25 Gbps que também podem servir como interfaces de 10 Gbps.
+- Um controlador BMC. 
+
+Identifique as várias portas de dados no backplane do dispositivo.
  
   ![Backplane de um dispositivo cabeado](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+O dispositivo tem duas placas de rede correspondentes às 6 portas: 
+
+ - QLogic FastLinQ 41264
+ - QLogic FastLinQ 41262
+
+Para obter uma lista completa de cabos, comutadores e transceptores compatíveis com essas placas de rede, acesse a [Matriz de interoperabilidade da Cavium FastlinQ série 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 
@@ -137,8 +199,7 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 
 3. Conecte a PORTA 1 do adaptador de rede de 1 GbE ao computador usado para configurar o dispositivo físico. A PORTA 1 é o adaptador de gerenciamento dedicado.
 
-4. Conecte uma ou mais das portas (PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6) ao rede do datacenter/Internet. Se estiver se conectando na PORTA 2, use o cabo de rede RJ-45. Para as interfaces de rede de 25 GbE, use os cabos de cobre SFP+.  
-
+4. Conecte uma ou mais das portas (PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6) ao rede do datacenter/Internet. Se estiver se conectando na PORTA 2, use o cabo de rede RJ-45. Para os adaptadores de rede de 10/25 GbE, use os cabos de cobre SFP+.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

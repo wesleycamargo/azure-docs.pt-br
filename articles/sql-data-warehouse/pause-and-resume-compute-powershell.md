@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884182"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443839"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início Rápido: Pausar e retomar computação em um SQL Data Warehouse do Azure com PowerShell
 
@@ -61,8 +61,7 @@ Siga estas etapas para localizar informações de local de seu Data Warehouse.
 
     ![Grupo de recursos e o nome de servidor](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote o nome do data warehouse, que é o nome do banco de dados. Anote também o nome do servidor e o grupo de recursos. Você
-5.  os usará nos comandos pausar e retomar.
+4. Anote o nome do data warehouse, que é o nome do banco de dados. Anote também o nome do servidor e o grupo de recursos.
 6. Se o servidor for foo.database.windows.net, use somente a primeira parte como o nome do servidor nos cmdlets do PowerShell. Na imagem anterior, o nome completo do servidor é newserver-20171113.database.windows.net. Remova o sufixo e use **newserver-20171113** como o nome do servidor no cmdlet do PowerShell.
 
 ## <a name="pause-compute"></a>Pausar computação
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>Verificar o status da operação do data warehouse
+
+Para verificar o status do data warehouse, use o cmdlet [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description).
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos

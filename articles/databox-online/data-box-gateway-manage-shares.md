@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165651"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516885"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
 Este artigo descreve como gerenciar compartilhamentos em seu Azure Data Box Gateway. Você pode gerenciar o Azure Data Box Gateway usando o portal do Azure ou a interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para conta de armazenamento associada com os compartilhamentos.
-
-> [!IMPORTANT]
-> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
-
 
 ## <a name="about-shares"></a>Sobre compartilhamentos
 
@@ -87,6 +83,9 @@ A lista de compartilhamentos é atualizada para refletir a exclusão.
 ## <a name="refresh-shares"></a>Atualizar compartilhamentos
 
 O recurso de atualização permite que você atualize o conteúdo de um compartilhamento local. Quando você atualiza um compartilhamento, uma pesquisa é iniciada para localizar todos os objetos do Azure, incluindo os blobs e arquivos adicionados à nuvem desde a última atualização. Esses arquivos adicionais então são usados para atualizar o conteúdo do compartilhamento local no dispositivo. 
+
+> [!NOTE]
+> As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização. 
 
 Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
