@@ -4,230 +4,206 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 03/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67b24ca0008a03474b54a1bf226261c3f395fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed34267aa1f18b4c66fe841164e6a2cde4e27d47
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183217"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa Survey Enterprise
 
 Neste tutorial, você aprenderá como integrar o IBM Kenexa Survey Enterprise ao Azure AD (Azure Active Directory).
-
 A integração do IBM Kenexa Survey Enterprise ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao IBM Kenexa Survey Enterprise.
-- É possível permitir que os usuários entrem automaticamente no IBM Kenexa Survey Enterprise com o logon único (SSO) com suas contas do Azure AD.
-- Gerencie suas contas em um único local: o portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao IBM Kenexa Survey Enterprise.
+* É possível permitir que seus usuários entrem automaticamente no IBM Kenexa Survey Enterprise (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se desejar saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso do aplicativo e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o IBM Kenexa Survey Enterprise, você precisará dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para SSO do IBM Kenexa Survey Enterprise
-
-> [!NOTE]
-> Ao testar as etapas deste tutorial, recomendamos que você não use um ambiente de produção.
-
-Para testar as etapas neste tutorial, siga estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do IBM Kenexa Survey Enterprise habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste. O cenário descrito no tutorial consiste em dois blocos de construção principais:
 
-* Adicionando o IBM Kenexa Survey Enterprise da galeria
-* Configurar e testar o SSO do Azure AD
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Adicionar o IBM Kenexa Survey Enterprise por meio da galeria
-Para configurar a integração do IBM Kenexa Survey Enterprise ao Azure AD, adicione o IBM Kenexa Survey Enterprise à lista de aplicativos SaaS gerenciados por meio da galeria.
+* O IBM Kenexa Survey Enterprise é compatível com o SSO iniciado por **IDP**
 
-Para adicionar o IBM Kenexa Survey Enterprise por meio da galeria, faça o seguinte:
+## <a name="adding-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Adicionando o IBM Kenexa Survey Enterprise da galeria
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique no botão **Azure Active Directory**. 
+Para configurar a integração do IBM Kenexa Survey Enterprise com o Azure AD, você precisará adicionar o IBM Kenexa Survey Enterprise à sua lista de aplicativos SaaS gerenciados por meio da galeria.
 
-    ![O botão Azure Active Directory][1]
+**Para adicionar o IBM Kenexa Survey Enterprise por meio da galeria, execute as seguintes etapas:**
 
-1. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Para adicionar um aplicativo, clique no botão **Novo aplicativo**.
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-    ![O botão Novo aplicativo][3]
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-1. Na caixa de pesquisa, digite **IBM Kenexa Survey Enterprise**.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na lista de resultados, selecione **IBM Kenexa Survey Enterprise** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![IBM Kenexa Survey Enterprise na lista de resultados](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+4. Na caixa de pesquisa, digite **IBM Kenexa Survey Enterprise**, selecione **IBM Kenexa Survey Enterprise** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-Nesta seção, você configura e testa o SSO do Azure AD com o IBM Kenexa Survey Enterprise, com base em um usuário de teste chamado “Brenda Fernandes”.
+     ![IBM Kenexa Survey Enterprise na lista de resultados](common/search-new-app.png)
 
-Para que o SSO funcione, o Azure AD precisa identificar o usuário do IBM Kenexa Survey Enterprise que é equivalente a um usuário do Azure AD. Em outras palavras, o Azure AD precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e um usuário relacionado do IBM Kenexa Survey Enterprise.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Para estabelecer a relação de vínculo, atribua o valor do **nome de usuário** no IBM Kenexa Survey Enterprise como o valor do **Nome de usuário** no Azure AD.
+Nesta seção, você configurará e testará o logon único do Azure AD com o IBM Kenexa Survey Enterprise, com base em uma usuária de teste chamada **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do IBM Kenexa Survey Enterprise.
 
-Para configurar e testar o SSO do Azure AD com o IBM Kenexa Survey Enterprise, conclua os blocos de construção nas duas próximas seções.
+Para configurar e testar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, você precisa concluir os seguintes blocos de construção:
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar logon único do IBM Kenexa Survey Enterprise](#configure-ibm-kenexa-survey-enterprise-single-sign-on)** – para configurar as definições de Logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar usuário de teste do IBM Kenexa Survey Enterprise](#create-ibm-kenexa-survey-enterprise-test-user)**: para ter um equivalente de Brenda Fernandes no IBM Kenexa Survey Enterprise que esteja vinculado à representação dela no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-Nesta seção, você habilita o SSO do Azure AD no portal do Azure e configura o SSO no aplicativo IBM Kenexa Survey Enterprise fazendo o seguinte:
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-1. No portal do Azure, na página de integração do aplicativo **IBM Kenexa Survey Enterprise**, clique em **Logon único**.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-    ![Link Configurar logon único do IBM Kenexa Survey Enterprise][4]
+Para configurar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, siga estas etapas:
 
-1. Na caixa de diálogo **Logon único**, na caixa **Modo**, selecione **Logon baseado em SAML** para habilitar o SSO.
- 
-    ![Caixa de diálogo Logon único](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **IBM Kenexa Survey Enterprise**, selecione **Logon único**.
 
-1. Na seção **Domínio e URLs do IBM Kenexa Survey Enterprise**, realize as seguintes etapas:
+    ![Link Configurar logon único](common/select-sso.png)
 
-    ![Informações de logon único em Domínio e URLs do IBM Kenexa Survey Enterprise](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-     a. Na caixa de texto **Identificador**, digite uma URL com o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL com o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-os com o identificador e a URL de resposta reais. Para obter os valores reais, contate a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Em **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
-    ![O link de download do Certificado (Base64)](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+    ![Informações de logon único em Domínio e URLs do IBM Kenexa Survey Enterprise](common/idp-intiated.png)
 
-    O aplicativo IBM Kenexa Survey Enterprise espera receber as declarações SAML (Security Assertions Markup Language) em um formato específico, o que exige a adição de mapeamentos de atributo personalizados para a configuração dos atributos do token SAML. O valor da declaração do identificador de usuário na resposta deve corresponder à ID de SSO configurada no sistema do Kenexa. Para mapear o identificador de usuário apropriado em sua organização como o protocolo IDP de SSO, trabalhe com a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). 
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
 
-    Por padrão, o Azure AD define o identificador de usuário como o valor de nome UPN. Altere esse valor na guia **Atributo**, conforme mostrado na captura de tela a seguir. A integração funciona somente após a conclusão correta do mapeamento.
-    
-    ![A caixa de diálogo Atributos de Usuário](./media/kenexasurvey-tutorial/tutorial_attribute.png) 
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
-1. Clique em **Salvar**.
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    ![O botão Salvar de Configurar Logon Único](./media/kenexasurvey-tutorial/tutorial_general_400.png)
+5. O aplicativo IBM Kenexa Survey Enterprise espera receber as declarações SAML (Security Assertions Markup Language) em um formato específico, o que exige a adição de mapeamentos de atributo personalizados para a configuração dos atributos do token SAML. O valor da declaração do identificador de usuário na resposta deve corresponder à ID de SSO configurada no sistema do Kenexa. Para mapear o identificador de usuário apropriado em sua organização como o protocolo IDP de SSO, trabalhe com a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
 
-1. Para abrir a janela **Configurar logon**, em **Configuração do IBM Kenexa Survey Enterprise**, clique em **Configurar o IBM Kenexa Survey Enterprise**. 
- 
-    ![O link Configurar o IBM Kenexa Survey Enterprise](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
+    Por padrão, o Azure AD define o identificador de usuário como o valor de nome UPN. É possível alterar esse valor na guia **Atributos do usuário**, conforme mostrado na captura de tela a seguir. A integração funciona somente após a conclusão correta do mapeamento.
 
-1. Copie os valores da **URL de Saída**, **ID da Entidade SAML** e **URL do Serviço de logon único SAML** da seção **Referência Rápida**.
+    ![image](common/edit-attribute.png)
 
-1. Na janela **Configurar logon**, em **Referência Rápida**, copie os valores da **URL de Saída**, da **ID da Entidade SAML** e da **URL do Serviço de Logon Único SAML**.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-1. Para configurar o SSO no lado do **IBM Kenexa Survey Enterprise**, envie o **Certificado (Base64)** baixado, a **URL de Saída**, a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+    ![O link de download do Certificado](common/certificatebase64.png)
 
-> [!TIP]
-> Consulte uma versão concisa dessas instruções no [portal do Azure](https://portal.azure.com) enquanto estiver configurando o aplicativo. Depois de adicionar o aplicativo na seção **Active Directory** > **Aplicativos Empresariais**, basta clicar na guia **Logon único** e, depois, acessar a documentação inserida por meio da seção **Configuração** ao final. Para saber mais sobre o recurso de documentação inserida, consulte [Documentação inserida do Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+7. Na seção **Configurar IBM Kenexa Survey Enterprise**, copie a URL apropriada, de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure AD
+
+    c. URL de logoff
+
+### <a name="configure-ibm-kenexa-survey-enterprise-single-sign-on"></a>Configurar logon único do IBM Kenexa Survey Enterprise
+
+Para configurar o logon único no lado do **IBM Kenexa Survey Enterprise**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azure fazendo o seguinte:
 
-![Criar um usuário de teste do Azure AD][100]
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![O botão Azure Active Directory](./media/kenexasurvey-tutorial/create_aaduser_01.png) 
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
-    
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
+2. Selecione **Novo usuário** na parte superior da tela.
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
- 
-    ![O botão Adicionar](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![A caixa de diálogo Usuário](./media/kenexasurvey-tutorial/create_aaduser_04.png) 
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Criar um usuário de teste do IBM Kenexa Survey Enterprise
-
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no IBM Kenexa Survey Enterprise. 
-
-Para criar usuários no sistema do IBM Kenexa Survey Enterprise e mapear a ID de SSO para eles, trabalhe com a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). Esse valor de ID de SSO também deve ser mapeado para o valor de identificador de usuário do Azure AD. Altere essa configuração padrão na guia **Atributo**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que o usuário Brenda Fernandes use o SSO do Azure concedendo acesso ao IBM Kenexa Survey Enterprise.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao IBM Kenexa Survey Enterprise.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **IBM Kenexa Survey Enterprise**.
 
-Para atribuir o usuário Brenda Fernandes ao IBM Kenexa Survey Enterprise, faça o seguinte:
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a exibição **Aplicativos**, acesse a exibição **Diretório**, selecione **Aplicativos empresariais** e, depois, clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, selecione **IBM Kenexa Survey Enterprise**.
 
-    ![Os links “Aplicativos empresariais” e “Todos os aplicativos”][201] 
+    ![O link do IBM Kenexa Survey Enterprise na lista de Aplicativos](common/all-applications.png)
 
-1. Na lista **Aplicativos**, selecione **IBM Kenexa Survey Enterprise**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link do IBM Kenexa Survey Enterprise na lista de Aplicativos](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. No painel esquerdo, clique em **Usuários e grupos**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202] 
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. Clique no botão **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-1. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-1. Na caixa de diálogo **Usuários e grupos**, clique no botão **Selecionar**.
+### <a name="create-ibm-kenexa-survey-enterprise-test-user"></a>Criar usuário de teste do IBM Kenexa Survey Enterprise
 
-1. Na caixa de diálogo **Adicionar Atribuição**, clique no botão **Atribuir**.
-    
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no IBM Kenexa Survey Enterprise.
+
+Para criar usuários no sistema do IBM Kenexa Survey Enterprise e mapear a ID de SSO para eles, trabalhe com a [equipe de suporte do IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). Esse valor de ID de SSO também deve ser mapeado para o valor de identificador de usuário do Azure AD. Altere essa configuração padrão na guia **Atributo**.
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco do **IBM Kenexa Survey Enterprise** no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo IBM Kenexa Survey Enterprise.
+Ao clicar no bloco do IBM Kenexa Survey Enterprise no Painel de Acesso, você deverá entrar automaticamente no IBM Kenexa Survey Enterprise no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/kenexasurvey-tutorial/tutorial_general_01.png
-[2]: ./media/kenexasurvey-tutorial/tutorial_general_02.png
-[3]: ./media/kenexasurvey-tutorial/tutorial_general_03.png
-[4]: ./media/kenexasurvey-tutorial/tutorial_general_04.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/kenexasurvey-tutorial/tutorial_general_100.png
-
-[200]: ./media/kenexasurvey-tutorial/tutorial_general_200.png
-[201]: ./media/kenexasurvey-tutorial/tutorial_general_201.png
-[202]: ./media/kenexasurvey-tutorial/tutorial_general_202.png
-[203]: ./media/kenexasurvey-tutorial/tutorial_general_203.png
-
- 

@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113326"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480116"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configurar notificações por push em um hub de notificação no portal do Azure
 
@@ -29,7 +29,7 @@ Se você ainda não criou um hub de notificação, crie um agora. Para obter mai
 
 Para configurar p Apple Push Notification Service (APNS):
 
-1. No portal do Azure, no **Hub de Notificação**, selecione **Apple (APNS)**.
+1. No portal do Azure, na página **Hub de Notificação** selecione **Apple (APNS)** no menu esquerdo.
 
 1. Para o **Modo de Autenticação**, selecione **Certificado** ou **Token**.
 
@@ -42,7 +42,7 @@ Para configurar p Apple Push Notification Service (APNS):
 
    b. Se você selecionar **Token**:
 
-   * Insira os valores de **identificação da chave**, **ID do pacote**, **ID da equipe** e **Token**.
+   * Insira os valores de **Identificação da chave**, **ID do pacote**, **ID da equipe** e **Token**.
    * Selecione o modo **Sandbox**. Ou, para enviar notificação por push aos usuários que compraram seu aplicativo da loja, selecione o modo **Produção**.
 
      ![Captura de tela de uma configuração de token APNS no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [Enviar notificações por push para iOS
 
 Configurar notificações por push para o Google Firebase Cloud Messaging (FCM):
 
-1. No portal do Azure, em **Hub de Notificação**, selecione **Google (GCM/FCM)**. 
+1. No portal do Azure, na página **Hub de Notificação**, selecione **Google (GCM/FCM)** no menu à esquerda. 
 2. Cole a **chave de API** do projeto do FCM salva anteriormente. 
 3. Clique em **Salvar**. 
 
@@ -67,7 +67,7 @@ Para obter mais informações, consulte [Notificação por push para os disposit
 
 Configurar o Serviço de Notificação por Push do Windows (WNS):
 
-1. No portal do Azure, no **Hub de Notificação**, selecione **Windows (APNS)**.
+1. No portal do Azure, na página **Hub de Notificação**, selecione **Windows (WNS)** no menu à esquerda.
 2. Insira valores para **SID do Pacote** e **Chave de Segurança**.
 3. Clique em **Salvar**.
 
@@ -79,7 +79,7 @@ Para obter mais informações, consulte [Enviar notificações para aplicativos 
 
 Configurar o Serviço de Notificação por push da Microsoft (MPNS) para Windows Phone: 
 
-1. No portal do Azure, no **Hub de Notificação**, selecione **Windows Phone (MPNS)**.
+1. No portal do Azure, na página **Hub de Notificação**, selecione **Windows Phone (MPNS)** no menu à esquerda.
 1. Habilitar notificações por push autenticadas ou não autenticadas:
 
     a. Para habilitar as notificações por push não autenticadas, selecione **Habilitar envio por push não autenticado** > **Salvar**.
@@ -99,7 +99,7 @@ Para obter mais informações, consulte [Enviar notificações por push Windows 
 
 Para configurar notificações por push para o Amazon Device Messaging (ADM):
 
-1. No portal do Azure, no **Hub de Notificação**, selecione **Amazon (ADM)**.
+1. No portal do Azure, na página **Hub de Notificação**, selecione **Amazon (ADM)** no menu à esquerda.
 2. Insira valores para **ID do Cliente** e **Segredo do Cliente**.
 3. Clique em **Salvar**.
     
@@ -111,7 +111,7 @@ Para obter mais informações, veja [Introdução ao Hubs de Notificações dos 
 
 Configurar notificações por push para Baidu:
 
-1. No portal do Azure, no **Hub de Notificação**, selecione **Baidu (Android China)**. 
+1. No portal do Azure, na página **Hub de Notificação**, selecione **Baidu (Android China)** no menu à esquerda. 
 2. Insira a **chave de API** obtida do console do Baidu no projeto de push da nuvem Baidu. 
 3. Insira a **chave secreta** obtida do console do Baidu no projeto de push da nuvem Baidu. 
 4. Clique em **Salvar**. 

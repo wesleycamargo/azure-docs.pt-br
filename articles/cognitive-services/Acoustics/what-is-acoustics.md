@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136593"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313610"
 ---
 # <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
 Projeto Acústico é um mecanismo de acústica de onda para experiências interativas 3D. Ele modela os efeitos de onda como difração, portaling e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona. Também inclui o mecanismo de jogo e a integração de áudio de middleware. A filosofia do Projeto Acústico é semelhante à iluminação estática: preparar a física detalhada offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.
 
-![Modo de exibição de Design](media/gears-with-voxels.jpg)
+![Captura de tela de Gears of War 4 mostrando voxels acústicos](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Usando física de onda para acústica interativa
 Métodos com base em raio acústico podem verificar se houver oclusão usando uma conversão de raio fonte-ouvinte ou reverberação de unidade estimando o volume da cena local com alguns raios. Mas, essas técnicas podem não ser confiáveis porque uma pedra oclui tanto quanto um pedregulho. Os raios não contam pela forma como o som se inclina em torno dos objetos, um fenômeno conhecido como difração. A simulação do Projeto Acústico captura esses efeitos usando uma simulação baseada em onda. O resultado é mais previsível e confiável.
 
 A inovação de chave do Projeto Acústico é acoplar simulação acústica com conceitos de design de som tradicionais. Ele converte os resultados da simulação em parâmetros DSP de áudio tradicional para oclusão, portaling e reverberação. O designer usa controles sobre esse processo de translação. Para obter mais detalhes sobre as principais tecnologias por trás do Projeto Acústico, visite a [página de pesquisa do projeto](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-![Modo de exibição de Design](media/wave-simulation.gif)
+![Animação mostrando uma fatia horizontal 2D de propagação de onda por meio de uma cena](media/wave-simulation.gif)
 
 ## <a name="setup"></a>Configuração
 A [Integração do Unity do Projeto Acústico](unity-integration.md) é do tipo arrastar e soltar e inclui um plugin de mecanismo de áudio do Unity. Aumente os controles de fonte de áudio do Unity, anexando um componente dos controles C# do Projeto Acústico a cada objeto de áudio.
@@ -46,8 +46,11 @@ Os plug-ins do tempo de execução do Projeto Acústico podem atualmente ser imp
 * Xbox One
 
 ## <a name="download"></a>Baixar
-* [Plugins e amostras do Projeto Acústico](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Plug-in e amostras do Unity do Projeto Acústico](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Plug-ins e amostras do Unreal e do Wwise do Projeto Acústico](https://www.microsoft.com/download/details.aspx?id=58090)
   * Para suporte e binários do Xbox, entre em contato conosco por meio do formulário de Inscrição abaixo
+
+## <a name="contact-us"></a>Fale conosco
 * [Fóruns do Projeto Acústico](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
 * [Inscreva-se para receber atualizações sobre o Projeto Acústico](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
