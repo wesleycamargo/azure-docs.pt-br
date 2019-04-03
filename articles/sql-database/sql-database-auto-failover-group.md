@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483379"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848394"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -343,11 +343,11 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 | API | DESCRIÇÃO |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gerenciar grupos de failover de Banco de Dados SQL com bancos de dados individuais e em pool
 

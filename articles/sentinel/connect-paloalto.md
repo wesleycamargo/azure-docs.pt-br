@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: bcab43869b488eed1cc6693a2970b6ea4bb2e7c1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 130982dc6adadd22037f395635a9525bf28bcedd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576336"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877084"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Conectar seu dispositivo Palo Alto Networks
 
@@ -119,7 +119,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 1. Certifique-se de que os logs estão obtendo à porta à direita no agente do Syslog. Execute este comando o computador de agente do Syslog: `tcpdump -A -ni any  port 514 -vv` Este comando mostra os logs de fluxos do dispositivo para a máquina de Syslog. Certifique-se de que os logs estão sendo recebidos do dispositivo de origem na porta direita e recurso certo.
 2. Verifique se há comunicação entre o daemon do Syslog e o agente. Execute este comando o computador de agente do Syslog: `tcpdump -A -ni any  port 25226 -vv` Este comando mostra os logs de fluxos do dispositivo para a máquina de Syslog. Certifique-se de que os logs também estão sendo recebidos no agente.
-3. Se ambos os comandos fornecidos resultados bem-sucedidos, verifique o Log Analytics para ver se os logs chegam. Todos os eventos que são transmitidos desses dispositivos são exibidos em formato bruto no Log Analytics em `CommonSecurityLog ` tipo.
+3. Se ambos os comandos fornecidos resultados bem-sucedidos, verifique o Log Analytics para ver se os logs chegam. Todos os eventos que são transmitidos desses dispositivos são exibidos em formato bruto no Log Analytics em `CommonSecurityLog` tipo.
 1. Para verificar se há erros ou se os logs não são recebidos, procure `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Certifique-se de que seu tamanho de padrão de mensagem do Syslog é limitado a 2048 bytes (2KB). Se os logs são muito longos, atualize o security_events usando este comando: `message_length_limit 4096`
 6. Para usar o esquema relevante no Log Analytics para os eventos do Palo Alto Networks, pesquise **CommonSecurityLog**.

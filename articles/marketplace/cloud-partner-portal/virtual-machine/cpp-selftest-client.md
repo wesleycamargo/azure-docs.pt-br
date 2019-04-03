@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649079"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848938"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
 
@@ -51,7 +51,7 @@ O diagrama a seguir mostra como funciona a autorização para chamadas de servi�
 A API de autoteste contém um ponto de extremidade individual que dá suporte apenas ao método POST.  Ela tem a seguinte estrutura.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -357,7 +357,7 @@ A captura de tela a seguir mostra um exemplo de como usar o comando curl para ob
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Para criar e obter um token usando C&#35;
 
-Para solicitar tokens ao Auth0 para um dos aplicativos autorizados, execute uma operação POST no ponto de extremidade [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) com um conteúdo no seguinte formato:
+Para solicitar tokens para qualquer um dos seus aplicativos autorizados Auth0, executar uma operação POST para o https:\//soamtenant.auth0.com/oauth/token de ponto de extremidade com uma carga no seguinte formato:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Para criar e obter um token usando o PowerShell
 
-Para solicitar tokens ao Auth0 para um dos aplicativos autorizados, execute uma operação POST no ponto de extremidade [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) com um conteúdo no seguinte formato:
+Para solicitar tokens para qualquer um dos seus aplicativos autorizados Auth0, executar uma operação POST para o https:\//soamtenant.auth0.com/oauth/token de ponto de extremidade com uma carga no seguinte formato:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

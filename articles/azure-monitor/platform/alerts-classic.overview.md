@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993032"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847862"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
@@ -88,14 +88,14 @@ Webhooks permite automação e correção, por exemplo, usando:
 ## <a name="next-steps"></a>Próximas etapas
 Obter informações sobre as regras de alerta e sobre como configurá-las usando:
 
-* Saiba mais sobre [Métricas](../../azure-monitor/platform/data-collection.md)
+* Saiba mais sobre [Métricas](data-platform.md)
 * Configurar [alertas de métrica clássicos por meio do portal do Azure](alerts-classic-portal.md)
 * Configurar [PowerShell de alertas de métrica clássicos](alerts-classic-portal.md)
 * Configurar a [CLI (interface de linha de comando) de alertas de métrica clássicos](alerts-classic-portal.md)
 * Configurar a [API REST do Azure Monitor de alertas de métrica clássicos](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Saiba mais sobre o [Log de Atividades](../../azure-monitor/platform/activity-logs-overview.md)
-* Configurar [alertas do Log de Atividades por meio do Portal do Azure](../../azure-monitor/platform/activity-log-alerts.md)
+* Saiba mais sobre o [Log de Atividades](activity-logs-overview.md)
+* Configurar [alertas do Log de Atividades por meio do Portal do Azure](activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](alerts-activity-log.md)
-* Examine o [esquema do webhook de alertas do Log de Atividade](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Saiba mais sobre [Grupos de ação](../../azure-monitor/platform/action-groups.md)
-* Configurar [Alertas mais recentes](../../azure-monitor/platform/alerts-metric.md)
+* Examine o [esquema do webhook de alertas do Log de Atividade](activity-log-alerts-webhook.md)
+* Saiba mais sobre [Grupos de ação](action-groups.md)
+* Configurar [Alertas mais recentes](alerts-metric.md)

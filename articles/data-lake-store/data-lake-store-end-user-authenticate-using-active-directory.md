@@ -1,22 +1,22 @@
 ---
-title: 'Autenticação de usuário final: Azure Data Lake Storage Gen1 com Azure Active Directory | Microsoft Docs'
+title: 'Autenticação do usuário final: Azure Data Lake Storage Gen1 com o Active Directory do Azure | Microsoft Docs'
 description: Saiba como obter autenticação de usuário final com Azure Data Lake Storage Gen1 usando Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954745"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880076"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de usuário final com Azure Data Lake Storage Gen1 usando Azure Active Directory
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Seu aplicativo pode fornecer credenciais de usuário ao Azure AD diretamente. Es
 * Definir permissões delegadas
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>Etapa 1: Criar um aplicativo nativo do Active Directory
+## <a name="step-1-create-an-active-directory-native-application"></a>Etapa 1: Crie um aplicativo nativo do Active Directory
 
 Crie e configure um aplicativo nativo do Azure AD para autenticação do usuário final com o Data Lake Storage Gen1 usando o Azure Active Directory. Para obter instruções, consulte [Criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -80,7 +80,7 @@ Ao seguir as instruções do link, verifique se você selecionou **Nativo** para
 
 ![Criar aplicativo Web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Criar aplicativo nativo")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>Etapa 2: Obter a ID do aplicativo e o URI de redirecionamento
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Etapa 2: Obter a ID do aplicativo e URI de redirecionamento
 
 Consulte [Obter a ID do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) para recuperar a ID do aplicativo.
 
@@ -118,8 +118,8 @@ Para recuperar o URI de redirecionamento, siga as etapas abaixo.
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um aplicativo nativo do Azure AD e reuniu as informações necessárias em seus aplicativos cliente que cria usando .NET SDK, SDK do Java, REST API etc. Agora você pode consultar os artigos a seguir que descrevem sobre como usar o aplicativo Web do Azure AD para primeiro autenticar com o Data Lake Storage Gen1 e, em seguida, executar outras operações no armazenamento.
 
-* [Autenticação de usuário final com Data Lake Storage Gen1 usando o SDK do Java](data-lake-store-end-user-authenticate-java-sdk.md)
-* [Autenticação de usuário final com Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md)
-* [Autenticação de usuário final com Data Lake Storage Gen1 usando o Python](data-lake-store-end-user-authenticate-python.md)
-* [Autenticação de usuário final com Data Lake Storage Gen1 usando API REST](data-lake-store-end-user-authenticate-rest-api.md)
+* [End autenticação do usuário com Gen1 de armazenamento do Data Lake usando o SDK do Java](data-lake-store-end-user-authenticate-java-sdk.md)
+* [Autenticação do usuário final com Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+* [Autenticação do usuário final com Data Lake armazenamento Gen1 usando Python](data-lake-store-end-user-authenticate-python.md)
+* [Autenticação do usuário final com Data Lake armazenamento Gen1 usando a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 

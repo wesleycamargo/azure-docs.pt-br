@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404749"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884135"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -34,7 +34,7 @@ Se você tiver um caso comercial válido para restrições mais altas, entre em 
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Como restringir o seu aplicativo em resposta aos limites de serviço
 
-A seguir estão as **práticas recomendadas** para limitar seu aplicativo:
+Veja a seguir **práticas recomendadas** você deve implementar quando seu serviço está limitado:
 - Reduza o número de operações por solicitação.
 - Reduza a frequência de solicitações.
 - Evite tentativas imediatas. 
@@ -115,7 +115,7 @@ O código que implementa a retirada exponencial é mostrado abaixo.
 ```
 
 
-Usar este código em um aplicativo cliente C\# (outro microsserviço cliente de API da Web, um aplicativo ASP.NET MVC ou até mesmo um aplicativo Xamarin C\#) é simples. O exemplo a seguir mostra como fazer isso, usando a classe HttpClient.
+Usando este código em um cliente C\# aplicativo é simples. O exemplo a seguir mostra como fazer isso, usando a classe HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

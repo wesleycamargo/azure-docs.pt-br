@@ -1,31 +1,31 @@
 ---
 title: Acessando dados usando a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba mais sobre como acessar seus dados de alerta e a recomendação de segurança ao usar a Central de segurança do Azure para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758519"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862583"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança 
 
 > [!IMPORTANT]
 > Central de segurança do Azure para IoT está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Central de segurança (ASC) do Azure para IoT armazena dados brutos de segurança, recomendações e alertas de segurança (se você optar por salvá-lo) em seu espaço de trabalho do Log Analytics.
 

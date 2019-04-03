@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233252"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885467"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorar e gerenciar recursos do SharePoint com os Aplicativos Lógicos do Azure
 
@@ -72,7 +72,7 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
    Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Quando for solicitado que você entre, forneça as informações de conexão necessárias. Se você estiver usando o SharePoint Server, verifique se selecionou **Conectar via gateway de dados local**. Quando terminar, escolha **Criar**.
+1. Quando for solicitado que você entre, forneça as informações de conexão necessárias. Se você estiver usando o SharePoint Server, verifique se você selecionou **conectar por meio do gateway de dados locais**. Quando terminar, escolha **Criar**.
 
 1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 

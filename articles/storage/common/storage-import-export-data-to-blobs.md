@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000232"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878172"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -54,8 +54,8 @@ Execute as etapas a seguir para preparar as unidades.
     `cd C:\WaImportExportV1`
 5.  Para obter a chave do BitLocker da unidade, execute o comando a seguir:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
-6.  Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho dos dados, isso pode levar de várias horas a dias.** 
+    `manage-bde -protectors -get <DriveLetter>:`
+6.  Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho de dados, isso pode levar várias horas a dias.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -70,7 +70,7 @@ Execute as etapas a seguir para preparar as unidades.
     |/id:     |A ID da sessão. Use um número de sessão exclusivo para cada instância do comando.      |
     |/sk:     |A chave de conta de Armazenamento do Microsoft Azure.         |
     |/t:     |A letra da unidade do disco a ser enviado. Por exemplo, unidade `D`.         |
-    |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de ` manage-bde -protectors -get D: `      |
+    |/bk:     |A chave do BitLocker para a unidade. Sua senha numérica da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure.         |
     |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e que os dados existentes no disco devem ser preparados.          |
@@ -145,6 +145,6 @@ Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, ve
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Exibir o status do trabalho e da unidade](storage-import-export-view-drive-status.md)
-* [Verificar os requisitos de Importação/Exportação](storage-import-export-requirements.md)
+* [Examine os requisitos de importação/exportação](storage-import-export-requirements.md)
 
 

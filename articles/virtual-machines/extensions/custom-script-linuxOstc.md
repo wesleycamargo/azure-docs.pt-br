@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437098"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882422"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 
@@ -119,23 +119,23 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.OSTCExtensions | cadeia de caracteres |
-| tipo | CustomScriptForLinux | cadeia de caracteres |
+| Tipo | CustomScriptForLinux | cadeia de caracteres |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
 | commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | cadeia de caracteres |
-| enableInternalDNSCheck | verdadeiro | booliano |
+| enableInternalDNSCheck | verdadeiro | booleano |
 | storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 
-* `fileUris`: (opcional, cadeia de caracteres) a lista uri dos scripts
-* `enableInternalDNSCheck`: (opcional, bool) padrão é True, defina para False para desabilitar a verificação de DNS.
-* `commandToExecute`: (opcional, cadeia de caracteres) o script de ponto de entrada para executar
+* `fileUris`: (matriz de cadeia de caracteres opcional,) a lista dos scripts
+* `enableInternalDNSCheck`: (opcional, booleano) o padrão é True, definido como False para desabilitar a verificação de DNS.
+* `commandToExecute`: (opcional, cadeia de caracteres) o script de ponto de entrada a ser executado
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento
 * `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
 
@@ -259,7 +259,7 @@ az vm extension set
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório nos arquivos `stdout` e `stderr`.
 
@@ -296,8 +296,7 @@ Alguns pontos a serem observados:
 
 1. Habilitar é quando o comando é iniciado.
 1. O download está relacionado ao download do pacote de extensão CustomScript do Azure, não aos arquivos de script especificados no fileUris.
-1. Também é possível ver em qual arquivo de log está sendo gravado,`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. Você também pode ver qual arquivo de log estiver gravando no `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 A próxima etapa é fazer uma verificação do arquivo de log, este é o formato:
 

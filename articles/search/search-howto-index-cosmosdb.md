@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864449"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883387"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como indexar o Cosmos DB usando um indexador de Azure Search
 
@@ -61,7 +61,7 @@ No **fonte de dados** página, a origem deve ser **Cosmos DB**, com as seguintes
 
 + **Nome** é o nome do objeto de fonte de dados. Depois de criado, você pode escolhê-lo para outras cargas de trabalho.
 
-+ **Conta do cosmos DB** deve ser a cadeia de caracteres de conexão primária ou secundária do Cosmos DB, com um `AccountEdpointPoint` e um `AccountKey`. A conta que determina se os dados são convertidos como API do SQL ou a API do Mongo DB
++ **Conta do cosmos DB** deve ser a cadeia de caracteres de conexão primária ou secundária do Cosmos DB, com um `AccountEndpoint` e um `AccountKey`. A conta que determina se os dados são convertidos como API do SQL ou a API do Mongo DB
 
 + **Banco de dados** é um banco de dados da conta. 
 
@@ -169,12 +169,12 @@ Para criar uma fonte de dados, formule uma solicitação POST:
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-| Campo   | Descrição |
+| Campo   | DESCRIÇÃO |
 |---------|-------------|
-| **name** | Obrigatória. Escolha qualquer nome para representar seu objeto de fonte de dados. |
-|**tipo**| Obrigatória. Deve ser `documentdb`. |
-|**credentials** | Obrigatória. Deve ser uma cadeia de caracteres de conexão do Cosmos DB.<br/>Para coleções de SQL, as cadeias de caracteres de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDb** na cadeia de caracteres de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Search não poderá indexar seu banco de dados do Azure Cosmos DB.|
-| **contêiner** | contém os seguintes elementos: <br/>**nome**: Obrigatória. Especifique a ID da coleção de banco de dados a serem indexados.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar.<br/>Para coleções do MongoDB, não há suporte para consultas. |
+| **Nome** | Obrigatório. Escolha qualquer nome para representar seu objeto de fonte de dados. |
+|**Tipo**| Obrigatório. Deve ser `documentdb`. |
+|**credenciais** | Obrigatório. Deve ser uma cadeia de caracteres de conexão do Cosmos DB.<br/>Para coleções de SQL, as cadeias de caracteres de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDb** na cadeia de caracteres de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Search não poderá indexar seu banco de dados do Azure Cosmos DB.|
+| **contêiner** | contém os seguintes elementos: <br/>**nome**: Obrigatório. Especifique a ID da coleção de banco de dados a serem indexados.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar.<br/>Para coleções do MongoDB, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Recomendável. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | Opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).|
 
@@ -250,10 +250,10 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados do Azure Search
 | Tipo de dados JSON | Tipos de campos de índice de destino compatíveis |
 | --- | --- |
-| Booleano |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Números que se parecem com inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que se parecem com pontos flutuantes |Edm.Double, Edm.String |
-| Cadeia |Edm.String |
+| Cadeia de caracteres |Edm.String |
 | Matrizes de tipos primitivos, por exemplo, [“a”, “b”, “c”] |Collection(Edm.String) |
 | Cadeias de caracteres que se parecem com datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo, {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

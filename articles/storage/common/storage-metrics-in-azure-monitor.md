@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899019"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884356"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -284,9 +284,9 @@ O exemplo a seguir mostra como ler dados da métrica na métrica que suportam v�
 
 A ID de recurso é um identificador exclusivo de um recurso no Azure. Quando você usa a API REST do Azure Monitor para ler definições ou valores de métricas, você deve usar a ID de recurso para o recurso no qual você pretende operar. O modelo de ID de recurso segue este formato:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 O Armazenamento fornece métricas no nível da conta de armazenamento e no nível de serviço com o Azure Monitor. Por exemplo, você pode recuperar as métricas somente para armazenamento de Blob. Cada nível tem sua própria ID de recurso, que é usada para recuperar as métricas somente para aquele nível.
 
@@ -294,34 +294,38 @@ O Armazenamento fornece métricas no nível da conta de armazenamento e no níve
 
 O exemplo a seguir mostra o formato para especificar a ID de recurso para uma conta de armazenamento.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>ID de recurso para os serviços de armazenamento
 
 O exemplo a seguir mostra o formato para especificar a ID de recurso para cada um dos serviços de armazenamento.
 
-* ID de recurso do serviço Blob `
+* ID de recurso do serviço de blob
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* ID de recurso do serviço Tabela `
+```
+* ID de recurso do serviço de tabela
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* ID de recurso do serviço Fila `
+```
+* ID de recurso do serviço de fila
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* ID de recurso do serviço Arquivo `
+```
+* ID de recurso do serviço de arquivo
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recurso na API REST do Azure Monitor
 
 O exemplo a seguir mostra o padrão usado ao chamar a API REST do Azure Monitor.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Métricas de capacidade
 Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
@@ -402,11 +406,11 @@ As métricas herdadas estão disponíveis paralelamente às métricas gerenciada
 
 ## <a name="faq"></a>Perguntas frequentes
 
-**As novas métricas dão suporte à conta de armazenamento clássica?**
+**Novas métricas dá suporte à conta de armazenamento clássica?**
 
 Não, as novas métricas do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. Se você quiser usar as métricas nas contas de armazenamento, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**Armazenamento do Azure dá suporte a métricas para gerenciados discos ou discos não gerenciado?**
+**O armazenamento do Azure oferece suporte a métricas para o Managed Disks ou discos não gerenciados?**
 
 Não, a computação do Azure suporta as métricas em discos. Consulte [artigo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para obter mais detalhes.
 

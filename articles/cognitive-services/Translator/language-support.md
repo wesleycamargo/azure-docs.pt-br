@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882457"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
 A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível.
 
-[Saiba mais sobre como a tradução automática funciona](https://www.microsoft.com/translator/mt.aspx)
+[Saiba mais sobre como funciona a tradução automática](https://www.microsoft.com/translator/mt.aspx)
 
-**API do Tradutor V2**
+**V2 API do Translator**
 
 > [!NOTE]
 > A V2 será preterida em 30 de abril de 2018 e será descontinuada em 30 de abril de 2019.
@@ -111,9 +111,9 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Latim `Latn` |
-| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
-| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês (simplificado) `Hans`| <--> | Chinês (tradicional) `Hant`|
+| Chinês (Tradicional) | `zh-Hant` | Chinês (tradicional) `Hant`| <--> | Latim `Latn` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês (tradicional) `Hant`| <--> | Chinês (simplificado) `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
@@ -268,7 +268,7 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 ## <a name="customization"></a>Personalização
 
-Os seguintes idiomas estão disponíveis para personalização de ou para uso em inglês [conversor personalizado](http://aka.ms/CustomTranslator).
+Os seguintes idiomas estão disponíveis para personalização de ou para uso em inglês [conversor personalizado](https://aka.ms/CustomTranslator).
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|
@@ -314,6 +314,6 @@ Os seguintes idiomas estão disponíveis para personalização de ou para uso em
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Acesse a lista no site do Microsoft Translator
 
-Para uma rápida olhada nos idiomas, o site Microsoft Translator mostra todos os idiomas suportados pelas APIs Translator Text and Speech. Esta lista não inclui informações específicas do desenvolvedor, como códigos de idioma.
+Para uma rápida olhada nos idiomas, o site Microsoft Translator mostra todos os idiomas compatíveis com a Speech API e a API de Tradução de Texto. Esta lista não inclui informações específicas do desenvolvedor, como códigos de idioma.
 
-[Veja a lista de idiomas](https://www.microsoft.com/translator/languages.aspx)
+[Consulte a lista de idiomas](https://www.microsoft.com/translator/languages.aspx)

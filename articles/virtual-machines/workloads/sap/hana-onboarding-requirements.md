@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563823"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880688"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -33,7 +33,7 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 
 **Conectividade de rede**
 
-- ExpressRoute entre o local e o Azure: Para conectar o data center local ao Azure, não deixe de solicitar pelo menos uma conexão de 1 Gbps do seu ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, como cliente, você não terá custos adicionais além do seu link de ExpressRoute entre o local e o Azure.
+- ExpressRoute entre o local e o Azure: Para conectar o data center local ao Azure, não deixe de solicitar pelo menos uma conexão de 1 Gbps do seu ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, como cliente, não ocorram custos adicionais além do seu link de ExpressRoute entre local e o Azure.
 
 **Sistema operacional**
 
@@ -66,7 +66,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 
-**Aplicativos**
+**APLICATIVOS**
 
 - Licenças e componentes de instalação de software para quaisquer aplicativos do SAP que conectam-se ao SAP HANA e contratos de suporte do SAP relacionados.
 - Licenças e os componentes de instalação de software para todos os aplicativos SAP não usado com o SAP HANA no ambiente do Azure (Instâncias Grandes) e relacionadas a contratos de suporte.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082153"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880773"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recurso do Azure: VMs (máquinas virtuais), rede, SQL e dados, e aplicativos.
@@ -60,14 +60,12 @@ Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 |SQL|15|Habilitar auditoria em bancos de dados SQL|Habilite auditoria para bancos de dados SQL do Azure. (Apenas o serviço do SQL Azure. Não inclui o SQL em execução nas suas máquinas virtuais.)|
 |Data Lake Analytics|15|Habilitar a criptografia em repouso do Data Lake Analytics|Habilite Transparent Data Encryption para proteger os dados em repouso no seu Data Lake Analytics. A criptografia em repouso é transparente, o que significa que o Data Lake Analytics criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. Nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Analytics devido à criptografia. A criptografia em repouso minimiza o risco de perda de dados por roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
 |Data Lake Store|15|Habilitar a criptografia em repouso do Data Lake Store|Habilite Transparent Data Encryption para proteger os dados em repouso no seu Data Lake Store. A criptografia em repouso é transparente, o que significa que o Data Lake Store criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. Você não precisa fazer nenhuma alteração nos aplicativos e serviços que interagem com o Data Lake Store para comportar a criptografia. A criptografia em repouso minimiza o risco de perda de dados por roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
-|Data Lake Analytics|5|Habilitar logs de diagnóstico no Data Lake Analytics|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
-|Data Lake Store|5|Habilitar logs de diagnóstico no Azure Data Lake Store|Habilite os logs e retenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
+|Data Lake Analytics|5|Habilitar logs de diagnóstico no Data Lake Analytics|Ativar os registros e mantenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
+|Data Lake Store|5|Habilitar logs de diagnóstico no Azure Data Lake Store|Ativar os registros e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |SQL|30|Corrigir vulnerabilidades em seus bancos de dados SQL|A avaliação de vulnerabilidade do SQL verifica a presença de eventuais vulnerabilidades de segurança em seu banco de dados e expõe quaisquer desvios das práticas recomendadas como configurações incorretas, permissões excessivas e dados confidenciais desprotegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o desenvolvimento da segurança de seu banco de dados.|
 |SQL|20|Provisionar um administrador do Microsoft Azure Active Directory para o servidor SQL|Provisione um administrador do Microsoft Azure Active Directory para o servidor SQL para habilitar a autenticação do Microsoft Azure Active Directory. A autenticação do Microsoft Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.|
-|Conta de armazenamento|15|Desabilitar o acesso de rede irrestrito à conta de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões de clientes específicos locais ou da internet, o acesso pode ser concedido para o tráfego de redes virtuais do Azure específicas ou para intervalos de endereços IP públicos da internet.|
-|Conta de armazenamento|1|Migrar contas de armazenamento aos novos recursos do AzureRM|Usar o novo v2 do Azure Resource Manager, para suas contas de armazenamento fornecer melhorias de segurança, como: mais forte controle de acesso (RBAC), auditoria melhor, com base no Gerenciador de recursos de implantação e governança, acesso a identidades gerenciadas, o acesso ao Cofre de chaves para segredos, a autenticação baseada no AD do Azure e suporte para marcas e os grupos de recursos para facilitar o gerenciamento de segurança.|
-
-
+|Conta de armazenamento|15|Desabilitar o acesso de rede irrestrito à conta de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões da Internet específica ou em clientes locais, você pode conceder acesso ao tráfego de redes virtuais do Azure de específicas ou a intervalos de endereços IP de Internet públicos.|
+|Conta de armazenamento|1|Migrar contas de armazenamento para recursos de modelo do Azure Resource Manager|Use o novo v2 do Azure Resource Manager para suas contas de armazenamento para fornecer melhorias de segurança, como: mais forte controle de acesso (RBAC), auditoria melhor, com base no Gerenciador de recursos de implantação e governança, acesso a identidades gerenciadas, o acesso ao Cofre de chaves para segredos e a autenticação baseada no AD do Azure e suporte para marcas e os grupos de recursos para facilitar o gerenciamento de segurança.|
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:

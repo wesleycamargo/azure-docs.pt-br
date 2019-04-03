@@ -3,19 +3,19 @@ title: Use a CLI do Azure para começar a usar o Azure Data Lake Storage Gen1 | 
 description: Use a CLI do Azure para criar uma conta do Data Lake Storage Gen1 e executar operações básicas
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864852"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880569"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Storage usando a CLI do Azure
 
@@ -233,7 +233,7 @@ az dls account delete --account mydatalakestoragegen1
 Quando solicitado, insira **Y** para excluir a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
-* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
-* [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Usar o Azure Data Lake armazenamento Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
+* [Proteger os dados no Data Lake armazenamento Gen1](data-lake-store-secure-data.md)
+* [Usar o Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

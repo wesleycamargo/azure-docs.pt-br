@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479522"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862880"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -83,16 +83,6 @@ Proteção por senha do Azure AD não é um mecanismo de aplicação de polític
 Implantação da proteção por senha em uma floresta do Active Directory do Azure AD exige o registro dessa floresta com o Azure AD. Cada serviço de proxy que é implantado também deve ser registrado com o Azure AD. Esses registros de proxy e de floresta estão associados um determinado locatário do AD do Azure, o que é identificado implicitamente pelas credenciais que são usadas durante o registro.
 
 Floresta do Active Directory e todos os serviços de proxy implantados dentro de uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta do Active Directory ou quaisquer serviços de proxy em que a floresta que está sendo registrada para o Azure AD diferente locatários. Os sintomas de tipo de implantação configurado incorretamente incluem a incapacidade de baixar as políticas de senha.
-
-## <a name="license-requirements"></a>Requisitos de licença
-
-Os benefícios da lista global de senhas banidas se aplicam a todos os usuários do AD do Azure.
-
-A lista de senha banida personalizada requer licenças do Azure AD Basic.
-
-A proteção por senha do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium.
-
-Para obter informações adicionais de licenciamento, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Baixar
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435305"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886447"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -26,7 +26,7 @@ Os Serviços de Mídia do Microsoft Azure podem ser usados para fornecer vários
 
 [Pontos de extremidade de streaming](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de mídia usado para distribuir o conteúdo de mídia para jogadores do cliente. Empacotamento dinâmico é um recurso que vem por padrão em todos os **pontos de extremidade de Streaming** (Standard ou Premium). 
 
-Para aproveitar **empacotamento dinâmico**, você precisa ter uma **ativo** com um conjunto de arquivos MP4 de taxa de bits adaptável e streaming de arquivos de configuração necessários para o empacotamento dinâmico de serviços de mídia. É uma maneira de obter os arquivos codificar seu arquivo mezanino (fonte) com os serviços de mídia. Para disponibilizar vídeos no ativo codificado para clientes de reprodução, você precisa criar uma **localizador de Streaming** e criar URLs de streaming. Em seguida, com base no formato especificado no manifesto do cliente streaming (HLS, DASH ou Smooth), você receba o fluxo no protocolo escolhido por você.
+Para aproveitar **empacotamento dinâmico**, você precisa ter uma **ativo** com um conjunto de arquivos MP4 de taxa de bits adaptável e streaming de arquivos de configuração necessários para o empacotamento dinâmico de serviços de mídia. Uma maneira de obter os arquivos é codificar seu arquivo mezanino (fonte) com os Serviços de Mídia. Para disponibilizar vídeos no ativo codificado para clientes de reprodução, você precisa criar uma **localizador de Streaming** e criar URLs de streaming. Em seguida, com base no formato especificado no manifesto do cliente streaming (HLS, DASH ou Smooth), você receba o fluxo no protocolo escolhido por você.
 
 Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. 
 
@@ -60,7 +60,7 @@ Para obter uma lista dos codecs e formatos do Media Encoder Standard, consulte [
 Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
 
 1. Crie um [evento ao vivo](live-events-outputs-concept.md).
-1. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL no envio do feed de contribuição.
+1. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar a feed de contribuição.
 1. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 1. Criar um novo **ativo**.
 1. Crie um **LiveOutput** e use o nome do ativo que você criou.<br/>A **Saída Dinâmica** arquivará o fluxo no **Ativo**.
@@ -196,9 +196,9 @@ Aqui está um exemplo de um manifesto de Smooth Streaming:
 Filtragem dinâmica é usado para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Carregar, codificar, transmitir vídeos](stream-files-tutorial-with-api.md)
+[Carregar, codificar vídeos do stream](stream-files-tutorial-with-api.md)
 

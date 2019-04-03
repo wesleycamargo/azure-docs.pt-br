@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870679"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850076"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -70,10 +70,10 @@ Para enviar os dados do log de atividades do Azure para um namespace de Hubs de 
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Log de diagnóstico e métricas de recurso do Azure
 
 Recursos do Azure emitem dois tipos de dados de monitoramento:
-1. [Logs de diagnóstico de recurso](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Métricas](../../azure-monitor/platform/data-collection.md)
+1. [Logs de diagnóstico de recurso](diagnostic-logs-overview.md)
+2. [Métricas](data-platform.md)
 
-Ambos os tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. [Siga este guia](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para definir uma configuração de diagnóstico de recurso em um determinado recurso. Defina uma configuração de diagnóstico de recurso em cada recurso do qual você deseja coletar logs.
+Ambos os tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. [Siga este guia](diagnostic-logs-stream-event-hubs.md) para definir uma configuração de diagnóstico de recurso em um determinado recurso. Defina uma configuração de diagnóstico de recurso em cada recurso do qual você deseja coletar logs.
 
 > [!TIP]
 > Você pode usar a Azure Policy para garantir que todos os recursos em um determinado escopo sempre sejam definidos com uma configuração de diagnóstico [usando o efeito DeployIfNotExists na regra de política](../../governance/policy/concepts/definition-structure.md#policy-rule).

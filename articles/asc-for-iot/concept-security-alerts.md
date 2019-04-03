@@ -1,31 +1,31 @@
 ---
 title: Guia de alerta de segurança para a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba mais sobre alertas de segurança e a correção recomendada usando a Central de segurança do Azure para o serviço e os recursos de IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755100"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861971"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Central de segurança do Azure para alertas de segurança de IoT
 
 > [!IMPORTANT]
 > Central de segurança do Azure para IoT está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Central de segurança (ASC) do Azure para IoT analisa continuamente sua solução IoT usando inteligência de ameaças e análise avançada para alertá-lo para atividades mal-intencionadas.
 Além disso, você pode criar alertas personalizados com base em seu conhecimento sobre o comportamento esperado do dispositivo.

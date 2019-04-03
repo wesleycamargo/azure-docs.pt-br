@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004973"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861872"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
-> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+> * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
 
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
@@ -150,9 +150,9 @@ Os parâmetros de configuração são:
 
 |Parâmetro|DESCRIÇÃO|
 |---|---|
-|**Nome** |Nome de referência da investigação personalizada. |
+|**NOME** |Nome de referência da investigação personalizada. |
 | **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
-| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.|
+| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/ e, em seguida, a investigação personalizada pode ser configurado para "http:\//contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
 | **Tempo limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.|

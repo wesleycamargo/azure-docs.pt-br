@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12a914b2cdef0a40493dac1a539cf0c2a7703093
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999816"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847606"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
-Neste artigo, você aprenderá a diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning Data Prep. O SDK oferece funções que simplificam a adicionar colunas, filtrar as colunas ou linhas indesejadas e imputar valores ausentes. Para ver a documentação de referência do SDK, consulte o [visão geral](https://aka.ms/data-prep-sdk).
+Neste artigo, você aprenderá a métodos diferentes para transformar os dados usando o SDK do Azure Machine Learning Data Prep. O SDK oferece funções que simplificam a adicionar colunas, filtrar as colunas ou linhas indesejadas e imputar valores ausentes. Para ver a documentação de referência do SDK, consulte o [visão geral](https://aka.ms/data-prep-sdk).
 
 Estas instruções mostram exemplos para as seguintes tarefas:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8f0470b10589ecbbc9e2c98e8d3445435e7f8ed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668816"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880281"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar seu aplicativo Java do Service Fabric usando o Eclipse
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.locfileid: "58668816"
 
 1. Inicie um cluster de desenvolvimento local seguindo as etapas em [Configurando o ambiente de desenvolvimento do Service Fabric](service-fabric-get-started-linux.md).
 
-2. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Esse arquivo pode ser encontrado no seguinte local: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Neste exemplo, a porta 8001 foi definida para depuração.
+2. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Esse arquivo pode ser encontrado no seguinte local: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Neste exemplo, a porta 8001 foi definida para depuração.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Atualize o Manifesto do Aplicativo, definindo a contagem de instâncias ou a contagem de réplicas para o serviço que está sendo depurado como 1. Essa configuração evita conflitos para a porta que é usada para depuração. Por exemplo, para serviços sem estado, defina ``InstanceCount="1"`` e, para serviços com estado, defina o destino e o tamanho mínimo do conjunto de réplicas para 1, como se segue: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
+3. Atualize o Manifesto do Aplicativo, definindo a contagem de instâncias ou a contagem de réplicas para o serviço que está sendo depurado como 1. Essa configuração evita conflitos para a porta que é usada para depuração. Por exemplo, para serviços sem estado, defina `InstanceCount="1"` e, para serviços com estado, defina o destino e o tamanho mínimo do conjunto de réplicas para 1, como se segue: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Implante o aplicativo.
 
@@ -46,7 +46,7 @@ ms.locfileid: "58668816"
    ```
 6.  Defina pontos de interrupção nos pontos desejados e depure o aplicativo.
 
-Se o aplicativo estiver falhando, talvez seja conveniente habilitar os despejos de núcleo. Execute ``ulimit -c`` em um shell e, se retornar 0, os despejos de núcleo não estão habilitados. Para habilitar despejos de núcleo ilimitados, execute o seguinte comando: ``ulimit -c unlimited``. Você também pode verificar o status usando o comando ``ulimit -a``.  Se quiser atualizar o caminho de geração do despejo de núcleo, execute ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
+Se o aplicativo estiver falhando, talvez seja conveniente habilitar os despejos de núcleo. Execute `ulimit -c` em um shell e, se retornar 0, os despejos de núcleo não estão habilitados. Para habilitar despejos de núcleo ilimitados, execute o seguinte comando: `ulimit -c unlimited`. Você também pode verificar o status usando o comando `ulimit -a`.  Se quiser atualizar o caminho de geração do despejo de núcleo, execute `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
 
 ### <a name="next-steps"></a>Próximas etapas
 

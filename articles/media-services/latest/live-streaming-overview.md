@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407176"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879379"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -31,7 +31,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 Este artigo fornece uma visão geral e a orientação da transmissão ao vivo com os serviços de mídia e links para outros artigos pertinentes.
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -65,15 +65,15 @@ Usando a codificação dinâmica com os Serviços de Mídia, você configuraria 
 
 Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v3, você precisa primeiro revisar e entende os conceitos a seguir: 
 
-- [Pontos de Extremidade de Streaming](streaming-endpoint-concept.md)
+- [Ponto de extremidade de streaming](streaming-endpoint-concept.md)
 - [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
 - [Localizadores de Streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Etapas gerais
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
-2. Crie um [evento ao vivo](live-events-outputs-concept.md). <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. A cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente o recurso Parar no Evento ao vivo para parar a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
-3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL no envio do feed de contribuição.<br/>Confira [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md).
+2. Crie um [evento ao vivo](live-events-outputs-concept.md). <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. A cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente o recurso Parar no Evento ao vivo para parar a cobrança adicional. Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
+3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar a feed de contribuição.<br/>Confira [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.
 6. Crie um **LiveOutput** e use o nome do ativo que você criou.<br/>A **Saída Dinâmica** arquivará o fluxo no **Ativo**.
@@ -86,12 +86,12 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 ## <a name="other-important-articles"></a>Outros artigos importantes
 
 - [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md)
-- [Usar um DVR de nuvem](live-event-cloud-dvr.md)
-- [Comparação de recursos de tipos de Evento ao Vivo](live-event-types-comparison.md)
+- [Usando um DVR em nuvem](live-event-cloud-dvr.md)
+- [Comparação de recursos de tipos de evento ao vivo](live-event-types-comparison.md)
 - [Estados e cobrança](live-event-states-billing.md)
-- [Latência](live-event-latency.md)
+- [Latency](live-event-latency.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial de live streaming](stream-live-tutorial-with-api.md)
-* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)
+* [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
+* [Orientação de migração para passar dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)

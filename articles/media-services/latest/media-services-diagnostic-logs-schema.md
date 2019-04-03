@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 225bc4368d2a87fa5fef3f74624fd10f42dc7c97
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556358"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850639"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
 [O Azure Monitor](../../azure-monitor/overview.md) habilita você a monitorar métricas e logs de diagnóstico que ajudam você a entende como estão o desempenho de seus aplicativos. Você pode monitorar os logs de diagnóstico dos serviços de mídia e criar alertas e notificações para os logs e métricas coletadas. Você pode enviar logs para [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de eventos](https://azure.microsoft.com/services/event-hubs/)e exportá-los para [do Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou usar os serviços de terceiros 3ª.
 
-Para obter informações detalhadas, consulte [métricas do Azure Monitor](../../azure-monitor/platform/data-collection.md) e [logs de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obter informações detalhadas, consulte [métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md) e [logs de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Este artigo descreve os esquemas de logs de diagnóstico dos serviços de mídia.
 
@@ -34,11 +34,11 @@ Para obter uma descrição detalhada do esquema de logs de diagnóstico de níve
 
 ## <a name="key-delivery-log-schema"></a>Esquema do log de distribuição de chaves
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>propriedades
 
 Essas propriedades são específicas para o esquema de log de distribuição de chaves.
 
-|Nome|Descrição|
+|NOME|DESCRIÇÃO|
 |---|---|
 |keyId|A ID da chave solicitada.|
 |keyType|Pode ser um dos seguintes valores: "Limpar" (sem criptografia), "FairPlay", "PlayReady" ou "Widevine".|

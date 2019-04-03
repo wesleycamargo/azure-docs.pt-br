@@ -1,5 +1,5 @@
 ---
-title: Usar um modelo para criar um workspace
+title: Usar um modelo do Azure Resource Manager para criar um espaço de trabalho
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar um modelo do Azure Resource Manager para criar um novo workspace de Serviço do Azure Machine Learning.
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850070"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883183"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Criar um workspace de Serviço do Azure Machine Learning usando um modelo
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar um modelo do Azure Resource Manager para criar um espaço de trabalho para o serviço de Azure Machine Learning
 
-Neste artigo, você aprenderá várias maneiras de criar um workspace de Serviço do Azure Machine Learning usando modelos do Azure Resource Manager. 
+Neste artigo, você aprenderá várias maneiras de criar um workspace de Serviço do Azure Machine Learning usando modelos do Azure Resource Manager. Um modelo do Resource Manager facilita a criação de recursos como uma operação única e coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Além disso, pode especificar os parâmetros de implantação. Os parâmetros são usados para fornecer valores de entrada ao usar o modelo.
 
 Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -30,9 +31,7 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-Um modelo do Resource Manager facilita a criação de recursos como uma operação única e coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Além disso, pode especificar os parâmetros de implantação. Os parâmetros são usados para fornecer valores de entrada ao usar o modelo.
-
-O modelo a seguir pode ser usado para criar um workspace de Serviço do Azure Machine Learning e recursos do Azure associados:
+O modelo do Resource Manager a seguir pode ser usado para criar um espaço de trabalho do serviço de Azure Machine Learning e os recursos do Azure associados:
 
 ```json
 {
@@ -183,9 +182,9 @@ O modelo de exemplo tem dois parâmetros:
 
 Para obter mais informações sobre modelos, consulte os artigos a seguir:
 
-* [Criar modelos do Gerenciador de Recursos do Azure](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Implantar um aplicativo com o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Tipos de recursos do Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Implantar um aplicativo com modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Tipos de recurso Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 

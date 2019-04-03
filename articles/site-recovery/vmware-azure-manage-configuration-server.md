@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: d8b0d78d33c0780b05ac6f4bd8a21c6423d801f4
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445058"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877220"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -65,7 +65,7 @@ Se você perdeu a adição de credenciais durante a implantação de OVF do serv
 
 1. Depois de [entrar](#access-configuration-server), selecione **Gerenciar credenciais de máquina virtual**.
 2. Clique em **Adicionar credenciais de máquina virtual**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Adicionar-mobilidade-credenciais](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Insira as novas credenciais e clique em **Adicionar**.
 
 Também é possível adicionar as credenciais por meio de CSPSConfigtool.exe.
@@ -148,7 +148,7 @@ Atualize o servidor da seguinte maneira:
 
 1. No cofre, vá para **Gerenciar**  >  **Infraestrutura de Recuperação do Site**  >  **Servidores de Configuração**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
     ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
@@ -252,7 +252,7 @@ Opcionalmente, você pode excluir o servidor de configuração usando o PowerShe
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Excluir o servidor de configuração.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
 > Você pode usar a opção **-Force** em RRemove-AzureRmSiteRecoveryFabric para exclusão forçada do servidor de configuração.

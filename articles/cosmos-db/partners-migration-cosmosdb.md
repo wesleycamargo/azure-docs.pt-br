@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860492"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880603"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
@@ -19,14 +19,14 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 ## <a name="migration-tools"></a>Ferramentas de migração
 
-|**Parceiro**  |**Funcionalidades e experiência**  |**Países com suporte**  |**Contato**  |
+|**Parceiro**  |**Experiência e recursos**  |**Países com suporte**  |**Contato**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Migração de dados](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) do MongoDB para o Azure Cosmos DB. <br/> O Imanis Data permite que empresas globais migrem de maneira rápida e fácil seus bancos de dados MongoDB locais ou em nuvem para o Azure Cosmos DB. O Imanis Data oferece uma abordagem de migração na nuvem sem agente e sempre incremental para armazenamentos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Site](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleção em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos empresariais e bancos de dados relacionais, sensores e arquivos de log para o Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
+|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> Striim simplifica a coleção em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log para o Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
 
-|**Parceiro**  |**Funcionalidades e experiência**  |**Países com suporte**  |**Contato**  |
+|**Parceiro**  |**Experiência e recursos**  |**Países com suporte**  |**Contato**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | Migração de NoSQL; desenvolvimento de novos aplicativos | EUA | [Site](https://www.10thmagnitude.com/)|
 |![Altoros Development LLC][3]    |  Migração do NoSQL, <br/> Inovação de aplicativo (aplicativos existentes), <br/> Desenvolvimento de novos aplicativos |   EUA, Noruega, Finlândia, Belarus, Argentina |  [Site](https://www.altoros.com/)     |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875197"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882896"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -34,7 +34,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o portal, abra https://portal.azure.come faça logon com uma conta que tenha as [permissões necessárias](#permissions) para trabalhar com emparelhamentos.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
@@ -45,17 +45,16 @@ Antes de criar um emparelhamento, familiarize-se com os requisitos e restriçõe
 
 1. Na caixa de pesquisa na parte superior do Portal do Azure, digite *redes virtuais* na caixa de pesquisa. Quando **Redes virtuais** aparecer nos resultados da pesquisa, selecione essa opção. Não selecione **redes virtuais (clássicas)** se for exibido na lista, pois não é possível criar um emparelhamento de uma rede virtual implantada por meio do modelo de implantação clássico.
 2. Selecione na lista a rede virtual para a qual você deseja criar um emparelhamento.
-3. Na lista de redes virtuais, selecione a rede virtual para a qual deseja criar um emparelhamento.
-4. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
-5. Selecione **+ Adicionar**. 
-6. <a name="add-peering"></a>Insira ou selecione valores para as seguintes configurações:
+3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
+4. Selecione **+ Adicionar**. 
+5. <a name="add-peering"></a>Insira ou selecione valores para as seguintes configurações:
     - **Nome:** o nome para o emparelhamento deve ser exclusivo na rede virtual.
     - **Modelo de implantação de rede virtual**: selecione com qual modelo a rede virtual que você deseja emparelhar foi implantada.
     - **Sei minha ID do recurso**: se você tem acesso de leitura à rede virtual com a qual deseja emparelhar, deixe essa caixa de seleção desmarcada. Se você não tiver acesso de leitura para a rede virtual ou a assinatura que você deseja emparelhar, marque essa caixa de seleção. Insira a ID de recurso completo da rede virtual que você deseja emparelhar na caixa **ID de Recurso** exibida quando você tiver marcado a caixa. A ID de recurso que você digitar deverá ser para uma rede virtual existente na mesma [região](https://azure.microsoft.com/regions) ou região [diferente com suporte](#requirements-and-constraints) do Azure que essa rede virtual. A ID de recurso completo é semelhante a /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>. Você pode obter a ID de recurso para uma rede virtual ao exibir as propriedades de uma rede virtual. Para saber como exibir as propriedades de uma rede virtual, confira [Gerenciar as redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a assinatura estiver associada a um locatário do Azure Active Directory diferente da assinatura com a rede virtual da qual você está criando o emparelhamento, primeiro adicione um usuário de cada locatário como um [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto.
     - **Assinatura:** Selecione a [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) da rede virtual que você deseja emparelhar. Uma ou mais assinaturas estão listadas, dependendo de quantas assinaturas sua conta tem acesso de leitura. Se você tiver marcado a caixa de seleção **ID de Recurso**, essa configuração não estará disponível.
     - **Rede virtual:** Selecione a rede virtual com a qual deseja emparelhar. Você pode selecionar uma rede virtual criada por meio de qualquer um dos modelos de implantação do Azure. Se você deseja selecionar uma rede virtual em uma região diferente, deve selecionar uma rede virtual em um [região com suporte](#cross-region). Você deve ter acesso de leitura para a rede virtual para que ela fique visível na lista. Se uma rede virtual estiver listada, mas esmaecida, pode ser porque o espaço de endereço para a rede virtual se sobrepõe ao espaço de endereço para essa rede virtual. Se os espaços de endereço de rede virtual se sobrepõem, eles não podem ser emparelhados. Se você tiver marcado a caixa de seleção **ID de Recurso**, essa configuração não estará disponível.
     - **Permitir acesso à rede virtual:** Selecione **Habilitado** (padrão), se quiser habilitar a comunicação entre as duas redes virtuais. Habilitar a comunicação entre redes virtuais permite que os recursos conectados a qualquer rede virtual se comuniquem entre si com a mesma largura de banda e latência como se estivessem conectados à mesma rede virtual. Todas as comunicações entre os recursos nas duas redes virtuais estão na rede privada do Azure. A marcação de serviço **VirtualNetwork** para grupos de segurança de rede abrange a rede virtual e a rede virtual emparelhada. Para saber mais sobre as marcas de serviço dos grupos de segurança de rede, confira [Visão geral dos grupos de segurança de rede](security-overview.md#service-tags). Selecione **Desabilitado** se não quiser que o tráfego flua para a rede virtual emparelhada. Você pode selecionar **Desabilitado** se você tiver emparelhadas uma rede virtual com outra rede virtual, mas, ocasionalmente, deseja desabilitar o fluxo do tráfego entre as duas redes virtuais. Você pode achar que a habilitação e desabilitação é mais conveniente que excluir e recriar emparelhamentos. Quando essa configuração estiver desabilitada, o tráfego não flui entre as redes virtuais emparelhadas.
-    - **Permitir o tráfego encaminhado:** marque essa caixa para permitir que o tráfego *encaminhado* por um dispositivo virtual de rede em uma rede virtual (que não tenha como origem a rede virtual) flua para essa rede virtual por meio de um emparelhamento. Por exemplo, considere três redes virtuais chamadas Spoke1, Spoke2 e Hub. Existe um emparelhamento entre cada rede virtual spoke e a rede virtual hub, mas não existem emparelhamentos entre as redes virtuais spoke. Um dispositivo de rede virtual é implantado na rede virtual Hub e as rotas definidas pelo usuário são aplicadas a cada rede virtual Spoke que roteia tráfego entre as sub-redes por meio do dispositivo de rede virtual. Se essa caixa de seleção não for marcada para o emparelhamento entre cada rede virtual spoke e a rede virtual hub, o tráfego não fluirá entre as redes virtuais spoke porque o hub encaminhará o tráfego entre as redes virtuais. No entanto habilitar esta funcionalidade permite o tráfego encaminhado por meio do emparelhamento, não cria nenhuma rota definida pelo usuário ou dispositivo de rede virtual. Rotas definidas pelo usuário e dispositivos de rede virtual são criados separadamente. Saiba mais sobre [rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Não será necessário verificar essa configuração, se o tráfego for encaminhado entre redes virtuais por meio de um Gateway de VPN do Azure.
+    - **Permitir o tráfego encaminhado:** marque essa caixa para permitir que o tráfego *encaminhado* por um dispositivo virtual de rede em uma rede virtual (que não tenha como origem a rede virtual) flua para essa rede virtual por meio de um emparelhamento. Por exemplo, considere três redes virtuais chamadas Spoke1, Spoke2 e Hub. Existe um emparelhamento entre cada rede virtual spoke e a rede virtual hub, mas não existem emparelhamentos entre as redes virtuais spoke. Um dispositivo de rede virtual é implantado na rede virtual Hub e as rotas definidas pelo usuário são aplicadas a cada rede virtual Spoke que roteia tráfego entre as sub-redes por meio do dispositivo de rede virtual. Se essa caixa de seleção não está marcada para o emparelhamento entre cada rede virtual spoke e a rede virtual hub, o tráfego não fluirá entre as redes virtuais spoke porque o hub não está encaminhando o tráfego entre as redes virtuais. No entanto habilitar esta funcionalidade permite o tráfego encaminhado por meio do emparelhamento, não cria nenhuma rota definida pelo usuário ou dispositivo de rede virtual. Rotas definidas pelo usuário e dispositivos de rede virtual são criados separadamente. Saiba mais sobre [rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Não será necessário verificar essa configuração, se o tráfego for encaminhado entre redes virtuais por meio de um Gateway de VPN do Azure.
     - **Permitir o trânsito de gateway:** marque essa caixa de seleção se tiver um gateway de rede virtual conectado a essa rede virtual e deseja permitir que o tráfego da rede virtual emparelhada flua pelo gateway. Por exemplo, esta rede virtual pode ser anexada a uma rede local por meio de um gateway de rede virtual. O gateway pode ser um gateway de VPN ou de ExpressRoute. Marcar essa caixa permite que o tráfego da rede virtual emparelhada flua pelo gateway anexado a esta rede virtual até a rede local. Se você marcar essa caixa, a rede virtual emparelhada não pode ter um gateway configurado. A rede virtual emparelhada deve ter a caixa de seleção **Usar gateways remotos** marcada ao configurar o emparelhamento de outra rede virtual para esta rede virtual. Se você deixar essa caixa desmarcada (padrão), o tráfego da rede virtual emparelhada continuará fluindo para esta rede virtual, mas não poderá fluir através de um gateway de rede virtual conectado a essa rede virtual. Se o emparelhamento estiver entre uma rede virtual (Gerenciador de Recursos) e uma rede virtual (clássica), o gateway deve estar na rede virtual (Gerenciador de Recursos). Você não pode habilitar essa opção se estiver emparelhamento redes virtuais em regiões diferentes.
 
        Além de encaminhar o tráfego para uma rede local, um gateway de VPN pode encaminhar o tráfego de rede entre as redes virtuais emparelhadas com a rede virtual em que o gateway está, sem precisar que as redes virtuais sejam emparelhadas umas com as outras. Usar um gateway VPN para encaminhar o tráfego é útil quando você deseja usar um gateway de VPN em uma rede virtual de hub (consulte o exemplo de hub e de spoke descrito para **Permitir o tráfego encaminhado**) para rotear o tráfego entre as redes virtuais de spoke não emparelhadas umas com as outras. Para saber mais sobre como permitir o uso de um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Esse cenário requer a implementação de rotas definidas pelo usuário que especificam o gateway de rede virtual como o tipo de próximo de salto. Saiba mais sobre [rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Você só pode especificar um gateway de VPN como o próximo tipo de salto em uma rota definida pelo usuário, não é possível especificar um gateway de ExpressRoute como o próximo tipo de salto em uma rota definida pelo usuário. Você não pode habilitar essa opção se estiver emparelhamento redes virtuais em regiões diferentes.
@@ -65,7 +64,7 @@ Antes de criar um emparelhamento, familiarize-se com os requisitos e restriçõe
 
         Você não pode usar gateways remotos se já tiver um gateway configurado na rede virtual. Você não pode habilitar essa opção se estiver emparelhamento redes virtuais em regiões diferentes. Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Selecione **OK** para adicionar o emparelhamento à rede virtual que você selecionou.
+6. Selecione **OK** para adicionar o emparelhamento à rede virtual que você selecionou.
 
 Para obter instruções passo a passo para a implementação de emparelhamento entre redes virtuais em diferentes assinaturas e modelos de implantação, consulte [próximas etapas](#next-steps).
 
@@ -80,11 +79,10 @@ Antes de alterar um emparelhamento, familiarize-se com os requisitos e restriç�
 
 1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando **Redes virtuais** aparecer nos resultados da pesquisa, selecione essa opção. Não selecione **redes virtuais (clássicas)** se for exibido na lista, pois não é possível criar um emparelhamento de uma rede virtual implantada por meio do modelo de implantação clássico.
 2. Selecione na lista a rede virtual para a qual você deseja alterar as configurações de emparelhamento.
-3. Na lista de redes virtuais, selecione a rede virtual para a qual deseja alterar as configurações de emparelhamento.
-4. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
-5. Selecione o emparelhamento que você deseja exibir ou alterar as configurações.
-6. Altere a configuração apropriada. Leia sobre as opções para cada configuração na [etapa 6](#add-peering) de Criar um emparelhamento.
-7. Clique em **Salvar**.
+3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
+4. Selecione o emparelhamento que você deseja exibir ou alterar as configurações.
+5. Altere a configuração apropriada. Leia sobre as opções para cada configuração na [etapa 5](#add-peering) de criar um emparelhamento.
+6. Clique em **Salvar**.
 
 **Comandos**
 
@@ -101,10 +99,9 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
 
 1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando **Redes virtuais** aparecer nos resultados da pesquisa, selecione essa opção. Não selecione **redes virtuais (clássicas)** se for exibido na lista, pois não é possível criar um emparelhamento de uma rede virtual implantada por meio do modelo de implantação clássico.
 2. Selecione na lista a rede virtual para a qual você deseja excluir um emparelhamento.
-3. Na lista de redes virtuais, selecione a rede virtual para a qual deseja excluir um emparelhamento.
-4. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
-5. No lado direito do emparelhamento que deseja excluir, selecione **...**, selecione **Excluir** e, em seguida, selecione **Sim** para excluir o emparelhamento da primeira rede virtual.
-6. Conclua as etapas anteriores para excluir o emparelhamento de outra rede virtual no emparelhamento.
+3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
+4. No lado direito do emparelhamento que deseja excluir, selecione **...**, selecione **Excluir** e, em seguida, selecione **Sim** para excluir o emparelhamento da primeira rede virtual.
+5. Conclua as etapas anteriores para excluir o emparelhamento de outra rede virtual no emparelhamento.
 
 **Comandos**
 
@@ -159,9 +156,9 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
 
   |Modelo de implantação do Azure             | Assinatura  |
   |---------                          |---------|
-  |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
+  |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|
-  |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
+  |Um Resource Manager, um clássico  |[Idêntico](create-peering-different-deployment-models.md)|
   |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 - Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)

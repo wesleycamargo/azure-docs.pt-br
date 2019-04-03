@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434884"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877050"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
 
@@ -55,7 +55,7 @@ Você precisa de:
 
     ![Solução de problemas e suporte](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **Nome de usuário ou senha inválidos ou Nome de usuário ou senha inválida no local**. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
+6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de usuário inválido ou senha ou nome de usuário inválido no local ou senha**. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
 
 7. Você pode obter informações adicionais, incluindo ideias para correção, pesquisando o código de erro **50126** neste exemplo, na referência de códigos de erro de [log-ins](reference-sign-ins-error-codes.md). 
 

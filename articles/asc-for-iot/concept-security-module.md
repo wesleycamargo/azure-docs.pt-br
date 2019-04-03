@@ -1,25 +1,25 @@
 ---
 title: Entender a Central de segurança do Azure para o módulo de segurança de IoT gêmeos Preview | Microsoft Docs
 description: Saiba mais sobre o conceito de Gêmeos de módulo de segurança e como eles são usados na Central de segurança do Azure para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758399"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862430"
 ---
 # <a name="security-module"></a>Módulo de segurança
 
@@ -31,9 +31,9 @@ Este artigo explica como o Azure Security Center (ASC) para IoT usa dispositivos
 
 ## <a name="device-twins"></a>Dispositivos gêmeos
 
-Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um papel fundamental no gerenciamento de dispositivo e automação de processo.  
+Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um papel fundamental tanto no gerenciamento do dispositivo quanto na automação do processo.  
 
-ASC para IoT oferece uma integração completa com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie seu status de segurança de dispositivo, bem como a marca usar recursos de controle de dispositivo existente. Integração é obtida por fazendo uso do IoT Hub de mecanismo de gêmeos.  
+A ASC para IoT oferece uma integração completa com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie seu status de segurança de dispositivo, bem como faça o uso de recursos de controle de dispositivo existente. Integração é obtida por fazendo uso do IoT Hub de mecanismo de gêmeos.  
 
 Saiba mais sobre o conceito de [gêmeos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) no IoT Hub do Azure. 
 

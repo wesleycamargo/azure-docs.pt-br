@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083123"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886329"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
 
@@ -60,7 +60,7 @@ Uma rede Virtual Privada de ponto a site é a forma mais simples de conexão seg
 
 ### <a name="site-to-site-vpn"></a>VPN de site a site
 
-Uma rede Virtual privada de site a site permite a comunicação segura entre os HSMs Dedicados baseados no Azure e sua TI no local. Um motivo para fazer isso é ter um recurso de backup para o local do HSM e que precisa de uma conexão entre os dois para executar o backup.
+Uma rede Virtual privada de site a site permite a comunicação segura entre os HSMs Dedicados baseados no Azure e sua TI no local. Um motivo para fazer isso é ter um recurso de backup para o HSM local e que precisam de uma conexão entre os dois para executar o backup.
 
 ## <a name="connecting-virtual-networks"></a>Conexão de redes virtuais
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439019"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879652"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
@@ -26,10 +26,10 @@ O Microsoft Azure fornece vários serviços globais e regionais para gerenciar a
 ![Pacote de entrega de aplicativos ][1]
  
 Esses serviços são divididos em duas categorias:
-1. **Serviços de balanceamento de carga globais** como o Gerenciador de Tráfego e o Front Door distribuem o tráfego de seus usuários finais em todos os seus back-ends regionais, entre nuvens ou até mesmo em seus serviços locais híbridos. O balanceamento de carga global roteia o tráfego para o back-end do serviço mais próximo e reage a alterações na confiabilidade ou no desempenho do serviço para manter o desempenho máximo sempre ativo para seus usuários. 
+1. **Serviços de balanceamento de carga global** , como o Gerenciador de tráfego e a porta da frente distribuem o tráfego dos usuários finais em seu back-ends regionais, nuvens ou até mesmo seu híbrido serviços locais. O balanceamento de carga global roteia o tráfego para o back-end do serviço mais próximo e reage a alterações na confiabilidade ou no desempenho do serviço para manter o desempenho máximo sempre ativo para seus usuários. 
 2. **Serviços de balanceamento de carga regionais**, como o Standard Load Balancer ou o Gateway de Aplicativo, fornecem a capacidade de distribuir tráfego em VNets (redes virtuais) em VMs (máquinas virtuais) ou em pontos de extremidade de serviço zonal dentro de uma região.
 
-Combinar serviços regionais e globais em seu aplicativo oferece uma maneira de alto desempenho, confiável e segura de ponta a ponta para rotear o tráfego para e dos seus usuários para seus serviços de IaaS, PaaS ou locais. Na próxima seção, descrevemos cada um desses serviços.
+Combinar serviços regionais e globais em seu aplicativo fornece um alto desempenho confiável, de ponta a ponta e a maneira segura para rotear o tráfego de e para seus usuários seu IaaS, PaaS ou serviços locais. Na próxima seção, descrevemos cada um desses serviços.
 
 ## <a name="global-load-balancing"></a>Balanceamento de carga global
 **O Gerenciador de Tráfego** fornece balanceamento de carga DNS global. Ele analisa as solicitações de entrada DNS e responde com um back-end íntegro e que esteja de acordo com a política de roteamento selecionada pelo cliente. Opções de métodos de roteamento são:

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080447"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882405"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo com os escopos em aplicativos lógicos do Azure
 
@@ -79,14 +79,14 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       | Configuração | Valor | DESCRIÇÃO |
       | ------- | ----- | ----------- |
-      | **Localizador 1** | <*iniciar*> | Insira a origem da rota. | 
-      | **Localizador 2** | <*finalizar*> | Insira o destino da rota. | 
-      | **Evitar** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Marco 1** | <*iniciar*> | Insira a origem da rota. | 
+      | **Marco 2** | <*finalizar*> | Insira o destino da rota. | 
+      | **Evite** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com informações de trânsito atuais, e assim por diante. Esse exemplo usa este valor: "timeWithTraffic" | 
-      | **Unidades de distância** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "Milha" | 
-      | **Modo de navegação** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
-      | **Data /Hora de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
-      | **Tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Unidade de distância** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "Milha" | 
+      | **Modo de viagem** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
+      | **Data e hora de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Tipo do tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
       ||||  
 
 1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifique se o tempo de viagem atual com tráfego excede um tempo especificado. 
@@ -119,7 +119,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
    1. No **corpo**, insira este texto com um espaço à direita: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       Enquanto o cursor aparecer no campo **Corpo**, a lista de conteúdo dinâmico permanecerá aberta para que você possa selecionar os parâmetros disponíveis neste ponto.
 
@@ -146,11 +146,13 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
    1. Quando terminar, escolha **OK**.
 
+   <!-- markdownlint-disable MD038 -->
    1. Depois que a expressão for resolvida, adicione este texto com um espaço à esquerda: ``` minutes```
   
        O campo **Corpo** agora é semelhante a este exemplo:
 
        ![Campo "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Salve seu aplicativo lógico.
 
@@ -396,6 +398,6 @@ Se você estiver trabalhando na exibição de código, será possível definir u
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar etapas baseadas em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)

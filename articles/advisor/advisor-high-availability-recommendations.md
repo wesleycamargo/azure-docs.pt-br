@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490304"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881181"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade do aplicativo com o Assistente do Azure
 
@@ -76,7 +76,7 @@ Na configuração ativo-ativo, ambas as instâncias de um gateway de VPN estabel
 
 Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Introdução ao Azure Advisor](advisor-overview.md)
-* [Introdução ao Advisor](advisor-get-started.md)
+* [Introdução ao Assistente](advisor-get-started.md)
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)

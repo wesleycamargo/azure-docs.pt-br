@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890552"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877614"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
-Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azure Cosmos DB simplifica a cobrança cobrando apenas a taxa de transferência provisionada e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
+Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azure Cosmos DB simplifica a cobrança cobrando apenas a taxa de transferência provisionada e o armazenamento consumido. Não há nenhuma das taxas de licença adicionais, hardware, os custos de utilitário ou os custos do recurso comparados a alternativas hospedado por IaaS ou locais. Quando você considera os vários tipos de recursos de região do Azure Cosmos DB, o serviço de banco de dados fornece uma redução substancial nos custos em comparação comparada soluções de IaaS ou locais existentes.
 
 Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transferência provisionada e no armazenamento consumido. Para a taxa de transferência provisionada, a unidade de cobrança é 100 RU/s por hora, cobrada a US$ 0,008 por hora, levando em conta o preço público padrão; consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). Para o armazenamento consumido, você é cobrado US$ 0,25 por 1 GB de armazenamento por mês. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
@@ -94,29 +94,29 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 Vamos supor que você tenha um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Europa Setentrional e Ásia Oriental) à conta do Azure Cosmos, cada uma com o mesmo armazenamento e a mesma taxa de transferência. O valor total da sua fatura mensal será (considerando 30 dias em um mês). Sua fatura ficaria da seguinte maneira: 
 
-|**Item** |**Uso (por mês)** |**Taxa** |**Custo mensal** |
+|**item** |**Uso (por mês)** |**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança da taxa de transferência para o contêiner no Oeste dos EUA      | 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora   |US$ 576|
 |Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Europa Setentrional e Ásia Oriental       | 3 * 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora  |US$ 1.728|
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
 |Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
-|**Total**     |     |  |**US$ 2.554**|
+|**Total**     |     |  |**$2,554**|
 
-*Suponha também que você use 100 GB de dados todos os meses do contêiner no Oeste dos EUA para replicar os dados no Leste dos EUA, na Europa Setentrional e na Ásia Oriental. Você será cobrado pela saída conforme as taxas de transferência de dados.*
+*Vamos supor também que você retire 100 GB de dados de todos os meses do contêiner no Oeste dos EUA para replicar os dados no Leste dos EUA, Norte da Europa e Ásia Oriental. Você será cobrado pela saída, de acordo com as taxas de transferência de dados.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Exemplo de cobrança: conta do Azure Cosmos multirregiões, com gravação em várias regiões
 
 Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Europa Setentrional e Ásia Oriental), cada uma com o mesmo armazenamento e com a mesma taxa de transferência, e deseja ter capacidade de gravação para os contêineres em todas as regiões associadas à conta do Azure Cosmos. O valor total da sua fatura mensal será (considerando 30 dias em um mês) o seguinte:
 
-|**Item** |**Uso (por mês)**|**Taxa** |**Custo mensal** |
+|**item** |**Uso (por mês)**|**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança de taxa de transferência para o contêiner no Oeste dos EUA (todas as regiões são graváveis)       | 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora    |US$ 1.152 |
 |Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Europa Setentrional e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora   |US$ 4.608 |
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
 |Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
-|**Total**     |     |  |**US$ 6.010**|
+|**Total**     |     |  |**$6,010**|
 
-*Suponha também que você use 100 GB de dados todos os meses do contêiner no Oeste dos EUA para replicar os dados no Leste dos EUA, na Europa Setentrional e na Ásia Oriental. Você será cobrado pela saída conforme as taxas de transferência de dados.*
+*Vamos supor também que você retire 100 GB de dados de todos os meses do contêiner no Oeste dos EUA para replicar os dados no Leste dos EUA, Norte da Europa e Ásia Oriental. Você será cobrado pela saída, de acordo com as taxas de transferência de dados.*
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemplo de cobrança: conta de Azure Cosmos com taxa de transferência no nível do banco de dados, com vários mestres, incluindo modo de taxa de transferência dedicada para alguns contêineres
 
@@ -178,7 +178,7 @@ Visualmente, as alterações na taxa de transferência provisionada total durant
 
 A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da seguinte maneira:
 
-|**Horas**  |**RU/s** |**Item** |**Uso (por hora)** |**Custo** |
+|**Horas**  |**RU/s** |**item** |**Uso (por hora)** |**Custo** |
 |---------|---------|---------|-------|-------|
 |[0 a 100] |D1:10 mil <br/>D2:30 mil <br/>C1:20 mil |Cobrança de taxa de transferência para o contêiner no Oeste dos EUA (todas as regiões são graváveis)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |US$ 960  |
 | | |Cobrança de taxa de transferência para duas regiões adicionais: Leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |US$ 2.880  |
@@ -194,7 +194,7 @@ A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da 
 | | |Cobrança de taxa de transferência para duas regiões adicionais: Leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |US$ 7.680  |
 |[701 a 720] |D1:20 mil <br/>D2:50 mil <br/>C1: -- |Cobrança de taxa de transferência para o contêiner no Oeste dos EUA (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |U$ 224  |
 | | |Cobrança de taxa de transferência para duas regiões adicionais: Leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |U$ 224  |
-|| |**Custo mensal total**  | |**US$ 38.688**   |
+|| |**Custo mensal total**  | |**$38,688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimando proativamente sua fatura mensal  
 
@@ -222,7 +222,7 @@ Total de RU/s: 500 + 400 = 900 Custo por hora: 900/100 * US$ 0,008 = US$ 0,072 C
 
 Custo mensal total = custo mensal pelo armazenamento + custo mensal pela taxa de transferência Custo mensal total = US$ 25,00 + US$ 53,57 = US$ 78,57
 
-*Os preços podem variar por região. Para obter os preços atualizados, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).*
+*Preços podem variar por região. Para obter os preços atualizados, consulte o [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).*
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Cobrança com capacidade reservada do Azure Cosmos DB
 

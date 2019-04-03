@@ -1,7 +1,7 @@
 ---
-title: Monitorar modelos com Application Insights
+title: Configurar o Azure Application Insights para modelos de ML do monitor
 titleSuffix: Azure Machine Learning service
-description: Usar o Application Insights para monitorar os serviços Web implantados através do Serviço do Azure Machine Learning
+description: Monitorar serviços web implantados com o serviço de Azure Machine Learning usando o Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847942"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885478"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitore seus modelos do Azure Machine Learning com o Application Insights
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá como configurar o Insight do Aplicativo do Azure 
 * Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS) ou Instância de Contêiner do Azure (ACI). Se você não tiver um, consulte o tutorial [Modelo de classificação de imagem de trem](tutorial-train-models-with-aml.md).
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>Ativar e desativar o SDK
+## <a name="use-sdk-to-configure"></a>Use o SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Atualizar um serviço implantado
 1. Identificar o serviço no seu espaço de trabalho. O valor de `ws` é o nome do seu espaço de trabalho.
@@ -77,7 +77,7 @@ Para desabilitar o Application Insights, use o seguinte código:
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>Ativar e desativar no portal
+## <a name="use-portal-to-configure"></a>Usar o portal para configurar
 
 Você pode ativar e desativar o Application Insights no portal do Azure.
 
@@ -85,15 +85,15 @@ Você pode ativar e desativar o Application Insights no portal do Azure.
 
 1. Na guia **Implantações**, selecione o serviço no qual você deseja ativar o Application Insights.
 
-   [![Lista de serviços na guia implantações](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![LListar serviços na guia implantações](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Selecione **Editar**.
 
-   [![Botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Ebotão de DIT](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. Em **Configurações avançadas**, marque a caixa de seleção **Ativar diagnósticos do AppInsights**.
 
-   [![Selecionada caixa de seleção para habilitar diagnósticos](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Scaixa de seleção escolhida para a habilitação do diagnóstico](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações. 
 
@@ -101,11 +101,11 @@ Você pode ativar e desativar o Application Insights no portal do Azure.
 1. No [portal do Azure](https://portal.azure.com), abra o espaço de trabalho.
 1. Selecione **implantações**, selecione o serviço e selecione **editar**.
 
-   [![Use o botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![USe o botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Na **configurações avançadas**, desmarque as **AppInsights habilitar diagnóstico** caixa de seleção. 
 
-   [![Caixa de seleção desmarcada para habilitar o diagnóstico](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Caprendeu a caixa de seleção para habilitar o diagnóstico](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações. 
  
@@ -119,12 +119,12 @@ Para exibi-lo:
 
 1. Selecione a guia de **Visão geral** para ver um conjunto básico de métricas para o serviço.
 
-   [![Visão geral](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Para examinar os rastreamentos personalizados, selecione **Analytics**.
 4. Na seção de esquema, selecione **Traces**. Em seguida, selecione **executar** para executar sua consulta. Os dados devem aparecer em um formato de tabela e devem ser mapeados para suas chamadas personalizadas em seu arquivo de pontuação. 
 
-   [![Rastreamentos personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Crastreamentos de ersonalizada](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para saber mais sobre como usar o Application Insights, consulte [o que é o Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
@@ -138,6 +138,4 @@ O bloco de anotações [how-to-use-azureml/deployment/enable-app-insights-in-pro
 ## <a name="next-steps"></a>Próximas etapas
 Você também pode coletar dados em seus modelos em produção. Leia o artigo [coletar dados para modelos em produção](how-to-enable-data-collection.md). 
 
-
-## <a name="other-references"></a>Outras referências
-* [Azure Monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Leia também [do Azure Monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401208"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885019"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código R no Azure Data Lake Analytics
 
 O exemplo a seguir ilustra as etapas básicas para implantar código R:
 * Use a instrução `REFERENCE ASSEMBLY` para habilitar as extensões R para o Script U-SQL.
-* Use a operação ` REDUCE` para particionar os dados de entrada em uma chave.
+* Use o `REDUCE` operação para os dados de entrada em uma chave de partição.
 * As extensões R para U-SQL incluem um redutor interno (`Extension.R.Reducer`) que executa o código R em cada vértice atribuído ao redutor. 
-* O uso de quadros de dados nomeados dedicados chamados `inputFromUSQL` e `outputToUSQL ` respectivamente para passar dados entre U-SQL e R. Os nomes de identificador DataFrame de entrada e saída são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos dos identificadores DataFrame de entrada e saída).
+* Uso de dedicado denominado quadros de dados chamados `inputFromUSQL` e `outputToUSQL` respectivamente para passar dados entre U-SQL e R. entrada e saída DataFrame nomes de identificador são fixos (ou seja, os usuários não é possível alterar esses nomes predefinidos de entrada e DataFrame de saída identificadores).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Inserindo código R no script U-SQL
 
@@ -93,7 +93,7 @@ Use um script U-SQL para implantar esse script R com a instrução DEPLOY RESOUR
 ### <a name="datatypes"></a>Tipos de dados
 * As colunas numéricas e de cadeia de caracteres do U-SQL são convertidas no estado em que se encontram entre R DataFrame e U-SQL [tipos com suporte: `double`, `string`, `bool`, `integer`, `byte`].
 * Não há suporte para o tipo de dados `Factor` em U-SQL.
-* `byte[]` deve ser serializado como uma `string` codificada em base64.
+* `byte[]` deve ser serializado como um codificada em base64 `string`.
 * As cadeias de caracteres de U-SQL poderão ser convertidas em fatores no código R depois que U-SQL criar quadro de dados de entrada R ou configurando o parâmetro redutor `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Esquemas
@@ -207,6 +207,6 @@ Primeiro, crie um módulo R personalizado, compacte-o e, em seguida, carregue o 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Desenvolver scripts U-SQL usando ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)

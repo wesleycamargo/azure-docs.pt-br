@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286003"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847447"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
 
 Este artigo fornece informações sobre solução de problemas para proteger VM do SQL Server no Azure (versão prévia).
 
-## <a name="feature-consideration-and-limitations"></a>Recurso considerações e limitações
+## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recurso
 
 Para exibir a consideração de recurso, consulte o artigo [backup do SQL Server em VMs do Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
@@ -98,12 +98,18 @@ Os códigos de erro a seguir são mostrados quando os trabalhos de restauração
 |---|---|---|
 | A restauração falhou porque o banco de dados não pôde ficar offline. | Ao fazer uma restauração, o banco de dados de destino precisará ficar offline. O Backup do Azure não pode colocar esses dados offline. | Use os detalhes adicionais no menu de erros do portal do Azure para restringir as causas raízes. Para obter mais informações, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Não é possível localizar o certificado do servidor com impressão digital no destino. | O banco de dados Mestre na instância de destino não possui uma impressão digital de criptografia válida. | Importe a impressão digital válida do certificado usada na instância de origem para a instância de destino. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário no tempo de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação registradas em massa, os dados entre uma transação de bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo de recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Falhas de registro
 

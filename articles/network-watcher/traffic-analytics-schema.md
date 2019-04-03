@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109113"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879328"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e os dados na análise de tráfego
 
@@ -120,7 +120,7 @@ Abaixo estão os campos no esquema e o que eles significam
 1. ExternalPublic - um dos endereços IP pertence à rede Virtual do Azure enquanto o outro endereço IP é um IP público que não está no Azure, não será relatado como mal-intencionado pelos feeds ASC consome de análise de tráfego para o intervalo de processamento entre " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. MaliciousFlow - um dos endereços IP pertencem a rede virtual do azure enquanto o outro endereço IP é um IP público que não está no Azure e é relatado como mal-intencionado pelos feeds ASC consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. UnknownPrivate - um dos endereços IP pertencer a rede Virtual do Azure enquanto o outro endereço IP pertence ao intervalo de IP privado, conforme definido na RFC 1918 e não pôde ser mapeado pela análise de tráfego para um site ou rede Virtual do Azure de propriedade do cliente.
-1. Desconhecido – não é possível mapear a qualquer um dos endereços IP nos fluxos com a topologia de cliente no Azure, bem como no local (site).
+1. Desconhecido – não é possível mapear a qualquer um do IP endereços nos fluxos com a topologia de cliente no Azure, bem como local (site).
 
 ### <a name="next-steps"></a>Próximas etapas
 Para obter respostas para perguntas frequentes, consulte [perguntas frequentes sobre análise de tráfego](traffic-analytics-faq.md) para ver detalhes sobre a funcionalidade, consulte [documentação da análise de tráfego](traffic-analytics.md)

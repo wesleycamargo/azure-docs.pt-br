@@ -1,6 +1,6 @@
 ---
-title: Serviço de porta da frente do Azure - suportam a cabeçalhos HTTP | Microsoft Docs
-description: Este artigo ajuda você a entender os protocolos de cabeçalho HTTP compatíveis com o Front Door
+title: Protocolo oferecem suporte para cabeçalhos HTTP no serviço de porta da frente do Azure | Microsoft Docs
+description: Este artigo descreve os protocolos de cabeçalho HTTP que dá suporte ao serviço de porta da frente.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,52 +11,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 40bfdfc3837da12f62864433508482a65def291c
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407310"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861835"
 ---
-# <a name="azure-front-door-service---http-headers-support"></a>Serviço de porta da frente do Azure – suporte a cabeçalhos HTTP
-Este documento descreve o protocolo ao qual o Azure Front Door Service dá suporte com várias partes do caminho da chamada, conforme ilustrado pela imagem abaixo. As seções a seguir fornecem mais insight sobre os cabeçalhos HTTP compatíveis com o Front Door.
+# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta da frente do Azure
+Este artigo descreve o protocolo com suporte do serviço de porta da frente com partes do caminho da chamada (consulte a imagem). As seções a seguir fornecem mais informações sobre cabeçalhos HTTP com suporte pelo serviço de porta da frente.
 
 ![Protocolo de cabeçalhos HTTP do Azure Front Door Service][1]
 
->[!WARNING]
->O Azure Front Door Service não oferece garantias para os cabeçalhos HTTP que não estão documentados aqui.
+>[!IMPORTANT]
+>Serviço de porta da frente não certificar todos os cabeçalhos HTTP que não estão documentados aqui.
 
-## <a name="1-client-to-front-door"></a>1. Cliente para o Front Door
-O Front Door aceita a maioria dos cabeçalhos de solicitação de entrada (sem modificá-los), no entanto, há alguns cabeçalhos reservados que serão removidos da solicitação de entrada se forem enviados. Isso inclui os cabeçalhos com os seguintes prefixos:
- - X-FD-*
+## <a name="client-to-front-door-service"></a>Cliente para o serviço de porta da frente
+Serviço de porta da frente aceita a maioria dos cabeçalhos da solicitação de entrada sem modificá-los. Alguns cabeçalhos reservados são removidos da solicitação de entrada se enviada, incluindo os cabeçalhos com o X - FD-* prefixo.
 
-## <a name="2-front-door-to-backend"></a>2. Front Door para o back-end
+## <a name="front-door-service-to-backend"></a>Serviço de porta da frente para back-end
 
-O Front Door incluirá os cabeçalhos da solicitação de entrada, a menos que eles tenham sido removidos devido às restrições mencionadas acima. O Front Door também adicionará os seguintes cabeçalhos:
+Serviço de porta da frente inclui cabeçalhos de uma solicitação de entrada, a menos que removido devido às restrições. Porta da frente também adiciona os seguintes cabeçalhos:
 
 | Cabeçalho  | Exemplo e descrição |
 | ------------- | ------------- |
-| Através de |  *Via: 1.1 azure* </br> Porta da frente adiciona a versão HTTP do cliente seguido por 'Azure' como o valor para por meio do cabeçalho. Ele é adicionado para indicar a versão HTTP do cliente e essa porta da frente do Azure foi um destinatário intermediário para a solicitação entre o cliente e o back-end.  |
-| X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa o endereço de protocolo de Internet de "cliente" associado à solicitação sendo processada. Por exemplo, uma solicitação proveniente de um proxy pode adicionar o cabeçalho X-Forwarded-For para indicar o endereço IP do chamador original. |
-| X-Azure-SocketIP | *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço de protocolo de soquete associado com a conexão TCP, a solicitação atual foi originada. Endereço de IP do cliente da solicitação não pode ser igual ao seu endereço IP de soquete porque ele pode ser arbitrariamente substituído por um usuário final.|
-| X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esse é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pelo Front Door. Ele é essencial para solucionar problemas porque é usado para pesquisar os logs de acesso.|
-| X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> Esse é um cabeçalho que o Front Door usa para detectar loops de solicitação, e os usuários não devem usar uma dependência nele. |
-| X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> O campo de cabeçalho HTTP X-Forwarded-For (XFF) é um método comum de identificar o endereço IP de origem de um cliente conectado a um servidor web por meio de um balanceador de carga ou proxy HTTP. Se houver um cabeçalho XFF existente, em seguida, porta da frente acrescenta o IP de soquete de cliente a ele mais adiciona o cabeçalho XFF com o IP de soquete de cliente. |
-| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> O campo de cabeçalho HTTP X-Forwarded-Host é um método comum de identificar o host original solicitado pelo cliente no cabeçalho da solicitação HTTP de Host, já que o nome do host de porta de entrada pode ser diferente para o servidor de back-end que está tratando a solicitação. |
-| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> O campo de cabeçalho HTTP X-Forwarded-Proto é um método comum de identificar o protocolo de origem de uma solicitação HTTP, já que, dependendo da configuração de porta da frente podem se comunicar com o back-end usando HTTPS, mesmo se a solicitação para o proxy reverso é HTTP. |
+| Através de |  Via: 1.1 azure </br> Porta da frente adiciona a versão HTTP do cliente seguido *Azure* como o valor para o cabeçalho Via. Isso indica a versão do HTTP do cliente e essa porta da frente era um destinatário intermediário para a solicitação entre o cliente e o back-end.  |
+| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado com a solicitação que está sendo processada. Por exemplo, uma solicitação proveniente de um proxy pode adicionar o cabeçalho X-Forwarded-For para indicar o endereço IP do chamador original. |
+| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representa o endereço IP do soquete associado com a conexão TCP que a solicitação atual foi originada. Endereço IP do cliente da solicitação não pode ser igual ao seu endereço IP de soquete porque ele pode ser arbitrariamente substituído por um usuário.|
+| X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Uma cadeia de caracteres de referência exclusivo que identifica uma solicitação no servidas por porta da frente. Ele é usado para pesquisar os logs de acesso e críticos para solução de problemas.|
+| X-Azure-RequestChain |  X-Azure-RequestChain: hops=1 </br> Um cabeçalho que usa a porta da frente para detectar loops de solicitação e os usuários não devem usar uma dependência nele. |
+| X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> O campo de cabeçalho HTTP X-Forwarded-For (XFF) geralmente identifica o endereço IP de origem de um cliente conectado a um servidor web por meio de um balanceador de carga ou proxy HTTP. Se houver um cabeçalho XFF existente, porta da frente acrescenta o IP de soquete de cliente a ele ou adiciona o cabeçalho XFF com o IP de soquete de cliente. |
+| X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> O campo de cabeçalho HTTP X-Forwarded-Host é um método comum usado para identificar o host original solicitado pelo cliente no cabeçalho da solicitação HTTP de Host. Isso ocorre porque o nome do host de porta de entrada pode ser diferente para o servidor de back-end que está tratando a solicitação. |
+| X-Forwarded-Proto | X-Forwarded-Proto: http </br> O campo de cabeçalho HTTP X-Forwarded-Proto geralmente é usado para identificar o protocolo de origem de uma solicitação HTTP, porque a porta da frente, com base na configuração, pode se comunicar com o back-end usando HTTPS. Isso é verdadeiro mesmo se a solicitação para o proxy reverso é HTTP. |
 
-## <a name="3-front-door-to-client"></a>3. Front Door para o cliente
+## <a name="front-door-service-to-client"></a>Serviço de porta da frente para cliente
 
-A seguir estão os cabeçalhos que são enviados do Front Door para os clientes. Todos os cabeçalhos enviados para o Front Door do back-end também são passados para o cliente.
+Quaisquer cabeçalhos enviados para a porta da frente do back-end também são passados para o cliente. Estes são os cabeçalhos enviados da porta da frente aos clientes.
 
 | Cabeçalho  | Exemplo |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esse é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pelo Front Door. Ele é essencial para solucionar problemas porque é usado para pesquisar os logs de acesso.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esse é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pelo Front Door. Isso é essencial para solucionar problemas de como ele é usado para pesquisar os logs de acesso.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como o Front Door funciona](front-door-routing-architecture.md).
+- [Criar um Front Door](quickstart-create-front-door.md)
+- [Como funciona a porta da frente](front-door-routing-architecture.md)
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

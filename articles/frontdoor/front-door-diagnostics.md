@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service – Métricas e registro em log | Microsoft Docs
-description: Este artigo ajuda você a entender as diferentes métricas e logs de acesso compatíveis com o Azure Front Door Service
+title: Monitoramento de métricas e logs no serviço de porta da frente do Azure | Microsoft Docs
+description: Este artigo descreve os diferentes métricas e logs de acesso que dá suporte ao serviço de porta da frente do Azure
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407021"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862095"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>Monitoramento de logs e métricas para frente
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoramento de métricas e logs no serviço de porta da frente do Azure
 
 Usando o serviço de porta da frente do Azure, você pode monitorar os recursos das seguintes maneiras:
 
-* [Métrica](#metrics): O Gateway de Aplicativo atualmente tem sete métricas para exibir os contadores de desempenho.
-* [Logs](#diagnostic-logging): Os logs permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
+- **Métricas**. O Gateway de Aplicativo atualmente tem sete métricas para exibir os contadores de desempenho.
+- **Logs**. Atividade e logs de diagnóstico permitem que o desempenho, acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
-## <a name="metrics"></a>Métricas
+### <a name="metrics"></a>Métricas
 
-Métricas são um recurso para alguns recursos do Azure, nas quais você pode exibir os contadores de desempenho no portal. Para o Front Door, estão disponíveis as seguintes métricas:
+As métricas são um recurso para certos recursos do Azure que permitem que você exibir os contadores de desempenho no portal. Estas são as métricas de porta da frente disponíveis:
 
 | Métrica | Nome de exibição da métrica | Unidade | Dimensões | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | RequestCount | Contagem de solicitações | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pelo Front Door.  |
 | RequestSize | Tamanho da solicitação | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como solicitações de clientes para o Front Door. |
 | ResponseSize | Tamanho da resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas do Front Door para clientes. |
-| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado de quando a solicitação do cliente foi recebida pelo Front Door até o cliente confirmar o último byte de resposta do Front Door. |
+| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado da solicitação do cliente recebida pela porta da frente até que o cliente confirmadas o último byte de resposta da porta da frente. |
 | BackendRequestCount | Contagem de solicitações de back-end | Contagem | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de solicitações enviadas do Front Door aos back-ends. |
 | BackendRequestLatency | Latência de solicitação de back-end | Milissegundos | Back-end | O tempo calculado de quando a solicitação foi enviada pelo Front Door ao back-end até o Front Door receber o último byte de resposta do back-end. |
 | BackendHealthPercentage | Percentual de integridade do back-end | Porcentagem | Back-end</br>BackendPool | O percentual de investigações de integridade bem-sucedidas do Front Door aos back-ends. |
@@ -42,35 +42,36 @@ Métricas são um recurso para alguns recursos do Azure, nas quais você pode ex
 
 ## <a name="activity-log"></a>Logs de atividade
 
-Logs de atividades fornecem informações sobre as operações que foram executadas em sua frente. Usando logs de atividade, você pode determinar a "o que, quem e quando" para quaisquer operações de gravação (PUT, POST, DELETE) realizadas na sua frente.
+Logs de atividades fornecem informações sobre as operações realizadas no serviço de porta da frente. Eles também determinam o que, quem e quando operações de gravação (put, post ou delete) realizadas no serviço de porta da frente para qualquer.
 
-> [!NOTE]
-> Os logs de atividades não incluem operações de leitura (GET) ou operações realizadas no portal do Azure ou usando as APIs de gerenciamento original.
+>[!NOTE]
+>Logs de atividades não incluem operações de leitura (get). Eles também não incluem operações executadas por meio do portal do Azure ou a API de gerenciamento original.
 
-Você pode acessar os logs de atividade em sua porta de entrada ou acessar logs de todos os seus recursos do Azure no Azure Monitor. 
-
-Para exibir logs de atividade:
+Logs de atividades de acesso no seu serviço de porta da frente ou todos os logs dos recursos do Azure no Azure Monitor. Para exibir logs de atividade:
 
 1. Selecione sua instância de porta da frente.
-2. Clique em **Log de atividades**.
+2. Selecione **log de atividades**.
 
-    ![log de atividades](./media/front-door-diagnostics/activity-log.png)
+    ![Log de atividades](./media/front-door-diagnostics/activity-log.png)
 
-3. Selecione o escopo de filtragem desejado e clique em **Aplicar**.
+3. Escolha um escopo de filtragem e, em seguida, selecione **aplicar**.
 
 ## <a name="diagnostic-logging"></a>Logs de diagnóstico
-Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou. Saiba mais sobre [logs de diagnóstico do Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Logs de diagnóstico fornecem informações detalhadas sobre as operações e erros que são importantes para auditoria e solução de problemas. Os logs de diagnóstico diferem dos logs de atividade.
 
-Para configurar logs de diagnóstico para sua frente:
+Logs de atividades fornecem informações sobre as operações realizadas em recursos do Azure. Os logs de diagnóstico fornecem informações sobre operações que o recurso realizou. Para obter mais informações, consulte [logs de diagnóstico do Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-1. Selecione a instância de serviço do APIM.
-2. Clique em **Configurações do Diagnóstico**.
+![Logs de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![logs de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
+Para configurar logs de diagnóstico para seu serviço de porta da frente:
 
-3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
+1. Selecione o serviço de gerenciamento de API do Azure.
 
-Serviço de porta da frente do Azure atualmente fornece diagnóstico logs (agrupados por hora) sobre API individual de solicitação com cada entrada tem o esquema a seguir:
+2. Escolher **configurações de diagnóstico**.
+
+3. Selecione **Ativar diagnóstico**. Arquivar logs de diagnóstico, juntamente com métricas para uma conta de armazenamento, transmiti-los para um hub de eventos ou enviá-los para os logs do Azure Monitor.
+
+Atualmente, o serviço de porta da frente fornece logs de diagnóstico (agrupados por hora). Os logs de diagnóstico fornecem solicitações individuais de API com cada entrada tem o esquema a seguir:
 
 | Propriedade  | DESCRIÇÃO |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Serviço de porta da frente do Azure atualmente fornece diagnóstico logs (agrup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como o Front Door funciona](front-door-routing-architecture.md).
+- [Criar um perfil de Front Door](quickstart-create-front-door.md)
+- [Como funciona a porta da frente](front-door-routing-architecture.md)

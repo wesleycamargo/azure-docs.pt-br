@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452174"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877819"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -33,13 +33,13 @@ Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de tr
 
 1. Você tem algumas dezenas de contêineres do Azure Cosmos e deseja compartilhar a taxa de transferência entre alguns ou todos eles. 
 
-2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitas coleções/tabelas/gráficos e não quiser fazer nenhuma alteração no modelo de dados. Observe que talvez seja necessário comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB se você não está atualizando o modelo de dados durante a migração de um banco de dados local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
+2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitas coleções/tabelas/gráficos e não quiser fazer nenhuma alteração no modelo de dados. Observe que talvez seja necessário comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se você não está atualizando seu modelo de dados durante a migração de um banco de dados local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
 
 3. Você deseja absorver picos não planejados em cargas de trabalho ocorridos quando uma taxa de transferência em pool no nível do banco de dados é sujeitada a picos inesperados em cargas de trabalho. 
 
 4. Em vez de configurar uma taxa de transferência específica em contêineres individuais, você deseja obter a taxa de transferência agregada em um conjunto de contêineres no banco de dados.
 
-**Considere o provisionamento da taxa de transferência em um contêiner individual se:**
+**Considere o provisionamento de taxa de transferência em um contêiner individual se:**
 
 1. Você tem alguns contêineres do Azure Cosmos. Como o Azure Cosmos DB independe do esquema, um contêiner pode conter itens que têm esquemas heterogêneos e que não exigem que os clientes criem vários tipos de contêineres, um para cada entidade. É sempre uma opção considerar se vale a pena agrupar contêineres separados, 10 a 20, por exemplo, em um único contêiner. Com o mínimo de 400 RUs para contêineres, o pooling de todos os 10 a 20 contêineres em um só pode ser mais econômico. 
 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 4041bee71a41cee06243d53de128bcceecda5618
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58001817"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877730"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilitar o depurador de instantâneos para aplicativos .NET no Azure Service Fabric, serviço de nuvem e máquinas virtuais
 
-Se o ASP.NET ou ASP.NET core execuções de aplicativo no serviço de aplicativo do Azure, as instruções abaixo também podem ser usadas. A menos que seu aplicativo requer uma configuração personalizada do depurador de instantâneo, ele é altamente recomendável [habilitar o depurador de instantâneo por meio da página de portal do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máquinas virtuais ou computadores locais, as instruções a seguir devem ser usadas. 
+Se o ASP.NET ou ASP.NET core execuções de aplicativo no serviço de aplicativo do Azure, as instruções abaixo também podem ser usadas. A menos que seu aplicativo requer uma configuração personalizada do depurador de instantâneo, ele é altamente recomendável [habilitar o depurador de instantâneo por meio da página de portal do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se seu aplicativo é executado no Azure Service Fabric, serviço de nuvem, máquinas virtuais ou computadores locais, as instruções a seguir devem ser usadas. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar a coleta de instantâneo para aplicativos ASP.NET
 
@@ -77,7 +77,7 @@ Se o ASP.NET ou ASP.NET core execuções de aplicativo no serviço de aplicativo
 
 3. Modifique a classe `Startup` do seu aplicativo para adicionar e configurar o processador de telemetria do Coletor de Instantâneo.
 
-    Adicione o seguinte usando as instruções para `Startup.cs`
+    Adicione as seguintes instruções de uso `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

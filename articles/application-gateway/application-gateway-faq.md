@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: c40f372d3574f940e475a6626f998adae37a6d61
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319407"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851159"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -149,7 +149,7 @@ Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança de rede são suportados na sub-rede do gateway de aplicativos?
 
-Ver [restrições de grupos de segurança de rede na sub-rede do Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Saiba mais sobre os grupos de segurança de rede com suporte na sub-rede do gateway de aplicativo.
+Ver [restrições de grupos de segurança de rede na sub-rede do Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet) Saiba mais sobre os grupos de segurança de rede com suporte na sub-rede do gateway de aplicativo.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>As rotas definidas pelo usuário são suportadas na sub-rede do gateway de aplicativo?
 
@@ -349,6 +349,6 @@ Publicamos também um modelo do Resource Manager que instala e executa o popular
 
 O motivo mais comum é o acesso para o back-end está bloqueado por um NSG, o DNS personalizado, ou você tem uma UDR na sub-rede do gateway de aplicativo. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Gateway de Aplicativo, confira [O que é o Gateway de Aplicativo do Azure?](overview.md)

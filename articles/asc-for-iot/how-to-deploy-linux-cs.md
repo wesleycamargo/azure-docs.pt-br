@@ -1,25 +1,25 @@
 ---
 title: Guia para instalar e implantar o Linux C# agente da Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba como instalar a Central de segurança para o agente do IoT do Azure no Linux de 32 bits e 64 bits.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758343"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862090"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar a Central de segurança do Azure para IoT C#-com base em agente de segurança para Linux
 
@@ -40,17 +40,17 @@ Neste guia, você aprenderá a:
 
 Para outras plataformas e versões do agente, consulte [escolha o agente de segurança correta](how-to-deploy-agent.md).
 
-1. Para implantar o agente de segurança, são necessários direitos de administrador local no computador do qual em que você deseja instalar. 
+1. Para implantar o agente de segurança, são necessários direitos de administrador local no computador em que você deseja instalar. 
 
 1. [Criar um módulo de segurança](quickstart-create-security-twin.md) para o dispositivo.
 
 ## <a name="installation"></a>Instalação 
 
-Para implantar o agente de segurança, faça o seguinte:
+Para implantar o agente de segurança, siga as instruções:
 
-1. Baixe a versão mais recente no seu computador de [Github](https://aka.ms/iot-security-github-cs).
+1. Baixe a versão mais recente do [GitHub](https://aka.ms/iot-security-github-cs) para seu computador.
 
-1. Extraia o conteúdo do pacote e navegue até a _/instalar_ pasta.
+1. Extraia o conteúdo do pacote e navegue até a pasta _/install_.
 
 1. Adicione permissões de execução para o **InstallSecurityAgent script** executando `chmod +x InstallSecurityAgent.sh` 
 
@@ -60,7 +60,7 @@ Para implantar o agente de segurança, faça o seguinte:
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   Ver [como configurar autenticação](concept-security-agent-authentication-methods.md) para obter mais informações sobre parâmetros de autenticação.
+   Veja [Como configurar a autenticação](concept-security-agent-authentication-methods.md) para mais informações sobre parâmetros de autenticação.
 
 Esse script faz o seguinte:
 
@@ -68,29 +68,29 @@ Esse script faz o seguinte:
 
 - Adiciona um usuário de serviço (com logon interativo desabilitado).
 
-- Instala o agente como um **Daemon** -isso pressupõe que o dispositivo usa **systemd** para gerenciamento de serviços.
+- Instala o agente como um **Daemon** – pressupõe que o dispositivo usa **systemd** para gerenciamento de serviços.
 
-- Configura **sudoers** para permitir que o agente realizar certas tarefas como raiz.
+- Configura **sudoers** para permitir que o agente execute certas tarefas como raiz.
 
-- Configura o agente com os parâmetros de autenticação fornecido.
+- Configura o agente com os parâmetros de autenticação fornecidos.
 
 
-Para obter ajuda adicional, execute o script com o parâmetro – ajuda: `./InstallSecurityAgent.sh --help`
+Para obter ajuda adicional, execute o script com o parâmetro –ajuda: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Desinstalar o agente
 
-Para desinstalar o agente, execute o script com o parâmetro – u: `./InstallSecurityAgent.sh -u`. 
+Para desinstalar o agente, execute o script com o parâmetro –u: `./InstallSecurityAgent.sh -u`. 
 
 > [!NOTE]
-> Desinstalação não remove todos os pré-requisitos ausentes que foram instalados durante a instalação.
+> A desinstalação não remove todos os pré-requisitos ausentes que foram instalados durante a instalação.
 
 ## <a name="troubleshooting"></a>solução de problemas  
 
-1. Verifique o status da implantação, executando:
+1. Verifique o status da implantação executando:
 
     `systemctl status ASCIoTAgent.service`
 
-2. Habilite registro em log.  
+2. Habilitar o registro em log.  
    Se o agente não conseguir iniciar, ative o log para obter mais informações.
 
    Ative o registro em log por:
@@ -107,25 +107,25 @@ Para desinstalar o agente, execute o script com o parâmetro – u: `./InstallSe
       <add key="diagnosticVerbosityLevel" value="Some" /> 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       O **logFilePath** valor é configurável. 
+       O valor **logFilePath** é configurável. 
 
        > [!NOTE]
-       > É recomendável ativar o registro em log **desativar** após a conclusão da solução de problemas. Deixando o registro em log **em** aumentos de uso de dados e tamanho de arquivo de log.
+       > É recomendável deixar o registro em log **desativado** após a conclusão da solução de problemas. Deixar o log **ativado** aumenta o tamanho do arquivo de log e o uso de dados.
 
    1. Reinicie o agente executando:
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. Exiba o arquivo de log para obter mais informações sobre a falha.  
+   1. Veja o arquivo de log para obter mais informações sobre a falha.  
 
        Local do arquivo de log é: `/var/ASCIoTAgent/IotAgentLog.log`
 
-       Altere o caminho do local do arquivo acordo com o nome que você escolheu para o **logFilePath** na etapa 2. 
+       Altere o caminho do local do arquivo de acordo com o nome que você escolheu para o **logFilePath** na etapa 2. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia o ASC para o serviço IoT [visão geral](overview.md)
-- Saiba mais sobre o ASC para IoT [arquitetura](architecture.md)
-- Habilitar o [serviço](quickstart-onboard-iot-hub.md)
-- Leia o [perguntas Frequentes](resources-frequently-asked-questions.md)
-- Entender [alertas](concept-security-alerts.md)
+- Leia a [Visão geral](overview.md) do serviço ASC para IoT
+- Saiba mais sobre a [Arquitetura](architecture.md) da ASC para IoT
+- Habilite o [serviço](quickstart-onboard-iot-hub.md)
+- Leia as [Perguntas frequentes](resources-frequently-asked-questions.md)
+- Entenda os [alertas](concept-security-alerts.md)

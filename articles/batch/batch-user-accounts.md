@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813901"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877509"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -30,9 +30,9 @@ Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por pa
 
 O Lote do Azure fornece dois tipos de conta de usuário para execução de tarefas:
 
-- **Contas de usuário automático** As contas de usuário automático são contas de usuário internas criadas automaticamente pelo serviço de Lote. Por padrão, as tarefas são executadas em uma conta de usuário automático. Você pode configurar a especificação de usuário automático para uma tarefa a fim de indicar sob qual conta de usuário automático ela deve ser executada. A especificação de usuário automático permite que você especifique o nível de elevação e o escopo da conta de usuário automático que executará a tarefa. 
+- **Contas de usuário automático.** As contas de usuário automático são contas de usuário internas criadas automaticamente pelo serviço de Lote. Por padrão, as tarefas são executadas em uma conta de usuário automático. Você pode configurar a especificação de usuário automático para uma tarefa a fim de indicar sob qual conta de usuário automático ela deve ser executada. A especificação de usuário automático permite que você especifique o nível de elevação e o escopo da conta de usuário automático que executará a tarefa. 
 
-- **Uma conta de usuário nomeado** Você pode especificar uma ou mais contas de usuário nomeado para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome de conta, você especifica a senha, o nível de elevação e, para pools do Linux, a chave privada SSH da conta do usuário. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeado na qual essa tarefa deve ser executada.
+- **Uma conta de usuário nomeado.** Você pode especificar uma ou mais contas de usuário nomeado para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome de conta, você especifica a senha, o nível de elevação e, para pools do Linux, a chave privada SSH da conta do usuário. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeado na qual essa tarefa deve ser executada.
 
 > [!IMPORTANT] 
 > A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significativa que exige a atualização do seu código para chamar essa versão. Se você estiver migrando o código de uma versão antiga do Lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do Lote. Use a nova propriedade **userIdentity** de uma tarefa para especificar o nível de elevação. Veja a seção [Atualizar seu código para a biblioteca de cliente mais recente do Lote](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas a fim de atualizar o código do Lote se estiver usando uma das bibliotecas de cliente.
@@ -314,7 +314,7 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` não especificado | Nenhuma atualização é necessária                                                                                               |
+| `CloudTask.RunElevated` Não especificado | Nenhuma atualização é necessária                                                                                               |
 
 ### <a name="batch-java"></a>Java no Lote
 
@@ -322,15 +322,15 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` não especificado | Nenhuma atualização é necessária                                                                                                                     |
+| `CloudTask.withRunElevated` Não especificado | Nenhuma atualização é necessária                                                                                                                     |
 
 ### <a name="batch-python"></a>Python no Lote
 
 | Se seu código usar...                      | Atualize-o para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
-| `run_elevated=False`                      | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated` não especificado | Nenhuma atualização é necessária                                                                                                                                  |
+| `run_elevated=True`                       | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated` Não especificado | Nenhuma atualização é necessária                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Próximas etapas

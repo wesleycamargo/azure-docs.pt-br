@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118418"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884152"
 ---
-# <a name="configure-application-insights-profiler"></a>Configurar Application Insights Profiler
+# <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
 ## <a name="profiler-settings-pane"></a>Painel de configurações do Profiler
 
@@ -39,6 +39,9 @@ O painel **Configurar o Application Insights Profiler** contém quatro recursos:
 Dependendo de como seu Ambiente do Serviço de Aplicativo do Azure está configurado, a chamada para verificar o status do agente pode estar bloqueada. O painel pode exibir uma mensagem que o agente não está em execução, mesmo quando ele está em execução. Para ter certeza, você pode verificar o trabalho Web em seu aplicativo. Se todos os valores de configurações de aplicativo estão corretos e a extensão de site do Application Insights está instalada no aplicativo, o Profiler está em execução. Se o aplicativo está recebendo tráfego suficiente, sessões recentes de criação de perfil devem ser exibidas em uma lista.
 
 ## <a id="profileondemand"></a>Disparar o Profiler manualmente
+
+### <a name="minimum-requirements"></a>Requisitos mínimos 
+Para um usuário disparar manualmente uma sessão de criador de perfil, eles exigem no mínimo "gravação" acesso em suas funções para o componente do Application Insights. Na maioria dos casos você receberá esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo de assinatura para adicionar seria a função "Colaborador de componente do Application Insights". [Veja mais informações sobre o controle de acesso de função no monitoramento do Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 Você pode disparar o Profiler manualmente com um único clique. Imagine que você está executando um teste de desempenho Web. Você precisará de rastreamentos para ajudá-lo a entender o desempenho de seu aplicativo Web sob carga. Ter controle sobre quando os rastreamentos são capturados é crucial, pois você sabe quando o teste de carga será executado. Mas o intervalo de amostragem aleatória poderá não detectar isso.
 
@@ -122,7 +125,7 @@ Se qualquer um dos valores anteriores não estiverem definidos, instale a extens
     ![Verificar se há atualização da extensão][check-for-extension-update]
 
 ## <a name="next-steps"></a>Próximas etapas
-[Habilitar o Profiler e ver os rastreios](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Habilitar o Profiler e exibir rastreamentos](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

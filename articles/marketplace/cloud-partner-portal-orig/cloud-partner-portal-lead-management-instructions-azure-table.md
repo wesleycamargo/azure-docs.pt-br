@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850710"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878002"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Instruções de gerenciamento de leads em tabelas do Azure
 
@@ -34,7 +34,7 @@ Este artigo descreve como configurar a Tabela do Azure para armazenar clientes p
 
     ![Etapas para criar uma conta de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Copie a cadeia de conexão da conta de armazenamento para a chave e cole-a no campo **Cadeia de Conexão da Conta de Armazenamento** no Portal do Cloud Partner. Um exemplo de uma cadeia de caracteres de conexão é `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Copie a cadeia de conexão da conta de armazenamento para a chave e cole-a no campo **Cadeia de Conexão da Conta de Armazenamento** no Portal do Cloud Partner. Um exemplo de uma cadeia de caracteres de conexão é `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Chave de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369064"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884339"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -100,14 +100,17 @@ Após a normalização, essa senha se torna “contosoblankf9!”. O processo de
 [contoso] + [em branco] + [f] + [9] + [!] = 5 pontos; uma vez que essa senha tem pelo menos 5 pontos, ela é aceita.
 
    > [!IMPORTANT]
-   > Observe que o algoritmo de senhas banidas junto com a lista global pode mudar e muda a qualquer momento no Azure com base em análise e pesquisa de segurança contínuas. Para o serviço de agente do controlador de domínio local, os algoritmos atualizados só entrarão em vigor depois que o software do agente de controlador de domínio for reinstalado.
+   > Observe que o algoritmo de senhas banidas junto com a lista global pode mudar e muda a qualquer momento no Azure com base em análise e pesquisa de segurança contínuas. Para o serviço de agente do controlador de domínio local, os algoritmos atualizados só terão efeito depois que o software do agente de controlador de domínio for reinstalado.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
 |   | Proteção por senha do AD do Azure com a lista de senhas banidas global | Proteção por senha do AD do Azure com a lista de senhas banidas personalizado|
 | --- | --- | --- |
-| Usuários somente na nuvem | AD do Azure Gratuito | AD Basic do Azure |
+| Usuários somente na nuvem | AD do Azure Gratuito | O Azure AD Premium P1 ou P2 |
 | Os usuários sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
+
+> [!NOTE]
+> Os usuários do Windows Server Active Directory local que não são sincronizados ao Azure Active Directory também avaliar os benefícios da proteção por senha do Azure AD com base em licenciamento existentes para os usuários sincronizados.
 
 Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -119,5 +122,5 @@ Infelizmente, sua senha contém uma palavra, uma frase ou um padrão que pode se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar a lista de senhas proibidas personalizada](howto-password-ban-bad.md)
-* [Habilitar agentes de proteção por senha do Azure AD local](howto-password-ban-bad-on-premises-deploy.md)
+* [Configurar a lista de senhas banidas personalizada](howto-password-ban-bad.md)
+* [Habilitar Azure AD senha proteção agentes locais](howto-password-ban-bad-on-premises-deploy.md)

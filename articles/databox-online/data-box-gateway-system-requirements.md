@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417829"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881759"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de Gateway da caixa de dados do Azure
 
@@ -48,7 +48,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Plataformas de virtualização com suporte para o dispositivo
 
-| **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
+| **Plataforma do sistema operacional**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
@@ -85,11 +85,15 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
+### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o Azure governamental
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Próxima etapa
 
-* [Implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
+* [Implantar o Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md)
 

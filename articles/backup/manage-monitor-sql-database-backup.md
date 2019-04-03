@@ -8,15 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004122"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849587"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
-
 
 Este artigo descreve as tarefas comuns para gerenciamento e monitoramento de bancos de dados do SQL Server que estiver executando em uma máquina virtual do Azure (VM) e que passam por backup nos serviços de recuperação de Backup do Azure do cofre o [Backup do Azure](backup-overview.md) service. Você aprenderá a monitorar trabalhos e alertas, interromper e retomar a proteção do banco de dados, executar trabalhos de backup e cancelar o registro de uma VM a partir de backups.
 
@@ -113,6 +112,7 @@ Você pode executar diferentes tipos de backups sob demanda:
 * Backup diferencial
 * Backup de log
 
+Enquanto você precisa especificar a duração de retenção de backup completo somente cópia, o período de retenção para outros tipos de backup é automaticamente definido como 30 dias da hora atual. <br/>
 Para obter mais informações, consulte [tipos de backup do SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Cancelar o registro de uma instância do SQL Server
