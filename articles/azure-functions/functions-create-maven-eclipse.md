@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167538"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881419"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Crie sua primeira função com Java e Eclipse (Versão prévia)
-
-> [!NOTE] 
-> O Java para Azure Functions está atualmente na versão prévia.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Criar sua primeira função com Java e o Eclipse 
 
 Este artigo mostra como criar um projeto de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) com o Eclipse IDE e o Apache Maven, testá-lo e depurá-lo e implantá-lo nas Funções do Azure. 
 

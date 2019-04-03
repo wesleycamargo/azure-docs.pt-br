@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564231"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863195"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -78,6 +78,7 @@ Você pode examinar e aceitar uma recomendação de cada vez.
 A recomendação selecionada é aplicada ao banco de dados.
 
 ### <a name="removing-recommendations-from-the-list"></a>Removendo recomendações da lista
+
 Se sua lista de recomendações contiver itens que você deseja remover da lista, você poderá descartar a recomendação:
 
 1. Selecione uma recomendação na lista de **Recomendações** para abrir os detalhes.
@@ -110,18 +111,21 @@ Você pode definir o Banco de Dados SQL do Azure para implementar as recomendaç
 
 Depois de selecionar a configuração desejada, clique em Aplicar.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Executar manualmente o script T-SQL recomendado
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar manualmente as recomendações por meio do T-SQL
+
 Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
 
-*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Além disso, recomendações aplicadas manualmente permanecerá ativo e mostrados na lista de recomendações por 24 a 48 horas. antes do sistema retira automaticamente-los. Se você quiser remover uma recomendação mais cedo, você pode descartá-lo manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelando recomendações
+
 Recomendações que estão com status **Pendente**, **Validando** ou **Êxito** podem ser canceladas. Recomendações com status **Executando** não podem ser canceladas.
 
 1. Selecione uma recomendação na área **Histórico de Ajustes** para abrir a página **detalhes da recomendação**.
 2. Clique em **Cancelar** para anular o processo de aplicação da recomendação.
 
 ## <a name="monitoring-operations"></a>Monitoramento de operações
+
 A aplicação de uma recomendação pode não acontecer instantaneamente. O portal fornece detalhes sobre o status da recomendação. Um índice pode estar em um dos estados a seguir:
 
 | Status | DESCRIÇÃO |

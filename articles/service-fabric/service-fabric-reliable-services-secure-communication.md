@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: b6d4a44a53ba553ab4fd514c81867156192b69f5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662526"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886260"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger as comunicações remotas do serviço em um serviço C#
 > [!div class="op_single_selector"]
-> * [C# em Windows](service-fabric-reliable-services-secure-communication.md)
+> * [C#no Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java no Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
@@ -129,7 +129,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação r
        }
        ```
 
-        Se você adicionar uma seção `TransportSettings` ao arquivo settings.xml, `FabricTransportRemotingListenerSettings ` carregará todas as configurações dessa seção por padrão.
+        Se você adicionar uma seção `TransportSettings` ao arquivo settings.xml, `FabricTransportRemotingListenerSettings` carregará todas as configurações dessa seção por padrão.
 
         ```xml
         <!--"TransportSettings" section .-->

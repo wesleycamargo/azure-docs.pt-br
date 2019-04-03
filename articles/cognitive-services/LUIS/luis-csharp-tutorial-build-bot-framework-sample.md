@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091674"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878461"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot do LUIS em C# com o Bot Framework 3.x e o bot de aplicativo Web do Azure
 
@@ -111,19 +111,19 @@ Abra **Configuração de aplicativo** e edite o campo **LuisAppId** para conter 
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-3. Adicione constantes para gerenciar cadeia de caracteres na parte superior da classe `BasicLuisDialog `:
+3. Adicione constantes para gerenciar cadeia de caracteres na parte superior da classe `BasicLuisDialog`:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-4. Adicione o código para as novas intenções de `HomeAutomation.TurnOn` e `HomeAutomation.TurnOff` dentro da classe `BasicLuisDialog `:
+4. Adicione o código para as novas intenções de `HomeAutomation.TurnOn` e `HomeAutomation.TurnOff` dentro da classe `BasicLuisDialog`:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-5. Adicione o código para obter entidades encontradas pelo LUIS dentro da classe `BasicLuisDialog `:
+5. Adicione o código para obter entidades encontradas pelo LUIS dentro da classe `BasicLuisDialog`:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-6. Altere o método **ShowLuisResult** na classe `BasicLuisDialog ` para arredondar a pontuação, coletar as entidades e exibir a mensagem de resposta no chatbot:
+6. Altere o método **ShowLuisResult** na classe `BasicLuisDialog` para arredondar a pontuação, coletar as entidades e exibir a mensagem de resposta no chatbot:
 
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 

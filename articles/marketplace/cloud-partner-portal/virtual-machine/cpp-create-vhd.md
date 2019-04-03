@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883660"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
 
 Este artigo detalha as etapas necessárias para criar um disco rígido virtual (VHD) para uma oferta de máquina virtual (VM) no Azure Marketplace.  Ele também inclui práticas recomendadas para vários aspectos, como o uso do RDP (Remote Desktop Protocol), a seleção de um tamanho para a VM, a instalação das atualizações mais recentes do Windows e a generalização da imagem do VHD.  As seções a seguir enfocam principalmente os VHDs baseados em Windows; para obter mais informações sobre a criação de VHDs baseados em Linux, consulte [Linux em distribuições endossadas pelo Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> É altamente recomendável seguir as orientações deste tópico para usar o Azure para criar uma VM que contenha um sistema operacional pré-configurado e endossado.  Se isso não for compatível com sua solução, será possível criar e configurar uma VM local usando um sistema operacional aprovado.  Você pode configurá-lo e prepará-lo para upload, conforme descrito em [ Preparar um VHDX ou VHDX do Windows para fazer o upload para o Azure ](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> É altamente recomendável seguir as orientações deste tópico para usar o Azure para criar uma VM que contenha um sistema operacional pré-configurado e endossado.  Se isso não é compatível com sua solução, é possível criar e configurar uma VM local usando um sistema operacional aprovado.  Você pode configurá-lo e prepará-lo para upload, conforme descrito em [ Preparar um VHDX ou VHDX do Windows para fazer o upload para o Azure ](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Selecione uma base aprovada

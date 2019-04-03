@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee7adb7c4c0efc8a455d8dc74bc723644d006f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd5e3087c21908600be9cd369a15f3036e5acb2f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169013"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory ao Tableau Online
 
@@ -58,7 +58,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-tableau-online-from-the-gallery"></a>Adição do Tableau Online da galeria
 Para configurar a integração do Tableau Online ao Azure AD, você precisa adicionar o Tableau Online da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Tableau Online por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Tableau Online da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
      a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com`
 
-    b. Na caixa de texto **Identificador**, digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
+    b. Na caixa de texto **Identificador**, digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
 1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
@@ -187,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/tableauonline-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -213,7 +213,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Tableau Online, execute as seguintes etapas:**
+**Para atribuir Britta Simon ao Tableau Online, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

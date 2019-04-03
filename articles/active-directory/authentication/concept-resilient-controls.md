@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316330"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886073"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -75,13 +75,13 @@ Incorpore os seguintes controles de acesso nas políticas de acesso condicional 
 O exemplo a seguir descreve as políticas que você deve criar para fornecer um controle de acesso resiliente para que o usuário acesse os aplicativos e recursos deles. Neste exemplo, será necessário um grupo de segurança **AppUsers** com os usuários de destino para os quais você quer conceder acesso, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado  **EmergencyAccess** com as contas de acesso de emergência.
 Este conjunto de políticas de exemplo concederá aos usuários selecionados no **AppUsers** acesso aos aplicativos selecionados se eles estiverem conectando a partir de um dispositivo confiável OU fornecerá autenticação forte, por exemplo, MFA. Isso exclui contas de emergência e administradores principais.
 
-**Conjunto de políticas de mitigação de CA:**
+**Definem políticas de mitigação de autoridade de certificação:**
 
 * Política 1: Bloquear o acesso a pessoas fora dos grupos de destino
   * Usuários e Grupos: Incluir todos os usuários. Excluir AppUsers, CoreAdmins, e EmergencyAccess
   * Aplicativos de Nuvem: Incluir todos os aplicativos
   * Condições: (Nenhuma)
-  * Controles de Concessão: Bloquear
+  * Controles de Concessão: Bloco
 * Política 2: Conceder acesso a AppUsers exigindo MFA ou dispositivo confiável.
   * Usuários e Grupos: Incluir AppUsers. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Incluir todos os aplicativos
@@ -117,13 +117,13 @@ Uma política de acesso condicional de contingência é uma **política desabili
 * Configure um conjunto de políticas de fallback se uma interrupção em um mecanismo de controle de acesso ou um tipo de credencial afete o acesso aos seus aplicativos. Configure uma política em um estado desabilitado que requer ingresso no domínio como um controle, como um backup para uma política ativa que requer um provedor MFA de terceiros.
 * Reduza o risco de atores maliciosos detectarem senhas, quando a MFA não é necessária, seguindo as práticas no white paper [diretrizes de senha](https://aka.ms/passwordguidance).
 * Implante [SSPR (Redefinição de Senha de Autoatendimento do Azure AD)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Proteção por Senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para certificar-se de que os usuários não usem uma senha comum e os termos que você quer vetar.
-* Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo:
+* Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo: 
   * Configure uma política de backup que envia a declaração de sessão restrita para Exchange e SharePoint.
   * Se sua organização usa o Microsoft Cloud App Security, considere fazer fallback para uma política que envolve o MCAS e, então, o MCAS permite acesso somente leitura, mas não uploads.
 * Dê um nome às suas políticas para garantir que seja fácil encontrá-las durante uma interrupção. Inclua os seguintes elementos no nome da política:
   * Um *número de rótulo* para a política.
-  * Texto a ser exibido, essa política é somente para emergências. Por exemplo: **HABILITAR EM EMERGÊNCIA**
-  * A *interrupção* à qual ela se aplica. Por exemplo: **Durante Interrupção da MFA**
+  * Texto a ser exibido, essa política é somente para emergências. Por exemplo:  **HABILITAR EM EMERGÊNCIA**
+  * A *interrupção* à qual ela se aplica. Por exemplo:  **Durante Interrupção da MFA**
   * Um *número de sequência* para mostrar a ordem em que você deve ativar as políticas.
   * Os *aplicativos* aos quais ela se aplica.
   * Os *controles* aos quais ela se aplica.
@@ -131,13 +131,13 @@ Uma política de acesso condicional de contingência é uma **política desabili
   
 Esse padrão de nomenclatura para as políticas de contingência será o seguinte: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 O exemplo a seguir: **Exemplo A - política de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos**, é uma contingência corporativa típica. Nesse cenário, a organização normalmente requer MFA para todos os acessos do Exchange Online e SharePoint Online e a interrupção, nesse caso, é que o provedor de MFA para o cliente tem uma interrupção (quer seja a MFA do Azure, provedor MFA local ou a MFA de terceiros). Essa política mitiga essa interrupção, permitindo que os usuários de destino específicos acessem esses aplicativos em dispositivos confiáveis do Windows somente quando eles estão acessando o aplicativo a partir da rede corporativa confiável deles. Ela também exclui contas de emergência e administradores principais nessas restrições. Assim, os usuários de destino terão acesso ao Exchange Online e ao SharePoint Online, enquanto outros usuários ainda não terão acesso a aplicativos devido à interrupção. Este exemplo exigirá um local de rede nomeado **CorpNetwork** e um grupo de segurança **ContingencyAccess** com os usuários de destino, um grupo nomeado **CoreAdmins** com os administradores principais e um grupo nomeado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para fornecer o acesso exigido. 
 
-**Exemplo A - políticas de CA de contingência para restaurar o acesso aos aplicativos de colaboração críticos:**
+**Exemplo A - políticas de autoridade de certificação de contingência para restaurar o acesso aos aplicativos de colaboração de missão crítica:**
 
 * Política 1: Exigir dispositivos ingressados no domínio para Exchange e SharePoint
   * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [1/4] – Exchange SharePoint – Exigir ingresso no Azure AD Híbrido
@@ -151,21 +151,21 @@ O exemplo a seguir: **Exemplo A - política de CA de contingência para restaura
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir Windows
-  * Controles de Concessão: Bloquear
+  * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 3: Bloquear redes que não sejam CorpNetwork
   * Nome: EM003 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [3/4] – Exchange SharePoint – Bloquear acesso, exceto da rede corporativa
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Locais incluem qualquer local, excluir CorpNetwork
-  * Controles de Concessão: Bloquear
+  * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 4: Bloquear EAS explicitamente
   * Nome: EM004 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [4/4] – Exchange – Bloquear EAS para todos os usuários
   * Usuários e Grupos: Incluir todos os usuários
   * Aplicativos de Nuvem: Incluir Exchange Online
   * Condições: Aplicativos do cliente: Exchange Active Sync
-  * Controles de Concessão: Bloquear
+  * Controles de Concessão: Bloco
   * Estado: Desabilitado
 
 Ordem de ativação:
@@ -179,21 +179,21 @@ Ordem de ativação:
 
 Neste exemplo, **Exemplo B - políticas de CA de contingência para permitir o acesso móvel à Salesforce**, o acesso de um aplicativo de negócios é restaurado. Nesse cenário, o cliente normalmente requer o acesso de funcionários de vendas à Salesforce (configurada para logon único com o Azure AD) de dispositivos móveis a serem permitidos apenas de dispositivos em conformidade. A interrupção nesse caso é que há um problema com a avaliação da conformidade do dispositivo e a interrupção está acontecendo durante um tempo sensível em que a equipe de vendas precisa de acesso à Salesforce para fechar negócios. Essas políticas de contingência concederão aos usuários críticos o acesso à Salesforce a partir de um dispositivo móvel para possibilitar que eles continuem a fechar negócios e não interrompam os negócios. Neste exemplo, **SalesforceContingency** contém todos os funcionários de vendas que precisam manter o acesso e **SalesAdmins** contém os administradores necessários da Salesforce.
 
-**Exemplo B - políticas de CA de contingência:**
+**Exemplo B - políticas de autoridade de certificação de contingência:**
 
 * Política 1: Bloquear todos que não estejam na equipe SalesContingency
   * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [1/2] – Salesforce – Bloquear todos os usuários, exceto SalesforceContingency
   * Usuários e Grupos: Incluir todos os usuários. Excluir SalesAdmins e SalesforceContingency
   * Aplicativos de Nuvem: Salesforce.
-  * Condições: Nenhuma
-  * Controles de Concessão: Bloquear
+  * Condições: Nenhum
+  * Controles de Concessão: Bloco
   * Estado: Desabilitado
 * Política 2: Bloquear a equipe de vendas de qualquer plataforma que não seja móvel (para reduzir a área da superfície do ataque)
   * Nome: EM002 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [2/2] – Salesforce – Bloquear todas as plataformas, exceto iOS e Android
   * Usuários e Grupos: Incluir SalesforceContingency. Excluir SalesAdmins
   * Aplicativos de Nuvem: Salesforce
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir iOS e Android
-  * Controles de Concessão: Bloquear
+  * Controles de Concessão: Bloco
   * Estado: Desabilitado
 
 Ordem de ativação:
@@ -261,12 +261,12 @@ Se sua organização estiver usando políticas herdadas de MFA por usuário, voc
 
 ## <a name="learn-more"></a>Saiba mais
 
-* [Documentação de Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Documentação da Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gerenciar contas administrativas de acesso de emergência no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurar locais nomeados no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Como configurar dispositivos adicionados ao Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Guia de implantação do Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Windows Hello para negócios guia de implantação](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Diretrizes de senha - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quais são as condições no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Quais são as condições no acesso condicional do Active Directory do Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [O que são controles de acesso no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

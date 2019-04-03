@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 46df2d6828cd60aee3c64128197579eb6f51a11a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 1a4bfae22477e345176971bd40b0afa91c8867fb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340324"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885818"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implantar o Azure Monitor para VMs (versão prévia)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo descreve como configurar o Azure Monitor para VMs. O serviço monitora a integridade do sistema operacional de VMs (máquinas virtuais) do Azure e de conjuntos de dimensionamento de máquinas virtuais, bem como as máquinas virtuais no ambiente. Esse monitoramento inclui a descoberta e o mapeamento de dependências de aplicativo que podem ser hospedadas nelas. 
 
 Habilite o Azure Monitor para VMs usando um dos seguintes métodos:
@@ -36,10 +39,12 @@ Antes de começar, verifique se você compreende as informações descritas nas 
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Atualmente, há suporte para um workspace do Log Analytics nas seguintes regiões:
+O Azure Monitor para VMs oferece suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
 - Centro-Oeste dos EUA
 - Leste dos EUA
+- Canada Central<sup>1</sup>
+- Sul do Reino Unido<sup>1</sup>
 - Europa Ocidental
 - Sudeste Asiático<sup>1</sup>
 
@@ -52,7 +57,7 @@ Atualmente, há suporte para um workspace do Log Analytics nas seguintes regiõe
 Caso não tenha um workspace, crie um com um dos seguintes métodos:
 * [A CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [O portal do Azure](../../azure-monitor/learn/quick-create-workspace.md)
+* [O Portal do Azure](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Se estiver habilitando o monitoramento para uma VM individual do Azure no portal do Azure, você poderá criar um workspace durante esse processo.
@@ -70,19 +75,17 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux compatíveis co
 
 |Versão do SO |Desempenho |Mapas |Integridade |
 |-----------|------------|-----|-------|
-|Windows Server 2019 | X | X |  |
+|Windows Server 2019 | X | X | |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
 |Windows Server 2012 | X | X | |
 |Windows Server 2008 R2 | X | X| |
-|Red Hat Enterprise Linux (RHEL) 7, 6| X | X| X |
-|Ubuntu 18.04, 16.04, 14.04 | X | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SLES (SUSE Linux Enterprise Server) 12 | X | X | X |
-|Oracle Linux 7 | X<sup>1</sup> | | X |
-|Oracle Linux 6 | X | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
+|Ubuntu 14.04, 16.04, 18.04 | X | X | X |
+|CentOS Linux 6, 7 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> O recurso Desempenho do Azure Monitor para VMs está disponível somente no Azure Monitor. Ele não está disponível quando você o acessa diretamente no painel esquerdo da VM do Azure.
 
@@ -91,16 +94,12 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux compatíveis co
 > - Somente as versões de kernel padrão e Linux SMP têm suporte.
 > - Não há suporte para nenhuma distribuição do Linux em versões de kernel não padrão, como PAE (Extensão do Endereço Físico) e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão *2.6.16.21-0.8-xen*.
 > - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
-> - Não há suporte para o kernel CentOSPlus.
+> - Há suporte para o kernel CentOSPlus.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7,2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -109,17 +108,14 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux compatíveis co
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 6,0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6,8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| Versão do SO | Versão do kernel |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -130,21 +126,11 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux compatíveis co
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-#### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 com Unbreakable Enterprise Kernel
-| Versão do SO | Versão do kernel
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-#### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 com Unbreakable Enterprise Kernel
+#### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | Versão do SO | Versão do kernel
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+|11 SP4 | 3.0.* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -313,7 +299,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     * Use os seguintes comandos do PowerShell na pasta que contém o modelo:
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
         ```
 
         A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
@@ -389,11 +375,11 @@ With this initial release, you can create the policy assignment only in the Azur
     
 1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
-    >[!NOTE]
-    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
-    >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
-    >  
-    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
+   > [!NOTE]
+   > If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+   > 
+   >  The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
     
 1. In the **Manage Identity location** drop-down list, select the appropriate region.
 
@@ -426,7 +412,7 @@ Based on the results of the policies included with the initiative, VMs are repor
 ### Enable with PowerShell
 To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+This script requires Azure PowerShell module Az version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 
@@ -731,7 +717,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 1. Você está pronto para implantar esse modelo usando o seguinte comando do PowerShell:
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
@@ -739,7 +725,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     ```powershell
     provisioningState       : Succeeded
     ```
-Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição do estado de integridade e das métricas para o computador híbrido.
+   Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição do estado de integridade e das métricas para o computador híbrido.
 
 ## <a name="performance-counters-enabled"></a>Contadores de desempenho habilitados
 O Azure Monitor para VMs configura um workspace do Log Analytics para coletar os contadores de desempenho usados pela solução. A tabela a seguir lista os objetos e os contadores configurados pela solução que são coletados a cada 60 segundos.

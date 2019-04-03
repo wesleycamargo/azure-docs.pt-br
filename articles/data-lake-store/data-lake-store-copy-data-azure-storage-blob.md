@@ -3,21 +3,21 @@ title: Copiar dados de Blobs de Armazenamento do Azure para o Azure Data Lake St
 description: Usar a ferramenta AdlCopy para copiar dados dos Azure Storage Blobs para o Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544624"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879804"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados de Azure Storage Blobs para o Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -179,6 +179,6 @@ O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e past
 * 1.0.13 – se você estiver copiando dados para a mesma conta do Azure Data Lake Storage Gen1 entre vários comandos adlcopy, você não precisará mais digitar suas credenciais novamente para cada execução. O Adlcopy agora gravará essas informações em cache entre várias execuções.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
-* [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Proteger os dados no Data Lake armazenamento Gen1](data-lake-store-secure-data.md)
+* [Usar o Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

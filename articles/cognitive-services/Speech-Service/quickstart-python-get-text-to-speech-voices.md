@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522815"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876573"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Início Rápido: Obter a lista de texto em fala vozes usando Python
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 Aqui você vai para a solicitação de compilação e salvar a lista de vozes retornadas. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, consulte [regiões de serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Em seguida, adicione os cabeçalhos necessários para a solicitação. Finalmente, você fará uma solicitação ao serviço. Se a solicitação for bem-sucedida e um código de status 200 for retornado, a resposta de fala será gravada em um arquivo com registro de data e hora.
+Em seguida, adicione os cabeçalhos necessários para a solicitação. Finalmente, você fará uma solicitação ao serviço. Se a solicitação for bem-sucedida, e um código de 200 status é retornado, a resposta é gravada em um arquivo.
 
 Copie este código para a classe `GetVoices`:
 
@@ -136,5 +136,5 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 ## <a name="see-also"></a>Consulte também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
-* [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)
+* [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
+* [Gravar amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

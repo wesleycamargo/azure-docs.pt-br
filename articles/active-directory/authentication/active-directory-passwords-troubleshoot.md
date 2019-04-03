@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885070"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -75,7 +75,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 | O usuário vê um erro ao validar seu número de telefone. | Esse erro ocorre quando o número de telefone digitado não coincide com o número de telefone no arquivo. Verifique se o usuário está inserindo o número de telefone completo, incluindo o código de área e país, ao tentar usar um método baseado em telefone para a redefinição de senha. |
 | Há um erro ao processar a solicitação. | Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma interrupção do serviço ou um problema de configuração. Se você receber esse erro e ele estiver afetando seus negócios, contate o suporte da Microsoft para obter assistência adicional. |
 | Violação de política local | A senha não atende à política de senha do Active Directory local. |
-| A senha não é compatível com a política difusa | A senha usada aparece na lista de senhas banidas e não pode ser usada. |
+| A senha não é compatível com a política difusa | A senha que foi usada aparece na [proibidos lista senhas](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) e não pode ser usado. |
 
 ## <a name="troubleshoot-password-writeback"></a>Solução de problemas de write-back de senha
 
@@ -157,7 +157,7 @@ Se você estiver enfrentando interrupções de serviço com o componente de writ
 * [Reiniciar o serviço Sincronização do Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Desabilitar e reabilitar o recurso de write-back de senha](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalar a versão mais recente do Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback)
+* [Solução de problemas de write-back de senha](#troubleshoot-password-writeback)
 
 Em geral, para recuperar o serviço da maneira mais rápida, recomendamos que você execute essas etapas na ordem indicada anteriormente.
 
@@ -285,14 +285,14 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
 
-* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
+* [Como posso concluir uma implementação bem-sucedida do SSPR?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
-* [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
+* [Qual é o write-back de senha e por que me preocupar sobre isso?](howto-sspr-writeback.md)
+* [Como faço para relatar sobre a atividade no SSPR?](howto-sspr-reporting.md)
+* [Quais são todas as opções no SSPR e o que eles significam?](concept-sspr-howitworks.md)
+* [Tenho uma pergunta que não foi respondida em algum lugar else](active-directory-passwords-faq.md)

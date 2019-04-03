@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520999"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879277"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar um espaço de trabalho do serviço de Azure Machine Learning
 
@@ -37,11 +37,11 @@ Quando você cria um espaço de trabalho os seguintes recursos do Azure são adi
 - [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Assim como ocorre em outros serviços do Azure, há limites e cotas associados ao Machine Learning. [Saiba mais sobre cotas e como solicitar mais.](how-to-manage-quotas.md)
+>Assim como ocorre em outros serviços do Azure, há limites e cotas associados ao Machine Learning. [Saiba mais sobre cotas e como solicitar muito mais.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar um workspace, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+Para criar um workspace, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="portal"></a> Portal do Azure
 
@@ -139,7 +139,7 @@ Crie seu workspace em um Jupyter Notebook usando o SDK do Python.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Encontre um valor para o parâmetro `<azure-subscription-id>` na [lista de assinaturas no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use qualquer assinatura em que sua função seja proprietário ou colaborador.
+1. Encontre um valor para o parâmetro `<azure-subscription-id>` na [lista de assinaturas no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use qualquer assinatura em que sua função seja proprietário ou colaborador. Para obter mais informações sobre funções, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md) artigo.
 
    ```python
    from azureml.core import Workspace

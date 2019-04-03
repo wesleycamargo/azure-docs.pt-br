@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439865"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877577"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -35,15 +35,15 @@ O recurso de vários caminhos permite configurar vários caminhos de E/S entre u
 
 A finalidade de vários caminhos é dupla:
 
-* **Alta disponibilidade**: oferece um caminho alternativo caso qualquer elemento do caminho de E/S (como um cabo, um switch, uma interface de rede ou um controlador) falhe.
-* **Balanceamento de carga**: dependendo da configuração do seu dispositivo de armazenamento, ela poderá melhorar o desempenho detectando cargas nos caminhos de E/S e rebalanceando dinamicamente essas cargas.
+* **Alta disponibilidade**: Se qualquer elemento do caminho de e/s (por exemplo, um cabo, switch, interface de rede ou controlador) falhar, ele fornece um caminho alternativo.
+* **O balanceamento de carga**: Dependendo da configuração do dispositivo de armazenamento, ela pode melhorar o desempenho detectando cargas nos caminhos de e/s e rebalanceando dinamicamente essas cargas.
 
 ### <a name="about-multipathing-components"></a>Sobre componentes de vários caminhos
 Vários caminhos em Linux consiste em componentes de kernel e em componentes de espaço do usuário como mostrados na tabela abaixo.
 
-* **Kernel**: o componente principal é o *device-mapper* , que redireciona a E/S e oferece suporte a failover de caminhos e de grupos de caminho.
+* **Kernel**: O componente principal é o *mapeador de dispositivos* que redireciona a e/s e oferece suporte a failover para grupos de caminho e caminhos.
 
-* **User-space**: são *multipath-tools* que gerenciam dispositivos de vários caminhos instruindo o módulo device-mapper de vários caminhos o que fazer. As ferramentas consistem em:
+* **Espaço do usuário**: Esses são *multipath-tools* que gerenciam dispositivos de vários caminhos instruindo o módulo do mapeador de dispositivos multipath o que fazer. As ferramentas consistem em:
    
    * **Multipath**: lista e configura os dispositivos de vários caminhos.
    * **Vários caminhos**: daemon que executa vários caminhos e monitora os caminhos.
@@ -56,11 +56,11 @@ O arquivo de configuração `/etc/multipath.conf` faz com que muitos dos recurso
 
 O arquivo multipath.conf tem cinco seções:
 
-- **System level defaults** *(defaults)*: você pode substituir os padrões no nível do sistema.
-- **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
-- **Blacklist exceptions** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
-- **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
-- **Device specific settings** *(multipaths)*: você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
+- **Os padrões de nível de sistema** *(o padrão é)*: Você pode substituir os padrões de nível de sistema.
+- **Dispositivos incluídos em listas negras** *(blacklist)*: Você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
+- **Exceções de lista de bloqueios** *(blacklist_exceptions)*: Você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listado na lista negra.
+- **Configurações específicas do controlador de armazenamento** *(dispositivos)*: Você pode especificar definições de configuração que serão aplicadas a dispositivos que têm informações de fornecedor e o produto.
+- **As configurações específicas de dispositivo** *(multipaths)*: Você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurar vários caminhos no StorSimple conectado ao host Linux
 Um dispositivo StorSimple conectado a um host Linux pode ser configurado para alta disponibilidade e balanceamento de carga. Por exemplo, se o host Linux tiver duas interfaces conectadas à SAN e o dispositivo tem duas interfaces conectadas à SAN, de modo que essas interfaces estejam na mesma sub-rede, então haverá 4 caminhos disponíveis. No entanto, se cada interface DATA na interface do dispositivo e do host estiver em uma sub-rede IP diferente (e não roteável), então somente dois caminhos estarão disponíveis. Você pode configurar vários caminhos para descobrir automaticamente todos os caminhos disponíveis, escolher um algoritmo de balanceamento de carga para esses caminhos, aplicar as configurações específicas a volumes só do StorSimple e então habilitar e verificar vários caminhos.
@@ -210,7 +210,7 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes StorSimple
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes do StorSimple
 Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf` . Digite:
@@ -262,7 +262,7 @@ Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponív
 ### <a name="step-5-verify-multipathing"></a>Etapa 5: Verificar vários caminhos
 1. Primeiro, verifique se a conexão iSCSI foi estabelecida como dispositivo StorSimple da seguinte maneira:
    
-   a. Descubra seu dispositivo StorSimple. Digite:
+    a. Descubra seu dispositivo StorSimple. Digite:
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -298,7 +298,7 @@ Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponív
 
     Se você vir somente uma interface de host e dois caminhos aqui, precisará habilitar ambas as interfaces no host para iSCSI. Você pode seguir as [instruções detalhadas na documentação do Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) por meio do Portal do Azure em seu dispositivo StorSimple.
+1. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para obter mais informações, consulte [etapa 6: Criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) por meio do portal do Azure em seu dispositivo StorSimple.
 
 1. Verifique os caminhos disponíveis. Digite:
 
@@ -351,7 +351,7 @@ Também vale a pena verificar se você realmente pode ver alguns discos depois d
 
 * Use o comando a seguir para examinar novamente o barramento SCSI:
   
-    `$ rescan-scsi-bus.sh `(parte do pacote sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte do pacote sg3_utils)
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -432,13 +432,13 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 | &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |Verificar o estado da sessão de iSCSI e o volume descoberto no host |
 | &nbsp; |`iscsi –m session` |Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple |
 |  | | |
-| **Múltiplos caminhos** |`service multipathd start` |Iniciar o daemon de vários caminhos |
+| **Vários caminhos** |`service multipathd start` |Iniciar o daemon de vários caminhos |
 | &nbsp; |`service multipathd stop` |Parar o daemon de vários caminhos |
 | &nbsp; |`service multipathd restart` |Reiniciar o daemon de vários caminhos |
 | &nbsp; |`chkconfig multipathd on` </br> Ou </br> `mpathconf –with_chkconfig y` |Habilitar daemon de vários caminhos para iniciar no momento da inicialização |
 | &nbsp; |`multipathd –k` |Inicie o console interativo para solução de problemas |
 | &nbsp; |`multipath –l` |Listar as conexões e dispositivos de vários caminhos |
-| &nbsp; |`mpathconf --enable` |Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Criar um exemplo arquivo mulitpath conf `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Próximas etapas

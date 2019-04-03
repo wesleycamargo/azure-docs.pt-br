@@ -3,20 +3,20 @@ title: 'Python: operações de sistema de arquivos no Azure Data Lake Storage Ge
 description: Saiba como usar o SDK do Python para trabalhar com o sistema de arquivos do Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548619"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880739"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -131,5 +131,5 @@ O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Stora
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência de Python do Azure Data Lake Storage Gen1 (sistema de arquivos)](https://azure-datalake-store.readthedocs.io/en/latest)
-* [Abrir aplicativos de Big Data de software livre compatíveis com o Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [Referência de Python (sistema de arquivos) do Azure Data Lake Storage Gen1](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Abrir aplicativos de Big Data de software compatíveis com o Azure Data Lake armazenamento Gen1](data-lake-store-compatible-oss-other-applications.md)

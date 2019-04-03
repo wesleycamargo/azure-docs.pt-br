@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre grupos de segurança de rede e aplicativo. Os grupos de segurança ajudam você a filtrar o tráfego de rede entre recursos do Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: jdial
-ms.openlocfilehash: b90087221de71ca7f627b9ea1717b423cfcf457b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: malop;kumud
+ms.openlocfilehash: 9d45f3a7d20545ac7b66d27505078f21f06adddc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535709"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881844"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -210,7 +210,7 @@ Em relação ao tráfego de saída, o Azure processa as regras em um grupo de se
 É possível exibir facilmente as regras de agregação aplicadas a um adaptador de rede exibindo as [regras de segurança efetiva](virtual-network-network-interface.md#view-effective-security-rules) para determinado adaptador de rede. Você também pode usar o recurso [Verificar o fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) no Observador de Rede do Azure para determinar se a comunicação é permitida na entrada ou saída de um adaptador de rede. O fluxo de IP informa se a comunicação é permitida ou negada e qual regra de segurança de rede permite ou nega o tráfego.
 
 > [!NOTE]
-> Os grupos de segurança de rede estão associados a sub-redes ou a máquinas virtuais e serviços de nuvem com o modelo de implantação clássica, em vez de associados a adaptadores de rede no modelo de implantação do Gerenciador de Recursos. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Grupos de segurança de rede são associados a sub-redes ou máquinas virtuais e serviços de nuvem implantados no modelo de implantação clássico e a sub-redes ou interfaces de rede no modelo de implantação do Resource Manager. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > A menos que você tenha um motivo específico, recomendamos que você associe um grupo de segurança de rede a uma sub-rede ou a um adaptador de rede, mas não a ambos. Como as regras em um grupo de segurança de rede associado a uma sub-rede podem entrar em conflito com as regras em um grupo de segurança de rede associado a um adaptador de rede, você pode ter problemas de comunicação inesperados que exigem a solução de problemas.

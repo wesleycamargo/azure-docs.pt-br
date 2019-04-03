@@ -4,18 +4,18 @@ description: Aprenda as melhores práticas sobre ingestão de dados, segurança 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961883"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882811"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "56961883"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -98,13 +98,13 @@ Para a resiliência de dados com o Data Lake Storage Gen1, é recomendável real
 
 A seguir, são apresentadas as três principais opções recomendadas para orquestrar a replicação entre as contas do Data Lake Storage Gen1 e as principais diferenças entre cada uma delas.
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Fábrica de dados do Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Limitado por nós de trabalho        | Limitado por unidades de Movimentação de Dados de Nuvem        | Limitado por unidades do Analytics        |
-|**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
+|**Dá suporte à cópia deltas**     |   Sim      | Não         | Não          |
 |**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
-|**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
-|**Suporte SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
+|**Sistemas de arquivos com suporte**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
+|**Suporte do sistema operacional**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Use o Distcp para movimentação de dados entre dois locais
 
@@ -185,7 +185,7 @@ No caso comum de dados em lotes que estão sendo processados diretamente em banc
 * [Controle de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md)
 * [Segurança no Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 * [Ajustando o Azure Data Lake Storage Gen1 para desempenho](data-lake-store-performance-tuning-guidance.md)
-* [Diretrizes de ajuste do desempenho para uso do Spark para HDInsight com Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
-* [Diretrizes de ajuste do desempenho para uso do Hive para HDInsight com Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
-* [Orquestração de dados usando o Azure Data Factory para o Azure Data Lake Storage Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Criar clusters do HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Diretrizes para usar o HDInsight Spark com o Azure Data Lake armazenamento Gen1 de ajuste de desempenho](data-lake-store-performance-tuning-spark.md)
+* [Diretrizes para usar o Hive do HDInsight com o Azure Data Lake armazenamento Gen1 de ajuste de desempenho](data-lake-store-performance-tuning-hive.md)
+* [Orquestração de dados usando o Azure Data Factory para o Azure Data Lake armazenamento Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Criar clusters de HDInsight com Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

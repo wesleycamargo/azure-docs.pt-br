@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56339475"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
@@ -48,9 +48,9 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 
 | Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
-| `type` |string |Tipo de binding. Por exemplo: `queueTrigger`. |
+| `type` |cadeia de caracteres |Tipo de binding. Por exemplo: `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
-| `name` |string |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
+| `name` |cadeia de caracteres |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
 
 ## <a name="function-app"></a>Aplicativo de funções
 O aplicativo de funções fornece um contexto de execução no Azure no qual suas funções são executadas. Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas, implantadas e dimensionadas em conjunto. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, a implantação contínua e a versão de tempo de execução. Pense em um aplicativo de funções como uma forma de organizar e gerenciar coletivamente suas funções. 
@@ -85,11 +85,11 @@ Você pode configurar a versão do tempo de execução de Funções usando a con
 O código para o Azure Functions é software livre e é armazenado em repositórios do GitHub:
 
 * [Funções do Azure](https://github.com/Azure/Azure-Functions)
-* [Host do Azure Functions](https://github.com/Azure/azure-functions-host/)
-* [Portal do Azure Functions](https://github.com/azure/azure-functions-ux)
+* [Host de funções do Azure](https://github.com/Azure/azure-functions-host/)
+* [portal das Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modelos do Azure Functions](https://github.com/azure/azure-functions-templates)
-* [SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensões do SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/)
+* [Extensões do SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Associações
 Veja uma tabela de todas as associações com suporte.
@@ -104,7 +104,7 @@ Está tendo problemas com erros provenientes de associações? Examine a documen
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
-* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
+* [Associações e gatilhos do azure Functions](functions-triggers-bindings.md)
 * [Codificar e testar o Azure Functions localmente](./functions-develop-local.md)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)

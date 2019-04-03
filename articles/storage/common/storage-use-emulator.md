@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878580"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
@@ -139,9 +139,9 @@ Por exemplo, o endereço a seguir pode ser usado para acessar um blob no emulado
 
 Os pontos de extremidade de serviço para o emulador de armazenamento são:
 
-* Serviço Blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Serviço Fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Serviço Tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Serviço BLOB: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Serviço de fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Serviço de tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Endereçamento da conta secundária com RA-GRS
 A partir da versão 3.1, o emulador de armazenamento oferece suporte a replicação de georredundância com acesso de leitura (RA-GRS). Para recursos de armazenamento na nuvem e no emulador do local, você pode acessar o local secundário acrescentando -secundário no nome da conta. Por exemplo, o endereço a seguir pode ser usado para acessar um blob usando o secundário somente leitura no emulador de armazenamento:
@@ -170,9 +170,9 @@ Para exibir a lista de opções, digite `/help` no prompt de comando.
 | Opção | DESCRIÇÃO | Comando | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia o emulador de armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Inicia o emulador no processo atual em vez de criar um novo processo. |
-| **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
+| **Stop** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator.exe status` | |
-| **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: Limpa os dados do blob. <br/>*queue*: Limpa os dados da fila. <br/>*table*: Limpa os dados da tabela. <br/>*all*: Limpa todos os dados em todos os serviços. |
+| **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Limpa os dados do blob. <br/>*queue*: Limpa os dados da fila. <br/>*table*: Limpa os dados da tabela. <br/>*all*: Limpa todos os dados em todos os serviços. |
 | **Init** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: Especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: Especifica o nome da instância do SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: Força a criação do banco de dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: Ignora a criação do banco de dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: Tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: Tenta remover as reservas das portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: Executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento e o armazenamento do Azure

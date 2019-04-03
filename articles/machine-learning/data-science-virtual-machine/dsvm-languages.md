@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990793"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877407"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguagens com suporte na Máquina Virtual de Ciência de Dados 
 
@@ -145,7 +145,7 @@ Os ambientes Python padrão no DSVM são ambientes globais legíveis por todos o
 | ------------- | ------------- |
 | Versões de linguagem com suporte | Microsoft R Open 3.x (100% compatível com CRAN-R<br /> Microsoft R Server 9.x Developer Edition (uma plataforma R escalonável pronta para empresas)|
 | Edições do DSVM com suporte      | Linux, Windows     |
-| Como é configurado/instalado no DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Como é configurado/instalado no DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links para exemplos      | Exemplos de blocos de anotações do Jupyter para R estão incluídos     |
 | Ferramentas relacionadas ao DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Como usar/executar?    

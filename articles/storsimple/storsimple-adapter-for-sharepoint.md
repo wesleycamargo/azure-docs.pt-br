@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232860"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885580"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
 ## <a name="overview"></a>Visão geral
@@ -59,7 +59,7 @@ Examina o seguinte antes de configurar o RBS:
 
 * Certifique-se de que o tamanho total do conteúdo (o tamanho de um banco de dados de conteúdo) mais o tamanho de todos os BLOBs externalizados associados não exceda o limite de tamanho RBS compatível com o SharePoint. Esse limite é de 200 GB. 
   
-    **Para medir o tamanho do BLOB e do banco de dados de conteúdo**
+    **Para o tamanho do BLOB e banco de dados de conteúdo do medida**
   
   1. Execute esta consulta no WFE de Administração Central. Inicie o Shell de Gerenciamento do SharePoint e, em seguida, digite o seguinte comando do Windows PowerShell para obter o tamanho dos bancos de dados de conteúdo:
      
@@ -226,7 +226,7 @@ Antes de desinstalar o software Adaptador StorSimple para SharePoint, é necess�
 4. Na página **Configurar Adaptador StorSimple**, clique no botão **Desabilitar** abaixo de cada um dos bancos de dados de conteúdo que deseja remover do armazenamento de BLOBs externo. 
 5. Exclua os objetos do SharePoint e depois os carregue novamente.
 
-Se preferir, você pode usar o cmdlet` RBS Migrate()` do Microsoft PowerShell incluído com o SharePoint. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Como alternativa, você pode usar o Microsoft `RBS Migrate()` cmdlet do PowerShell incluído com o SharePoint. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 Depois de mover os BLOBs de volta para o banco de dados de conteúdo, vá para a próxima etapa: [Desinstalar o adaptador](#uninstall-the-adapter).
 
@@ -238,7 +238,7 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 2. Clique duas vezes no instalador do Adaptador StorSimple para SharePoint. O Assistente de Instalação é iniciado.
    
     ![Assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Clique em **Próximo**. A página a seguir será exibida.
+3. Clique em **Avançar**. A página a seguir será exibida.
    
     ![Página de remoção do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Clique em **Remover** para selecionar o processo de remoção. A página a seguir será exibida.

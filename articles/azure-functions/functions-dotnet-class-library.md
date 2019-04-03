@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "58111473"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
@@ -29,7 +29,7 @@ O Azure Functions oferece suporte às linguagens de programação C# e script C#
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 * [Guia do desenvolvedor do Azure Functions](functions-reference.md)
-* [Ferramentas do Visual Studio 2017 para Azure Functions](functions-develop-vs.md)
+* [Ferramentas do Visual Studio 2017 do Azure Functions](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -133,7 +133,7 @@ O processo de compilação cria um arquivo *function.json* em uma pasta de funç
 
 O objetivo desse arquivo é fornecer informações para o controlador de escala usado para [dimensionar decisões no plano de consumo](functions-scale.md#how-the-consumption-plan-works). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
-O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o tempo de execução a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
+O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o tempo de execução a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Aqui está um exemplo:
 
 ```json
 {
@@ -158,7 +158,7 @@ A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft
 
 O mesmo pacote é usado para a versão 1.x e 2.x do tempo de execução do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj*, mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
 
-**Functions 1.x**
+**Funções 1.x**
 
 ```xml
 <PropertyGroup>
@@ -169,7 +169,7 @@ O mesmo pacote é usado para a versão 1.x e 2.x do tempo de execução do Funct
 </ItemGroup>
 ```
 
-**Functions 2.x**
+**Funções 2.x**
 
 ```xml
 <PropertyGroup>
@@ -231,7 +231,7 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Registro em Log
+## <a name="logging"></a>Registro em log
 
 A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). É recomendável que você nomeie `log`, conforme mostrado no exemplo a seguir:  
 
@@ -344,7 +344,7 @@ Defina uma associação obrigatória da seguinte maneira:
   }
   ```
 
-  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com a associação imperativa.
+  `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é um tipo de entrada ou saído que tem suporte nesse tipo de associação. `T` não pode ser um `out` tipo de parâmetro (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com a associação imperativa.
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
-O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo:
+O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo: 
 
 ```cs
 public static class IBinderExampleMultipleAttributes
@@ -408,4 +408,4 @@ public static class IBinderExampleMultipleAttributes
 > [Saiba mais sobre gatilhos e associações](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre práticas recomendadas do Azure Functions](functions-best-practices.md)
+> [Saiba mais sobre as práticas recomendadas para o Azure Functions](functions-best-practices.md)

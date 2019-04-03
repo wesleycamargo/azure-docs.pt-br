@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585055"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862719"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte ao módulo Az na Automação do Azure
 
@@ -69,7 +69,7 @@ Uma maneira de testar os runbooks antes de modificar o seu runbook para usar os 
 
 ## <a name="after-migration-details"></a>Detalhes pós-migração
 
-Depois que a migração é concluída, não inicie mais runbooks usando módulos `AzureRM` na conta. Também é recomendável não importar nem atualizar módulos `AzureRM` nessa conta. A partir de agora, considere essa conta migrada para `Az` e opere-a apenas com módulos `Az`. Quando uma nova Conta de Automação for criada, os módulos `AzureRM` existentes continuarão sendo instalados e os runbooks de tutorial continuarão sendo criados com cmdlets `AzureRM`. Esses runbooks não devem ser executados.
+Depois que a migração é concluída, não inicie mais runbooks usando módulos `AzureRM` na conta. Também é recomendável não importar nem atualizar módulos `AzureRM` nessa conta. A partir de agora, considere essa conta migrada para `Az` e opere-a apenas com módulos `Az`. Quando uma nova Conta de Automação for criada, os módulos `AzureRM` existentes continuarão sendo instalados e os runbooks de tutorial continuarão sendo criados com cmdlets `AzureRM`. Esses runbooks não deve ser executados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

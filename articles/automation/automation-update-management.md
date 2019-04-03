@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805390"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862940"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -52,9 +52,9 @@ A solução relata o grau de atualização do computador com base na fonte com a
 > [!NOTE]
 > Para relatar adequadamente o serviço, o Gerenciamento de Atualizações requer que determinadas URLs e portas sejam habilitadas. Para saber mais sobre esses requisitos, consulte [Planejamento de rede para Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
-Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como *Opcional* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação. 
+Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como *Opcional* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação.
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas.
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado da janela de manutenção. Dez minutos da janela de manutenção é reservado para reinicializações, se uma reinicialização é necessária e você tiver selecionado a opção de reinicialização apropriado. Se a aplicação de patch leva mais tempo do que o esperado, e há menos de dez minutos na janela de manutenção, não ocorrerá uma reinicialização.
 
 As atualizações são instaladas por runbooks na Automação do Azure. Você não consegue exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualizações é criada, a implantação de atualizações cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para instalar as atualizações necessárias.
 
@@ -135,9 +135,9 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 Para começar a aplicar patch em sistemas, você precisa habilitar a solução de Gerenciamento de Atualizações. Há muitas maneiras de integrar computadores ao Gerenciamento de Atualizações. A seguir estão as maneiras recomendadas e compatíveis de integrar a solução:
 
 * [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
-* [Da navegação em várias máquinas](automation-onboard-solutions-from-browse.md)
-* [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
-* [Com um runbook de Automação do Azure](automation-onboard-solutions.md)
+* [Navegação de várias máquinas de](automation-onboard-solutions-from-browse.md)
+* [Em sua conta de automação](automation-onboard-solutions-from-automation-account.md)
+* [Com um runbook de automação do Azure](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmar se computadores não Azure estão integrados
 

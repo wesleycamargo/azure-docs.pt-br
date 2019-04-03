@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449352"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883931"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -166,6 +166,11 @@ Mas, se você fizesse esse próximo envio, o Azure Monitor criaria as novas prop
 Se você enviasse a seguinte entrada, antes que o tipo de registro fosse criado, o Azure Monitor criaria um registro com três propriedades, **number_s**, **boolean_s** e **string_s**. Nesta entrada, cada um dos valores iniciais é formatado como uma cadeia de caracteres:
 
 ![Registro de exemplo 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>Propriedades reservadas
+As propriedades a seguir são reservadas e não devem ser usadas em um tipo de registro personalizado. Se sua carga inclui qualquer um destes nomes de propriedade, você receberá um erro.
+
+- locatário
 
 ## <a name="data-limits"></a>Limites de dados
 Há algumas restrições acerca dos dados publicados na API de Coleta de Dados do Azure Monitor.

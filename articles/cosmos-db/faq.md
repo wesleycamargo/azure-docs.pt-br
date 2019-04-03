@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259900"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881028"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Sim. O [Emulador do Azure Cosmos DB](local-emulator.md) fornece uma emulação d
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que os valores de ponto flutuante longos em um documento são arredondados quando exibidos no Data Explorer no portal.
 
-Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado em IEEE 754 e pode manter, com segurança, apenas números entre -(253 - 1) e 253-1 (isto é, 9007199254740991).
+Esta é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla como especificado em IEEE 754 e com segurança, ele pode conter números entre-(2<sup>53</sup> -1) e 2<sup>53</sup>-1 (ou seja, 9007199254740991) apenas.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde as permissões são permitidas na hierarquia do objeto?
 
@@ -265,8 +265,8 @@ Em termos da API REST, há várias opções de pontos de extremidade/consulta qu
 | Métodos de REST | Opção de consulta/ponto de extremidade de REST | URLs de documento | Explicação |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Definir propriedades de serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [Obter propriedades do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Esse ponto de extremidade é usado para definir as regras do CORS, a configuração de armazenamento da análise e as configurações de registro em log. Não há suporte para o CORS atualmente, e análises e registros em log são tratados de maneira diferente no Azure Cosmos DB em relação às Tabelas de Armazenamento do Azure |
-| OPÇÕES | /<table-resource-name> | [Solicitação de tabela preliminar de CORS ](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isso faz parte do CORS para o qual o Azure Cosmos DB não dá suporte atualmente. |
-| GET | /?restype=service@comp=stats | [Obter estatísticas do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações sobre quão rapidamente os dados estão replicando entre primários e secundários. Isso não é necessária no Cosmos DB, uma vez que a replicação é parte de gravações. |
+| OPÇÕES | /<table-resource-name> | [Solicitação de tabela preliminar CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isso faz parte do CORS para o qual o Azure Cosmos DB não dá suporte atualmente. |
+| GET | /?restype=service@comp=stats | [Obter status do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações sobre quão rapidamente os dados estão replicando entre primários e secundários. Isso não é necessária no Cosmos DB, uma vez que a replicação é parte de gravações. |
 | GET, PUT | /mytable?comp=acl | [Obter ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir ACL da tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Isso obtém e define as políticas de acesso armazenadas usadas para gerenciar assinaturas de acesso compartilhado (SAS). Embora haja suporte para SAS, elas são definidas e gerenciadas de modo diferente. |
 
 Além disso, a API de Tabela do Azure Cosmos DB só dá suporte ao formato JSON, ao ATOM não.
@@ -292,7 +292,7 @@ Se qualquer uma dessas diferenças for um problema para o seu projeto, entre em 
 
 Você pode compartilhar seus comentários em qualquer uma das seguintes maneiras:
 
-* [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 

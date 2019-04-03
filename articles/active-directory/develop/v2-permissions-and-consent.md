@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793451"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881640"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 
@@ -39,7 +39,7 @@ Os aplicativos que se integram à plataforma de identidade da Microsoft seguem u
 A plataforma de identidade da Microsoft implementa o protocolo de autorização [OAuth 2.0](active-directory-v2-protocols.md). O OAuth 2.0 é um método pelo qual um aplicativo de terceiros pode acessar recursos hospedados na Web em nome do usuário. Qualquer recurso hospedado na Web que se integre à plataforma de identidade da Microsoft tem um identificador de recurso ou *URI de ID de Aplicativo*. Por exemplo, alguns dos recursos hospedados na Web da Microsoft incluem:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API de Email do Office 365: `https://outlook.office.com`
+* API de email do Office 365: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Ao definir esses tipos de permissões, o recurso tem controle refinado sobre seu
 No OAuth 2.0, esses tipos de permissão são chamados de *escopos*. Eles também costumam ser chamados de *permissões*. Uma permissão é representada na plataforma de identidade da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph,o valor da cadeia de caracteres para cada permissão é:
 
 * Ler o calendário de um usuário usando o `Calendars.Read`
-* Escrever no calendário de um usuário usando o `Calendars.ReadWrite`
+* Gravar em um calendário de um usuário usando `Calendars.ReadWrite`
 * Enviar email como um usuário usando `Mail.Send`
 
 Um aplicativo solicita essas permissões com mais frequência especificando os escopos nas solicitações para o ponto de extremidade v2.0 de autorização. No entanto, determinadas permissões com privilégios elevados só podem ser concedidas pelo administrador e geralmente solicitadas/concedidas usando o [ponto de extremidade de consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Continue lendo para saber mais.
@@ -82,7 +82,7 @@ A implementação v2.0 do OpenID Connect tem alguns escopos bem definidos que n�
 
 ### <a name="openid"></a>openid
 
-Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-protocols.md), ele deverá solicitar o escopo `openid`. O escopo `openid` aparecerá na página de consentimento da conta corporativa como a permissão "Conectar você" e na página de consentimento da conta pessoal da Microsoft como a permissão "Exibir seu perfil e se conectar a aplicativos e serviços usando sua conta da Microsoft". Com essa permissão, um aplicativo pode receber um identificador exclusivo para o usuário na forma da declaração `sub`. Ele também fornece ao aplicativo acesso ao ponto de extremidade UserInfo. O escopo `openid` também pode ser usado no ponto de extremidade v2.0 para adquirir tokens de ID, que podem ser usados para proteger chamadas HTTP entre diferentes componentes de um aplicativo.
+Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-protocols.md), ele deverá solicitar o escopo `openid`. O escopo `openid` aparecerá na página de consentimento da conta corporativa como a permissão "Conectar você" e na página de consentimento da conta pessoal da Microsoft como a permissão "Exibir seu perfil e se conectar a aplicativos e serviços usando sua conta da Microsoft". Com essa permissão, um aplicativo pode receber um identificador exclusivo para o usuário na forma da declaração `sub`. Ele também fornece ao aplicativo acesso ao ponto de extremidade UserInfo. O `openid` escopo pode ser usado no ponto de extremidade token v2.0 para adquirir tokens de ID, que podem ser usados pelo aplicativo para autenticação.
 
 ### <a name="email"></a>email
 
@@ -139,8 +139,8 @@ Além disso, os aplicativos devem usar o ponto de extremidade de consentimento d
 
 Algumas permissões de alto privilégio no ecossistema da Microsoft podem ser definidas como *restritas ao administrador*. Exemplos desses tipos de permissão incluem as seguintes:
 
-* Ler os perfis completos de todos os usuários usando `User.Read.All`
-* Gravar dados no diretório da organização usando o `Directory.ReadWrite.All`
+* Ler os perfis completos de todos os usuários usando o `User.Read.All`
+* Gravar dados no diretório da organização usando `Directory.ReadWrite.All`
 * Ler todos os grupos no diretório da organização usando `Groups.Read.All`
 
 Embora um usuário consumidor possa conceder acesso de aplicativo para esse tipo de dados, os usuários organizacionais são impedidos de conceder acesso ao mesmo conjunto de dados confidenciais da empresa. Se seu aplicativo solicita acesso a uma dessas permissões de um usuário organizacional, o usuário receberá uma mensagem de erro que diz que não está autorizado a consentir com as permissões de seu aplicativo.
@@ -283,7 +283,7 @@ Não existe consentimento para o usuário entre o cliente e o Microsoft Graph. O
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: O usuário consentiu e o cliente solicita escopos adicionais
 
-O usuário já consentiu `mail.read` para o cliente. O cliente foi registrado para o escopo `contacts.read` em seu registro. Quando o cliente faz uma solicitação por um token usando `scope=https://graph.microsoft.com/.default` e solicita consentimento por meio de `prompt=consent`, o usuário vê uma tela de consentimento apenas e para todas as permissões registradas pelo aplicativo. `contacts.read` está presente na tela de consentimento, mas `mail.read`, não. O token retornado é para o Microsoft Graph e contém `mail.read` e `contacts.read`.
+O usuário já consentiu `mail.read` para o cliente. O cliente foi registrado para o escopo `contacts.read` em seu registro. Quando o cliente faz uma solicitação por um token usando `scope=https://graph.microsoft.com/.default` e solicita consentimento por meio de `prompt=consent`, o usuário vê uma tela de consentimento apenas e para todas as permissões registradas pelo aplicativo. `contacts.read` estará presente na tela de consentimento, mas `mail.read` será não. O token retornado é para o Microsoft Graph e contém `mail.read` e `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Usando o escopo /.default com o cliente
 

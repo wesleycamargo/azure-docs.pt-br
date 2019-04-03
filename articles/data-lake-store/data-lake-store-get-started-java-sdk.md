@@ -3,21 +3,21 @@ title: 'SDK do Java: operações de sistema de arquivos no Azure Data Lake Stora
 description: Use o SDK do Java do Azure Data Lake Storage Gen1 para executar operações do sistema de arquivos no Data Lake Storage Gen1, tais como criar pastas, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530289"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883540"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do Java
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ O exemplo de código disponível [no GitHub](https://azure.microsoft.com/documen
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para autenticação do usuário final para seu aplicativo, consulte [Autenticação de usuário final com Data Lake Storage Gen1 usando Java](data-lake-store-end-user-authenticate-java-sdk.md).
 * Para autenticação de serviço a serviço do aplicativo, consulte [Autenticação de serviço a serviço com Data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md).
@@ -210,6 +210,6 @@ O snippet a seguir exclui os arquivos e pastas especificados em uma conta do Dat
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Explorar o JavaDoc para o Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
+* [Proteger os dados no Data Lake armazenamento Gen1](data-lake-store-secure-data.md)
 
 

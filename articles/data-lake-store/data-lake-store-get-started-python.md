@@ -3,21 +3,21 @@ title: 'Python: Operações de gerenciamento no Azure Data Lake armazenamento Ge
 description: Saiba como usar o SDK do Python para trabalhar com as operações de gerenciamento de conta do Azure Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533309"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880195"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Salve as alterações a mysample.py.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Nesta seção, falamos sobre as diferentes maneiras de autenticação com o Azure AD. As opções disponíveis são:
 
@@ -135,5 +135,5 @@ O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Stora
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência do Python (Filesystem) do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest)
-* [Aplicativos de Big Data de software livre com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [referência de Python do Azure-datalake-store (Filesystem)](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Abrir aplicativos de Big Data de software compatíveis com o Azure Data Lake armazenamento Gen1](data-lake-store-compatible-oss-other-applications.md)

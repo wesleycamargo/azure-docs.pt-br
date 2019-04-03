@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092541"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877781"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -128,7 +128,7 @@ Depois de instalar o Docker, use as seguintes definições para o host do contê
 
 - Para obter mais informações e etapas sobre como instalar o agente do Log Analytics para Linux, consulte [Visão geral do agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 
-**Para todos os hosts de contêiner do Linux, incluindo o CoreOS:**
+**Para todos os hosts de contêiner do Linux incluindo CoreOS:**
 
 Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a seguir:
 
@@ -136,7 +136,7 @@ Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a segu
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**Para todos os hosts de contêiner do Linux no Azure Governamental, incluindo CoreOS:**
+**Para todos os hosts de contêiner do Linux no Azure governamental incluindo CoreOS:**
 
 Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a seguir:
 
@@ -365,7 +365,7 @@ Você pode optar por criar DaemonSets do omsagent com ou sem segredos.
         KEY:    88 bytes
         ```
 
-    5. Criar o omsagent daemon-set executando ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Criar o omsagent daemon-set executando ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Verifique se o DaemonSet do Agente do Log Analytics está em execução, de forma semelhante à seguinte:
 
@@ -409,7 +409,7 @@ Para o Windows Kubernetes, use um script para gerar o arquivo .yaml de segredos 
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Criar o omsagent daemon-set executando ``` kubectl create -f omsagentsecret.yaml ```
+    3. Criar o omsagent daemon-set executando ```kubectl create -f omsagentsecret.yaml```
     4. Para verificar, execute o seguinte:
 
         ```
@@ -532,7 +532,7 @@ Os dados são coletados a cada três minutos pelos tipos de agente a seguir.
 
 - [Agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Agente do Windows](../../azure-monitor/platform/agent-windows.md)
-- [Extensão de VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Extensão de VM de análise de log](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Registros de contêiner
@@ -600,14 +600,14 @@ O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerra
 
 ### <a name="to-find-failed-containers"></a>Para localizar contêineres com falha
 1. Clique na área **Status do Contêiner**.  
-   ![status dos contêineres](./media/containers/containers-status.png)
+   ![Status dos contêineres](./media/containers/containers-status.png)
 2. Log Analytics é aberta e exibe o estado de seus contêineres, semelhantes ao seguinte.  
    ![estado dos contêineres](./media/containers/containers-log-search.png)
 3. Expanda a linha com falha e clique em + para adicionar seus critérios para a consulta. Comente, em seguida, a linha de resumo na consulta.
    ![contêineres com falha](./media/containers/containers-state-failed-select.png)  
 1. Execute a consulta e, em seguida, expanda uma linha nos resultados para exibir a ID da imagem.  
    ![contêineres com falha](./media/containers/containers-state-failed.png)  
-1. Digite o comando a seguir a consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e com falha.  
+1. Digite o comando a seguir a consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` Para ver detalhes sobre a imagem como o tamanho da imagem e o número de imagens paradas e com falha.  
    ![contêineres com falha](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Logs de consulta para dados de contêiner
@@ -625,7 +625,7 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 
 
 ### <a name="to-query-logs-for-container-data"></a>Logs de consulta para dados do contêiner
-* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Pesquisar por contêineres do Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda qualquer linha nos resultados para exibir os detalhes para o contêiner.

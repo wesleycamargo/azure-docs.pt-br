@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: 6661ed7e8950c1658ef89858140e2d196999d543
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803078"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883557"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -113,7 +113,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     * [Criar o HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Criar o HDInsight usando o Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Criar o HDInsight usando a CLI Clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Criar o HDInsight usando a CLI clássico do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Criar o HDInsight usando um modelo do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
@@ -246,7 +246,7 @@ Para obter mais informações sobre grupos de segurança de rede ou rotas defini
 
 #### <a name="forced-tunneling-to-on-premise"></a>Túnel forçado para on-premise
 
-O túnel forçado é uma configuração de roteamento definido pelo usuário em que todo o tráfego de uma sub-rede é forçado para uma rede ou localização específica, como a rede local. O HDInsight __não__ suporta encapsulamento forçado para as redes locais. Se você estiver usando o Firewall do Azure ou um dispositivo de rede virtual hospedado no Azure, você pode usar UDRs para rotear o tráfego para ele para fins de monitoramento e permitir que todo o tráfego de saída.
+O túnel forçado é uma configuração de roteamento definido pelo usuário em que todo o tráfego de uma sub-rede é forçado para uma rede ou localização específica, como a rede local. HDInsight faz __não__ suporte ao túnel à força para as redes locais. Se você estiver usando o Firewall do Azure ou um dispositivo de rede virtual hospedado no Azure, você pode usar UDRs para rotear o tráfego para ele para fins de monitoramento e permitir que todo o tráfego de saída.
 
 ## <a id="hdinsight-ip"></a> Endereços IP obrigatórios
 
@@ -328,7 +328,7 @@ Os exemplos desta seção demonstram como criar regras do grupo de segurança de
 
 O modelo de Gerenciamento de Recursos a seguir cria uma rede virtual que restringe o tráfego de entrada, mas permite o tráfego dos endereços IP necessários para o HDInsight. Esse modelo também cria um cluster HDInsight na rede virtual.
 
-* [Implantar uma Rede Virtual protegida do Azure e um cluster HDInsight Hadoop](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [Implantar uma rede Virtual protegida do Azure e um cluster Hadoop do HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
 > Altere os endereços IP usados neste exemplo para que eles correspondam à região do Azure que você está usando. Encontre essas informações na seção [HDInsight com grupos de segurança de rede e rotas definidas pelo usuário](#hdinsight-ip).

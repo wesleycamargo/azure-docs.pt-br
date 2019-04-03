@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737018"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880994"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -194,7 +194,7 @@ Com **Predicados** e **PredicateValidationsInput**, é possível controlar os re
 - **Lowercase** usando o método `IncludesCharacters`, valida que a senha contém uma letra minúscula.
 - **Uppercase** usando o método `IncludesCharacters`, valida que a senha contém uma letra maiúscula.
 - **Number** usando o método `IncludesCharacters`, valida que a senha contém um dígito.
-- **Symbol** usando o método `IncludesCharacters`, valida que a senha contém um dos símbolos a seguir `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Símbolo** usando o `IncludesCharacters` método, valida a senha contém um dos seguintes símbolos `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN** usando o método `MatchesRegex`, valida que a senha contém somente números.
 - **AllowedAADCharacters** usando o método `MatchesRegex`, valida que o único caractere inválido da senha foi fornecido.
 - **DisallowedWhitespace** usando o método `MatchesRegex`, valida que a senha não começa ou termina com um caractere de espaço em branco.
@@ -356,7 +356,8 @@ Com os elementos **Predicates** e **PredicateValidations**, é possível control
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange">
+    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208360"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integração do Azure Active Directory com o Workpath
 
@@ -58,7 +58,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-workpath-from-the-gallery"></a>Adicionar o Workpath a partir da galeria
 Para configurar a integração do Workpath ao Azure AD, você precisará adicionar o Workpath da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Workpath a partir da galeria, execute as seguintes etapas:**
+**Para adicionar o Workpath da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -115,13 +115,13 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. Marque **Mostrar configurações de URL avançadas**. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.workpath.com/ `
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Workpath](https://help.workpath.com) para obter esses valores.
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
 1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
@@ -193,7 +193,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/workpath-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -212,7 +212,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Workpath, execute as seguintes etapas:**
+**Para atribuir Britta Simon ao Workpath, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba como o Azure roteia o tráfego de rede virtual e como você pode personalizar o roteamento do Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: jdial
-ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: malop;kumud
+ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878495"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -32,14 +32,14 @@ O Azure cria rotas de sistema automaticamente e as atribui a cada sub-rede em um
 Cada rota contém um prefixo de endereço e o tipo do próximo salto. Quando um tráfego saindo de uma sub-rede é enviado a um endereço IP dentro do prefixo de endereço de uma rota, a rota que contém o prefixo é a que o Azure usa. Saiba mais sobre [como o Azure seleciona uma rota](#how-azure-selects-a-route) quando várias rotas contêm os mesmos prefixos ou prefixos sobrepostos. Sempre que uma rede virtual é criada, o Azure cria automaticamente as rotas de sistema padrão a seguir para cada sub-rede na rede virtual:
 
 
-|Fonte |Prefixos de endereço                                        |Tipo do próximo salto  |
+|Fonte |Prefixos do endereço                                        |Tipo do próximo salto  |
 |-------|---------                                               |---------      |
 |Padrão|Exclusivo para a rede virtual                           |Rede virtual|
 |Padrão|0.0.0.0/0                                               |Internet       |
-|Padrão|10.0.0.0/8                                              |Nenhuma           |
-|Padrão|172.16.0.0/12                                           |Nenhuma           |
-|Padrão|192.168.0.0/16                                          |Nenhuma           |
-|Padrão|100.64.0.0/10                                           |Nenhuma           |
+|Padrão|10.0.0.0/8                                              |Nenhum           |
+|Padrão|172.16.0.0/12                                           |Nenhum           |
+|Padrão|192.168.0.0/16                                          |Nenhum           |
+|Padrão|100.64.0.0/10                                           |Nenhum           |
 
 Os tipos do próximo salto listados na tabela anterior representam como o Azure roteia o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos do próximo salto seguem:
 
@@ -57,10 +57,10 @@ Os tipos do próximo salto listados na tabela anterior representam como o Azure 
 
 O Azure adiciona outras rotas de sistema padrão para diferentes recursos do Azure, mas somente se você habilitar os recursos. Dependendo do recurso, o Azure adiciona rotas padrão opcionais para sub-redes específicas na rede virtual ou para todas as sub-redes em uma rede virtual. As rotas de sistema adicionais e os tipos do próximo salto que o Azure pode adicionar quando você habilita recursos diferentes são:
 
-|Fonte                 |Prefixos de endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
+|Fonte                 |Prefixos do endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
 |-----                  |----                                   |---------                    |--------|
-|Padrão                |Exclusivo para a rede virtual, por exemplo: 10.1.0.0/16|Emparelhamento VNet                 |Todas|
-|Gateway de rede virtual|Prefixos anunciados do local via BGP ou configurada no gateway de rede local     |Gateway de rede virtual      |Todas|
+|Padrão                |Exclusivo para a rede virtual, por exemplo: 10.1.0.0/16|Emparelhamento VNet                 |Todos|
+|Gateway de rede virtual|Prefixos anunciados do local via BGP ou configurada no gateway de rede local     |Gateway de rede virtual      |Todos|
 |Padrão                |Vários                               |VirtualNetworkServiceEndpoint|Somente a sub-rede para a qual um ponto de extremidade de serviço está habilitado.|
 
 - **Emparelhamento de rede virtual (VNet)**: quando você cria um emparelhamento de rede virtual entre duas redes virtuais, uma rota é adicionada a cada intervalo de endereços dentro do espaço de endereço de cada rede virtual para a qual um emparelhamento é criado. Saiba mais sobre [emparelhamento de rede virtual](virtual-network-peering-overview.md).  
@@ -98,7 +98,7 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** como o tipo do próximo salto em rotas definidas pelo usuário. Rotas com os tipos do próximo salto **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** são criadas somente pelo Azure, quando você configurar uma emparelhamento de rede virtual ou um ponto de extremidade de serviço.
 
-**Tipos do próximo salto nas ferramentas do Azure**
+**Tipos de próximo salto nas ferramentas do Azure**
 
 O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -107,12 +107,12 @@ O nome exibido e referenciado para tipos do próximo salto é diferente entre o 
 |Gateway de rede virtual         |VirtualNetworkGateway                           |VPNGateway|
 |Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível no CLI clássico no modo asm)|
 |Internet                        |Internet                                        |Internet (não disponível no CLI clássico no modo asm)|
-|Dispositivo virtual               |VirtualAppliance                                |VirtualAppliance|
-|Nenhuma                            |Nenhuma                                            |NULL (não disponível no CLI clássico no modo asm)|
+|Solução de virtualização               |VirtualAppliance                                |VirtualAppliance|
+|Nenhum                            |Nenhum                                            |NULL (não disponível no CLI clássico no modo asm)|
 |Emparelhamento de rede virtual         |Emparelhamento VNet                                    |Não aplicável|
 |Ponto de extremidade de serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 
-### <a name="border-gateway-protocol"></a>Border gateway protocol
+### <a name="border-gateway-protocol"></a>Protocolo BGP
 
 Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azure usando o protocolo BGP (Border Gateway Protocol). O uso do BGP com um gateway de rede virtual do Azure depende do tipo que você selecionou ao criar o gateway. Se o tipo selecionado foi:
 
@@ -139,7 +139,7 @@ Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 
 
-|Fonte   |Prefixos de endereço  |Tipo do próximo salto           |
+|Fonte   |Prefixos do endereço  |Tipo do próximo salto           |
 |---------|---------         |-------                 |
 |Padrão  | 0.0.0.0/0        |Internet                |
 |Usuário     | 0.0.0.0/0        |Gateway de rede virtual |
@@ -181,7 +181,7 @@ Para ilustrar os conceitos neste artigo, as seções a seguir descrevem:
 ### <a name="requirements"></a>Requisitos
 
 1. Implementar duas redes virtuais na mesma região do Azure e habilitar recursos para se comunicar entre as redes virtuais.
-2. Habilitar uma rede local para se comunicar de modo seguro com ambas as redes virtuais por meio de um túnel VPN pela Internet. *Como alternativa, pode ser usada uma conexão ExpressRoute, mas uma conexão VPN é usada neste exemplo.*
+2. Habilitar uma rede local para se comunicar de modo seguro com ambas as redes virtuais por meio de um túnel VPN pela Internet. *Como alternativa, uma conexão de ExpressRoute pode ser usado, mas neste exemplo, uma conexão VPN é usada.*
 3. Para uma sub-rede em uma rede virtual:
  
     - Forçar todo o tráfego de saída da sub-rede, exceto para o Armazenamento do Azure e dentro da sub-rede, a fluir por meio de uma solução de virtualização de rede para inspeção e registro em log.
@@ -199,26 +199,26 @@ A figura a seguir mostra uma implementação por meio do Modelo de implantação
 
 As setas mostram o fluxo de tráfego. 
 
-### <a name="route-tables"></a>Tabelas de rota
+### <a name="route-tables"></a>Tabelas de rotas
 
 #### <a name="subnet1"></a>Subnet1
 
 A tabela de rotas da *Subnet1* na imagem contém as seguintes rotas:
 
-|ID  |Fonte |Estado/Província  |Prefixos de endereço    |Tipo do próximo salto          |Endereço IP do próximo salto|Nome da rota definida pelo usuário| 
+|ID  |Fonte |Estado  |Prefixos do endereço    |Tipo do próximo salto          |Endereço IP do próximo salto|Nome da rota definida pelo usuário| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Padrão|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |Usuário   |Ativos |10.0.0.0/16         |Dispositivo virtual      |10.0.100.4         |Within-VNet1  |
-|3   |Usuário   |Ativos |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|2   |Usuário   |Ativo |10.0.0.0/16         |Solução de virtualização      |10.0.100.4         |Within-VNet1  |
+|3   |Usuário   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Padrão|Inválido|10.1.0.0/16         |Emparelhamento VNet           |                   |              |
 |5   |Padrão|Inválido|10.2.0.0/16         |Emparelhamento VNet           |                   |              |
-|6   |Usuário   |Ativos |10.1.0.0/16         |Nenhuma                   |                   |ToVNet2-1-Drop|
-|7   |Usuário   |Ativos |10.2.0.0/16         |Nenhuma                   |                   |ToVNet2-2-Drop|
+|6   |Usuário   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |Usuário   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Padrão|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |Usuário   |Ativos |10.10.0.0/16        |Solução de virtualização      |10.0.100.4         |To-On-Prem    |
-|10  |Padrão|Ativos |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|9   |Usuário   |Ativo |10.10.0.0/16        |Solução de virtualização      |10.0.100.4         |To-On-Prem    |
+|10  |Padrão|Ativo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Padrão|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Usuário   |Ativos |0.0.0.0/0           |Dispositivo virtual      |10.0.100.4         |Default-NVA   |
+|12  |Usuário   |Ativo |0.0.0.0/0           |Solução de virtualização      |10.0.100.4         |Default-NVA   |
 
 Segue uma explicação de cada ID de rota:
 
@@ -239,23 +239,23 @@ Segue uma explicação de cada ID de rota:
 
 A tabela de rotas da *Subnet2* na imagem contém as seguintes rotas:
 
-|Fonte  |Estado/Província  |Prefixos de endereço    |Tipo do próximo salto             |Endereço IP do próximo salto|
+|Fonte  |Estado  |Prefixos do endereço    |Tipo do próximo salto             |Endereço IP do próximo salto|
 |------- |-------|------              |-------                   |--------           
-|Padrão |Ativos |10.0.0.0/16         |Rede virtual           |                   |
-|Padrão |Ativos |10.1.0.0/16         |Emparelhamento VNet              |                   |
-|Padrão |Ativos |10.2.0.0/16         |Emparelhamento VNet              |                   |
-|Padrão |Ativos |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
-|Padrão |Ativos |0.0.0.0/0           |Internet                  |                   |
-|Padrão |Ativos |10.0.0.0/8          |Nenhuma                      |                   |
-|Padrão |Ativos |100.64.0.0/10       |Nenhuma                      |                   |
-|Padrão |Ativos |172.16.0.0/12       |Nenhuma                      |                   |
-|Padrão |Ativos |192.168.0.0/16      |Nenhuma                      |                   |
+|Padrão |Ativo |10.0.0.0/16         |Rede virtual           |                   |
+|Padrão |Ativo |10.1.0.0/16         |Emparelhamento VNet              |                   |
+|Padrão |Ativo |10.2.0.0/16         |Emparelhamento VNet              |                   |
+|Padrão |Ativo |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
+|Padrão |Ativo |0.0.0.0/0           |Internet                  |                   |
+|Padrão |Ativo |10.0.0.0/8          |Nenhum                      |                   |
+|Padrão |Ativo |100.64.0.0/10       |Nenhum                      |                   |
+|Padrão |Ativo |172.16.0.0/12       |Nenhum                      |                   |
+|Padrão |Ativo |192.168.0.0/16      |Nenhum                      |                   |
 
 A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azure, além do emparelhamento opcional VNet e rotas opcionais de gateway de rede virtual. O Azure adicionou as rotas opcionais para todas as sub-redes na rede virtual quando o gateway e o emparelhamento foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas da *Subnet1* quando a rota definida pelo usuário para o prefixo de endereço 0.0.0.0/0 foi adicionada à *Subnet1*.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma tabela de rotas definidas pelo usuário com rotas e uma solução de virtualização de rede](tutorial-create-route-table-portal.md)
+- [Criar uma tabela de rotas definidas pelo usuário com uma solução de virtualização de rede e rotas](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usar o BGP com ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Exibir todas as rotas de uma sub-rede](diagnose-network-routing-problem.md). Uma tabela de rotas definidas pelo usuário só mostra as rotas definidas pelo usuário, não as rotas padrão e BGP de uma sub-rede. Exibir todas as rotas mostra as rotas padrão, BGP e definidas pelo usuário da sub-rede na qual está uma interface de rede.

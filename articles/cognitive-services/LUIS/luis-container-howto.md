@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520136"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884560"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -24,7 +24,7 @@ O contêiner do Serviço Inteligente de Reconhecimento Vocal (LUIS) carrega o mo
 
 O vídeo a seguir demonstra como usar esse contêiner.
 
-[![Demonstração de contêiner para os Serviços Cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Cdemonstração de ontêiner para os serviços Cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -166,7 +166,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | A ID de aplicativo do aplicativo LUIS publicado. |
 |{APPLICATION_ENVIRONMENT} | O ambiente do aplicativo LUIS publicado. Use um dos seguintes valores:<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | A chave de criação da conta do LUIS para o aplicativo LUIS publicado.<br/>Você pode obter sua chave de criação na página **Configurações do Usuário** no portal do LUIS. |
-|{AZURE_REGION} | A região do Azure apropriada:<br/><br/>```westus``` – Oeste dos EUA<br/>```westeurope``` – Europa Ocidental<br/>```australiaeast``` – Leste da Austrália |
+|{AZURE_REGION} | A região do Azure apropriada:<br/><br/>```westus``` -Oeste dos EUA<br/>```westeurope``` -Na Europa Ocidental<br/>```australiaeast``` -Austrália Oriental |
 
 Use o comando CURL abaixo para baixar o pacote publicado, substituindo por seus próprios valores:
 
@@ -194,7 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | A ID de aplicativo do aplicativo LUIS treinado. |
 |{APPLICATION_VERSION} | A versão de aplicativo do aplicativo LUIS treinado. |
 |{AUTHORING_KEY} | A chave de criação da conta do LUIS para o aplicativo LUIS publicado.<br/>Você pode obter sua chave de criação na página **Configurações do Usuário** no portal do LUIS.  |
-|{AZURE_REGION} | A região do Azure apropriada:<br/><br/>```westus``` – Oeste dos EUA<br/>```westeurope``` – Europa Ocidental<br/>```australiaeast``` – Leste da Austrália |
+|{AZURE_REGION} | A região do Azure apropriada:<br/><br/>```westus``` -Oeste dos EUA<br/>```westeurope``` -Na Europa Ocidental<br/>```australiaeast``` -Austrália Oriental |
 
 Use o seguinte comando CURL para baixar o pacote treinado:
 
@@ -299,9 +299,9 @@ O nome da versão tem no máximo 10 caracteres e contém apenas caracteres permi
 Se uma montagem de saída for especificada para o contêiner do LUIS, os arquivos de log de consulta de aplicativo serão salvos no diretório de saída, em que {INSTANCE_ID} é a ID do contêiner. O log de consulta do aplicativo contém a consulta, a resposta e os carimbos de data/hora para cada consulta de previsão enviada para o contêiner de LUIS. 
 
 O local a seguir mostra a estrutura de diretórios aninhados para os arquivos de log do contêiner.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 No portal do LUIS, selecione seu aplicativo e selecione **Importar logs de ponto de extremidade** para carregá-los. 
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088002"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886430"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
@@ -27,12 +27,12 @@ Para usar o Serviço de Visão Personalizada para classificação de imagens, pr
 - Um conjunto de imagens com o qual treinar o seu classificador. Veja abaixo as dicas sobre como escolher imagens.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de Visão Personalizada no portal do Azure
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no portal do Azure
 Para usar o serviço de Visão Personalizada, você precisará criar recursos de treinamento e previsão de Visão Personalizada no [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Isso criará um recurso de treinamento e previsão. 
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-No navegador da Web, navegue até o [site Visão Personalizada](https://customvision.ai) e selecione __Entrar__. Entre com a mesma conta usada para entrar no portal do Azure.
+No navegador da Web, navegue até o [site Visão Personalizada](https://customvision.ai) e selecione __Entrar__. Entrar com a mesma conta usada para entrar no portal do Azure.
 
 ![Imagem da página de entrada](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 
 1. Insira um nome e uma descrição para o projeto. Selecione um Grupo de Recursos. Se a sua conta conectada estiver associada a uma conta do Azure, a lista suspensa Grupo de Recursos exibirá todos os seus Grupos de Recursos do Azure que contêm um Recurso do Serviço de Visão Personalizada. 
 
-> [!NOTE]
-> Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [Portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo “Diretório” no portal de Visão Personalizada que o diretório no portal do Azure onde se encontram seus recursos de Visão Personalizada. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
+   > [!NOTE]
+   > Se nenhum grupo de recursos está disponível, confirme que você fez logon na [customvision.ai](https://customvision.ai) com a mesma conta que é usada para fazer logon na [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo “Diretório” no portal de Visão Personalizada que o diretório no portal do Azure onde se encontram seus recursos de Visão Personalizada. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
 
 1. Selecione __Classificação__ em __Tipos de Projeto__. Em __Tipos de Classificação__, escolha **Multirótulo** ou **Multiclasse**, dependendo do seu caso de uso. A classificação multirótulo aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse agrupa as imagens em categorias únicas (cada imagem enviada será classificada de acordo com a marca mais provável). Você pode alterar o tipo de classificação posteriormente, se desejar.
 
@@ -96,12 +96,7 @@ Nesta seção, você vai carregar e marcar manualmente imagens que ajudam a trei
 
     ![A barra de progresso mostra todas as tarefas concluídas.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Para carregar outro conjunto de imagens, retorne ao topo desta seção e repita as etapas. Em algum ponto do seu projeto, você precisa adicionar _exemplos negativos_ para ajudar a tornar o seu classificador mais preciso. Exemplos negativos são aqueles que não correspondem a outras marcas. Quando você carregar essas imagens, aplique o rótulo especial **Negativo** a elas.
-
-> [!NOTE]
-> O Serviço de Visão Personalizada dá suporte a alguns tratamentos de imagem negativo automática. Por exemplo, se você está compilando um classificador de uva em comparação com banana e envia uma imagem de um sapato para previsão, o classificador deve classificar essa imagem em cerca de 0 % tanto para uva como para banana.
-> 
-> Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas no treinamento, é provável que o modelo classifique as imagens negativas como uma classe rotulada devido às grandes semelhanças. Por exemplo, se você tiver um classificador de laranja em comparação com toranja, e envia em uma imagem de clementina, o classificador poderá classificar a clementina como laranja porque a clementina possui muitas características semelhantes às das laranjas. Se as imagens negativas forem dessa natureza, recomendamos criar uma ou mais marcas adicionais (como **Outro**) e rotular as imagens negativas com essa marca durante o treinamento para permitir que o modelo diferencie melhor essas classes.
+Para carregar outro conjunto de imagens, retorne ao topo desta seção e repita as etapas.
 
 ## <a name="train-the-classifier"></a>Treinar o classificador
 
@@ -138,5 +133,5 @@ No painel à esquerda, também é possível encontrar o botão **Excluir**, que 
 
 Neste guia, você aprendeu a criar e treinar um modelo de classificação de imagem usando o site Visão Personalizada. A seguir, saiba mais sobre o processo iterativo para melhorar o seu modelo.
 
-[Testar e readaptar um modelo](test-your-model.md)
+[Teste e treinar novamente um modelo](test-your-model.md)
 

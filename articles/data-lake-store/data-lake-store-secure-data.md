@@ -3,21 +3,21 @@ title: Protegendo os dados armazenados no Armazenamento de Data Lake do Azure Ge
 description: Aprenda como proteger dados no Azure Data Lake Storage Gen1 usando grupos e listas de controle de acesso
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296729"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885665"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
 A proteção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Controle de acesso baseado em regra (RBAC) e listas de controle de acesso (ACLs) devem ser definidas para possibilitar o acesso completo a dados para usuários e grupos de segurança.
@@ -33,7 +33,7 @@ Este artigo fornece instruções sobre como usar o Portal do Azure para realizar
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Data Lake armazenamento Gen1**. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md)
+* **Uma conta do Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Criar grupos de segurança no Active Directory do Azure
 Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -149,10 +149,10 @@ Quando você remove as ACLs do grupo de segurança de um sistema de arquivos do 
 
 ## <a name="see-also"></a>Consulte também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Use o Azure Data Lake Analytics com o Armazenamento de Data Lake Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use o HDInsight do Azure com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Comece a usar o Data Lake Storage Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)
-* [Comece a usar o Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Acesse os logs de diagnóstico do Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
+* [Copiar dados do Azure Storage Blobs para o Data Lake armazenamento Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Usar o Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Introdução ao Armazenamento do Data Lake Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)
+* [Introdução ao Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
+* [Acessar logs de diagnóstico para o Data Lake armazenamento Gen1](data-lake-store-diagnostic-logs.md)
 

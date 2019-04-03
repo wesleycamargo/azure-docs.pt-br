@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199775"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integração do Azure Active Directory ao Secret Server (On-Premises)
 
@@ -59,7 +59,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Adicionar o Servidor de Segredo (no local) da galeria
 Para configurar a integração do Servidor de Segredo (local) ao Microsoft Azure AD, você precisa adicionar o Servidor de Segredo (local) da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Servidor de Segredo (local) da galeria, execute as etapas a seguir:**
+**Para adicionar o servidor de segredo (local) da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do Microsoft Azure AD com o Servidor de 
 
 Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do Azure e configura o logon único no aplicativo Servidor de Segredo (local).
 
-**Para configurar o logon único do Microsoft Azure AD com o Servidor de Segredo (local), execute as etapas a seguir:**
+**Para configurar o logon único do Azure AD com o servidor de segredo (local), execute as seguintes etapas:**
 
 1. No Portal do Azure, na página de integração do aplicativo do **Servidor de Segredo (local)**, clique em **Logon único**.
 
@@ -109,9 +109,9 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do Servidor de Segredo (local)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-     a. Na caixa de texto **Identificador**, insira o valor escolhido pelo usuário como um exemplo: `https://secretserveronpremises.azure`
+     a. No **identificador** caixa de texto, insira o valor como um exemplo escolhido pelo usuário: `https://secretserveronpremises.azure`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > A ID da Entidade mostrada acima é apenas um exemplo e você é livre para escolher qualquer valor exclusivo que identifique a instância do Servidor de Segredo no Microsoft Azure AD. É necessário enviar essa ID da Entidade à [Equipe de suporte ao Cliente do Servidor de Segredo (local)](https://thycotic.force.com/support/s/) para que possam configurá-lo. Para obter mais detalhes, leia[este artigo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -149,7 +149,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
 1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -185,7 +185,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ![Atribuir a função de usuário][200]
 
-**Para atribuir Brenda Fernandes ao Servidor de Segredo (local), execute as etapas a seguir:**
+**Para atribuir Britta Simon ao servidor de segredo (local), execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

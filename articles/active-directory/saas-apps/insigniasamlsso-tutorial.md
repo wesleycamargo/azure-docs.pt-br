@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840334"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Azure Active Directory com o Insignia SAML SSO
 
@@ -59,7 +59,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-insignia-saml-sso-from-the-gallery"></a>Adicionar o Insignia SAML SSO da Galeria
 Para configurar a integração do Insignia SAML SSO com o Azure AD, é necessário adicionar o Insignia SAML SSO da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Insignia SAML SSO da galeria, execute as etapas abaixo:**
+**Para adicionar o Insignia SAML SSO da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Para configurar e testar o logon único do Azure AD com o Insignia SAML SSO, é 
 
 Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Insignia SAML SSO.
 
-**Para configurar o logon único do Azure AD com o Insignia SAML SSO, execute as etapas abaixo:**
+**Para configurar o logon único do Azure AD com o Insignia SAML SSO, execute as seguintes etapas:**
 
 1. No Portal do Azure, na página de integração do aplicativo do **Insignia SAML SSO**, clique em **Logon único**.
 
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     |--|
     | `https://<customername>.insigniails.com/ils` |
     | `https://<customername>.insigniails.com/` |
-    | `https://<customername>.insigniailsusa.com/ ` |
+    | `https://<customername>.insigniailsusa.com/` |
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
@@ -149,7 +149,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
 1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/insigniasamlsso-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+     a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -185,7 +185,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Insignia SAML SSO, execute as etapas abaixo:**
+**Para atribuir Britta Simon ao Insignia SAML SSO, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

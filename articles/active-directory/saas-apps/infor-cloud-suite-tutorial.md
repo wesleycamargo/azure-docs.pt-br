@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7e912d01b6f8b7119e0fa0e88341b7cb56a93d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860662"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integração do Azure Active Directory com o Infor CloudSuite
 
@@ -61,7 +61,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 
 Para configurar a integração do Infor CloudSuite ao Azure AD, você precisará adicionar o Infor CloudSuite da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Infor CloudSuite a partir da galeria, execute as seguintes etapas:**
+**Para adicionar o Infor CloudSuite da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Para configurar e testar o logon único do AD do Azure com o Infor CloudSuite, v
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no aplicativo portal CloudSuite.
 
-**Para configurar o logon único do Azure Active Directory com o CloudSuite, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o Infor CloudSuite, execute as seguintes etapas:**
 
 1. No portal do Azure, na página de integração do aplicativo do **Infor CloudSuite**, clique em **Logon único**.
 
@@ -119,7 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     
     | | |
     |-|-|
-    | ` http://mingle-sso.inforcloudsuite.com`|
+    | `http://mingle-sso.inforcloudsuite.com`|
     | `http://mingle-sso.se1.inforcloudsuite.com`|
     | `http://mingle-sso.eu1.inforcloudsuite.com`|
     | `http://mingle-sso.se2.inforcloudsuite.com`|
@@ -129,9 +129,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     | | |
     |-|-|
-    | ` https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
+    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
     | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
     | |
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     |-|-|
     | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
+    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
 
     > [!NOTE]
@@ -173,9 +173,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create-aaduser-02.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

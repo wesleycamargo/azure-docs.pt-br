@@ -3,27 +3,27 @@ title: Usar modelos do Azure para criar HDInsight com Azure Data Lake Storage Ge
 description: Use os modelos do Azure Resource Manager para criar e usar clusters HDInsight com Azure Data Lake Storage Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540184"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880127"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Usando o PowerShell (para o armazenamento padrão)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [Usando o PowerShell (para o armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Usando o PowerShell (para armazenamento padrão)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Usando o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Usando o Gerenciador de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
@@ -146,5 +146,5 @@ Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivo
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Copiar dados do Azure Storage Blobs para o Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Copiar dados do Azure Storage Blobs para o Data Lake armazenamento Gen1](data-lake-store-copy-data-wasb-distcp.md)
+* [Usar Data Lake Storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

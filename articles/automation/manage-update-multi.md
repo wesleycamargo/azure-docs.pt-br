@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531312"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884917"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -29,7 +29,6 @@ ms.locfileid: "57531312"
 
 Para usar o Gerenciamento de Atualizações, você precisa de:
 
-- Uma execução de Automação do Azure como conta. Para saber como criar uma, consulte [Introdução à Automação do Azure](automation-offering-get-started.md).
 - Uma máquina virtual ou um computador com um dos sistemas operacionais com suporte instalado.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
@@ -109,7 +108,7 @@ A tabela a seguir descreve as fontes conectadas às quais essa solução dá sup
 | Agentes do Windows |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
 | Agentes do Linux |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
 | Grupo de gerenciamento do Operations Manager |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
-| Conta de Armazenamento do Azure |Não |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
+| Conta de Armazenamento do Azure |Não  |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
@@ -142,7 +141,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
   - Pacotes cumulativos de atualização
   - Feature packs
   - Service packs
-  - Atualizações de definições
+  - Atualizações de definição
   - Ferramentas
   - Atualizações
 
@@ -159,7 +158,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.
 
-   |Opção|Descrição|
+   |Opção|DESCRIÇÃO|
    |---|---|
    |Reinicialização, se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
    |Sempre reinicializar|Uma reinicialização for iniciada, independentemente se é necessário. |

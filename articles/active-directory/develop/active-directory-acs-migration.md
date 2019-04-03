@@ -17,18 +17,18 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449131"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879232"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controle de Acesso do Azure
 
 O ACS (Serviço de Controle de Acesso) do Microsoft Azure, um serviço do Azure AD (Microsoft Azure Active Directory), será desativado em 7 de novembro de 2018. Os aplicativos e serviços que atualmente utilizam o Controle de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até esta data. Este artigo descreve recomendações para os clientes atuais, uma vez que você pretende substituir o uso do Controle de Acesso. Se você não estiver usando o Controle de Acesso, não precisa realizar nenhuma ação.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O Controle de Acesso é um serviço de autenticação de nuvem que oferece uma maneira fácil de autenticar e autorizar usuários para acesso a seus aplicativos web e serviços. Ele permite que muitos recursos de autenticação e autorização sejam fatorados fora do seu código. O Controle de Acesso é usado principalmente por desenvolvedores e arquitetos de clientes .NET da Microsoft, aplicativos web ASP.NET e serviços web do Windows Communication Foundation (WCF).
 
@@ -101,9 +101,9 @@ Siga as etapas nesta seção para descobrir quais dos seus aplicativos serão af
 
 ### <a name="check-which-applications-will-be-impacted"></a>Verifique quais aplicativos serão afetados
 
-1. Use o namespace da etapa anterior e vá para `https://<namespace>.accesscontrol.windows.net`
+1. Usar o namespace da etapa anterior e ir para `https://<namespace>.accesscontrol.windows.net`
 
-    Por exemplo, se um dos namespaces for contoso-test, vá para `https://contoso-test.accesscontrol.windows.net`
+    Por exemplo, se um dos namespaces é contoso-test, vá para `https://contoso-test.accesscontrol.windows.net`
 
 1. Sob **Relações de confiança**, selecione **Aplicativos de terceira parte confiável** para ver a lista de aplicativos que serão afetados pela desativação do ACS.
 1. Repita as etapas 1-2 para outros namespaces do ACS que você possa ter.
@@ -131,13 +131,13 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 
 | Serviço | Diretrizes |
 | ------- | -------- |
-| Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Retransmissão do Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Barramento de Serviço do Azure | [Migrar para assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Retransmissão do Barramento de Serviço do Azure | [Migrar para assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache Gerenciado do Azure | [Migrar para o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| DataMarket do Azure | [Migrar para as APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Serviços BizTalk | [Migrar para o recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Serviços de Mídia do Azure | [Migrar para a Autenticação do Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Backup do Azure | [Atualizar o Agente de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| DataMarket do Azure | [Migrar para as APIs de serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Serviços do BizTalk | [Migrar para o recurso aplicativos lógicos do serviço de aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Serviços de Mídia do Azure | [Migrar para a autenticação do AD do Azure](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Serviço de Backup do Azure | [Upgrade do agente de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -152,10 +152,10 @@ SharePoint 2013, 2016 e SharePoint Online clientes usaram ACS para fins de auten
 
 | Recurso | Diretrizes |
 | ------- | -------- |
-| Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, é possível [conectar o SharePoint diretamente ao Azure AD usando aplicativo local do SharePoint da Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, você pode [conectar-se o SharePoint diretamente ao Azure AD usando o SharePoint da Galeria de aplicativos do Azure AD no aplicativo local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação do aplicativo e autenticação de servidor para servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
 | [Baixa autorização de confiança para suplementos do SharePoint (provedor hospedado e SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
-| [Pesquisa híbrida de nuvem do SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
+| [Pesquisa do SharePoint nuvem híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Aplicativos Web que usam autenticação passiva
 
@@ -189,7 +189,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -201,14 +201,14 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | WIF | Com suporte | Com suporte, mas instruções limitadas estão disponíveis |
 | O certificado do provedor de identidade do Web Services Federation | Com suporte | Com suporte |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Com suporte | Não é compatível |
+| WS-Trust | Com suporte | Sem suporte |
 | **Formatos de Token** | | |
 | JWT | Com suporte em versão beta | Com suporte |
-| SAML 1.1 | Com suporte | Visualizar |
+| SAML 1.1 | Com suporte | Visualização |
 | SAML 2.0 | Com suporte | Com suporte |
-| SWT | Com suporte | Não é compatível |
+| SWT | Com suporte | Sem suporte |
 | **Personalizações** | | |
-| Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Não é compatível |
+| Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Sem suporte |
 | Carregar certificados de autenticação de tokens personalizados | Com suporte | Com suporte |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Não é possível passar declarações de provedores de identidade federados<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Não pode emitir declarações de saída com base nos valores de declarações de entrada<br />- Pode emitir declarações de saída com valores constantes<br />- Pode emitir declarações de saída com base nas propriedades de usuários sincronizadas ao Azure AD |
 | **Automação** | | |
@@ -240,7 +240,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -249,15 +249,15 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 | Contas da Microsoft para uso pessoal | Com suporte | Com suporte | 
 | Contas do Facebook, Google, Yahoo | Com suporte | Suporte nativo ao Facebook e Google, suporte para Yahoo por meio da federação do OpenID Connect usando políticas personalizadas |
 | **Protocolos e compatibilidade do SDK** | | |
-| Windows Identity Foundation (WIF) | Com suporte | Não é compatível |
-| O certificado do provedor de identidade do Web Services Federation | Com suporte | Não é compatível |
+| Windows Identity Foundation (WIF) | Com suporte | Sem suporte |
+| O certificado do provedor de identidade do Web Services Federation | Com suporte | Sem suporte |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Com suporte | Não é compatível |
+| WS-Trust | Com suporte | Sem suporte |
 | **Formatos de Token** | | |
 | JWT | Com suporte em versão beta | Com suporte |
-| SAML 1.1 | Com suporte | Não é compatível |
-| SAML 2.0 | Com suporte | Não é compatível |
-| SWT | Com suporte | Não é compatível |
+| SAML 1.1 | Com suporte | Sem suporte |
+| SAML 2.0 | Com suporte | Sem suporte |
+| SWT | Com suporte | Sem suporte |
 | **Personalizações** | | |
 | Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Interface do usuário totalmente personalizável via CSS personalizado |
 | Carregar certificados de autenticação de tokens personalizados | Com suporte | Chaves de autenticação personalizadas, não certificados, com suporte via políticas personalizadas |
@@ -268,8 +268,8 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 Se você decidir que o Azure AD B2C é o melhor caminho para seus aplicativos e serviços, comece com os seguintes recursos:
 
 - [Documentação do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Políticas personalizadas do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Políticas personalizadas do AD B2C do Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Os preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar a identidade de Ping ou Auth0
 
@@ -319,7 +319,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |
@@ -332,8 +332,8 @@ Você também usar o Azure AB para a autenticação de servidor para servidor us
 Para obter diretrizes sobre a implementação de cenários de servidor para servidor, consulte os seguintes recursos:
 
 - Seção de Serviço para Serviço do [guia de desenvolvedor do Azure AD](https://aka.ms/aaddev)
-- [Exemplo de código do Daemon usando as credenciais do cliente de senha simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
-- [Exemplo de código do Daemon usando as credenciais do cliente de certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+- [Exemplo de código do daemon usando as credenciais de cliente de senha simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [Exemplo de código do daemon usando as credenciais de cliente de certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar a identidade de Ping ou Auth0
 

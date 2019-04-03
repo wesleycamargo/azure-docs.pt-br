@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793808"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878342"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar o Operations Manager para o Azure Monitor
 
@@ -345,7 +345,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 No futuro, se você pretender reconectar o grupo de gerenciamento a um workspace do Log Analytics, será necessário importar novamente o arquivo de pacote de gerenciamento `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Dependendo da versão do System Center Operations Manager implantado em seu ambiente, você poderá encontrar esse arquivo no seguinte local:
 
 * Na mídia de origem sob a pasta `\ManagementPacks` para o System Center 2016 - Operations Manager e superior.
-* Do rollup de atualização mais recente aplicado ao seu grupo de gerenciamento. Para o Operations Manager 2012, a pasta de origem é ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups`, e para 2012 R2, ela está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Do rollup de atualização mais recente aplicado ao seu grupo de gerenciamento. Para o Operations Manager 2012, é a pasta de origem `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, ele está localizado em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
