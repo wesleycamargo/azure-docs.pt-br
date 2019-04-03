@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124058"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880144"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -35,7 +35,7 @@ Este artigo descreve os problemas atuais e anteriores com a aderência ao servi�
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemas de conformidade de SCIM 2.0 e o status
 
-| **Problemas de conformidade SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
+| **Problema de conformidade de SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
 |---|---|---|
 | O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
 | Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
@@ -82,13 +82,13 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
 
 10. Execute o comando a seguir para criar um novo trabalho de provisionamento que tenha as correções mais recentes do serviço.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. Nos resultados da última etapa, copie a cadeia de caracteres completa de "ID" que começa com "scim". Opcionalmente, aplique novamente seus mapeamentos de atributos antigos, executando o comando abaixo, substituindo [new-job-id] com a nova ID de trabalho que você acabou de copiar e inserir que o JSON de saída da etapa 7 como o corpo da solicitação.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Volte para a primeira janela do navegador da web e selecione a guia **Provisionamento** para o seu aplicativo.
 13. Verifique a configuração e, em seguida, inicie o trabalho de provisionamento. 

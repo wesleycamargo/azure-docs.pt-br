@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993402"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885869"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -40,7 +40,7 @@ Sim. Para mover um Cofre dos Serviços de Recuperação, consulte este [artigo](
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
 - O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
-- O ILR não é compatível com pontos de recuperação online de VMs no local com backup feito pelo Servidor de backup do Azure ou pelo System Center DPM.
+- ILR não há suporte para pontos de recuperação online de VMs locais com suporte pelo servidor de backup do Azure ou o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure

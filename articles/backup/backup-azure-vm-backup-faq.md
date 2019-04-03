@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402058"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885257"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes perguntas-fazer backup de VMs do Azure
 
@@ -68,7 +68,7 @@ Sim. Os backups são executados quando um computador é desligado. O ponto de re
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de backup em andamento?
 Sim. Você poderá cancelar o trabalho de backup se ele estiver em um estado **Criar instantâneo**. Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio no grupo de recursos criado pelo serviço de Backup do Azure (ou seja ` AzureBackupRG_<geo>_<number>`), meus backups continuarão a funcionar?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio no grupo de recursos criado pelo serviço de Backup do Azure (ou seja `AzureBackupRG_<geo>_<number>`), meus backups continuarão a funcionar?
 Se você bloquear o grupo de recursos criado pelo serviço de Backup do Azure, o backups começarão a falhar pois não há um limite máximo de 18 pontos de restauração.
 
 Usuário precisa remover o bloqueio e limpar a coleção de pontos de restauração do grupo de recursos para tornar os futuros backups bem-sucedidos, [siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
@@ -88,7 +88,7 @@ Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de G
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos do Acelerador de Gravação e do SAP HANA instalados. Como fazer backup?
 O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
 
-Estamos executando versão prévia privada para um backup do SAP HANA com um RPO de 15 minutos. Ele é criado de maneira semelhante ao backup do Banco de Dados do SQL e usa a interface backInt para soluções de terceiros certificadas pelo SAP HANA. Se você estiver interessado, envie um email ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para visualização privada para o backup do SAP HANA em VMs do Azure**.
+Estamos executando versão prévia privada para um backup do SAP HANA com um RPO de 15 minutos. Ele é criado de maneira semelhante ao backup do Banco de Dados do SQL e usa a interface backInt para soluções de terceiros certificadas pelo SAP HANA. Se você estiver interessado, envie um email `AskAzureBackupTeam@microsoft.com` com o assunto **Inscreva-se para visualização privada para o backup do SAP HANA em VMs do Azure**.
 
 
 ## <a name="restore"></a>Restaurar

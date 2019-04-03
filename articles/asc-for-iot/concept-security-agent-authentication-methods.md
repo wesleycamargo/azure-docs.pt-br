@@ -1,31 +1,31 @@
 ---
 title: Métodos de autenticação para a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao usar a Central de segurança do Azure para o serviço de IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758391"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862906"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 
 > [!IMPORTANT]
 > Central de segurança do Azure para IoT está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica os diferentes métodos de autenticação que você pode usar com o agente AzureIoTSecurity para autenticar com o IoT Hub.
 
@@ -64,7 +64,7 @@ Esses argumentos são documentados na tabela a seguir.
 |Parâmetro|DESCRIÇÃO|Opções|
 |---------|---------------|---------------|
 |**identidade**|Modo de autenticação| **Módulo** ou **dispositivo**|
-|**tipo**|Tipo de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
+|**Tipo**|Tipo de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Absoluto caminho completo do arquivo que contém o certificado ou a chave simétrica| |
 |**gatewayHostname**|FQDN do Hub IoT|Exemplo: ContosoIotHub.azure-devices.net|
 |**deviceId**|Id do Dispositivo|Exemplo: MyDevice1|
@@ -114,4 +114,4 @@ Edite _LocalConfiguration.json_ com os seguintes parâmetros:
 ## <a name="see-also"></a>Consulte também
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar o agente de segurança](how-to-deploy-agent.md)
-- [Acessar os dados brutos de segurança](how-to-security-data-access.md)
+- [Acessar dados de segurança brutos](how-to-security-data-access.md)

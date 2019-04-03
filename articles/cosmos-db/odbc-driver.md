@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816621"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851063"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
@@ -97,7 +97,7 @@ Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de co
 
 1. Quando você terminar de definir o esquema, clique em **Arquivo** | **Salvar**, navegue até o diretório para salvar o esquema e clique em **Salvar**.
 
-    Se, no futuro, você desejar usar esse esquema com um DSN, abra a janela Instalação de DSN do Driver ODBC do Azure Cosmos DB (por meio do Administrador da Fonte de Dados ODBC), clique em Opções Avançadas e, na caixa Arquivo de Esquema, navegue para o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
+1. Para usar este esquema com um DSN, abra o **janela de instalação de DSN do Driver ODBC do Azure Cosmos DB** (por meio de ODBC administrador fonte de dados), clique em **opções avançadas**e, em seguida, no **doarquivodeesquema** , navegue até o esquema salvo. Salvar um arquivo de esquema em um DSN existente modifica a conexão DSN de escopo para os dados e a estrutura definidos pelo esquema.
 
 ## <a id="table-mapping"></a>Etapa 4: Criar uma definição de esquema usando o método de mapeamento de delimitadores de tabela
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467366"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882218"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
 
@@ -102,7 +102,7 @@ azcopy \
     --source-key <key> 
 ```
 
-Se a pasta `/mnt/myfiles` não existir, o AzCopy a criará e baixará `abc.txt ` na nova pasta. 
+Se a pasta `/mnt/myfiles` não existir, o AzCopy a criará e baixará `abc.txt` na nova pasta. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Baixe um único blob de região secundária
 
@@ -344,7 +344,7 @@ azcopy \
 ```
 
 ### <a name="customizing-the-mime-content-type-mapping"></a>Personalizar o mapeamento de tipo de conteúdo MIME
-O AzCopy usa um arquivo de configuração que contém um mapeamento de extensão de arquivo para o tipo de conteúdo. É possível personalizar esse mapeamento e adicionar novos pares conforme necessário. O mapeamento está localizado em ```/usr/lib/azcopy/AzCopyConfig.json```
+O AzCopy usa um arquivo de configuração que contém um mapeamento de extensão de arquivo para o tipo de conteúdo. É possível personalizar esse mapeamento e adicionar novos pares conforme necessário. O mapeamento está localizado em  ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## <a name="blob-copy"></a>Blob: Copiar
 ### <a name="copy-single-blob-within-storage-account"></a>Copiar um único blob dentro da conta de armazenamento
@@ -418,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` poderá gerar custos de saída adicionais, comparado à cópia assíncrona. A abordagem recomendada é usar essa opção em uma VM do Azure que está na mesma região de sua conta de armazenamento de origem, para evitar o custo de saída.
+`--sync-copy` pode gerar custo de saída adicionais, comparado à cópia assíncrona. A abordagem recomendada é usar essa opção em uma VM do Azure que está na mesma região de sua conta de armazenamento de origem, para evitar o custo de saída.
 
 ## <a name="file-download"></a>Arquivo: Baixar
 ### <a name="download-single-file"></a>Baixar um único arquivo
@@ -707,18 +707,18 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [Criar uma conta de armazenamento](../storage-create-storage-account.md)
 * [Gerenciar blobs com o Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Usando a CLI do Azure com o Armazenamento do Azure](../storage-azure-cli.md)
-* [Como usar o armazenamento de Blob por meio do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Como usar o armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Blob do Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Como usar o armazenamento de Blob do Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Como usar o armazenamento de Blob no Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Como usar o armazenamento de BLOBs do Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
-* [Anunciando a Versão Prévia do AzCopy no Linux](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
-* [Apresentando a versão de visualização da biblioteca de movimentação de dados do armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducing synchronous copy and customized content type (AzCopy: introdução a cópia síncrona e tipo de conteúdo personalizado)](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support (AzCopy: anúncio de disponibilidade geral do AzCopy 3.0 mais versão de teste do AzCopy 4.0 com suporte para Tabela e Arquivo)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimized for Large-Scale Copy Scenarios (AzCopy: otimizado para cenários de cópia em larga escala)](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Support for read-access geo-redundant storage (AzCopy: suporte para o armazenamento com redundância geográfica com acesso de leitura)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transfer data with re-startable mode and SAS token (AzCopy: transferir dados com o modo reiniciável e token de SAS)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [Anunciando o AzCopy no Linux visualização](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
+* [Apresentando a visualização de biblioteca de movimentação de dados de armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy: Introdução a cópia síncrona e tipo de conteúdo personalizado](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Anunciando a disponibilidade geral do AzCopy 3.0 plus pré-lançamento do AzCopy 4.0 com o suporte de tabela e arquivo](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Otimizado para cenários de cópia em larga escala](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Suporte para armazenamento com redundância geográfica de acesso de leitura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Transferir dados com o modo reiniciável e token SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Usando a cópia de Blob entre contas](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Upload/download de arquivos para Blobs do Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

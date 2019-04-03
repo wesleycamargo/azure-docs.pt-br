@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404758"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881776"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade Excluir no Azure Data Factory
 
-Você pode usar a atividade Excluir no Azure Data Factory para excluir arquivos ou pastas de repositórios de armazenamento local ou de repositórios de armazenamento em nuvem. Use essa atividade para limpar ou arquivar os arquivos quando eles não forem mais necessários.
+Você pode usar a atividade excluir no Azure Data Factory para excluir arquivos ou pastas do armazenamento local armazena ou repositórios de armazenamento em nuvem. Use essa atividade para limpar ou arquivar os arquivos quando eles não forem mais necessários.
 
 > [!WARNING]
 > Os arquivos ou pastas excluídos não podem ser restaurados. Tenha cuidado ao usar a atividade Excluir para excluir arquivos ou pastas.
