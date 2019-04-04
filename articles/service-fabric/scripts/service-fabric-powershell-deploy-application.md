@@ -3,8 +3,8 @@ title: Exemplo de script do Azure PowerShell – implantar aplicativo em um clus
 description: Exemplo de script do Azure PowerShell – implantar um aplicativo em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: c81514fb4b1c1da483ebd55deae149caf22d4b63
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e205315530b0dc89037c1253c571c72c55f00a67
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927593"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661421"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implantar um aplicativo em um cluster do Service Fabric
 
@@ -32,15 +32,15 @@ Se necessário, instale o módulo Service Fabric do PowerShell com o [SDK do Ser
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "Deploy an application to a cluster")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Depois que o exemplo de script foi executado, o script em [Remover um aplicativo](service-fabric-powershell-remove-application.md) pode ser usado para remover a instância do aplicativo, cancelar o registro do tipo de aplicativo e excluir o pacote de aplicativos do repositório de imagens.
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 |[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Cria uma conexão com um cluster do Service Fabric. |
 |[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia um pacote de aplicativos para o repositório de imagens do cluster.  |

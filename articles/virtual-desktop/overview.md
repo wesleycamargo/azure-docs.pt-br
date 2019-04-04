@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401048"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577179"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é a Versão Prévia da Área de Trabalho Virtual do Windows? 
 
@@ -72,7 +72,7 @@ A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabal
   
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
-* [Ingressadas no domínio padrão](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) ou [Ingressadas no AD híbridas](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). As máquinas virtuais não podem ser ingressadas no Azure AD.
+* [Ingressadas no domínio padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [Ingressadas no AD híbridas](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). As máquinas virtuais não podem ser ingressadas no Azure AD.
 * A execução de uma das seguintes imagens do sistema operacional compatíveis:
   * Windows 10 Enterprise de várias sessões
   * Windows Server 2016
