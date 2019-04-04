@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449138"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905810"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
 
 Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou o certificado SSL para os aplicativos web no Serviço de Aplicativo do Azure. Adicionalmente, descreve as possíveis causas e soluções para esses problemas.
 
 Se você precisar de mais ajuda em qualquer ponto deste artigo, contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [Site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problemas de certificado
 
@@ -314,7 +317,7 @@ Sim. Quando você acessar a folha de domínios personalizados e SSL no portal do
 
 **Para transferir um domínio de uma assinatura para outra assinatura?**
 
-Você pode mover um domínio para outro grupo de recursos/assinatura usando o [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet do PowerShell.
+Você pode mover um domínio para outro grupo de recursos/assinatura usando o [AzResource movimentação](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) cmdlet do PowerShell.
 
 **Como posso gerenciar meu domínio personalizado se não tiver um aplicativo de serviço de aplicativo do Azure?**
 

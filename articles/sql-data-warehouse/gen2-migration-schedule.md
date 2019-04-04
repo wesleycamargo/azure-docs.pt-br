@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ed3029f2e336c03de616bc00733f1b9c104ddb86
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648566"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917882"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu data warehouse para Gen2
 
@@ -30,40 +30,40 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 
 \* indica que um agendamento específico para a região está indisponível no momento.
 
-| **Região** | **Gen2 inferior disponível** | **Início das atualizações automáticas** |
+| **Região** | **Inferior Gen2 disponíveis** | **Começam a atualizações automáticas** |
 |:--- |:--- |:--- |
-| Leste da Austrália |Disponível |1º de maio de 2019 |
-| Sudeste da Austrália |2 de abril de 2019 |1 de junho de 2019 |
+| Leste da Austrália |Disponível |1 de junho de 2019 |
+| Sudeste da Austrália |2 de abril de 2019 |1º de maio de 2019 |
 | Sul do Brasil |15 de maio de 2019 |\* |
-| Canadá Central |Disponível |1º de maio de 2019 |
+| Canadá Central |Disponível |1 de junho de 2019 |
 | Leste do Canadá |\* |\* |
-| Centro dos EUA |Disponível |1º de maio de 2019 |
+| Centro dos EUA |Disponível |1 de junho de 2019 |
 | Leste da China |\* |\* |
 | Leste da China 2 |\* |\* |
 | Norte da China |\* |\* |
 | Norte da China 2 |\* |\* |
-| Ásia Oriental |Disponível |1º de maio de 2019 |
-| Leste dos EUA |Disponível |1º de maio de 2019 |
-| Leste dos EUA 2 |Disponível |1º de maio. 2019 |
+| Ásia Oriental |Disponível |1 de junho de 2019 |
+| Leste dos EUA |Disponível |1 de junho de 2019 |
+| Leste dos EUA 2 |Disponível |1º de junho. 2019 |
 | França Central |\* |\* |
 | Alemanha Central |\* |\* |
 | Centro-oeste da Alemanha |1 de setembro de 2019|2 de janeiro de 2020 |
-| Centro da Índia |Disponível |1º de maio de 2019 |
+| Centro da Índia |Disponível |1 de junho de 2019 |
 | Sul da Índia |2 de abril de 2019 |1 de junho de 2019 |
-| Leste do Japão |Disponível |1º de maio de 2019 |
-| Oeste do Japão |Disponível |1 de junho de 2019 |
-| Coreia Central |2 de abril de 2019 |1º de maio de 2019 |
-| Sul da Coreia |2 de abril de 2019 |1 de junho de 2019 |
-| Centro-Norte dos EUA |2 de abril de 2019 |1 de junho de 2019 |
-| Norte da Europa |Disponível |1º de maio de 2019 |
-| Centro-Sul dos Estados Unidos |Disponível |1º de maio de 2019 |
-| Sudeste da Ásia |Disponível |1º de maio de 2019 |
-| Sul do Reino Unido |2 de abril de 2019 |1º de maio de 2019 |
+| Leste do Japão |Disponível |1 de junho de 2019 |
+| Oeste do Japão |Disponível |1º de maio de 2019 |
+| Coreia Central |2 de abril de 2019 |1 de junho de 2019 |
+| Sul da Coreia |2 de abril de 2019 |1º de maio de 2019 |
+| Centro-Norte dos EUA |2 de abril de 2019 |1º de maio de 2019 |
+| Norte da Europa |Disponível |1 de junho de 2019 |
+| Centro-Sul dos Estados Unidos |Disponível |1 de junho de 2019 |
+| Sudeste da Ásia |Disponível |1 de junho de 2019 |
+| Sul do Reino Unido |2 de abril de 2019 |1 de junho de 2019 |
 | Oeste do Reino Unido |\*|\* |
 | Centro-Oeste dos EUA |2 de setembro de 2019 |2 de janeiro de 2020|
-| Europa Ocidental |Disponível |1º de maio de 2019 |
+| Europa Ocidental |Disponível |1 de junho de 2019 |
 | Oeste dos EUA |2 de abril de 2019 |1 de junho de 2019 |
-| Oeste dos EUA 2 |Disponível |1º de maio de 2019 |
+| Oeste dos EUA 2 |Disponível |1 de junho de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
@@ -101,47 +101,47 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 ## <a name="migration-frequently-asked-questions"></a>Perguntas frequentes sobre migração
 
-**P: O custo de Gen2 é igual ao de Gen1?**
+**P: Gen2 custo igual Gen1?**
 
 - R: Sim.
 
-**P: Como as atualizações afetarão meus scripts de automação?**
+**P: Como as atualizações afetará meus scripts de automação?**
 
 - R: Qualquer script de automação que faça referência a um Objetivo de Nível de Serviço deve ser alterado para corresponder ao equivalente de Gen2.  Veja os detalhes [aqui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**P: Normalmente, quanto tempo demora uma autoatualização?**
+**P: Quanto tempo uma atualização automática normalmente demora?**
 
 - R: Você pode fazer a atualização in-loco ou usando um ponto de restauração.  
    - A atualização in-loco fará com que o data warehouse seja pausado momentaneamente e retomado.  Um processo em segundo plano continuará enquanto o data warehouse estiver online.  
    - Será mais demorado se você atualizar usando um ponto de restauração, pois a atualização passará pelo processo completo de restauração.
 
-**P: Quanto tempo levará a autoatualização?**
+**P: Quanto tempo levará a atualização automática?**
 
 - R: O tempo de inatividade real para a atualização é apenas o tempo necessário para pausar e retomar o serviço, que fica entre 5 e 10 minutos. Após esse breve tempo de inatividade, um processo em segundo plano executará uma migração de armazenamento. A duração do processo em segundo plano depende do tamanho do seu data warehouse.
 
-**P: Quando essa atualização automática ocorrerá?**
+**P: Quando a atualização automática ocorrerá?**
 
 - R: Durante o seu agendamento de manutenção. Aproveitar o agendamento de manutenção escolhido minimizará a interrupção nos seus negócios.
 
-**P: O que devo fazer se o processo de atualização em segundo plano parecer travado?**
+**P: O que devo fazer se meu processo de atualização em segundo plano parece estar travados?**
 
  - R: Inicie uma reindexação de suas tabelas Columnstore. Observe que a reindexação da tabela será offline durante essa operação.
 
-**P: E se Gen2 não tiver o Objetivo de Nível de Serviço que tenho em Gen1?**
+**P: E se Gen2 não tem o objetivo de nível de serviço tem no Gen1?**
 - R: Se você estiver executando um DW600 ou DW1200 em Gen1, é aconselhável usar DW500c ou DW1000c, respectivamente, pois Gen2 fornece mais memória e recursos, além de um desempenho mais alto do que Gen1.
 
-**P: Posso desabilitar o backup geográfico?**
+**P: Desabilitar backup geográfico?**
 - R:  Não. O backup geográfico é um recurso corporativo para preservar a disponibilidade do seu data warehouse no caso de uma região se tornar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
 
 **P: Há uma diferença na sintaxe do T-SQL entre Gen1 e Gen2?**
 
 - R: Não há nenhuma alteração na sintaxe da linguagem T-SQL de Gen1 para Gen2.
 
-**P: Gen2 oferece suporte às Janelas de Manutenção?**
+**P: Gen2 dá suporte à manutenção do Windows?**
 
 - R: Sim.
 
-**P: Serei capaz de criar uma nova instância de Gen1 depois que minha região for atualizada?**
+**P: Será capaz de criar uma nova instância de Gen1 após atualização minha região?**
 
 - R:  Não. Depois que uma região for atualizada, a criação de novas instâncias de Gen1 será desabilitada.
 
@@ -149,9 +149,9 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 - [Etapas de atualização](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)
-- [Monitoramento da integridade de recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Revise o artigo Antes de começar a migração](upgrade-to-latest-generation.md#before-you-begin)
-- [Atualizar in-loco e atualizar de um ponto de restauração](upgrade-to-latest-generation.md)
-- [Criar um ponto de restauração definido pelo usuário](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
+- [Monitor de integridade de recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Revisão antes de iniciar uma migração](upgrade-to-latest-generation.md#before-you-begin)
+- [Atualização in-loco e atualização de um ponto de restauração](upgrade-to-latest-generation.md)
+- [Crie um ponto restauração definido pelo usuário](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
 - [Saiba como restaurar para Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Abrir uma solicitação de suporte para SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Abra uma solicitação de suporte do SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

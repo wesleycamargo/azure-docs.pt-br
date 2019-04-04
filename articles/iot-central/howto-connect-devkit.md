@@ -3,17 +3,17 @@ title: Conectar um dispositivo DevKit ao aplicativo Azure IoT Central | Microsof
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113190"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905929"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -21,45 +21,47 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir as etapas neste artigo, você precisa do seguinte:
+Para concluir as etapas neste artigo, você precisa ter os seguintes recursos:
 
 1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para adquirir um dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 ## <a name="sample-devkits-application"></a>Aplicativo Devkits de exemplo
 
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **MXChip** com as características a seguir:
+Um aplicativo criado a partir de **Devkits de exemplo** modelo de aplicativo inclui um **MXChip** modelo de dispositivo que define as seguintes características de dispositivo:
 
-- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura**, **Pressão**, **Magnetômetro** (medido ao longo dos eixos X, Y e Z), **Acelerômetro** (medido ao longo dos eixos X, Y e Z) e **Giroscópio** (medido ao longo dos eixos X, Y, Z).
-- Estado que contém uma medida de exemplo para **Estado do Dispositivo**.
-- Medição de evento com um evento de **Botão B Pressionado**. 
-- Configurações mostrando **Tensão**, **Corrente**, **Velocidade do Ventilador** e uma alternância de **IV**.
-- As propriedades contendo a propriedade de dispositivo **número de dado** e **local do dispositivo**, que é uma propriedade local, bem como em uma propriedade de nuvem **Fabricados em**. 
+- Medidas de telemetria para o **umidade**, **temperatura**, **pressão**, **magnetômetro** (medido ao longo de X, Y, eixo Z), **Acelerômetro** (medido ao longo de X, Y, eixo Z), e **giroscópio** (medido ao longo de X, Y, eixo Z).
+- Estado de medida para **estado do dispositivo**.
+- Medida de evento para **botão B pressionado**.
+- As configurações para **tensão**, **atual**, **velocidade**e um **IR** alternância.
+- Propriedades do dispositivo **morrem número** e **local do dispositivo**, que é uma propriedade local.
+- Propriedade de nuvem **fabricados no**.
+- Comandos **Echo** e **contagem regressiva**. Quando um dispositivo real recebe um **Echo** comando, ele mostra o valor enviado na tela do dispositivo. Quando um dispositivo real recebe um **contagem regressiva** de comando, os ciclos de LED por meio de um padrão, e o dispositivo envia valores de contagem regressiva para a IoT Central.
 
-Para obter detalhes completos sobre a configuração, veja [Detalhes do modelo de Dispositivo MXChip](#mxchip-device-template-details)
-
+Para obter detalhes completos sobre a configuração, consulte [detalhes do modelo de dispositivo de MXChip](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispositivo **MXChip** e anote os detalhes da conexão do dispositivo (**ID do escopo, ID do dispositivo e Chave Primária**).
+### <a name="get-your-device-connection-details"></a>Obter detalhes de conexão de seu dispositivo
+
+Em seu aplicativo do Azure IoT Central, adicionar um dispositivo real do **MXChip** modelo de dispositivo e anote os detalhes de conexão do dispositivo: **Definir o escopo de ID, ID do dispositivo e chave primária**:
 
 1. Adicionar um **dispositivo real** no Device Explorer, selecione **+ Novo > Real** para adicionar um dispositivo real.
 
-   * Insira a ID do Dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do Dispositivo sugerida.
-   * Insira o nome do dispositivo ou use o nome sugerido
+    * Insira um minúsculo **ID do dispositivo**, ou usar o sugerido **ID do dispositivo**.
+    * Insira um **nome do dispositivo**, ou use o nome sugerido
 
-     ![Adicionar dispositivo](media/howto-connect-devkit/add-device.png)
+    ![Adicionar dispositivo](media/howto-connect-devkit/add-device.png)
 
-1. Obter os detalhes de conexão, como **chave primária, ID do dispositivo e ID do escopo** para o dispositivo adicionado selecionando **Connect** na página do dispositivo.
+1. Para obter detalhes de conexão de dispositivo **ID do escopo**, **ID do dispositivo**, e **Primary key**, selecione **Connect** na página do dispositivo.
 
     ![Detalhes da conexão](media/howto-connect-devkit/device-connect.png)
 
-1. Salvar esses detalhes, pois a Internet será desconectada temporariamente enquanto você prepara o dispositivo DevKit.
+1. Anote os detalhes de conexão. Você está temporariamente desconectado da internet quando você prepara seu dispositivo do Kit de desenvolvimento na próxima etapa.
 
 ### <a name="prepare-the-devkit-device"></a>Preparar o dispositivo DevKit
 
-> [!NOTE]
-> Se você já tiver usado o dispositivo antes, tiver credenciais de WiFi armazenadas e quiser reconfigurar o dispositivo para usar uma rede WiFi, uma cadeia de conexão ou uma medida de telemetria diferente, pressione os botões **A** e **B** no painel simultaneamente. Se isso não funcionar, pressione o botão **reiniciar** e tente novamente.
+Se você tiver usado anteriormente o dispositivo e quiser reconfigurá-lo para usar uma rede diferente de Wi-Fi, a cadeia de caracteres de conexão ou a medição de telemetria, pressione ambos os **um** e **B** botões ao mesmo tempo. Se não funcionar, pressione **redefinir** botão e tente novamente.
 
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar o dispositivo DevKit
 
@@ -81,25 +83,24 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
 
 1. O dispositivo agora está no modo de AP (Ponto de Acesso). É possível conectar esse ponto de acesso WiFi a partir do computador ou dispositivo móvel.
 
-1. No computador, telefone ou tablet, conecte o nome da rede WiFi exibido na tela do dispositivo. Quando essa rede for conectada, não haverá acesso à Internet. Esse estado é esperado e somente ficará conectado a essa rede por um curto período de tempo, enquanto você configura o dispositivo.
+1. No computador, telefone ou tablet, conecte o nome da rede WiFi exibido na tela do dispositivo. Quando você se conecta a essa rede, você não tem acesso à internet. Esse estado é esperado e você estiver conectado apenas a esta rede por um curto período enquanto você configura o dispositivo.
 
 1. Abra o navegador da Web e navegue até [http://192.168.0.1/start](http://192.168.0.1/start). A página da Web a seguir é exibida:
 
     ![Página de configuração do dispositivo](media/howto-connect-devkit/configpage.png)
 
-    Na página da Web: 
-    - adicione o nome da rede WiFi 
-    - a senha da rede WiFi
-    - CÓDIGO PIN mostrado no LCD do dispositivo 
-    - os detalhes da conexão **ID do escopo, ID do dispositivo e Chave primária** do dispositivo (você já deve ter salvado isso seguindo as etapas)      
-    - Selecione todas as medidas de telemetria disponíveis! 
+    Na página da web, digite:
+    - O nome da sua rede Wi-Fi
+    - a senha de rede Wi-Fi
+    - O código PIN, mostrado na tela do dispositivo
+    - Os detalhes de conexão **ID do escopo**, **ID do dispositivo**, e **chave primária** do seu dispositivo (você deve já tiver salvo essa seguindo as etapas)
+    - Selecione todas as medidas a telemetria disponível
 
 1. Após escolher **Configurar Dispositivo**, você verá esta página:
 
     ![Dispositivo configurado](media/howto-connect-devkit/deviceconfigured.png)
 
 1. Pressione o botão **Reiniciar** no dispositivo.
-
 
 ## <a name="view-the-telemetry"></a>Exibir a Telemetria
 
@@ -110,9 +111,9 @@ Quando o dispositivo DevKit for reiniciado, a tela no dispositivo exibirá:
 * O número de propriedades desejadas recebidas e o número de propriedades relatadas enviadas.
 
 > [!NOTE]
-> Se o dispositivo parece estar em looping durante a conexão, verifique se o dispositivo está *Bloqueado* no IoT Central e *Desbloqueie* o dispositivo para que ele possa conectar-se ao aplicativo.
+> Se o dispositivo é exibido executar um loop quando ele tenta se conectar, verifique se o dispositivo estiver **Blocked** no IoT Central, e **Unblock** o dispositivo para que ele possa se conectar ao aplicativo.
 
-Agite o dispositivo para incrementar o número de propriedades relatadas enviadas. O dispositivo envia um número aleatório como a propriedade de dispositivo **Número impresso**.
+Agite o dispositivo para enviar uma propriedade relatada. O dispositivo envia um número aleatório como a propriedade de dispositivo **Número impresso**.
 
 É possível exibir as medidas de telemetria e os valores das propriedades relatadas e definir as configurações no Azure IoT Central:
 
@@ -132,10 +133,13 @@ Agite o dispositivo para incrementar o número de propriedades relatadas enviada
 
     ![Exibir as configurações do dispositivo](media/howto-connect-devkit/devicesettingsnew.png)
 
+1. Sobre o **comandos** página, você pode chamar o **eco** e **contagem regressiva** comandos:
+
+    ![Comandos de chamada](media/howto-connect-devkit/devicecommands.png)
+
 1. Na página **Painel**, você pode ver o mapa do local
 
     ![Exibir o painel do dispositivo](media/howto-connect-devkit/devicedashboardnew.png)
-
 
 ## <a name="download-the-source-code"></a>Fazer o download do código-fonte
 
@@ -147,30 +151,38 @@ Para baixar o código-fonte, execute o comando a seguir no computador desktop:
 git clone https://github.com/Azure/iot-central-firmware
 ```
 
-O comando anterior baixa o código-fonte para uma pasta chamada `iot-central-firmware`. 
+O comando anterior baixa o código-fonte para uma pasta chamada `iot-central-firmware`.
 
 > [!NOTE]
 > Se o **git** não estiver instalado no ambiente de desenvolvimento, será possível baixá-lo a partir de [https://git-scm.com/download](https://git-scm.com/download).
 
 ## <a name="review-the-code"></a>Examine o código
 
-Use o Visual Studio Code, que foi instalado quando você preparou o ambiente de desenvolvimento, para abrir a pasta `AZ3166` pasta em `iot-central-firmware`: 
+Use o Visual Studio Code para abrir o `MXCHIP/mxchip_advanced` pasta no `iot-central-firmware` pasta:
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-Para ver como a telemetria é enviada ao aplicativo Azure IoT Central, abra o arquivo **main_telemetry.cpp** na pasta de origem.
+Para ver como a telemetria é enviada para o aplicativo do Azure IoT Central, abra o **telemetry.cpp** arquivo no `src` pasta:
 
-A função `buildTelemetryPayload` cria a carga de telemetria JSON usando dados dos sensores no dispositivo.
+- A função `TelemetryController::buildTelemetryPayload` cria a carga de telemetria JSON usando dados dos sensores no dispositivo.
 
-A função `sendTelemetryPayload` chama `sendTelemetry` no **iotHubClient.cpp** para enviar a carga JSON ao Hub IoT que o aplicativo Azure IoT Central usa.
+- A função `TelemetryController::sendTelemetryPayload` chamadas `sendTelemetry` na **AzureIOTClient.cpp** para enviar o conteúdo JSON para o IoT Hub o aplicativo usa Azure IoT Central.
 
-Para ver como os valores de propriedade são relatados para o aplicativo Azure IoT Central, abra o arquivo **main_telemetry.cpp** na pasta de origem.
+Para ver como os valores de propriedade são relatados para o aplicativo do Azure IoT Central, abra o **telemetry.cpp** arquivo no `src` pasta:
 
-A função `telemetryLoop` envia a propriedade relatada **doubleTap** quando o acelerômetro detecta um toque duplo. Ele usa a função `sendReportedProperty` no arquivo de origem **iotHubClient.cpp**.
+- A função `TelemetryController::loop` envia o **local** aproximadamente a cada 30 segundos de propriedade relatada. Ele usa o `sendReportedProperty` funcionar a **AzureIOTClient.cpp** arquivo de origem.
 
-O código no arquivo de origem **iotHubClient.cpp** usa funções de [ SDKs do Microsoft Azure IoT e bibliotecas para C](https://github.com/Azure/azure-iot-sdk-c) para interagir com o Hub IoT.
+- A função `TelemetryController::loop` envia o **dieNumber** propriedade relatada quando o acelerômetro dispositivo detecta um toque duplo. Ele usa o `sendReportedProperty` funcionar a **AzureIOTClient.cpp** arquivo de origem.
 
-Para obter informações sobre como modificar, compilar e carregar o código de exemplo no dispositivo, consulte o arquivo **readme.md** na pasta `AZ3166`.
+Para ver como o dispositivo responde aos comandos chamados a partir do aplicativo de IoT Central, abra o **registeredMethodHandlers.cpp** arquivo no `src` pasta:
+
+- O **dmEcho** função é o manipulador para o **eco** comando. Ele mostra a **displayedValue** arquivado na carga na tela do dispositivo.
+
+- O **dmCountdown** função é o manipulador para o **contagem regressiva** comando. Ele muda a cor do LED do dispositivo e usa uma propriedade relatada para enviar o valor de contagem regressiva para o aplicativo de IoT Central. A propriedade relatada tem o mesmo nome que o comando. A função usa o `sendReportedProperty` funcionar a **AzureIOTClient.cpp** arquivo de origem.
+
+O código a **AzureIOTClient.cpp** funções a partir do arquivo de origem usa a [SDKs de IoT do Microsoft Azure e bibliotecas para C](https://github.com/Azure/azure-iot-sdk-c) para interagir com o IoT Hub.
+
+Para obter informações sobre como modificar, compilar e carregar o código de exemplo no dispositivo, consulte o arquivo **readme.md** na pasta `MXCHIP/mxchip_advanced`.
 
 ## <a name="mxchip-device-template-details"></a>Detalhes do modelo de Dispositivo de MXChip
 
@@ -178,7 +190,7 @@ Um aplicativo criado com base no modelo de aplicativo de Devkits de Exemplo incl
 
 ### <a name="measurements"></a>Medidas
 
-#### <a name="telemetry"></a>Telemetria 
+#### <a name="telemetry"></a>Telemetria
 
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -194,7 +206,6 @@ Um aplicativo criado com base no modelo de aplicativo de Devkits de Exemplo incl
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
 
 #### <a name="states"></a>Estados 
 | NOME          | Nome de exibição   | NORMAL | CUIDADO | PERIGO | 
@@ -230,10 +241,13 @@ Configurações de alternância
 | Propriedade de dispositivo | Localização do dispositivo   | location  | location    |
 | Texto            | Fabricado em     | manufacturedIn   | N/D       |
 
+### <a name="commands"></a>Comandos
 
+| Nome de exibição | Nome do campo | Tipo de retorno | Nome de exibição do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| Echo         | echo       | text        | valor a ser exibido         | displayedValue   | text             |
+| Contagem regressiva    | contagem regressiva  | número      | Contagem de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como conectar um dispositivo DevKit ao aplicativo Azure IoT Central, as próximas etapas sugeridas são apresentadas:
-
-* [Preparar e conectar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
+Agora que você aprendeu como conectar um dispositivo DevKit ao seu aplicativo do Azure IoT Central, a próxima etapa sugerida é [preparar e conectar um Raspberry Pi](howto-connect-raspberry-pi-python.md).

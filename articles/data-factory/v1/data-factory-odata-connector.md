@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 63f26c8a4a0a9195083386b18c0fff9439428bf0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546187"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905623"
 ---
-# <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Mover dados De uma origem de OData usando o Azure Data Factory
+# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mover dados de uma origem de OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-odata-connector.md)
 > * [Versão 2 (versão atual)](../connector-odata.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do OData na V2 ](../connector-odata.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do OData na V2 ](../connector-odata.md).
 
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de uma origem OData. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
@@ -218,7 +218,7 @@ O exemplo copia dados de consulta em relação a uma fonte OData para um blob do
 }
 ```
 
-**Serviço vinculado de armazenamento do Azure:**
+**Serviço vinculado do armazenamento do Azure:**
 
 ```json
 {
@@ -232,7 +232,7 @@ O exemplo copia dados de consulta em relação a uma fonte OData para um blob do
 }
 ```
 
-**Conjunto de dados de entrada do OData:**
+**Dataset de entrada do OData:**
 
 Configurar “external”: “true” informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
@@ -324,7 +324,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: horas, interval
 }
 ```
 
-**Atividade de cópia em um pipeline com origem OData e coletor Blob:**
+**Atividade de cópia em um pipeline com origem de OData e coletor Blob:**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **consulta** seleciona os dados mais recentes (mais novos) da fonte de OData.
 

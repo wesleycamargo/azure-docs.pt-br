@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 16d915ff6ce0f787febbdc4be4d41e1c2e714d7f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 78370dba4c54df5636e6d17d23ce7cc9d7671c15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336658"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487695"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>A multilocação no Azure Stack
 
@@ -42,7 +42,7 @@ Há alguns pré-requisitos para levar em conta antes de configurar a multilocaç
  - Certifique-se de que você [instalados](azure-stack-powershell-install.md) e [configurados](azure-stack-powershell-configure-admin.md) PowerShell para o Azure Stack.
  - [Baixe as ferramentas do Azure Stack](azure-stack-powershell-download.md)e importe os módulos de identidade e conectar-se:
 
-    ```PowerShell  
+    ```powershell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
@@ -55,7 +55,7 @@ Integrar o locatário do diretório convidado (Fabrikam) para o Azure Stack por 
 
 O administrador do serviço de contoso.onmicrosoft.com executa os comandos a seguir.
 
-```PowerShell  
+```powershell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -86,7 +86,7 @@ Uma vez o administrador de pilha do Azure / operador tiver habilitado o diretór
 
 O administrador do diretório da Fabrikam de Mary executa os comandos a seguir em que o convidado directory fabrikam.onmicrosoft.com.
 
-```PowerShell
+```powershell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     

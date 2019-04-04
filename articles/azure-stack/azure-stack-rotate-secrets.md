@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251343"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917553"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar os segredos no Azure Stack
 
@@ -102,7 +102,7 @@ Executar a rotação do segredo usando as instruções a seguir corrigirá esses
     > [!Note] 
     > Para versões de pré-1811 não seja necessário girar segredos para adicionar certificados de host de extensão. Você deve seguir as instruções no artigo [preparar para o host de extensão para o Azure Stack](azure-stack-extension-host-prepare.md) para adicionar certificados de host de extensão.
 
-2. Operadores podem perceber alertas abrem e fecham automaticamente durante a rotação de segredos do Azure Stack.  Esse comportamento é esperado e os alertas podem ser ignorados.  Operadores podem verificar a validade desses alertas executando **AzureStack teste**.  Para operadores usando o SCOM para monitorar sistemas do Azure Stack, colocando um sistema no modo de manutenção impedirão que esses alertas de alcançar seus sistemas ITSM, mas continuarão a alertar se o sistema do Azure Stack torna-se inacessível.
+2. Os operadores podem perceber que alertas aparecem e desaparecem automaticamente durante a rotação de segredos do Azure Stack.  Esse comportamento é esperado e os alertas podem ser ignorados.  Operadores podem verificar a validade desses alertas executando **AzureStack teste**.  Para operadores usando o SCOM para monitorar sistemas do Azure Stack, colocando um sistema no modo de manutenção impedirão que esses alertas de alcançar seus sistemas ITSM, mas continuarão a alertar se o sistema do Azure Stack torna-se inacessível.
 
 3. Notifique os usuários de qualquer operação de manutenção. Agende janelas de manutenção normal, tanto quanto possíveis, fora do horário comercial. Operações de manutenção podem afetar as cargas de trabalho do usuário e operações do portal.
 
@@ -122,7 +122,7 @@ Executar a rotação do segredo usando as instruções a seguir corrigirá esses
 > **.\Certificates\AAD** ou ***.\Certificates\ADFS*** dependendo do seu provedor de identidade usado para o Azure Stack
 >
 > Ele é de extrema importância que a estrutura de pastas termina com **AAD** ou **ADFS** pastas e todos os subdiretórios são nessa estrutura; caso contrário, **Start-SecretRotation**virá com:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Para girar segredos externos:
 1. Dentro do recém-criado **\Certificates\\\<IdentityProvider >** diretório criado nas pré-etapas a, coloque o novo conjunto de certificados externos de substituição na estrutura de diretórios de acordo com o formato descrito na seção de certificados obrigatórios a [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Exemplo de estrutura de pasta para o provedor de identidade do AAD:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Para girar segredos externos:
     > [!Note]
     > Se a rotação secreta falhar, siga as instruções na mensagem de erro e executar novamente **início SecretRotation** com o **-ReRun** parâmetro.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Contate o suporte se você enfrentar repetidas falhas de rotação do segredo.
@@ -220,7 +220,7 @@ Para girar segredos externos:
 
 O exemplo de PowerShell a seguir demonstra os cmdlets e parâmetros para executar a fim de girar seus segredos.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ Quando a rotação do segredo for concluída com êxito, o console exibirá **st
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,25 +270,25 @@ Gira os segredos de um sistema de pilha do Azure. Só é executada contra o pont
 
 #### <a name="for-external-secret-rotation"></a>Para a rotação secreta externa
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>Para a rotação secreta interna
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Para rotação do segredo externa executar novamente
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>Para rotação secreta interna que executar novamente
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -312,7 +312,7 @@ O **SecretRotation início** cmdlet gira os segredos de infraestrutura de um sis
 
 Isso deve ser executado por meio do Azure Stack [ambiente do privilegiado ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ Esse comando gira todos os segredos de infra-estrutura expostos à rede interna 
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>Girar apenas os segredos de infra-estrutura externo  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Esse comando gira os certificados TLS usados para pontos de extremidade de infra
 >
 > **Partir *1811 +* não é possível girar ambos interno e externo certificados mais!!!**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Esse comando gira todos os segredos de infra-estrutura expostos à rede interna 
 
 Baseboard management controller (BMC) monitora o estado físico dos seus servidores. As especificações e instruções sobre como atualizar o nome da conta de usuário e a senha do BMC variam conforme o fornecedor de hardware do fabricante original do equipamento (OEM). Você deve atualizar suas senhas para os componentes do Azure Stack com regularidade.
 
-1. Atualize o BMC em servidores físicos do Azure Stack, seguindo as instruções do OEM. O nome da conta de usuário e a senha para cada BMC em seu ambiente devem ser o mesmo.
+1. Atualize o BMC em servidores físicos do Azure Stack, seguindo as instruções do OEM. O nome de usuário e senha para cada BMC em seu ambiente devem ser o mesmo. Observe que os nomes de usuário da BMC não podem exceder 16 caracteres.
 2. Abra um ponto de extremidade com privilégios em sessões do Azure Stack. Para obter instruções, consulte [usando o ponto de extremidade privilegiado no Azure Stack](azure-stack-privileged-endpoint.md).
 3. Após seu PowerShell prompt foi alterado para **[endereço IP ou ERCS VM name]: PS >** ou a **[azs-ercs01]: PS >**, dependendo do ambiente, execute `Set-BmcCredential` executando `Invoke-Command`. Passe a variável de sessão com privilégios de ponto de extremidade como um parâmetro. Por exemplo: 
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ Baseboard management controller (BMC) monitora o estado físico dos seus servido
 
     Você também pode usar a versão do PowerShell estática com as senhas como linhas de código:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

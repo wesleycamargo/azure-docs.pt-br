@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077115"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916267"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solucionando problemas dos pontos de extremidade do Azure CDN que retornam o código de status 404
 Este artigo permite que você solucione problemas com pontos de extremidade de Rede de Distribuição de Conteúdo (CDN) do Microsoft Azure que retornam códigos de status de resposta HTTP 404.
@@ -76,7 +76,7 @@ Verifique suas portas **HTTP** e **HTTPS**. Na maioria dos casos, as portas 80 e
 No entanto, suponha que a URL para o arquivo de origem que você testou anteriormente seja http:\//www.contoso.com:8080/file.txt. Observe a parte *:8080* no final do segmento do nome do host. Número instrui o navegador para usar a porta 8080 para se conectar ao servidor web em www\.contoso.com, portanto, você precisará inserir *8080* no **porta HTTP** campo. É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
 
 > [!NOTE]
-> **Azure CDN Standard da Akamai** não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **Azure CDN Standard da Akamai** não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

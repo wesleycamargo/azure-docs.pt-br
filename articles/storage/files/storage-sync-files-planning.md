@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480712"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918630"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -170,7 +170,7 @@ O clustering de failover do Windows Server tem suporte pela Sincronização de A
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
 **Versão do agente 5.0.2.0**   
-A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. A eliminação de duplicação em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento.
+A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento.
 
 **Windows Server 2012 R2 ou versões mais antigas do agente**  
 Para volumes que não têm a disposição em camadas de nuvem habilitada, a Sincronização de Arquivos do Azure dá suporte à Eliminação de Duplicação de Dados do Windows Server habilitada no volume.
@@ -278,6 +278,8 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Ásia Oriental           | Sudeste Asiático     |
 | Leste dos EUA             | Oeste dos EUA            |
 | Leste dos EUA 2           | Centro dos EUA         |
+| Coreia Central       | Sul da Coreia        |
+| Sul da Coreia         | Coreia Central      |
 | Norte da Europa        | Europa Ocidental        |
 | Centro-Norte dos EUA    | Centro-Sul dos Estados Unidos   |
 | Sul da Índia         | Índia Central      |

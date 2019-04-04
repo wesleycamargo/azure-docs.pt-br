@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a739b958ad60e39c38e81ce887edf68349340bb0
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
-ms.translationtype: HT
+ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905793"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especifique artefatos obrigatórios para o seu laboratório no Azure DevTest Labs
-Como proprietário de um laboratório, você pode especificar artefatos obrigatórios que são aplicados a todas as máquinas criadas no laboratório. Imagine um cenário em que você deseja que cada máquina em seu laboratório seja conectada à sua rede corporativa. Nesse caso, cada usuário do laboratório teria que adicionar um artefato de junção de domínio durante a criação da máquina virtual para garantir que a máquina estivesse conectada ao domínio corporativo. Em outras palavras, os usuários do laboratório teriam essencialmente que recriar uma máquina caso esquecessem de aplicar artefatos obrigatórios em sua máquina. Como proprietário de um laboratório, você faz o domínio unir o artefato como um artefato obrigatório em seu laboratório. Esta etapa garante que cada máquina esteja conectada à rede corporativa e economizando tempo e esforço para os usuários do laboratório.
+Como um proprietário de um laboratório, você pode especificar obrigatórios artefatos que são aplicados a cada máquina criada no laboratório. Imagine um cenário em que você deseja que cada máquina em seu laboratório seja conectada à sua rede corporativa. Nesse caso, cada usuário do laboratório teria que adicionar um artefato de junção de domínio durante a criação da máquina virtual para garantir que a máquina estivesse conectada ao domínio corporativo. Em outras palavras, os usuários do laboratório teriam essencialmente que recriar uma máquina caso esquecessem de aplicar artefatos obrigatórios em sua máquina. Como proprietário de um laboratório, você faz o domínio unir o artefato como um artefato obrigatório em seu laboratório. Esta etapa garante que cada máquina esteja conectada à rede corporativa e economizando tempo e esforço para os usuários do laboratório.
  
 Outros artefatos obrigatórios podem incluir uma ferramenta comum que sua equipe usa ou um pacote de segurança relacionado à plataforma que cada máquina precisa ter por padrão etc. Em suma, qualquer software comum que cada máquina em seu laboratório deve ter se torna um artefato obrigatório. Se você criar uma imagem personalizada a partir de uma máquina que tenha artefatos obrigatórios aplicados a ela e depois criar uma nova máquina a partir dessa imagem, os artefatos obrigatórios serão reaplicados na máquina durante a criação. Esse comportamento também significa que, mesmo que a imagem personalizada seja antiga, toda vez que você criar uma máquina a partir dela, a versão mais atualizada dos artefatos obrigatórios será aplicada a ela durante o fluxo de criação. 
  

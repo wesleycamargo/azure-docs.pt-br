@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540140"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918273"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerenciar a política de caching da CDN do Azure nos Serviços de Mídia do Azure
 Os Serviços de Mídia do Azure fornecem streaming adaptável e download progressivo com base em HTTP. Streaming baseado em HTTP é altamente escalonável, com os benefícios do armazenamento em cache em camadas proxy e CDN, bem como armazenamento em cache no lado do cliente. Pontos de extremidade de streaming fornecem recursos de streaming gerais e também a configuração de cabeçalhos de cache HTTP. Pontos de extremidade de streaming definem o Controle de Cache HTTP: cabeçalhos idade máxima e Vencimento. Saiba mais sobre os cabeçalhos de cache HTTP em [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -39,7 +39,7 @@ Os Serviços de Mídia do Azure fornecem [CDN integrada](https://azure.microsoft
 Você pode usar o portal do Azure ou as APIs de Serviços de Mídia do Azure para configurar os valores de cabeçalho do cache.
 
 1. Para configurar cabeçalhos de cache usando o portal do Azure, consulte [Como gerenciar pontos de extremidade de streaming](../media-services/previous/media-services-portal-manage-streaming-endpoints.md), seção Configurando o ponto de extremidade de streaming.
-2. API REST dos Serviços de Mídia do Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+2. API REST dos Serviços de Mídia do Azure, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
 3. SDK do .NET dos Serviços de Mídia do Azure, [Propriedades de StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## <a name="cache-configuration-precedence-order"></a>Ordem de precedência de configuração do cache

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 04/03/2019
+ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372362"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862073"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
-*Aplica-se a: Sistemas integrados do Azure Stack*
+*Aplicável a Sistemas integrados do Azure Stack*
 
 Este artigo descreve o conteúdo do pacote de atualização de 1902. A atualização inclui aprimoramentos, correções e novos recursos para esta versão do Azure Stack. Este artigo também descreve problemas conhecidos nesta versão e inclui um link para baixar a atualização. Problemas conhecidos são divididos em problemas diretamente relacionados ao processo de atualização e os problemas com a compilação (após a instalação).
 
@@ -57,12 +57,12 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> - Instalar o [hotfix mais recente do Azure Stack](#azure-stack-hotfixes) para 1901 (se houver) antes de atualizar para 1902.
+> Você pode instalar 1902 diretamente de qualquer um de [1.1901.0.95 ou 1.1901.0.99](azure-stack-update-1901.md#build-reference) liberar, sem precisar instalar primeiro qualquer hotfix 1901. No entanto, se você tiver instalado o mais antigo **1901.2.103** hotfix, você deve instalar a mais recente [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) antes de prosseguir para 1902.
 
 - Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os seguintes parâmetros para validar o status do Azure Stack e resolva os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examine os alertas ativos e resolver todos os que exigem ação:
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
 - Quando o Azure Stack é gerenciado pelo SCOM System Center Operations Manager (), certifique-se de atualizar o [pacote de gerenciamento para Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) para versão 1.0.3.11 antes da aplicação de 1902.
@@ -77,6 +77,9 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 
 - A compilação de 1902 introduz uma nova interface de usuário no portal do administrador de pilha do Azure para a criação de planos, ofertas, cotas e planos de complemento. Para obter mais informações, incluindo capturas de tela, consulte [criar planos, ofertas e cotas](azure-stack-create-plan.md).
 
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Aprimoramentos para a confiabilidade de expansão de capacidade durante adicionar nó ao alternar o estado da unidade de escala de "Expandindo armazenamento" em um estado de execução.
+
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
 1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
@@ -84,23 +87,21 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Para melhorar a integridade do pacote e segurança e gerenciamento mais fácil para ingestão off-line, Microsoft alterou o formato do pacote de atualização de arquivos. .exe e. bin para um arquivo. zip. O novo formato adiciona confiabilidade adicional para o processo de descompactação que às vezes, pode fazer com que a preparação da atualização para a vaga. O mesmo formato de pacote também se aplica para atualizar pacotes do seu OEM.
-
-- Para melhorar a experiência do operador do Azure Stack durante a execução **teste AzureStack**, operadores agora podem simplesmente usar `Test-AzureStack -Group UpdateReadiness` em vez de passar parâmetros adicionais de dez após um `include` instrução. Por exemplo: 
+- Para melhorar a segurança e integridade do pacote, bem como gerenciamento mais fácil para ingestão off-line, Microsoft alterou o formato do pacote de atualização de arquivos. .exe e. bin para um arquivo. zip. O novo formato adiciona confiabilidade adicional do processo de descompactação que às vezes, pode fazer com que a preparação da atualização paralisará. O mesmo formato de pacote também se aplica para atualizar pacotes do seu OEM.
+- Para melhorar a experiência do operador do Azure Stack durante a execução de teste AzureStack, operadores agora podem simplesmente usar, "Test-AzureStack-UpdateReadiness de grupo" em vez de passar parâmetros adicionais de dez após uma instrução de inclusão.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
-- Para melhorar a confiabilidade e a disponibilidade dos serviços de infraestrutura de núcleo geral durante o processo de atualização, nativo atualizar provedor de recursos como parte do plano de ação de atualização detectará e invocar correções globais automática conforme necessário. Fluxos de trabalho de "Reparar" correção globais incluem:
-
-  - Verifique se há máquinas virtuais de infraestrutura que estão em um estado não ideais e tentar repará-lo conforme necessário.
-  - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário.
-  - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário.
-  - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário.
-  - Verifique o estado de nós do serviço de Console de recuperação de emergência (ERCS) service fabric e repará-los conforme necessário.
-  - Verifique o estado de nós do service fabric XRP e repará-los conforme necessário.
-  - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário.
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- Para melhorar a confiabilidade e a disponibilidade dos serviços de infraestrutura de núcleo geral durante o processo de atualização, o provedor de recursos de atualização nativo como parte do plano de ação de atualização detectará e invocar as correções globais automática conforme necessário. Fluxos de trabalho de "Reparar" correção globais incluem:
+    - Procurando máquinas virtuais de infraestrutura que estiverem em um estado não ideal e tentar repará-los conforme necessário 
+    - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário
+    - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário
+    - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário
+    - Verifique o estado de nós de malha do serviço de Console de recuperação de emergência (ERCS) service e repará-los conforme necessário
+    - Verifique o estado de nós do service fabric XRP e repará-los conforme necessário
+    - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
 - Aprimoramentos para a confiabilidade de expansão de capacidade durante adicionar nó ao alternar o estado da unidade de escala de "Expandindo armazenamento" em um estado de execução.    
@@ -115,13 +116,13 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 - Melhorias para o Azure stack ferramentas de diagnóstico para melhorar o desempenho e confiabilidade de coleta de log. Registro em log para serviços de identidade e de rede adicional. 
 
 <!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
-- Aprimoramentos para a confiabilidade dos **AzureStack teste** para teste de preparação de rotação do segredo.
+- Aprimoramentos para a confiabilidade de AzureStack de teste de preparação de rotação secreta para o teste.
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- Aprimoramentos para aumentar a confiabilidade do Graph do AD ao se comunicar com um ambiente do cliente do Active Directory.
+- Aprimoramentos para aumentar a confiabilidade do Graph do AD ao se comunicar com o ambiente do Active Directory do cliente
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
-- Melhorias para o hardware de inventário de coleção no **Get-AzureStackStampInformation**.
+- Coleta de inventário de hardware de melhorias no Get-AzureStackStampInformation.
 
 - Para melhorar a confiabilidade das operações em execução na infraestrutura ERCS, a memória para cada instância ERCS aumenta de 8 GB para 12 GB. Em uma instalação de sistemas integrados do Azure Stack, isso resulta em um aumento de 12 GB em geral.
 
@@ -219,19 +220,6 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    - Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas no [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 - Uma VM do Ubuntu 18.04 criado com autorização SSH habilitada não permitirá que você use as chaves SSH para fazer logon no. Como alternativa, use o acesso de VM para a extensão do Linux para implementar as chaves SSH após o provisionamento ou usar a autenticação baseada em senha.
-
-- Se você não tiver um Host de ciclo de vida de Hardware (HLH): Antes da compilação 1902, você precisava definir a política de grupo **computador Configuration\Windows Settings\Security Settings\Local Policies\Security Options** para **Enviar LM e NTLM – use a segurança de sessão NTLMv2 se negociado**. Desde o build 1902, você deve deixá-lo como **não definido** ou defina-o como **enviar somente resposta NTLMv2** (que é o valor padrão). Caso contrário, você não pode estabelecer uma sessão remota do PowerShell e você receberá uma **o acesso é negado** erro:
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### <a name="networking"></a>Rede  
 

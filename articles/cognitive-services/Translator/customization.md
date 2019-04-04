@@ -3,19 +3,19 @@ title: Personalização da Tradução - API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Use o Hub do Microsoft Translator para compilar seu próprio sistema de tradução automática usando seu estilo e sua terminologia preferenciais.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124007"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918222"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -27,7 +27,7 @@ O recurso também pode ser usado para personalizar a tradução de fala quando u
 
 Com o Tradutor Personalizado, você pode compilar sistemas de tradução neural que entendam a terminologia usada na sua própria empresa e setor. O sistema de tradução personalizada então se integrará aos aplicativos, fluxos de trabalho e sites existentes.
 
-### <a name="how-does-it-work"></a>Como funciona?
+### <a name="how-does-it-work"></a>Como ele funciona?
 
 Use seus documentos traduzidos anteriormente (panfletos, páginas da Web, documentação etc.) para criar um sistema de tradução que reflita o estilo e a terminologia específica do domínio melhor do que um sistema de tradução genérico. Os usuários podem fazer upload de documentos TMX XLIFF, TXT, DOCX e XLSX.  
 
@@ -51,9 +51,9 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 |:-----|:----:|:----:|
 |Status do recurso de personalização   | Disponibilidade geral  | Disponibilidade geral |
 | Versão da API de texto  | Somente V2   | Somente V3 |
-| Personalização de SMT | Sim   | Não |
-| Personalização de NMT | Não    | Sim |
-| Nova personalização de serviços de Fala unificados | Não    | Sim |
+| Personalização de SMT | Sim   | Não  |
+| Personalização de NMT | Não     | Sim |
+| Nova personalização de serviços de Fala unificados | Não     | Sim |
 | [Sem rastreamento](https://www.aka.ms/notrace) | Sim  | Sim |
 
 ## <a name="collaborative-translations-framework"></a>Estrutura de traduções colaborativas
@@ -66,4 +66,4 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Configurar um sistema de idioma personalizado usando o Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs)
+> [Configurar um sistema de idioma personalizado usando um conversor personalizado](https://aka.ms/CustomTranslatorDocs)

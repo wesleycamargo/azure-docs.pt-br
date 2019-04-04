@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550115"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918953"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
 
@@ -55,9 +55,9 @@ Para obter esse cenário de negócios, a Contoso usa os recursos fornecidos pelo
 Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar a fatura da Contoso para a Northwind ou receber a confirmação da Northwind. Essas filas podem ser criadas usando um aplicativo cliente, que está disponível para download e está incluído no pacote de exemplo disponível como parte deste tutorial.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, consulte [How To: Criar ou modificar um Namespace de serviço do barramento de serviço](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
+* Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, consulte [How To: Criar ou modificar um Namespace de serviço do barramento de serviço](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
 * Você deve ter uma assinatura dos Serviços BizTalk. Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
-* Registre sua assinatura dos Serviços BizTalk no Portal dos Serviços BizTalk. Para obter instruções, confira [Registrar uma implantação de Serviço BizTalk no Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
+* Registre sua assinatura dos Serviços BizTalk no Portal dos Serviços BizTalk. Para obter instruções, confira [Registrar uma implantação de Serviço BizTalk no Portal dos Serviços BizTalk](/previous-versions/azure/hh689837(v=azure.100))
 * Você deve ter o Visual Studio instalado.
 * Você deve ter o SDK dos Serviços BizTalk instalado. Você pode fazer o download do SDK do [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

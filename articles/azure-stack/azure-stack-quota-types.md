@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349698"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497169"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cotas no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-[Cotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário criar até cinco VMs. Cada recurso pode ter seus próprios tipos de cotas.
+[Cotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco VMs. Cada recurso pode ter seus próprios tipos de cotas.
+
+> [!IMPORTANT]
+> Pode levar até duas horas para novas cotas para estar disponível no portal do usuário ou antes de uma cota alterada é imposta.
 
 ## <a name="compute-quota-types"></a>Tipos de cota de computação
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349698"
 | Capacidade máxima (em GB) de disco gerenciado premium | 2.048 | A capacidade máxima de premium gerenciados de discos que podem ser criados nesse local. |
 
 > [!NOTE]  
-> Capacidade máxima de disco não gerenciado (blobs de páginas) é separada da cota de disco gerenciado, ele deve ser definido na cota de armazenamento.
+> A capacidade máxima do disco não gerenciado (blobs de páginas) é separada da cota de disco gerenciado. Você pode definir esse valor **as cotas de armazenamento**.
 
-## <a name="storage-quota-types"></a>Tipos de cota de armazenamento 
+## <a name="storage-quota-types"></a>Tipos de cota de armazenamento
 
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
@@ -51,15 +54,15 @@ ms.locfileid: "58349698"
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que pode criar uma assinatura neste local. |
 
 > [!NOTE]  
-> Pode levar até duas horas antes de uma cota de armazenamento é imposta. Capacidade máxima de disco gerenciado é separada da cota de armazenamento total, ele deve ser definido na cota de computação.
+> A capacidade máxima de discos gerenciados é separada do que a cota de armazenamento total. Você pode definir esse valor **cotas de computação**.
 
 ## <a name="network-quota-types"></a>Tipos de cota de rede
 
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
-| IPs públicos máximo |50 |O número máximo de IPs públicos que pode criar uma assinatura neste local. |
+| IPs públicos máximo |50 |O número máximo de endereços IP públicos que pode criar uma assinatura neste local. |
 | Redes virtuais máximo |50 |O número máximo de redes virtuais que pode criar uma assinatura neste local. |
-| Gateways de rede virtual máximo |1 |O número máximo de gateways de rede virtual (Gateways de VPN) pode criar uma assinatura neste local. |
+| Gateways de rede virtual máximo |1 |O número máximo de gateways de rede virtual (gateways de VPN) pode criar uma assinatura neste local. |
 | Conexões de rede máxima |2 |O número máximo de conexões de rede (ponto a ponto ou site a site) que uma assinatura pode criar em todos os gateways de rede virtual neste local. |
 | Balanceadores de carga máxima |50 |O número máximo de balanceadores de carga que pode criar uma assinatura neste local. |
 | NICs máximo |100 |O número máximo de adaptadores de rede que pode criar uma assinatura neste local. |

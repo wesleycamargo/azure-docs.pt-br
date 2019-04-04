@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851680"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905081"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
 
@@ -128,7 +128,7 @@ A recomendação atual para o Azure é definir a fixação de MSS TCP para 1350 
 
 #### <a name="latency-and-round-trip-time"></a>Tempo de latência e de ida e volta
 
-Latência de rede é regida pela velocidade da luz em uma rede de fibra óptica. A realidade é, taxa de transferência de rede de TCP também é controlada com eficiência (práticos limites máximos) por causa do tempo de ida e volta (RTT) entre os dois dispositivos de rede.
+Latência de rede é regida pela velocidade da luz em uma rede de fibra óptica. A realidade é que a taxa de transferência de rede de TCP também é controlada com eficiência (práticos limites máximos) devido ao tempo de ida e volta (RTT) entre os dois dispositivos de rede.
 
 | | | | |
 |-|-|-|-|

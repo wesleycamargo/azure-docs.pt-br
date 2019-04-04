@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881088"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905776"
 ---
 # <a name="how-application-gateway-works"></a>Como funciona o Gateway de aplicativo
 
@@ -36,7 +36,7 @@ Depois que um servidor de back-end tiver sido determinado, o gateway de aplicati
 
 Um Gateway de aplicativo interno tem apenas o endereço IP privado. O nome DNS de um Gateway de aplicativo interno é internamente pode ser resolvido para seu endereço IP privado. Portanto, balanceadores de carga interno só podem rotear solicitações de clientes com acesso à rede virtual para o Gateway de aplicativo.
 
-Observe que os Gateways de aplicativos para a Internet e internos rotear solicitações para seus servidores de back-end usando endereços IP privados, se o recurso de pool de back-end contém um endereço IP privado, configuração NIC da VM ou um endereço internamente que pode ser resolvido e se seu pool de back-end é um ponto de extremidade público, o Gateway de aplicativo usa seu IP público de front-end para acessar o servidor. Se você não tiver provisionado um endereço IP público de front-end, um é atribuído para a conectividade externa de saída.
+Se seu pool de back-end contém um FQDN resolvível internamente ou um endereço IP privado, o Gateway de aplicativo roteia a solicitação para o servidor de back-end usando seus endereços IP privados de instância. Se seu pool de back-end contém um ponto de extremidade externo ou um FQDN externamente resolvível, o Gateway de aplicativo roteia a solicitação para o servidor de back-end usando seu endereço IP público de front-end. A resolução de DNS se baseia em uma zona DNS privada ou um servidor DNS personalizado se configurado ou ele usa o padrão que DNS do Azure forneceu. Se você não tiver provisionado um endereço IP público de front-end, um é atribuído para a conectividade externa de saída.
 
 ### <a name="modifications-to-the-request"></a>Modificações à solicitação
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660707"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915910"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar a aplicação de patches no sistema operacional e na estrutura com as Tarefas de ACR
 
@@ -27,7 +27,7 @@ Compile e teste imagens de contêiner com as Tarefas do ACR de quatro maneiras:
 * [Tarefa rápida](#quick-task): Compile e envie por push as imagens de contêiner sob demanda, no Azure, sem a necessidade de uma instalação local do Docker Engine. Pense em `docker build`, `docker push` na nuvem. Compile usando o código-fonte local ou um repositório Git.
 * [Build na confirmação de código-fonte](#automatic-build-on-source-code-commit): Dispare automaticamente um build de imagem de contêiner quando o código é confirmado para um repositório Git.
 * [Compilar na atualização de imagem base](#automate-os-and-framework-patching): Dispare um build de imagem de contêiner quando a imagem base da imagem que foi atualizada.
-* [Tarefas de várias etapas](#multi-step-tasks-preview) (versão prévia): Defina tarefas de várias etapas que criam imagens, executam contêineres como comandos e enviam imagens por push para um Registro. Essa versão prévia do recurso das Tarefas do ACR dão suporte à execução de tarefa sob demanda e a operações paralela de build, teste e push de imagem.
+* [Tarefas de várias etapas](#multi-step-tasks): Defina tarefas de várias etapas que criam imagens, executam contêineres como comandos e enviam imagens por push para um Registro. Esse recurso do ACR tarefas dá suporte à execução de tarefa sob demanda e compilação paralela de imagem, teste e operações de envio por push.
 
 ## <a name="quick-task"></a>Tarefa rápida
 
@@ -36,6 +36,8 @@ O ciclo de desenvolvimento de loop interno, o processo iterativo de escrever có
 Antes que você confirme sua primeira linha de código, o recurso [tarefas rápidas](container-registry-tutorial-quick-task.md) das Tarefas do ACR pode fornecer uma experiência de desenvolvimento integrada ao descarregar os builds de imagem de contêiner no Azure. Com as tarefas rápidas, você pode verificar suas definições de build automatizadas e detectar possíveis problemas antes de confirmar o código.
 
 Usando o formato `docker build` familiar, o comando [az acr build][az-acr-build] na CLI do Azure usa um *contexto* (o conjunto de arquivos a ser compilado), envia-o às Tarefas do ACR e, por padrão, envia a imagem de build por push ao seu registro após a conclusão.
+
+Para obter uma introdução, consulte o guia de início rápido para [compilar e executar uma imagem de contêiner](container-registry-quickstart-task-cli.md) no registro de contêiner do Azure.  
 
 A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para as Tarefas do ACR:
 
@@ -76,9 +78,9 @@ Saiba mais sobre a aplicação de patch no sistema operacional e na estrutura no
 > [!NOTE]
 > As atualizações da imagem base disparam builds somente quando tanto as imagens base e do aplicativo residem no mesmo Registro de Contêiner do Azure ou quando a base reside em um repositório público do Docker Hub.
 
-## <a name="multi-step-tasks-preview"></a>Tarefas de várias etapas (versão prévia)
+## <a name="multi-step-tasks"></a>Tarefas de várias etapas
 
-As tarefas de várias etapas, uma funcionalidade de versão prévia das Tarefas do ACR, fornece a definição e a execução de tarefas com base em etapa para compilar, testar e aplicar patches em imagens de contêiner na nuvem. As etapas da tarefa definem o build de imagem de contêiner individual e operações de push. Elas também podem definir a execução de um ou mais contêineres, com cada etapa usando o contêiner como seu ambiente de execução.
+Tarefas de várias etapas fornecem a definição de tarefas com base em etapa e a execução para compilar, testar e aplicação de patch de imagens de contêiner na nuvem. As etapas da tarefa definem o build de imagem de contêiner individual e operações de push. Elas também podem definir a execução de um ou mais contêineres, com cada etapa usando o contêiner como seu ambiente de execução.
 
 Por exemplo, você pode criar uma tarefa de várias etapa que automatiza o seguinte:
 
@@ -93,15 +95,12 @@ As tarefas de várias etapas permitem que você divida o build, a execução e o
 
 Saiba mais sobre as tarefas de várias etapas em [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md) (Executar tarefas de várias etapas de build, teste e patch nas Tarefas do ACR).
 
-> [!IMPORTANT]
-> A funcionalidade de tarefa de várias etapas das Tarefas do ACR está atualmente na versão prévia. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos dessa funcionalidade podem ser alterados antes da GA (disponibilidade geral)
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando você estiver pronto para automatizar a aplicação de patch no sistema operacional e na estrutura compilando imagens de contêiner na nuvem, confira a série de tutoriais de três partes das Tarefas do ACR.
 
 > [!div class="nextstepaction"]
-> [Compilar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-quick-task.md)
+> [Criar imagens de contêiner na nuvem com as tarefas de registro de contêiner do Azure](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

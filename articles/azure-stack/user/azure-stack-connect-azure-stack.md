@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77cfade382d2c2533b803412157a1d5268e89983
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b7a5aef76ec72b0de76fb4517ffda02808eab9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764312"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882474"
 ---
 # <a name="connect-to-azure-stack"></a>Conectar-se ao Azure Stack
 
@@ -55,7 +55,7 @@ Você pode estabelecer um conexão de rede Virtual privada (VPN) para um Kit de 
 
 Para criar uma conexão VPN para o kit de desenvolvimento, abra uma sessão do PowerShell com privilégios elevados do seu computador local baseado em Windows e execute o script a seguir (certifique-se de atualizar os valores de endereço e a senha IP para o seu ambiente):
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -92,9 +92,9 @@ Se a instalação for bem-sucedida, você deve ver **azurestack** na sua lista d
 
 Conecte-se à instância do Azure Stack usando qualquer um dos dois métodos a seguir:  
 
-* Usando o `Connect-AzsVpn ` comando: 
+* Usando o `Connect-AzsVpn` comando: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

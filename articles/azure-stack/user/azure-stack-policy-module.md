@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 03/26/2019
 ms.author: sethm
-ms.lastreviewed: 11/29/2018
-ms.openlocfilehash: 2e1b7257e7ffc4460d86018a6318e33f95e01700
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/26/2019
+ms.openlocfilehash: 9fade97bbe783cf156f5b73523bc0834a34df926
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246257"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487440"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerenciar a política do Azure usando o módulo de política do Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-O módulo de política do Azure Stack permite que você configure uma assinatura do Azure com o mesmo controle de versão e a disponibilidade do serviço como o Azure Stack. O módulo usa o [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) para criar uma política do Azure, o que limita os tipos de recursos e serviços disponíveis em uma assinatura. Crie uma atribuição de política no escopo apropriado, usando o [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Depois de configurar a política, você pode usar sua assinatura do Azure para desenvolver aplicativos direcionados para o Azure Stack.
+O módulo de política do Azure Stack permite que você configure uma assinatura do Azure com o mesmo controle de versão e a disponibilidade do serviço como o Azure Stack. O módulo usa o [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet do PowerShell para criar uma política do Azure, o que limita os tipos de recursos e serviços disponíveis em uma assinatura. Crie uma atribuição de política no escopo apropriado, usando o [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Depois de configurar a política, você pode usar sua assinatura do Azure para desenvolver aplicativos direcionados para o Azure Stack.
 
 ## <a name="install-the-module"></a>Instalar o módulo
 
@@ -35,31 +35,31 @@ O módulo de política do Azure Stack permite que você configure uma assinatura
 3. [Configurar o PowerShell para uso com o Azure Stack](azure-stack-powershell-configure-user.md).
 4. Importe o módulo AzureStack.Policy.psm1:
 
-    ```PowerShell
-    Import-Module .\Policy\AzureStack.Policy.psm1
-    ```
+
+   ```powershell
+   Import-Module .\Policy\AzureStack.Policy.psm1
+   ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>Aplicar a política à assinatura do Azure
 
-Você pode usar o comando a seguir para aplicar uma política padrão do Azure Stack em relação a sua assinatura do Azure. Antes de executar esse comando, substitua `Azure Subscription Name` com o nome da sua assinatura do Azure.
+Você pode usar o comando a seguir para aplicar uma política padrão do Azure Stack em relação a sua assinatura do Azure. Antes de executar esse comando, substitua `Azure subscription name` com o nome da sua assinatura do Azure:
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
-
 ```
 
 ## <a name="apply-policy-to-a-resource-group"></a>Aplicar a política a um grupo de recursos
 
-Você talvez queira aplicar políticas que são mais granulares. Por exemplo, você pode ter outros recursos em execução na mesma assinatura. Você pode definir o escopo a aplicação da diretiva de grupo de recursos específico, que permite que você teste seus aplicativos para o Azure Stack usando recursos do Azure. Antes de executar o comando a seguir, substitua `Azure Subscription Name` com o nome da sua assinatura do Azure.
+Você talvez queira aplicar políticas que são mais granulares. Por exemplo, você pode ter outros recursos em execução na mesma assinatura. Você pode definir o escopo a aplicação da diretiva de grupo de recursos específico, que permite que você teste seus aplicativos para o Azure Stack usando recursos do Azure. Antes de executar o comando a seguir, substitua `Azure subscription name` com o nome da sua assinatura do Azure:
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
@@ -67,7 +67,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="policy-in-action"></a>Política em ação
 
-Depois de implantar a política do Azure, você receberá um erro ao tentar implantar um recurso que é proibido pela diretiva.
+Depois de implantar a política do Azure, você receber um erro ao tentar implantar um recurso que é proibido pela política:
 
 ![Resultado da falha de implantação de recursos devido à restrição de política](./media/azure-stack-policy-module/image1.png)
 

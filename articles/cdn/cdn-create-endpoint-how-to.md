@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093673"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916811"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
-Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).
+Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para um início rápido sobre como criar um perfil e um ponto de extremidade, consulte [guia de início rápido: Criar um ponto de extremidade e um perfil de CDN do Azure](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar um ponto de extremidade da CDN, é necessário criar pelo menos um perfil CDN, que pode conter um ou mais pontos de extremidade CDN. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis. Como os preços da CDN são aplicados no nível do perfil CDN, você deverá criar vários perfis CDN se quiser usar uma combinação de tipos de preços para a CDN do Azure. Para criar um perfil CDN, confira [Criar um novo perfil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    > [!NOTE]
    > O valor da **Porta de origem** determina somente a porta usada pelo ponto de extremidade para recuperar as informações do servidor de origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente do valor de **Porta de origem**.  
    > 
-   > Os pontos de extremidade na **CDN do Azure do Akamai** não permitem o intervalo de portas TCP completo para portas de origens. Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > Os pontos de extremidade na **CDN do Azure do Akamai** não permitem o intervalo de portas TCP completo para portas de origens. Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](/previous-versions/azure/mt757337(v=azure.100)).  
    > 
    > O suporte do HTTPS para os domínios personalizados da CDN do Azure não é compatível com os produtos da **CDN do Azure do Akamai**. Para saber mais, veja [Configurar o HTTPS em um domínio personalizado CDN do Azure](cdn-custom-ssl.md).
     
@@ -84,8 +84,8 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
     - **CDN do Azure Standard dos perfis da Akamai**:
        - [**Distribuição na Web geral**](cdn-optimization-overview.md#general-web-delivery)
        - [**Streaming de mídia geral**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Streaming de mídia do vídeo por demanda**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Download de arquivo grande**](cdn-optimization-overview.md#large-file-download)
+       - [**Streaming de mídia do vídeo sob demanda**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Download de arquivos grandes**](cdn-optimization-overview.md#large-file-download)
        - [**Aceleração de site dinâmica**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Selecione **Adicionar** para criar um novo ponto de extremidade.

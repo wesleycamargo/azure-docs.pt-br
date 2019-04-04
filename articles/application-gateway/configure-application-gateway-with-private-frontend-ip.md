@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100165"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905530"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade do (ILB) do balanceador de carga interno
 
@@ -25,13 +25,16 @@ Neste artigo, você aprenderá a:
 - Criar uma configuração de IP de front-end privado para um Gateway de aplicativo
 - Criar um gateway de aplicativo com a configuração de IP de front-end privado
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no Portal do Azure em <https://portal.azure.com>
+Faça logon no portal do Azure em <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar um existente. Neste exemplo, vamos criar uma nova rede virtual. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo. Instâncias de Gateway de aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
+Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, criaremos uma nova rede virtual. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo. As instâncias do Gateway de Aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
 1. Clique em **Novo** no canto superior esquerdo do portal do Azure.
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
@@ -54,11 +57,11 @@ Para que o Azure se comunique entre os recursos que você cria, ele precisa de u
 
 ## <a name="add-backend-pool"></a>Adicionar pool de back-end
 
-O pool de back-end é usado para rotear solicitações para os servidores de back-end que atenderá a solicitação. Back-end pode ser formados por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, o domínio totalmente qualificado (FQDN) de nomes e back-ends com vários locatários, como o serviço de aplicativo do Azure. Neste exemplo, usaremos as máquinas virtuais como o back-end de destino. Podemos pode usar máquinas virtuais existentes ou criar novos. Neste exemplo, vamos criar duas máquinas virtuais que usa o Azure como servidores de back-end para o gateway de aplicativo. Para fazer isso, nós iremos:
+O pool de back-end é usado para rotear solicitações aos servidores back-end que atenderão à solicitação. O back-end pode ser formado por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends multilocatário como Serviço de Aplicativo do Azure. Neste exemplo, usaremos máquinas virtuais como o back-end de destino. Nós podemos usar máquinas virtuais existentes ou criar novas. Neste exemplo, criaremos duas máquinas virtuais que o Azure usará como servidores back-end para o gateway de aplicativo. Para fazer isso, nós iremos:
 
-1. Criar novas 2 VMS, *myVM* e *myVM2*, para serem usados como servidores de back-end.
-2. Instale o IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
-3. Adicione os servidores de back-end para o pool de back-end.
+1. Criar 2 novas VMS, *myVM* e *myVM2*, para serem usadas como servidores back-end.
+2. Instale IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
+3. Adicione os servidores back-end ao pool de back-end.
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -82,7 +85,7 @@ O pool de back-end é usado para rotear solicitações para os servidores de bac
 2. Execute o comando a seguir para instalar o IIS na máquina virtual:
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ O pool de back-end é usado para rotear solicitações para os servidores de bac
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1824c0a4c129fa5612c990447a13aef6b230e71f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310159"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904875"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
@@ -61,16 +61,16 @@ Com essa personalização estabelecida, veja o que acontece ao executar um failo
 
 Recuperar aplicativos grandes pode ser uma tarefa complexa. Etapas manuais tornam o processo propenso a erros e a pessoa que estiver executando o failover pode não estar ciente de todas as complexidades do aplicativo. É possível usar um plano de recuperação para impor uma ordem e automatizar as ações necessárias em cada etapa, usando runbooks de Automação do Azure para failover no Azure, ou scripts. Para tarefas que não podem ser automatizadas, é possível inserir pausas para ações manuais nos planos de recuperação. Há alguns tipos de tarefas que você pode configurar:
 
-* **Tarefas na VM do Azure após failover**: Ao fazer failover para o Azure, normalmente é necessário executar ações para poder conectar-se à VM após o failover. Por exemplo: 
+* **Tarefas na VM do Azure após failover**: Ao fazer failover para o Azure, normalmente é necessário executar ações para poder conectar-se à VM após o failover. Por exemplo:  
     * Crie um endereço IP público na VM do Azure.
     * Atribua um grupo de segurança de rede ao adaptador de rede da VM do Azure.
     * Adicione um balanceador de carga a um conjunto de disponibilidade.
-* **Tarefas dentro da Vm após failover**: Essas tarefas normalmente reconfiguram o aplicativo em execução no computador para que continue funcionando corretamente no novo ambiente. Por exemplo:
+* **Tarefas dentro da Vm após failover**: Essas tarefas normalmente reconfiguram o aplicativo em execução no computador para que continue funcionando corretamente no novo ambiente. Por exemplo: 
     * Modifique a cadeia de conexão do banco de dados no computador.
     * Altere as regras ou a configuração do servidor Web.
 
 
-## <a name="test-failover"></a>Failover de teste
+## <a name="test-failover"></a>Failover de Teste
 
 É possível usar um plano de recuperação para acionar um failover de teste. Utilize as melhores práticas a seguir:
 
@@ -84,7 +84,7 @@ Recuperar aplicativos grandes pode ser uma tarefa complexa. Etapas manuais torna
 
 ## <a name="watch-the-video"></a>Assista ao vídeo
 
-Assista a um vídeo de exemplo rápido mostrando um failover ao clicar em um aplicativo WordPress de duas camadas.
+Assista a um vídeo de exemplo rápido mostrando um failover de clicar em um aplicativo do WordPress de duas camadas.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

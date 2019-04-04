@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884645"
+ms.locfileid: "58905232"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda da caixa de dados do Azure
 
@@ -80,15 +80,23 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 ### <a name="url-patterns-for-compute-feature"></a>Padrões de URL para o recurso de computação
 
-| Padrão de URL                      | Componente ou funcionalidade                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |   |
-| https://\*.azurecr.io                     | Registros de contêiner pessoal e de terceiros (opcional) |   |
-| https://\*.azure-devices.net              | Acesso do Hub IoT (obrigatório)                             |   |
+| Padrão de URL                      | Componente ou funcionalidade                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |
+| https://\*.azurecr.io                     | Registros de contêiner pessoal e de terceiros (opcional) | 
+| https://\*.azure-devices.net              | Acesso do Hub IoT (obrigatório)                             | 
 
-### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o Azure governamental
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Padrões de URL para o gateway para o Azure governamental
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para a computação para o Azure governamental
+
+| Padrão de URL                      | Componente ou funcionalidade                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
+| https://\*.azure-devices.us              | Acesso do Hub IoT (obrigatório)           |
+| https://\*.azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 

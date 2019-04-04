@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181819"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916642"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
@@ -31,7 +31,7 @@ Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionam
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis de ambiente antes de iniciar uma função
-Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Ambiente] dentro do elemento [Tarefa].
+Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Environment] dentro do elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -68,12 +68,12 @@ No entanto, há algumas coisas que merecem atenção no uso de *AppCmd.exe* como
 
 É uma prática recomendada verificar **errorlevel** depois de chamar *AppCmd.exe*, o que é fácil se você encapsula a chamada a *AppCmd.exe* com um arquivo *.cmd*. Se você detectar uma resposta **errorlevel** conhecida, poderá ignorá-la ou passá-la novamente.
 
-O errorlevel retornado por *AppCmd.exe* é listado no arquivo winerror.h e também pode ser visto no [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+O errorlevel retornado por *AppCmd.exe* é listado no arquivo winerror.h e também pode ser visto no [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gerenciamento de nível de erro
 Este exemplo adiciona uma seção e uma entrada de compactação para JSON para o arquivo *Web.config* , com tratamento de erros e registro em log.
 
-As seções relevantes do arquivo [ServiceDefinition.csdef] são mostradas aqui, o que inclui a definição do atributo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) como `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as configurações no arquivo *Web.config*:
+As seções relevantes do arquivo [ServiceDefinition.csdef] são mostradas aqui, o que inclui a definição do atributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) como `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as configurações no arquivo *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ O segundo firewall controla conexões entre a máquina virtual e os processos de
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Você pode acessar a pasta de armazenamento local do SDK do Azure usando o método [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
+Você pode acessar a pasta de armazenamento local do SDK do Azure usando o método [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)).
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -304,7 +304,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Executar no emulador ou na nuvem
 Você pode fazer com que sua tarefa de inicialização execute etapas diferentes quando estiver funcionando na nuvem em comparação a quando estiver no emulador de computação. Por exemplo, convém usar uma cópia atualizada dos dados SQL somente durante a execução no emulador. Ou você talvez queira fazer alguma otimização de desempenho para a nuvem que não seja necessária na execução no emulador.
 
-Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [ServiceDefinition.csdef]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
+Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [Servicedefinition]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
 Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
 
@@ -472,12 +472,12 @@ Exemplo de saída no arquivo **Startuplog**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir executionContext adequadamente para tarefas de inicialização
 Definir privilégios adequadamente para a tarefa de inicialização. Às vezes, as tarefas de inicialização devem ser executadas com privilégios elevados, mesmo que a função seja executada com privilégios normais.
 
-A ferramenta de linha de comando [executionContext][tarefa] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
+A ferramenta de linha de comando [executionContext][Task] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
 
 Um exemplo de uma tarefa de inicialização que exija privilégios elevados é uma tarefa de inicialização que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usar o taskType adequado
-A ferramenta de linha de comando [taskType][tarefa] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
+A ferramenta de linha de comando [taskType][Task] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
 
 Com as tarefas de inicialização **simples**, você pode definir a ordem na qual as tarefas são executadas pela ordem na qual as tarefas são listadas no arquivo ServiceDefinition.csdef. Se uma tarefa **simples** terminar com um código de saída diferente de zero, o procedimento de inicialização será interrompido e a função não será iniciada.
 
@@ -511,10 +511,10 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[EndPoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Pontos de extremidade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

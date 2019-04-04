@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652086"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904569"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 
@@ -356,7 +356,7 @@ Se você tiver um código .NET escrito para uma versão 1 atividade de DotNet (p
   - O pacote NuGet Microsoft.Azure.Management.DataFactories não é mais necessário.
   - Compile seu código, carregue o executável e as dependências para o Armazenamento do Azure e defina o caminho na propriedade `folderPath`.
 
-Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta descritos na versão de fábrica de dados 1 artigo [usar atividades personalizadas em um pipeline da fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrita como uma atividade personalizada de fábrica de dados, consulte [ Exemplo de atividade personalizado de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta descritos na versão de fábrica de dados 1 artigo [usar atividades personalizadas em um pipeline da fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrita como uma atividade personalizada de fábrica de dados, consulte [ Exemplo de atividade personalizado de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 
@@ -381,11 +381,11 @@ Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.mi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
-* [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
-* [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
-* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
-* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
+* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade Hive](transform-data-using-hadoop-hive.md)
+* [Atividade Pig](transform-data-using-hadoop-pig.md)
+* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de Streaming do Hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade do Spark](transform-data-using-spark.md)
+* [Atividade de execução de lote do aprendizado de máquina](transform-data-using-machine-learning.md)
+* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

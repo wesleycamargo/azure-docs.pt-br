@@ -3,19 +3,19 @@ title: API de texto do tradutor V2.0
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para a API de texto do tradutor V2.0.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4f08b728198d6ee508cbd8267c593abc59e4cb37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075246"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918001"
 ---
 # <a name="translator-text-api-v20"></a>API de Tradução de Texto v2.0
 
@@ -241,7 +241,7 @@ Tipo de Conteúdo da Resposta: aplicativo/xml
 ## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtenha uma lista de códigos de idioma representando os idiomas compatíveis com o Serviço de Tradução.  `Translate` e `TranslateArray` podem traduzir entre qualquer um desses idiomas.
+Obtenha uma lista de códigos de idioma representando os idiomas compatíveis com o Serviço de Tradução.  `Translate` e `TranslateArray` pode converter entre quaisquer duas dessas linguagens.
 
 O URI da solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
@@ -597,7 +597,7 @@ O objeto `TranslateOptions` contém os valores listados abaixo. Eles são todos 
 
 * `Category`: Uma cadeia de caracteres contendo a categoria (domínio) da tradução. Usa geral como padrão.
 * `ContentType`: A única opção compatível é "text/plain", que é a opção padrão.
-* `IncludeMultipleMTAlternatives`: sinalizador booliano para determinar se mais de uma alternativa deve ser retornada do mecanismo de MT. Os valores válidos são true e false (diferencia maiúsculas de minúsculas). O padrão é false e inclui somente uma alternativa. Definir o sinalizador como true permite gerar alternativas artificiais na tradução, totalmente integradas com CTF (estrutura de traduções colaborativas). O recurso permite retornar frases alternativas que não têm nenhuma alternativa na CTF adicionando alternativas artificiais da lista de n melhores do decodificador.
+* `IncludeMultipleMTAlternatives`: um sinalizador booliano para determinar se mais de um alternativas devem ser retornados do mecanismo de MT. Os valores válidos são true e false (diferencia maiúsculas de minúsculas). O padrão é false e inclui somente uma alternativa. Definir o sinalizador como true permite gerar alternativas artificiais na tradução, totalmente integradas com CTF (estrutura de traduções colaborativas). O recurso permite retornar frases alternativas que não têm nenhuma alternativa na CTF adicionando alternativas artificiais da lista de n melhores do decodificador.
     - Classificações As classificações são aplicadas da seguinte maneira: 1) A melhor tradução automática tem uma classificação de 5. 2) As alternativas da CTF refletem a autoridade do revisor, de -10 a +10. 3) As alternativas de tradução (n melhores) geradas automaticamente têm uma classificação 0 e um grau de correspondência 100.
     - Número de alternativas O número de alternativas retornadas é até maxTranslations, mas pode ser menor.
     - Pares de idiomas Essa funcionalidade não está disponível para traduções entre chinês simplificado e tradicional em ambos os sentidos. Está disponível para todos os outros pares de idiomas compatíveis com o Microsoft Translator.
@@ -706,7 +706,7 @@ O formato do corpo da solicitação é o seguinte.
 * `Options`: Opcional. Um objeto Opções que contém os valores listados abaixo. Eles são todos opcionais e usam como padrão as configurações mais comuns. Os elementos especificado devem estar listados em ordem alfabética.
     - Categoria: Uma cadeia de caracteres contendo a categoria (domínio) da tradução. Usa geral como padrão.
     - `ContentType`: A única opção compatível é "text/plain", que é a opção padrão.
-    - `IncludeMultipleMTAlternatives`: sinalizador booliano para determinar se mais de uma alternativa deve ser retornada do mecanismo de MT. Os valores válidos são true e false (diferencia maiúsculas de minúsculas). O padrão é false e inclui somente uma alternativa. Definir o sinalizador como true permite gerar alternativas artificiais na tradução, totalmente integradas com CTF (estrutura de traduções colaborativas). O recurso permite retornar frases alternativas que não têm nenhuma alternativa na CTF adicionando alternativas artificiais da lista de n melhores do decodificador.
+    - `IncludeMultipleMTAlternatives`: um sinalizador booliano para determinar se mais de um alternativas devem ser retornados do mecanismo de MT. Os valores válidos são true e false (diferencia maiúsculas de minúsculas). O padrão é false e inclui somente uma alternativa. Definir o sinalizador como true permite gerar alternativas artificiais na tradução, totalmente integradas com CTF (estrutura de traduções colaborativas). O recurso permite retornar frases alternativas que não têm nenhuma alternativa na CTF adicionando alternativas artificiais da lista de n melhores do decodificador.
         - Classificações As classificações são aplicadas da seguinte maneira: 1) A melhor tradução automática tem uma classificação de 5. 2) As alternativas da CTF refletem a autoridade do revisor, de -10 a +10. 3) As alternativas de tradução (n melhores) geradas automaticamente têm uma classificação 0 e um grau de correspondência 100.
         - Número de alternativas O número de alternativas retornadas é até maxTranslations, mas pode ser menor.
         - Pares de idiomas Essa funcionalidade não está disponível para traduções entre chinês simplificado e tradicional em ambos os sentidos. Está disponível para todos os outros pares de idiomas compatíveis com o Microsoft Translator.
@@ -753,9 +753,9 @@ Cada elemento `GetTranslationsResponse` contém os seguintes valores:
 * `From`: Se o método não tiver especificado um idioma `From`, ele será o resultado da detecção automática do idioma. Caso contrário, será o idioma de Origem informado.
 * `State`: O estado do usuário para ajudar a correlacionar solicitação e resposta. Contém o mesmo valor dado no parâmetro `TranslateOptions`.
 
-O objeto `TranslationMatch` consiste no seguinte:
+`TranslationMatch` objeto consiste no seguinte:
 * `Error`: Se tiver ocorrido um erro para uma cadeia de caracteres de entrada específica, o código de erro será armazenado. Caso contrário, o campo ficará vazio.
-* `MatchDegree`: O sistema corresponde as frases de entrada com o repositório, incluindo correspondências inexatas.  `MatchDegree` indica o grau de correspondência do texto de entrada com relação ao texto original encontrado no armazenamento. O valor retornado vai de 0 a 100, em que 0 é nenhuma similaridade e 100 é uma correspondência exata que diferencia de maiúsculas e minúsculas.
+* `MatchDegree`: O sistema corresponde as frases de entrada com o repositório, incluindo correspondências inexatas.  `MatchDegree` Indica como o texto de entrada se aproxima o texto original encontrado no repositório. O valor retornado vai de 0 a 100, em que 0 é nenhuma similaridade e 100 é uma correspondência exata que diferencia de maiúsculas e minúsculas.
 * `MatchedOriginalText`: O texto original correspondente para esse resultado. Retornado somente se o texto original da correspondência for diferente do texto de entrada. Usado para retornar o texto de origem de uma correspondência difusa. Não é retornado para resultados do Microsoft Translator.
 * `Rating`: Indica a autoridade da pessoa que está tomando a decisão referente à qualidade. Os resultados da Tradução Automática terão uma classificação de 5. Traduções fornecidas de modo anônimo geralmente terão uma classificação de 1 a 4, enquanto traduções fornecidas com autoridade geralmente terão uma classificação de 6 a 10.
 * `Count`: O número de vezes que essa tradução com essa classificação foi selecionada. O valor será 0 para a resposta traduzida automaticamente.
@@ -787,7 +787,7 @@ Tipo de Conteúdo da Resposta: aplicativo/xml
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Migrar para o API de Tradução de Texto v3](../migrate-to-v3.md)
+> [Migrar para a API de texto de tradução v3](../migrate-to-v3.md)
 
 
 

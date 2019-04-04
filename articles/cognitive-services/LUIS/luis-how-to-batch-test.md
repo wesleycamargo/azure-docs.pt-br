@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895725"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
 
@@ -100,7 +100,7 @@ As duas seções do gráfico em verde corresponderam à previsão esperada.
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar o desempenho do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
-* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endoint-utt.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
-* [Noções básicas sobre o teste de lote com esse tutorial](luis-tutorial-batch-testing.md)
+* [Rotular sugeridas declarações com o LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 
+* [Entender o lote de teste com este tutorial](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de lote](luis-concept-batch-test.md).

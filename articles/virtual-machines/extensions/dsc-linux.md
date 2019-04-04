@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823001"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904467"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -57,11 +57,11 @@ A extensão DSCFoxLinux requer que a máquina virtual de destino esteja conectad
 
 Aqui estão todos os parâmetros de configuração pública com suporte:
 
-* `FileUri`: (opcional, cadeia de caracteres) o uri do MOF Meta/arquivo MOF personalizado/arquivo ZIP do arquivo de recurso.
+* `FileUri`: (opcional, cadeia de caracteres) o uri o MOF Meta/arquivo MOF personalizado/arquivo ZIP do arquivo de recurso.
 * `ResourceName`: (opcional, cadeia de caracteres) o nome do módulo de recurso personalizado
 * `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. Valores válidos: Registrar, Efetuar Push, Efetuar Pull, Instalar, Remover. Se não for especificado, ele é considerado como a ação de enviar por Push por padrão.
-* `NodeConfigurationName`: (opcional, cadeia de caracteres) o nome de uma configuração de nó a ser aplicada.
-* `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) que DSC tenta obter a configuração do servidor de pull. 
+* `NodeConfigurationName`: (opcional, cadeia de caracteres) o nome de uma configuração de nó a ser aplicado.
+* `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC tenta obter a configuração do servidor de pull. 
        Se a configuração no servidor de pull for diferente da atual no nó de destino, ela é copiada para o repositório pendente e aplicada.
 * `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válidos são: ApplyOnly, ApplyandMonitior e ApplyandAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC garante que a configuração está no estado desejado.
@@ -74,8 +74,8 @@ Aqui estão todos os parâmetros de configuração pública com suporte:
 
 Aqui estão todos os parâmetros de configuração protegidos com suporte:
 
-* `StorageAccountName`: (opcional, cadeia de caracteres): o nome da conta de armazenamento que contém o arquivo
-* `StorageAccountKey`: (opcional, cadeia de caracteres): a chave da conta de armazenamento que contém o arquivo
+* `StorageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento que contém o arquivo
+* `StorageAccountKey`: (opcional, cadeia de caracteres) a chave da conta de armazenamento que contém o arquivo
 * `RegistrationUrl`: (opcional, cadeia de caracteres) a URL da conta de automação do Azure
 * `RegistrationKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de automação do Azure
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539625"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918154"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
 
 ## <a name="input-endpoint"></a>Ponto de extremidade de entrada
-O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
+O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
 
 O ponto de extremidade de entrada pode usar os seguintes protocolos: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de funç�
 > 
 > 
 
-Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância de função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
+Você pode usar a propriedade [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) para retornar uma referência à instância de função atual e use a propriedade [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) para retornar uma referência à função propriamente dita.
 
 Quando você se conecta a uma instância de função programaticamente por meio do SDK do .NET, é relativamente fácil de acessar as informações do ponto de extremidade. Por exemplo, depois que você tiver se conectado a um ambiente de função específico, poderá obter a porta de um ponto de extremidade específico com este código:
 
@@ -111,7 +111,7 @@ A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. E
 > 
 > 
 
-Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
+Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
 
 Veja um exemplo que itera instâncias de função.
 
@@ -368,7 +368,7 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **Web
 </ServiceDefinition>
 ```
 
-Veja uma referência de esquema XML para os elementos usados acima [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Veja uma referência de esquema XML para os elementos usados acima [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nuvem.

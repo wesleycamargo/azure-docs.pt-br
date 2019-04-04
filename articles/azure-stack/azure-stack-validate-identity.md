@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403180"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486675"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure
 
@@ -85,7 +85,7 @@ Os seguintes pré-requisitos são necessários:
 
 4. Depois que a ferramenta é executada, examine a saída. Confirme o status é **Okey** para requisitos de instalação. Uma validação bem-sucedida é exibida como a imagem a seguir:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Os exemplos a seguir fornecem orientação sobre as falhas comuns de validação
 
 ### <a name="expired-or-temporary-password"></a>Senha expirada ou temporária
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 Como alternativa, entrar para o [portal do Azure](https://portal.azure.com) como o proprietário da conta e o usuário serão forçado a alterar a senha.
 
-### <a name="unknown-user-type"></a>Tipo de usuário desconhecido
-
-```shell
+### <a name="unknown-user-type"></a>Tipo de usuário desconhecido 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Conta não é um administrador
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

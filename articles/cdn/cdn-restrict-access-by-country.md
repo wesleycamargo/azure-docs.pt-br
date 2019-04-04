@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093299"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917746"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restringir conteúdo da CDN do Azure por país
 
@@ -46,17 +46,17 @@ Na caixa **PATH**, especifique o caminho relativo para o local ao qual os usuár
 
 Por exemplo, todos os filtros de caminho de diretório a seguir são válidos:   
 */*                                 
-*/Fotos/*     
-*/Fotos/Estrasburgo/*     
-*/Fotos/Estrasburgo/city.png*
+*/Photos/*     
+*/Photos/strasbourg/*     
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definir o tipo de ação
 
 Na lista **AÇÃO**, selecione **Permitir** ou **Bloquear**: 
 
-- **Permitir**: somente os usuários dos países especificados têm permissão para acessar os ativos solicitados do caminho recursivo.
+- **Permitir**: Apenas os usuários de países especificados terão o acesso aos ativos solicitados o caminho recursivo.
 
-- **Bloquear**: os usuários dos países especificados não têm acesso aos ativos solicitados do caminho recursivo. Se nenhuma outra opção de filtragem de país tiver sido configurada para esse local, então, todos os outros usuários terão acesso permitido.
+- **Bloco**: Os usuários dos países especificados terão acesso negados aos ativos solicitados o caminho recursivo. Se nenhuma outra opção de filtragem de país tiver sido configurada para esse local, então, todos os outros usuários terão acesso permitido.
 
 Por exemplo, uma regra de filtragem geográfica para bloquear o caminho */Fotos/Estrasburgo/* filtra os arquivos a seguir:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
@@ -110,5 +110,5 @@ Na tabela de regras de filtragem por país, selecione o ícone de exclusão ao l
 
 * Apenas uma regra pode ser aplicada para o mesmo caminho relativo. Ou seja, você não pode criar vários filtros de país que apontam para o mesmo caminho relativo. No entanto, como os filtros por país são recursivos, uma pasta poderá ter vários filtros por país. Em outras palavras, uma subpasta de uma pasta configurada anteriormente pode ter um filtro de país diferente atribuído.
 
-* O recurso de filtragem geográfica usa códigos do país para definir os países dos quais uma solicitação será permitida ou bloqueada para um diretório seguro. Embora os perfis da Akamai e da Verizon deem suporte para a maioria dos códigos do país, existem algumas diferenças. Para obter mais informações, consulte [Códigos do país da CDN do Azure](https://msdn.microsoft.com/library/mt761717.aspx). 
+* O recurso de filtragem geográfica usa códigos do país para definir os países dos quais uma solicitação será permitida ou bloqueada para um diretório seguro. Embora os perfis da Akamai e da Verizon deem suporte para a maioria dos códigos do país, existem algumas diferenças. Para obter mais informações, consulte [Códigos do país da CDN do Azure](/previous-versions/azure/mt761717(v=azure.100)). 
 

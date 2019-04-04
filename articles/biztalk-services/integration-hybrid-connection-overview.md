@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765536"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918290"
 ---
 # <a name="hybrid-connections-overview"></a>Visão geral de Conexões Híbridas
 
@@ -91,12 +91,12 @@ As portas TCP a seguir são usadas por Conexões Híbridas:
 | 80, 443 |Essas portas são usadas para algumas solicitações de dados no Azure. Além disso, se as portas 9352 e 5671 não forem utilizáveis, *então* as portas 80 e 443 serão as portas de fallback usadas para transmissão de dados e o canal de controle.<br/><br/>Permita conexões de saída para essas portas. <br/><br/>**Observação** Não é recomendável usá-las como as portas de fallback no lugar de outras portas TCP. O HTTP/WebSocket é usado como o protocolo, em vez do TCP nativo para canais de dados. Isso poderia degradar o desempenho. |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+[Criar e gerenciar conexões híbridas](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Veja também
-[API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)  
-[Criar um Serviço BizTalk](biztalk-provision-services.md)  
+[API REST para gerenciar serviços BizTalk no Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[Serviços BizTalk: Quadro de Edições](biztalk-editions-feature-chart.md)  
+[Criar um Serviço do BizTalk](biztalk-provision-services.md)  
 [Serviços BizTalk: Guias painel, Monitor e escala](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

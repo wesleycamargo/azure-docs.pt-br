@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351058"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915673"
 ---
 # <a name="scaling-media-processing"></a>Dimensionamento de processamento de mídia
 
@@ -47,7 +47,7 @@ O restante do artigo mostra como usar [serviços de mídia v3 CLI](https://aka.m
 > [!NOTE]
 > Para os trabalhos de análise de áudio e análise de vídeo acionados pelo Serviços de Mídia do Microsoft Azure v3 ou pelo Video Indexer, é altamente recomendável provisionar sua conta com 10 MRUs do S3. Se você precisar de mais de 10 MRUs do S3, abra um ticket de suporte usando o [Portal do Microsoft Azure](https://portal.azure.com/).
 >
-> Atualmente, é possível usar o portal do Azure para gerenciar os outros recursos v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
+> Atualmente, é possível usar o portal do Azure para gerenciar os outros recursos v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Cobrança
 
-Você é cobrado com base no número, tipo e quantidade de tempo que os MRUs são provisionados em sua conta. Encargos se aplicam se você executa trabalhos. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
+Você é cobrado com base no número de minutos que as unidades reservadas de mídia são provisionadas em sua conta. Isso ocorre independentemente se há quaisquer trabalhos em execução em sua conta. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="next-step"></a>Próxima etapa
 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 78391a9892ff568bfa41b16beb4a5b599ceee6c6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337364"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917440"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e recortar miniaturas de imagens
 
-Após o processamento de uma consulta de pesquisa, o Bing gerará as informações em miniatura para todas as imagens na sua [resposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Essas informações podem ser usadas para exibir todas as miniaturas retornadas ou um subconjunto delas. Se você exibir um subconjunto, forneça uma opção para exibir as imagens restantes.
+Após o processamento de uma consulta de pesquisa, o Bing gerará as informações em miniatura para todas as imagens na sua [resposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Essas informações podem ser usadas para exibir todas as miniaturas retornadas ou um subconjunto delas. Se você exibir um subconjunto, fornecem uma opção para exibir as imagens restantes.
 
 
 <!-- Removing image until we can replace it with a sanatized version.

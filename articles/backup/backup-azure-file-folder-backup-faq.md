@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827407"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918562"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -81,8 +81,8 @@ Use a lista a seguir para alterar o local do cache.
 
     | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local de pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local de pasta de cache* |
 
 4. Reinicie o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
@@ -116,10 +116,10 @@ A pasta de cache e o VHD dos metadados não têm os atributos necessários para 
 Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Registre o novo nome do servidor no Cofre de Backup. Ao registrar o novo nome com o cofre, a primeira operação de backup é um backup *completo*. Se você precisar recuperar dados de backup para o cofre com o nome antigo do servidor, use a opção [**Outro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) no assistente **Recuperar dados**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Qual é o comprimento máximo do caminho do arquivo que pode ser especificado no Backup do Azure usando o agente de Backup do Azure? <br/>
-O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se os arquivos que você deseja proteger tiverem um comprimento de caminho de arquivo maior do que o que é permitido pela API do Windows, faça backup da pasta pai ou da unidade de disco.  
+O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Se os arquivos que você deseja proteger tiverem um comprimento de caminho de arquivo maior do que o que é permitido pela API do Windows, faça backup da pasta pai ou da unidade de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure? <br>
- O agente de Backup do Azure baseia-se em NTFS. Ele permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo. 
+ O agente de Backup do Azure baseia-se em NTFS. Ele permite os [caracteres com suporte do NTFS](/windows/desktop/FileIO/naming-a-file#naming_conventions) como parte da especificação de arquivo. 
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Recebo o aviso "Os Backups do Azure não foram configurados para este servidor" embora tenha agendado configurado uma política de backup <br/>
 Esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-manage-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.

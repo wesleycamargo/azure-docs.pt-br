@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 487f70e4055f16c56092f2f970d2a34238e7febe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851675"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905028"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
@@ -39,7 +39,7 @@ A tabela a seguir lista as diferentes maneiras que você pode usar dados de mét
 | Alerta | Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou leva [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa um limite. |
 | Automatizar |  Use [AutoEscala](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica cruzar um limite. |
 | Exportação | [Rotear as métricas para os Logs de](diagnostic-logs-stream-log-store.md) para analisar dados do Azure Monitor Metrics junto com dados em Logs do Azure Monitor e para armazenar valores de métrica por mais de 93 dias.<br>Stream métricas para um [Hub de eventos](stream-monitoring-data-event-hubs.md) roteá-las a sistemas externos. |
-| Recuperar | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>Acessar valores de métrica de aplicativo personalizado usando [API REST](rest-api-walkthrough.md).<br>Acessar valores de métrica de uma linha de comando usando [CLI](/azure/monitor/metrics). |
+| Recuperar | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica de aplicativo personalizado usando [API REST](rest-api-walkthrough.md).<br>Acessar valores de métrica de uma linha de comando usando [CLI](/azure/monitor/metrics). |
 | Arquivo | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
 
 

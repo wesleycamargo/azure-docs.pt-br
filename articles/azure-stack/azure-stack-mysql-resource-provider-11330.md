@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251990"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882828"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Notas de versão do provedor 1.1.33.0 de recursos do MySQL
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e problemas conhecidos no MySQL versão 1.1.33.0 do provedor de recursos.
 
@@ -50,7 +50,8 @@ Esta versão do provedor de recursos MySQL do Azure Stack inclui os seguintes ap
 
 - **Implantação de provedor (1.1.30.0) de recursos MySQL anterior poderia falhar se o TLS 1.2 não estiver habilitado**. Atualizado o provedor de recursos MySQL 1.1.33.0 para habilitar o TLS 1.2 ao implantar o provedor de recursos, atualizando o provedor de recursos ou girando segredos. 
 
-- **Falha de rotação do segredo de provedor de recursos do MySQL**. Corrigido o problema resultante no código de erro a seguir para girar segredos: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Falha de rotação do segredo de provedor de recursos do MySQL**. Corrigido o problema resultante no código de erro a seguir para girar segredos:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Problemas conhecidos 
 

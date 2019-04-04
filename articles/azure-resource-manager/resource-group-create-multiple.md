@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 84f2d82ba6103382d7f9ff850bb6f1930ebbeb9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407078"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904586"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar mais de uma instância de um recurso ou propriedade nos modelos do Azure Resource Manager
 
 Este artigo mostra como iterar em seu modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-group-authoring-templates.md#condition).
 
 Para um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
@@ -56,7 +59,7 @@ O recurso para criar várias vezes leva o seguinte formato:
 }
 ```
 
-Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()`é baseado em zero. Assim, o seguinte exemplo:
+Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()` é baseado em zero. Assim, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex())]",

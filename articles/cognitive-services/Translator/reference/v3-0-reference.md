@@ -3,19 +3,19 @@ title: Referência da API de texto do tradutor V3.0
 titlesuffix: Azure Cognitive Services
 description: Documentação de referência para a API de texto do tradutor V3.0.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194955"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918800"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
 
@@ -58,7 +58,7 @@ Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta t
 |Cabeçalhos|DESCRIÇÃO|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Use com a assinatura dos Serviços Cognitivos se você estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
-|Autorização|*Use com a assinatura dos Serviços Cognitivos se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
+|Autorização|*Use com a assinatura dos serviços Cognitivos, se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use com assinatura de vários serviço de serviços Cognitivos, se você estiver passando uma chave secreta vários serviço.*<br/>O valor é a região da assinatura vários serviço. Esse valor é opcional quando não estiver usando uma assinatura de vários serviço.|
 
 ###  <a name="secret-key"></a>Chave secreta

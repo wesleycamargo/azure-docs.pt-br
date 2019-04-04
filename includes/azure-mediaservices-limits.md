@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553265"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919144"
 ---
 >[!NOTE]
 >Para obter recursos que não são fixos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie contas de serviços de mídia do Azure adicionais em uma tentativa de obter limites mais altos.
@@ -39,7 +39,7 @@ ms.locfileid: "57553265"
 
 A partir de 1 de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias é excluído automaticamente, junto com seus registros de tarefas associada. A exclusão automática ocorrerá mesmo que o número total de registros esteja abaixo da cota máxima. Para arquivar as informações de trabalho e tarefa, use o código descrito [gerenciar ativos com o SDK do .NET de serviços de mídia](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup>quando você faz uma solicitação para listar entidades de trabalho, um máximo de 1.000 trabalhos é retornado por solicitação. Para manter o controle de todos os trabalhos enviados, usar a parte superior ou ignorar consultas conforme descrito em [opções de consulta OData sistema](https://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup>quando você faz uma solicitação para listar entidades de trabalho, um máximo de 1.000 trabalhos é retornado por solicitação. Para manter o controle de todos os trabalhos enviados, usar a parte superior ou ignorar consultas conforme descrito em [opções de consulta OData sistema](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
 <sup>4</sup>localizadores não foram projetados para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções DRM (gerenciamento) de direitos digitais. Para obter mais informações, consulte [proteger o conteúdo com os serviços de mídia do Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
 

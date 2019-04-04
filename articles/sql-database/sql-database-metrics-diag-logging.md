@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863127"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905196"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
@@ -64,14 +64,14 @@ Você pode configurar bancos de dados SQL do Azure e bancos de dados de instânc
 | :------------------- | ----- | ----- |
 | [Todas as métricas](#all-metrics): contém o percentual de DTU/CPU, o limite de DTU/CPU, o percentual de leitura de dados físicos, o percentual de gravação em log, êxito/falha/bloqueio por conexões de firewall, o percentual de sessões, o percentual de funcionários, o armazenamento, o percentual de armazenamento e o percentual de armazenamento XTP. | Sim | Não  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução da consulta, como estatísticas de uso de CPU e duração da consulta. | Sim | Sim |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): contém informações sobre as estatísticas de espera de consulta (o que suas consultas aguardaram), como CPU, LOG e LOCKING. | Sim | Sim |
-| [Errors](#errors-dataset): contém informações sobre erros de SQL no banco de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contém informações sobre quanto tempo o banco de dados gastou aguardando em diferentes tipos de espera. | Sim | Não  |
-| [Timeouts](#time-outs-dataset): contém informações sobre os tempos limite no banco de dados. | Sim | Não  |
-| [Blocks](#blockings-dataset): contém informações sobre eventos de bloqueio no banco de dados. | Sim | Não  |
-| [Deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock no banco de dados. | Sim | Não  |
-| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre recomendações de ajuste automático no banco de dados. | Sim | Não  |
-| [SQLInsights](#intelligent-insights-dataset): contém Intelligent Insights sobre desempenho. Para saber mais, veja [Intelligent Insights](sql-database-intelligent-insights.md). | Sim | Sim |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que suas consultas aguardaram) como são CPU, LOG e LOCKING. | Sim | Sim |
+| [Erros](#errors-dataset): Contém informações sobre erros do SQL em um banco de dados. | Sim | Sim |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo um banco de dados gasta aguardando a tipos diferentes de espera. | Sim | Não  |
+| [Timeouts](#time-outs-dataset): Contém informações sobre tempos limite em um banco de dados. | Sim | Não  |
+| [Blocks](#blockings-dataset): Contém informações sobre eventos em um banco de dados de bloqueio. | Sim | Não  |
+| [Deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock em um banco de dados. | Sim | Não  |
+| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre recomendações de ajuste automático para um banco de dados. | Sim | Não  |
+| [SQLInsights](#intelligent-insights-dataset): Contém o Intelligent Insights sobre desempenho para um banco de dados. Para saber mais, veja [Intelligent Insights](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
 > Pools Elásticos e instâncias gerenciadas têm sua própria telemetria de diagnóstico separada de bancos de dados que eles contêm. Isso é importante observar que a telemetria de diagnóstico é configurada separadamente para cada um desses recursos, como documentado abaixo.

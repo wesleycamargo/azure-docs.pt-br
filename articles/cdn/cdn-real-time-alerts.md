@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998321"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917848"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas em tempo real na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -30,7 +30,7 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
 * Largura de banda
 * Códigos de status
 * Status do Cache
-* Conexões
+* conexões
 
 ## <a name="creating-a-real-time-alert"></a>Criar um alerta em tempo real
 1. No [Portal do Azure](https://portal.azure.com), navegue para seu perfil CDN.
@@ -65,7 +65,7 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
    > 
 8. Crie uma **Expressão** para monitorar, selecionando uma **Métrica**, um **Operador** e um **Valor de gatilho**.
    
-   * Para **Métrica**, selecione o tipo de condição que você deseja monitorar.  **Mbps de largura de banda** é a quantidade de uso de largura de banda em megabits por segundo.  **Total de Conexões** é o número de conexões HTTP simultâneas para os servidores de borda.  Para obter definições dos vários códigos de status e dos status de cache, confira [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Códigos de Status de Cache da CDN do Azure) e [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Códigos de Status de HTTP da CDN do Azure)
+   * Para **Métrica**, selecione o tipo de condição que você deseja monitorar.  **Mbps de largura de banda** é a quantidade de uso de largura de banda em megabits por segundo.  **Total de Conexões** é o número de conexões HTTP simultâneas para os servidores de borda.  Para obter definições dos vários códigos de status e dos status de cache, confira [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) (Códigos de Status de Cache da CDN do Azure) e [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100)) (Códigos de Status de HTTP da CDN do Azure)
    * **Operador** é o operador matemático que estabelece a relação entre a métrica e o valor do gatilho.
    * **Valor de Gatilho** é o valor limite que deve ser atingido antes que uma notificação seja enviada.
      

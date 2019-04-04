@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745666"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916681"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (versão prévia)
 
@@ -31,7 +31,6 @@ Os seguintes são problemas conhecidos com a versão atual do recurso de Integri
 - Se uma VM do Azure for removida ou excluída, ela será mostrada na exibição de lista da VM durante algum tempo. Além disso, ao clicar no estado de uma VM removida ou excluída, a exibição **Diagnóstico de Integridade** será aberta e, em seguida, um loop de carregamento será iniciado. A seleção do nome da VM excluída abre um painel com uma mensagem informando que a VM foi excluída.
 - As alterações de configuração, como a atualização de um limite, levam até 30 minutos, mesmo se o portal ou a API do Monitor da Carga de Trabalho atualizá-las imediatamente. 
 - A experiência de Diagnóstico de Integridade é atualizada mais rapidamente do que outras exibições. As informações podem ser atrasadas quando você alterna entre elas. 
-- O desligamento das VMs atualiza alguns dos critérios de integridade para *crítico* e outros para *íntegro*. O estado da VM de rede é exibido como *críticos*.
 - Para VMs do Linux, o título da página listando os critérios de integridade para exibição de uma única VM tem o nome de domínio inteiro da VM em vez do nome da VM definido pelo usuário. 
 - Depois que você desabilitar o monitoramento de uma VM usando um dos métodos compatíveis e tentar implantá-la novamente, deverá implantá-la no mesmo workspace. Se você optar por usar um workspace diferente e tentar exibir o estado de integridade dessa VM, ela poderá apresentar um comportamento inconsistente.
 - O critério de integridade da Utilização da CPU total para Windows mostra um limite de *não é igual a* **4**, o que significa que a utilização da CPU é maior que 95% e o comprimento da fila do sistema é maior que 15. Esse critério de integridade não é configurável nesta versão prévia.  

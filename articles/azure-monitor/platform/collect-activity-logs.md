@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540424"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905980"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar logs de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor
 
@@ -31,7 +31,7 @@ Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* pa
 Quando você conectar seus logs de atividades do Azure para um espaço de trabalho do Log Analytics, você pode:
 
 - Analisar os logs de atividade com exibições predefinidas
-- Analisar e pesquisar logs de atividade de várias assinaturas do Azure
+- Analisar e pesquisar os logs de atividade de várias assinaturas do Azure
 - Manter logs de atividade por mais de 90 dias<sup>1</sup>
 - Correlacionar os logs de atividade com outra plataforma do Azure e dados do aplicativo
 - Consultar atividades operacionais agregadas por status
@@ -50,12 +50,12 @@ Quando você está no tipo de preço Gratuito, os logs de atividade não se apli
 
 Ao contrário da maioria das outras soluções do Azure Monitor, os dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Com suporte | DESCRIÇÃO |
+| Fonte Conectada | Com suporte | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não  | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
+| [Conta de Armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ Execute as seguintes etapas para configurar a solução Análise do Log de Ativi
     2. Para cada assinatura, clique no nome da assinatura.  
         ![adicionar assinatura](./media/collect-activity-logs/add-subscription.png)
     3. Na folha *SubscriptionName*, clique em **Conectar**.  
-        ![conectar assinatura](./media/collect-activity-logs/subscription-connect.png)
+        ![Conectar assinatura](./media/collect-activity-logs/subscription-connect.png)
 
 Entre no portal do Azure para conectar uma assinatura do Azure ao seu workspace.  
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294222"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918341"
 ---
 # <a name="scaling-media-processing-overview"></a>Visão geral do dimensionamento do processamento de mídia 
 Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia. 
@@ -48,7 +48,7 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 ## <a name="billing"></a>Cobrança
 
-A cobrança é realizada com base no número real de minutos de uso das Unidades Reservadas de Mídia. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
+Você é cobrado com base no número de minutos que as unidades reservadas de mídia são provisionadas em sua conta. Isso ocorre independentemente se há quaisquer trabalhos em execução em sua conta. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Cotas e limitações
 Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091310"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918358"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar ativos em um ponto de extremidade da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,9 +49,9 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
    > [!TIP]
    > Após você começar a inserir texto, mais caixas de texto de **Caminho do conteúdo** serão mostradas para permitir que você crie uma lista com vários ativos. Para excluir ativos da lista, selecione o botão de reticências (...) e selecione **Excluir**.
    > 
-   > Cada caminho de conteúdo deve ser uma URL relativa que se encaixa nas seguintes [expressões regulares](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Cada caminho de conteúdo deve ser uma URL relativa que se encaixa nas seguintes [expressões regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Carregar um único caminho de arquivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Carregar um único arquivo com uma cadeia de caracteres de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Carrega um único arquivo com a cadeia de caracteres de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Como cada ativo precisa ter seu próprio caminho, não há nenhuma funcionalidade de curinga para pré-carregar ativos.
    > 
@@ -68,6 +68,6 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 
 ## <a name="see-also"></a>Consulte também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Referência da API REST da CDN do Azure: Pré-carregar o conteúdo em um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referência da API REST da CDN do Azure: Limpar o conteúdo de um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c7bfa8351a2599ff8616364a093cd6154e90830c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850867"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917083"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar uma transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com o portal do Azure  
 > [!div class="op_single_selector"]
@@ -42,6 +42,8 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 > Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos.
 
 1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+
+    Se você não tiver acesso a uma câmera, ferramentas, como [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) podem ser usados gerar um feed em tempo real a partir de um arquivo de vídeo.
 1. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produção de transmissão ao vivo com o OBS).
 
     Essa etapa também pode ser realizada após a criação do canal.

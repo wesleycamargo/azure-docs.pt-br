@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861988"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918511"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para gerenciamento de custos e de cobrança
 
@@ -80,9 +80,9 @@ Os clientes Diretos via Web e empresariais podem usar todas as seguintes APIs, e
 
 -   [API de detalhes de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails): obtenha informações de cobrança e uso em todos os recursos do Azure da Microsoft. As informações estão na forma de registros de detalhes de uso que atualmente são emitidos uma vez por metro por dia. Você pode usar as informações para somar os custos de todos os recursos ou investigar os custos ou o uso de recursos específicos.
 
--   [API RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx): obter taxas de medidor, se você for um cliente Direto da Web. Você então pode usar as informações retornadas com suas informações de uso de recursos para calcular manualmente a fatura esperada. 
+-   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): obter taxas de medidor, se você for um cliente Direto da Web. Você então pode usar as informações retornadas com suas informações de uso de recursos para calcular manualmente a fatura esperada. 
 
--   [API de Uso sem Classificação](https://msdn.microsoft.com/library/azure/mt219003.aspx): obtenha informações de uso bruto antes que o Azure faça qualquer medição/cobrança.
+-   [API de Uso sem Classificação](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenha informações de uso bruto antes que o Azure faça qualquer medição/cobrança.
 
 ### <a name="billing"></a>Cobrança
 -   [API dos Períodos de Cobrança](https://docs.microsoft.com/rest/api/billing/billingperiods): determine um período de cobrança para analisar, juntamente com as IDs de fatura para aquele período. Você pode usar as IDs de fatura com a API de Faturas.
@@ -121,7 +121,7 @@ Essas APIs fornecem dados fundamentalmente diferentes:
    - Alterações para contabilizar o uso de compromissos monetários pré-pagos
    - Alterações para considerar discrepâncias de uso descobertas pelo Azure
 
-- a [API de uso](https://msdn.microsoft.com/library/Mt219003.aspx) fornece informações de uso do Azure bruto antes de transmiti-la por meio do sistema de medição de custo do Azure. Esses dados podem não ter nenhuma correlação com a quantidade de uso ou custos visto depois que o Azure cobra um sistema de medição.
+- a [API de uso](/previous-versions/azure/reference/mt219003(v=azure.100)) fornece informações de uso do Azure bruto antes de transmiti-la por meio do sistema de medição de custo do Azure. Esses dados podem não ter nenhuma correlação com a quantidade de uso ou custos visto depois que o Azure cobra um sistema de medição.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual é a diferença entre a API de fatura e a API de detalhes de uso?
 Essas APIs fornecem uma exibição diferente dos mesmos dados:
@@ -135,7 +135,7 @@ Essas APIs fornecem conjuntos semelhantes de dados, mas têm diferentes público
 
 - a [API de folha de preço](https://docs.microsoft.com/rest/api/consumption/pricesheet) fornece preço personalizado negociado para um cliente Enterprise.
 
-- A [API RateCard](https://msdn.microsoft.com/library/mt219005.aspx) fornece o preço voltado para o público que se aplica a clientes Diretos via Web.
+- A [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) fornece o preço voltado para o público que se aplica a clientes Diretos via Web.
 
 ## <a name="next-steps"></a>Próximas etapas
 

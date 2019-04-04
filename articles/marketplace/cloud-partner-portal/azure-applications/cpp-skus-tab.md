@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095986"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905606"
 ---
 # <a name="azure-application-skus-tab"></a>Guia de SKUs de aplicativo do Azure
 
@@ -124,7 +124,7 @@ Observe as seguintes propriedades principais desse recurso:
   >Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. Estes arquivos devem estar na pasta raiz:  MainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json.
 
 - **ID do locatário** – ID do locatário do Azure Active Directory da sua organização.
-- **Habilitar acesso JIT?** – selecione **Sim** a fim de habilitar o acesso de gerenciamento Just-In-Time para implantações de cliente usando esta oferta.
+- **Habilitar o acesso JIT?** – selecione **Sim** a fim de habilitar o acesso de gerenciamento Just-In-Time para implantações de cliente usando esta oferta.
 
   >[!NOTE] 
   >Se você habilitar o JIT, deverá atualizar o arquivo CreateUiDefinition.json para dar suporte a acesso JIT.
@@ -135,7 +135,7 @@ Para um aplicativo gerenciado, você deve definir as configurações de polític
 
 #### <a name="authorization"></a>Autorização
 
-Adicione o identificador do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela ID de definição de função. Pode ser um Proprietário, um Colaborador ou qualquer função personalizada.
+Adicione o identificador do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela ID de definição de função. Pode ser um proprietário, colaborador ou qualquer função personalizada.
 
 #### <a name="policy-settings"></a>Configurações de política
 
@@ -144,7 +144,7 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
    ![Configurações de autorização e política para um aplicativo gerenciado](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
-**Para criar uma nova regra de autorização:**
+**Para criar uma nova autorização:**
 
 1. Em **Autorização**, selecione **+ Nova Autorização**.
 2. Em **ID da entidade**, digite o identificador do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela definição de função.

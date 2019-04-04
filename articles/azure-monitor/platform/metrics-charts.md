@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848870"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916335"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -76,11 +76,33 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 5. Repita as etapas 1 a 4 para aplicar vários filtros aos mesmos gráficos.
 
+## <a name="multiple-metrics-and-charts"></a>Várias métricas e esses gráficos
+
+Você também pode criar gráficos que criar gráficos com várias métricas ou mostram vários gráficos de métricas ao mesmo tempo. Essa funcionalidade permite que você:
+
+- correlacionar métricas relacionadas no mesmo gráfico para ver como um valor está relacionada a outro
+- Exibir métricas com diferentes unidades de medida em estreita proximidade
+- visualmente, agregar e comparar as métricas de vários recursos
+
+Por exemplo, se você tiver 5 contas de armazenamento e você quiser saber a quantidade total de espaço é consumido entre eles, você pode criar um gráfico de área (empilhada) que mostra os indivíduos e a soma de todos os valores em determinados pontos no tempo.
+
+### <a name="multiple-metrics-on-a-chart"></a>Várias métricas em um gráfico
+
+Primeiro, [criar um novo gráfico](#create-a-new-chart). Clique em **adicionar métrica** e repita as etapas para adicionar outra métrica no mesmo gráfico.
+
+### <a name="multiple-charts"></a>Vários gráficos
+
+Clique o **adicionar gráfico** e crie outro gráfico com uma métrica diferente.
+
+### <a name="order-or-delete-multiple-charts"></a>Ordem ou excluir vários gráficos
+
+Para ordenar ou excluir vários gráficos, clique na elipse ( **...**  ) símbolo para abrir o menu de gráfico e escolha o item de menu apropriado **mover para cima**, **mover para baixo**, ou **excluir**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Aplicar a divisão de um gráfico
 
-Divida uma métrica pela dimensão para visualizar uma comparação de diferentes segmentos da métrica em relação um ao outro e identificar os segmentos distantes de uma dimensão. 
+Divida uma métrica pela dimensão para visualizar uma comparação de diferentes segmentos da métrica em relação um ao outro e identificar os segmentos distantes de uma dimensão.
 
-### <a name="to-apply-splitting"></a>Para aplicar a divisão
+### <a name="apply-splitting"></a>Aplicar a separação
 
 1. Clique em **Aplica-se a divisão** acima do gráfico.
  
@@ -141,7 +163,7 @@ Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar 
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-*Não vejo dados no gráfico.*
+*Não consigo ver todos os dados em meu gráfico.*
 
 * Os filtros se aplicam a todos os gráficos do painel. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
 

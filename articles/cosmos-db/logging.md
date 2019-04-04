@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259764"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904858"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Log de diagnósticos no Azure Cosmos DB 
 
 Depois de começar a usar um ou mais bancos de dados do Azure Cosmos DB, talvez você deseje monitorar como e quando os bancos de dados são acessados. Este artigo fornece uma visão geral dos logs disponíveis na plataforma do Azure. Você aprenderá a habilitar o log de diagnósticos para fins para enviar logs de monitoramento [armazenamento do Azure](https://azure.microsoft.com/services/storage/), como transmitir logs para [Hubs de eventos](https://azure.microsoft.com/services/event-hubs/)e como exportar logs para [registraemlogdoAzureMonitor](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Logs disponíveis no Azure
 
@@ -132,7 +135,7 @@ Se já tiver instalado o Azure PowerShell e não souber a versão, no console do
 Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.
@@ -140,13 +143,13 @@ Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta 
 Se você tiver mais de uma assinatura, será preciso especificar a assinatura específica que foi usada para criar seu cofre de chaves do Azure. Digite o seguinte comando para ver as assinaturas da sua conta:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Em seguida, para especificar a assinatura associada à conta do Azure Cosmos DB que está sendo registrada em log, digite o seguinte comando:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Embora você possa usar uma conta de armazenamento existente para os logs, neste
 Para facilidade de gerenciamento adicional, neste tutorial, usamos o mesmo grupo de recursos que contém o banco de dados do Azure Cosmos DB. Substitua os valores para os parâmetros **ContosoResourceGroup**, **contosocosmosdblogs**, e **North Central US**, conforme aplicável:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Defina o nome da conta do Azure Cosmos DB como uma variável chamada **account**, em que **ResourceName** é o nome da conta do Azure Cosmos DB.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Habilitar o registro em log
-Para habilitar o log no Azure Cosmos DB, use o cmdlet `Set-AzureRmDiagnosticSetting` com as variáveis da nova conta de armazenamento, a conta do Azure Cosmos DB e a categoria para habilitar o registro em log. Execute o seguinte comando e defina o sinalizador **-Enabled** como **$true**:
+Para habilitar o log no Azure Cosmos DB, use o cmdlet `Set-AzDiagnosticSetting` com as variáveis da nova conta de armazenamento, a conta do Azure Cosmos DB e a categoria para habilitar o registro em log. Execute o seguinte comando e defina o sinalizador **-Enabled** como **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 O resultado do comando deve ser semelhante à seguinte amostra:
@@ -221,7 +224,7 @@ A saída do comando confirma que o registro em log está agora ativado para o se
 Opcionalmente, você também pode definir a política de retenção para os logs, de modo que os logs mais antigos sejam automaticamente excluídos. Por exemplo, defina a política de retenção com o sinalizador **-RetentionEnabled** definido como **$true**. Defina o parâmetro **-RetentionInDays** como **90** para que os logs de mais de 90 dias sejam automaticamente excluídos.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Primeiro, crie uma variável para o nome do contêiner. A variável é usada em 
 Para listar todos os blobs desse contêiner, digite:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 O resultado do comando deve ser semelhante à seguinte amostra:
@@ -257,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Como você pode ver neste resultado, os blobs seguem uma convenção de nomenclatura: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Como você pode ver nessa saída, os blobs seguem uma convenção de nomenclatura: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Os valores de data e hora usam UTC.
 
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Em seguida, obtenha uma lista de todos os blobs:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Direcione essa lista por meio do comando `Get-AzureStorageBlobContent` para baixar os blobs na pasta de destino:
+Direcione essa lista por meio do comando `Get-AzStorageBlobContent` para baixar os blobs na pasta de destino:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
 * Caso você tenha vários bancos de dados e deseje baixar apenas os logs de um banco de dados chamado**CONTOSOCOSMOSDB3**, use o comando:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Se você tiver vários grupos de recursos e quiser baixar os logs para apenas um grupo de recursos, use o comando `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Se desejar baixar todos os logs do mês de julho de 2017, use o comando `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 Você pode também executar os seguintes comandos:
 
-* Para consultar o status das configurações de diagnóstico do recurso de banco de dados, use o comando `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Para desabilitar o registro em log da categoria **DataPlaneRequests** do recurso de conta do banco de dados, use o comando `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Para consultar o status das configurações de diagnóstico do recurso de banco de dados, use o comando `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Para desabilitar o registro em log da categoria **DataPlaneRequests** do recurso de conta do banco de dados, use o comando `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Os blobs que são retornados em cada uma dessas consultas são armazenados como texto e formatados como um blob JSON, conforme mostrado no código a seguir:
@@ -437,11 +440,11 @@ A tabela a seguir descreve o conteúdo de cada entrada de log.
 
 | Propriedade ou campo de Armazenamento do Microsoft Azure | O Azure Monitor registra a propriedade | DESCRIÇÃO |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | A data e hora (UTC) em que a operação ocorreu. |
-| **resourceId** | **Recurso** | A conta do Azure Cosmos DB na qual os logs estão habilitados.|
-| **category** | **Categoria** | Para os logs do Azure Cosmos DB, **DataPlaneRequests** é o único valor disponível. |
+| **tempo real** | **TimeGenerated** | A data e hora (UTC) em que a operação ocorreu. |
+| **ResourceId** | **Recurso** | A conta do Azure Cosmos DB na qual os logs estão habilitados.|
+| **categoria** | **Categoria** | Para os logs do Azure Cosmos DB, **DataPlaneRequests** é o único valor disponível. |
 | **operationName** | **OperationName** | Nome da operação. Esse valor pode ser uma das seguintes operações: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
-| **properties** | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |
+| **propriedades** | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |
 | **activityId** | **activityId_g** | O GUID exclusivo da operação registrada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente do usuário cliente que executa a solicitação. O formato é {nome do agente do usuário}/{versão}.|
 | **requestResourceType** | **requestResourceType_s** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
@@ -460,6 +463,6 @@ A tabela a seguir descreve o conteúdo de cada entrada de log.
 - Para entender não apenas como habilitar o registro em log e também as métricas e as categorias de log com suporte nos vários serviços do Azure, leia os artigos [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [Visão geral dos Logs de Diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 - Leia estes artigos para saber mais sobre os hubs de eventos:
    - [O que é Hub de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
-   - [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+   - [Introdução aos Hubs de Eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Leia [Baixar métricas e logs de diagnósticos do Armazenamento do Microsoft Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Leia [entender pesquisas de log nos logs do Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

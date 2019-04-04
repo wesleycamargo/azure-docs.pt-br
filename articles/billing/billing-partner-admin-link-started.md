@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444887"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904824"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
 Como parceiro, você pode controlar o impacto em seus compromissos com o cliente. Você pode vincular sua ID de parceiro para as contas que são usadas para gerenciar as funcionalidades de um cliente.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>Obter o acesso do cliente
 
@@ -57,9 +59,8 @@ Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerS
 2. Entre no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, veja [Entrar com o PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
@@ -125,15 +126,15 @@ Participe da discussão da [Comunidade de Parceiros da Microsoft](https://aka.ms
 
 Qualquer usuário da organização do parceiro que gerencia os recursos do cliente pode vincular a ID de parceiro à conta.
 
-**Uma ID de parceiro pode ser alterada depois que estiver vinculada?**
+**Uma ID de parceiro pode ser alterada depois que ele está vinculado?**
 
 Sim. Uma ID de parceiro vinculada pode ser alterada, adicionada ou removida.
 
-**E se um usuário tiver uma conta em vários locatários do cliente?**
+**E se um usuário tiver uma conta em mais de um locatário do cliente?**
 
 A vinculação entre a ID de parceiro e a conta é feita para cada locatário do cliente. Vincule a ID de parceiro em cada locatário do cliente.
 
-**Outros parceiros ou clientes podem editar ou remover a vinculação à ID de parceiro?**
+**Podem outros parceiros ou clientes, editar ou remover o link para a ID de parceiro?**
 
 A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e outros parceiros não podem alterar a vinculação à ID de parceiro. 
 

@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247299"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484028"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Verifique seus modelos para o Azure Stack com a ferramenta de validação de modelo
 
@@ -47,13 +47,13 @@ Antes de usar o validador de modelo, execute as **AzureRM.CloudCapabilities** m�
 1. Verifique se que você tem conectividade com o Azure Stack. Essas etapas podem ser executadas do host do kit de desenvolvimento do Azure Stack, ou você pode usar um [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar de sua estação de trabalho.
 2. Importar o **AzureRM.CloudCapabilities** módulo do PowerShell:
 
-    ```PowerShell
+    ```powershell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
 3. Use o `Get-CloudCapabilities` cmdlet para recuperar versões de serviço e crie um arquivo JSON de recursos de nuvem. Se você não especificar **- OutputPath**, o arquivo AzureCloudCapabilities.Json é criado no diretório atual. Use o seu local real:
 
-    ```PowerShell
+    ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
@@ -63,14 +63,14 @@ Use estas etapas para validar modelos usando o **AzureRM.TemplateValidator** mó
 
 1. Importar o **AzureRM.TemplateValidator.psm1** módulo do PowerShell:
 
-    ```PowerShell
+    ```powershell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
 2. Execute o validador de modelo:
 
-    ```PowerShell
+    ```powershell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
@@ -98,7 +98,7 @@ O validador de modelo suporta os seguintes parâmetros.
 
 Este exemplo valida que todos os [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) baixado para o armazenamento local. O exemplo também valida tamanhos de máquinas virtuais e extensões em relação aos recursos do Kit de desenvolvimento do Azure Stack:
 
-```PowerShell
+```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `

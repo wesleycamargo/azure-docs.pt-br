@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629627"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906116"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -21,6 +21,9 @@ O Gateway de aplicativo do Azure consiste em vários componentes que podem ser c
 ![Gráfico de fluxo de componentes de Gateway de aplicativo](./media/configuration-overview/configuration-overview1.png)
 
 Esta imagem ilustra um aplicativo que tem três ouvintes. As duas primeiras são ouvintes multissites `http://acme.com/*` e `http://fabrikam.com/*`, respectivamente. Ambos escutam na porta 80. O terceiro é um ouvinte básico que tenha o encerramento de Secure Sockets Layer (SSL) de ponta a ponta.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -136,11 +139,11 @@ Ver [certificados com suporte para a terminação SSL](https://docs.microsoft.co
 Suporte de protocolo HTTP/2 está disponível para clientes que se conectam apenas ouvintes de gateway de aplicativo. A comunicação para pools de servidores de back-end é sobre HTTP/1.1. Por padrão, o suporte HTTP/2 está desabilitado. O seguinte trecho de código do PowerShell do Azure mostra como habilitar isso:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>Suporte para WebSocket

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099824"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893972"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -432,13 +432,13 @@ Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualq
 As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) estão disponíveis em algumas [culturas de linguagem](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de locais
-Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são os tipos mais difíceis de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são os tipos mais difíceis de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
 Funções são diferenças contextuais de entidades.

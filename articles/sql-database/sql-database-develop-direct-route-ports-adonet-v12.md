@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306435"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916165"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
 
@@ -43,11 +43,11 @@ Esta é a sequência:
 
 1. O ADO.NET 4.5 (ou posterior) inicia uma breve interação com a nuvem do Azure e recebe um número de porta identificado dinamicamente.
 
-   * O número da porta identificado dinamicamente está no intervalo de 11000-11999 ou 14000-14999.
+   * O número da porta identificado dinamicamente está no intervalo de 11000 a 11999.
 2. O ADO.NET conecta-se ao servidor de Banco de Dados SQL diretamente, sem um middleware entre os dois.
 3. As consultas são enviadas diretamente ao banco de dados, e os resultados são retornados diretamente ao cliente.
 
-Verifique se os intervalos de portas de 11000-11999 e 14000-14999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o Banco de Dados SQL.
+Certifique-se de que os intervalos de portas 11000 a 11999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o banco de dados SQL.
 
 * Em particular, as portas no intervalo devem estar livres de outros bloqueadores de saída.
 * Em sua VM do Azure, o **Firewall do Windows com Segurança Avançada** controla as configurações de porta.
@@ -63,7 +63,7 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * O ADO.NET 4.0 dá suporte ao protocolo TDS 7.3, mas não ao 7.4.
 * O ADO.NET 4.5 e posterior dá suporte ao protocolo TDS 7.4.
 
-### <a name="odbc"></a>ODBC
+### <a name="odbc"></a>ODBCODBC
 
 * Microsoft SQL Server ODBC 11 ou posterior
 
@@ -84,6 +84,6 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
-* [Como: definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
+* [Como: Definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
 

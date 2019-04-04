@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791738"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892731"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e solução de problemas do serviço Azure Machine Learning
 
@@ -24,7 +24,7 @@ Este artigo ajuda a localizar e corrigir os erros ou as falhas encontrados ao us
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
-**Mensagem de erro: não é possível desinstalar 'PyYAML'**
+**Mensagem de erro: Não é possível desinstalar o 'PyYAML'**
 
 SDK do Azure Machine Learning para Python: O PyYAML é um projeto de distutils instalado. Portanto, não é possível determinar com precisão quais arquivos pertencem a ele no caso de uma desinstalação parcial. Para continuar a instalação do SDK ignorando esse erro, use:
 
@@ -50,7 +50,7 @@ Não será possível implantar modelos em FPGAs até que você tenha solicitado 
 
 ## <a name="automated-machine-learning"></a>Machine Learning automatizado
 
-Atualmente, o aprendizado de máquina do tensor Flow automatizada não oferece suporte para a versão do tensor flow 1.13. Instalar isso fará com que as dependências do pacote parar de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
+Atualmente, o aprendizado de máquina do tensor Flow automatizada não oferece suporte para a versão do tensor flow 1.13. Instalar esta versão fará com que as dependências do pacote parar de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Se você vir esse erro quando você usa automatizada de aprendizado de máquina:
 
 1. Desanexar e anexar novamente o cluster para o bloco de anotações. 
 
-Se isso não resolver o problema, tente reiniciar o cluster.
+Se essas etapas não resolverem o problema, tente reiniciar o cluster.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -123,7 +123,3 @@ Se executar uma operação de gerenciamento em um destino de computação de um 
 ```
 
 Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
-
-## <a name="get-more-support"></a>Obter mais suporte
-
-Você pode enviar solicitações de suporte e obter ajuda do suporte técnico, de fóruns e muito mais. [Saiba mais...](support-for-aml-services.md)

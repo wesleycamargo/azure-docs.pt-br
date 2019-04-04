@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768392"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487627"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Baixar itens do marketplace do Azure para o Azure Stack
 
@@ -101,14 +101,14 @@ Há duas partes que compõem esse cenário:
 
 3. Se você tiver várias assinaturas, execute o seguinte comando para selecionar aquela que você usou para o registro:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. Baixe a versão mais recente da ferramenta de sindicalização do marketplace usando o script a seguir:  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ Há duas partes que compõem esse cenário:
 
 5. Importe o módulo de distribuição e, em seguida, inicie a ferramenta, executando os comandos a seguir. Substitua `Destination folder path` com um local para armazenar os arquivos baixados do Azure Marketplace.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ Há duas partes que compõem esse cenário:
 
 3. Importe o módulo de distribuição e, em seguida, inicie a ferramenta de sindicalização do marketplace, executando o script a seguir:
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ Há duas partes que compõem esse cenário:
 
    Como uma alternativa para esse script, você pode usar o [procedimento descrito neste artigo](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) para importar o. Imagem VHD usando o portal do Azure.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ Há duas partes que compõem esse cenário:
 
 
 4.  Usar o PowerShell para publicar o item do marketplace do Azure Stack, usando o **AzsGalleryItem adicionar** cmdlet. Por exemplo:   
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ Há duas partes que compõem esse cenário:
 
 Com o lançamento do Azure Stack PowerShell 1.3.0, agora você pode adicionar extensões de máquina Virtual. Por exemplo: 
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

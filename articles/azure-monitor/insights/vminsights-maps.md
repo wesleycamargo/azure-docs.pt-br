@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984842"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916726"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 Exibindo os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux em execução no Azure, seu ambiente pode ser observado de duas maneiras com o Monitor do Azure para VMs, a partir de uma máquina virtual diretamente ou entre grupos de VMs do Monitor do Azure. 
@@ -43,7 +43,7 @@ No lado direito do painel, clique no **eventos de Log** ícone para alternar o f
 
 ![Lista de pesquisa de logs no painel Propriedades](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Feche *Logs** e retorne ao painel **Propriedades** e selecione **Alertas** para exibir os alertas gerados pelos alertas para a VM do critério de integridade. O Mapa é integrado aos Alertas do Azure para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. O servidor exibirá um ícone, se houver alertas atuais, e o painel Alertas do Computador listará os alertas. 
+Fechar **Logs** e retornar para o **propriedades** painel e selecione **alertas** para exibir alertas que o alerta geradas para a VM de critérios de integridade. O Mapa é integrado aos Alertas do Azure para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. O servidor exibirá um ícone, se houver alertas atuais, e o painel Alertas do Computador listará os alertas. 
 
 ![Alertas do computador no painel Propriedades](./media/vminsights-maps/properties-pane-alerts-01.png)
 

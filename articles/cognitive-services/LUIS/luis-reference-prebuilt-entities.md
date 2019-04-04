@@ -9,32 +9,32 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ms.author: diberry
-ms.openlocfilehash: fdb105fa5aa9baefc9e64b65c275f07db802daad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091691"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905045"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
 O LUIS (Serviço Inteligente de Reconhecimento Vocal) fornece entidades predefinidas. Quando uma entidade predefinida é incluída em seu aplicativo, o LUIS inclui a previsão de entidade correspondente na resposta do ponto de extremidade. Todos os enunciados de exemplo também são rotulados com a entidade. O comportamento das entidades predefinidas **não pode** ser modificado. A menos que indicado de outra forma, entidades predefinidas estão disponíveis em todas as localidades (culturas) do aplicativo de LUIS. A tabela a seguir mostra as entidades predefinidas compatíveis com cada cultura.
 
-|Cultura|Subculturas|
-|--|--|
-|Chinês|[zh-CN](#chinese-entity-support)|
-|Holandês|[nl-NL](#dutch-entity-support)|
-|Inglês|[en-US (Americano)](#english-american-entity-support)|
-|Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), |
-|Alemão|[de-DE](#german-entity-support)|
-|Italiano|[it-IT](#italian-entity-support)|
-|Japonês|[ja-JP](#japanese-entity-support)|
-|Coreano|[ko-KR](#korean-entity-support)|
-|Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)|
-|Espanhol|[es-ES (Espanha)](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)|
-|Turco|[turco](#turkish-entity-support)|
+|Cultura|Subculturas|Observações|
+|--|--|--|
+|Chinês|[zh-CN](#chinese-entity-support)||
+|Holandês|[nl-NL](#dutch-entity-support)||
+|Inglês|[en-US (americano)](#english-american-entity-support)||
+|Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), ||
+|Alemão|[de-DE](#german-entity-support)||
+|Italiano|[it-IT](#italian-entity-support)||
+|Japonês|[ja-JP](#japanese-entity-support)||
+|Coreano|[ko-KR](#korean-entity-support)||
+|Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)||
+|Espanhol|[es-ES (Espanha)](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)||
+|Turco|[turco](#turkish-entity-support)|Não há entidades predefinidas com suporte em turco|
 
 ## <a name="chinese-entity-support"></a>Suporte de entidades chinesas
 
@@ -53,7 +53,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -74,7 +74,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -95,7 +95,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -116,7 +116,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -137,7 +137,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -158,7 +158,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -179,7 +179,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -200,7 +200,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -221,7 +221,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -242,7 +242,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -263,7 +263,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -284,7 +284,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -294,29 +294,32 @@ A frase-chave não está disponível em todas as subculturas de Português (Bras
 
 ## <a name="turkish-entity-support"></a>Suporte de entidades turcas
 
-Há suporte para as seguintes entidades:
+**Não há nenhum as entidades predefinidas com suporte em turco.** 
 
-|Entidade predefinida|```tr-tr``` |
+<!--
+
+|Prebuilt entity|```tr-tr``` |
 ------|:------:|
-[Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
-[Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   | 
 [Email](luis-reference-prebuilt-email.md)   |    -   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Número](luis-reference-prebuilt-number.md)   |    -   |  
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
-[Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    -   | 
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
-Veja as observações sobre [Entidades predefinidas preteridas](luis-reference-prebuilt-deprecated.md)
+See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase não está disponível.
 
+KeyPhrase is not available.
+-->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidade predefinida
 As entidades predefinidas são desenvolvidas no projeto de software livre Recognizers-Text. [Contribua com](https://github.com/Microsoft/Recognizers-Text) para o projeto. Esse projeto inclui exemplos de moeda por cultura. 

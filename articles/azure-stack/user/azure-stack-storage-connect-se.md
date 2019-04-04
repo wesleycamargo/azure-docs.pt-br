@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763360"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622001"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conectar-se o Gerenciador de armazenamento para uma assinatura do Azure Stack ou uma conta de armazenamento
 
@@ -49,25 +49,27 @@ Exportar e, em seguida, importe o certificado do Azure Stack para o ASDK. Para u
 
 1. Abra `mmc.exe` em uma máquina de host do Azure Stack ou em um computador local com uma conexão VPN para o Azure Stack. 
 
-2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** gerenciar **minha conta de usuário**.
+2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**. Selecione **certificados** no snap-ins disponíveis. 
 
-3.  Sob **Console raiz do console\certificado (computador Local) \Trusted Root Certification Authorities\Certificates**. Encontre **AzureStackSelfSignedRootCert**.
+3. Selecione **Conta de computador** e, em seguida, selecione **Avançar**. Selecione **computador Local**e, em seguida, selecione **concluir**.
+
+4.  Sob **Console raiz do console\certificado (computador Local) \Trusted Root Certification Authorities\Certificates**. Encontre **AzureStackSelfSignedRootCert**.
 
     ![Como carregar o certificado raiz do Azure Stack por meio do mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Clique com botão direito no certificado, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **x. 509 codificado em Base-64 (. CER)**.
+5. Clique com botão direito no certificado, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **x. 509 codificado em Base-64 (. CER)**.
 
     O certificado exportado será usado na próxima etapa.
 
-5. Iniciar o Gerenciador de armazenamento, e se você vir as **conectar-se ao armazenamento do Azure** caixa de diálogo caixa, cancelá-la.
+6. Iniciar o Gerenciador de armazenamento, e se você vir as **conectar-se ao armazenamento do Azure** caixa de diálogo caixa, cancelá-la.
 
-6. Sobre o **edite** , aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você exportou na etapa anterior.
+7. Sobre o **edite** , aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você exportou na etapa anterior.
 
     Depois de importar o certificado, você for solicitado a reiniciar o Gerenciador de armazenamento.
 
     ![Importe o certificado no Gerenciador de armazenamento](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Depois de reinicia o Gerenciador de armazenamento, selecione o **editar** menu e verifique se **destino Azure Stack** está selecionado. Se não estiver, selecione **destino Azure Stack**e, em seguida, reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
+8. Depois de reinicia o Gerenciador de armazenamento, selecione o **editar** menu e verifique se **APIs do destino do Azure Stack** está selecionado. Se não estiver, selecione **destino Azure Stack**e, em seguida, reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
 
     ![Confira se o Destino Azure Stack está selecionado](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma ass
 
     ![Adicionar uma conta do Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Na caixa de diálogo de armazenamento do Azure, conectar sob **ambiente do Azure**, selecione **Azure** ou **Azure China**, que depende da conta do Azure Stack que está sendo usada, selecione **Entrar** para entrar com a conta do Azure Stack associada com pelo menos uma assinatura ativa do Azure Stack.
+3. Na caixa de diálogo de armazenamento do Azure, conectar sob **ambiente do Azure**, selecione **Azure**, **Azure China**, **Azure Alemanha**,  **Azure governo dos EUA**, ou **adicionar novo ambiente**, que depende da conta do Azure Stack que está sendo usada. Selecione **entrar** para entrar com a conta do Azure Stack associada com pelo menos uma assinatura ativa do Azure Stack.
 
     ![Conectar-se ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

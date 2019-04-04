@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008086"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917210"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -28,7 +28,7 @@ A atualização de um serviço de nuvem, incluindo suas funções e o SO convida
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de domínios de atualização (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD por vez, o que permite que instâncias em outros UDs continuem a atender ao tráfego.
 
-O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para saber mais sobre o atributo upgradeDomainCount, veja [Esquema WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) ou [Esquema WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para saber mais sobre o atributo upgradeDomainCount, veja [Esquema WebRole](/previous-versions/azure/reference/gg557553(v=azure.100)) ou [Esquema WorkerRole](/previous-versions/azure/reference/gg557552(v=azure.100)).
 
 Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, veja [Como atualizar os lucros](#howanupgradeproceeds) posteriormente neste artigo.
 
@@ -54,18 +54,18 @@ A tabela a seguir mostra as alterações permitidas em um serviço durante uma a
 
 | Alterações permitidas na hospedagem, serviços e funções | Atualização in-loco | Em estágios (permuta de VIP) | Excluir e reimplantar |
 | --- | --- | --- | --- |
-| Versão do sistema operacional |SIM |sim |SIM |
-| Nível de confiança do .NET |SIM |sim |SIM |
-| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |SIM |SIM |
-| Configurações de armazenamento local |Apenas aumento<sup>2</sup> |SIM |SIM |
-| Adicionar ou remover funções em um serviço |SIM |sim |SIM |
-| Número de instâncias de uma função específica |SIM |sim |SIM |
-| Número ou tipo de pontos de extremidade de um serviço |Sim<sup>2</sup> |Não  |SIM |
-| Nomes e valores dos parâmetros de configuração |SIM |sim |SIM |
-| Valores (mas não nomes) dos parâmetros de configuração |SIM |sim |SIM |
-| Adicionar novos certificados |SIM |sim |SIM |
-| Alterar certificados existentes |SIM |sim |SIM |
-| Implantar novo código |SIM |sim |SIM |
+| Versão do sistema operacional |Sim |sim |Sim |
+| Nível de confiança do .NET |Sim |sim |Sim |
+| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
+| Configurações de armazenamento local |Apenas aumento<sup>2</sup> |Sim |Sim |
+| Adicionar ou remover funções em um serviço |Sim |sim |Sim |
+| Número de instâncias de uma função específica |Sim |sim |Sim |
+| Número ou tipo de pontos de extremidade de um serviço |Sim<sup>2</sup> |Não  |Sim |
+| Nomes e valores dos parâmetros de configuração |Sim |sim |Sim |
+| Valores (mas não nomes) dos parâmetros de configuração |Sim |sim |Sim |
+| Adicionar novos certificados |Sim |sim |Sim |
+| Alterar certificados existentes |Sim |sim |Sim |
+| Implantar novo código |Sim |sim |Sim |
 
 <sup>1</sup>Alteração de tamanho limitado ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -82,7 +82,7 @@ Os itens a seguir não têm suporte durante uma atualização:
 * Alteração da contagem de Domínio de atualização.
 * Redução do tamanho dos recursos locais.
 
-Se você estiver fazendo outras atualizações na definição do serviço, como a redução do tamanho do recurso local, será necessário executar uma atualização de permuta de VIP. Para saber mais, consulte, consulte [Implantação de permuta](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Se você estiver fazendo outras atualizações na definição do serviço, como a redução do tamanho do recurso local, será necessário executar uma atualização de permuta de VIP. Para saber mais, consulte, consulte [Implantação de permuta](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -121,7 +121,7 @@ Para minimizar o tempo de inatividade ao atualizar um serviço de instância ún
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Reversão de uma atualização
-O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão só pode ser realizada quando uma atualização (mudança de configuração) ou upgrade estiver no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Obter Propriedades do Serviço de Nuvem](https://msdn.microsoft.com/library/azure/ee460806.aspx), está definido como true.
+O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão só pode ser realizada quando uma atualização (mudança de configuração) ou upgrade estiver no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter Propriedades do Serviço de Nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), está definido como true.
 
 > [!NOTE]
 > Só faz sentido chamar a Reversão em uma atualização ou upgrade **in-loco** porque os upgrades de permuta de VIP envolvem a substituição de toda uma instância em execução do seu serviço por outra.
@@ -135,13 +135,13 @@ A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a i
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 
-* A operação [Reversão de Atualização ou Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx), que pode ser chamada em uma atualização de configuração (disparada chamando [Alterar configuração de implantação](https://msdn.microsoft.com/library/azure/ee460809.aspx)) ou upgrade (disparado chamando [Implantação de atualização](https://msdn.microsoft.com/library/azure/ee460793.aspx)) desde que haja pelo menos uma instância do serviço que ainda não tenha sido atualizada para a nova versão.
-* O elemento Bloqueado e o elemento RollbackAllowed, que retornam como parte do corpo da resposta das operações [Obter a implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Obter propriedades do serviço de nuvem](https://msdn.microsoft.com/library/azure/ee460806.aspx):
+* A operação [Reversão de Atualização ou Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)), que pode ser chamada em uma atualização de configuração (disparada chamando [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100))) ou upgrade (disparado chamando [Implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100))) desde que haja pelo menos uma instância do serviço que ainda não tenha sido atualizada para a nova versão.
+* O elemento Bloqueado e o elemento RollbackAllowed, que retornam como parte do corpo da resposta das operações [Obter a implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)):
 
   1. O elemento Locked permite a você detectar quando uma operação de mutação pode ser chamada em uma determinada implantação.
-  2. O elemento RollbackAllowed permite detectar quando a operação [Reversão de atualização ou upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) pode ser chamada em uma determinada implantação.
+  2. O elemento RollbackAllowed permite detectar quando a operação [Reversão de atualização ou upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) pode ser chamada em uma determinada implantação.
 
-  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos retornam apenas se esses métodos forem chamados usando o cabeçalho de solicitação definido como "x-ms-version: 2011-10-01" ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos apenas serão retornados se esses métodos são chamados usando o cabeçalho de solicitação definido como "x-ms-version: 2011-10-01 "ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 Há algumas situações nas quais não há suporte para uma reversão de uma atualização ou upgrade, entre elas:
 
@@ -149,9 +149,9 @@ Há algumas situações nas quais não há suporte para uma reversão de uma atu
 * Limites de cota - se a atualização foi uma operação de redução vertical, talvez você não tenha cota de computação suficiente para concluir a operação de reversão. Cada assinatura do Azure tem uma cota associada que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços hospedados que pertencem a essa assinatura. Se a execução de uma reversão de uma determinada atualização colocar sua assinatura acima da cota, a reversão não será habilitada.
 * Condição de corrida - Se a atualização inicial tiver sido concluída, não será possível realizar uma reversão.
 
-Um exemplo de quando a reversão de uma atualização pode ser útil é se você estiver usando a operação [Implantação de atualização](https://msdn.microsoft.com/library/azure/ee460793.aspx) no modo manual para controlar a taxa com a qual uma grande atualização in-loco em seu serviço hospedado do Azure é implantada.
+Um exemplo de quando a reversão de uma atualização pode ser útil é se você estiver usando a operação [Implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual para controlar a taxa com a qual uma grande atualização in-loco em seu serviço hospedado do Azure é implantada.
 
-Durante a implantação da atualização você chama a [Implantação de atualização](https://msdn.microsoft.com/library/azure/ee460793.aspx) no modo manual e começa a percorrer os domínios de atualização. Se, em algum momento, enquanto monitora a atualização, você observar algumas instâncias de função nos primeiros domínios de atualização ficarem sem resposta, chame a operação [Reversão de atualização ou upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) na implantação, e isso deixará as instâncias que ainda não tinham sido atualizadas sem alteração e reverterá as instâncias que foram atualizadas para o pacote de serviço e configuração anteriores.
+Durante a implantação da atualização você chama a [Implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual e começa a percorrer os domínios de atualização. Se, em algum momento, enquanto monitora a atualização, você observar algumas instâncias de função nos primeiros domínios de atualização ficarem sem resposta, chame a operação [Reversão de atualização ou upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) na implantação, e isso deixará as instâncias que ainda não tinham sido atualizadas sem alteração e reverterá as instâncias que foram atualizadas para o pacote de serviço e configuração anteriores.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ Após o recebimento da solicitação inicial de atualização ou upgrade pelo co
 
 Iniciar uma segunda operação de atualização enquanto a primeira atualização está em andamento terá um desempenho semelhante à operação de reversão. Se a segunda atualização estiver em modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente fazendo com que vários domínios de atualização fiquem offline no mesmo período.
 
-As operações de mutação são as seguintes: [Alterar configuração de implantação](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Implantação de atualização](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Status da implantação de atualização](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Excluir implantação](https://msdn.microsoft.com/library/azure/ee460815.aspx) e [Reversão de atualização ou upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)), [Atualizar Status de implantação](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100)), e [reversão Atualizar ou fazer Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Duas operações, [Obter a implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Obter propriedades do serviço de nuvem](https://msdn.microsoft.com/library/azure/ee460806.aspx), retornam o sinalizador Locked, que pode ser examinado a fim de determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
+Duas operações, [Obter a implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), retornam o sinalizador Locked, que pode ser examinado a fim de determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
 
-Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01" ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01 "ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

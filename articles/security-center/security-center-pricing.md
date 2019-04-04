@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449013"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905283"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
@@ -46,7 +46,7 @@ Para obter a camada Standard:
 4. Selecione **Standard** para atualizar.
 5. Clique em **Salvar**.
 
-![Preços da Central de Segurança](./media/security-center-pricing/get-standard.png)
+(Os preços na imagem por exemplo são apenas para fins de). ![Preços da Central de segurança](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Para habilitar todos os recursos da Central de segurança, você deve aplicar o padrão de tipo de preço para a assinatura que contém as máquinas virtuais aplicáveis. A configuração de preços para um workspace não habilita o acesso Just-In-Time à VM, os controles de aplicativo adaptáveis e as detecções de rede para os recursos do Azure.
@@ -65,7 +65,7 @@ A Central de Segurança oferece maior segurança e proteção contra ameaças pa
 Neste artigo, foram apresentados os preços da Central de Segurança. Para saber mais sobre a segurança aprimorada e a proteção avançada da camada Standard, consulte:
 
 - [Detecção avançada de ameaças](security-center-threat-report.md)
-- [Controle de acesso Just-In-Time à VM](security-center-just-in-time.md)
+- [Apenas no controle de acesso VM do tempo](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

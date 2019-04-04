@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 67bf0499b6dcf4257380f601c802723b2993a092
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771473"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893343"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Criar um Aplicativo Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -37,7 +37,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 * Uma conta ativa do Azure. Se você não tiver uma conta, inscreva-se para uma avaliação do Azure e obtenha até 10 aplicativos móveis gratuitos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio com Xamarin. Veja [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Configuração e instalação para Visual Studio e Xamarin).
+* Visual Studio com Xamarin. Veja [Setup and Install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) (Configuração e instalação para Visual Studio e Xamarin).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Criar um back-end de aplicativo móvel do Azure
 Siga estas etapas para criar um back-end de aplicativo móvel.
@@ -71,10 +71,10 @@ Se você tiver problemas para compilar a solução, execute o gerenciador de pac
 Observe que todos os pacotes de suporte referenciados em seu projeto devem ter a mesma versão. O [pacote NuGet de Aplicativos Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) depende de `Xamarin.Android.Support.CustomTabs` para a plataforma Android e, portanto, se o projeto usar pacotes de suporte mais recentes, será necessário instalar diretamente esse pacote com a versão necessária para evitar conflitos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar sincronização offline ao seu aplicativo](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Adicionar sincronização Offline ao seu aplicativo](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Adicionar autenticação ao seu aplicativo](app-service-mobile-xamarin-android-get-started-users.md)
-* [Adicionar notificações por push ao seu aplicativo Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
-* [Como usar o cliente gerenciado para aplicativos móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Adicionar notificações por push ao aplicativo Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
+* [Como usar o cliente gerenciado para Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png

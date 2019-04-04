@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863212"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905351"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -70,9 +70,9 @@ As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure s�
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se a melhoria do desempenho de consultas. | Sim | Não  | 
 | **DROP INDEX** -identifica os índices duplicados e redundantes diariamente, exceto para índices exclusivos e que não foram usados por um longo período (> 90 dias). Observe que, neste momento, a opção não é compatível com aplicativos que usam alternância de partição e dicas de índice. | Sim | Não  |
-| **FORCE LAST GOOD PLAN** - consultas de SQL identifica usando o plano de execução que é mais lento do que o plano bom anterior e consultas usando o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
+| **FORCE LAST GOOD PLAN** (correção automática de plano) - consultas de SQL identifica usando o plano de execução que é mais lento do que o plano bom anterior e consultas usando o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
 
-O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
+O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Para saber mais sobre FORCE LAST GOOD PLAN e como configurar as opções de ajuste automático por meio do T-SQL, consulte [ajuste automático apresenta a correção automática de plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 Você pode aplicar manualmente as recomendações de ajuste usando o portal ou pode permitir que o ajuste automático aplique de forma autônoma as recomendações de ajuste para você. Os benefícios de permitir que o sistema aplique recomendações de ajuste autonomamente para você é que ele valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho e, se não houver nenhuma melhoria de desempenho significativa detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design.
 

@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas de desempenho para o SQL Server em máquinas de virtuais do Azure Stack
-description: Fornece as práticas recomendadas para otimizar o desempenho do SQL Server no Microsoft pilha máquinas virtuais do Azure.
+title: Use as práticas recomendadas do SQL Server e para aumentar o desempenho em máquinas virtuais do Azure Stack | Microsoft Docs
+description: Este artigo fornece práticas recomendadas do SQL server para ajudar a aumentar o desempenho e otimizar o SQL Server em máquinas virtuais do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123395"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879057"
 ---
-# <a name="optimize-sql-server-performance"></a>Otimizar o desempenho do SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Práticas recomendadas do SQL server para otimizar o desempenho no Azure Stack
 
-Este artigo fornece diretrizes para otimizar o desempenho do SQL Server em máquinas de virtuais do Microsoft Azure Stack. Ao executar o SQL Server em máquinas virtuais do Azure Stack, use as mesmo banco de dados ajuste de desempenho opções aplicáveis ao SQL Server em um ambiente de servidor local. O desempenho do banco de dados relacional em uma nuvem do Azure Stack depende de muitos fatores. Fatores incluem o tamanho de família de uma máquina virtual e a configuração dos discos de dados.
+Este artigo fornece práticas recomendadas do SQL server para otimizar o SQL Server e melhorar o desempenho em máquinas de virtuais do Microsoft Azure Stack. Ao executar o SQL Server em máquinas virtuais do Azure Stack, use as mesmo banco de dados ajuste de desempenho opções aplicáveis ao SQL Server em um ambiente de servidor local. O desempenho do banco de dados relacional em uma nuvem do Azure Stack depende de muitos fatores. Fatores incluem o tamanho de família de uma máquina virtual e a configuração dos discos de dados.
 
 Durante a criação de imagens do SQL Server [considere provisionar suas máquinas virtuais no portal do Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Baixe a extensão SQL IaaS do gerenciamento do Marketplace no Portal de administração do Azure Stack e baixar de sua escolha de discos rígidos virtuais de máquina virtual SQL (VHDs). Eles incluem SQL2014SP2, SQL2016SP1 e SQL2017.
 
@@ -37,7 +37,8 @@ Introdução a *melhor* desempenho para o SQL Server em máquinas virtuais do Az
 > [!NOTE]  
 > Para diretrizes de desempenho do SQL Server em máquinas virtuais do Azure, consulte [deste artigo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="checklist-for-sql-server-best-practices"></a>Lista de verificação de práticas recomendadas do SQL server
+
 É a lista de verificação a seguir para otimizar o desempenho do SQL Server em máquinas virtuais do Azure Stack:
 
 
@@ -112,7 +113,7 @@ A unidade de armazenamento temporário, rotulada como a **1!d** unidade, não é
 
        Por exemplo, o PowerShell a seguir cria um novo pool de armazenamento com o tamanho de intercalação definido como 64 KB e o número de colunas para 2:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
