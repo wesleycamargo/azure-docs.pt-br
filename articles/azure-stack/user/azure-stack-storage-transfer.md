@@ -14,16 +14,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774330"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905946"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usar ferramentas de transferência de dados para o armazenamento do Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Microsoft Azure Stack fornece um conjunto de serviços de armazenamento para discos, blobs, tabelas, filas e funções de gerenciamento de conta. Se você quiser gerenciar ou mover dados do armazenamento do Azure Stack, você pode usar um conjunto de ferramentas de armazenamento do Azure. Este artigo fornece uma visão geral das ferramentas disponíveis.
 
@@ -33,7 +33,7 @@ Seus requisitos de determinam quais das ferramentas a seguir funcionariam melhor
 
     Um utilitário de armazenamento específico, de linha de comando que você pode baixar para copiar dados de um objeto a outro objeto em sua conta de armazenamento ou entre contas de armazenamento.
 
-* [PowerShell do Azure](#azure-powershell)
+* [Azure PowerShell](#azure-powershell)
 
     Um shell de linha de comando, com base em tarefa e linguagem de script criado especialmente para administração do sistema.
 
@@ -71,11 +71,11 @@ Há duas versões do utilitário AzCopy: AzCopy no Windows e o AzCopy no Linux.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemplos de comando AzCopy para transferir dados
 
-Os exemplos a seguir seguem os cenários típicos para cópia de dados de blobs do Azure Stack. Para obter mais informações, consulte [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) e [AzCopy no Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+Os exemplos a seguir seguem os cenários típicos para cópia de dados de blobs do Azure Stack. Para obter mais informações, consulte [AzCopy no Windows](../../storage/common/storage-use-azcopy.md) e [AzCopy no Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Baixar todos os blobs em um disco local
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
@@ -93,7 +93,7 @@ azcopy \
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Carregar arquivo único no diretório virtual
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
@@ -112,7 +112,7 @@ azcopy \
 
 Transferência de dados assíncronos entre o armazenamento do Azure e o Azure Stack não tem suporte. Você precisa especificar a transferência com o **/SyncCopy** ou **– cópia sincronizada** opção.
 
-**Windows**
+** Windows**
 
 ```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
@@ -156,7 +156,7 @@ Este exemplo pressupõem que você tenha com êxito [PowerShell instalado para o
    > [!NOTE]
    > Esse script tem a ser executado no diretório raiz **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -264,7 +264,7 @@ Antes de executar esse script, certifique-se de que você pode com êxito se con
 2. Atualize as variáveis do script para refletir suas definições de configuração.
 3. Depois de atualizar as variáveis necessárias, salve o script e saia do editor. As próximas etapas pressupõem que você nomeou seu script como **my_storage_sample.sh**.
 4. Marque o script como executável, se necessário: `chmod +x my_storage_sample.sh`
-5. Execute o script. Por exemplo, no Bash:`./my_storage_sample.sh`
+5. Execute o script. Por exemplo, no Bash: `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash

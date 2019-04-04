@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838792"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905878"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 ![Visão geral de alto nível](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. O desenvolvedor de dados cria um tempo de execução da integração auto-hospedada dentro de um Azure Data Factory usando o cmdlet do PowerShell. Atualmente, o Portal do Azure não dá suporte a esse recurso.
-2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local especificando a instância do tempo de execução da integração auto-hospedada que ele deve usar para se conectar a armazenamentos de dados. Como parte da configuração do serviço vinculado, o desenvolvedor de dados usa o aplicativo Gerenciador de Credenciais (sem suporte no momento) para configurar as credenciais e os tipos de autenticação. O aplicativo Gerenciador de Credenciais se comunica com o armazenamento de dados para testar a conexão e o tempo de execução da integração auto-hospedada para salvar as credencias.
+2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local especificando a instância do tempo de execução da integração auto-hospedada que ele deve usar para se conectar a armazenamentos de dados.
 3. O nó do tempo de execução da integração auto-hospedada criptografa a credencial usando a DPAPI (Interface de Programação do Aplicativo de Proteção de Dados) do Windows e salva as credenciais localmente. Se vários nós forem definidos para alta disponibilidade, as credenciais serão mais sincronizadas em outros nós. Cada nó criptografa as credenciais usando a DPAPI e as armazena localmente. A sincronização de credenciais é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.    
 4. O serviço Data Factory se comunica com o tempo de execução da integração auto-hospedada para o agendamento e o gerenciamento de trabalhos por meio de um *canal de controle* que usa uma fila do Barramento de Serviço do Azure compartilhado. Quando um trabalho de atividade precisa ser executado, o Data Factory enfileira a solicitação juntamente com quaisquer informações de credenciais (no caso de as credenciais ainda não estarem armazenadas no Integration Runtime auto-hospedado). O tempo de execução da integração auto-hospedada inicia o trabalho depois da sondagem da fila.
 5. O tempo de execução da integração auto-hospedada copia dados de um repositório local para um armazenamento na nuvem, ou vice-versa, dependendo de como a atividade de cópia estiver configurada no pipeline de dados. Para esta etapa, o tempo de execução da integração auto-hospedada se comunica diretamente com os serviços de armazenamento baseado em nuvem, como Armazenamento de Blobs do Azure por um canal seguro (HTTPS).
@@ -329,7 +329,7 @@ Se você encontrar erros similares aos descritos a seguir, eles provavelmente se
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Habilitação de acesso remoto por uma intranet  
-Se você usar o PowerShell ou aplicativo Gerenciador de Credenciais para criptografar as credenciais de outro computador (na rede), diferente daquele em que o tempo de execução da integração auto-hospedada está instalado, poderá habilitar a opção **Acesso remoto pela intranet**. Se você executar o PowerShell ou aplicativo Gerenciador de Credenciais para criptografar as credenciais no mesmo computador em que o tempo de execução da integração auto-hospedada está instalado, não poderá habilitar **Acesso remoto pela intranet**.
+Se você usar o PowerShell para criptografar as credenciais de outro computador (na rede) que não sejam, em que o tempo de execução de integração auto-hospedado está instalado, você pode habilitar o **acesso remoto pela Intranet** opção. Se você executar o PowerShell para criptografar credenciais no mesmo computador em que o tempo de execução de integração auto-hospedado está instalado, será possível habilitar **acesso remoto pela Intranet**.
 
 Você deve habilitar a opção **Acesso remoto pela intranet** antes de adicionar outro nó para alta disponibilidade e escalabilidade.  
 
@@ -339,9 +339,7 @@ Se estiver usando um firewall de terceiros, poderá abrir manualmente a porta 80
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> O aplicativo Gerenciador de Credenciais ainda não está disponível para criptografar credenciais no Azure Data Factory V2.  
+``` 
 
 Se optar por não abrir a porta 8060 no computador do tempo de execução da integração auto-hospedada, use mecanismos diferentes do aplicativo Definindo Credenciais para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 

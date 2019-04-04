@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/28/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: ca9f25700622a8d8435a1b05bfc46d210038aeaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0c92ff11ba992170b7da89dbbfa9bf14f92a9d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895815"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541291"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Marketplace do Azure disponíveis para o Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "57895815"
 
 Sempre que houver atualizações para extensões de máquina virtual (VM) que você usar, você deve baixá-los. Extensões fornecidas no produto não atualizam o processo normal de patch e atualização; Portanto, verifique se há atualizações com frequência. Outras extensões só estão disponíveis por meio do gerenciamento do Marketplace.
 
-|  | Nome do item | Descrição | Editor | Tipo do OS |
+|  | Nome do item | DESCRIÇÃO | Publicador | Tipo de sistema operacional |
 | --- | --- | --- | --- | --- |
 |![Extensão IaaS do SQL](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão IaaS do SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Baixar essa extensão para implantar qualquer SQL Server no item do Marketplace do Windows - essa extensão é necessária.** | Microsoft |  Windows |
 |![Extensão de script personalizado](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de Script personalizado](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Baixe essa atualização para a versão de caixa de entrada da extensão de Script personalizado para Windows.** | Microsoft |  Windows |
@@ -52,14 +52,14 @@ Sempre que houver atualizações para extensões de máquina virtual (VM) que vo
 
 O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marketplace e a modelos de solução. Baixe todas as dependências separadamente, conforme observado. Aplicativos como o SQL Server e o Machine Learning Server exigem o licenciamento correto, exceto onde marcada como livre ou avaliação.
 
-|  | Nome do item | Descrição | Editor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Soluções de classe empresarial que são simples de implantar, econômicas, com foco no aplicativo e centrado no usuário. Essas imagens são atualizadas regularmente com os patches mais recentes. **Informações importantes: Imagens baixadas antes de 18 de janeiro de 2018 deve ser excluído e substituído por versões mais recentes.** | Microsoft |
 | ![Avaliação do SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versão de avaliação do SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Avaliação do Microsoft SharePoint Server 2013 no Windows Server 2012 Datacenter e o Visual Studio 2017 community edition. | Microsoft |
 | ![Avaliação do SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versão de avaliação do SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Avaliação do Microsoft SharePoint Server 2016 no Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 no Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 no Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **Download necessário:** Extensão SQL IaaS. | Microsoft |
-| ![SQL Server 2016 SP2 Standard no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2016SP2StandardWindowsServer2016) | Plataforma de banco de dados para aplicativos críticos inteligentes. **Download necessário:** Extensão SQL IaaS. | Microsoft |
+| ![SQL Server 2016 SP2 Standard no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Plataforma de banco de dados para aplicativos críticos inteligentes. **Download necessário:** Extensão SQL IaaS. | Microsoft |
 | ![Licença gratuita: Desenvolvedor do SQL Server 2016 SP2 no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: Desenvolvedor do SQL Server 2016 SP2 no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Versão de desenvolvedor gratuita do SQL Server 2016 SP2 para dados transacionais, warehousing, business intelligence e cargas de trabalho de análise. **Download necessário:** Extensão SQL IaaS. | Microsoft |
 | ![Licença gratuita: SQL Server 2016 SP2 Express no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2016 SP2 Express no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Versão express gratuita do SQL Server 2016 SP2. **Download necessário:** Extensão SQL IaaS. | Microsoft |
 | ![SQL Server 2016 SP2 Enterprise no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Enterprise no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Plataforma de banco de dados para aplicativos críticos inteligentes. **Download necessário:** Extensão SQL IaaS. | Microsoft |
@@ -69,12 +69,8 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 | ![Licença gratuita: SQL Server 2017 Express no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2017 Express no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Versão express gratuita do SQL Server 2017. **Download necessário:** Extensão SQL IaaS. | Microsoft |
 | ![SQL Server 2017 Enterprise no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Plataforma de banco de dados para aplicativos críticos inteligentes. **Download necessário:** Extensão SQL IaaS. | Microsoft |
 | ![SQL Server 2017 Web no Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web no Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/cognosys.sql-server-2007-web-win2016-debug-utilities) | Plataforma de banco de dados para aplicativos críticos inteligentes. **Download necessário:** Extensão SQL IaaS. | Microsoft |
-| ![SQL Server 2017 Standard on Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard on Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + Canonical |
-| ![Licença gratuita: SQL Server 2017 Developer no Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2017 Developer no Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | Versão de desenvolvedor gratuita do SQL Server 2017 para dados transacionais, warehousing, business intelligence e cargas de trabalho de análise. | Microsoft + Canonical |
-| ![Licença gratuita: SQL Server 2017 Express no Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2017 Express no Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) | Versão express gratuita do SQL Server 2017. | Microsoft + Canonical |
-| ![SQL Server 2017 Enterprise no Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise no Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + Canonical |
-| ![SQL Server 2017 Web on Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + Canonical |
-| ![QL Server 2017 Standard no SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + SUSE |
+| ![SQL Server 2017 no Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise no Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ubuntu1604) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + Canonical |
+| ![SQL Server 2017 Standard no SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + SUSE |
 | ![Licença gratuita: SQL Server 2017 Developer no SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2017 Developer no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | Versão de desenvolvedor gratuita do SQL Server 2017 para dados transacionais, warehousing, business intelligence e cargas de trabalho de análise. | Microsoft + SUSE |
 | ![Licença gratuita: SQL Server 2017 Express no SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Licença gratuita: SQL Server 2017 Express no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Versão express gratuita do SQL Server 2017. | Microsoft + SUSE |
 | ![SQL Server 2017 Enterprise no SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | Plataforma de banco de dados para aplicativos críticos inteligentes. | Microsoft + SUSE |
@@ -85,7 +81,7 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 
 ## <a name="linux-distributions"></a>Distribuições do Linux
 
-|  | Nome do item | Descrição | Editor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![Limpar o sistema operacional Linux](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Limpar o sistema operacional Linux](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Uma distribuição do Linux otimizada para a arquitetura Intel de referência. | Desmarque o projeto do Linux |
 | ![Contêiner Linux por CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Contêiner Linux por CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Contêiner Linux é uma distribuição moderna e minimalista do Linux, fornecendo uma maneira fácil de executar contêineres, gerenciar clusters e atualizar diretamente os servidores - todos os componentes que permitem a escala de warehouse de computação. | CoreOS |
@@ -102,7 +98,7 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Terceiros BYOL, gratuitas, avaliação de imagens e modelos de solução
 
-|  | Nome do item | Descrição | Editor |
+|  | Nome do item | DESCRIÇÃO | Publicador |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | O vThunder A10 redes controlador de entrega de aplicativos do Microsoft Azure foi desenvolvido para alto desempenho, flexibilidade, e o servidor e entrega de aplicativos fáceis de implantar o balanceamento de carga e otimizados para serem executados nativamente em nuvem do Azure. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | O roteador do vEOS Arista é rico em várias nuvens e roteador virtual de vários hipervisores que capacita as empresas e provedores de nuvem para compilar consistente e altamente seguro e redes híbridas escalonável. | Arista Networks |
@@ -139,7 +135,7 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 | ![FAT CRM livre](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [FAT CRM livre](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | Código-fonte aberto o Ruby on Rails com base no CRM. | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | Rápido e seguro software de gerenciamento do Git. | Bitnami |
 | ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Ghost](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | Uma plataforma dedicada à publicação. | Bitnami |
-| ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Estrutura para a computação confiável, escalonável e distribuído. | Bitnami |
+| ![O Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Estrutura para a computação confiável, escalonável e distribuído. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | Ambiente de desenvolvimento totalmente integrado e pronto para execução. | Bitnami |
 | ![Horda Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horda Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | Gratuito, suite enterprise de comunicação baseada em navegador e pronto. | Bitnami |
 | ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | Servidor de integração de ferramentas SCM de suporte: Git, Subversion e CVS. | Bitnami |
@@ -243,7 +239,7 @@ O Microsoft Azure Stack dá suporte a máquinas virtuais a seguir do Azure Marke
 | ![Área restrita do Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Área restrita do Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Alimentado por HDP 2.5 plataforma de software livre de 100% para Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | A segurança de nuvem híbrida Kaspersky permite que um ecossistema de segurança cibernética perfeitamente orquestrada e adaptável. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC conteúdo Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC conteúdo Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Balanceador de carga ADC (controlador) do entrega de aplicativo de camada 4 a 7, comutador de conteúdo e o Gerenciador de tráfego. | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Essa solução implanta um cluster Kubernetes em execução como um cluster autônomo com modelos gerados usando o mecanismo do ACS.<br>**Esse modelo de solução também requer o Ubuntu Server 16.04 LTS e Script personalizado para Linux 2.0.**| Microsoft |
+| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Essa solução implanta um cluster Kubernetes em execução como um cluster autônomo com modelos gerados usando o mecanismo do ACS.<br>**Esse modelo de solução também requer o Ubuntu Server 16.04 LTS e Script personalizado para Linux 2.0.**| Microsoft |
 | ![Cluster do Service Fabric](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Cluster do Service Fabric](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Essa solução implanta o Service Fabric em execução como um cluster autônomo em um conjunto de dimensionamento de máquina Virtual. <br>**Esse modelo de solução exige que você também baixar o Windows Server 2016 Datacenter**| Microsoft |
 | ![NRI com mPLAT Suite - condutores de várias nuvens](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - condutores de várias nuvens](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Um único painel de controle para monitorar, configurar, provisionar, automatizar e controlar qualquer carga de trabalho ou a nuvem. | NRI |
 | ![Compatível com o NooBaa híbrida AWS S3 – Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatível com o NooBaa híbrida AWS S3 – Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Serviço de armazenamento compatível com o S3 que abrange público e a capacidade de recursos locais. | NooBaa |

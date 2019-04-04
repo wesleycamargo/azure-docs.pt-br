@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963665"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893717"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introdução às ações atrasar e atrasar até
 Usando as ações atrasar e “atrasar até”, você pode concluir cenários de fluxo de trabalho.
@@ -33,9 +33,11 @@ Por exemplo, você pode:
 Para começar a usar a ação atrasar em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Usar as ações atrasar
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
 
-Veja uma sequência de exemplos de como usar uma etapa de atraso em um aplicativo lógico:
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
+[Saiba mais sobre ações](../connectors/apis-list.md).
+
+Aqui está uma sequência de exemplo de como usar uma etapa de atraso em um aplicativo lógico:
 
 1. Depois de adicionar um gatilho, clique em **Nova Etapa** para adicionar uma ação.
 2. Procure por **atrasar** para exibir as ações atrasar. Neste exemplo, escolheremos **Atrasar**.
@@ -66,9 +68,9 @@ Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | DESCRIÇÃO |
 | --- | --- | --- |
-| Ano* |timestamp |O ano até o qual atrasar (GMT) |
-| Mês* |timestamp |O mês até o qual atrasar (GMT) |
-| Dia* |timestamp |O dia até o qual atrasar (GMT) |
+| Ano* | timestamp |O ano até o qual atrasar (GMT) |
+| Mês* | timestamp |O mês até o qual atrasar (GMT) |
+| Dia* | timestamp |O dia até o qual atrasar (GMT) |
 
 <br>
 

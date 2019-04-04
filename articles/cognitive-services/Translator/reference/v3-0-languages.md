@@ -3,19 +3,19 @@ title: Método de idiomas de API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Use o método Idiomas de API de Tradução de Texto.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122396"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915757"
 ---
 # <a name="translator-text-api-30-languages"></a>API de Tradução de Texto 3.0: Languages
 
@@ -67,11 +67,11 @@ A autenticação não é necessária para obtenção de recursos de idioma.
 
 Um cliente usa o parâmetro de consulta `scope` para definir os grupos de idiomas de seu interesse.
 
-* `scope=translation` fornece os idiomas compatíveis para traduzir o texto de um idioma em outro;
+* `scope=translation` fornece os idiomas com suporte para traduzir o texto de um idioma para outro idioma;
 
-* `scope=transliteration` fornece as funcionalidades para converter o texto em um idioma de um script em outro;
+* `scope=transliteration` fornece recursos para converter texto em um idioma de um script para outro script;
 
-* `scope=dictionary` fornece os pares de idiomas para os quais as operações `Dictionary` retornam dados.
+* `scope=dictionary` fornece os pares de idiomas para os quais `Dictionary` operações retornam dados.
 
 Um cliente pode recuperar vários grupos simultaneamente especificando uma lista separada por vírgula de nomes. Por exemplo, `scope=translation,transliteration,dictionary` retorna os idiomas compatíveis com todos os grupos.
 
@@ -93,7 +93,7 @@ Uma resposta bem-sucedida é um objeto JSON com uma propriedade para cada grupo 
 
 O valor de cada propriedade é mostrado a seguir.
 
-* Propriedade `translation`
+* `translation` propriedade
 
   O valor da propriedade `translation` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. Uma chave identifica um idioma no qual o texto pode ser convertido ou traduzido. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
 
@@ -101,7 +101,7 @@ O valor de cada propriedade é mostrado a seguir.
 
   * `nativeName`: Nome de exibição do idioma na localidade nativa desse idioma.
 
-  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `ltr` para idiomas da direita para a esquerda ou  para idiomas da esquerda para a direita.
 
   Um exemplo é:
           
@@ -119,7 +119,7 @@ O valor de cada propriedade é mostrado a seguir.
   }
   ```
 
-* Propriedade `transliteration`
+* `transliteration` propriedade
 
   O valor da propriedade `transliteration` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. Uma chave identifica um idioma no qual o texto pode ser convertido de um script para outro. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma e seus scripts compatíveis:
 
@@ -135,7 +135,7 @@ O valor de cada propriedade é mostrado a seguir.
 
     * `nativeName`: Nome de exibição do idioma na localidade nativa do idioma.
 
-    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `ltr` para idiomas da direita para a esquerda ou  para idiomas da esquerda para a direita.
 
     * `toScripts`: Lista de scripts disponíveis nos quais converter o texto. Cada elemento da lista `toScripts` tem propriedades `code`, `name`, `nativeName` e `dir`, conforme descrito anteriormente.
 
@@ -184,7 +184,7 @@ O valor de cada propriedade é mostrado a seguir.
   }
   ```
 
-* Propriedade `dictionary`
+* `dictionary` propriedade
 
   O valor da propriedade `dictionary` é um dicionário de pares (chave, valor). Cada chave é uma marcação de linguagem BCP 47. A chave identifica um idioma para o qual traduções alternativas e traduções reversas estão disponíveis. O valor é um objeto JSON que descreve o idioma de origem e os idiomas de destino com traduções disponíveis:
 
@@ -192,7 +192,7 @@ O valor de cada propriedade é mostrado a seguir.
 
   * `nativeName`: Nome de exibição do idioma na localidade nativa desse idioma.
 
-  * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+  * `dir`: Direcionalidade, que é `ltr` para idiomas da direita para a esquerda ou  para idiomas da esquerda para a direita.
 
   * `translations`: Lista de idiomas com traduções alternativas e exemplos para a consulta expressa no idioma de origem. Cada elemento da lista `translations` tem propriedades:
 
@@ -200,7 +200,7 @@ O valor de cada propriedade é mostrado a seguir.
 
     * `nativeName`: Nome de exibição do idioma de destino na localidade nativa do idioma de destino.
 
-    * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para a esquerda ou `ltr` para idiomas da esquerda para a direita.
+    * `dir`: Direcionalidade, que é `ltr` para idiomas da direita para a esquerda ou  para idiomas da esquerda para a direita.
     
     * `code`: Código de idioma que identifica o idioma de destino.
 
@@ -281,7 +281,7 @@ Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON
 
 O exemplo a seguir mostra como recuperar os idiomas compatíveis para a tradução de texto.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

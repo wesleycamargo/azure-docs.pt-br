@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762579"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917469"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](cloud-services-choose-me.md). O aplicativo usa o [Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN.
+Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](cloud-services-choose-me.md). O aplicativo usa o [Banco de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN.
 
 O tutorial mostra como criar e executar o aplicativo localmente, como implantá-lo no Azure e executá-lo na nuvem e como criá-lo do zero. Você pode começar criando do zero e depois fazer o teste e implantar as etapas posteriormente se preferir.
 
@@ -81,7 +81,7 @@ Quando um usuário carrega uma imagem, o front-end sendo executado em uma funç�
 6. Se você estiver usando o Visual Studio 2015 ou superior, altere a cadeia de conexão do SQL Server no arquivo *Web.config* do aplicativo do projeto ContosoAdsWeb e no arquivo *ServiceConfiguration.Local.cscfg* do projeto ContosoAdsCloudService. Em cada caso, altere "(localdb)\v11.0" para "(localdb)\MSSQLLocalDB".
 7. Pressione CTRL+F5 para executar o aplicativo.
 
-    Quando você executar um projeto de serviço de nuvem localmente, o Visual Studio invocará automaticamente o *emulador de computação* e o *emulador de armazenamento* do Azure. O emulador de computação usa os recursos do seu computador para simular os ambientes de função Web e de função de trabalho. O emulador de armazenamento usa um banco de dados [LocalDB do SQL Server Express](https://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento em nuvem do Azure.
+    Quando você executar um projeto de serviço de nuvem localmente, o Visual Studio invocará automaticamente o *emulador de computação* e o *emulador de armazenamento* do Azure. O emulador de computação usa os recursos do seu computador para simular os ambientes de função Web e de função de trabalho. O emulador de armazenamento usa um banco de dados [LocalDB do SQL Server Express](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular o armazenamento em nuvem do Azure.
 
     Na primeira vez em que você executar um projeto de serviço de nuvem, levará por volta de um minuto para que os emuladores sejam inicializados. Quando a inicialização do emulador for finalizada, o navegador padrão abrirá na home page do aplicativo.
 
@@ -178,7 +178,7 @@ Em um aplicativo do mundo real, geralmente você cria contas separadas para dado
 
     Quando a conta de armazenamento do serviço de nuvem estiver em outros datacenters (outras regiões), a latência será maior e você será cobrado pela largura de banda fora do data center. A largura de banda em um data center é gratuita.
 
-    O grupos de afinidade do Azure fornecem um mecanismo para minimizar a distância entre os recursos em um data center, o que pode reduzir a latência. Este tutorial não usa grupos de afinidade. Para obter mais informações, consulte [Como criar um grupo de afinidade no Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    O grupos de afinidade do Azure fornecem um mecanismo para minimizar a distância entre os recursos em um data center, o que pode reduzir a latência. Este tutorial não usa grupos de afinidade. Para obter mais informações, consulte [Como criar um grupo de afinidade no Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. Clique em **Criar**.
 
     ![Nova conta de armazenamento](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -418,7 +418,7 @@ Você pode criar e executar os aplicativos conforme explicado anteriormente no t
 As seções a seguir explicam o código relacionado ao trabalho com os blobs e filas do ambiente do Azure. Este tutorial não explica como criar controladores e exibições MVC usando scaffolding, como escrever código do Entity Framework que funciona com bancos de dados do SQL Server ou as noções básicas da programação assíncrona no ASP.NET 4.5. Para obter informações sobre esses tópicos, consulte os seguintes recursos:
 
 * [Introdução ao MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Introdução ao EF 6 e ao MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introdução ao EF 6 e o MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introdução à programação assíncrona no .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework usando uma classe DbContext. Uma exceção é o método HttpPost `Create` , que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
+A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework usando uma classe DbContext. Uma exceção é o método HttpPost `Create` , que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) para o método.
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ Após cada interação do loop, se nenhuma mensagem foi encontrada na fila, o pr
 
 Algumas vezes o conteúdo de uma mensagem da fila causa um erro no processamento. Isso é chamado de *mensagem suspeita*, e se você acabou de registrar um erro e reiniciou o loop, pode tentar processar essa mensagem infinitamente.  Portanto, o bloco de captura inclui uma instrução que verifica quantas vezes o aplicativo tentou processar a mensagem atual, e se isso aconteceu mais de 5 vezes, a mensagem é excluída da fila.
 
-`ProcessQueueMessage` é chamado quando uma mensagem em fila é encontrada.
+`ProcessQueueMessage` é chamado quando uma mensagem da fila for encontrada.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Para assistir a um vídeo de introdução às melhores práticas e padrões de a
 
 Para saber mais, consulte os recursos a seguir:
 
-* [Serviços de Nuvem do Azure – Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Serviços de nuvem do Azure parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

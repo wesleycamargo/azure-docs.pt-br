@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551958"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893367"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos de extremidade REST com conector HTTP + Swagger nos Aplicativos Lógicos do Azure
 
@@ -28,7 +28,7 @@ Para saber como criar aplicativos lógicos com conectores, consulte [Criar um no
 
 O gatilho e ação HTTP + Swagger funcionam da mesma forma que a [ação HTTP](connectors-native-http.md), porém, proporcionam uma melhor experiência no Designer do Aplicativo Lógico mostrando a estrutura da API e as saídas dos [metadados do Swagger](https://swagger.io). Você também pode usar o conector HTTP + Swagger como um gatilho. Se você quiser implementar um gatilho de sondagem, siga o padrão de sondagem descrito em [Criar APIs personalizadas para chamar outras APIs, serviços e sistemas de aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Saiba mais sobre [gatilhos e ações de aplicativo lógico](connectors-overview.md).
+Saiba mais sobre [gatilhos e ações de aplicativo lógico](../connectors/apis-list.md).
 
 Veja um exemplo de como usar a operação HTTP + Swagger como uma ação em um fluxo de trabalho em um aplicativo lógico.
 
@@ -72,14 +72,14 @@ Veja as etapas para criar, configurar e armazenar documentos do Swagger no Armaz
 A seguir, os detalhes dos gatilhos e das ações com suporte deste conector HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Gatilhos de HTTP + Swagger
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos.](connectors-overview.md)  O conector HTTP + Swagger tem um gatilho.
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico.  O conector HTTP + Swagger tem um gatilho. [Saiba mais sobre gatilhos](../connectors/apis-list.md).
 
 | Gatilho | DESCRIÇÃO |
 | --- | --- |
 | HTTP + Swagger |Faz uma chamada HTTP e retorna o conteúdo da resposta |
 
 ## <a name="http--swagger-actions"></a>Ações de HTTP + Swagger
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações.](connectors-overview.md)  O conector HTTP + Swagger tem uma ação possível.
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico.  O conector HTTP + Swagger tem uma ação possível. [Saiba mais sobre ações](../connectors/apis-list.md).
 
 | Ação | DESCRIÇÃO |
 | --- | --- |
@@ -123,7 +123,6 @@ Ao fazer chamadas a várias ações, você pode obter determinadas respostas. A 
 | 404 |Não encontrado |
 | 500 |Erro interno do servidor. Ocorreu um erro desconhecido. |
 
-- - -
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)

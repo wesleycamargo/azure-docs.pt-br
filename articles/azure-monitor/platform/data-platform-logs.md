@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851683"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904144"
 ---
 # <a name="logs-in-azure-monitor"></a>Logs no Azure Monitor
 
@@ -46,7 +46,7 @@ A tabela a seguir lista as diferentes maneiras que você pode usar os Logs no Az
 | Analise | Use [do Log Analytics](../log-query/get-started-portal.md) no portal do Azure para gravar [registrar consultas](../log-query/log-query-overview.md) e analisar interativamente os dados de log usando o poderoso mecanismo de análise do Data Explorer.<br>Use o [console do Application Insights analytics](../app/analytics.md) no portal do Azure para escrever consultas de log e analisar interativamente os dados de log do Application Insights. |
 | Visualizar | Fixar os resultados da consulta processados como tabelas ou gráficos para uma [painel do Azure](../../azure-portal/azure-portal-dashboards.md).<br>Criar uma [pasta de trabalho](../app/usage-workbooks.md) para combinar com vários conjuntos de dados em um relatório interativo. <br>Exportar os resultados de uma consulta para o [Power BI](powerbi.md) a fim de usar visualizações diferentes e compartilhar com usuários fora do Azure.<br>Exportar os resultados de uma consulta para [Grafana](grafana-plugin.md) aproveitar seus painéis e combine com outras fontes de dados.|
 | Alerta | Configurar uma [regra de alerta de log](alerts-log.md) que envia uma notificação ou realiza [ação automatizada](action-groups.md) quando os resultados da consulta correspondem a um resultado específico.<br>Configurar uma [regra de alerta de métrica](alerts-metric-logs.md) em determinados registros de dados de log extraídos como métricas. |
-| Recuperar | Resultados da consulta de log de acesso de uma linha de comando usando [CLI do Azure](/azure/ext/log-analytics/monitor/log-analytics).<br>Resultados da consulta de log de acesso de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1).<br>Acessar resultados de consulta do log de um aplicativo personalizado usando [API REST](https://dev.loganalytics.io/). |
+| Recuperar | Resultados da consulta de log de acesso de uma linha de comando usando [CLI do Azure](/azure/ext/log-analytics/monitor/log-analytics).<br>Resultados da consulta de log de acesso de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Acessar resultados de consulta do log de um aplicativo personalizado usando [API REST](https://dev.loganalytics.io/). |
 | Exportação | Criar um fluxo de trabalho para recuperar dados de log e copie-o para um local externo usando [aplicativos lógicos](~/articles/logic-apps/index.yml). |
 
 

@@ -3,19 +3,19 @@ title: Método Exemplos de Dicionário de API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Use o método Exemplos de Dicionário de API de Tradução de Texto.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884776"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916404"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: Exemplos de dicionário
 
@@ -79,7 +79,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 
   * `Text`: uma cadeia de caracteres especificando o termo da pesquisa. Deve ser o valor de um campo `normalizedText` de das traduções reversas da solicitação de [Pesquisa no dicionário](./v3-0-dictionary-lookup.md) anterior. Também pode ser o valor do campo `normalizedSource`.
 
-  * `Translation`: uma cadeia de caracteres especificando o texto traduzido retornado anteriormente pela operação [Pesquisa no dicionário](./v3-0-dictionary-lookup.md). Deve ser o valor do campo `normalizedTarget` na lista `translations` da resposta [Pesquisa no dicionário](./v3-0-dictionary-lookup.md). O serviço retornará exemplos para o par de palavras de origem-destino específico.
+  * `Translation`: uma cadeia de caracteres especificando o texto traduzido retornado anteriormente pela operação ](./v3-0-dictionary-lookup.md)Pesquisa no dicionário. Deve ser o valor do campo `normalizedTarget` na lista `translations` da resposta [Pesquisa no dicionário](./v3-0-dictionary-lookup.md). O serviço retornará exemplos para o par de palavras de origem-destino específico.
 
 Um exemplo é:
 
@@ -104,11 +104,11 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
   
   * `examples`: uma lista de exemplos para o par (termo de origem, termo de destino). Cada elemento da lista é um objeto com as seguintes propriedades:
 
-    * `sourcePrefix`: a cadeia de caracteres para concatenar _antes_ do valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
+    * `sourcePrefix`: a cadeia de caracteres para concatenar _antes`sourceTerm` do valor de  para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
 
     * `sourceTerm`: uma cadeia de caracteres igual ao termo real pesquisado. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que possa ser marcado em uma interface do usuário, por exemplo, colocando-o em negrito.
 
-    * `sourceSuffix`: a cadeia de caracteres para concatenar _após_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
+    * `sourceSuffix`: a cadeia de caracteres para concatenar _após`sourceTerm` o valor de  para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
 
     * `targetPrefix`: uma cadeia de caracteres semelhante a `sourcePrefix`, mas para o destino.
 
@@ -123,7 +123,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
 Este exemplo mostra como pesquisar exemplos para o par composto pelo termo em inglês `fly` e sua tradução em espanhol `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

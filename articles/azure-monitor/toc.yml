@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: Monitoramento contínuo
     href: continuous-monitoring.md
-  - name: Analisar dados de log
+  - name: Plataforma de dados
     items:
-    - name: Consultas de logs
-      href: log-query/log-query-overview.md
-    - name: Portais de consulta de log
-      href: log-query/portals.md
-  - name: Dados de monitoramento
+    - name: Visão geral
+      href: platform/data-platform.md
+    - name: Métricas
+      href: platform/data-platform-metrics.md
+    - name: Logs
+      href: platform/data-platform-logs.md
+  - name: Fontes de dados
     items:
-    - name: Métricas e logs
-      href: platform/data-collection.md
-    - name: Fontes de dados
+    - name: Resumo de fontes de dados
       href: platform/data-sources.md
     - name: Fontes de dados do Azure
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: Métricas personalizadas para o repositório de métricas
       href: platform/metrics-custom-overview.md
-    - name: Segurança de dados
-      items:
-      - name: Dados de log
-        href: platform/data-security.md
-      - name: Administração de dados pessoais de log
-        href: platform/personal-data-mgmt.md
-      - name: Coleta de dados, retenção e armazenamento de aplicativo
-        href: app/data-retention-privacy.md
+  - name: Analisar dados de log
+    items:
+    - name: Consultas de logs
+      href: log-query/log-query-overview.md
+    - name: Portais de consulta de log
+      href: log-query/portals.md
+  - name: Segurança de dados
+    items:
+    - name: Dados de log
+      href: platform/data-security.md
+    - name: Administração de dados pessoais de log
+      href: platform/personal-data-mgmt.md
+    - name: Coleta de dados, retenção e armazenamento de aplicativo
+      href: app/data-retention-privacy.md
   - name: Insights
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: Alertas do log de atividades
       href: platform/activity-log-alerts.md
+    - name: Esquema comum de alertas
+      href: platform/alerts-common-schema.md
   - name: Visualizar dados
     href: visualizations.md
   - name: Integrações de parceiro
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Excluir um workspace
         href: platform/delete-workspace.md
-      - name: Gerenciar um workspace
-        href: platform/manage-access.md
       - name: Design para provedores de serviço
         href: platform/service-providers.md
   - name: Coletar dados
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Depurador de instantâneo
+          href: app/snapshot-debugger.md
       - name: Aplicativos Java
         items:
         - name: Aplicativos Web
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Dados de diagnóstico ou de log do armazenamento do Azure
         href: platform/azure-storage-iis-table.md
+      - name: Recursos de PaaS do Azure
+        href: platform/collect-azurepass-posh.md
       - name: Correlacionar fontes de dados personalizadas
         href: app/custom-data-correlation.md
     - name: Coletar dados personalizados
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Armazenar logs de diagnóstico
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Dados do recurso do Azure para Hub de Eventos
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Transmitir log de atividades para Hubs de Eventos
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Logs e métricas para o Hub de Eventos
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Logs de diagnóstico para o Hub de Eventos
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Dados de aplicativo para o Log Analytics
@@ -650,9 +660,8 @@ items:
   - name: Visualizar dados
     items:
     - name: Modos de exibição
+      href: platform/view-designer.md
       items:
-      - name: Criador de Modos de Exibição
-        href: platform/view-designer.md
       - name: Referência de blocos
         href: platform/view-designer-tiles.md
       - name: Referência de parte da visualização
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: Saiba mais sobre o esquema de webhook
           href: platform/activity-log-alerts-webhook.md
+        - name: Definições comuns do esquema de alertas
+          href: platform/alerts-common-schema-definitions.md
         - name: Comportamento de alerta do SMS
           href: platform/alerts-sms-behavior.md
         - name: Limitação de taxa de alerta
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: Monitoramento
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Logs
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: API REST
     items:
     - name: Monitoramento
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886634"

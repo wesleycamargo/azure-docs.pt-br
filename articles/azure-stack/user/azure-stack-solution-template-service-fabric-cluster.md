@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098001"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482257"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implantar um cluster do Service Fabric no Azure Stack
 
@@ -61,7 +61,7 @@ Use o seguinte script para criar o Cofre de chaves e adicionar o *certificado de
 > [!TIP]  
 > Antes do script possa ser bem-sucedida, deve haver uma oferta pública que inclui os serviços de computação, rede, armazenamento e Cofre de chaves. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -129,7 +129,7 @@ Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stac
 
 1. Para cada página, como *Noções básicas de*, preencha o formulário de implantação. Use padrões se você não tiver certeza de que um valor. Selecione **Okey** para Avançar para a próxima página:
 
-   ![Noções Básicas](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![Noções básicas](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
 1. Sobre o *as configurações de rede* página, você pode especificar portas específicas a serem abertas para seus aplicativos:
 
@@ -159,7 +159,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 ### <a name="use-service-fabric-explorer"></a>Usar o Service Fabric Explorer
 1.  Valide se o navegador da Web tem acesso ao seu certificado de cliente administrador e possa ser autenticada no cluster do Service Fabric.  
 
-    a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
+     a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
   
     b. Sobre certificados, selecione **importação** para iniciar o *Assistente de importação de certificado*e, em seguida, clique em **próxima**. Sobre o *arquivo a ser importado* página, clique em **procurar**e selecione o **certificado de cliente do administrador** fornecido para o modelo do Azure Resource Manager.
         
@@ -174,13 +174,13 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
        ![Repositório de certificados](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Para localizar o FQDN do cluster do Service Fabric:  
 
-    a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
+     a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
 
-      ![Endereço IP Público](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
+      ![Endereço IP público](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
     b. Na folha de endereço IP público, o FQDN exibe como *nome DNS*.  
 
-      ![Nome do DNS](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
+      ![Nome DNS](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 1. Para localizar a URL para o Service Fabric Explorer e o ponto de extremidade de conexão de cliente, examine os resultados da implantação do modelo.
 
@@ -199,7 +199,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 
 1. Depois que a instalação for concluída, configure as variáveis de ambiente do sistema para garantir que os cmdlets do Service Fabric são acessíveis a partir do PowerShell.  
     
-    a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
+     a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
     
       ![Painel de controle](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
@@ -211,7 +211,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 
 1. Depois de alterar a ordem das variáveis de ambiente, reinicie o PowerShell e, em seguida, execute o seguinte script do PowerShell para obter acesso ao cluster do Service Fabric:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

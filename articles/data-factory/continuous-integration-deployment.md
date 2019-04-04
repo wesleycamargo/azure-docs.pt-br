@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995779"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905249"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
@@ -24,11 +24,11 @@ Integração Contínua é a prática de testar cada alteração feita em sua bas
 
 Para o Azure Data Factory, integração e entrega contínuas significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer integração e entrega contínuas, você pode usar a integração da interface do usuário do Data Factory com os modelos do Azure Resource Manager. A interface de usuário do Data Factory pode gerar um modelo do Resource Manager quando você seleciona as opções de **modelo ARM**. Quando você seleciona **Exportar modelo ARM**, o portal gera o modelo do Resource Manager para o data factory e um arquivo de configuração que inclui todas as suas cadeias de conexão e outros parâmetros. Em seguida, você precisa criar um arquivo de configuração para cada ambiente (desenvolvimento, teste, produção). O arquivo de modelo do Resource Manager principal permanece o mesmo em todos os ambientes.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Para ver uma introdução de nove minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Criar um modelo do Resource Manager para cada ambiente
 Selecione **Exportar modelo ARM** para exportar o modelo do Resource Manager para seu data factory no ambiente de desenvolvimento.
@@ -100,7 +100,7 @@ Aqui estão as etapas para configurar uma versão do Azure Pipelines para que vo
 
 1.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
-    a.  Crie a nova tarefa, procure **Implantação de Grupo de Recursos do Azure**e adicione-o.
+     a.  Crie a nova tarefa, procure **Implantação de Grupo de Recursos do Azure**e adicione-o.
 
     b.  Na tarefa de Implantação, escolha a assinatura, o grupo de recursos e o local para o Data Factory de destino e forneça credenciais se necessário.
 
@@ -957,7 +957,7 @@ Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros perso
 * No exemplo anterior, o `connectionString` propriedade será parametrizada como uma `securestring` valor, ele não terá um valor padrão, e ele terá um nome de parâmetro abreviada é sufixado com `connectionString`.
 * A propriedade `secretAccessKey`, no entanto, acontece ser um `AzureKeyVaultSecret` (por exemplo, um `AmazonS3` serviço vinculado). Assim, é automaticamente parametrizado como um segredo do Cofre de chaves do Azure, e ele é buscado do Cofre de chaves que é configurado com na fábrica de origem. Também é possível parametrizar o Cofre de chaves em si.
 
-#### <a name="datasets"></a>Conjuntos de Dados
+#### <a name="datasets"></a>Conjunto de dados
 
 * Mesmo que o tipo específico personalização está disponível para conjuntos de dados, a configuração pode ser fornecida sem a necessidade de explicitamente um \*-configuração de nível. No exemplo anterior, todas as propriedades de conjunto de dados sob `typeProperties` são parametrizadas.
 
