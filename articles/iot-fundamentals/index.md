@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: false
-title: 'Documentação do Azure Internet das Coisas – Tutoriais, Referência de API | Microsoft Docs'
-description: 'O Azure IoT (Internet das Coisas) é uma coleção de serviços de nuvem gerenciados pela Microsoft que conectam, monitoram e controlam bilhões de ativos de IoT. Simplificando, uma solução de IoT é composta por um ou mais dispositivos IoT, e por um ou mais serviços de back-end em execução na nuvem, os quais se comunicam entre si.'
+title: Documentação do Azure Internet das Coisas – Tutoriais, Referência de API | Microsoft Docs
+description: O Azure IoT (Internet das Coisas) é uma coleção de serviços de nuvem gerenciados pela Microsoft que conectam, monitoram e controlam bilhões de ativos de IoT. Simplificando, uma solução de IoT é composta por um ou mais dispositivos IoT, e por um ou mais serviços de back-end em execução na nuvem, os quais se comunicam entre si.
 services: azure-iot
 author: dsk-2015
 manager: philmea
@@ -10,8 +10,13 @@ ms.service: azure-iot
 ms.topic: landing-page
 ms.date: 02/12/2019
 ms.author: dkshir
+ms.openlocfilehash: d19b6fff3bf2b43ecb692bd8d8e33a202e969570
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343727"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentação do Azure Internet das Coisas</h1>

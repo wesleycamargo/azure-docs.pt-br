@@ -1,19 +1,24 @@
 ---
 layout: LandingPage
 title: Documentação do gerenciamento de custos e cobrança do Azure |Microsoft Docs
-description: 'Saiba como entender sua cobrança do Azure, gerenciar e monitorar o uso e os custos, e gerenciar sua conta e assinaturas.'
+description: Saiba como entender sua cobrança do Azure, gerenciar e monitorar o uso e os custos, e gerenciar sua conta e assinaturas.
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446708"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentação do gerenciamento de custos e cobrança do Azure
 
 Saiba como entender sua cobrança do Azure, monitorar o uso e os custos, e gerenciar sua conta e assinaturas.
