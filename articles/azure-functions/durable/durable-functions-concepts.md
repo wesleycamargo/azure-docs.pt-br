@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443412"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892748"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de funções duráveis e conceitos técnicos (Azure Functions)
 
@@ -415,7 +415,7 @@ Devido ao comportamento de reprodução do dispatcher do Framework de Tarefa Dur
 
 A extensão de funções duráveis usa filas, tabelas e blobs no armazenamento do Azure para manter a execução da função execução histórico estado e o gatilho. Você pode usar a conta de armazenamento padrão para o aplicativo de funções, ou você pode configurar uma conta de armazenamento separada. Talvez você queira uma conta separada com base em limites de taxa de transferência de armazenamento. O código do orquestrador que você escreve não interage com as entidades nessas contas de armazenamento. O Framework de tarefa durável gerencia as entidades diretamente como um detalhe de implementação.
 
-As funções orquestradoras agendam funções de atividade e recebem suas respostas por meio de mensagens de fila interna. Quando um aplicativo de funções é executado no plano de consumo do Azure Functions, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-plan-works) monitora essas filas. Novas instâncias de computação são adicionadas conforme necessário. Ao escalar horizontalmente para várias VMs, uma função de orquestrador pode executar em uma VM, enquanto as funções de atividade que as chamadas de função de orquestrador possam ser executadas em várias VMs diferentes. Para obter mais informações sobre o comportamento de escala das funções duráveis, consulte [desempenho e escala](durable-functions-perf-and-scale.md).
+As funções orquestradoras agendam funções de atividade e recebem suas respostas por meio de mensagens de fila interna. Quando um aplicativo de funções é executado no plano de consumo do Azure Functions, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) monitora essas filas. Novas instâncias de computação são adicionadas conforme necessário. Ao escalar horizontalmente para várias VMs, uma função de orquestrador pode executar em uma VM, enquanto as funções de atividade que as chamadas de função de orquestrador possam ser executadas em várias VMs diferentes. Para obter mais informações sobre o comportamento de escala das funções duráveis, consulte [desempenho e escala](durable-functions-perf-and-scale.md).
 
 O histórico de execução para contas do orchestrator é armazenado no armazenamento de tabela. Sempre que uma instância for reidratada em uma VM específica, o orquestrador buscará seu histórico de execução do armazenamento de tabelas para que possa recriar seu estado local. Um aspecto conveniente de ter o histórico disponível no armazenamento de tabelas é que você pode usar ferramentas como [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para ver o histórico de suas orquestrações.
 
@@ -437,6 +437,6 @@ Para saber mais sobre as funções duráveis, consulte [tipos e recursos de fun�
 Introdução:
 
 > [!div class="nextstepaction"]
-> [Crie sua primeira função durável](durable-functions-create-first-csharp.md)
+> [Criar sua primeira função durável](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

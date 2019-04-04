@@ -19,16 +19,18 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728a67513bd66b6c39d1f366789172ee2963f6cc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517463"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904246"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
 Este tópico fornece informações sobre como diagnosticar e solucionar problemas com o Enterprise State Roaming, além de fornecer uma lista de problemas conhecidos.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Etapas preliminares para a solução de problemas 
 
@@ -162,7 +164,7 @@ Se o usuário tiver um nome UPN com letras maiúsculas e minúsculas (por exempl
 O usuário precisará remover o dispositivo do domínio e reingressá-lo na nuvem. Para fazer isso, faça logon como o usuário Administrador Local e remova o dispositivo acessando **Configurações** > **Sistema** > **Sobre** e selecione “Gerenciar ou desconectar do trabalho ou da escola”. Limpe os arquivos abaixo e ingresse o dispositivo no Azure AD novamente em **Configurações** > **Sistema** > **Sobre** e selecionando “Conectar ao Trabalho ou à Escola”. Continue ingressando o dispositivo no Azure Active Directory e conclua o fluxo.
 
 Na etapa de limpeza, limpe os seguintes arquivos:
-- Settings.dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Settings. dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
 - Todos os arquivos na pasta `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---

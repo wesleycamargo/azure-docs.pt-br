@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516953"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893445"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -22,7 +22,7 @@ Ao carregar vídeos com a API do Video Indexer, você tem as seguintes opções 
 
 * Carregue o vídeo de uma URL (preferido),
 * envie o arquivo de vídeo como uma matriz de bytes no corpo da solicitação,
-* Usar o ativo de Serviços de Mídia do Azure existente, fornecendo a [id do ativo](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (suporte somente nas contas pagas).
+* Usar o ativo de serviços de mídia do Azure existente, fornecendo os [ID do ativo](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (suporte somente para contas pagas).
 
 O artigo mostra como usar a API [Fazer upload de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para fazer upload e indexar seus vídeos com base em um URL. O exemplo de código no artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também discute alguns dos parâmetros que você pode definir na API para alterar o processo e a saída da API.
 
@@ -61,7 +61,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
     
         |NOME|DESCRIÇÃO|
         |---|---|
-        |ID|A id de vídeo|
+        |ID|A ID do vídeo|
         |state|O estado do vídeo|  
     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
@@ -69,7 +69,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
     
       |NOME|DESCRIÇÃO|
       |---|---|
-      |ID| A id de vídeo|
+      |ID| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
       |personName|O nome da pessoa|
@@ -85,9 +85,9 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 
 Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fundo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
 
-- `Default` – Indexar e extrair insights usando áudio e vídeo
-- `AudioOnly` – Indexar e extrair insights usando apenas áudio (ignorando vídeo)
-- `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
+- `Default` – Índice e extrair informações de uso de áudio e vídeo
+- `AudioOnly` – Índice e extrair informações usando o áudio somente (ignorando de vídeo)
+- `DefaultWithNoiseReduction` – Índice e extrair informações de áudio e vídeo, ao aplicar algoritmos de redução de ruído no fluxo de áudio
 
 O preço depende da opção de indexação selecionada.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ Os códigos de status listados na tabela a seguir podem ser retornados pela oper
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Examinar a saída do Azure Video Indexer produzida pela API v2](video-indexer-output-json-v2.md)
+[Examine a saída do indexador de vídeo do Azure produzida pela API](video-indexer-output-json-v2.md)

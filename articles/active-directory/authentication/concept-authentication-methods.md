@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371852"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894586"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
-A redefinição de senha de auto-atendimento do Azure AD (SSPR) e a autenticação de vários fatores (MFA) podem solicitar informações adicionais, conhecidas como métodos de autenticação ou informações de segurança, para confirmar que você é quem diz quando usa os recursos associados.
+Como um administrador escolhendo métodos de autenticação para a autenticação multifator do Azure e a senha de autoatendimento redefinição de senha (SSPR) é recomendável que você exija que os usuários registrem os vários métodos de autenticação. Quando um método de autenticação não está disponível para um usuário, eles podem optar por autenticar com outro método.
 
-Os administradores podem definir na política quais métodos de autenticação estão disponíveis para usuários do SSPR e do MFA. Alguns métodos de autenticação podem não estar disponíveis para todos os recursos.
+Os administradores podem definir na política quais métodos de autenticação estão disponíveis para usuários do SSPR e do MFA. Alguns métodos de autenticação podem não estar disponíveis para todos os recursos. Para obter mais informações sobre como configurar suas políticas consulte os artigos [como distribuir com sucesso a redefinição de senha de autoatendimento](howto-sspr-deployment.md) e [planejamento baseados em nuvem do Azure a autenticação multifator](howto-mfa-getstarted.md)
 
 A Microsoft recomenda que os administradores habilitem os usuários a selecionar mais do que o número mínimo necessário de métodos de autenticação, caso eles não tenham acesso a um.
 
@@ -233,9 +233,9 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
+[Habilitar o serviço de autoatendimento redefinição de senha para sua organização](quickstart-sspr.md)
 
-[Ativar a autenticação de vários fatores do Azure para sua organização](howto-mfa-getstarted.md)
+[Habilitar autenticação multifator do Azure para sua organização](howto-mfa-getstarted.md)
 
 [Habilite o registro combinado no seu locatário](howto-registration-mfa-sspr-combined.md)
 

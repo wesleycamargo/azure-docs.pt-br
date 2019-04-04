@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854315"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895438"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de build, teste e aplicação de patch de várias etapas tarefas do ACR
 
@@ -32,8 +32,6 @@ Por exemplo, você pode executar uma tarefa com etapas que automatizam a seguint
 
 Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. Para obter informações sobre preços, veja a seção **Build de Contêiner** em [Preços do Registro de Contêiner do Azure][pricing].
 
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 ## <a name="common-task-scenarios"></a>Cenários comuns de tarefas
 
@@ -49,14 +47,14 @@ As tarefas em várias etapas permitem cenários como a seguinte lógica:
 
 Uma tarefa de várias etapas nas Tarefas do ACR é definida como uma série de etapas dentro de um arquivo YAML. Cada etapa pode especificar dependências após a conclusão bem-sucedida de uma ou mais etapas anteriores. Os seguintes tipos de etapa de tarefa estão disponíveis:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): compile uma ou mais imagens de contêiner usando a sintaxe familiar `docker build`, em série ou em paralelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): envie imagens compiladas por push para um registro de contêiner. Registros privados como o Registro de Contêiner do Azure são compatíveis, o mesmo se aplica ao Hub do Docker público.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): execute um contêiner de modo que ele possa operar como uma função dentro do contexto da tarefa em execução. Você pode passar parâmetros para o `[ENTRYPOINT]` do contêiner e especificar propriedades como env, detach e outros parâmetros de `docker run` familiares. O tipo de etapa `cmd` permite testes de unidade e funcionais, com execução simultânea em contêineres.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Criar um ou mais imagens de contêiner usando o familiar `docker build` sintaxe, em série ou em paralelo.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Push de imagens criadas para um registro de contêiner. Registros privados como o Registro de Contêiner do Azure são compatíveis, o mesmo se aplica ao Hub do Docker público.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Execute um contêiner, de modo que ele pode operar como uma função dentro do contexto da tarefa em execução. Você pode passar parâmetros para o `[ENTRYPOINT]` do contêiner e especificar propriedades como env, detach e outros parâmetros de `docker run` familiares. O tipo de etapa `cmd` permite testes de unidade e funcionais, com execução simultânea em contêineres.
 
 Os trechos de código a seguir mostram como combinar esses tipos de etapa da tarefa. Tarefas de várias etapas podem ser tão simples quanto a criação de uma única imagem de um Dockerfile e enviar por push para seu registro, com um arquivo YAML semelhante a:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 Ou, mais complexo, como essa definição fictícia de várias etapa que inclui as etapas para compilação, teste, o pacote do helm e o helm implantar (registro de contêiner e a configuração do repositório do Helm não mostrados):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 Para obter mais informações sobre builds automatizados na confirmação do Git na atualização da imagem base, consulte os artigos de tutorial [Automatizar builds de imagem](container-registry-tutorial-build-task.md) e [Builds de atualização de imagem base](container-registry-tutorial-base-image-update.md).
-
-## <a name="preview-feedback"></a>Comentários de visualização
-
-Embora o recurso de tarefa de várias etapas das Tarefas do ACR esteja em versão prévia, convidamos você a fornecer comentários. Vários canais para envio de comentários estão disponíveis:
-
-* [Problemas](https://aka.ms/acr/issues) – exibir problemas e bugs existentes e registrar novos
-* [UserVoice](https://aka.ms/acr/uservoice) – votar em solicitações de recursos existentes ou criar novas solicitações
-* [Discussão](https://aka.ms/acr/feedback) – participar de discussões sobre o Registro de Contêiner do Azure com a comunidade do Stack Overflow
 
 ## <a name="next-steps"></a>Próximas etapas
 

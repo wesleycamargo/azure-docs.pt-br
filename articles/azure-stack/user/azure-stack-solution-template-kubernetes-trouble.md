@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de sua implantação do Kubernetes para o Azure Stack | Microsoft Docs
-description: Saiba como solucionar problemas de sua implantação do Kubernetes para o Azure Stack.
+title: Solucionar problemas de implantação do Kubernetes no Azure Stack | Microsoft Docs
+description: Saiba como solucionar problemas de implantação do Kubernetes no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361533"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878121"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solucionar problemas de sua implantação do Kubernetes para o Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Solucionar problemas de implantação de Kubernetes para o Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
 > Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview.
 
 O artigo a seguir examina o cluster Kubernetes de solução de problemas. Você pode revisar o alerta de implantação e revisar o status da implantação, os elementos necessários para a implantação. Talvez você precise coletar os logs de implantação do Azure Stack ou VMs do Linux que hospedam Kubernetes. Você também precisará trabalhar com o administrador do Azure Stack para recuperar os logs de um ponto de extremidade administrativo.
 
-## <a name="overview-of-deployment"></a>Visão geral da implantação
+## <a name="overview-of-kubernetes-deployment"></a>Visão geral da implantação do Kubernetes
 
 Antes de iniciar a solução de problemas de seu cluster, você talvez queira examinar o processo de implantação de cluster do Kubernetes do Azure Stack. A implantação usa um modelo de solução do Azure Resource Manager para criar as VMs e instalar o mecanismo do ACS para seu cluster.
 
-### <a name="deployment-workflow"></a>Fluxo de trabalho de implantação
+### <a name="kubernetes-deployment-workflow"></a>Fluxo de trabalho de implantação de Kubernetes
 
 O diagrama a seguir mostra o processo geral para implantar o cluster.
 
@@ -85,7 +85,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
 
 Você pode coletar logs nas máquinas virtuais que dão suporte ao seu cluster Kubernetes. Você também pode examinar o log de implantação. Você talvez precise se comunicar com o administrador do Azure Stack para verificar a versão do Azure Stack que você precisa usar e para obter os logs do Azure Stack que estão relacionadas à sua implantação.
 
-1. Examine a [status de implantação](#review-deployment-status) e [recuperar os logs](#get-logs-from-a-vm) do nó mestre no seu cluster Kubernetes.
+1. Examine os [status de implantação](#review-deployment-status) e recuperar os logs do nó mestre no cluster Kubernetes.
 2. Certifique-se de que você está usando a versão mais recente do Azure Stack. Se você não tiver certeza de qual versão você está usando, contate o administrador do Azure Stack.
 3.  Examine os arquivos de criação da VM. Você pode ter tido os seguintes problemas:  
     - A chave pública pode ser inválida. Examine a chave que você criou.  

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172392"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882031"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicional no Azure Stack
 
@@ -75,7 +75,7 @@ Use o **New-AzsScaleUnitNodeObject** cmdlet para adicionar um nó.
 Antes de usar qualquer um dos seguintes scripts do PowerShell de exemplo, substitua os valores *nomes de nó* e *endereços IP* com os valores do seu ambiente do Azure Stack.
 
   > [!Note]  
-  > Ao nomear um nó, você deve manter o nome de menos de 15 caracteres. Você também não é possível usar um nome que contém um espaço ou qualquer um dos seguintes caracteres: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Ao nomear um nó, você deve manter o nome de menos de 15 caracteres. Você também não é possível usar um nome que contém um espaço ou qualquer um dos seguintes caracteres: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Adicione um nó:**
   ```powershell

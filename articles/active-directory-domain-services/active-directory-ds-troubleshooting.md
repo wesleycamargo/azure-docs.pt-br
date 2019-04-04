@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184182"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893105"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
@@ -32,15 +32,15 @@ Selecione as etapas de solução de problemas que correspondam à mensagem de er
 
 | **Mensagem de erro** | **Resolução** |
 | --- |:--- |
-| *O nome contoso100.com já está em uso nesta rede. Especifique um nome que não esteja em uso.* |[Conflito de nome de domínio na rede virtual](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Exclua o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD' e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.* |[Os Serviços de Domínio não têm as permissões adequadas para o aplicativo Sincronização dos Serviços de Domínio do Azure AD](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e tente habilitar os Serviços de Domínio para o seu locatário do Azure AD.* |[O aplicativo Serviços de Domínio não foi configurado corretamente em seu locatário](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Microsoft Azure AD está desabilitado no seu locatário do Microsoft Azure AD. Habilite o aplicativo com o identificador de aplicativo 00000002-0000-0000-c000-000000000000 e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.* |[O aplicativo Microsoft Graph está desabilitado no seu locatário do Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *O nome contoso100.com já está em uso nesta rede. Especifique um nome que não está em uso.* |[Conflito de nome de domínio na rede virtual](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Excluir o aplicativo chamado 'Sincronização dos serviços de domínio do Azure AD' e, em seguida, tente habilitar os serviços de domínio para seu locatário do Azure AD.* |[Serviços de domínio não tem as permissões adequadas para o aplicativo do Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o d87dcbc6-a371-462e-88e3-28ad15ec4e64 de identificador de aplicativo e, em seguida, tente habilitar os serviços de domínio para seu locatário do Azure AD.* |[O aplicativo de serviços de domínio não está configurado corretamente em seu locatário](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O aplicativo Microsoft Azure AD está desabilitado no seu locatário do Microsoft Azure AD. Habilite o aplicativo com o identificador de aplicativo 00000002-0000-0000-c000-000000000000 e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.* |[O aplicativo Microsoft Graph está desabilitado no locatário do Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflito de Nome de Domínio
 **Mensagem de erro:**
 
-*O nome contoso100.com já está em uso nesta rede. Especifique um nome que não esteja em uso.*
+*O nome contoso100.com já está em uso nesta rede. Especifique um nome que não está em uso.*
 
 **Correção:**
 
@@ -51,7 +51,7 @@ Essa falha ocorre devido a conflitos de nome com o nome de domínio nessa rede v
 ### <a name="inadequate-permissions"></a>Permissões inadequadas
 **Mensagem de erro:**
 
-Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Exclua o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD' e tente habilitar os Serviços de Domínio para seu locatário do Azure AD.*
+*Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O serviço não tem as permissões adequadas para o aplicativo chamado 'Sincronização dos Serviços de Domínio do Azure AD'. Excluir o aplicativo chamado 'Sincronização dos serviços de domínio do Azure AD' e, em seguida, tente habilitar os serviços de domínio para seu locatário do Azure AD.*
 
 **Correção:**
 
@@ -67,7 +67,7 @@ Execute as seguintes etapas para verificar a presença do aplicativo e excluí-l
 ### <a name="invalid-configuration"></a>Configuração inválida
 **Mensagem de erro:**
 
-Não foi possível habilitar os *Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e tente habilitar os Serviços de Domínio para o seu locatário do Azure AD.*
+*Não foi possível habilitar os Serviços de Domínio neste locatário do Azure AD. O aplicativo Serviços de Domínio no seu locatário do Azure AD não tem as permissões necessárias para habilitar os Serviços de Domínio. Exclua o aplicativo com o d87dcbc6-a371-462e-88e3-28ad15ec4e64 de identificador de aplicativo e, em seguida, tente habilitar os serviços de domínio para seu locatário do Azure AD.*
 
 **Correção:**
 
@@ -157,7 +157,7 @@ O Azure AD protege você contra a exclusão acidental de objetos de usuário. Qu
 
 A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure Active Directory.
 
-Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o `Remove-MsolUser`cmdlet do PowerShell com a opção `-RemoveFromRecycleBin`, conforme descrito neste [artigo do MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o `Remove-MsolUser`cmdlet do PowerShell com a opção `-RemoveFromRecycleBin`, conforme descrito neste [artigo do MSDN](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Fale conosco

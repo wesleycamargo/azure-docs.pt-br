@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895538"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -89,14 +89,14 @@ Depois que a entidade é extraída, os dados da entidade podem ser representados
 |Aprendizado de máquina|Pode marcar|Tutorial|Exemplo<br>Response|Tipo de entidade|Finalidade|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lista**](#list-entity)|Lista de itens e seus sinônimos extraídos com correspondência exata do texto.|
-|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidade na qual é difícil determinar o final da entidade.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefinida**](#prebuilt-entity)|Já treinada para extrair vários tipos de dados.|
+|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquico**](#hierarchical-entity)|Agrupamento de entidades simples.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Listar**](#list-entity)|Lista de itens e seus sinônimos extraídos com correspondência exata do texto.|
+|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Entidade na qual é difícil determinar o final da entidade.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefinidos**](#prebuilt-entity)|Já treinada para extrair vários tipos de dados.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expressão regular**](#regular-expression-entity)|Usa expressão regular para corresponder ao texto.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simples**](#simple-entity)|Contém um único conceito em palavra ou frase.|
 
-Somente entidades de aprendizado de máquina precisam ser marcadas nos enunciados de exemplo para cada intenção. Entidades de aprendizado de máquina funcionam melhor quando testadas por meio de [consultas de ponto de extremidade](luis-concept-test.md#endpoint-testing) e [revisando os enunciados de ponto de extremidade](luis-how-to-review-endoint-utt.md). 
+Somente entidades de aprendizado de máquina precisam ser marcadas nos enunciados de exemplo para cada intenção. Entidades de aprendizado de máquina funcionam melhor quando testadas por meio de [consultas de ponto de extremidade](luis-concept-test.md#endpoint-testing) e [revisando os enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md). 
 
 As entidades Pattern.any devem ser marcadas nos exemplos de modelo [Padrão](luis-how-to-model-intent-pattern.md), não exemplos de usuários de intenção. 
 
@@ -117,7 +117,7 @@ Essa entidade é uma boa opção quando os dados:
 ![entidade composta](./media/luis-concept-entities/composite-entity.png)
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#composite-entity-data)<br>
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Entidade hierárquica
 
@@ -139,7 +139,7 @@ Não use se:
 ![entidade hierárquica](./media/luis-concept-entities/hierarchical-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 ### <a name="roles-versus-hierarchical-entities"></a>Papéis versus entidades hierárquicas
 
@@ -158,7 +158,7 @@ A entidade é uma boa opção quando os dados de texto:
 ![entidade de lista](./media/luis-concept-entities/list-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#list-entity-data)
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entidade pattern.any
 
@@ -168,7 +168,7 @@ A entidade é uma boa opção quando:
 
 * O final da entidade pode ser confundido com o texto restante do enunciado. 
 [Tutorial](luis-tutorial-pattern.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#patternany-entity-data)
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Exemplo**  
 Em um determinado aplicativo cliente que pesquisa livros com base no título, o pattern.any extrai o título completo. Um enunciado de modelo usando pattern.any para essa busca de livro é `Was {BookTitle} written by an American this year[?]`. 
@@ -195,7 +195,7 @@ As entidades predefinidas podem ser adicionadas e removidas a qualquer momento.
 ![Numerar entidade predefinida](./media/luis-concept-entities/number-entity.png)
 
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#prebuilt-entity-data)
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Se não houver suporte à sua cultura ou entidade específica, contribua para o projeto. 
 
@@ -243,7 +243,7 @@ A entidade é uma boa opção quando:
 ![Entidade de expressão regular](./media/luis-concept-entities/regex-entity.png)
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
-[Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[Exemplo de resposta JSON para entidades](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Entidade simples 
 
@@ -256,7 +256,7 @@ A entidade é uma boa opção quando:
 ![entidade simples](./media/luis-concept-entities/simple-entity.png)
 
 [Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Exemplo de resposta para entidade](luis-concept-data-extraction.md#simple-entity-data)<br/>
+[Exemplo de resposta para a entidade](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Limites de entidade
 

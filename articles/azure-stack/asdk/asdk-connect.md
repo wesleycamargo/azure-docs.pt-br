@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31025582516198bdfe9da9312bae33852986a423
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206456"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884849"
 ---
 # <a name="connect-to-the-asdk"></a>Conectar-se para o ASDK
 
@@ -69,7 +69,7 @@ Antes de configurar uma conexão VPN para o ASDK, verifique se que os seguintes 
 
 Para criar uma conexão VPN para o ASDK, abra o PowerShell como administrador no seu computador local baseado em Windows. Em seguida, execute o script a seguir (o endereço IP e a senha valores para seu ambiente de atualização):
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -109,9 +109,9 @@ Se a instalação for bem-sucedida, **azurestack** aparece na lista de conexões
 
   Conecte-se à instância do Azure Stack, usando um dos seguintes métodos:  
 
-  * Use o `Connect-AzsVpn ` comando:
+  * Use o `Connect-AzsVpn` comando:
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```
@@ -133,4 +133,4 @@ Entre com as credenciais de assinatura apropriada para criar e gerenciar recurso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Solução de problemas](asdk-troubleshooting.md)
+[solução de problemas](asdk-troubleshooting.md)

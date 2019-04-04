@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552173"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892816"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introdução aos componentes de solicitação e resposta
 Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
@@ -34,9 +34,10 @@ Por exemplo, você pode:
 Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Usar o gatilho de Solicitação HTTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. 
+[Saiba mais sobre gatilhos](../connectors/apis-list.md).
 
-Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Designer de Aplicativo Lógico.
+Aqui está uma sequência de exemplo de como configurar uma solicitação HTTP no Designer do aplicativo lógico.
 
 1. Adicione o gatilho **Solicitação — quando uma solicitação HTTP é recebida** no seu aplicativo lógico. Como opção, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](https://jsonschema.net)) para o corpo da solicitação. Isso permite que o designer gere tokens para propriedades na solicitação HTTP.
 2. Adicione outra ação para que seja possível salvar o aplicativo lógico.

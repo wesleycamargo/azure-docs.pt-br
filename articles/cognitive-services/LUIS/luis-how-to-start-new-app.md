@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337469"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891422"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do [LUIS](https://www.luis.ai) ou por meio das [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de criação do LUIS.
@@ -66,6 +66,17 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 Possíveis erros são: 
 
 * Um aplicativo com esse nome já existe. Reimporte o aplicativo e defina as **nome opcional** para um novo nome. 
+
+## <a name="export-app"></a>Exportar aplicativo
+
+1. Na página **Meus Aplicativos**, selecione **Importar novo aplicativo**.
+1. Na caixa de diálogo **Importar novo aplicativo**, selecione o arquivo JSON definindo o aplicativo do LUIS.
+
+## <a name="delete-app"></a>Excluir aplicativo
+
+1. Na página **Meus Aplicativos**, selecione as reticências (...) no final da linha do aplicativo.
+1. Selecione **Excluir** no menu.
+1. Selecione **Ok** na janela de confirmação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

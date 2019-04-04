@@ -1,19 +1,17 @@
 ---
 title: Ambientes de desenvolvimento/teste do foco Micro no Azure | Microsoft Docs
 description: Hospede novamente as IBM z/OS mainframe cargas de trabalho usando soluções Micro Focus em máquinas virtuais (VMs).
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739979"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893768"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Ambientes de desenvolvimento/teste do foco Micro no Azure
 
@@ -25,5 +23,6 @@ Micro Focus oferece rehosting de desenvolvimento e teste a nova hospedagem solu�
 
 **Próximas etapas**
 
-- [Instalar o Micro Focus Enterprise Server 4.0 e do Enterprise Developer 4.0 no Azure](./set-up-micro-focus-on-azure.md)
+- [Instalar o Micro Focus Enterprise Server 4.0 e do Enterprise Developer 4.0 no Azure](./set-up-micro-focus-azure.md)
 - [Configurar o Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure](./demo.md)
+- [Executar o Enterprise Server em contêineres do Docker no Azure](./run-enterprise-server-container.md)

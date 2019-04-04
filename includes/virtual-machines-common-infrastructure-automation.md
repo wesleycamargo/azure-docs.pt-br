@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125164"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890854"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
@@ -53,7 +53,7 @@ Saiba como:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` são arquivos de texto codificados em base64.
 
 A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 
@@ -69,7 +69,7 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
 Saiba mais detalhes sobre o cloud-init no Azure:
 
-- [Suporte do cloud-init para máquinas virtuais Linux no Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Suporte a Cloud-init para máquinas virtuais Linux no Azure](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Tente um tutorial sobre configuração de VM automatizada usando o cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
@@ -80,7 +80,7 @@ As configurações de DSC definem o que instalar em um computador e como configu
 
 Saiba como:
 
-- [Criar uma configuração básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Criar uma configuração básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Configurar um servidor de pull de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Usar a DSC para Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 

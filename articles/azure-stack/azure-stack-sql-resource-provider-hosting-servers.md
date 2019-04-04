@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210519"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499226"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -186,14 +186,19 @@ SKUs não podem ser atribuídos a usuários ou grupos específicos.
 
 SKUs podem demorar até uma hora para ser visível no portal. Os usuários não é possível criar um banco de dados até que a SKU foi totalmente criada.
 
-Para editar uma SKU, vá para **todos os serviços** > **adaptador SQL** > **SKUs**. Selecione a SKU para modificar, faça as alterações necessárias e clique em **salvar** para salvar as alterações. Para excluir uma SKU que não é mais necessário, vá para **todos os serviços** > **adaptador SQL** > **SKUs**. O nome da SKU com o botão direito e selecione **excluir** para excluí-lo.
+Para editar uma SKU, vá para **todos os serviços** > **adaptador SQL** > **SKUs**. Selecione a SKU para modificar, faça as alterações necessárias e clique em **salvar** para salvar as alterações. 
 
-> [!TIP]
-> Você pode editar ou excluir as cotas de provedor de recursos do SQL no mesmo local.
+Para excluir uma SKU que não é mais necessário, vá para **todos os serviços** > **adaptador SQL** > **SKUs**. O nome da SKU com o botão direito e selecione **excluir** para excluí-lo.
+
+> [!IMPORTANT]
+> Pode demorar até uma hora para novas SKUs disponíveis no portal do usuário.
 
 ## <a name="make-sql-databases-available-to-users"></a>Disponibilizar os bancos de dados SQL para os usuários
 
 Crie planos e ofertas para tornar os bancos de dados SQL disponíveis para os usuários. Adicione a **Microsoft.SqlAdapter** ao plano de serviço e criar uma nova cota.
+
+> [!IMPORTANT]
+> Pode levar até duas horas para novas cotas para estar disponível no portal do usuário ou antes de uma cota alterada é imposta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

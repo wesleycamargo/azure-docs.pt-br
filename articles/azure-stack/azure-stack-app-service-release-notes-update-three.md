@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886432"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447500"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Serviço de aplicativo em notas de versão de atualização 3 do Azure Stack
 
@@ -55,6 +55,8 @@ Serviço de aplicativo do Azure no Azure Stack Update 3 inclui os seguintes apri
 - Adicionado novo parâmetro de ambiente ao script Create AADIdentityApp auxiliar para ajudá-lo de direcionamento diferentes regiões do AAD.
 
 - As atualizações **aplicativo de locatário de serviço, Admin, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
+
+- As atualizações **tempo de execução do Azure Functions** à **v1.0.11820**.
 
 - Atualizações para o serviço principal para melhorar a confiabilidade e mais fáceis de diagnóstico dos problemas comuns de habilitação de mensagens de erro.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165821"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445255"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicativo no Azure Stack update notas de versão 1
 
@@ -56,6 +56,8 @@ Serviço de aplicativo do Azure no Azure Stack Update 1 inclui os seguintes apri
 - **Implantar na rede virtual existente** -os clientes agora podem implantar o serviço de aplicativo no Azure Stack em uma rede virtual existente. Implantando em uma rede virtual existente permite que os clientes para se conectar ao SQL Server e do servidor de arquivos, necessárias para o serviço de aplicativo do Azure, sobre portas privadas. Durante a implantação, os clientes podem selecionar para implantar em uma rede virtual existente, no entanto [deve criar sub-redes para uso pelo serviço de aplicativo](azure-stack-app-service-before-you-get-started.md#virtual-network) antes da implantação.
 
 - As atualizações **aplicativo de locatário de serviço, Admin, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
+
+- As atualizações **tempo de execução do Azure Functions** à **v1.0.11388**.
 
 - **Atualizações para os seguintes estruturas de aplicativo e as ferramentas**:
     - Adicionado **.NET Core 2.0** suporte

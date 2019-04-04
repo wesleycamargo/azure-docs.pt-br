@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884560"
+ms.locfileid: "58894671"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -81,7 +81,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 1. [Execute o contêiner](##run-the-container-with-docker-run), com a _montagem de entrada_ e as configurações de cobrança necessárias. Há outros [exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` disponíveis. 
 1. [Consultar o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint). 
 1. Quando você terminar de usar o contêiner [importe os logs do ponto de extremidade](#import-the-endpoint-logs-for-active-learning) da montagem de saída no portal do LUIS e [pare](#stop-the-container) o contêiner.
-1. Use o [aprendizado ativo](luis-how-to-review-endoint-utt.md) do portal do LUIS na página **Examinar declarações do ponto de extremidade** para aprimorar o aplicativo.
+1. Use o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md) do portal do LUIS na página **Examinar declarações do ponto de extremidade** para aprimorar o aplicativo.
 
 O aplicativo em execução no contêiner não pode ser alterado. Para alterar o aplicativo no contêiner, você precisará alterar o aplicativo no serviço de LUIS usando o portal do [LUIS](https://www.luis.ai) ou usando as [APIs de criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) do LUIS. Treine e/ou publique e, em seguida, baixe um novo pacote e execute novamente o contêiner.
 
@@ -268,7 +268,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
 |`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
-|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endoint-utt.md). O padrão é true.|
+|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
 
 ### <a name="query-published-app"></a>Consultar aplicativo publicado
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089838"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894176"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 
@@ -35,7 +35,7 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |Tornar um aplicativo público|Quando um aplicativo for público, qualquer pessoa com uma chave de criação ou de ponto de extremidade poderá consultá-lo.|
 |Modificar modelo|
 |Publicar|
-|Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endoint-utt.md)|
+|Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
 |Treinar|
 
 ## <a name="access-to-endpoint"></a>Acesso ao ponto de extremidade

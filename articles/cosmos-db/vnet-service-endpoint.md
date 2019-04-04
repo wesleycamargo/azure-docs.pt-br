@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860340"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894928"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar o Azure Cosmos DB de VNets (redes virtuais)
 
@@ -54,6 +54,9 @@ As regras NSG são usadas para limitar a conectividade de e para uma sub-rede co
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Os pontos de extremidade de serviço estão disponíveis para todas as VNets?
 Não, somente as redes virtuais do Azure Resource Manager podem ter o ponto de extremidade do serviço ativado. As redes virtuais clássicas não suportam pontos de extremidade de serviço.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Posso "Aceitar conexões de datacenters públicos do Azure" quando o acesso ao ponto de extremidade de serviço está habilitado para o Banco de Dados do Azure Cosmos?  
+Isso é necessário somente quando você deseja que sua conta do Azure Cosmos DB seja acessada por outros serviços de terceiros do Azure primeiro, como Azure Data Factory, Azure Search ou qualquer serviço implantado em determinada região do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

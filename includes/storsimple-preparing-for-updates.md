@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0c89ed34b21ca0c41d4f7765d99d8fe8bf7c647d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889340"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890856"
 ---
 ## <a name="preparing-for-updates"></a>Preparar para atualizações
 Você precisará executar as seguintes etapas antes de examinar e aplicar a atualização:
@@ -17,9 +17,9 @@ Você precisará executar as seguintes etapas antes de examinar e aplicar a atua
 1. Tirar um instantâneo dos dados do dispositivo na nuvem.
 2. Verifique se os IPs fixos do controlador são roteáveis e podem se conectar à Internet. Esses IPs fixo serão usado para atender às atualizações para o seu dispositivo. Você pode testar isso executando o seguinte cmdlet em cada controlador de interface do Windows PowerShell do dispositivo:
    
-     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
-    **Saída de amostra para testar conexão quando IPs fixos podem se conectar à Internet**
+    **Saída de exemplo para teste de Conexão quando IPs fixos podem se conectar à Internet**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 05a2bd5334fe2836a96bd9437121252fe6ef6eff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882311"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893190"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados nos Serviços Cognitivos do LUIS (Reconhecimento vocal)
 O LUIS armazena dados criptografados em um armazenamento de dados do Azure correspondente à região especificada pela chave. Esses dados são armazenados por 30 dias. 
@@ -24,13 +24,33 @@ O LUIS armazena dados criptografados em um armazenamento de dados do Azure corre
 ## <a name="export-and-delete-app"></a>Exportar e excluir o aplicativo
 Os usuários têm controle completo sobre a [exportação](luis-how-to-start-new-app.md#export-app) e [exclusão](luis-how-to-start-new-app.md#delete-app) do aplicativo. 
 
-## <a name="utterances-in-an-intent"></a>Declarações em uma intenção
+## <a name="utterances"></a>Declarações
+
+Declarações podem ser armazenadas em dois locais diferentes. 
+
+* Durante **o processo de criação**, declarações são criadas e armazenadas na intenção. Declarações em intenções são necessárias para um aplicativo LUIS com êxito. Depois que o aplicativo é publicado e recebe consultas no ponto de extremidade, querystring da solicitação de ponto de extremidade, `log=false`, determina se a expressão de ponto de extremidade será armazenado. Se o ponto de extremidade é armazenado, ele se torna parte das declarações de aprendizado ativo encontrado na **Build** seção do portal, no **examine as declarações de ponto de extremidade** seção. 
+* Quando você **examine as declarações de ponto de extremidade**e adicionar uma expressão a uma intenção, a expressão não é armazenado como parte de declarações de ponto de extremidade a ser revisado. Ele é adicionado para propósitos do aplicativo. 
+
+<a name="utterances-in-an-intent"></a>
+
+### <a name="delete-example-utterances-from-an-intent"></a>Excluir as declarações de exemplo de uma intenção
 Exclua enunciados de exemplo usados para treinar o [LUIS](luis-reference-regions.md). Se você excluir um enunciado de exemplo do seu aplicativo de LUIS, ele será removido do serviço Web de LUIS e não estará disponível para exportação.
 
-## <a name="utterances-in-review"></a>Revisão de declarações
-É possível excluir declarações da lista de declarações do usuário sugeridas pelo LUIS na **[página Examinar declarações de ponto de extremidade](luis-how-to-review-endoint-utt.md)**. Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
+<a name="utterances-in-review"></a>
 
-## <a name="accounts"></a>Contas
+### <a name="delete-utterances-in-review-from-active-learning"></a>Excluir declarações de revisão de aprendizado ativo
+
+É possível excluir declarações da lista de declarações do usuário sugeridas pelo LUIS na **[página Examinar declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)**. Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
+
+Se você não quiser que as declarações de aprendizado ativo, você poderá [desabilitar aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desabilitar o aprendizado ativo também desabilita o registro em log.
+
+### <a name="disable-logging-utterances"></a>Desabilitar o registro em log declarações
+[Desabilitando o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning) é desabilita o registro em log.
+
+
+<a name="accounts"></a>
+
+## <a name="delete-an-account"></a>Excluir uma conta
 Se você excluir uma conta, todos os aplicativos serão excluídos, junto com os respectivos logs e enunciados de exemplo. Os dados são mantidos por 60 dias antes da exclusão permanente da conta e dos dados.
 
 A exclusão da conta está disponível na página **Configurações**. Selecione o nome da sua conta na barra de navegação superior direita para chegar à página **Configurações**.
@@ -46,4 +66,4 @@ Para os fins da retenção e da exclusão de dados, um aplicativo LUIS inativo p
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre como exportar e excluir um aplicativo](luis-how-to-start-new-app.md)
+> [Saiba mais sobre exportação e exclusão de um aplicativo](luis-how-to-start-new-app.md)

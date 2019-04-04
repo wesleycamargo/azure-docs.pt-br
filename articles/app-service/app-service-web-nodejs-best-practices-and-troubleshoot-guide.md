@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898849"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895776"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -98,7 +98,7 @@ O valor padrão é falso. Se habilitado, o aplicativo de nó pode se conectar a 
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-O valor padrão é 0, o que significa que esse recurso está desabilitado. Quando definido como um valor maior que 0, iisnode fará uma remoção de página de todos os seus processos filho a cada 'idlePageOutTimePeriod' em milissegundos. Confira a [documentação](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) para compreender o que a remoção de página significa. Essa configuração é útil para aplicativos que consomem uma grande quantidade de memória e desejam eliminar ocasionalmente a memória do disco para liberar memória RAM.
+O valor padrão é 0, o que significa que esse recurso está desabilitado. Quando definido como um valor maior que 0, iisnode fará uma remoção de página de todos os seus processos filho a cada 'idlePageOutTimePeriod' em milissegundos. Confira a [documentação](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) para compreender o que a remoção de página significa. Essa configuração é útil para aplicativos que consomem uma grande quantidade de memória e desejam eliminar ocasionalmente a memória do disco para liberar memória RAM.
 
 > [!WARNING]
 > Tenha cuidado ao habilitar as definições de configuração a seguir em aplicativos de produção. A recomendação é não as habilitar em aplicativos de produção ativos.
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Vá para o site do Console de Depuração `https://yoursite.scm.azurewebsites.net/DebugConsole`
+Vá para o site do Console de depuração `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Vá para o diretório site/wwwroot. Você verá um prompt de comando conforme mostrado no exemplo a seguir:
 
@@ -274,15 +274,15 @@ Habilite FREB para que o aplicativo veja o código de erro win32 (habilite FREB 
 | 503 |1002 |Verifique o código de erro win32 para obter o motivo real – não foi possível distribuir a solicitação para um node.exe. |
 | 503 |1003 |O pipe nomeado é muito Ocupado – Verifique se o node.exe está consumindo CPU excessiva |
 
-NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Em Serviço de Aplicativo do Azure, esse valor é definido como 5000. Isso significa que node.exe pode aceitar 5.000 solicitações por vez no pipe nomeado. Esse valor deve ser suficiente para a maioria dos aplicativos de nó em execução no Serviço de Aplicativo do Azure. Você não deve ver 503.1003 no Serviço de Aplicativo do Azure devido ao alto valor para `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Em Serviço de Aplicativo do Azure, esse valor é definido como 5000. Isso significa que node.exe pode aceitar 5.000 solicitações por vez no pipe nomeado. Esse valor deve ser suficiente para a maioria dos aplicativos de nó em execução no Serviço de Aplicativo do Azure. Você não deve ver 503.1003 no serviço de aplicativo do Azure devido ao alto valor para o `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Mais recursos
 
 Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Aplicativo do Azure.
 
-* [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-get-started-nodejs.md)
+* [Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure](app-service-web-get-started-nodejs.md)
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
-* [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de desenvolvedores do Node. js](../nodejs-use-node-modules-azure-apps.md)
-* [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
+* [Aplicativos de Web do serviço de aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Centro de Desenvolvimento do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Explorar o Console de depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 06cb29d6d04fb314f9eefa63d7a2b628a2af846b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769363"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481113"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
@@ -67,12 +67,12 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 1. Instale **AzsReadinessChecker** em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
 2. Crie a estrutura de diretório de certificado. No exemplo a seguir, você pode alterar `<c:\certificates>` para um novo caminho de diretório de sua escolha.
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
     $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
@@ -85,7 +85,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
     > [!Note]  
     > AD FS e o gráfico serão necessárias se você estiver usando o AD FS como seu sistema de identidade. Por exemplo: 
     >
-    > ```PowerShell  
+    > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
@@ -96,7 +96,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 3. Na janela do PowerShell, altere os valores das **RegionName** e **FQDN** apropriado ao ambiente do Azure Stack e execute o seguinte:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
@@ -104,7 +104,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 4. Verifique a saída e todos os certificados passarem todos os testes. Por exemplo: 
 
-```PowerShell
+```powershell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
 Testing: ARM Public\ssl.pfx
 Thumbprint: 7F6B27****************************E9C35A
@@ -156,7 +156,7 @@ Invoke-AzsCertificateValidation Completed
 
  - Outros certificados serão ignorados se a cadeia de certificados falhará.
 
-    ```PowerShell  
+    ```powershell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -185,13 +185,13 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 1.  Instale **AzsReadinessChecker** em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
-    ```PowerShell  
+    ```powershell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
     ```
 
 2.  Crie uma tabela de hash aninhada que contêm caminhos e a senha para cada certificado de PaaS que precisam de validação. Na janela do PowerShell execute:
 
-    ```PowerShell  
+    ```powershell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -203,12 +203,12 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 3.  Altere os valores das **RegionName** e **FQDN** para corresponder ao seu ambiente do Azure Stack para iniciar a validação. Em seguida, execute:
 
-    ```PowerShell  
+    ```powershell  
     Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Verifique a saída e que todos os certificados passarem todos os testes.
 
-    ```PowerShell
+    ```powershell
     Invoke-AzsCertificateValidation v1.0 started.
     Thumbprint: 95A50B****************************FA6DDA
         Signature Algorithm: OK

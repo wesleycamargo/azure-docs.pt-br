@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763445"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497850"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Visão geral de plano, oferta, cotas e assinatura
 
@@ -47,11 +47,14 @@ Depois de criar a oferta, os usuários podem assiná-la para acessar os serviço
 
 ## <a name="plans"></a>Planos
 
-Os planos são agrupamentos de um ou mais serviços. Como um operador do Azure Stack, você [criar planos de](azure-stack-create-plan.md) para oferecer a seus usuários. Por sua vez, os seus usuários assinam suas ofertas para usar os planos e serviços incluídos nelas. Durante a criação de planos, certifique-se de definir suas cotas, definir seus planos de base e considere a inclusão de planos de complemento opcional.
+Os planos são agrupamentos de um ou mais serviços. Como um operador do Azure Stack, você [criar planos de](azure-stack-create-plan.md) para oferecer a seus usuários. Por sua vez, os usuários assinam suas ofertas para usar os planos e os serviços incluídos nelas. Durante a criação de planos, certifique-se de definir suas cotas, definir seus planos de base e considere a inclusão de planos de complemento opcional.
 
 ### <a name="quotas"></a>Cotas
 
 Para ajudar você a gerenciar a capacidade de nuvem, você pode usar o pré-configurado *cotas*, ou crie uma nova cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco VMs (máquinas virtuais).
+
+> [!IMPORTANT]
+> Pode levar até duas horas para novas cotas para estar disponível no portal do usuário ou antes de uma cota alterada é imposta.
 
 É possível configurar cotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma cota de duas VMs.
 

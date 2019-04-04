@@ -1,6 +1,6 @@
 ---
-title: Implantar Kubernetes no Azure Stack | Microsoft Docs
-description: Saiba como implantar o Kubernetes no Azure Stack.
+title: Implantar Kubernetes para usar contêineres do Azure Stack | Microsoft Docs
+description: Saiba como implantar Kubernetes para usar contêineres com o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877186"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Implantar Kubernetes para usar contêineres com o Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview.
+> Kubernetes no Azure Stack está em visualização. Um cenário desconectado do Azure Stack atualmente não há suporte pelo preview.
 
 Você pode seguir as etapas neste artigo para implantar e configurar os recursos do Kubernetes em uma única operação coordenada. As etapas usam um modelo de solução do Azure Resource Manager. Você precisará para coletar as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implante a sua nuvem. O modelo do Azure Stack não usa o mesmo serviço AKS gerenciado oferecido no Azure global.
 
@@ -43,11 +43,11 @@ Você pode usar o Kubernetes para:
 
 Você será cobrado somente para o uso de computação necessário para os nós que dão suporte a seu cluster. Para obter mais informações, consulte [uso e cobrança do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Implantar Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Implantar Kubernetes para usar contêineres
 
 As etapas para implantar um cluster Kubernetes no Azure Stack dependerá de seu serviço de gerenciamento de identidade. Verifique se a solução de gerenciamento de identidade usada pela sua instalação do Azure Stack. Contate o administrador do Azure Stack para verificar se o serviço de gerenciamento de identidade.
 
-- **Azure Active Directory (Azure AD)**  
+- **Active Directory do Azure (Azure AD)**  
 Para obter instruções sobre como instalar o cluster ao usar o AD do Azure, consulte [implantar Kubernetes para o Azure Stack usando o Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md).
 
 - **Active Directory Federated Services (AD FS)**  

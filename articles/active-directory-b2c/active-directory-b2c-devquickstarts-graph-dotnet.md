@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075894"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895047"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure Active Directory B2C: Usar a API do Graph do Azure AD
 
 >[!NOTE]
-> Você deve usar a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) para gerenciar usuários em um diretório do Azure AD B2C. Ela é diferente da API do Microsoft Graph. Saiba mais [aqui](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
+> Você deve usar a [API do Azure AD Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) para gerenciar usuários em um diretório do Azure AD B2C. Ela é diferente da API do Microsoft Graph. Saiba mais [aqui](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no seu diretório do Azure AD B2C nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
 
@@ -126,7 +126,7 @@ B2C Help
 Isso exibirá uma breve descrição de cada comando. Sempre que você invoca um desses comandos, o `B2CGraphClient` faz uma solicitação para a API do Graph do Azure AD.
 
 ### <a name="get-an-access-token"></a>Obter um token de acesso
-Qualquer solicitação para a API do Graph requer um token de acesso para autenticação. `B2CGraphClient` usa a ADAL (Biblioteca de Autenticação do Active Directory) de software livre para ajudar a obter tokens de acesso. A ADAL facilita a aquisição de tokens, fornecendo uma API simples e cuidando de alguns detalhes importantes, como armazenar em cache os tokens de acesso. No entanto, você não precisa usar a ADAL para obter tokens. Você também pode obter tokens ao criar solicitações HTTP.
+Qualquer solicitação para a API do Graph requer um token de acesso para autenticação. `B2CGraphClient` usa o código-fonte aberto Active Directory autenticação ADAL (biblioteca) para ajudar a obter tokens de acesso. A ADAL facilita a aquisição de tokens, fornecendo uma API simples e cuidando de alguns detalhes importantes, como armazenar em cache os tokens de acesso. No entanto, você não precisa usar a ADAL para obter tokens. Você também pode obter tokens ao criar solicitações HTTP.
 
 > [!NOTE]
 > Este exemplo de código usa o ADAL v2 para se comunicar com a API do Graph.  Você deve usar o ADAL v2 ou v3 para obter tokens de acesso que podem ser usados com a API do Graph do Azure AD.
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-A maioria das propriedades nesta solicitação é necessária para criar usuários consumidores. Para saber mais, clique [aqui](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Observe que os comentários `//` foram incluídos para fins de ilustração. Não os inclua em uma solicitação real.
+A maioria das propriedades nesta solicitação é necessária para criar usuários consumidores. Para saber mais, clique [aqui](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Observe que os comentários `//` foram incluídos para fins de ilustração. Não os inclua em uma solicitação real.
 
 Para ver a solicitação, execute um dos seguintes comandos:
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-O comando `Create-User` usa um arquivo .json como parâmetro de entrada. Ele contém uma representação JSON de um objeto de usuário. Existem dois arquivos .json de exemplo no código de exemplo: `usertemplate-email.json` e `usertemplate-username.json`. Você pode modificar esses arquivos para atender às suas necessidades. Além dos campos necessários acima, há vários campos opcionais incluídos nesses arquivos que você pode usar. Detalhes sobre os campos opcionais podem ser encontrados na [Referência de entidade da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+O comando `Create-User` usa um arquivo .json como parâmetro de entrada. Ele contém uma representação JSON de um objeto de usuário. Existem dois arquivos .json de exemplo no código de exemplo: `usertemplate-email.json` e `usertemplate-username.json`. Você pode modificar esses arquivos para atender às suas necessidades. Além dos campos necessários acima, há vários campos opcionais incluídos nesses arquivos que você pode usar. Detalhes sobre os campos opcionais podem ser encontrados na [Referência de entidade da API do Graph do Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 Você pode ver como a solicitação POST é construída em `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -257,7 +257,7 @@ Você pode ver como a solicitação POST é construída em `B2CGraphClient.SendG
 * Ela inclui o objeto de usuário JSON no corpo da solicitação.
 
 > [!NOTE]
-> Se as contas que deseja migrar de um repositório do usuário existente tiverem um nível de segurança de senha menor do que o [nível de segurança de senha forte imposto pelo Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), você poderá desabilitar o requisito de senha forte usando o valor `DisableStrongPassword` na propriedade `passwordPolicies`. Por exemplo, você pode modificar a solicitação de criação de usuário fornecida acima da seguinte maneira: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Se as contas que deseja migrar de um repositório do usuário existente tiverem um nível de segurança de senha menor do que o [nível de segurança de senha forte imposto pelo Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), você poderá desabilitar o requisito de senha forte usando o valor `DisableStrongPassword` na propriedade `passwordPolicies`. Por exemplo, você pode modificar a solicitação de criação de usuário fornecida acima da seguinte maneira: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 Inspecione o `B2CGraphClient.SendGraphDeleteRequest(...)` método para obter detalhes sobre como enviar esta solicitação.
 
-Você pode executar outras ações com a API do Graph do Azure AD além do gerenciamento de usuários. A [Referência da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fornece detalhes de cada ação, bem como solicitações de exemplo.
+Você pode executar outras ações com a API do Graph do Azure AD além do gerenciamento de usuários. A [Referência da API do Graph do Azure AD](/previous-versions/azure/ad/graph/api/api-catalog) fornece detalhes de cada ação, bem como solicitações de exemplo.
 
 ## <a name="use-custom-attributes"></a>Usar atributos personalizados
 Quase todos os aplicativos consumidores precisam armazenar algum tipo de informação de perfil de usuário personalizada. Uma maneira de fazer isso é definir um atributo personalizado em seu locatário B2C. Em seguida, você pode tratar esse atributo da mesma maneira que trata qualquer outra propriedade em um objeto de usuário. Você pode atualizar, excluir ou consultar o atributo, enviá-lo como uma declaração de entrada em tokens e assim por diante.

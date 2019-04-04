@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630964"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896016"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local
 O gateway de dados local fornece transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. 
 
 Instalar o gateway pela primeira vez é um processo de quatro partes:
 
-- **Baixar e executar a instalação** – esta etapa instala um serviço de gateway em um computador em sua organização. Você também pode entrar no Azure usando uma conta no Azure AD do seu [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Não há suporte para contas B2B (convidadas) do Azure.
+- **Baixar e executar a instalação** – esta etapa instala um serviço de gateway em um computador em sua organização. Você também pode entrar no Azure usando uma conta no Azure AD do seu [locatário](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant). Não há suporte para contas B2B (convidadas) do Azure.
 
 - **Registrar seu gateway** – nesta etapa, você especifica um nome e uma chave de recuperação para o gateway e seleciona uma região, registrando o gateway no Serviço de Nuvem do Gateway. O recurso de gateway pode ser registrado em qualquer região, mas recomendamos que seja na mesma região que os seus servidores do Analysis Services. 
 
@@ -55,7 +55,7 @@ O gateway cria uma conexão de saída para o Barramento de Serviço do Azure. El
 Recomendamos a inclusão dos endereços IP em uma lista de permissões para a região de dados em seu firewall. Baixe a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). A lista é atualizada semanalmente.
 
 > [!NOTE]
-> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, confira [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, consulte [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -185,7 +185,7 @@ Você pode encontrar os logs do Gateway de Gerenciamento de Dados e do PowerBIGa
 ## <a name="telemetry"></a>Telemetria
 Telemetria pode ser usada para monitorar e solucionar problemas. Por padrão
 
-**Para ativar a telemetria**
+**Para ativar a Telemetria**
 
 1.  Verifique o diretório do cliente de gateway de dados local no computador. Normalmente, é **%systemdrive%\Program Files\On-premises data gateway**. Ou você pode abrir um console de serviços e verificar o caminho para o executável: Uma propriedade do serviço de gateway de dados local.
 2.  No arquivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config do diretório do cliente. Altere a configuração SendTelemetry para true.

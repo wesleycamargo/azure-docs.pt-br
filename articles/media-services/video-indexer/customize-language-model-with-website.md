@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998098"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918681"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizar um modelo de Linguagem com o site do Video Indexer
 
@@ -117,6 +117,34 @@ Isso abre uma nova janela, informando que a exclusão não pode ser desfeita. Cl
 
 Esta ação remove o modelo de Linguagem completamente de sua conta. Qualquer vídeo que estava usando o modelo de Linguagem excluído manterá o mesmo índice até que você reindexe o vídeo. Se você reindexar o vídeo, poderá atribuir um novo modelo de Linguagem a ele. Caso contrário, o Video Indexer usará seu modelo padrão para reindexar o vídeo. 
 
+## <a name="customize-language-models-by-correcting-transcripts"></a>Personalizar modelos de linguagem, corrigindo transcrições
+
+Video Indexer dá suporte à personalização automática da linguagem modelos com base nos usuários reais de correções feitas as transcrições de seus vídeos.
+
+1. Para fazer correções em uma transcrição, abra o vídeo que você deseja editar de seus vídeos de conta. Selecione o **linha do tempo** guia.
+
+    ![Personalizar um modelo de linguagem](./media/customize-language-model/timeline.png)
+1. Clique no ícone de lápis para editar a transcrição de sua transcrição. 
+
+    ![Personalizar um modelo de linguagem](./media/customize-language-model/edits.png)
+
+    Indexador de vídeo captura todas as linhas que são corrigidas por você na transcrição do vídeo e adiciona-os automaticamente em um arquivo de texto chamado "de edições de transcrição". Essas edições são usadas para treinar novamente o modelo de linguagem específico que foi usado para indexar este vídeo. 
+    
+    Se você não especificar um modelo de idioma ao indexar este vídeo, todas as edições para este vídeo serão armazenadas em um modelo de idioma padrão chamado adaptações de conta em que o idioma detectado do vídeo. 
+    
+    No caso de várias alterações foram feitas para a mesma linha, a última versão da linha corrigida será usada para atualizar o modelo de linguagem.  
+    
+    > [!NOTE]
+    > Somente as correções textuais são usadas para a personalização. Isso significa que as correções que não envolvem palavras reais (por exemplo, sinais de pontuação ou espaços) não são incluídas. 
+    
+1. Você verá as correções de transcrição aparecem na guia idioma da página de personalização do modelo de conteúdo.
+
+    ![Personalizar um modelo de linguagem](./media/customize-language-model/customize.png)
+
+   Para examinar o arquivo "de edições de transcrição" para cada um dos seus modelos de linguagem, clique para abri-lo. 
+
+    ![De edições de transcrição](./media/customize-language-model/from-transcript-edits.png)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-[Personalizar o modelo de linguagem usando APIs](customize-language-model-with-api.md)
+[Personalizar usando as APIs do modelo de linguagem](customize-language-model-with-api.md)

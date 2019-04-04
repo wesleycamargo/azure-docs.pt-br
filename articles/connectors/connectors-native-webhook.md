@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182108"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895572"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar ações ou fluxos de trabalho baseados em evento usando webhooks e os Aplicativos Lógicos do Azure
 
@@ -29,7 +29,7 @@ Saiba mais sobre [como criar APIs personalizadas que dão suporte a um webhook](
 
 ## <a name="use-the-webhook-trigger"></a>Usar o gatilho de webhook
 
-Um [*gatilho*](connectors-overview.md) é um evento que inicia um fluxo de trabalho do aplicativo lógico. O gatilho de webhook é baseado em evento, que não depende de sondagem para novos itens. Quando você salvar seu aplicativo lógico com um gatilho de webhook ou quando você altera seu aplicativo lógico de desabilitado para habilitado, o gatilho de webhook *assina* para o serviço especificado ou o ponto de extremidade, registrando um *deURLderetornodechamada* com o serviço ou ponto de extremidade. O gatilho, em seguida, usa essa URL para executar o aplicativo lógico conforme necessário. Como o [gatilho de solicitação](connectors-native-reqres.md), o aplicativo lógico é acionado imediatamente quando o evento esperado acontece. O disparador *cancela a assinatura* se você remover o gatilho e salva seu aplicativo lógico, ou quando você altera seu aplicativo lógico do habilitado para desabilitado.
+Um [*gatilho*](../connectors/apis-list.md) é um evento que inicia um fluxo de trabalho do aplicativo lógico. O gatilho de webhook é baseado em evento, que não depende de sondagem para novos itens. Quando você salvar seu aplicativo lógico com um gatilho de webhook ou quando você altera seu aplicativo lógico de desabilitado para habilitado, o gatilho de webhook *assina* para o serviço especificado ou o ponto de extremidade, registrando um *deURLderetornodechamada* com o serviço ou ponto de extremidade. O gatilho, em seguida, usa essa URL para executar o aplicativo lógico conforme necessário. Como o [gatilho de solicitação](connectors-native-reqres.md), o aplicativo lógico é acionado imediatamente quando o evento esperado acontece. O disparador *cancela a assinatura* se você remover o gatilho e salva seu aplicativo lógico, ou quando você altera seu aplicativo lógico do habilitado para desabilitado.
 
 Veja um exemplo que mostra como configurar um gatilho HTTP no Designer de Aplicativo Lógico. Essas etapas pressupõem que você já implantou ou está acessando uma API que segue o [padrão de assinatura e cancelamento de assinatura de webhook encontrado nos aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,7 +48,7 @@ Veja um exemplo que mostra como configurar um gatilho HTTP no Designer de Aplica
 
 ## <a name="use-the-webhook-action"></a>Usar a ação de webhook
 
-Uma [ *ação* ](connectors-overview.md) é uma operação que é definida e o execute por fluxo de trabalho do aplicativo lógico. Quando um aplicativo lógico executa uma ação de webhook, essa ação *assina* para o serviço especificado ou o ponto de extremidade, registrando um *URL de retorno de chamada* com o serviço ou ponto de extremidade. A ação de webhook, em seguida, aguarda até que a URL antes da aplicativo lógico retoma a execução de chamadas de serviço. O aplicativo lógico cancela a assinatura do serviço ou ponto de extremidade nesses casos: 
+Uma [ *ação* ](../connectors/apis-list.md) é uma operação que é definida e o execute por fluxo de trabalho do aplicativo lógico. Quando um aplicativo lógico executa uma ação de webhook, essa ação *assina* para o serviço especificado ou o ponto de extremidade, registrando um *URL de retorno de chamada* com o serviço ou ponto de extremidade. A ação de webhook, em seguida, aguarda até que a URL antes da aplicativo lógico retoma a execução de chamadas de serviço. O aplicativo lógico cancela a assinatura do serviço ou ponto de extremidade nesses casos: 
 
 * Quando a ação de webhook foi concluída com êxito
 * Se a execução do aplicativo lógico for cancelado enquanto aguarda uma resposta

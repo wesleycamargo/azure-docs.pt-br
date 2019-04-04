@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886430"
+ms.locfileid: "58891473"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
@@ -125,9 +125,7 @@ Interpretar chamadas de previsão com um limite alto de probabilidade tende a re
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
-Toda vez que você treina o classificador, cria uma nova _iteração_ com as suas próprias métricas de desempenho atualizadas. É possível exibir todas as iterações no painel à esquerda da guia **Desempenho**. Ao selecionar uma, você tem a opção de torná-la a _iteração padrão_ clicando no botão **Tornar padrão** na parte superior. A _iteração padrão_ é o modelo que será usado por padrão quando você consultá-lo por meio da API de Previsão (em um aplicativo, por exemplo). Se você recusar a atualização da _iteração padrão_, é possível continuar treinando o modelo sem afetar o comportamento atual do aplicativo; quando estiver satisfeito com o modelo aprimorado, atualize o padrão.
-
-No painel à esquerda, também é possível encontrar o botão **Excluir**, que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui qualquer imagem que esteja exclusivamente associada a ela.
+Toda vez que você treina o classificador, cria uma nova _iteração_ com as suas próprias métricas de desempenho atualizadas. É possível exibir todas as iterações no painel à esquerda da guia **Desempenho**. No painel à esquerda, também é possível encontrar o botão **Excluir**, que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui qualquer imagem que esteja exclusivamente associada a ela.
 
 ## <a name="next-steps"></a>Próximas etapas
 

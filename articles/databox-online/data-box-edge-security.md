@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403384"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891796"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Segurança de borda da caixa de dados e proteção de dados
 
@@ -35,6 +35,7 @@ O serviço de Gateway de caixa de borda/dados de caixa de dados é um serviço d
 
 - Acesso ao serviço de Gateway de caixa de borda/dados de caixa de dados exige que sua organização tenha um Enterprise Agreement (EA) ou uma assinatura do provedor de solução de nuvem (CSP). Para obter mais informações, acesse [inscrever-se para uma assinatura do Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Como o serviço de gerenciamento está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+- Para operações de gerenciamento do SDK, chave de criptografia está disponível para a borda da caixa de dados / recurso de Gateway da caixa de dados sob **propriedades do dispositivo**. Você pode exibir a chave de criptografia somente se você tiver permissões para a API do Graph de recurso.
 
 ## <a name="data-box-edge-device-protection"></a>Proteção de dispositivo de borda da caixa de dados
 
@@ -44,7 +45,8 @@ O dispositivo de borda da caixa de dados é um dispositivo local que ajuda a tra
 - É sempre protegidas por uma senha de dispositivo.
 - É um dispositivo bloqueado. O dispositivo BMC e BIOS são protegidos por senha com acesso de usuário limitado para o BIOS.
 - Inicialização segura foi habilitada.
-- Executa o Windows Defender Device Guard. Proteção do dispositivo permite que você execute apenas os aplicativos confiáveis que você define em suas políticas de integridade de código. 
+- Executa o Windows Defender Device Guard. Proteção do dispositivo permite que você execute apenas os aplicativos confiáveis que você define em suas políticas de integridade de código.
+- Tem uma chave dentro de capa que pode ser usada para bloquear o dispositivo. Nós recomendamos que depois de configurar o dispositivo, abra a tampa. Localize a chave e, em seguida, bloqueie a tampa para evitar qualquer acesso não autorizado aos discos de dados localizados na frente do dispositivo.
 
 ### <a name="protect-the-device-via-activation-key"></a>Proteger o dispositivo por meio da chave de ativação
 

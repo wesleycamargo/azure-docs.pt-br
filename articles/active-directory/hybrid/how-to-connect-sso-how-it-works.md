@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083930"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896118"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: Análise técnica aprofundada
 
@@ -39,15 +39,12 @@ Esta seção tem três partes:
 
 O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](how-to-connect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
 
-- Uma conta de computador denominada `AZUREADSSOACC` (que representa o Azure AD) é criada em seu AD (Active Directory) local em cada floresta do AD.
-- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada uma terá a própria chave de descriptografia do Kerberos.
-- Além disso, os dois SPNs (nomes de entidade de serviço) Kerberos são criados para representar duas URLs que são usadas durante a entrada no Azure AD.
-
->[!NOTE]
-> A conta do computador e os SPNs Kerberos são criados em cada floresta do AD que você sincroniza com o Azure AD (usando o Azure AD Connect) e para cujos usuários você deseja o SSO Contínuo. Mova a conta do computador `AZUREADSSOACC` para uma UO (unidade organizacional) em que outras contas de computador são armazenadas para garantir que ela seja gerenciada da mesma maneira e não seja excluída.
+- Uma conta de computador (`AZUREADSSOACC`) é criado no local do Active Directory (AD) em cada floresta do AD que você sincroniza ao Azure AD (usando o Azure AD Connect).
+- Além disso, um número de nomes de entidade de serviço (SPNs) do Kerberos é criado para serem usadas durante o processo de entrada do AD do Azure.
+- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada conta de computador terá sua própria chave de descriptografia Kerberos exclusiva.
 
 >[!IMPORTANT]
->É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
+> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada. Store a conta de computador em uma UO (unidade organizacional) onde eles estão protegidos contra exclusões acidentais. A chave de descriptografia do Kerberos na conta de computador também deve ser tratada como confidenciais. É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
 
 Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows).
 

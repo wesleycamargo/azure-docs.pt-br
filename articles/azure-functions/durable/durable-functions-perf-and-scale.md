@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286373"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895742"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -56,7 +56,7 @@ A extensão de tarefa durável implementa um algoritmo exponencial aleatório de
 O atraso máximo de sondagem é configurável por meio de `maxQueuePollingInterval` propriedade no [arquivo host. JSON](../functions-host-json.md#durabletask). Definir isso como um valor mais alto pode resultar em maior latências de processamento de mensagens. Latências mais altas deve ser esperadas somente após períodos de inatividade. Definir isso como um valor mais baixo pode resultar em custos de armazenamento maiores devido às transações de armazenamento maior.
 
 > [!NOTE]
-> Quando em execução nos planos de consumo do Azure Functions e Premium, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-plan-works) irá sondar cada fila de controle e de item de trabalho uma vez a cada 10 segundos. Essa pesquisa adicional é necessária para determinar quando ativar instâncias do aplicativo de função e para tomar decisões de dimensionamento. No momento da escrita, esse intervalo de 10 segundos é constante e não pode ser configurado.
+> Quando em execução nos planos de consumo do Azure Functions e Premium, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) irá sondar cada fila de controle e de item de trabalho uma vez a cada 10 segundos. Essa pesquisa adicional é necessária para determinar quando ativar instâncias do aplicativo de função e para tomar decisões de dimensionamento. No momento da escrita, esse intervalo de 10 segundos é constante e não pode ser configurado.
 
 ## <a name="storage-account-selection"></a>Seleção da conta de armazenamento
 
@@ -244,4 +244,4 @@ Se você não estiver vendo os números de taxa de transferência esperada e a C
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar sua primeira função durável em C#](durable-functions-create-first-csharp.md)
+> [Criar sua primeira função durável emC#](durable-functions-create-first-csharp.md)

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d8456595e244237a0fd92fae82a43a878ad41080
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857661"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893615"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 <a name="train-your-app"></a>
@@ -108,7 +108,7 @@ Use o seguinte procedimento para incluir o serviço [Verificação Ortográfica 
 3. Quando o painel **Publicado** abrir, selecione **[Configurações Adicionais](#additional-settings-in-test-panel)**.
 
 4. Na caixa de diálogo pop-up, insira sua chave de serviço da **Verificação Ortográfica do Bing**. 
-    ![Inserir chave de serviço da Verificação Ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Insira a chave de serviço de verificação ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. Insira uma consulta com uma ortografia incorreta como `book flite to seattle` e selecione enter. A ortografia incorreta da palavra `flite` é substituída na consulta enviada para o LUIS e o JSON resultante mostra a consulta original, como `query`, e a ortografia correta na consulta, como `alteredQuery`.
 
@@ -132,5 +132,5 @@ Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [com
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
-* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endoint-utt.md) 
+* [Rotular sugeridas declarações com o LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 

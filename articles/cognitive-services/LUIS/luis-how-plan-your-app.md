@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873182"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893417"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o domínio do assunto, intenções e entidades
 
@@ -49,7 +49,7 @@ Quando você determina quais entidades usar em seu aplicativo, tenha em mente qu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que seu aplicativo for treinado, publicado e receber declarações de ponto final, planeje implementar melhorias de previsão com [aprendizado ativo](luis-how-to-review-endoint-utt.md), [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md). 
+Depois que seu aplicativo for treinado, publicado e receber declarações de ponto final, planeje implementar melhorias de previsão com [aprendizado ativo](luis-how-to-review-endpoint-utterances.md), [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md). 
 
 
 * Consulte [Criar o primeiro aplicativo de LUIS (Serviço Inteligente de Reconhecimento Vocal)](luis-get-started-create-app.md) para obter um breve passo a passo sobre como criar um aplicativo de LUIS.

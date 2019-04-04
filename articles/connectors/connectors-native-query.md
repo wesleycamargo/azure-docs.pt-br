@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962638"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893554"
 ---
 # <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
 Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:
@@ -31,7 +31,8 @@ Usando a ação de consulta, você pode trabalhar com lotes e matrizes para exec
 Para começar a usar a ação de consulta em um aplicativo lógico, consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usar a ação de consulta
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).  
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
+[Saiba mais sobre ações](../connectors/apis-list.md).  
 
 Atualmente, a ação de consulta tem uma operação, chamada matriz de filtro, que é exposta no designer. Isso permite que você consulte uma matriz e retorne um conjunto de resultados filtrados.
 

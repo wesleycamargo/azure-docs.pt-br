@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086812"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894758"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início rápido
 
@@ -93,7 +93,10 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 ![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO perfeito cria uma conta de computador chamada `AZUREADSSOACC` (que representa o Azure AD) em seu Active Directory (AD) local em cada floresta do AD. Esta conta de computador é necessária para o recurso funcionar. Se você estiver usando arquiteturas de Pass-the-Hash e atenuação de roubo de credencial em seu ambiente local, certifique-se de que o `AZUREADSSOACC` conta de computador não acaba no contêiner de quarentena. Faça as alterações apropriadas para criar a conta do computador no contêiner Computadores. Depois que o SSO perfeito for habilitado com êxito no assistente do Azure AD Connect, mova a conta do computador `AZUREADSSOACC` para uma unidade organizacional (UO) onde outras contas de computador são gerenciadas para garantir que ele não seja excluído inadvertidamente.
+> O SSO contínuo cria uma conta de computador denominada `AZUREADSSOACC` em seu local do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada. Store a conta de computador em uma UO (unidade organizacional) onde eles estão protegidos contra exclusões acidentais.
+
+>[!NOTE]
+> Se você estiver usando arquiteturas de Pass-the-Hash e atenuação de roubo de credencial em seu ambiente local, faça as alterações apropriadas para garantir que o `AZUREADSSOACC` conta de computador não acaba no contêiner de quarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: Distribuir o recurso
 
@@ -112,7 +115,7 @@ Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Int
 
 Há duas maneiras de modificar as configurações de zona de Intranet dos usuários:
 
-| Opção | Consideração de administração | Experiência de usuário |
+| Opção | Consideração de administração | Experiência do usuário |
 | --- | --- | --- |
 | Política de grupo | O administrador bloqueia a edição das configurações da zona da Intranet | Os usuários não podem modificar as próprias configurações |
 | Preferência de política de grupo |  O administrador permite edição nas configurações da zona de Intranet | Os usuários podem modificar as próprias configurações |
@@ -122,7 +125,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
 3. Navegue até **configuração do usuário** > **política** > **modelos administrativos** > **Windows Componentes** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
-    ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Logon único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: A URL do Azure AD para a qual os tíquetes do Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.

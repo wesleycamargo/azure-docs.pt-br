@@ -16,16 +16,16 @@ ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 70408f11c8656fb62c8613777d1837d934f67074
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337918"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487559"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
-Registrar o Azure Stack com o Azure permite que você para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure e você pode vê-lo sob a ID da assinatura cobrança do Azure usados para o registro.
+O registro do Azure Stack no Azure permite que você baixe itens do Azure Marketplace e configure o envio de relatórios sobre dados de comércio à Microsoft. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure e você pode vê-lo sob a ID da assinatura cobrança do Azure usados para o registro.
 
 As informações neste artigo descrevem o registro sistemas integrados do Azure Stack com o Azure. Para obter informações sobre como registrar o ASDK com o Azure, consulte [registro do Azure Stack](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) na documentação do ASDK.
 
@@ -70,7 +70,7 @@ Se você não tiver uma assinatura do Azure que atende a esses requisitos, você
 
 Para registrar com êxito o Azure Stack, o modo de linguagem do PowerShell deve ser definido como **FullLanguageMode**.  Para verificar se o modo de linguagem atual está definido como completo, abra uma janela do PowerShell com privilégios elevados e execute os seguintes cmdlets do PowerShell:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -127,45 +127,45 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 2. Adicione a conta do Azure que você usa para registrar o Azure Stack. Para adicionar a conta, execute as **Add-AzureRmAccount** cmdlet. Você for solicitado a inserir suas credenciais de conta do Azure e você talvez precise usar a autenticação de fator de 2, com base na configuração da sua conta.
 
-   ```PowerShell
+   ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parâmetro | Descrição |  
+   | Parâmetro | DESCRIÇÃO |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
 3. Se você tiver várias assinaturas, execute o seguinte comando para selecionar aquela que você deseja usar:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Execute o seguinte comando para registrar o provedor de recursos do Azure Stack em sua assinatura do Azure:
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
 6. Em seguida, na mesma sessão do PowerShell, verifique se que você está conectado ao Azure PowerShell contexto correto. Essa é a conta do Azure que foi usada para registrar o provedor de recursos do Azure Stack anteriormente. PowerShell para executar:
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parâmetro | Descrição |  
+   | Parâmetro | DESCRIÇÃO |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
 7. Na mesma sessão do PowerShell, execute as **AzsRegistration conjunto** cmdlet. PowerShell para executar:  
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -191,29 +191,29 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 2. Adicione a conta do Azure que você usa para registrar o Azure Stack. Para adicionar a conta, execute as **Add-AzureRmAccount** cmdlet. Você for solicitado a inserir suas credenciais de conta do Azure e você talvez precise usar a autenticação de fator de 2, com base na configuração da sua conta.
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parâmetro | Descrição |  
+   | Parâmetro | DESCRIÇÃO |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
 3. Se você tiver várias assinaturas, execute o seguinte comando para selecionar aquela que você deseja usar:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Execute o seguinte comando para registrar o provedor de recursos do Azure Stack em sua assinatura do Azure:
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -236,7 +236,7 @@ Se você estiver registrando o Azure Stack em um ambiente desconectado (sem cone
 
 1. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo:  
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
@@ -257,7 +257,7 @@ Se você estiver registrando o Azure Stack em um ambiente desconectado (sem cone
 
 No computador que está conectado à Internet, execute as mesmas etapas para importar o módulo RegisterWithAzure.psm1 e entrar no contexto correto do Azure Powershell. Em seguida, chame AzsEnvironment Register. Especifique o token de registro para registrar com o Azure. Se você estiver registrando a mais de uma instância do Azure Stack usando a mesma ID de assinatura do Azure, especifique um nome exclusivo do registro. Execute o cmdlet a seguir:
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
@@ -265,7 +265,7 @@ No computador que está conectado à Internet, execute as mesmas etapas para imp
 
 Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo que contém seu token de registro:
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
@@ -347,7 +347,7 @@ Você precisará atualizar ou renovar seu registro nas seguintes circunstâncias
 
 Se você gostaria de alterar a assinatura é usar, primeiro você deve executar o **AzsRegistration remover** cmdlet, em seguida, verifique se você efetuou logon no contexto correto do Azure PowerShell e finalmente executar **AzsRegistration conjunto**  com todos os parâmetros alterados incluindo \<modelo de cobrança\>:
 
-  ```PowerShell  
+  ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
@@ -357,7 +357,7 @@ Se você gostaria de alterar a assinatura é usar, primeiro você deve executar 
 
 Se você quiser alterar o modelo de cobrança ou como oferecer recursos de sua instalação, você pode chamar a função de registro para definir os novos valores. Você não precisará primeiro remover o registro atual:
 
-  ```PowerShell  
+  ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
@@ -405,7 +405,7 @@ Por ambientes Azure Stack que usam um modelo de cobrança de capacidade, desativ
 
 #### <a name="with-a-connected-azure-stack"></a>Com uma pilha do Azure conectada
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -443,46 +443,46 @@ Para executar o cmdlet, você precisa:
 - Uma assinatura do Azure global de qualquer tipo.
 - Você deve também ser conectado ao Azure PowerShell com uma conta que seja um proprietário ou colaborador dessa assinatura.
 
-```PowerShell
+```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
     <String>] [<CommonParameters>]
 ```
 
-| Parâmetro | Digite | Descrição |
+| Parâmetro | Type | DESCRIÇÃO |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais usadas para [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de usuário está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia | Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | Cadeia de caracteres | Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia |  |
-| ResourceGroupLocation | Cadeia |  |
-| BillingModel | Cadeia | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | Cadeia de caracteres |  |
+| ResourceGroupLocation | Cadeia de caracteres |  |
+| BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se o recurso de gerenciamento do marketplace está disponível no portal. Defina como verdadeiro se registrar com conectividade com a internet. Defina como false se o registro em ambientes desconectados. Para registros desconectados, o [ferramenta de sindicalização offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser usado para baixar itens do marketplace. |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
-| AgreementNumber | Cadeia |  |
-| RegistrationName | Cadeia | Defina um nome exclusivo para o registro, se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a assinatura do Azure mesmo ID. O parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
+| AgreementNumber | Cadeia de caracteres |  |
+| RegistrationName | Cadeia de caracteres | Defina um nome exclusivo para o registro, se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a assinatura do Azure mesmo ID. O parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
 Get-AzsRegistrationToken gera um token de registro de parâmetros de entrada.
 
-```PowerShell  
+```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parâmetro | Digite | Descrição |
+| Parâmetro | Type | DESCRIÇÃO |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais usadas para [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de usuário está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia |  Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | Cadeia de caracteres |  Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia |  |
-| ResourceGroupLocation | Cadeia |  |
-| BillingModel | Cadeia | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | Cadeia de caracteres |  |
+| ResourceGroupLocation | Cadeia de caracteres |  |
+| BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso |  |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
-| AgreementNumber | Cadeia |  |
+| AgreementNumber | Cadeia de caracteres |  |
 
 ## <a name="registration-failures"></a>Falhas de registro
 

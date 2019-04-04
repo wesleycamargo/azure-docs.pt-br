@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769209"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482922"
 ---
 # <a name="deploy-the-local-agent"></a>Implantar o agente local
 
@@ -57,7 +57,7 @@ Verifique se o seu computador atende aos seguintes critérios:
 1. Abra o Windows PowerShell em um prompt com privilégios elevados no computador que você usará para executar os testes.
 2. Execute o seguinte comando para baixar o agente local:
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -65,7 +65,7 @@ Verifique se o seu computador atende aos seguintes critérios:
 
 3. Execute o seguinte comando para instalar as dependências do agente local:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -113,14 +113,15 @@ Os testes executados operações remotas. O computador que executa os testes dev
 
 2. Execute o comando a seguir:
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Parâmetros**  
+
     | Parâmetro | DESCRIÇÃO |
     | --- | --- |
-    | VaaSUserId | ID de usuário usada para entrar no Portal do VaaS (por exemplo, UserName@Contoso.com) |
+    | VaaSUserId | ID de usuário usada para entrar no Portal do VaaS (por exemplo, nome de usuário\@Contoso.com) |
     | VaaSTenantId | ID de locatário do Azure AD para a conta do Azure registrado com a validação como um serviço. |
 
     > [!Note]  

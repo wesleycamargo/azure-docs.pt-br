@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090960"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483141"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala no Azure Stack
 
@@ -85,7 +85,7 @@ Essa ação normalmente é usada quando um nó está em um estado suspenso e nã
 
 Para executar a ação de parada, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ O **iniciar** ação ativa o nó. É o mesmo como se você pressionar o botão d
  
 Para executar a ação inicial, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Essa ação normalmente é usada durante a substituição de campo de partes, co
 
 Para executar a ação de esvaziar, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ O **retomar** ação retoma um nó desativado e a marca Active Directory para o 
 
 Para executar a ação de retomada, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ Quando você executa a ação de reparo, você precisa especificar o endereço I
 
 Para executar a ação de reparo, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Se a operação de desligamento falhar, tente o [drenar](#drain) operação segu
 
 Para executar a ação de desligamento, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

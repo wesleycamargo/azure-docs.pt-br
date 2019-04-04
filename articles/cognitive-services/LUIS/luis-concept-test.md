@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958551"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893208"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
@@ -48,7 +48,7 @@ Se você fizer testes com relação a um ponto de extremidade e não quiser que 
 ## <a name="where-to-find-utterances"></a>Onde encontrar declarações
 O LUIS armazena todos os enunciados registrados em log de consulta, disponíveis para download no site do [LUIS](luis-reference-regions.md), página **Aplicativos**, assim como as [APIs de criação do LUIS](https://aka.ms/luis-authoring-apis). 
 
-Os enunciados que o LUIS não tiver certeza estarão listados na página **[Examinar enunciados de ponto de extremidade](luis-how-to-review-endoint-utt.md)** no site do [LUIS](luis-reference-regions.md). 
+Os enunciados que o LUIS não tiver certeza estarão listados na página **[Examinar enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do [LUIS](luis-reference-regions.md). 
 
 ![Examinar declarações de ponto de extremidade](./media/luis-concept-test/review-endpoint-utterances.png)
  

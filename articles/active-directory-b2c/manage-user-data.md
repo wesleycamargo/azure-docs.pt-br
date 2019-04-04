@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182839"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893088"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
- Este artigo discute sobre como você pode gerenciar os dados de usuário no Azure Active Directory (Azure AD) B2C usando as operações fornecidas pelo [API do Graph do Azure Active Directory](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). Gerenciamento de dados de usuário inclui excluindo ou exportando dados de logs de auditoria.
+ Este artigo discute sobre como você pode gerenciar os dados de usuário no Azure Active Directory (Azure AD) B2C usando as operações fornecidas pelo [API do Graph do Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog). Gerenciamento de dados de usuário inclui excluindo ou exportando dados de logs de auditoria.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Excluir dados de usuário
 
-Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário serão mantidos por 30 dias no Azure AD B2C. Se você quiser excluir os dados de usuário nesse período de 30 dias, você pode usar a operação [Excluir um usuário](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser). É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir. 
+Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário serão mantidos por 30 dias no Azure AD B2C. Se você quiser excluir os dados de usuário nesse período de 30 dias, você pode usar a operação [Excluir um usuário](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir. 
 
 A cada usuário no Azure AD B2C é atribuído uma ID de objeto. A ID de objeto fornece um identificador não ambíguo usado para excluir dados de usuário no Azure AD B2C. Dependendo da arquitetura, a ID de objeto pode ser um identificador de correlação útil em outros serviços, como finanças, marketing e bancos de dados de gerenciamento de relacionamento com o cliente. 
 

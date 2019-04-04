@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975620"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487576"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -95,13 +95,13 @@ Você deve ver a versão da CLI do Azure e outras bibliotecas dependentes instal
 
 2. Atualize o PIP. PIP é um Gerenciador de pacotes para o Python. Abra um prompt de comando ou um prompt do PowerShell com privilégios elevados e digite o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Instalar o **certifi** módulo. [Certifi](https://pypi.org/project/certifi/) um módulo e uma coleção de certificados raiz para validar a confiabilidade de certificados SSL ao verificar a identidade dos hosts TLS. Abra um prompt de comando ou um prompt do PowerShell com privilégios elevados e digite o seguinte comando:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Para confiar no certificado de raiz da autoridade de certificação do Azure Sta
 
 1. Localize o certificado em seu computador. O local pode variar, dependendo de onde você instalou o Python. Abra um prompt de comando ou um prompt do PowerShell com privilégios elevados e digite o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ Se você estiver usando o ASDK, você precisará confiar no certificado de raiz 
 
 1. Localize o certificado em seu computador. O local pode variar, dependendo de onde você instalou o Python. Abra um prompt de comando ou um prompt do PowerShell com privilégios elevados e digite o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

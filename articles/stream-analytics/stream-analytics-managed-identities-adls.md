@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570106"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895859"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar o Stream Analytics no Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar o Stream Analytics para o Azure Data Lake armazenamento Gen1 usando identidades gerenciadas
 
 O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
-
-Acesse a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) para se inscrever para essa versão prévia e ler mais sobre os novos recursos.
 
 Este artigo mostra três maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1 por meio do portal do Azure, da implantação de modelo do Azure Resource Manager e das ferramentas do Azure Stream Analytics para Visual Studio.
 
@@ -27,11 +25,11 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Comece criando um novo trabalho do Stream Analytics ou abrindo um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **Identidade Gerenciada (versão prévia)** localizada em **Configurar**.
+1. Comece criando um novo trabalho do Stream Analytics ou abrindo um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizado sob **configurar**.
 
-   ![Configurar versão prévia de identidade gerenciada do Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurar identidade gerenciada de análise de Stream](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selecione **Usar Identidade Gerenciada atribuída pelo sistema (versão prévia)** na janela que aparece à direita. Clique em **salvar** para uma entidade de serviço para a identidade do trabalho do Stream Analytics no Azure Active Directory. O ciclo de vida da identidade que acaba de ser criada será gerenciado pelo Azure. Quando o trabalho do Stream Analytics é excluído, a identidade associada (ou seja, a entidade de serviço) é excluída automaticamente pelo Azure.
+2. Selecione **identidade gerenciado atribuída pelo sistema usar** na janela que aparece à direita. Clique em **salvar** para uma entidade de serviço para a identidade do trabalho do Stream Analytics no Azure Active Directory. O ciclo de vida da identidade que acaba de ser criada será gerenciado pelo Azure. Quando o trabalho do Stream Analytics é excluído, a identidade associada (ou seja, a entidade de serviço) é excluída automaticamente pelo Azure.
 
    Quando a configuração é salva, a OID (ID de objeto ) da entidade de serviço é listada como a ID da Entidade de Segurança conforme mostrado abaixo:
 
@@ -39,7 +37,7 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
  
    A entidade de serviço tem o mesmo nome que o trabalho do Stream Analytics. Por exemplo, se o nome do seu trabalho for **MyASAJob**, o nome da entidade de serviço criada também será **MyASAJob**.
 
-3. Na janela Propriedades de saída do coletor de saída do ADLS Gen1, clique na lista suspensa do modo Autenticação e selecione **Identidade Gerenciada (versão prévia)**.
+3. Na janela de propriedades de saída o coletor de saída do ADLS Gen1, clique no modo de autenticação lista suspensa e selecione * * identidade gerenciado * *.
 
 4. Preencha o restante das propriedades. Para saber mais sobre como criar uma saída do ADLS, veja [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quando terminar, clique em **Salvar**.
 
@@ -131,7 +129,7 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
               }
    ```
   
-   **Resposta do trabalho de exemplo**
+   **Exemplo de resposta de trabalho**
 
    ```json
    {
@@ -183,6 +181,6 @@ Esse recurso não oferece suporte a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Criar uma saída do Data lake Store com o stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Dados dinâmicos do teste localmente usando o Azure Stream Analytics tools para Visual Studio](stream-analytics-live-data-local-testing.md) 

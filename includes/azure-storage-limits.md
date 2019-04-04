@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553232"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890855"
 ---
 A tabela a seguir descreve os limites padrão para o Armazenamento do Azure. O *ingresso* limite refere-se a todos os dados de solicitações que são enviadas para uma conta de armazenamento. O *egresso* limite refere-se a todos os dados de respostas são recebidas de uma conta de armazenamento.
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Número de contas de armazenamento por região por assinatura, que inclui contas Standard e Premium | 250 |
+| Número de contas de armazenamento por região por assinatura, incluindo contas Standard e Premium | 250 |
 | Capacidade da conta de armazenamento máximo | 2 PB para os EUA e Europa, 500 TB para todas as outras regiões, que inclui o Reino Unido |
 | Número máximo de contêineres de blob, blobs, compartilhamentos de arquivos, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
 | Taxa<sup>1</sup> máxima de solicitação por conta de armazenamento | 20 mil solicitações por segundo |

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891949"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolver com os serviços de mídia APIs v3
 
@@ -47,7 +47,7 @@ Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content
 
 As operações marcadas com `x-ms-long-running-operation` nos serviços de mídia do Azure [swagger arquivos](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) são longas operações de execução. 
 
-Para obter detalhes sobre como controlar operações assíncronas no Azure, consulte [operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Para obter detalhes sobre como controlar operações assíncronas no Azure, consulte [operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Os serviços de mídia tem as seguintes operações de longa execução:
 
@@ -65,7 +65,6 @@ Os serviços de mídia tem as seguintes operações de longa execução:
 * Iniciar StreamingEndpoint
 * Parar um StreamingEndpoint
 * Escala StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
 
@@ -356,4 +355,4 @@ A tabela abaixo mostra como essas opções podem ser aplicadas às propriedades 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+[Stream de um arquivo](stream-files-dotnet-quickstart.md)

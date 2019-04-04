@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339594"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486692"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conectar-se a pilha do Azure para o Azure usando o Azure ExpressRoute
 
@@ -108,10 +108,10 @@ Use os procedimentos a seguir para criar os recursos de rede necessária no Azur
 
    |Campo  |Valor  |
    |---------|---------|
-   |Nome     |Tenant1VNet1         |
+   |NOME     |Tenant1VNet1         |
    |Espaço de endereço     |10.1.0.0/16|
    |Nome da sub-rede     |Tenant1-Sub1|
-   |Intervalo de endereço de sub-rede     |10.1.1.0/24|
+   |Intervalo de endereços da sub-rede     |10.1.1.0/24|
 
 6. Você deverá ver a assinatura que você criou anteriormente populada na **assinatura** campo. Para os campos restantes:
 
@@ -232,7 +232,7 @@ O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa 
 1. Entrar no computador host Azure Stack com sua conta de administrador.
 1. Copie e edite o seguinte script do PowerShell. Substitua `your administrator password` com sua senha de administrador e, em seguida, execute o script em um PowerShell ISE elevado. Esse script retorna sua **endereço externo BGPNAT**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa 
 
    Execute o seguinte script de um PowerShell ISE elevado:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Execute os testes de ping a seguir:
 
 Por padrão, o Windows Server 2016 não permite pacotes de ICMP de entrada por meio do firewall. Para cada máquina virtual que você usa para testes de ping, você deve permitir que os pacotes ICMP de entrada. Para criar uma regra de firewall de ICMP, execute o seguinte cmdlet em uma janela elevada do PowerShell:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

@@ -1,5 +1,5 @@
 ---
-title: Conectores para Aplicativos Lógicos do Azure | Microsoft Docs
+title: Conectores de Aplicativos Lógicos do Azure
 description: Automatizar fluxos de trabalho com conectores para os Aplicativos Lógicos do Azure, incluindo conectores internos, locais, de conta de integração e conectores empresariais
 services: logic-apps
 ms.service: logic-apps
@@ -9,25 +9,27 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635434"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895876"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
-Conectores têm um papel integral quando você cria fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure. Ao usar conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos locais e na nuvem para executar tarefas com os dados que você cria e já tem. 
+Conectores fornecem acesso rápido de aplicativos lógicos do Azure, eventos, dados e ações em outros aplicativos, serviços, sistemas, protocolos e plataformas. Usando conectores em seus aplicativos lógicos, é possível expandir os recursos para seus aplicativos de nuvem e locais executar tarefas com os dados que você crie e já tiver.
 
-Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.microsoft.com/connectors), este arquivo descreve conectores mais comuns que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Os conectores estão disponíveis como conectores internos ou gerenciados. 
+Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.microsoft.com/connectors), este arquivo descreve conectores mais comuns que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Para encontrar a lista completa de conectores e informações de referência do cada conector, como gatilhos, ações e limites, examine o conector faz referência a páginas sob [visão geral dos conectores](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações](#triggers-actions).
 
 > [!NOTE]
-> Para obter a lista completa de conectores e informações de referência de cada conector, tais como ações, gatilhos e limites, você pode encontrar a lista completa na [Visão geral de conectores](https://docs.microsoft.com/connectors).
+> Para integrar um serviço ou uma API que não tem o conector, você pode diretamente chamar o serviço por um protocolo como HTTP ou criar uma [conector personalizado](#custom).
 
-* [**Internos**](#built-ins): essas ações e gatilhos internos ajudam você a criar aplicativos lógicos que são executados em agendas personalizadas, se comunicar com outros pontos de extremidade, receber e responder a solicitações e chamar Azure Functions, Aplicativos de API do Azure (Aplicativos da Web), suas próprias APIs gerenciadas e publicadas com Gerenciamento de API do Azure e aplicativos lógicos aninhados que podem receber solicitações. Também é possível usar ações internas que ajudam você a organizar e controlar o fluxo de trabalho do aplicativo lógico e trabalhar com dados.
+Conectores estão disponíveis como ações e gatilhos internos ou conectores gerenciados:
 
-* **Conectores gerenciados**: esses conectores fornece gatilhos e ações para acessar outros serviços e sistemas. Alguns conectores exigem que você primeiro crie conexões que são gerenciadas por Aplicativos Lógicos do Azure. Conectores gerenciados são organizados nestes grupos:
+* [**Internos**](#built-ins): Essas ações internas e gatilhos são "nativos" para aplicativos lógicos do Azure e ajudam a que criar aplicativos lógicos que são executados em agendas personalizadas, se comunicar com outros pontos de extremidade, receberam e respondem a solicitações e chamam funções do Azure, aplicativos de API do Azure (aplicativos Web), suas próprias APIs gerenciado e publicado com o gerenciamento de API e aplicativos lógicos aninhados que podem receber solicitações. Também é possível usar ações internas que ajudam você a organizar e controlar o fluxo de trabalho do aplicativo lógico e trabalhar com dados.
+
+* **Conectores gerenciados**: Implantado e gerenciado pela Microsoft, esses conectores fornecem gatilhos e ações para acessar outros serviços e sistemas, como o Office 365, o armazenamento de BLOBs do Azure, SQL Server, Salesforce e muito mais. Alguns conectores exigem que você primeiro crie conexões, que são gerenciadas pelo aplicativo lógico do Azure. Conectores gerenciados são organizados nestes grupos:
 
   |   |   |
   |---|---|
@@ -40,7 +42,7 @@ Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.m
   Por exemplo, se você estiver usando o Microsoft BizTalk Server, os aplicativos lógicos poderão se conectar e se comunicar com o BizTalk Server usando o [conector do BizTalk Server](#on-premises-connectors). 
   Você pode, então, estender ou executar operações semelhantes ao BizTalk em seus aplicativos lógicos usando os [conectores de conta de integração](#integration-account-connectors). 
 
-> [!NOTE] 
+> [!NOTE]
 > Para obter a lista completa de conectores e informações de referência de cada conector, tais como ações e quaisquer gatilhos, que são definidos por uma descrição do Swagger, bem como quaisquer limites, você pode encontrar a lista completa na [Visão geral de conectores](/connectors/). Para obter informações sobre preço, veja [Detalhes de preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
@@ -74,9 +76,9 @@ Aqui estão as ações internas para trabalhar com saídas de dados e seus forma
 
 |   |   | 
 |---|---| 
-| [![Ícone incorporado][data-operations-icon]<br/>**Operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar o JSON**: crie tokens amigáveis de propriedades e seus valores em conteúdo de JSON. Você pode usar essas propriedades no fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. | 
-| ![Ícone Interno][date-time-icon]<br/>**Data/Hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar horário**: adicionar número especificado de unidades a um carimbo de data/hora. <br>- **Converter fuso horário**: converter um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. <br>- **Horário atual**: retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair de horário**: subtrair um número de unidades de tempo de um carimbo de data/hora. |
-| [![Ícone Interno][variables-icon]<br/>**Variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: inserir um valor como o último item em uma matriz armazenada por uma variável. <br>- **Acrescentar à variável de matriz**: inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: diminuir uma variável em um valor constante. <br>- **Incrementar variável**: aumentar uma variável em um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar seu tipo de dados e o valor inicial. <br>- **Definir a variável**: atribuir um valor diferente em uma variável existente. |
+| [![Ícone incorporado][data-operations-icon]<br/>**Operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: Crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: Crie uma tabela de valores separados por vírgulas (CSV) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Junte-se**: Criar uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar o JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo do JSON, você pode usar essas propriedades no fluxo de trabalho. <br>- **Selecione**: Crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. | 
+| ![Ícone interno][date-time-icon]<br/>**Data/Hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar à hora**: Adicione o número especificado de unidades para um carimbo de hora. <br>- **Converter o fuso horário**: Converter um carimbo de data/hora do fuso horário de origem no fuso horário de destino. <br>- **Hora atual**: Retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: Retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair da hora**: Subtrair um número de unidades de tempo de um carimbo de data/hora. |
+| [![Ícone Interno][variables-icon]<br/>**Variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item em uma matriz armazenado por uma variável. <br>- **Acrescentar à variável de cadeia de caracteres**: Inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: Diminua a uma variável em um valor constante. <br>- **Incrementar variável**: Aumente uma variável com um valor constante. <br>- **Inicializar variável**: Crie uma variável e declare seu tipo de dados e o valor inicial. <br>- **Defina a variável**: Atribua um valor diferente em uma variável existente. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -131,25 +133,36 @@ Seus aplicativos lógicos podem acessar sistemas corporativos, como SAP e IBM MQ
 | [![Ícone da API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Ícone da API][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## <a name="more-about-triggers-and-actions"></a>Mais sobre gatilhos e ações
+<a name="triggers-actions"></a>
 
-Alguns conectores fornecem *gatilhos* que podem notificar seu aplicativo lógico quando ocorrem eventos específicos. Portanto, quando esses eventos ocorrem, o gatilho cria e executa uma instância do seu aplicativo lógico. Por exemplo, o conector de FTP fornece um gatilho “Quando um arquivo é adicionado ou modificado” que inicia seu aplicativo lógico quando um arquivo é atualizado. 
+## <a name="triggers-and-actions---more-info"></a>Gatilhos e ações - obter mais informações
 
-Os aplicativos lógicos fornecem esses tipos de gatilhos:  
+Conectores podem fornecer *disparadores*, *ações*, ou ambos. Um *disparador* é a primeira etapa em qualquer aplicativo lógico, normalmente, especificando o evento que aciona o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector FTP tem um gatilho que inicia o aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento especificado ou os dados e, em seguida, acionam quando detectam o evento especificado ou os dados. Outros disparadores esperar mas disparar instantaneamente quando ocorre um evento específico ou quando novos dados estão disponíveis. Gatilhos também passam os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho.
+Por exemplo, o conector do Twitter tem um gatilho "Quando um novo tweet é postado", que passa o tweet do conteúdo no fluxo de trabalho do aplicativo lógico. 
 
-* *Gatilhos de pesquisa*: esses gatilhos pesquisam seu serviço de interesse a uma frequência especificada e verificam se há novos dados. 
+Depois que um gatilho é acionado, os aplicativos lógicos do Azure cria uma instância do aplicativo lógico e inicia a execução de *ações* no fluxo de trabalho do aplicativo lógico. Ações são as etapas que siga o gatilho e executam tarefas no fluxo de trabalho do aplicativo lógico. Por exemplo, você pode criar um aplicativo lógico que obtém os dados do cliente do banco de dados SQL e processar os dados em ações posteriores. 
 
-  Quando novos dados são disponibilizados, uma nova instância do aplicativo lógico é criada e executada com os dados passados como entrada. 
+Aqui estão os tipos gerais de gatilhos que aplicativos lógicos do Azure fornece:
 
-* *Gatilhos de push*: esses gatilhos escutam novos dados em um ponto de extremidade ou uma ocorrência de eventos, o que cria e executa novas instâncias de seu aplicativo lógico.
+* *Gatilho de recorrência*: Esse gatilho é executado em uma agenda especificada e não está totalmente associado a um determinado serviço ou sistema.
 
-* *Gatilho de recorrência*: esse gatilho cria e executa uma instância do aplicativo lógico com base em um agendamento prescrito.
+* *Gatilho de sondagem*: Esse gatilho sonda regularmente um serviço específico ou um sistema com base no agendamento especificado, a verificação de novos dados ou se um evento específico aconteceu. Se novos dados estão disponíveis ou o evento ocorreu, o gatilho cria e executa uma nova instância do aplicativo lógico, que agora pode usar os dados que são passados como entrada.
 
-Os conectores também fornecem *ações* que executam tarefas no fluxo de trabalho do aplicativo lógico. Por exemplo, seu aplicativo lógico pode ler dados e usá-los posteriormente em etapas do seu aplicativo lógico. Mais especificamente, seu aplicativo lógico pode localizar dados do cliente de um banco de dados SQL e processá-los posteriormente no fluxo de trabalho do aplicativo lógico. 
+* *Gatilho de push*: Esse gatilho aguarda e escuta novos dados ou para um evento ocorrer. Quando novos dados estão disponíveis ou quando o evento ocorrer, o gatilho cria e executa a nova instância do aplicativo lógico, que agora pode usar os dados que são passados como entrada.
 
-Para obter mais informações sobre gatilhos e ações, consulte a [Visão geral dos conectores](connectors-overview.md). 
+<a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>Conectores e APIs personalizados 
+## <a name="connector-configuration"></a>Configuração do conector
+
+Gatilhos e ações de cada conector fornecem suas próprias propriedades para a configuração. Muitos conectores também exigem que você primeiro crie uma *conexão* para o serviço de destino ou o sistema e fornecer as credenciais de autenticação ou outros detalhes de configuração antes de usar um gatilho ou ação em seu aplicativo lógico. Por exemplo, você deve autorizar uma conexão para uma conta do Twitter para acessar os dados ou para postar em seu nome. 
+
+Para os conectores que usam o OAuth, criar uma conexão significa entrar no serviço, como Office 365, Salesforce ou GitHub, no qual o token de acesso é criptografado e seguramente armazenado em um repositório secreto do Azure. Outros conectores, como FTP e SQL, requerem uma conexão que tem detalhes de configuração, como o endereço do servidor, nome de usuário e senha. Esse detalhes de configuração de conexão são também criptografadas e armazenadas com segurança. 
+
+As conexões podem acessar o serviço de destino ou o sistema para desde que o serviço ou sistema permite. Para serviços que usam conexões OAuth do Azure Active Directory (AD), como o Office 365 e Dynamics, aplicativos lógicos do Azure atualiza os tokens de acesso indefinidamente. Outros serviços podem estabelecer limites quanto a aplicativos lógicos do Azure pode usar um token sem atualizar. Em geral, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>Conectores e APIs personalizados
 
 Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma dos Aplicativos Lógicos [criando Aplicativos de API personalizados](../logic-apps/logic-apps-create-api-app.md). Você também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* API REST ou baseadas em SOAP, o que torna essas APIs disponíveis para qualquer aplicativo lógico em sua assinatura do Azure.
 Para tornar Aplicativos de API personalizado ou conectores público disponíveis para qualquer pessoa para uso no Azure, você pode [enviar conectores para certificação da Microsoft](../logic-apps/custom-connector-submit-certification.md).
@@ -159,8 +172,6 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * Para enviar ou votar em ideias para os Aplicativos Lógicos do Azure e conectores, visite o [site de comentários do usuário dos Aplicativos Lógicos](https://aka.ms/logicapps-wish).
-
-* Os artigos ou detalhe que você acha importantes estão ausentes na documentação? Em caso afirmativo, você pode ajudar adicionando os artigos existentes ou escrevendo seus próprios. A documentação é de software livre e hospedada no GitHub. Obtenha uma introdução ao [repositório GitHub](https://github.com/Microsoft/azure-docs) da documentação do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

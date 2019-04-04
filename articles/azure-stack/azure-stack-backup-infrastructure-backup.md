@@ -14,16 +14,16 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: da1ae76925ffeba7a1df57b4121f8cfe20b2887f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285914"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882099"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e recuperação de dados para o Azure Stack com o serviço de Backup de infraestrutura
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode fazer backup e restaurar a configuração e os dados de serviço usando o serviço de Backup de infraestrutura. Cada instalação do Azure Stack contém uma instância do serviço. Você pode usar os backups criados pelo serviço para a reimplantação da nuvem do Azure Stack para restaurar dados do Azure Resource Manager, segurança e identidade. 
 
@@ -32,7 +32,7 @@ Quando você estiver pronto para colocar sua nuvem em produção, você pode hab
 Antes de habilitar o serviço de backup, verifique se você tem [requisitos em vigor](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> O serviço de Backup de infraestrutura não inclui aplicativos e dados de usuário. Consulte a [proteger as VMs implantadas no Azure Stack](user/azure-stack-manage-vm-protect.md) para obter mais informações sobre como proteger o IaaS VM com base em aplicativos. Para obter um entendimento de como proteger aplicativos no Azure Stack, consulte o [onsiderations Azure Stack para whitepaper de recuperação de desastre e continuidade dos negócios](http://aka.ms/azurestackbcdrconsiderationswp).
+> O serviço de Backup de infraestrutura não inclui aplicativos e dados de usuário. Consulte a [proteger as VMs implantadas no Azure Stack](user/azure-stack-manage-vm-protect.md) para obter mais informações sobre como proteger o IaaS VM com base em aplicativos. Para obter um entendimento de como proteger aplicativos no Azure Stack, consulte o [considerações sobre o Azure Stack para whitepaper de recuperação de desastre e continuidade dos negócios](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>O serviço de Backup de infraestrutura
 
@@ -48,7 +48,7 @@ Os serviços de contenham os seguintes recursos.
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Verifique os requisitos para o serviço de Backup de infraestrutura
 
-- **Localização de armazenamento**  
+- **Local de armazenamento**  
   Você precisa de um compartilhamento de arquivos acessíveis a partir do Azure Stack que pode conter sete backups. Cada backup é cerca de 10 GB. O compartilhamento deve ser capaz de armazenar 140 GB de backups. Para obter mais informações sobre como selecionar um local de armazenamento para o serviço de Backup de infraestrutura do Azure Stack, consulte [requisitos de controlador de Backup](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenciais**  
   Você precisa de uma conta de usuário de domínio e as credenciais, por exemplo, você pode usar as credenciais de administrador do Azure Stack.

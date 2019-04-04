@@ -3,16 +3,17 @@ title: Registro de Contêiner do Azure - funções e permissões
 description: Use o controle de acesso baseado nas função do Azure (RBAC) e o gerenciamento de identidades e acesso (IAM) para fornecer permissões refinadas a recursos em um registro de contêiner do Azure.
 services: container-registry
 author: dlepow
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593617"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894261"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
@@ -21,10 +22,11 @@ O serviço de Registro de Contêiner do Azure dá suporte a um conjunto de funç
 | Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Excluir dados de imagem](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X | X |  |  
-| Contribuidor | X | X | X |  X | X | X |  |  
+| Colaborador | X | X | X |  X | X | X |  |  
 | Leitor | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Diferenciar usuários e serviços
@@ -61,7 +63,7 @@ A capacidade de `docker pull` uma imagem de não quarentena, ou de enviar por pu
 
 ## <a name="delete-image-data"></a>Excluir dados de imagem
 
-A capacidade [excluir imagens de contêiner ou repositórios](container-registry-delete.md).
+A capacidade [excluir imagens de contêiner](container-registry-delete.md), ou excluir outros [suporte artefatos](container-registry-image-formats.md) como gráficos do Helm, de um registro.
 
 ## <a name="change-policies"></a>Alterar políticas
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d168d543bc862e267f72bdf39cc44f9cc2a9fa13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aec6282daadc61b4e1bcf6bbaf1266d9bc98cdac
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "58114072"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895793"
 ---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
@@ -48,7 +48,7 @@ $FriendlyName"<Describe value>"
 
 <!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
-| Gerenciamento de Serviços | Resource Manager |
+| Gerenciamento de serviços | Gerenciador de Recursos |
 | --- | --- |
 | `syntax` |`syntax` |
 
@@ -95,7 +95,7 @@ Aqui está um exemplo que usa [nomes de cmdlet)] para [tarefa]. Ele inclui coman
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
 [Gerenciar a disponibilidade](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -105,5 +105,5 @@ Aqui está um exemplo que usa [nomes de cmdlet)] para [tarefa]. Ele inclui coman
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Documentação das máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Documentação de máquinas virtuais](/previous-versions/azure/jj156003(v=azure.100))
 

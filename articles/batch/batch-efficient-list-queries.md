@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537894"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918528"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do Lote com eficiência
 
@@ -89,7 +89,7 @@ A cadeia de caracteres expand reduz o número de chamadas de API necessárias pa
 * Esta cadeia de caracteres expand de exemplo especifica que as informações de estatística devem ser retornadas para cada item na lista: `stats`.
 
 > [!NOTE]
-> Ao criar qualquer um dos três tipos de cadeias de caracteres de consulta (filter, select e expand), você deve garantir que os nomes de propriedade e caso correspondam aos seus equivalentes de elemento da API REST. Por exemplo, ao trabalhar com a classe [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) do .NET, você deve especificar **state** em vez de **State**, mesmo que a propriedade .NET seja [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Consulte as tabelas abaixo para ver mapeamentos de propriedade entre o .NET e APIs REST.
+> Ao criar qualquer um dos três tipos de cadeias de caracteres de consulta (filter, select e expand), você deve garantir que os nomes de propriedade e caso correspondam aos seus equivalentes de elemento da API REST. Por exemplo, ao trabalhar com a classe [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) do .NET, você deve especificar **state** em vez de **State**, mesmo que a propriedade .NET seja [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Consulte as tabelas abaixo para ver mapeamentos de propriedade entre o .NET e APIs REST.
 > 
 > 
 
@@ -98,7 +98,7 @@ A cadeia de caracteres expand reduz o número de chamadas de API necessárias pa
 * Todos os nomes de propriedade diferenciam maiúsculas de minúsculas, mas valores de propriedade não diferenciam maiúsculas de minúsculas.
 * As cadeias de caracteres de data/hora podem ter um dos dois formatos e devem ser precedidas por `DateTime`.
   
-  * Exemplo de formato W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * Formato W3C-dtf: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
   * Exemplo de formato RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * As cadeias de caracteres boolianas são `true` ou `false`.
 * Se uma propriedade ou operador inválido for especificado, o resultado será um erro `400 (Bad Request)` .
@@ -110,7 +110,7 @@ Na API [.NET do Lote][api_net], a classe [ODATADetailLevel][odata] é usada para
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: Especifique quais valores de propriedade retornam com cada item.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Recupere dados de todos os itens em uma única chamada à API, em vez de chamadas separadas para cada item.
 
-O snippet de código abaixo usa a API de Lote .NET para consultar o serviço de Lote com eficiência a fim de obter as estatísticas de um conjunto específico de pools. Nesse cenário, o usuário de Lote tem grupos de teste e de produção. As IDs do pool de teste são prefixadas com "test", e as IDs do grupo de produção são prefixadas com "prod". No snippet de código, *myBatchClient* é uma instância devidamente inicializada da classe [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
+O snippet de código abaixo usa a API de Lote .NET para consultar o serviço de Lote com eficiência a fim de obter as estatísticas de um conjunto específico de pools. Nesse cenário, o usuário de Lote tem grupos de teste e de produção. As IDs do pool de teste são prefixadas com "test", e as IDs do grupo de produção são prefixadas com "prod". No snippet de código, *myBatchClient* é uma instância devidamente inicializada da classe [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient).
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Uma instância de [ODATADetailLevel][odata] configurada com as cláusulas Select e Expand também pode ser passada para os devidos métodos Get, como [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), para limitar a quantidade de dados retornados.
+> Uma instância de [ODATADetailLevel][odata] configurada com as cláusulas Select e Expand também pode ser passada para os devidos métodos Get, como [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), para limitar a quantidade de dados retornados.
 > 
 > 
 
@@ -179,7 +179,7 @@ Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expans�
 ## <a name="example-construct-a-filter-string"></a>Exemplo: construir uma cadeia de caracteres filter
 Ao construir uma cadeia de caracteres filter para [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em “Mapeamentos para cadeias de caracteres filter” para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
 
-| Propriedade | Operações permitidas | Tipo |
+| Propriedade | Operações permitidas | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Assim, a cadeia de caracteres de filtro para listar todas as tarefas com um cód
 ## <a name="example-construct-a-select-string"></a>Exemplo: construir uma cadeia de caracteres select
 Para construir um [ODATADetailLevel.SelectClause][odata_select], consulte a tabela acima em “Mapeamentos para as cadeias de caracteres select” e navegue até a página da API REST correspondente ao tipo de entidade listada. Você encontrará as propriedades selecionáveis e os operadores com suporte na primeira tabela de várias linha nessa página. Se quiser recuperar apenas a ID e a linha de comando de cada tarefa em uma lista, por exemplo, você encontrará essas linhas na tabela aplicável em [Obter informações sobre uma tarefa][rest_get_task]:
 
-| Propriedade | Tipo | Observações |
+| Propriedade | Type | Observações |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Maximizar o uso de recursos de computação do Lote do Azure com tarefas de nó simultâneas](batch-parallel-node-tasks.md) é outro artigo relacionado ao desempenho de aplicativos do Lote. Alguns tipos de cargas de trabalho podem aproveitar a execução de tarefas paralelas nos nós de computação maiores, porém em menor número. Consulte o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para obter detalhes sobre esse cenário.
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

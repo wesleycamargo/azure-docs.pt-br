@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453160"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903787"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Criptografar credenciais para armazenamentos de dados locais no Azure Data Factory
 Você pode criptografar e armazenar credenciais para seus armazenamentos de dados locais (serviços vinculados com informações confidenciais) em um computador com tempo de execução de integração auto-hospedado. 
@@ -51,7 +51,7 @@ Substitua `<servername>`, `<databasename>`, `<username>` e `<password>` por valo
 ```
 
 ## <a name="encrypt-credentials"></a>Criptografar credenciais
-Para criptografar os dados confidenciais do conteúdo JSON em um tempo de execução de integração auto-hospedado local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passe o conteúdo JSON. Esse cmdlet garante que as credenciais sejam criptografadas usando DPAPI e armazenadas no nó de tempo de execução de integração auto-hospedado localmente. O conteúdo de saída pode ser redirecionado para outro arquivo JSON (no caso, 'encryptedLinkedService.json'), que contém credenciais criptografadas.
+Para criptografar os dados confidenciais do conteúdo JSON em um tempo de execução de integração auto-hospedado local, execute **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passe o conteúdo JSON. Esse cmdlet garante que as credenciais sejam criptografadas usando DPAPI e armazenadas no nó de tempo de execução de integração auto-hospedado localmente. O conteúdo de saída que contém a referência a credencial criptografada pode ser redirecionado para outro arquivo JSON (no caso 'Encryptedlinkedservice').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

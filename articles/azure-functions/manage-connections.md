@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402364"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893207"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerenciar conexões no Azure Functions
 
@@ -23,7 +23,7 @@ Funções em um aplicativo de funções compartilham recursos. Entre esses recur
 
 O número de conexões disponíveis é limitado em parte porque um aplicativo de funções é executado em um [ambiente de área restrita](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições do que a área restrita impõe no seu código é um [limite o número de conexões (no momento em 600 conexões ativas e o total de conexões de 1.200)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) por instância. Ao alcançar esse limite, o tempo de execução das funções criará um log com a seguinte mensagem: `Host thresholds exceeded: Connections`.
 
-Esse limite é por instância.  Quando o [controlador de escala adiciona as instâncias do aplicativo de função](functions-scale.md#how-the-consumption-plan-works) para tratar mais solicitações, cada instância possui um limite de conexão independente. Isso significa que não há nenhum limite de conexão global, e você pode ter muito mais de 600 conexões ativas em todas as instâncias ativas.
+Esse limite é por instância.  Quando o [controlador de escala adiciona as instâncias do aplicativo de função](functions-scale.md#how-the-consumption-and-premium-plans-work) para tratar mais solicitações, cada instância possui um limite de conexão independente. Isso significa que não há nenhum limite de conexão global, e você pode ter muito mais de 600 conexões ativas em todas as instâncias ativas.
 
 ## <a name="static-clients"></a>Clientes estáticos
 

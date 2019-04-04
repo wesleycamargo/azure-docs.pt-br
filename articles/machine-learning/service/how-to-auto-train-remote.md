@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112442"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891660"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
@@ -93,7 +93,7 @@ attach_config = RemoteCompute.attach_configuration(username='<username>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached_vm',
+                                      name='attached-vm',
                                       attach_configuration=attach_config)
 
 compute_target.wait_for_completion(show_output=True)
@@ -238,7 +238,7 @@ RunDetails(remote_run).show()
 Aqui está uma imagem estática do widget.  No notebook, você pode clicar em qualquer linha na tabela para ver as propriedades de execução e os logs de saída para a execução.   Você também pode usar a lista suspensa acima do gráfico para exibir um gráfico de cada métrica disponível para cada iteração.
 
 ![tabela de widget](./media/how-to-auto-train-remote/table.png)
-![gráfico de widget](./media/how-to-auto-train-remote/plot.png)
+![plotagem de widget](./media/how-to-auto-train-remote/plot.png)
 
 O widget exibirá uma URL que você pode usar para ver e explorar os detalhes individuais da execução.
  
