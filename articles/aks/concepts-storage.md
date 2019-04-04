@@ -127,8 +127,8 @@ Para ver como criar volumes dinâmicos e estáticos que usam Discos do Azure ou 
 
 - [Criar um volume estático usando os Discos do Azure][aks-static-disks]
 - [Criar um volume estático usando os Arquivos do Azure][aks-static-files]
-- [Criar um volume estático usando os Discos do Azure][aks-dynamic-disks]
-- [Criar um volume estático usando os Arquivos do Azure][aks-dynamic-files]
+- [Criar um volume dinâmico usando os Discos do Azure][aks-dynamic-disks]
+- [Criar um volume dinâmico usando os Arquivos do Azure][aks-dynamic-files]
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
