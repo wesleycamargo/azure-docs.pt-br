@@ -4,7 +4,7 @@ description: Nesse início rápido, você construirá uma imagem do Docker com o
 services: service-fabric
 documentationcenter: linux
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/30/2019
 ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 559b51b70c2bcb18d74d77fddaf928e0356435df
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804545"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664872"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implantar contêineres do Linux no Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106637"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652143"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempacotar, conectar e desbloquear o Azure Data Box Disk
 
@@ -90,7 +90,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. Execute `DataBoxDiskUnlock.exe` e forneça a chave de acesso que você obteve em [Conectar-se a discos e obter a chave de acesso](#Connect-to-disks-and-get-the-passkey). A letra da unidade atribuída ao disco é exibida. Um exemplo de saída é mostrado abaixo.
+6. Execute `DataBoxDiskUnlock.exe` e forneça a chave de acesso que você obteve em [Conectar-se a discos e obter a chave de acesso](#connect-to-disks-and-get-the-passkey). A letra da unidade atribuída ao disco é exibida. Um exemplo de saída é mostrado abaixo.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
      OpenSSL is already installed.
      ```
 
-6. Execute a ferramenta de desbloqueio do Data Box Disk. Forneça a chave de acesso do portal do Azure que você obteve em [Conectar-se a discos e obter a chave de acesso](#Connect-to-disks-and-get-the-passkey). Como opção, especifique uma lista de volumes criptografados do BitLocker a serem desbloqueados. A lista de chaves de acesso e de volumes precisa ser especificada entre aspas simples. 
+6. Execute a ferramenta de desbloqueio do Data Box Disk. Forneça a chave de acesso do portal do Azure que você obteve em [Conectar-se a discos e obter a chave de acesso](#connect-to-disks-and-get-the-passkey). Como opção, especifique uma lista de volumes criptografados do BitLocker a serem desbloqueados. A lista de chaves de acesso e de volumes precisa ser especificada entre aspas simples. 
 
     Digite o seguinte comando.
  

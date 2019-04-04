@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090467"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886362"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar um aplicativo Web ASP .NET 
 
@@ -97,7 +97,7 @@ Em seguida, crie o cache para o aplicativo.
 
 Nesta seção, você atualiza o aplicativo para dar suporte a uma nova exibição que exibe um teste simples no Cache do Azure para Redis.
 
-* [Atualizar o arquivo web.config com uma configuração de aplicativo para o cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Atualizar o arquivo web.config com uma configuração de aplicativo para o cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configurar o aplicativo para usar o cliente StackExchange.Redis
 * Atualizar o HomeController e o Layout
 * Adicionar uma nova exibição RedisCache
@@ -116,7 +116,7 @@ Como o arquivo *CacheSecrets.config* não está implantado no Azure com seu apli
 2. No arquivo *web.config*, localize o elemento `<appSetting>`. Depois adicione o atributo `file`. Se você usou um nome de arquivo ou local diferente, substitua esses valores pelos mostrados no exemplo.
 
 * Antes: `<appSettings>`
-* Após: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Depois:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 O tempo de execução do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>` . O tempo de execução ignora o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo *CacheSecrets.config* não será implantado.
 

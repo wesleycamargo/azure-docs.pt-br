@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: ab3963ba8efc23d8f21c104361e0d3369ab5ea10
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772544"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884220"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster Pivotal Cloud Foundry no Azure
 
@@ -72,11 +72,11 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](https://docs.micro
 
 5. Defina a função de permissão da sua entidade de serviço como um Colaborador.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
+    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
 
     Ou também é possível usar
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor” `
+    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
 
     ![Atribuição de função da entidade de serviço](media/deploy/svc-princ.png )
 

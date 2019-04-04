@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226701"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579573"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início Rápido: Criar uma função do Azure com a Configuração de Aplicativo
 
@@ -45,13 +45,19 @@ Para fazer este início rápido, instale o [Visual Studio 2017](https://visualst
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
 
-1. Abra *Function1.cs* e adicione uma referência a um provedor de configuração .NET Core da Configuração de Aplicativo.
+1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os seguintes pacotes do NuGet ao projeto. Se você não conseguir localizá-los, marque a caixa de seleção **	Incluir pré-lançamento**.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Abra *Function1.cs* e adicione uma referência a um provedor de configuração .NET Core da Configuração de Aplicativo.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Atualize o método `Run` para usar a Configuração de Aplicativo chamando `builder.AddAzureAppConfiguration()`.
+3. Atualize o método `Run` para usar a Configuração de Aplicativo chamando `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -108,4 +114,4 @@ Para fazer este início rápido, instale o [Visual Studio 2017](https://visualst
 Neste início rápido, você criou um novo repositório de configurações de aplicativos e utilizou-o com um Azure Functions. Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)

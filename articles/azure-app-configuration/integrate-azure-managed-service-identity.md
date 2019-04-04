@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: be19d37900acb8201922fa61fda61cc884d4c933
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6e161bcf2c38db0fd614eac1a211218785179ec3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226004"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620762"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integração às Identidades Gerenciadas do Azure
 
@@ -91,7 +91,8 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
+                config.AddAzureAppConfiguration(options =>
+                    options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
             })
             .UseStartup<Startup>();
     ```

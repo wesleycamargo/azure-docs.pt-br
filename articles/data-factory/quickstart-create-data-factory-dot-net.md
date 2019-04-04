@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871774"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793876"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -36,12 +36,15 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 Este artigo passo a passo usa o Visual Studio 2017. Você também pode usar o Visual Studio 2013 ou 2015.
 
 ### <a name="azure-net-sdk"></a>SDK do Azure .NET
+
 Baixe e instale o [SDK .NET do Azure](https://azure.microsoft.com/downloads/) no seu computador.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
+
 Siga as instruções das seções [deste artigo](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) para executar as seguintes tarefas: 
 
 1. **Criar um aplicativo do Azure Active Directory**. Criar um aplicativo no Azure Active Directory que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
@@ -64,7 +67,7 @@ Usando o Visual Studio 2013/2015/2017, crie um aplicativo de console C# .NET.
 1. Clique em **Ferramentas** -> **Gerenciador de Pacotes do NuGet** -> **Console do Gerenciador de Pacotes**.
 2. No **Console do Gerenciador de Pacotes**, execute os comandos a seguir para instalar os pacotes. Veja o [pacote NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) com os detalhes.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>Verificar a saída
+
 O pipeline cria automaticamente a pasta de saída no contêiner de blob adftutorial. Em seguida, ele copia o arquivo emp.txt da pasta de entrada para a pasta de saída. 
 
 1. No Portal do Azure, na página de contêiner **adftutorial**, clique em **Atualizar** para ver a pasta de saída. 
@@ -419,6 +423,7 @@ O pipeline cria automaticamente a pasta de saída no contêiner de blob adftutor
     ![Atualizar](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
+
 Para excluir programaticamente o data factory, adicione as linhas de código a seguir ao programa: 
 
 ```csharp
@@ -427,4 +432,5 @@ Para excluir programaticamente o data factory, adicione as linhas de código a s
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 O pipeline nessa amostra copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Percorra os [tutoriais](tutorial-copy-data-dot-net.md) para saber mais sobre o uso do Data Factory em mais cenários. 

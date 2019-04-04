@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965148"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793922"
 ---
 # <a name="what-is-api-management"></a>O que é Gerenciamento de API?
 
@@ -101,7 +101,7 @@ Para obter mais informações, confira [Como criar ou convidar desenvolvedores][
 ## <a name="policies"> </a> Políticas
 As políticas são um poderoso recurso de Gerenciamento de API que permite ao Portal do Azure alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [Definir variável](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) e [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](/azure/api-management/api-management-advanced-policies#choose) e [Definir variável](/azure/api-management/api-management-advanced-policies#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) e [Expressões de política](/azure/api-management/api-management-policy-expressions).
 
 
 Para obter uma lista completa de políticas de Gerenciamento de API, confira [Referência de política][Policy reference]. Para obter mais informações sobre como usar e configurar políticas, confira [Políticas de Gerenciamento de API][API Management policies]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, confira [Como criar e definir configurações avançadas de produto][How create and configure advanced product settings].

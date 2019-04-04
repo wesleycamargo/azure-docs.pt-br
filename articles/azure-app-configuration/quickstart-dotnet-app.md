@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226837"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576065"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure
 
@@ -46,6 +46,7 @@ Para este início rápido, instale o [Visual Studio 2017](https://visualstudio.m
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
 
 1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os seguintes pacotes do NuGet ao projeto. Se você não conseguir localizá-los, marque a caixa de seleção **	Incluir pré-lançamento**.
+
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
@@ -105,4 +106,4 @@ Para este início rápido, instale o [Visual Studio 2017](https://visualstudio.m
 Neste início rápido, você criou um novo repositório de configurações de aplicativo e o utilizou com um aplicativo do console do .NET Framework. Para saber mais sobre como usar a Configuração de Aplicativo, consulte o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)

@@ -4,18 +4,18 @@ description: Neste início rápido, você aprenderá a ingerir (carregar) dados 
 services: data-explorer
 author: tamirkamara
 ms.author: takamara
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078866"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754659"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: ingerir dados do Logstash para o Azure Data Explorer
+# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início Rápido: ingerir dados do Logstash para o Azure Data Explorer
 
 O [Logstash](https://www.elastic.co/products/logstash) é um software livre de pipeline de processamento de dados no lado do servidor que ingere dados de muitas origens simultaneamente, transforma os dados e, depois, envia os dados ao seu "stash" favorito. Neste início rápido, você enviará esses dados ao Azure Data Explorer, que é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Inicialmente, você criará um mapeamento de tabela e dados em um cluster de teste e, depois, instruirá o Logstash a enviar dados para a tabela e validar os resultados.
 

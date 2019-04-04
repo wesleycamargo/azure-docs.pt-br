@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224559"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758666"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo Linux
 
@@ -128,7 +128,7 @@ Durante a configuração do tempo de execução, você precisa fornecer uma cade
 Se você estiver usando o Azure IoT Edge na máquina virtual Ubuntu conforme descrito nos pré-requisitos, o dispositivo já terá o tempo de execução do IoT Edge instalado. Basta configurar seu dispositivo com a cadeia de conexão do dispositivo que você recuperou na seção anterior. Você pode fazer isso remotamente, sem precisar se conectar à máquina virtual. Execute o seguinte comando, substituindo **{cadeia_de_conexão_do_dispositivo}** pela sua própria cadeia de caracteres.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 Se estiver executando o IoT Edge no computador local ou em um dispositivo ARM32, você precisará instalar o tempo de execução do IoT Edge e seus pré-requisitos em no dispositivo. Siga as instruções em [Instalar o tempo de execução do Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md) ou [Instalar o tempo de execução do Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md), depois retorne a este início rápido.

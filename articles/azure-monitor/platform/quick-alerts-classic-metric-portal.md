@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472255"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849817"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor de métrica atender a uma condição
 
 O Azure Monitor disponibiliza métricas para muitos recursos do Azure. Essas métricas transmitem o desempenho e a integridade desses recursos. Em muitos casos, os valores de métrica podem apontar para algo errado com um recurso. Você pode criar alertas de métrica para monitorar o comportamento anormal e ser notificado quando isso ocorrer. Este Guia de início rápido executa em etapas a criação de um Aplicativo Lógico, a criação de um trabalho e a visualização das métricas do aplicativo lógico. Em seguida, ele explica como criar um alerta e receber uma notificação de uma métrica para o recurso Aplicativo Lógico.
 
-Para obter mais informações sobre métricas e alertas de métrica, consulte [Visão geral das métricas do Azure Monitor](../../azure-monitor/platform/data-collection.md) e [Visão geral dos alertas do Azure Monitor](./alerts-overview.md). 
+Para obter mais informações sobre métricas e alertas de métrica, consulte [Visão geral das métricas do Azure Monitor](data-platform.md) e [Visão geral dos alertas do Azure Monitor](alerts-overview.md). 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -59,7 +59,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 11. Defina o **Método** como POST e o **Uri** como um endereço web de sua escolha.
 
-12. Clique em **Salvar**.
+12. Clique em **Save** (Salvar).
 
 13. Pode levar até 5 minutos para o aplicativo lógico executar ações para ocorrer.  
 
