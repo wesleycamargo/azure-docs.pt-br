@@ -14,15 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084871"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051930"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
-## <a name="overview"></a>Visão Geral
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="overview"></a>Visão geral
 O Microsoft Azure StorSimple é uma solução de armazenamento de nuvem híbrida que resolve as complexidades de dados não estruturados comumente associados aos compartilhamentos de arquivos. O StorSimple usa o armazenamento em nuvem como uma extensão da solução local e dispõe os dados em camadas automaticamente no armazenamento local e no armazenamento em nuvem. A proteção de dados integrada, com instantâneos locais e de nuvem, elimina a necessidade de uma infraestrutura de armazenamento ampla.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) é um serviço baseado no Azure que fornece recursos de DR (recuperação de desastre) por meio da orquestração de replicação, de failover e da recuperação de máquinas virtuais. O Azure Site Recovery dá suporte para várias tecnologias de replicação, com o intuito de replicar, proteger e fazer o failover de forma consistente das máquinas virtuais e dos aplicativos em nuvens privadas/públicas ou hospedadas.
@@ -133,7 +136,7 @@ Para o servidor de arquivos da VM, defina as configurações de rede no Azure Si
 
 Você pode selecionar a VM na guia **Itens replicados** para definir as configurações de rede, conforme mostrado na ilustração a seguir.
 
-![Computação e Rede](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![Computação e rede](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 Você pode criar um plano de recuperação no ASR para automatizar o processo de failover de compartilhamentos de arquivos. Se ocorrer uma interrupção, você poderá exibir os compartilhamentos de arquivos em poucos minutos com apenas um clique simples. Para habilitar essa automação, você precisará de uma conta de Automação do Azure.
@@ -167,7 +170,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
 1. Na conta de automação, clique em **Variáveis** &gt; **Adicionar uma variável** e adicione os seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que você criará na próxima etapa, o nome será TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   - **BaseUrl**: A URL do Gerenciador de Recursos de URL para a nuvem do Azure. Obter usando o cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - **BaseUrl**: A URL do Gerenciador de Recursos de URL para a nuvem do Azure. Comece usando **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: O grupo do Gerenciador de Recursos que tem o recurso StorSimple.
    - *RecoveryPlanName***-ManagerName**: O recurso StorSimple que tem o dispositivo StorSimple.
    - *RecoveryPlanName***-DeviceName**: O dispositivo StorSimple que precisa sofrer failover.
@@ -238,7 +241,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
    - Clique no botão **+ Plano de recuperação**, abra a folha abaixo.
       
-      ![Criar plano de recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Criar Plano de Recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Insira um nome de plano de recuperação, escolha valores de modelo de Implantação, Destino e Origem.
    
@@ -320,7 +323,7 @@ Durante um failback, os contêineres de volume do StorSimple são submetidos ao 
 
 ## <a name="best-practices"></a>Práticas Recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planejamento da capacidade e avaliação de prontidão
-#### <a name="hyper-v-site"></a>Site Hyper-V
+#### <a name="hyper-v-site"></a>Site do Hyper-V
 Use a [ferramenta Planejador de Capacidade do usuário](https://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.
 
 #### <a name="azure"></a>Azure

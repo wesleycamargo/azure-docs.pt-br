@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662781"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046284"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+> * [ Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
@@ -32,18 +32,21 @@ Quando você estiver executando um cluster de Service Fabric do Azure, é uma bo
 
 Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto de plataforma de análise, como [registra em log do Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 As ferramentas a seguir são usadas neste artigo:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [PowerShell do Azure](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
 O Service Fabric configura alguns [canais de log prontos](service-fabric-diagnostics-event-generation-infra.md), dos quais os canais a seguir são pré-configurados com a extensão para enviar dados de monitoramento e diagnósticos para uma tabela de armazenamento ou em outro lugar:
   * [Eventos operacionais](service-fabric-diagnostics-event-generation-operational.md): operações de nível superior que a plataforma do Service Fabric executa. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização. Eles são emitidos como eventos de Rastreamento de Eventos para Windows (ETW)
   * [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-  * [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
+  * [Eventos do modelo de programação dos Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Implantar a extensão de Diagnóstico através do portal
 A primeira etapa na coleta de logs é implantar a extensão de Diagnóstico nos nós do conjunto de dimensionamento de máquinas virtuais no cluster do Service Fabric. A extensão de Diagnóstico coleta logs em cada VM e os carrega para a conta de armazenamento especificada. As etapas a seguir descrevem como fazer isso para clusters novos e existentes por meio do Portal do Azure e modelos do Azure Resource Manager.
@@ -71,7 +74,7 @@ Para criar um cluster usando o Resource Manager, você precisa adicionar a confi
 
 Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
 
-Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
+Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Adicionar a extensão de diagnóstico a um cluster existente
 Se você tiver um cluster existente que não tenha o Diagnóstico implantado, poderá adicioná-lo ou atualizá-lo por meio do modelo de cluster. Modifique o modelo do Resource Manager usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito anteriormente. Modifique o arquivo template.json executando as tarefas a seguir:
@@ -189,7 +192,7 @@ Após modificar o arquivo template.json conforme descrito, republique o modelo d
 
 ### <a name="update-storage-quota"></a>Atualizar cota de armazenamento
 
-Como as tabelas preenchidas pela extensão aumentam até que a cota seja atingida, convém considerar a redução do tamanho da cota. O valor padrão é 50 GB e é configurável no modelo no `overallQuotaInMB` campo em `DiagnosticMonitorConfiguration`
+Como as tabelas preenchidas pela extensão aumentam até que a cota seja atingida, convém considerar a redução do tamanho da cota. O valor padrão é 50 GB e é configurável no modelo sob o `overallQuotaInMB` campo em `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -269,7 +272,7 @@ Para habilitar o **Canal Operacional de Base** nossa recomendação para o log a
 
 Para atualizar o Diagnóstico para coletar logs a partir de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, execute as mesmas etapas anteriores para configurar o Diagnóstico para um cluster existente.
 
-Atualize a seção `EtwEventSourceProviderConfiguration` no arquivo template.json para adicionar entradas para novos canais de EventSource antes de aplicar a atualização de configuração usando o comando `New-AzureRmResourceGroupDeployment` do PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo Visual Studio-generated ServiceEventSource.cs.
+Atualize a seção `EtwEventSourceProviderConfiguration` no arquivo template.json para adicionar entradas para novos canais de EventSource antes de aplicar a atualização de configuração usando o comando `New-AzResourceGroupDeployment` do PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo Visual Studio-generated ServiceEventSource.cs.
 
 Por exemplo, se a origem do evento for denominada My-Eventsource, adicione o seguinte código para colocar os eventos de My-Eventsource em uma tabela chamada MyDestinationTableName.
 
@@ -345,6 +348,8 @@ Depois de configurar corretamente o diagnóstico do Azure, você verá os dados 
 >[!NOTE]
 >Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
 
-* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Visualização e análise de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Visualização e análise de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

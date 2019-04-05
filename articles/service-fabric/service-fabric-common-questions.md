@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665314"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045791"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
 Há muitas perguntas frequentes sobre o que o Service Fabric pode fazer e como ele deve ser usado. Este documento aborda muitas dessas perguntas comuns e suas respostas.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>Gerenciamento e instalação de cluster
 
@@ -108,7 +111,7 @@ Sim.  Para obter mais informações, consulte [Criar um cluster com discos de da
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso excluir ao executar um programa antivírus no meu cluster?
 
-| **Diretórios de Antivírus excluídos** |
+| **Diretórios de antivírus excluídos** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot (da configuração de cluster) |
@@ -133,7 +136,7 @@ Sim.  Para obter mais informações, consulte [Criar um cluster com discos de da
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
 a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para os hosts habilitados para MSI em escala virtual, você pode desenvolver um PowerEntry SetupEntryPoint simples para seu aplicativo SF para obter [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token) e, em seguida, [recuperar seus segredos de KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. Para os hosts habilitados para MSI em escala virtual, você pode desenvolver um PowerEntry SetupEntryPoint simples para seu aplicativo SF para obter [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token) e, em seguida, [recuperar seus segredos de KeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -189,4 +192,4 @@ Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [práticas recomendadas](service-fabric-best-practices-overview.md)
+Saiba mais sobre [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [práticas recomendadas](service-fabric-best-practices-overview.md) gelo concepts](service-fabric-technical-overview.md) de malha e [práticas recomendadas](service-fabric-best-practices-overview.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190884"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integração do Azure Active Directory com o eDigitalResearch
 
@@ -89,7 +89,7 @@ Para configurar e testar o logon único do Azure AD com o eDigitalResearch, voc�
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste eDigitalResearch](#create-a-edigitalresearch-test-user)** – para ter um equivalente de Brenda Fernandes no eDigitalResearch vinculado à representação do usuário no Azure AD.
+1. **[Criar um usuário de teste eDigitalResearch](#create-an-edigitalresearch-test-user)**  – para ter um equivalente de Britta Simon no eDigitalResearch que esteja vinculado à representação de usuário do AD do Azure.
 1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -113,7 +113,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company-name>.edigitalresearch.com/login/consume`
+    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do eDigitalResearch](https://www.maruedr.com/contact) para obter esses valores.
@@ -143,7 +143,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
 1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
   
-### <a name="create-a-edigitalresearch-test-user"></a>Criar um usuário de teste eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Criar um usuário de teste eDigitalResearch
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no eDigitalResearch. 
 
@@ -184,7 +184,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Brenda Fernandes ao eDigitalResearch, execute as seguintes etapas:**
+**Para atribuir Britta Simon edigitalresearch, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

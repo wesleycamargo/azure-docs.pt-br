@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638813"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050094"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar recursos técnicos para uma oferta de máquina virtual
 
@@ -35,8 +35,9 @@ Uma imagem de VM contém um disco de sistema operacional e zero ou mais discos d
 > Independentemente de qual sistema operacional que você usa, adicione apenas o número mínimo de discos de dados necessários para a SKU. Os clientes não podem remover discos que fazem parte de uma imagem no momento da implantação, mas podem sempre adicionar discos durante ou após a implantação. 
 
 > [!IMPORTANT]
-> *Não altere a contagem de discos em uma nova versão da imagem.* Se você precisar reconfigurar os discos de Dados da imagem, defina um novo SKU. A publicação de uma nova versão de imagem com diferentes contagens de disco terá o potencial de quebrar a nova implantação com base na nova versão de imagem em casos de escalonamento automático, implantações automáticas de soluções por meio de modelos do Azure Resource Manager e outros cenários.
+> *Não altere a contagem de discos em uma nova versão da imagem.*  Se você precisar reconfigurar os discos de Dados da imagem, defina um novo SKU. A publicação de uma nova versão de imagem com diferentes contagens de disco terá o potencial de quebrar a nova implantação com base na nova versão de imagem em casos de escalonamento automático, implantações automáticas de soluções por meio de modelos do Azure Resource Manager e outros cenários.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
@@ -51,7 +52,7 @@ Projetar, criar e testar esses recursos leva tempo e exige conhecimento técnico
 ## <a name="suggested-tools"></a>Ferramentas sugeridas 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar VHDs e VMs:
--   [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
+-   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 -   [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento: 

@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883101"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006671"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparar uma máquina virtual do Red Hat para o Azure Stack
 
@@ -264,7 +264,6 @@ Esta seção pressupõe que você já tiver um arquivo ISO do site do Red Hat e 
 1. Verifique se o servidor SSH está instalado e configurado para começar na hora da inicialização:
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,7 +276,7 @@ Esta seção pressupõe que você já tiver um arquivo ISO do site do Red Hat e 
 
 1. Ao criar um vhd personalizado para o Azure Stack, tenha em mente que a versão WALinuxAgent entre 2.2.20 e 2.2.35.1 (ambas as exclusivo) não funcionam em ambientes Azure Stack que estão executando uma compilação antes de 1903. Para resolver esse problema, aplique o hotfix 1901/1902 ou siga o segundo semestre desta parte de instruções. 
 
-Se você estiver executando uma compilação do Azure Stack 1903 (ou superior) ou se tiver o hotfix 1901/1902, baixe o pacote WALinuxAgent do repositório de extras do Redhat da seguinte forma:
+    Se você estiver executando uma compilação do Azure Stack 1903 (ou superior) ou se tiver o hotfix 1901/1902, baixe o pacote WALinuxAgent do repositório de extras do Redhat da seguinte forma:
     
    O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório de extras do Red Hat. Habilite o repositório de extras executando o seguinte comando:
 
@@ -298,7 +297,7 @@ Se você estiver executando uma compilação do Azure Stack 1903 (ou superior) o
     ```
     
     
-Se você estiver executando uma compilação de pilha do Azure antes de 1903 e não tiver aplicado o hotfix 1901/1902, em seguida, siga estas instruções para baixar o WALinuxAgent:
+    Se você estiver executando uma compilação de pilha do Azure antes de 1903 e não tiver aplicado o hotfix 1901/1902, em seguida, siga estas instruções para baixar o WALinuxAgent:
     
     a.   Baixar setuptools
     ```bash
@@ -312,15 +311,15 @@ Se você estiver executando uma compilação de pilha do Azure antes de 1903 e n
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    c. Instalar setup.py
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. Reinicie o waagent
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. Teste se a versão do agente corresponde a uma seu baixado. Neste exemplo, ele deve ser 2.2.36.
     
     ```bash
     waagent -version

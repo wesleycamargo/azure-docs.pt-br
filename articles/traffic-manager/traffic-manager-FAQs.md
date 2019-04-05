@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009936"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046290"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -309,7 +309,7 @@ O Azure Resource Manager exige que todos os grupos de recursos especifiquem uma 
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Como determinar a integridade atual de cada ponto de extremidade?
 
-O status de monitoramento atual de cada ponto de extremidade, bem como o perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) do Traffic Monitor, dos [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) e da [CLI do Azure entre plataformas](../cli-install-nodejs.md).
+O status de monitoramento atual de cada ponto de extremidade, bem como o perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) do Traffic Monitor, dos [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) e da [CLI do Azure entre plataformas](../cli-install-nodejs.md).
 
 Você também pode usar o Azure Monitor para controlar a integridade de seus pontos de extremidade e ver uma representação visual deles. Para obter mais informações sobre como usar o Azure Monitor, consulte a [Documentação de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -344,10 +344,10 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
 |--|--|--|
 |QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
-|A |    A / CNAME | Ponto de extremidade de destino|
-|A |    AAAA |  NODATA |
+|O  |    A / CNAME | Ponto de extremidade de destino|
+|O  |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Ponto de extremidade de destino|
-|AAAA | A | NODATA |
+|AAAA | O  | NODATA |
 |CNAME |    CNAME | Ponto de extremidade de destino|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -357,7 +357,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
 |--|--|--|
 |QUALQUER |  Combinação de A e AAAA | Pontos de extremidade de destino|
-|A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
+|O  |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
 |AAAA   |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA | NODATA |
 
@@ -439,7 +439,7 @@ Para obter detalhes completos, consulte a [página de preços do Gerenciador de 
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
 
-Nº. Não há nenhum impacto no desempenho ao usar perfis aninhados.
+ Não. Não há nenhum impacto no desempenho ao usar perfis aninhados.
 
 Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
 
@@ -449,7 +449,7 @@ O perfil pai não executa verificações de integridade no filho diretamente. Em
 
 A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Anotações |
+| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
 | --- | --- | --- |
 | Desabilitado. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |

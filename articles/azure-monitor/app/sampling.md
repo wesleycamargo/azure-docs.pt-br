@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370509"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046574"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -150,7 +150,7 @@ A amostragem adaptável está habilitada por padrão para todos os aplicativos A
 
 ### <a name="turning-off-adaptive-sampling"></a>Desligar a amostragem adaptável
 
-O recurso de amostragem padrão pode ser desabilitado durante a adição de serviço do Application Insights, no método ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions```:
+O recurso de amostragem padrão pode ser desabilitado durante a adição de serviço do Application Insights, no método ```ConfigureServices```, usando ```ApplicationInsightsServiceOptions``` dentro de `Startup.cs` arquivo:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -222,7 +222,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
     -->
     ```
 
-2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione esse snippet de código a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
+2. **Habilite o módulo de amostragem de taxa fixa.** Adicione esse snippet de código a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -278,7 +278,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
     }
     ```
 
-2. **Habilitar o módulo de amostragem de taxa fixa.** Podem ser feitas alterações no método ```Configure``` conforme mostrado no trecho abaixo de:
+2. **Habilite o módulo de amostragem de taxa fixa.** Podem ser feitas alterações no método ```Configure``` conforme mostrado no trecho abaixo de:
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -455,7 +455,7 @@ A amostragem adaptável adiciona um componente que monitora a taxa atual de tran
 
 O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em conjunto com o SDK do lado do servidor. As páginas instrumentadas enviarão apenas a telemetria do lado do cliente dos mesmos usuários para os quais o lado do servidor tomou sua decisão de “amostragem”. Essa lógica é projetada para manter a integridade da sessão do usuário nos lados do cliente e do servidor. Como resultado, em qualquer item de telemetria específico no Application Insights é possível encontrar todos os outros itens de telemetria para esse usuário ou sessão. 
 
-*Minha telemetria do lado do cliente e do servidor não mostra exemplos coordenados como descrito acima.*
+*Meu cliente e a telemetria do lado do servidor não mostram exemplos coordenados como descrito acima.*
 
 * Verifique se você habilitou a amostragem de taxa fixa tanto no servidor quanto no cliente.
 * Certifique-se de que a versão do SDK é 2.0 ou superior.
@@ -487,25 +487,25 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 *  Não. SamplingTelemetryProcessors Ignorar itens da amostragem considerações, se o item já é obtida como amostra. O mesmo é verdadeiro para amostragem de ingestão como bem, que aplicará a amostragem a esses itens já obtida como amostras no SDK em si.'
 
-*Por que a amostragem não se trata apenas de “coletar X% de cada tipo de telemetria”?*
+*Por que não é um simples "coletar X % de cada tipo de telemetria" de amostragem?*
 
 * Embora essa abordagem de amostragem forneceria um alto nível de precisão em aproximações de métrica, ela interromperia a capacidade de correlacionar dados de diagnóstico por usuário, sessão e solicitação, que é essencial para o diagnóstico. Portanto, a amostragem funciona melhor com a lógica “coletar todos os itens de telemetria para X% de usuários do aplicativo” ou “coletar toda a telemetria para X% das solicitações do aplicativo”. Para os itens de telemetria não associados às solicitações (como o processamento assíncrono em segundo plano), o fallback é "coletar X % de todos os itens para cada tipo de telemetria." 
 
-*O percentual de amostragem pode ser alterado com o tempo?*
+*O percentual de amostragem pode mudar ao longo do tempo?*
 
 * Sim, a amostragem adaptável altera gradualmente a porcentagem de amostragem com base no volume atualmente observado da telemetria.
 
-*Se eu usar a amostragem de taxa fixa, como saber qual percentual de amostragem funcionará melhor para o meu aplicativo?*
+*Se eu usar a amostragem de taxa fixa, como eu sei que a amostragem percentual funcionará melhor para meu aplicativo?*
 
 * Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa. 
   
     Caso contrário, é preciso adivinhar. Analise o seu uso atual da telemetria na em Application Insights, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugere o quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
 
-*O que acontece se eu configurar o percentual de amostragem com um valor muito baixo?*
+*O que acontece se eu configurar o percentual de amostragem muito baixo?*
 
 * Um percentual de amostragem excessivamente baixo (amostragem superagressiva) reduz a precisão das aproximações quando o Application Insights tenta compensar a visualização dos dados para a redução do volume de dados. Além disso, a experiência de diagnóstico pode ser afetada negativamente, já que algumas das solicitações lentas ou raramente com falhas podem ser amostradas.
 
-*O que acontece se eu configurar o percentual de amostragem com um valor muito alto?*
+*O que acontece se eu configurar o percentual de amostragem muito alto?*
 
 * Configurar um percentual de amostragem muito alto (não agressivo o suficiente) resultará em uma redução insuficiente no volume da telemetria coletada. Ainda pode ocorrer perda de dados de telemetria relacionada à limitação, e o custo do uso do Application Insights pode ser maior do que o planejado devido a encargos excedentes.
 

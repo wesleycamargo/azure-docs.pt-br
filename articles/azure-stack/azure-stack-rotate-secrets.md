@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917553"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050247"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar os segredos no Azure Stack
 
@@ -63,13 +63,13 @@ O Azure Stack oferece suporte a rotação secreta com certificados externos de u
 
 |Certificação instalada|Autoridade de certificação para girar|Com suporte|O Azure Stack versões com suporte|
 |-----|-----|-----|-----|
-|De autoassinado|To Enterprise|Sem suporte||
+|De autoassinado|To Enterprise|Com suporte|1903 & mais tarde|
 |De autoassinado|Para autoassinado|Sem suporte||
 |De autoassinado|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
-|Da empresa|To Enterprise|Suporte desde que os clientes usam a mesma autoridade de certificação como usados na implantação corporativa|1803 & mais tarde|
+|Da empresa|To Enterprise| Com suporte. De 1903 1803: suporte desde que os clientes usam a mesma autoridade de certificação como usados na implantação corporativa|1803 & mais tarde|
 |Da empresa|Para autoassinado|Sem suporte||
 |Da empresa|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
-|Do público<sup>*</sup>|To Enterprise|Sem suporte|1803 & mais tarde|
+|Do público<sup>*</sup>|To Enterprise|Com suporte|1903 & mais tarde|
 |Do público<sup>*</sup>|Para autoassinado|Sem suporte||
 |Do público<sup>*</sup>|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
 
