@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668557"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044956"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
 
@@ -23,6 +23,8 @@ Este artigo mostra como iniciar um failover de conta para sua conta de armazenam
 
 > [!WARNING]
 > Um failover de conta normalmente resulta em alguma perda de dados. Para entender as implicações de um failover de conta e para preparar a perda de dados, examine [Entendendo o processo de failover da conta](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +37,7 @@ Antes de executar um failover de conta em sua conta de armazenamento, verifique 
 
 Quando você inicia um failover de conta para sua conta de armazenamento, os registros DNS para o ponto de extremidade secundário são atualizados para que o ponto de extremidade secundário se torne o ponto de extremidade primário. Verifique se você compreende o impacto potencial para sua conta de armazenamento antes de iniciar um failover.
 
-Para estimar a extensão da provável perda de dados antes de iniciar um failover, verifique a propriedade **Hora da Última Sincronização** usando o cmdlet `Get-AzureRmStorageAccount` do PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para sua conta. 
+Para estimar a extensão da provável perda de dados antes de iniciar um failover, verifique a propriedade **Hora da Última Sincronização** usando o cmdlet `Get-AzStorageAccount` do PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para sua conta. 
 
 Após o failover, o tipo de conta de armazenamento é automaticamente convertido em LRS (Armazenamento com Redundância Local) na nova região primária. Você pode reabilitar o GRS (armazenamento com redundância geográfica) ou o RA-GRS (armazenamento com redundância geográfica com acesso de leitura) para a conta. Observe que a conversão de LRS em GRS ou RA-GRS acarreta um custo adicional. Para obter informações adicionais, veja [Detalhes de preço de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Recuperação de desastre e failover de conta (versão prévia) no Armazenamento do Azure](storage-disaster-recovery-guidance.md)
-- [Criando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Recuperação e a conta de failover de desastre (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md)
+- [Projetar aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 - [Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs](../blobs/storage-create-geo-redundant-storage.md) 

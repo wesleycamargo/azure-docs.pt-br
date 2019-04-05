@@ -1,19 +1,18 @@
 ---
-title: Escala do cluster do Azure Data Explorer para acomodar as mudanças de demanda
+title: Escalar horizontalmente um cluster do Data Explorer do Azure para acomodar a demanda de alteração
 description: Este artigo descreve as etapas para escalar horizontalmente e escalar em um cluster do Gerenciador de dados do Azure com base na demanda de alteração.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755079"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044227"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerenciar a expansão do cluster para acomodar as mudanças de demanda
 

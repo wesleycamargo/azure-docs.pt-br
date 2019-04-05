@@ -8,13 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
-ms.openlocfilehash: d661f8834aec77957e0fd2713cde5da9a48903fd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010559"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046762"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT usando .NET
 
@@ -26,10 +26,10 @@ Este tutorial se baseia no código do tutorial [Como enviar mensagens da nuvem p
 
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-Os artigos [Como enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-dotnet.md) e [Como enviar mensagens de nuvem para dispositivo com o Hub IoT](iot-hub-csharp-csharp-c2d.md) mostram a funcionalidade básica de sistema de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Configurar o roteamento de mensagens com o Hub IoT](tutorial-routing.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo:
+Os artigos [Como enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-dotnet.md) e [Como enviar mensagens de nuvem para dispositivo com o Hub IoT](iot-hub-csharp-csharp-c2d.md) mostram a funcionalidade básica de sistema de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Configurar o roteamento de mensagens com o Hub IoT](tutorial-routing.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
 * Arquivos grandes que contêm imagens
-* Vídeos
+* vídeos
 * Dados de vibração amostrados a alta frequência
 * Alguma forma de dados pré-processados
 
@@ -173,11 +173,11 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar explorando os recursos e cenários do Hub IoT com os seguintes artigos:
 
-* [Criar um Hub IoT de modo programático](iot-hub-rm-template-powershell.md)
-* [Introdução ao SDK C](iot-hub-device-sdk-c-intro.md)
+* [Crie um hub IoT programaticamente](iot-hub-rm-template-powershell.md)
+* [Introdução ao SDK de C](iot-hub-device-sdk-c-intro.md)
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 

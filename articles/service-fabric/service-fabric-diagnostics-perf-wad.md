@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ec66a4fdffcff2d2ff7c11c969900c8b12dda755
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669685"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049448"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
 
@@ -27,6 +27,9 @@ Este documento aborda as etapas necessárias para configurar a coleta de contado
 
  > [!NOTE]
 > A extensão WAD deve ser implantada em seu cluster para que essas etapas funcionem para você. Se não estiver configurado, vá até [Coleta e agregação de eventos utilizando o Diagnóstico do Microsoft Azure do Windows](service-fabric-diagnostics-event-aggregation-wad.md).  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Coletar contadores de desempenho por meio do WadCfg
 
@@ -192,10 +195,10 @@ Aqui está um exemplo de configuração com o contador para o *Tempo Total do Pr
  >[!NOTE]
  >Embora você possa usar `*` para especificar grupos de contadores de desempenho que são nomeados de maneira similar, enviar todos os contadores por meio de um coletor (para o Application Insights) exige que eles sejam declarados individualmente. 
 
-1. Ao adicionar os contadores de desempenho apropriados que precisam ser coletados, você precisará atualizar o recurso de cluster para que essas alterações sejam refletidas no seu cluster em execução. Salve a `template.json` modificada e abra o PowerShell. Você pode atualizar o cluster usando `New-AzureRmResourceGroupDeployment`. A chamada requer o nome do grupo de recursos, o arquivo de modelo atualizado e o arquivo de parâmetros e solicita que o Resource Manager faça as alterações apropriadas aos recursos que você atualizou. Após você entrar em sua conta e estar na assinatura correta, use o seguinte comando para executar a atualização:
+1. Ao adicionar os contadores de desempenho apropriados que precisam ser coletados, você precisará atualizar o recurso de cluster para que essas alterações sejam refletidas no seu cluster em execução. Salve a `template.json` modificada e abra o PowerShell. Você pode atualizar o cluster usando `New-AzResourceGroupDeployment`. A chamada requer o nome do grupo de recursos, o arquivo de modelo atualizado e o arquivo de parâmetros e solicita que o Resource Manager faça as alterações apropriadas aos recursos que você atualizou. Após você entrar em sua conta e estar na assinatura correta, use o seguinte comando para executar a atualização:
 
     ```sh
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
+    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
 1. Quando a atualização terminar de ser executada (leva de 15 a 45 minutos, dependendo da primeira implantação e do tamanho do grupo de recursos), o WAD deve coletar os contadores de desempenho e enviá-los para a tabela denominada WADPerformanceCountersTable na conta de armazenamento associada seu cluster. Consulte seus contadores de desempenho no Application Insights ao [adicionar o coletor de IA ao modelo do Gerenciador de Recursos](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
@@ -203,4 +206,4 @@ Aqui está um exemplo de configuração com o contador para o *Tempo Total do Pr
 ## <a name="next-steps"></a>Próximas etapas
 * Colete mais contadores de desempenho para o cluster. Consulte [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores que você deve coletar.
 * [Use monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para fazer outras modificações em seu `WadCfg`, incluindo a configuração de contas de armazenamento adicionais para as quais enviar dados de diagnóstico.
-* Visite o [construtor WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo a partir do zero e verifique se sua sintaxe está correta.
+* Visite o [WadCfg construtor](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta. ( https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta.

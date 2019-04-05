@@ -1,19 +1,18 @@
 ---
-title: Falha ao se conectar a um cluster no Gerenciador de dados do Azure
-description: Este artigo descreve as etapas de solução de problemas para se conectar no Data Explorer do Azure.
+title: Solucionar problemas de falhas de conexão de cluster do Gerenciador de dados do Azure
+description: Este artigo descreve as etapas de solução de problemas para se conectar a um cluster no Gerenciador de dados do Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 66d77a11f0f68a2dc48802ed21acca8420012207
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758554"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044618"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solucionar problemas: Falha ao se conectar a um cluster no Gerenciador de dados do Azure
 

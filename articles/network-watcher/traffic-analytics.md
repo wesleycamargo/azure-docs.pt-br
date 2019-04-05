@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805050"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051879"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -28,6 +28,9 @@ Análise de Tráfego é uma solução baseada em nuvem, que oferece visibilidade
 - Identificar ameaças à segurança e proteger sua rede com informações como portas abertas, aplicativos tentando acesso à internet e máquinas virtuais (VM) conectando-se a redes não autorizadas.
 - Compreender os padrões de fluxo de tráfego entre regiões do Azure e a internet para otimizar a implantação de rede para desempenho e capacidade.
 - Identificar problemas de configuração de rede originando conexões com falha em sua rede.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>Por que a Análise de Tráfego?
 
@@ -133,7 +136,7 @@ Para analisar o tráfego, você precisa ter um observador de rede existente, ou 
 Antes de poder usar a análise de tráfego, será necessário registrar novamente o provedor de recursos de rede. Clique em **Experimente** na caixa de código a seguir para abrir o Azure Cloud Shell. O Cloud Shell registra você automaticamente na sua assinatura do Azure. Quando o Cloud Shell é aberto, digite o seguinte comando para registrar novamente o provedor de recursos de rede:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>Selecionar Grupo de Segurança de Rede
@@ -153,13 +156,13 @@ Antes de habilitar as configurações de log de fluxos, você deve concluir as s
 Registre o provedor do Azure Insights, se ainda não estiver registrado para a sua assinatura:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 Se você ainda não tiver uma conta de armazenamento do Azure para armazenar os logs de fluxo do NSG, você deve criar uma conta de armazenamento. Você pode criar uma conta de armazenamento com o comando a seguir. Antes de executar o comando, substitua `<replace-with-your-unique-storage-account-name>` com um nome que seja exclusivo em todos os locais do Azure, entre 3 a 24 caracteres de comprimento, usando apenas números e letras minúsculas. Você também pode alterar o nome do grupo de recursos, se necessário.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 
 Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Os dados de logs de fluxo são enviados para o workspace, portanto, certifique-se de que as leis e regulamentações locais em seu país permitem o armazenamento de dados na região onde está o workspace.
 
-Também é possível configurar a análise de tráfego usando o cmdlet do PowerShell [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) no módulo do PowerShell do AzureRm versão 6.2.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Você também pode configurar a análise de tráfego usando o [AzNetworkWatcherConfigFlowLog conjunto](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) cmdlet do PowerShell no Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Exibir Análise de Tráfego
 

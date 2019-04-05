@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802940"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048702"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade dos recursos do Azure
 
@@ -30,7 +30,7 @@ Antes de examinar os métodos de relatório de conformidade, vamos ver quando as
 > [!WARNING]
 > Se o estado de conformidade que está sendo relatado como **não registrado**, verifique se que o **policyinsights** provedor de recursos é registrado e que o usuário tem o acesso apropriado com base em função (de controle Permissões de RBAC), conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
@@ -56,8 +56,8 @@ Um exame de avaliação de uma assinatura ou de um grupo de recursos pode ser in
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourRG}`: substitua pelo nome do grupo de recursos
-- `{subscriptionId}`: substitua por sua ID da assinatura
+- `{YourRG}` – Substitua pelo nome do seu grupo de recursos
+- `{subscriptionId}` -Substitua pela sua ID de assinatura
 
 O exame dá suporte à avaliação de recursos em uma assinatura ou em um grupo de recursos. Inicie uma verificação por escopo com um comando **POST** da API REST usando as seguintes estruturas de URI:
 
@@ -79,7 +79,7 @@ A chamada retorna um status **202 Aceito**. Uma propriedade **Location** com o s
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` é estaticamente gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
+`{ResourceContainerGUID}` estaticamente é gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
 
 ```json
 {

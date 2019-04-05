@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: ca0d77ba2d1968d49e8ac556d42137cdc4c81e53
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879430"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046779"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -31,6 +31,8 @@ As informações a seguir mostram as atuais [ofertas do Microsoft Azure](https:/
 | **Azure Government** | Azure Governamental Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **EA (Enterprise Agreement)** | Desenvolvimento/Teste Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **EA (Enterprise Agreement)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
+| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure para Desenvolvimento/Teste](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pré-paga** | [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pré-paga** | [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |

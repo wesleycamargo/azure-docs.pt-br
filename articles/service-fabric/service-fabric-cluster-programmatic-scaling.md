@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949598"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047932"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
 
 Os clusters do Service Fabric em execução no Azure são criados sobre conjuntos de dimensionamento de máquinas virtuais.  O [Dimensionamento do cluster](./service-fabric-cluster-scale-up-down.md) descreve como os clusters do Service Fabric podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerenciar credenciais e reduzir horizontalmente e escalar horizontalmente um cluster usando o SDK de computação fluente do Azure, que é um cenário mais avançado. Para obter uma visão geral, leia [métodos programáticos de coordenação de operações de dimensionamento do Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gerenciar credenciais
 Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para fazer logon, você pode usar uma [entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criada com a [CLI do Azure](https://github.com/azure/azure-cli).
@@ -31,9 +34,9 @@ Um desafio de se escrever um serviço para manipular o dimensionamento é que o 
 Uma entidade de serviço pode ser criada com as seguintes etapas:
 
 1. Faça logon na CLI do Azure (`az login`) como um usuário com acesso ao conjunto de dimensionamento de máquinas virtuais
-2. Crie a entidade de serviço com `az ad sp create-for-rbac`
+2. Criar entidade com o tipo de serviço `az ad sp create-for-rbac`
     1. Anote o appId (chamado de ‘ID do cliente’ em outros lugares), o nome, a senha e o locatário para uso posterior.
-    2. Você também precisará da sua ID de assinatura, que pode ser exibida com `az account list`
+    2. Você também precisará sua ID de assinatura, que pode ser exibido com `az account list`
 
 A biblioteca de computação fluente pode fazer logon usando essas credenciais da seguinte maneira (observe que os tipos de núcleo fluente do Azure como `IAzure` estão no pacote [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. O [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais do Azure pode ser atualizado com o comando [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. O [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais do Azure pode ser atualizado com o comando [ `Update-AzVmss` ](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss).
 
 Assim como na adição de um nó manual, a adição de uma instância de conjunto de dimensionamento deve ser suficiente para iniciar um novo nó do Service Fabric, pois o modelo do conjunto de dimensionamento inclui extensões para unir novas instâncias de cluster do Service Fabric automaticamente. 
 

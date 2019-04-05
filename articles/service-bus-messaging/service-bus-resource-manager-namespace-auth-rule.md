@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 491c9f83767867daeef78138f52d815203b4290a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855832"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047995"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 
@@ -33,13 +33,13 @@ Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barr
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 > 
 > * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
-> * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
-> * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+> * [Criar um namespace do barramento de serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
+> * [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise **Barramento de Serviço**.
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>O que você implantará?
 
@@ -49,7 +49,7 @@ O modelo usa [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) para
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar no Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Dmplantar para o Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>parâmetros
 
@@ -156,7 +156,7 @@ Para saber mais sobre a sintaxe e as propriedades de JSON, consulte [namespaces]
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -170,7 +170,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerenciar recursos do Barramento de Serviço com o Explorar de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649571"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050145"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -31,6 +31,9 @@ Como parceiro da Microsoft, você pode associar o uso do Azure a quaisquer recur
 Atribuição de uso do cliente é para a nova implantação e não oferece suporte a marcação de recursos existentes que já foram implantados.
 
 Atribuição de uso do cliente é necessária no [aplicativo do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oferta de modelo de solução publicados no Azure Marketplace.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
 Muitas soluções de parceiros são implantadas na assinatura de um cliente usando modelos do Resource Manager. Se você tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub, ou como um guia de início rápido, o processo para modificar o modelo para habilitar a atribuição de uso do cliente deve ser muito simples.
@@ -223,12 +226,12 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
 
-$deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
 # Find all deploymentOperations in a deployment by name
 # PowerShell doesn't surface outputResources on the deployment
@@ -239,7 +242,7 @@ foreach ($deployment in $deployments){
 # Get deploymentOperations by deploymentName
 # then the resourceId for any create operation
 
-($deployment | Get-AzureRmResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
 
 }
 ```
@@ -313,7 +316,7 @@ Você será contatado por um consultor técnico do parceiro Microsoft para confi
 
 ## <a name="faq"></a>Perguntas frequentes
 
-**Qual é o benefício de adicionar o GUIA ao modelo?**
+**O que é a vantagem de adicionar o GUID para o modelo?**
 
 Microsoft oferece aos parceiros com uma exibição de implantações de clientes de suas soluções e informações sobre seu uso influenciou. Tanto a Microsoft quanto o parceiro podem usar essas informações para promover um envolvimento mais próximo entre as equipes de vendas. Tanto a Microsoft quanto o parceiro podem usar os dados para obter uma visão mais consistente do impacto de um parceiro individual no crescimento do Azure.
 
@@ -321,7 +324,7 @@ Microsoft oferece aos parceiros com uma exibição de implantações de clientes
 
 Sim, um cliente ou parceiro de implementação pode personalizar o modelo e alterar ou remover o GUID. Sugerimos que os parceiros proativamente descrever a função do recurso e do GUID a seus clientes e parceiros para evitar a remoção ou edições para o GUID. Alterar o GUID afeta somente implantações e recursos novos e não existentes.
 
-**Posso acompanhar modelos implantados de um repositório não Microsoft como o GitHub?**
+**Posso acompanhar modelos implantados de um repositório não são da Microsoft como o GitHub?**
 
 Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso será rastreado. Os parceiros devem ter um perfil no CPP para registrar os GUIDs usados para a implantação fora do Azure Marketplace.
 
@@ -333,7 +336,7 @@ Os clientes podem acompanhar seu uso de recursos individuais ou grupos de recurs
 
 Esse novo método de conexão com a implantação e o uso de solução de um parceiro fornece um mecanismo para vincular a uma solução de parceiro ao uso do Azure. A DPOR destina-se a associar um parceiro de consultoria (Integrador de Sistemas) ou de gerenciamento (Provedor de Serviço Gerenciado) à assinatura do Azure de um cliente.
 
-**Qual é o benefício de usar o formulário Gerador de GUID do Armazenamento do Azure?**
+**O que é o benefício de usar o formulário de gerador de GUID do armazenamento do Azure?**
 
 O formulário Gerador de GUID do Armazenamento do Azure tem a garantia de gerar um GUID do formato necessário. Além disso, se você estiver usando qualquer um dos métodos de rastreamento de plano de dados do Armazenamento do Azure, poderá aproveitar o mesmo GUID para o rastreamento do plano de controle do Marketplace. Isso permite que você aproveite um único GUIDE unificado para atribuição de parceiros sem precisar manter GUIDES separados.
 

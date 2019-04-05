@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759353"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047255"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o gêmeo de OPC para um projeto existente
 
@@ -30,10 +30,7 @@ O núcleo do módulo é a identidade do Supervisor. O supervisor gerencia Gêmeo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> Observação: Devido a dependência do módulo AzureRM, implantação atualmente tem suporte apenas no Windows.
-
-Verifique se você tem o PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensões instaladas.   Se você não o fez ainda, clone este repositório GitHub.  Abra um prompt de comando ou terminal e execute:
+Verifique se você tem o PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensões instaladas.   Se você não o fez ainda, clone este repositório GitHub.  Abra um prompt de comando ou terminal e execute:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ Locatário do AAD para usar.
 Agora que você aprendeu como implantar o gêmeo de OPC em um projeto existente, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Proteger a comunicação do cliente de OPC e OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Proteger a comunicação do cliente OPC e PLC OPC ](howto-opc-vault-deploy-existing-client-plc-communication.md)

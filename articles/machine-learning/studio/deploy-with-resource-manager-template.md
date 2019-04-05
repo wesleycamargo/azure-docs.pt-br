@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 91413aa461261824782717ae4edacc2757ad5405
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648275"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048700"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implantar o Workspace do Azure Machine Learning Studio usando o Azure Resource Manager
 
 Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar workspaces do Azure Machine Learning Studio, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu workspace. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um workspace do Studio e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Workspace do Machine Learning
 Criaremos um grupo de recursos do Azure, implantaremos uma nova conta de armazenamento do Azure e um novo workspace do Azure Machine Learning Studio usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os workspaces que foram criados (a chave primária, a workspaceID e a URL para o workspace).
@@ -83,7 +85,7 @@ Salve esse modelo como arquivo mlworkspace.json em c:\temp\.
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
-Install-Module AzureRM -Scope CurrentUser
+Install-Module Az -Scope CurrentUser
 
 # Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
 Install-Module Azure -Scope CurrentUser
@@ -95,7 +97,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 Esta etapa precisa ser repetida para cada sessão. Uma vez autenticado, as informações da sua assinatura devem ser exibidas.
 
@@ -106,7 +108,7 @@ Agora que temos acesso ao Azure, podemos criar o grupo de recursos.
 * Criar um grupo de recursos
 
 ```powershell
-$rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
+$rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
@@ -119,7 +121,7 @@ O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de a
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
-$rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
+$rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 Depois que a implantação for concluída, é fácil acessar as propriedades do workspace que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
@@ -129,11 +131,11 @@ Depois que a implantação for concluída, é fácil acessar as propriedades do 
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar tokens de um workspace existente é usar o comando Invoke-AzureRmResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os workspaces.
+Outra maneira de recuperar tokens de um espaço de trabalho existente é usar o comando de Invoke-AzResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os workspaces.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Quando o workspace estiver provisionado, é possível automatizar muitas tarefas do Azure Machine Learning Studio usando o [Módulo do PowerShell para Azure Machine Learning Studio](https://aka.ms/amlps).
 

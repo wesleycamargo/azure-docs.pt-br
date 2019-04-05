@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103818"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045706"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
-> * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vídeo – Emparelhamento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vídeo – Emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vídeo – emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo – emparelhamento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vídeo – emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
@@ -35,6 +35,9 @@ Estas instruções aplicam-se apenas a circuitos criados com provedores de servi
 **Sobre modelos de implantação do Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
@@ -59,17 +62,17 @@ Para entrar na sua conta do Azure, use os seguintes exemplos:
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Verificar as assinaturas da conta.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
@@ -87,7 +90,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute.**
 
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique o circuito do ExpressRoute para garantir que ele seja provisionado.**
+2. **Verifique se o circuito de ExpressRoute para certificar-se de que ela é provisionada.**
    
    Verifique se o circuito da Rota Expressa é Provisionado e também Ativado.
 
@@ -190,7 +193,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute**
 
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento público do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique o circuito do ExpressRoute para verificar se ele está provisionado**
+2. **Verifique se o circuito de ExpressRoute para verificar se ele é provisionado**
 
    Primeiro, verifique se o circuito do ExpressRoute está Provisionado e Habilitado.
 
@@ -217,7 +220,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Configure o emparelhamento público do Azure para o circuito**
+4. **Configurar o emparelhamento público do Azure para o circuito**
    
    Verifique se você tem as informações a seguir antes de prosseguir:
    
@@ -294,7 +297,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute**
   
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique o circuito do ExpressRoute para verificar se ele está provisionado**
+2. **Verifique se o circuito de ExpressRoute para verificar se ele é provisionado**
 
    Verifique se o circuito está exibido como Provisionado e Ativado. 
    
@@ -321,7 +324,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configurar o emparelhamento da Microsoft para o circuito**
+3. **Configurar emparelhamento da Microsoft para o circuito**
    
     Você precisa ter as seguintes informações antes de continuar:
    
@@ -332,7 +335,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    * Prefixos anunciados: você precisa fornecer uma lista com todos os prefixos que planeja anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
    * ASN do cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
    * Nome do registro de roteamento: é possível especificar o RIR/IRR no qual o número AS e os prefixos estão registrados.
-   * Um hash MD5, se você optar por usar um. **Opcional**
+   * Um hash MD5, se você optar por usar um. **Opcional.**
      
    Execute o seguinte cmdlet para configurar o Microsoft emparelhamento para o seu circuito:
  

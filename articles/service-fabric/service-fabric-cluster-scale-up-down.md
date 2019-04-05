@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
-ms.openlocfilehash: f201ac1f0ea5a4bc07e8c052e7653194140e8759
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669360"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049174"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente
 
@@ -27,6 +27,9 @@ ms.locfileid: "58669360"
 > Leia esta seção antes de escalar
 
 O dimensionamento de recursos de computação para originar a carga de trabalho de seu aplicativo requer planejamento intencional, quase sempre levará mais de uma hora para ser concluído em um ambiente de produção e exige que você entenda sua carga de trabalho e contexto de negócios; Na verdade, se você nunca fez essa atividade antes, é recomendável começar lendo e compreendendo [considerações sobre o planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md), antes de continuar com o restante deste documento. Esta recomendação é para evitar problemas não intencionais do LiveSite, e também é recomendado testar com sucesso as operações que você decidir executar em um ambiente que não seja de produção. A qualquer momento você pode [relatar problemas de produção ou solicitar suporte pago para o Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Para engenheiros alocados para executar essas operações que possuam contexto apropriado, este artigo descreverá as operações de dimensionamento, mas você deve decidir e entender quais operações são apropriadas para seu caso de uso; como os recursos a serem dimensionados (CPU, Armazenamento, Memória), a direção a ser dimensionada (vertical ou horizontalmente) e as operações a serem executadas (implantação de modelo de recurso, portal, PowerShell / CLI).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Reduzir horizontalmente ou escalar horizontalmente um cluster do Service Fabric usando regra de dimensionamento automático ou manualmente
 Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso na [tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) documento. Como os tipos de nó do Service Fabric no cluster são compostos de conjuntos de dimensionamento de máquinas virtuais no back-end, você precisa configurar as regras de dimensionamento automático para cada conjunto de escala de máquinas virtuais/tipo do nó.
@@ -42,9 +45,9 @@ No momento, não é possível especificar as regras de dimensionamento automáti
 Para obter a lista de conjuntos de dimensionamento de máquinas virtuais que compõem o cluster, execute os cmdlets a seguir:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
+Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
 
-Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
+Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Definir regras de dimensionamento automático para o conjunto de dimensionamento de máquina virtual/tipo do nó
@@ -79,10 +82,10 @@ Siga os exemplos/instruções na [Galeria de modelos de início rápido](https:/
 O código a seguir obtém um conjunto de dimensionamento por nome e aumenta a **capacidade** do conjunto de dimensionamento em 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Esse código define a capacidade para 6.
@@ -192,7 +195,7 @@ else
 }
 ```
 
-No código **sfctl** abaixo, o comando a seguir é usado para obter o valor **node-name** do último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+No **sfctl** de código abaixo, o comando a seguir é usado para obter o **nome do nó** valor o último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -220,10 +223,10 @@ sfctl node remove-state --node-name _nt1vm_5
 Agora que o nó do Service Fabric foi removido do cluster, o conjunto de dimensionamento de máquinas virtuais pode ser reduzido horizontalmente. No exemplo a seguir, a capacidade do conjunto de dimensionamento é reduzida em 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity -= 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
 Esse código define a capacidade para 5.
@@ -258,9 +261,9 @@ Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-clust
 ## <a name="next-steps"></a>Próximas etapas
 Leia os seguintes artigos para saber também sobre como planejar a capacidade do cluster, atualizar um cluster e particionar os serviços:
 
-* [Planejar a capacidade do cluster](service-fabric-cluster-capacity.md)
+* [Planejar a capacidade de cluster](service-fabric-cluster-capacity.md)
 * [Atualizações do cluster](service-fabric-cluster-upgrade.md)
-* [Serviços com estado de partição para escala máxima](service-fabric-concepts-partitioning.md)
+* [Particionar serviços com monitoração de estado para escala máxima](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

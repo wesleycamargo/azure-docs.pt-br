@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038952"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046267"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar Firewall do Azure usando um modelo
 
@@ -24,6 +24,9 @@ O firewall está na sub-rede *AzureFirewallSubnet* e tem uma coleção de regra 
 Uma rota definida pelo usuário que aponta o tráfego de rede da sub-rede *ServersSubnet* até o firewall, em que as regras de firewall são aplicadas.
 
 Para obter mais informações sobre o Azure Firewall, consulte [Implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>Use o modelo para implantar o Firewall do Azure
 
@@ -56,10 +59,10 @@ Saiba mais sobre a sintaxe e as propriedades de JSON para um firewall em um mode
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você não precisa mais delas, você pode remover o grupo de recursos, o firewall e a todos os recursos relacionados, executando o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell. Para remover um grupo de recursos nomeado *MyResourceGroup*, execute: 
+Quando você não precisa mais delas, você pode remover o grupo de recursos, o firewall e a todos os recursos relacionados, executando o [AzResourceGroup remover](/powershell/module/az.resources/remove-azresourcegroup) comando do PowerShell. Para remover um grupo de recursos nomeado *MyResourceGroup*, execute: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Não remova o grupo de recursos e o firewall ainda, se você planeja prosseguir para o firewall do tutorial de monitoramento. 
 
@@ -68,4 +71,4 @@ Não remova o grupo de recursos e o firewall ainda, se você planeja prosseguir 
 Em seguida, é possível monitorar os logs do Firewall do Azure:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: Monitore os logs do Firewall do Azure](./tutorial-diagnostics.md)

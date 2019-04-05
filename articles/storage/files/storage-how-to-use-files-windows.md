@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482123"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048836"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -40,6 +40,9 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 > [!Note]  
 > É sempre recomendável obter o KB mais recente para a sua versão do Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos 
 * **Nome da conta de armazenamento**: Para montar um compartilhamento de arquivos do Azure, você precisará do nome da conta de armazenamento.
 
@@ -47,13 +50,13 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 
 * **Verifique se a porta 445 está aberta**: O protocolo SMB requer a porta TCP 445 aberta; haverá falha de conexão se a porta 445 estiver bloqueada. Você pode verificar se o firewall está bloqueando a porta 445 com o cmdlet `Test-NetConnection`. Você pode aprender sobre [várias maneiras para solucionar esse problema bloqueado a porta 445 aqui](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    O código do PowerShell a seguir pressupõe que você tem o módulo do PowerShell AzureRM instalado; consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
+    O PowerShell a seguir código pressupõe que você tenha o módulo do Azure PowerShell instalado, consulte [instalar o Azure PowerShell módulo](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -222,7 +225,7 @@ Você pode selecionar **Abrir** para abrir um instantâneo específico.
 
 #### <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
 Selecione **Restaurar** para copiar o conteúdo do diretório inteiro recursivamente no momento da criação do instantâneo de compartilhamento para o local original.
- ![Botão Restaurar em mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Botão Restaurar na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Protegendo o Windows/Windows Server
 Para montar um compartilhamento de arquivos do Azure no Windows, a porta 445 deve estar acessível. Muitas organizações bloqueiam a porta 445 devido aos riscos de segurança inerentes ao protocolo SMB 1. SMB 1, também conhecido como CIFS (Common Internet File System), é um protocolo de sistema de arquivos herdados incluído no Windows e no Windows Server. O SMB 1 é um protocolo desatualizado, ineficiente e, o mais importante, não seguro. A boa notícia é que os arquivos do Azure não dão suporte a SMB 1 e todas as versões com suporte do Windows e do Windows Server possibilitam a remoção ou desabilitação do SMB 1. [Recomendamos sempre](https://aka.ms/stopusingsmb1) remover ou desabilitar o cliente e o servidor SMB 1 no Windows antes de usar os compartilhamentos de arquivos do Azure na produção.
@@ -296,9 +299,9 @@ Depois de criar essa chave do registro, você deverá reiniciar o servidor para 
 
 ### <a name="smb-resources"></a>Recursos de SMB
 - [Parar de usar protocolos SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [Produto SMB 1 Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Descobrir SMB 1 em seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Desabilitando o SMB 1 com Política de Grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [SMB 1 produto Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Descobrir protocolos SMB 1 em seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Desabilitando o SMB 1 por meio da diretiva de grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:

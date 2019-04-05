@@ -1,19 +1,18 @@
 ---
 title: Conectar-se ao Gerenciador de dados do Azure com o ODBC
 description: Neste passo a passo, você aprenderá como configurar uma conexão ODBC para o Data Explorer do Azure, em seguida, usar essa conexão para visualizar dados com o Tableau.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757618"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043874"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar-se ao Gerenciador de dados do Azure com o ODBC
 
@@ -101,6 +100,6 @@ Agora que você tiver terminado de configurar o ODBC, você pode colocar dados d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gravar consultas para Azure Data Explorer](write-queries.md)
+[Escrever consultas para o Azure Data Explorer](write-queries.md)
 
-[Tutorial: Visualizar dados do Azure Data Explorer no Power BI](visualize-power-bi.md)
+[Tutorial: Visualizar dados do Gerenciador de dados do Azure no Power BI](visualize-power-bi.md)

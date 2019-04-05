@@ -3,17 +3,17 @@ title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – atest
 description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o serviço de provisionamento de dispositivos de IoT.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971783"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050937"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -48,7 +48,7 @@ Estes são os componentes de cada token:
 
 | Valor | DESCRIÇÃO |
 | --- | --- |
-| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: a chave precisa ser decodificada da base64 antes de ser usada para executar o cálculo de HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
+| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave deve ser decodificada da base64 antes de serem usados para executar o cálculo de HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
 | {resourceURI} |O URI do ponto de extremidade de registro que pode ser acessado com esse token, começando com a ID do escopo da instância do serviço de provisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
 | {URL-encoded-resourceURI} |Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas |
@@ -114,6 +114,6 @@ Se as chaves de dispositivo não estiverem instaladas no alocador, um [HSM de m�
 
 Agora que você já entende um pouco sobre atestado de chave simétrica, confira os artigos a seguir para saber mais:
 
-* [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Início Rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * [Saiba mais sobre os conceitos de provisionamento automático](./concepts-auto-provisioning.md)
 * [Introdução ao uso do provisionamento automático](./quick-setup-auto-provision.md) 

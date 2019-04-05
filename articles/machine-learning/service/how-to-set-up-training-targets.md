@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122362"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046148"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
@@ -44,7 +44,7 @@ O Serviço do Azure Machine Learning tem suporte variado nos diferentes destinos
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Análise Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Lote do Azure](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -118,7 +118,10 @@ A Computação do Machine Learning do Azure tem limites padrão como o número d
 
 #### <a name="run-based-creation"></a>Criação baseada em execução
 
-É possível criar a Computação do Azure Machine Learning como um destino de computação em tempo de execução. A computação é criada automaticamente para a sua execução. O cluster é dimensionado até o número de **max_nodes** que você especificar na sua configuração de execução. A computação é excluída automaticamente depois de a execução ser concluída.
+É possível criar a Computação do Azure Machine Learning como um destino de computação em tempo de execução. A computação é criada automaticamente para a sua execução. A computação é excluída automaticamente depois de a execução ser concluída. 
+
+> [!NOTE]
+> Para especificar o número máximo de nós a serem usados, você normalmente definiria `node_count` para o número de nós. Atualmente, não há (04/04/2019) um bug que impede que esse trabalho. Como alternativa, use o `amlcompute._cluster_max_node_count` propriedade da configuração de execução. Por exemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > A criação baseada em execução da computação do Azure Machine Learning atualmente está em Versão Prévia. Não use a criação baseada em execução se você estiver usando o ajuste de hiperparâmetro ou o aprendizado de máquina automatizado. Para usar o ajuste de hiperparâmetro ou aprendizado de máquina automatizados, crie um destino de [computação persistente](#persistent) em vez disso.
@@ -415,7 +418,7 @@ Ou você pode:
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
 Veja estes notebooks para obter exemplos de treinamento com vários destinos de computação:
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [How-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
@@ -425,4 +428,4 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usar o Serviço do Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
+* [Usar o serviço Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

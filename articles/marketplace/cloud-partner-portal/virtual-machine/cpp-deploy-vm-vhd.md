@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106042"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046675"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
 
@@ -29,16 +29,17 @@ Depois de carregar seus discos rígidos virtuais (VHDs) - o VHD do sistema opera
 
 Para obter mais informações sobre imagens de VM consulte os posts de blog abaixo:
 
-- [Image da VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Guia do PowerShell da Imagem da VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Imagem de VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [PowerShell de imagem VM 'Como'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Pré-requisito: instalar as ferramentas necessárias
 
 Se você ainda não fez isso, instale o Azure PowerShell e CLI do Azure, usando as instruções a seguir:
 
-- [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
@@ -61,7 +62,7 @@ Depois que a VM for implantada, você estará pronto para [certificar a imagem d
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parâmetro**              |   **Descrição**                                                            |
+   |  **Parâmetro**              |   **DESCRIÇÃO**                                                            |
    |  -------------              |   ---------------                                                            |
    | Nome de Conta de Armazenamento do Usuário   | Nome da conta de armazenamento onde se encontra o VHD generalizado                    |
    | Nome do Contêiner de Armazenamento de Usuário | Nome do contêiner onde se encontra o VHD generalizado                          |

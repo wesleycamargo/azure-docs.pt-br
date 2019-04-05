@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008434"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047272"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar uploads de arquivo do Hub IoT usando o Portal do Azure
 
@@ -46,11 +46,11 @@ Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guia do desenvolvedor do IoT Hub](iot-hub-devguide.md)
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

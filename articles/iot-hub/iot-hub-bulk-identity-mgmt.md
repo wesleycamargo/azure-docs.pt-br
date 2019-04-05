@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010983"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049965"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades de dispositivo do IoT Hub em massa
 
 Cada hub IoT tem um registro de identidade que você pode usar para criar recursos por dispositivo no serviço. O registro de identidade também permite que você controle o acesso aos pontos de extremidade voltados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivo em massa bidirecionalmente em um registro de identidade.
 
@@ -255,13 +255,13 @@ Use a propriedade opcional **importMode** nos dados de serialização de importa
 
 | importMode | DESCRIÇÃO |
 | --- | --- |
-| **createOrUpdate** |Se não houver um dispositivo com a **id**especificada, isso significará que ele foi registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
-| **create** |Se não houver um dispositivo com a **id**especificada, isso significará que ele foi registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
-| **atualizar** |Se já existir um dispositivo com a **id** especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag**. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
-| **updateIfMatchETag** |Se já existir um dispositivo com a **id** especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência de **ETag**. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se não houver uma correspondência de **ETag** , um erro será gravado no arquivo de log. |
-| **createOrUpdateIfMatchETag** |Se não houver um dispositivo com a **id**especificada, isso significará que ele foi registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência de **ETag** . <br/>Se não houver uma correspondência de **ETag** , um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
-| **delete** |Se já existir um dispositivo com a **id** especificada, ele será excluído sem considerar o valor de **ETag**. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
-| **deleteIfMatchETag** |Se já existir um dispositivo com a **id** especificada, ele será excluído somente se houver uma correspondência de **ETag**. Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se não houver uma correspondência de ETag, um erro será gravado no arquivo de log. |
+| **createOrUpdate** |Se não existir um dispositivo com a especificada **ID**, foi registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
+| **create** |Se não existir um dispositivo com a especificada **ID**, foi registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
+| **atualizar** |Se já existir um dispositivo com o especificado **identificação**, informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar para o **ETag** valor. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
+| **updateIfMatchETag** |Se já existir um dispositivo com o especificado **identificação**, informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver um **ETag** corresponder. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se não houver uma correspondência de **ETag** , um erro será gravado no arquivo de log. |
+| **createOrUpdateIfMatchETag** |Se não existir um dispositivo com a especificada **ID**, foi registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência de **ETag** . <br/>Se não houver uma correspondência de **ETag** , um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
+| **excluir** |Se já existir um dispositivo com o especificado **identificação**, ele é excluído sem considerar a **ETag** valor. <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
+| **deleteIfMatchETag** |Se já existir um dispositivo com o especificado **identificação**, ele é excluído somente se houver um **ETag** corresponder. Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se não houver uma correspondência de ETag, um erro será gravado no arquivo de log. |
 
 > [!NOTE]
 > Se os dados de serialização não definirem explicitamente um sinalizador **importMode** para um dispositivo, eles usarão **createOrUpdate** como padrão durante a operação de importação.
@@ -419,13 +419,13 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 Neste artigo, você aprendeu a realizar operações em massa no registro de identidade em um Hub IoT. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guia do desenvolvedor do IoT Hub](iot-hub-devguide.md)
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 

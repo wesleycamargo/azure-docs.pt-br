@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ba4d25c749a1c1b99559ce4033fe90d671701d66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670499"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046471"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar logs do Azure Monitor para um cluster
 
@@ -29,6 +29,9 @@ Os logs do Azure Monitor é nossa recomendação para monitorar eventos de níve
 > Para configurar logs do Azure Monitor para monitorar seu cluster, você precisa ter o diagnóstico habilitado para exibir eventos de nível de cluster ou plataforma. Consulte [como configurar o diagnóstico em clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar o diagnóstico em clusters do Linux](service-fabric-diagnostics-oms-syslog.md) para obter mais informações
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Implantar um workspace do Log Analytics usando o Azure Marketplace
 
@@ -87,17 +90,17 @@ Você pode usar e modificar [este modelo de exemplo](https://github.com/Azure-Sa
 * Configura o workspace do Log Analytics para ler os eventos dessas tabelas
 
 
-Implante o modelo como uma atualização do Resource Manager no cluster usando a API `New-AzureRmResourceGroupDeployment` no módulo PowerShell do AzureRM. Um exemplo de comando pode ser:
+Você pode implantar o modelo como uma atualização do Gerenciador de recursos ao seu cluster usando o `New-AzResourceGroupDeployment` API no módulo do PowerShell do Azure. Um exemplo de comando pode ser:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
+New-AzResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
 ``` 
 
 O Azure Resource Manager detecta que esse comando é uma atualização de um recurso existente. Ele processa somente as alterações entre o modelo que gera a implantação existente e o novo modelo fornecido.
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Implantar os logs do Azure Monitor com o Azure PowerShell
 
-Você também pode implantar o recurso do log analytics por meio do PowerShell usando o `New-AzureRmOperationalInsightsWorkspace` comando. Para usar esse método, verifique se o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) está instalado. Use esse script para criar um novo workspace do Log Analytics e adicionar a solução do Service Fabric a ele: 
+Você também pode implantar o recurso do log analytics por meio do PowerShell usando o `New-AzOperationalInsightsWorkspace` comando. Para usar esse método, verifique se o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) está instalado. Use esse script para criar um novo workspace do Log Analytics e adicionar a solução do Service Fabric a ele: 
 
 ```powershell
 
@@ -108,18 +111,18 @@ $WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $SubID 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed
 try {
-    Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
+    Get-AzResourceGroup -Name $ResourceGroup -ErrorAction Stop
 } catch {
-    New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
+    New-AzResourceGroup -Name $ResourceGroup -Location $Location
 }
 
-New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
-Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
+New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 
 ```
 

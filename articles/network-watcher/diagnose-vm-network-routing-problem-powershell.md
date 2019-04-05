@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912843"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051607"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - Azure PowerShell
 
@@ -30,22 +30,26 @@ Neste artigo, você implanta uma VM (máquina virtual ) e, em seguida, verifica 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do AzureRM PowerShell versão 5.4.1 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo requer o Azure PowerShell `Az` módulo. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+
+
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Crie a VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Ao executar esta etapa, credenciais serão solicitadas de você. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM.
+Crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar esta etapa, credenciais serão solicitadas de você. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM.
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -59,18 +63,18 @@ Para testar a comunicação de rede com o Observador de Rede, primeiro habilite 
 
 ## <a name="enable-network-watcher"></a>Habilitar o observador de rede
 
-Se você já tiver um observador de rede habilitado na região Leste dos EUA, use [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) para recuperar o observador de rede. O seguinte exemplo recupera um observador de rede existente chamado *NetworkWatcher_eastus* que está no grupo de recursos *NetworkWatcherRG*:
+Se você já tiver um observador de rede habilitado na região Leste dos EUA, use [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) para recuperar o observador de rede. O seguinte exemplo recupera um observador de rede existente chamado *NetworkWatcher_eastus* que está no grupo de recursos *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Se você ainda não tiver um observador de rede habilitado na região Leste dos EUA, use [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) para criar um observador de rede na região Leste dos EUA:
+Se você ainda não tiver um observador de rede habilitado na região Leste dos EUA, use [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) para criar um observador de rede na região Leste dos EUA:
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
@@ -78,12 +82,12 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Usar próximo salto
 
-O Azure cria automaticamente as rotas para destinos padrão. Você pode criar rotas personalizadas que substituem as rotas padrão. Às vezes, as rotas personalizadas podem causar falha na comunicação. Para testar o roteamento de uma VM, use o comando [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) para determinar o próximo salto de roteamento quando o tráfego for destinado a um endereço específico.
+O Azure cria automaticamente as rotas para destinos padrão. Você pode criar rotas personalizadas que substituem as rotas padrão. Às vezes, as rotas personalizadas podem causar falha na comunicação. Para testar o roteamento de uma VM, use o [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) comando para determinar o próximo salto de roteamento ao tráfego é destinado a um endereço específico.
 
 Teste a comunicação de saída da VM para um dos endereços IP para www.bing.com:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -95,7 +99,7 @@ Após alguns segundos, a saída informa que o **NextHopType** é **Internet** e 
 Teste a comunicação de saída da VM em 172.31.0.100:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -106,10 +110,10 @@ A saída retornada informa que **Nenhum** é o **NextHopType** e que a **RouteTa
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 
-Para analisar o roteamento adicional, examine as rotas reais para a interface de rede com o comando [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable):
+Para analisar ainda mais o roteamento, examine as rotas efetivas para o adaptador de rede com o [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) comando:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveRouteTable `
+Get-AzEffectiveRouteTable `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup |
   Format-table
@@ -131,10 +135,10 @@ Como é possível ver na saída anterior, a rota com **AddressPrefix** de **0.0.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
+Quando não for mais necessário, você pode usar [AzResourceGroup remover](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

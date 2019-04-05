@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871055"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045757"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de gerenciamento
 Os grupos de gerenciamento do Azure fornecem a capacidade de gerenciar com eficiência o acesso, as políticas e os relatórios sobre grupos de assinaturas, bem como gerenciar com eficácia toda a propriedade do Azure executando ações no grupo de gerenciamento raiz. Cada locatário Azure AD recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento “raiz”. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo permite que políticas globais e atribuições de RBAC sejam aplicados no nível de diretório. 
@@ -188,8 +191,8 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
 Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 > [!div class="nextstepaction"]
-> [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)
+> [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
+> [Gerenciar e responder aos alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 

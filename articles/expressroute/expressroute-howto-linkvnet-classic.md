@@ -8,19 +8,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: bab38b98fa1f39691dfdeaf0b0492a2e3ed0df93
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116853"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045349"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [CLI do Azure](howto-linkvnet-cli.md)
-> * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Vídeo – portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -33,6 +33,9 @@ Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute. Todas 
 **Sobre modelos de implantação do Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
@@ -61,17 +64,17 @@ Para entrar na sua conta do Azure, use os seguintes exemplos:
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Verificar as assinaturas da conta.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.

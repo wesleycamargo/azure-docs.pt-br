@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863144"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046177"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteja seus recursos de rede na Central de Segurança do Azure
 A Central de Segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para as práticas recomendadas de segurança de rede. Quando o Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que guiam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -30,9 +30,10 @@ Este artigo aborda recomendações que se aplicam a seus recursos do Azure de um
 > A página **Rede** permite aprofundar a integridade dos recursos do Azure a partir de uma perspectiva de rede. O mapa de rede e os controles de rede adaptativos estão disponíveis apenas para a camada padrão da Central de Segurança do Azure. [Se você usar a camada gratuita, poderá clicar no botão para**Exibir rede legada**e receber recomendações de recursos de rede](#legacy-networking).
 >
 
-O **rede** folha fornece uma visão geral das seções, você pode aprofundar, para obter mais informações sobre a integridade de seus recursos de rede:
+A página **Rede** fornece uma visão geral das seções nas quais você pode aprofundar, para obter mais informações sobre a integridade dos recursos de sua rede:
 
 - Mapa de rede (apenas na camada Standard do Azure Security Center)
+- Proteção de rede adaptável
 - Recomendações de segurança de rede.
 - Herdado **rede** blade (rede folha anterior) 
  

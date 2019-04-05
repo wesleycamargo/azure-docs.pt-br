@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robin.shahan
-ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010779"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048955"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
 
@@ -83,7 +83,7 @@ Anote o valor da **connectionString**. Ele é necessário nas etapas a seguir.
       --connection-string "{your storage account connection string}"
     ```
 
-## <a name="file-upload"></a>Upload de arquivo
+## <a name="file-upload"></a>Upload de arquivos
 
 Agora é possível configurar o Hub IoT para permitir [upload de arquivos para o Hub IoT](iot-hub-devguide-file-upload.md) usando os detalhes da conta de armazenamento.
 
@@ -138,11 +138,11 @@ Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guia do desenvolvedor do IoT Hub](iot-hub-devguide.md)
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

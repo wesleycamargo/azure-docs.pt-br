@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891473"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051455"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
@@ -56,9 +56,8 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
     |__Alimentos__|Otimizado para fotografias de pratos como você os veria no menu de um restaurante. Caso queira classificar fotografias de frutas ou legumes individuais, use o domínio Alimentos.|
     |__Pontos de referência__|Otimizado para pontos de referência reconhecidos, tanto naturais quanto artificiais. Este domínio funciona melhor quando o ponto de referência está claramente visível na fotografia. Este domínio funciona mesmo quando o ponto de referência está um pouco obstruído devido a pessoas na frente dele.|
     |__Varejo__|Otimizado para imagens encontradas em um catálogo ou site de compras. Caso deseje uma classificação de alta precisão entre vestidos, calças e camisas, use esse domínio.|
-    |__Adulto__|Otimizado para oferecer uma melhor definição entre conteúdo adulto e não adulto. Por exemplo, se você quiser bloquear imagens de pessoas em trajes de banho, esse domínio permite que você crie um classificador personalizado para fazer isso.|
     |__Domínios compactos__| Otimizados para as restrições de classificação em tempo real em dispositivos móveis. Os modelos gerados por domínios compactos podem ser exportados para serem executados localmente.|
-    
+
 1. Por fim, selecione __Criar projeto__.
 
 ## <a name="choose-training-images"></a>Escolher imagens de treinamento

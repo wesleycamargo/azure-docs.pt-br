@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670924"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051947"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar para Novidades no Active Directory do Azure
 
@@ -372,7 +372,7 @@ Devido a nossa aplicação de segurança mais forte, foi necessário fazer uma a
 
 Se algum dos aplicativos usar APIs do Log de Atividades do Azure AD, siga estas etapas para garantir que o aplicativo não seja interrompido após a alteração.
 
-**Para atualizar as permissões do aplicativo**
+**Para atualizar suas permissões de aplicativo**
 
 1. Entre no portal do Azure, selecione **Active Directory do Azure**, e em seguida, selecione **Registros de Aplicativos**.
 2. Selecione seu aplicativo que usa a API de Logs de Atividade do Azure AD, selecione **Configurações**, selecione **Permissões necessárias**, e em seguida, selecione a **API do Windows Azure Active Directory**.
@@ -398,9 +398,9 @@ O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) determ
 
 Os navegadores desatualizados podem não suportar versões mais recentes do TLS, como o TLS 1.2. Para ver quais versões do TLS são suportadas pelo seu navegador, acesse o site [Qualys SSL Labs](https://www.ssllabs.com/) e clique em **Test your browser**. Recomendamos que você atualize para a versão mais recente do seu navegador da Web e, de preferência, ative somente o TLS 1.2.
 
-**Para ativar o TLS 1.2, pelo navegador**
+**Para habilitar o TLS 1.2, pelo navegador**
 
-- **Microsoft Edge e Internet Explorer (ambos são definidos usando o Internet Explorer)**
+- **Microsoft Edge e Internet Explorer (ambos são definidas usando o Internet Explorer)**
 
     1. Abra o Internet Explorer, selecione **Ferramentas** > **Opções da Internet**  >  **Avançadas**.
     2. Na área **Segurança**, selecione **use TLS 1.2** e, em seguida, selecione **OK**.
@@ -466,7 +466,7 @@ Para obter mais informações sobre o Azure AD Password Protection, consulte [El
 
 Durante a criação dos seus Termos de Uso (ToU), um novo modelo de política de acesso condicional também é criado para "todos os convidados" e "todos os aplicativos". Esse novo modelo de política aplica os ToU recém-criados, simplificando o processo de criação e execução para os convidados.
 
-Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -478,7 +478,7 @@ Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Activ
 
 Durante a criação dos seus Termos de Uso (ToU), um novo modelo de política de acesso condicional “personalizado” também é criado. Esse novo modelo de política permite criar o ToU e ir imediatamente para o blade de criação de política de acesso condicional, sem a necessidade de navegar manualmente pelo portal.
 
-Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -502,19 +502,19 @@ Para visualizar o guia de implantação do MFA, vá para o repositório [Guias d
 
 Os administradores agora podem delegar tarefas de gerenciamento de aplicativos sem atribuir a função de administrador global. As novas funções e capacidades são:
 
-- **Novas funções administrativas padrão do AD do Azure:**
+- **Novo padrão de funções de administrador do Azure AD:**
 
-    - **Administrador do Aplicativo.** Concede a capacidade de gerenciar todos os aspectos de todos os aplicativos, incluindo registro, configurações de SSO, atribuições de aplicativos e licenciamento, configurações de proxy de aplicativo e consentimento (exceto para recursos do Azure AD).
+    - **Administrador do aplicativo.** Concede a capacidade de gerenciar todos os aspectos de todos os aplicativos, incluindo registro, configurações de SSO, atribuições de aplicativos e licenciamento, configurações de proxy de aplicativo e consentimento (exceto para recursos do Azure AD).
 
-    - **Administrador do aplicativo na nuvem.** Concede todas as habilidades de Administrador do Aplicativo, exceto para o proxy de Aplicativo, porque ele não fornece acesso local.
+    - **Administrador de aplicativos de nuvem.** Concede todas as habilidades de Administrador do Aplicativo, exceto para o proxy de Aplicativo, porque ele não fornece acesso local.
 
     - **Desenvolvedor de aplicativos.** Concede a capacidade de criar registros de aplicativos, mesmo se a opção **permitir que os usuários registrem aplicativos** seja desativada.
 
-- **Propriedade (configure o registro por aplicativo e o aplicativo por empresa, semelhante ao processo de propriedade do grupo:**
+- **Propriedade (Configurar por aplicativo-enterprise e registro do aplicativo, semelhante ao processo de propriedade de grupo:**
  
-    - **Proprietário do registro do aplicativo.** Concede a capacidade de gerenciar todos os aspectos do registro de aplicativos de propriedade, incluindo o manifesto do aplicativo e a adição de outros proprietários.
+    - **Proprietário de registro do aplicativo.** Concede a capacidade de gerenciar todos os aspectos do registro de aplicativos de propriedade, incluindo o manifesto do aplicativo e a adição de outros proprietários.
 
-    - **Proprietário do aplicativo corporativo.** Concede a capacidade de gerenciar muitos aspectos de aplicativos corporativos próprios, incluindo configurações de SSO, designações de aplicativos e consentimento (exceto para recursos do Azure AD).
+    - **Proprietário do aplicativo Enterprise.** Concede a capacidade de gerenciar muitos aspectos de aplicativos corporativos próprios, incluindo configurações de SSO, designações de aplicativos e consentimento (exceto para recursos do Azure AD).
 
 Para obter mais informações sobre a visualização pública, consulte as [funções de gerenciamento de aplicativos delegados do Azure AD em pré-visualização pública!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Para obter mais informações sobre funções e permissões, consulte [Atribuindo funções de administrador no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
@@ -532,9 +532,9 @@ A oferta de Software como Serviço, como Azure AD (Azure Active Directory), foi 
 
 Enquanto estamos alterando nosso suporte, também sabemos que ainda há situações em que você poderá precisar usar um conjunto dedicado de circuitos para o tráfego de autenticação. Por esse motivo, o Azure AD continuará dando suporte a restrições de intervalo de IP por locatário usando o ExpressRoute e serviços já em emparelhamento da Microsoft com a comunidade "Outros serviços online do Office 365". Se seus serviços forem afetados, mas você precisar do ExpressRoute, deverá fazer o seguinte:
 
-- **Se estiver no emparelhamento público do Azure.** Vá para a Microsoft peering e inscreva-se na comunidade **Outros serviços do Office 365 Online (12076: 5100)**. Para obter mais informações sobre como passar do emparelhamento público do Azure para emparelhamento da Microsoft, consulte o artigo [Mover um emparelhamento público para o emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+- **Se você estiver no emparelhamento público do Azure.** Vá para a Microsoft peering e inscreva-se na comunidade **Outros serviços do Office 365 Online (12076: 5100)**. Para obter mais informações sobre como passar do emparelhamento público do Azure para emparelhamento da Microsoft, consulte o artigo [Mover um emparelhamento público para o emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 
-- **Se estiver no emparelhamento da Microsoft.** Inscreva-se na comunidade **Other Office 365 Online service (12076: 5100)**. Para obter mais informações sobre requisitos de roteamento, consulte a seção [Suporte comunidades BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) do artigo de requisitos de roteamento ExpressRoute.
+- **Se você estiver em emparelhamento da Microsoft.** Inscreva-se na comunidade **Other Office 365 Online service (12076: 5100)**. Para obter mais informações sobre requisitos de roteamento, consulte a seção [Suporte comunidades BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) do artigo de requisitos de roteamento ExpressRoute.
 
 Se você precisar continuar usando circuitos dedicados, fale com a equipe da sua conta da Microsoft sobre como obter autorização para usar a comunidade **Outros serviços online do Office 365 (12076:5100)**. O quadro de revisão gerenciado do MS Office verificará se você precisará desses circuitos e se reconhece as implicações técnicas de mantê-los. Assinaturas não autorizadas tentando criar filtros de rota para o Office 365 receberão uma mensagem de erro. 
  
@@ -739,7 +739,7 @@ Para obter mais informações, consulte:
  
 Agora os administradores podem selecionar um Termo de Uso determinado e ver todos os usuários que consentiram com ele e em que data/hora isso aconteceu.
 
-Para obter mais informações, consulte o [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou) (Recurso de termos de uso do Azure AD).
+Para obter mais informações, consulte o [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use) (Recurso de termos de uso do Azure AD).
 
 ---
  
@@ -782,7 +782,7 @@ Para obter mais informações, consulte [Configurando logon único para aplicati
 
 Os Termos de Uso do Azure AD foram movidos da visualização pública para geralmente disponíveis.
 
-Para obter mais informações, consulte o [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou) (Recurso de termos de uso do Azure AD).
+Para obter mais informações, consulte o [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use) (Recurso de termos de uso do Azure AD).
 
 ---
 
@@ -883,8 +883,8 @@ Alguns usuários não recebiam as notificações para aplicativos corporativos c
 
 Para obter mais informações, consulte:
 
-- [Gerenciar certificados para logon único federado no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
-- [Audit activity reports in the Azure Active Directory portal (Relatórios de atividades de auditoria no portal do Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+- [Gerenciar certificados para federados logon único no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Relatórios de atividades de auditoria no portal do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
  
@@ -906,7 +906,7 @@ Para saber mais, confira [O que é a colaboração B2B do Azure AD?](https://doc
 **Categoria de serviço:** Acesso Condicional  
 **Funcionalidade do produto:** Segurança de identidade e proteção
  
-**Agora, em visualização pública!**
+**Agora em visualização pública!**
 
 **SSO do Intune Managed Browser:** Seus funcionários podem usar o logon único em clientes nativos (como o Microsoft Outlook) e o Intune Managed Browser para todos os aplicativos conectados ao Azure AD.
 
@@ -916,9 +916,9 @@ Leia mais sobre isso em nossa [postagem no blog](https://cloudblogs.microsoft.co
 
 Para obter mais informações, consulte:
 
-- [Configurar acesso condicional com base no aplicativo](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Configurar o acesso condicional com base no aplicativo](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
-- [Configurar políticas do navegador gerenciado](https://aka.ms/managedbrowser)  
+- [Configurar políticas de navegador gerenciado](https://aka.ms/managedbrowser)  
 
 ---
  
@@ -1276,7 +1276,7 @@ As seguintes aplicações serão adicionadas até o final de fevereiro:
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Acesso condicional com base no aplicativo do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1388,7 +1388,7 @@ Como parte da transição para o novo console de administrador, disponibilizamos
 
 Para obter mais informações, consulte:
 
-- [Introdução à API de relatórios do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
+- [Introdução à API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
 - [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
@@ -1414,7 +1414,7 @@ Siga estas etapas:
 
 4. Agora, você pode ler os termos de uso que você aceitou. 
 
-Para obter mais informações, consulte o [Recurso de termos de uso do Azure AD (versão prévia)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte o [Recurso de termos de uso do Azure AD (versão prévia)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1454,7 +1454,7 @@ Uma opção para os administradores exige que seus usuários expandam os termos 
 
 Selecione **Ativado** ou **Desativado** para solicitar que os usuários expandam os termos de uso. A configuração **Ativado** exige que os usuários visualizem os termos de uso antes de aceitá-los.
 
-Para obter mais informações, consulte o [Recurso de termos de uso do Azure AD (versão prévia)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte o [Recurso de termos de uso do Azure AD (versão prévia)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1550,7 +1550,7 @@ Agora você pode configurar a seguinte condição para o acesso condicional base
 
 **Aplicativos cliente:** Navegador
 
-**Qual é o efeito da alteração?**
+**O que é o efeito da alteração?**
 
 Atualmente, o acesso está bloqueado quando essa condição é usada. Quando a versão prévia estiver disponível, todo o acesso exigirá o uso do aplicativo de navegador gerenciado. 
 
@@ -1574,7 +1574,7 @@ Os seguintes aplicativos estão na lista de [aplicativos do cliente aprovados](h
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Acesso condicional com base no aplicativo do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1660,7 +1660,7 @@ Para obter mais informações, consulte [Gerenciar dispositivos usando o portal 
 Agora você pode incluir (ou excluir) o macOS como uma condição de plataforma de dispositivo em sua política de acesso condicional do Azure AD. Com a adição do macOS às plataformas de dispositivos com suporte, você pode:
 
 - **Registrar e gerenciar dispositivos macOS usando o Intune.** Semelhante a outras plataformas como iOS e Android, um aplicativo do portal da empresa está disponível para o macOS para realizar registros unificados. Use o novo aplicativo do portal da empresa para o macOS para registrar um dispositivo no Intune e registrá-lo no Azure AD.
-- **Garantir que os dispositivos macOS seguem as políticas de conformidade de sua organização definidas no Intune.** No Intune no portal do Azure, agora você pode configurar políticas de conformidade para dispositivos macOS. 
+- **Certifique-se de que os dispositivos macOS seguem as políticas de conformidade da sua organização definidas no Intune.** No Intune no portal do Azure, agora você pode configurar políticas de conformidade para dispositivos macOS. 
 - **Restringir o acesso a aplicativos no Azure AD apenas a dispositivos macOS em conformidade.** A criação de política de acesso condicional traz o macOS como uma opção de plataforma de dispositivo separada. Agora, você pode criar políticas de acesso condicional específicas ao macOS para o conjunto de aplicativos direcionados no Azure.
 
 Para obter mais informações, consulte:
@@ -1695,7 +1695,7 @@ No centro de administração do Azure AD, agora você pode:
 - Restaurar um usuário excluído. 
 - Excluir permanentemente um usuário.
 
-**Para experimentar:**
+**Para testá-lo:**
 
 1. No centro de administração do Azure AD, selecione [Todos os usuários](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) na seção **Gerenciar**. 
 
@@ -1719,7 +1719,7 @@ Os seguintes aplicativos foram adicionados à lista de [aplicativos cliente apro
 Para obter mais informações, consulte:
 
 - [Requisito de aplicativo cliente aprovado](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acesso condicional com base no aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Acesso condicional com base no aplicativo do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1807,7 +1807,7 @@ Use os termos de uso do Azure AD nos seguintes cenários:
 - Termos de uso específicos com base nos atributos de um usuário (por exemplo, médicos versus enfermeiras ou funcionários nacionais vs. internacionais, feito por grupos dinâmicos)
 - Termos de uso específicos para acessar aplicativos de negócios de alto impacto, como o Salesforce
 
-Para obter mais informações, consulte [Termos de uso do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [Termos de uso do Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 

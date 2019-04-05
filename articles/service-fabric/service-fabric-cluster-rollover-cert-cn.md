@@ -14,15 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: e60eb33403b9c38972087706b9e62bc3578b97bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663869"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046352"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Sobrepor manualmente um certificado de cluster do Service Fabric
 Quando um certificado de cluster do Service Fabric está perto de expirar, é preciso atualizar o certificado.  A sobreposição do certificado é simples se o cluster foi [configurado para usar certificados com base em nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificação com uma nova data de expiração.  Não há suporte para certificados autoassinados em clusters de produção do Service Fabric, para a inclusão dos certificados gerados durante o fluxo de trabalho de criação do Cluster no portal do Azure. O novo certificado deve ter o mesmo nome comum do certificado mais antigo. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O cluster do Service Fabric usará automaticamente o certificado declarado com um adicional na data de término futura quando houver mais de um certificado válido instalado no host. Uma melhor prática é usar um modelo do Resource Manager para provisionar recursos do Azure. Para um ambiente de não produção, o seguinte script poderá ser usado para carregar um novo certificado para um cofre de chaves e, em seguida, instalar o certificado no conjunto de dimensionamento de máquinas virtuais: 
 
@@ -32,7 +34,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  <subscription ID>
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "keyvaultgroup"
@@ -44,10 +46,10 @@ $VmssResourceGroupName     = "sfclustertutorialgroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Get the key vault.  The key vault must be enabled for deployment.
-$keyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
+$keyVault = Get-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
 $resourceId = $keyVault.ResourceId  
 
 # Add the certificate to the key vault.
@@ -67,16 +69,16 @@ Write-Host "Common Name              :"  $CommName
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
-$certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
 
 # Get current VM scale set 
-$vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
 >[!NOTE]
@@ -84,5 +86,5 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Vi
 
 Para saber mais, leia o seguinte:
 * Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).
-* [Atualizar e gerenciar certificados do cluster](service-fabric-cluster-security-update-certs-azure.md)
+* [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 

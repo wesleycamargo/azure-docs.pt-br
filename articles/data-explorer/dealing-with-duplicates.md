@@ -1,21 +1,20 @@
 ---
-title: Lidar com dados duplicados
-description: Este tópico mostrará várias maneiras de lidar com dados duplicados
-services: data-explorer
+title: Lidar com dados duplicados no Gerenciador de dados do Azure
+description: Este tópico mostra várias abordagens para lidar com dados duplicados ao usar o Data Explorer do Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756367"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045774"
 ---
-# <a name="deal-with-duplicate-data"></a>Lidar com dados duplicados
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Lidar com dados duplicados no Gerenciador de dados do Azure
 
 Os dispositivo que enviam dados para a nuvem mantêm um cache local dos dados. Dependendo do volume dos dados, o cache local pode armazenar dados por dias, e até meses. Você deseja proteger os seus bancos de dados analíticos contra o funcionamento incorreto de dispositivos que reenviam os dados armazenados em cache e causam a duplicação dos dados no banco de dados analítico. Este tópico descreve as melhores práticas para tratar de dados duplicados nesses tipos de cenário.
 
@@ -123,4 +122,4 @@ A duplicação de dados pode ser tratada de várias maneiras. Avalie as opções
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Gravar consultas para Azure Data Explorer](write-queries.md)
+> [Escrever consultas para o Azure Data Explorer](write-queries.md)

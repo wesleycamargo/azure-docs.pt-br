@@ -1,19 +1,18 @@
 ---
 title: Monitorar o desempenho, integridade e uso com métricas do Data Explorer do Azure
 description: Saiba como usar as métricas de Data Explorer do Azure para monitorar o desempenho, integridade e uso do cluster.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851666"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050582"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorar o desempenho, integridade e uso com métricas do Data Explorer do Azure
 
@@ -43,15 +42,15 @@ No painel de métricas:
 
     **Métrica** | **Unidade** | **Agregação** | **Descrição da métrica**
     |---|---|---|---|
-    | Utilização do cache | Porcentagem | AVG, Max, Min | Taxa entre o tamanho de cache necessárias (de acordo com a política de cache definida) e o tamanho de cache total do cluster (tamanho total do SSD fornecido para a atividade do usuário). Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se o uso do cache média estiver acima de 80%, o cluster deve estar [escalado verticalmente](manage-cluster-scale-up.md) para um armazenamento com otimização de camada de preços ou [escalado horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Como alternativa, se adapte a política de cache (menos dias no cache). Se a utilização do cache é mais de 100%, o tamanho dos dados a ser armazenado, de acordo com a política de cache for maior do que o tamanho total do cache no cluster. |
-    | CPU | Porcentagem | AVG, Max, Min | Taxa entre o total de CPU usada e a CPU disponível em todo o cluster. Uma média de CPU de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é 100%, que significa que não há nenhum recurso de computação adicionais para processar dados. Quando um cluster não está sendo bem executado, verifique o valor máximo da CPU para determinar se há CPUs específicas que estão bloqueados. |
-    | Eventos processados (para os Hubs de eventos) | Contagem | Max, Min, Sum | Número total de eventos enviados pelos Hubs de eventos e recebidos pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceitos pelo mecanismo de cluster. |
-    | Latência de ingestão | Segundos | AVG, Max, Min | Latência de dados ingeridos desde o momento em que os dados foram recebidos do cluster até que ele esteja pronto para consulta. Latência de ingestão é medida em segundos. O período de latência de ingestão depende do cenário de ingestão. |
-    | Resultados de ingestão | Contagem | Contagem | Número total de operações de ingestão que falhou e foi bem-sucedida. Use **aplicam-se a divisão** criar buckets de sucesso e falha de resultados.|
-    | Utilização de ingestão | Porcentagem | AVG, Max, Min | Taxa entre os recursos reais usados para ingestão de dados e o total de recursos alocados na política de capacidade de fazer a ingestão. A política de capacidade padrão é não mais do que 512 operações de ingestão simultâneas ou 75% dos recursos do cluster investidos na ingestão. Utilização de ingestão de média de 80% ou menos é um estado sustentável para um cluster. O valor máximo de utilização de ingestão é 100%, o que significa que todas as capacidade de ingestão de cluster é usada e uma fila de ingestão pode resultar. |
-    | Volume de ingestão (em MB) | Contagem | Max, Min, Sum | O tamanho total dos dados ingeridos no cluster (em MB). As unidades são o número de MBs de dados ingeridos antes da compactação. |
+    | Utilização do cache | Porcentagem | AVG, Max, Min | Porcentagem de recursos do cache alocada atualmente em uso pelo cluster. Cache refere-se ao tamanho do SSD alocado para atividade de usuário de acordo com a política de cache definida. Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se o uso do cache média estiver acima de 80%, o cluster deve estar [escalado verticalmente](manage-cluster-scale-up.md) para um armazenamento com otimização de camada de preços ou [escalado horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Como alternativa, se adapte a política de cache (menos dias no cache). Se a utilização do cache é mais de 100%, o tamanho dos dados a ser armazenado, de acordo com a política de cache for maior do que o tamanho total do cache no cluster. |
+    | CPU | Porcentagem | AVG, Max, Min | Porcentagem de recursos de computação alocados atualmente em uso pelas máquinas no cluster. Uma média de CPU de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é 100%, que significa que não há nenhum recurso de computação adicionais para processar dados. Quando um cluster não está sendo bem executado, verifique o valor máximo da CPU para determinar se há CPUs específicas que estão bloqueados. |
+    | Eventos processados (para os Hubs de eventos) | Contagem | Max, Min, Sum | Número total de eventos de leitura dos hubs de eventos e processada pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceitos pelo mecanismo de cluster. |
+    | Latência de ingestão | Segundos | AVG, Max, Min | Latência de dados ingeridos, desde o momento em que os dados foram recebidos do cluster até que ele esteja pronto para consulta. O período de latência de ingestão depende do cenário de ingestão. |
+    | Resultados de ingestão | Contagem | Contagem | Número total de operações de ingestão que falhou e foi bem-sucedida. Use **aplicam-se a divisão** criar buckets de sucesso e falha de resultados e analisar as dimensões (**valor** > **Status**).|
+    | Utilização de ingestão | Porcentagem | AVG, Max, Min | Porcentagem de recursos reais usados para ingestão de dados de recursos total alocados na política de capacidade para realizar a ingestão. A política de capacidade padrão é não mais do que 512 operações de ingestão simultâneas ou 75% dos recursos do cluster investidos na ingestão. Ingestão de média de utilização de 80% ou menos é um estado sustentável para um cluster. Valor máximo de utilização de ingestão é 100%, o que significa que todas as capacidade de ingestão de cluster é usada e uma fila de ingestão pode resultar. |
+    | Volume de ingestão (em MB) | Contagem | Max, Min, Sum | O tamanho total dos dados ingeridos no cluster (em MB) antes da compactação. |
     | Keep alive | Contagem | Méd. | Controla a capacidade de resposta do cluster. Um cluster totalmente dinâmico retorna o valor 1 e um cluster desconectado ou bloqueado retornará 0. |
-    | Duração da consulta | Segundos | Count, Avg, Min, Max, Sum | Tempo total de até que os resultados da consulta são recebidos. |
+    | Duração da consulta | Segundos | Count, Avg, Min, Max, Sum | Total de tempo até que os resultados da consulta são recebidos (não inclui a latência de rede). |
     | | | |
 
     Informações adicionais sobre [métricas de cluster do Gerenciador de dados do Azure com suporte](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
@@ -69,4 +68,4 @@ Informações adicionais sobre como usar o [Metrics Explorer](/azure/azure-monit
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
+> [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)

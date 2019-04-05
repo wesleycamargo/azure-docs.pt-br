@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496914"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045075"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 Neste início rápido, você cria um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço do tipo **Messaging** com um SKU **Standard**. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager][Authoring Azure Resource Manager templates]. Para ver o modelo completo, confira o [Modelo de namespace do Barramento de Serviço][Service Bus namespace template] no GitHub.
@@ -27,24 +27,27 @@ Neste início rápido, você cria um modelo do Azure Resource Manager que cria u
 > [!NOTE]
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação. 
 > 
-> * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
-> * [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+> * [Criar um namespace do barramento de serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
+> * [Criar um namespace de barramento de serviço com a regra de autorização e de fila](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por Barramento de Serviço.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="quick-deployment"></a>Implantação rápida
 Para executar o exemplo sem gravar nenhum JSON nem executar o comando do PowerShell/CLI, selecione o botão a seguir:
 
-[![Implantar no Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Dmplantar para o Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Para criar e implantar o modelo manualmente, pesquise as seções a seguir deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
 
-Se você quiser usar **Azure PowerShell** para implantar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+Se você quiser usar **Azure PowerShell** para implantar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Se você quiser usar o **Azure CLI** para implantar o modelo do Resource Manager, [instale o Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -134,12 +137,12 @@ Crie um arquivo JSON denominado **MyServiceBusNamespace-Parameters.json** com o 
 2. Execute o comando a seguir para entrar no Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. Se você tiver emita os seguintes comandos para definir o contexto da assinatura atual:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="deploy-resources"></a>Implantação de recursos
@@ -156,12 +159,12 @@ Para implantar os recursos usando o Azure PowerShell, alterne para a pasta onde 
 2. Crie um grupo de recursos do Azure.
 
     ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 3. Implante o modelo do Resource Manager. Especifique os nomes de implantação propriamente dita, o grupo de recursos, o arquivo JSON para o modelo, o arquivo JSON para os parâmetros
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
     ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Use a CLI do Azure para implantar o modelo

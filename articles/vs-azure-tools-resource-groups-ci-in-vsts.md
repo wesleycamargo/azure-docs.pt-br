@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894142"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047307"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Azure DevOps Services usando projetos de implantação do Grupo de Recursos do Azure
 Para implantar um modelo do Azure, você pode executar tarefas em vários estágios: Compilar, testar, copiar para o Azure (também chamado de "Preparo") e implantar o modelo. Há duas maneiras diferentes de implantar modelos no Azure DevOps Services. Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
@@ -28,6 +28,8 @@ Para implantar um modelo do Azure, você pode executar tarefas em vários estág
 2. Adicione várias etapas de build do Azure DevOps Services, cada uma executando uma tarefa do estágio.
 
 Este artigo demonstra ambas as opções. A primeira opção tem a vantagem de usar o mesmo script usado pelos desenvolvedores no Visual Studio e fornecer consistência em todo o ciclo de vida. A segunda opção oferece uma alternativa conveniente para o script interno. Ambos os procedimentos supõem que você já tenha um projeto de implantação do Visual Studio no Azure DevOps Services.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Copiar artefatos para o Azure
 Independentemente do cenário, se você tiver quaisquer artefatos necessários para a implantação de modelo, será preciso conceder a eles acesso ao Azure Resource Manager. Esses artefatos podem incluir arquivos como:
@@ -87,7 +89,7 @@ Os procedimentos a seguir percorrer as etapas necessárias para configurar impla
       
       Para scripts do PowerShell, use:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Para a CLI do Azure, use:
       

@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112731"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044321"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Exibir a topologia de uma Rede Virtual do Azure
 
 Neste artigo, você aprenderá a exibir recursos em uma Rede Virtual do Microsoft Azure e as relações entre os recursos. Por exemplo, uma rede virtual contém sub-redes. Subredes contêm recursos, como as VMs (máquinas virtuais) do Azure. As VMs têm um ou mais adaptadores de rede. Cada sub-rede pode ter um Grupo de Segurança de Rede e uma tabela de rotas associada a ela. A funcionalidade de topologia do Observador de Rede do Azure permite exibir todos os recursos em uma rede virtual, os recursos associados com os recursos da rede virtual e as relações entre eles.
 
 É possível usar o [portal do Azure](#azure-portal), a [CLI do Azure](#azure-cli) ou o [PowerShell](#powershell) para exibir uma topologia.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>Exibir topologia – portal do Azure
 
@@ -85,38 +87,38 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
 
 É possível executar os comandos nestas etapas:
 - No Azure Cloud Shell, selecione **Experimente** na parte superior direita de qualquer comando. O Azure Cloud Shell é um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta.
-- Executar o PowerShell do seu computador. Se você executar o PowerShell do seu computador, as etapas neste artigo exigirão a versão 5.7.0 ou posterior do módulo AzureRm. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Executar o PowerShell do seu computador. Se você executar o PowerShell no seu computador, este artigo requer o Azure PowerShell `Az` módulo. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 A conta que você usa deve ter as [permissões](required-rbac-permissions.md) necessárias.
 
-1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Crie um grupo de recursos para conter um observador de rede com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
+1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Criar um grupo de recursos para conter um observador de rede com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
 
     ```azurepowershell-interactive
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
+    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Crie um observador de rede com [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
+2. Criar um observador de rede com [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
 
     ```azurepowershell-interactive
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_eastus `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Recupere uma instância do Observador de Rede com [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
+3. Recuperar uma instância do observador de rede com [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
 
     ```azurepowershell-interactive
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Recupere uma topologia com [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). O exemplo a seguir recupera uma topologia de rede virtual no grupo de recursos *MyResourceGroup*:
+4. Recuperar uma topologia com [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). O exemplo a seguir recupera uma topologia de rede virtual no grupo de recursos *MyResourceGroup*:
 
     ```azurepowershell-interactive
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

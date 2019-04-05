@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312267"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050638"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
@@ -37,7 +37,7 @@ Se a integridade do seu Gerenciador de Tráfego exibe um status **Inativo**, amb
 * Uma prática recomendada é definir o caminho de Investigação como algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao configurar o caminho como “/favicon.ico”, você está apenas testando se w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como “/Probe.aspx”, que tem lógica para determinar a integridade do site. Por exemplo, você poderá usar contadores de desempenho para a utilização da CPU ou medir o número de solicitações com falha. Se preferir, você poderá tentar acessar os recursos de banco de dados ou o estado de sessão para verificar se o aplicativo Web está funcionando.
 * Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de Tráfego tratará todos os pontos de extremidade como íntegros e encaminhará o tráfego para todos eles. Esse comportamento garante que os problemas com o mecanismo de investigação não resultam em uma interrupção completa do serviço.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno de código de status HTTP da URL de investigação. Há várias ferramentas disponíveis que mostram a resposta HTTP bruta.
 
@@ -78,18 +78,18 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
-[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
+[Sobre métodos de roteamento de tráfego do Gerenciador de tráfego](traffic-manager-routing-methods.md)
 
-[O que é o Gerenciador de Tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de tráfego](traffic-manager-overview.md)
 
 [Serviços de Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Serviço de aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Traffic Manager (referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
+[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

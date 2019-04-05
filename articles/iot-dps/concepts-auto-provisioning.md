@@ -3,23 +3,23 @@ title: Serviço de Provisionamento de Dispositivos no Hub IoT – conceitos de p
 description: Este artigo fornece uma visão geral conceitual das fases do provisionamento automático do dispositivo, usando o Serviço de Provisionamento de Dispositivos de IoT, Hub IoT e SDKs de cliente.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/01/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6ba21e29673da176c380d6b367e84b2ea7536955
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080024"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051726"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de provisionamento automático
 
 Conforme descrito na [Visão geral](about-iot-dps.md), o Serviço de Provisionamento de Dispositivo é um serviço auxiliar que permite o provisionamento just-in-time de dispositivos para um hub IoT, sem a necessidade de intervenção humana. Após a configuração bem-sucedida, os dispositivos conectam-se diretamente ao seu Hub IoT designado. Esse processo é conhecido como o provisionamento automático e fornece uma experiência de registro pronto e configuração inicial para dispositivos.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O provisionamento automático do Azure IoT pode ser dividido em três fases:
 
@@ -47,19 +47,19 @@ O provisionamento automático também coloca requisitos no fabricante do disposi
 
 Uma série de tutoriais são fornecidos no sumário à esquerda para ajudar a explicar o provisionamento automático através da experiência prática. Para facilitar/simplificar o processo de aprendizagem, o software é usado para simular um dispositivo físico para a inscrição e o registro. Alguns tutoriais exigem que você realize operações para várias funções, inclusive operações para funções inexistentes, devido à natureza simulada dos tutoriais.
 
-| Função | Operação | Descrição |
+| Função | Operação | DESCRIÇÃO |
 |------| --------- | ------------|
 | Fabricante | Codificação de identidade e URL de registro | Com base no mecanismo de atestado usado, o fabricante é responsável por codificar as informações de identidade do dispositivo e a URL de registro do Serviço de Provisionamento de Dispositivos.<br><br>**Início rápido**: como o dispositivo é simulado, não há nenhuma função de fabricante. Consulte a função de Desenvolvedor para obter detalhes sobre como você pode obter essas informações, que são usadas para codificar um aplicativo de registro de exemplo. |
 | | Forneça a identidade do dispositivo | Como a origem das informações de identidade do dispositivo, o fabricante é responsável por comunicá-las para o operador (ou um agente designado) ou registrá-lo diretamente para o Serviço de Provisionamento de Dispositivos por meio de APIs.<br><br>**Início rápido**: como o dispositivo é simulado, não há nenhuma função de fabricante. Consulte a função de operador para obter detalhes sobre como você pode obter a identidade do dispositivo, que é usada para inscrever um dispositivo simulado em sua instância de Serviço de Provisionamento de Dispositivos. |
 | Operador | Configurar o provisionamento automático | Esta operação corresponde à primeira fase do provisionamento automático.<br><br>**Guias de Início Rápido**: Execute a função de operador, configurando o Serviço de Provisionamento de Dispositivos e instâncias de Hub IoT em sua assinatura do Azure. |
 |  | Inscrever a identidade do dispositivo | Esta operação corresponde à segunda fase do provisionamento automático.<br><br>**Guias de Início Rápido**: Execute a função de operador, registrando seu dispositivo simulado em sua instância de Serviço de Provisionamento de Dispositivos. A identidade do dispositivo é determinada pelo método de atestado que está sendo simulado no Início Rápido (TPM ou X.509). Veja a função Desenvolvedor para obter detalhes do atestado. |
 | Serviço de provisionamento de dispositivo,<br>Hub IoT | \<todas as operações\> | Para uma implementação de produção com dispositivos físicos e guias de início rápido com dispositivos simulados, essas funções são realizadas por meio dos serviços de IoT que você configura na sua assinatura do Azure. As funções ou operações funcionam exatamente da mesma maneira, assim como os serviços IoT são indiferentes para o provisionamento de dispositivos físicos versus simulados. |
-| Desenvolvedor | Compilar/implantar o software de registro | Esta operação corresponde à terceira fase do provisionamento automático. O Desenvolvedor é responsável por criar e implantar o software de registro no dispositivo usando o SDK adequado.<br><br>**Guias de Início Rápido**: O aplicativo de registro de exemplo que você criar simula um dispositivo real, para a plataforma/linguagem de sua escolha, que é executado em sua estação de trabalho (em vez de implantá-lo em um dispositivo físico). O aplicativo de registro executa as mesmas operações que foram um implantadas em um dispositivo físico. Você especifica o método de atestado (certificado X.509 ou TPM), a URL de registro e o "Escopo da ID" da sua instância do Serviço de Provisionamento de Dispositivos. A identidade do dispositivo é determinada pela lógica de atestado de SDK em tempo de execução, com base no método que você especificar: <ul><li>**Atestado de TPM** – sua estação de trabalho de desenvolvimento executa um [aplicativo de simulador de TPM](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Quando em execução, um aplicativo separado é usado para extrair a "Chave de endosso" e a "ID do Registro" do TPM para uso no registro da identidade do dispositivo. A lógica de atestado do SDK também usa o simulador durante o registro, para apresentar um token de SAS assinado para autenticação e verificação de registro.</li><li>**Atestado X509** – use uma ferramenta para [gerar um certificado](how-to-use-sdk-tools.md#x509-certificate-generator). Uma vez gerado, crie o arquivo de certificado necessário para usar no registro. A lógica de atestado do SDK também usa o certificado durante o registro, para apresentar para autenticação e verificação de registro.</li></ul> |
-| Dispositivos | Inicializar e registrar | Esta operação corresponde à terceira fase do provisionamento automático realizada pelo software de registro de dispositivo criado pelo Desenvolvedor. Consulte a função Desenvolvedor para obter detalhes. Após a primeira inicialização: <ol><li>O aplicativo conecta-se com a instância do Serviço de Provisionamento de Dispositivos de acordo com a URL global e a "ID do escopo" do serviço especificado durante o desenvolvimento.</li><li>Uma vez conectado, o dispositivo é autenticado usando o método de atestado e a identidade especificada durante o registro.</li><li>Uma vez autenticado, o dispositivo é registrado com a instância do Hub IoT especificada pela instância do serviço de provisionamento.</li><li>Após o registro, uma ID de dispositivo exclusiva e o ponto de extremidade do Hub IoT são retornados para o aplicativo de registro para se comunicar com o Hub IoT.</li><li> A partir daí, o dispositivo pode extrair seu estado de [dispositivo gêmeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial para configuração e iniciar o processo de reportar dados telemétricos.</li></ol>**Início rápido**: como o dispositivo é simulado, o software de registro é executado em sua estação de trabalho de desenvolvimento.|
+| Desenvolvedores | Compilar/implantar o software de registro | Esta operação corresponde à terceira fase do provisionamento automático. O Desenvolvedor é responsável por criar e implantar o software de registro no dispositivo usando o SDK adequado.<br><br>**Guias de Início Rápido**: O aplicativo de registro de exemplo que você criar simula um dispositivo real, para a plataforma/linguagem de sua escolha, que é executado em sua estação de trabalho (em vez de implantá-lo em um dispositivo físico). O aplicativo de registro executa as mesmas operações que foram um implantadas em um dispositivo físico. Você especifica o método de atestado (certificado X.509 ou TPM), a URL de registro e o "Escopo da ID" da sua instância do Serviço de Provisionamento de Dispositivos. A identidade do dispositivo é determinada pela lógica de atestado de SDK em tempo de execução, com base no método que você especificar: <ul><li>**Atestado de TPM** – sua estação de trabalho de desenvolvimento executa um [aplicativo de simulador de TPM](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Quando em execução, um aplicativo separado é usado para extrair a "Chave de endosso" e a "ID do Registro" do TPM para uso no registro da identidade do dispositivo. A lógica de atestado do SDK também usa o simulador durante o registro, para apresentar um token de SAS assinado para autenticação e verificação de registro.</li><li>**Atestado X509** – use uma ferramenta para [gerar um certificado](how-to-use-sdk-tools.md#x509-certificate-generator). Uma vez gerado, crie o arquivo de certificado necessário para usar no registro. A lógica de atestado do SDK também usa o certificado durante o registro, para apresentar para autenticação e verificação de registro.</li></ul> |
+| Dispositivo | Inicializar e registrar | Esta operação corresponde à terceira fase do provisionamento automático realizada pelo software de registro de dispositivo criado pelo Desenvolvedor. Consulte a função Desenvolvedor para obter detalhes. Após a primeira inicialização: <ol><li>O aplicativo conecta-se com a instância do Serviço de Provisionamento de Dispositivos de acordo com a URL global e a "ID do escopo" do serviço especificado durante o desenvolvimento.</li><li>Uma vez conectado, o dispositivo é autenticado usando o método de atestado e a identidade especificada durante o registro.</li><li>Uma vez autenticado, o dispositivo é registrado com a instância do Hub IoT especificada pela instância do serviço de provisionamento.</li><li>Após o registro, uma ID de dispositivo exclusiva e o ponto de extremidade do Hub IoT são retornados para o aplicativo de registro para se comunicar com o Hub IoT.</li><li> A partir daí, o dispositivo pode extrair seu estado de [dispositivo gêmeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial para configuração e iniciar o processo de reportar dados telemétricos.</li></ol>**Início rápido**: como o dispositivo é simulado, o software de registro é executado em sua estação de trabalho de desenvolvimento.|
 
 O diagrama a seguir resume as funções e o sequenciamento das operações durante o provisionamento automático do dispositivo:
 <br><br>
-[![Sequência de provisionamento automático de um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
+[![Sequência de provisionamento automático para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Opcionalmente, o fabricante também pode executar a operação "Registrar a identidade do dispositivo" usando as APIs do Serviço de Provisionamento de Dispositivos (em vez de por meio do operador). Para obter uma discussão detalhada sobre esse sequenciamento e muito mais, veja o [Registro sem toque de dispositivos com vídeo IoT do Azure](https://youtu.be/cSbDRNg72cU?t=2460) (começando no marcador 41:00)
@@ -97,8 +97,8 @@ Pode ser útil marcar este artigo como um ponto de referência, enquanto você a
 
 Comece concluindo o Início Rápido "Configurar o provisionamento automático" que melhor se adapte a sua preferência de ferramenta de gerenciamento durante a fase de "Configuração do serviço":
 
-- [Configurar provisionamento automático usando CLI do Azure](quick-setup-auto-provision-cli.md)
-- [Configurar provisionamento automático usando o portal do Azure](quick-setup-auto-provision.md)
+- [Configurar o provisionamento automático usando a CLI do Azure](quick-setup-auto-provision-cli.md)
+- [Configurar o provisionamento automático usando o portal do Azure](quick-setup-auto-provision.md)
 - [Configurar o provisionamento automático usando um modelo do Resource Manager](quick-setup-auto-provision-rm.md)
 
 Em seguida, continue com um Início Rápido "Provisionamento automático de um dispositivo simulado" que atenda às seu mecanismo de atestado do dispositivo e a preferência de idioma/SDK do Serviço de Provisionamento de Dispositivos. Neste Início Rápido, você examina as fases "Registro do dispositivo" e "Registro e configuração do dispositivo": 

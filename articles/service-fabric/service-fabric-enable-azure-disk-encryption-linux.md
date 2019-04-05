@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: 3de26efb74b9349282d36beb94e8a2a269227fbf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488165"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046966"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Habilitar a criptografia de disco para nós de cluster do Linux do Service Fabric 
 > [!div class="op_single_selector"]
-> * [Criptografia de Disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
-> * [Criptografia de Disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Criptografia de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Criptografia de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
@@ -36,33 +36,36 @@ O guia aborda os seguintes procedimentos:
 * Etapas a serem seguidas antes para habilitar a criptografia de disco no conjunto de dimensionamento de máquinas virtuais do Cluster do Linux do Service Fabric.
 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Autorregistro** - Para ser usado, a visualização de criptografia de disco do conjunto de dimensionamento de máquinas virtuais exige o registro automático
 * Você pode autorregistrar sua assinatura executando as seguintes etapas: 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * Aguarde cerca de 10 minutos até que o estado seja “Registrado”. Você pode verificar o estado executando o seguinte comando: 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
-* **Azure Key Vault** - Crie um KeyVault na mesma assinatura e região como o conjunto de dimensionamento de máquinas virtuais e defina a política de acesso “EnabledForDiskEncryption” no KeyVault usando o cmdlet do PS. Você também pode definir a política usando a interface do usuário do KeyVault no Portal do Azure: 
+* **Azure Key Vault** - Crie um KeyVault na mesma assinatura e região como o conjunto de dimensionamento de máquinas virtuais e defina a política de acesso “EnabledForDiskEncryption” no KeyVault usando o cmdlet do PS. Você também pode definir a política usando a interface do usuário do KeyVault no portal do Azure: 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* Instale a [CLI do Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) mais recente, que tem os novos comandos de criptografia.
-* Instale a versão mais recente do [SDK do Azure a partir da versão do PowerShell](https://github.com/Azure/azure-powershell/releases). Estes são os cmdlets ADE para habilitar de conjunto de dimensionamento de máquinas virtuais ([definir](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) a criptografia, recuperar ([obter](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) status de criptografia e remover ([desabilitar](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) criptografia em escala instância do conjunto. 
+* Instalar a versão mais recente [CLI do Azure](/cli/azure/install-azure-cli) , que tem os novos comandos de criptografia.
+* Instale a versão mais recente do [SDK do Azure a partir da versão do PowerShell](https://github.com/Azure/azure-powershell/releases). Estes são os cmdlets ADE para habilitar de conjunto de dimensionamento de máquinas virtuais ([definir](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) a criptografia, recuperar ([obter](/powershell/module/az.compute/get-azvmssvmdiskencryption)) status de criptografia e remover ([desabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) criptografia em escala instância do conjunto. 
 
 | Comando | Versão |  Fonte  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 ou superior | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 ou superior | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou superior | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou superior | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 ou superior | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 ou superior | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 ou superior | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 ou superior | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Cenários com suporte para criptografia de disco
@@ -79,8 +82,8 @@ Use os seguintes comandos para criar o cluster e habilitar a criptografia de dis
 
 ```powershell
 
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -147,7 +150,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -184,11 +187,11 @@ Siga as etapas e diretrizes para [implantar o aplicativo no cluster](service-fab
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -206,9 +209,9 @@ Além do usuário pode entrar VM de Cluster do Linux e execute o comando LSBLK. 
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -223,7 +226,7 @@ A desabilitação da criptografia de disco se aplica a todo o conjunto de dimens
 ```powershell
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

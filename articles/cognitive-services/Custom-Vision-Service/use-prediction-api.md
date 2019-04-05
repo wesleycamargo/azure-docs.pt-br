@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895606"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046063"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar o modelo com a API de previsão
 
@@ -45,7 +45,7 @@ Depois que seu modelo tiver sido publicado, você pode recuperar as informaçõe
 ![A guia de desempenho é mostrada com um retângulo vermelho em torno do valor da URL de previsão para usar um arquivo de imagem e o valor de chave de previsão.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Sua __chave de previsão__ também podem ser encontradas na [Portal do Azure](https://portal.azure.com) página para o recurso do Azure de visão personalizada associados ao seu projeto, na __chaves__ folha.
+> Sua __chave de previsão__ também podem ser encontradas na [portal do Azure](https://portal.azure.com) página para o recurso do Azure de visão personalizada associados ao seu projeto, na __chaves__ folha.
 
 Neste guia, você usar uma imagem local, portanto, copie a URL sob **se você tiver um arquivo de imagem** para um local temporário. Copiar correspondente __chave de previsão__ valor também.
 

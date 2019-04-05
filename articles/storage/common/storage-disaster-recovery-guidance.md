@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486030"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051182"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastre e failover de conta de armazenamento (versão prévia) no Armazenamento do Azure
 
@@ -22,6 +22,9 @@ A Microsoft se empenha em garantir que os serviços do Azure estejam sempre disp
 O armazenamento do Azure dá suporte ao failover de conta (versão prévia) para contas de armazenamento com redundância geográfica. Com o failover de conta, é possível iniciar o processo de failover da conta de armazenamento, se o ponto de extremidade primário ficar indisponível. O failover atualiza o ponto de extremidade secundário para torná-lo um ponto de extremidade primário de sua conta de armazenamento. Quando o failover estiver concluído, os clientes poderão começar a gravar no novo ponto de extremidade primário.
 
 Este artigo descreve os conceitos e o processo envolvidos em um failover de conta e mostra como preparar sua conta de armazenamento para recuperação com o mínimo de impacto para o cliente. Para saber como iniciar um failover de conta no portal do Azure ou no PowerShell, confira o artigo sobre como [iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Escolhendo a opção de redundância correta
 
@@ -122,14 +125,14 @@ A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos d
 Para se registrar para a versão prévia, execute os seguintes comandos no PowerShell. Certifique-se de substituir o espaço reservado entre colchetes pela sua própria ID de assinatura:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Pode levar de um a dois dias para receber a aprovação para a versão prévia. Para verificar que seu registro foi aprovado, execute o seguinte comando:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Considerações adicionais 
@@ -176,6 +179,6 @@ Em circunstâncias extremas em que uma região for perdida devido a um desastre 
 
 ## <a name="see-also"></a>Consulte também
 
-* [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
-* [Criando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+* [Iniciar um failover de conta (visualização)](storage-initiate-account-failover.md)
+* [Projetar aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs](../blobs/storage-create-geo-redundant-storage.md) 

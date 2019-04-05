@@ -1,19 +1,18 @@
 ---
 title: Ingestão de dados do Azure Data Explorer
 description: Saiba mais sobre as diferentes maneiras de ingerir (carregar) com os dados no Azure Data Explorer
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
-ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/18/2019
+ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755766"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045587"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -91,7 +90,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 | Método | Latency |
 | --- | --- |
-| **Ingestão embutida** | Imediata |
+| **Ingestão de embutido** | Imediata |
 | **Ingestão de consulta** | Tempo de consulta + tempo de processamento |
 | **Ingestão de armazenamento** | Tempo de download + tempo de processamento |
 | **Ingestão na fila** | Tempo de envio em lote + tempo de processamento |
@@ -145,10 +144,10 @@ O mapeamento de esquema ajuda a associar os campos de dados de origem às coluna
 > [Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando a assinatura de Grade de Eventos no Azure Data Explorer](ingest-data-event-grid.md)
+> [Ingestão de dados usando a assinatura de grade de eventos no Data Explorer do Azure](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
+> [ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
 > [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)
@@ -157,7 +156,7 @@ O mapeamento de esquema ajuda a associar os campos de dados de origem às coluna
 > [Ingerir dados usando a biblioteca do Node do Azure Data Explorer](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+> [Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)
+> [ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)

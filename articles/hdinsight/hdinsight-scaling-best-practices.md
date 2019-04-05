@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316245"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050672"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
 
@@ -22,19 +22,22 @@ O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir 
 
 Por exemplo, se você tem algum processamento em lotes que ocorre uma vez por dia ou uma vez por mês, o cluster HDInsight pode ser escalonado verticalmente alguns minutos antes desse evento agendado para que haja memória e capacidade de computação de CPU suficientes.  Posteriormente, depois que o processamento for concluído e uso reduzir novamente, você poderá reduzir verticalmente o cluster HDInsight, obtendo menos nós de trabalho.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="utilities-to-scale-clusters"></a>Utilitários para dimensionar clusters
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitário | Descrição|
+|Utilitário | DESCRIÇÃO|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
 |[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[hdinsight AZ redimensionar](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) – grupo de recursos \<grupo de recursos > – nome \<nome do Cluster >-contagem de instância de destino \<NewSize >|
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|redimensionamento do cluster hdinsight do Azure \<clusterName > \<contagem de instâncias de destino >|
 |[Portal do Azure](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do Cluster** no menu à esquerda, em seguida, no painel de tamanho do Cluster, digite o número de nós de trabalho e selecione Salvar.|  
 
-![Dimensionar cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Dimensionar Cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Usando qualquer um desses métodos, você pode aumentar ou reduzir verticalmente seu cluster HDInsight em apenas alguns minutos.
 
@@ -72,7 +75,7 @@ Para eliminar manualmente o aplicativo que está em execução, execute o seguin
 yarn application -kill <application_id>
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -151,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo de seguro desativado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> A opção `-D` é necessária porque o sistema de arquivos padrão no HDInsight é o Armazenamento do Microsoft Azure ou o Azure Data Lake Storage. `-D` especifica que os comandos são executados no sistema de arquivos do HDFS local.
+> A opção `-D` é necessária porque o sistema de arquivos padrão no HDInsight é o Armazenamento do Microsoft Azure ou o Azure Data Lake Storage. `-D` Especifica que os comandos são executados no sistema de arquivos HDFS local.
 
 Em seguida, você pode exibir um relatório que mostra os detalhes do estado do HDFS:
 
@@ -324,6 +327,6 @@ A opção final é observar as raras ocasiões em que o HDFS entra em modo de se
     
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
+* [Introdução ao HDInsight do Azure](hadoop/apache-hadoop-introduction.md)
 * [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)

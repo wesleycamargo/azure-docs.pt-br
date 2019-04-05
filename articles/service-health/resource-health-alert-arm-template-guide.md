@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663427"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047510"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
@@ -22,30 +22,32 @@ O Azure Resource Health mantém você informado sobre o status de integridade at
 > [!NOTE]
 > Alertas de integridade do recurso estão atualmente em visualização.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir as instruções nesta página, você precisará configurar algumas coisas antecipadamente:
 
-1. Você precisa instalar o [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. Você precisa instalar o [módulo PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Você precisará [criar ou reutilizar um Grupo de Ações](../azure-monitor/platform/action-groups.md) configurado para notificar você
 
 ## <a name="instructions"></a>Instruções
 1. Usando o PowerShell, faça logon no Azure usando sua conta e selecione a assinatura com a qual você deseja interagir
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > Você pode usar `Get-AzureRmSubscription` para listar as assinaturas as quais você tem acesso.
+    > Você pode usar `Get-AzSubscription` para listar as assinaturas as quais você tem acesso.
 
 2. Localize e salve a ID completa do Azure Resource Manager para seu Grupo de Ações
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Crie e salve um modelo do Resource Manager para alertas do Resource Health conforme `resourcehealthalert.json` ([veja os detalhes abaixo](#resource-manager-template-for-resource-health-alerts))
 
 4. Crie uma nova implantação do Azure Resource Manager usando este modelo
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Você será solicitado a digitar o nome do alerta e ID de recurso do Grupo de Ações que você copiou anteriormente:
 
@@ -162,7 +164,7 @@ E, para um escopo de nível de recursos, a seção de escopos deve se parecer co
 ],
 ```
 
-Por exemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Por exemplo:  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Você pode acessar o portal do Azure e examinar a URL ao exibir o recurso do Azure para obter essa cadeia de caracteres.
 
@@ -430,4 +432,4 @@ Saiba mais sobre o Resource Health:
 -  [Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health](resource-health-checks-resource-types.md)
 
 Criar alertas de Integridade do Serviço:
--  [Configurar alertas para a Integridade do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurar alertas de integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099389"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051573"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
 O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as configurações estiverem incorretas, haverá perda da conectividade e, até então, a resolução desses problemas não era algo trivial e geralmente levava horas para identificar e corrigir o problema.
 
 Com o recurso de solução de problemas do Observador de Rede do Azure, é possível diagnosticar problemas com seu Gateway e Conexões e, em poucos minutos, obter informações suficientes para tomar uma decisão informada para corrigir o problema.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -42,7 +45,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 
 ### <a name="ike-phase-1-setup"></a>Fase 1 da configuração IKE
 
-| **Propriedade** | **PolicyBased** | **Gateway de VPN RouteBased e Standard ou de Alto Desempenho** |
+| **Propriedade** | **PolicyBased** | **Gateway de VPN RouteBased e Standard ou alto desempenho** |
 | --- | --- | --- |
 | Versão IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
@@ -57,7 +60,7 @@ Esses problemas são difíceis de solucionar e as causas principais geralmente s
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Solução de problemas usando o Observador de Rede do Azure
 
-Para diagnosticar a conexão, conecte-se ao Azure PowerShell e inicie o cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Você pode encontrar os detalhes sobre como usar esse cmdlet em [Conexões e Solução de Problemas do Gateway de Rede Virtual - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Esse cmdlet pode levar vários minutos para ser concluído.
+Para diagnosticar a conexão, conecte-se ao Azure PowerShell e inicie o cmdlet `Start-AzNetworkWatcherResourceTroubleshooting`. Você pode encontrar os detalhes sobre como usar esse cmdlet em [Conexões e Solução de Problemas do Gateway de Rede Virtual - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Esse cmdlet pode levar vários minutos para ser concluído.
 
 Após a conclusão do cmdlet, navegue até o local de armazenamento especificado no cmdlet para obter informações detalhadas sobre o problema e os logs. O Observador de Rede do Azure cria uma pasta zip que contém os seguintes arquivos de log:
 
@@ -80,7 +83,7 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |SIM|
+| NoFault | Quando nenhum erro é detectado. |Sim|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não |
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não |
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não  |
@@ -88,26 +91,26 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | PlatformInActive | Há um problema com a plataforma. | Não |
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não |
 | NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não |
-| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| SIM|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | SIM |
+| ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado. |SIM|
+| NoFault | Quando nenhum erro é detectado. |Sim|
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não |
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não |
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não  |
 | VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não  |
 | ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não  |
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não |
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | SIM |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| SIM|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | SIM|
-| PeerReachability | O gateway correspondente não está acessível. | SIM|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | SIM|
-| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |SIM|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Authentication | Incompatibilidade de chave pré-compartilhada. | Sim|
+| PeerReachability | O gateway correspondente não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 

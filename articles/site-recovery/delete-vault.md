@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f5ce1fa46206588a1c84388b8d543051f97919a3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449182"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045517"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação de Site
 
 Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações que você precisa realizar variam de acordo com o cenário do Site Recovery. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery 
 Para excluir o cofre, siga as etapas recomendadas para seu cenário.
@@ -65,12 +65,12 @@ Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 
 Para excluir o cofre o Azure Site Recovery, mesmo se houver itens protegidos, use estes comandos:
 
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionName "XXXXX"
+    Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
+    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmRecoveryServicesVault -Vault $vault
+    Remove-AzRecoveryServicesVault -Vault $vault
 
-Saiba mais sobre [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault), e [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault).
+Saiba mais sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), e [AzRecoveryServicesVault remover](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

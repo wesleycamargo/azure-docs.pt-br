@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539013"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049414"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
 
@@ -25,11 +25,11 @@ Encontre respostas para perguntas frequentes sobre conceitos, código e cenário
 
 Os cabeçalhos a seguir podem ocorrer nas respostas da API de Pesquisa de Imagem do Bing.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|A ID exclusiva que o Bing atribuiu ao usuário|
-|`BingAPIs-Market`|O mercado que foi usado para atender à solicitação|
-|`BingAPIs-TraceId`|A entrada de log no servidor da API do Bing para esta solicitação (para suporte)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |A ID exclusiva que o Bing atribuiu ao usuário |
+| `BingAPIs-Market`   |O mercado que foi usado para atender à solicitação |
+| `BingAPIs-TraceId`  |A entrada de log no servidor da API do Bing para esta solicitação (para suporte) |
 
 É particularmente importante persistir a ID do cliente e retorná-la com solicitações subsequentes. Quando você fizer isso, a pesquisa usará o contexto passado na classificação dos resultados da pesquisa e também fornecerá uma experiência de usuário consistente.
 

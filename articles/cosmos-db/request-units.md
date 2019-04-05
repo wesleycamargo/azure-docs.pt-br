@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762966"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047306"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Enquanto você estima o número de RUs por segundo para provisionar, considere o
 * Saiba mais sobre como [dimensionar taxa de transferência provisionada globalmente](scaling-throughput.md).
 * Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 * Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
+* Saiba como [localizar o encargo de unidades de solicitação para uma operação](find-request-unit-charge.md).
 * Saiba como [otimizar o custo de taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md).
 * Saiba como [otimizar leituras e gravações de custo no Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Saiba como [otimizar o custo da consulta no Azure Cosmos DB](optimize-cost-queries.md).

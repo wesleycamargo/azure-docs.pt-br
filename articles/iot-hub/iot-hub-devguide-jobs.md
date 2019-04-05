@@ -3,17 +3,17 @@ title: Entender os trabalhos de Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor – agendar trabalhos para execução em vários dispositivos conectados ao seu Hub IoT. Os trabalhos podem atualizar marcações e propriedades desejadas e invocar métodos diretos em vários dispositivos.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011357"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044365"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
 
@@ -32,7 +32,7 @@ Considere o uso de trabalhos quando precisar agendar e acompanhar o andamento de
 Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT. Você pode iniciar um trabalho por meio de um URI voltado para o serviço (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) e consultar o andamento de um trabalho em execução por meio de um URI voltado para o serviço (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Para atualizar o status de trabalhos em execução quando um trabalho é iniciado, execute uma consulta de trabalho.
 
 > [!NOTE]
-> Quando você inicia um trabalho, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Quando você inicia um trabalho, valores e nomes de propriedade só podem conter imprimíveis US-ASCII alfanuméricos, exceto pelo conjunto a seguir: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Trabalhos para execução de métodos diretos
 
@@ -113,12 +113,12 @@ O continuationToken é fornecido pela resposta.
 
 A lista a seguir mostra as propriedades e descrições correspondentes que podem ser usadas durante a consulta por trabalhos ou por resultados do trabalho.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | **jobId** |ID fornecida pelo aplicativo para o trabalho. |
 | **startTime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
 | **endTime** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
-| **tipo** |Tipos de trabalhos: |
+| **Tipo** |Tipos de trabalhos: |
 | | **scheduledUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades desejadas ou marcas. |
 | | **scheduledDeviceMethod**: Um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. |
 | **status** |Estado atual do trabalho. Valores possíveis para o status: |

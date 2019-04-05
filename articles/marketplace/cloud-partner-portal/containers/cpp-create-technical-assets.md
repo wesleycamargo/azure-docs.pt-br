@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 56de300a95d750957494865f9871127b2a9c8283
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980096"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047357"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Prepare seus recursos técnicos de contêiner
 
@@ -45,7 +45,7 @@ Além do domínio da solução, a equipe de engenharia deverá ter conhecimento 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar sua imagem do contêiner:
 
--   [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
+-   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 -   [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento:
