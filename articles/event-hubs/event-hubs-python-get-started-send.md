@@ -1,6 +1,6 @@
 ---
 title: Enviar eventos usando Python – Hubs de Eventos do Azure | Microsoft Docs
-description: Esse artigo apresenta instruções passo a passo para a criação de um aplicativo Node.js que envia eventos para Hubs de Eventos do Azure.
+description: Este artigo fornece um passo a passo para criar um aplicativo Python que envia eventos para Hubs de eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2168fc89134615ffb4e0e718cc0cc27b8c1a7839
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102972"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262764"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Enviar eventos para Hubs de eventos usando o Python
 

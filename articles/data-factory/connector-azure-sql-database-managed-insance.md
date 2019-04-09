@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903378"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272199"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -83,7 +83,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 }
 ```
 
-**Exemplo 2: Use a autenticação SQL com senha no Azure Key Vault**
+**Exemplo 2: Usar autenticação do SQL com senha no Azure Key Vault**
 
 ```json
 {
@@ -112,7 +112,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 }
 ```
 
-**Exemplo 3: Usar autenticação do Windows**
+**Exemplo 3: Usar a autenticação do Windows**
 
 ```json
 {
@@ -282,7 +282,7 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do coletor de atividade de cópia deve ser definida como **SqlSink**. | Sim. |
-| writeBatchSize |Essa propriedade insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são inteiros para o número de linhas. |Não (padrão: 10.000). |
+| writeBatchSize |Número de linhas para inserções na tabela SQL **por lote**.<br/>Os valores permitidos são inteiros para o número de linhas. |Não (padrão: 10.000). |
 | writeBatchTimeout |Essa propriedade especifica o tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00", que são 30 minutos. | Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia a ser executada antes da gravação de dados na instância gerenciada. É chamado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não. |
 | sqlWriterStoredProcedureName |Esse nome é para o procedimento armazenado que define como aplicar dados de origem na tabela de destino. Exemplos de procedimentos são fazer upserts ou transformações usando sua própria lógica de negócios. <br/><br/>Este procedimento armazenado é *chamado por lote*. Para fazer uma operação executada apenas uma vez e que não tenha relação alguma com os dados de origem, por exemplo, excluir ou truncar, use a propriedade `preCopyScript`. | Não. |
@@ -408,7 +408,7 @@ Observe que a tabela de destino tem uma coluna de identidade.
 }
 ```
 
-**Definição de JSON do conjunto de dados de destino**
+**Definição de JSON de conjunto de dados de destino**
 
 ```json
 {
@@ -438,9 +438,9 @@ Quando dados são copiados para a Instância Gerenciada do Banco de Dados SQL do
 
 Você pode usar um procedimento armazenado quando os mecanismos internos de cópia não atendem à finalidade. Normalmente são usados quando um upsert (atualização + inserção) ou processamento extra deve ser feito antes da inserção final dos dados de origem na tabela de destino. Processamento extra pode incluir tarefas como mesclar colunas, pesquisar valores adicionais e inserir em várias tabelas.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela na instância gerenciada. O exemplo presume que os dados de entrada e tabela "Marketing" do coletor têm, cada um, três colunas: ProfileID, Estado e Categoria. Execute o upsert com base na coluna ProfileID e aplique a somente uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no banco de dados do SQL Server. Supondo que os dados de entrada e cada tabela **Marketing** do coletor tenham três colunas: **ProfileID**, **State** e **Category**. Faça o upsert com base na coluna **ProfileID** e aplique-o apenas a uma categoria específica.
 
-**Conjunto de dados de saída**
+**Conjunto de dados de saída:** "tableName" deve ser o mesmo nome de parâmetro de tipo de tabela em seu procedimento armazenado (veja abaixo o script de procedimento armazenado).
 
 ```json
 {
@@ -459,7 +459,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
 }
 ```
 
-Defina a seção SqlSink na atividade de cópia conforme demonstrado a seguir:
+Definir as **coletor SQL** seção na atividade de cópia da seguinte maneira.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Defina a seção SqlSink na atividade de cópia conforme demonstrado a seguir:
 }
 ```
 
-No banco de dados, defina o procedimento armazenado com o mesmo nome que SqlWriterStoredProcedureName. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado deve ser o mesmo que o "tableName" definido no conjunto de dados.
+Em seu banco de dados, defina o procedimento armazenado com o mesmo nome que o **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da sua origem especificada e mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado deve ser o mesmo que o **tableName** definido no conjunto de dados.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

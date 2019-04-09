@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284999"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264889"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -30,6 +30,8 @@ Todos os usuários têm uma única *doméstica* diretório para autenticação. 
 
 > [!Important]
 > Ao associar uma assinatura para um diretório diferente, os usuários que têm funções atribuídas usando [controle de acesso baseado em função (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão o acesso. Os administradores de assinatura clássicos (administrador de serviços e Coadministradores) também perderá o acesso.
+> 
+> Além disso, movendo seu cluster do serviço de Kubernetes do Azure (AKS) para uma assinatura diferente ou movendo a assinatura proprietária de cluster para um novo locatário, faz com que o cluster perca a funcionalidade devido a direitos de entidades de serviço e de atribuições de função perdido. Para obter mais informações sobre o AKS, consulte [serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -67,15 +69,16 @@ Antes de associar ou adicionar sua assinatura, você deve executar as seguintes 
 
     ![Página do seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de faturamento da assinatura para um novo Administrador de conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
+A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de faturamento da assinatura para um novo Administrador de conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Etapas de associação de postagem
-
 Depois de associar uma assinatura para um diretório diferente, pode haver etapas adicionais que você deve executar para retomar as operações.
 
 1. Se você tiver qualquer cofres de chaves, você deve alterar a ID de locatário do Cofre de chaves. Para obter mais informações, consulte [alterar uma ID de locatário do Cofre de chaves depois de mover uma assinatura](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Se você tiver registrado uma pilha do Azure usando essa assinatura, você deve registrar novamente. Para obter mais informações, consulte [registrar o Azure Stack com o Azure](../../azure-stack/azure-stack-registration.md).
+2. Se você tiver registrado uma pilha do Azure usando essa assinatura, você deve registrar novamente. Para obter mais informações, consulte [registrar o Azure Stack com o Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

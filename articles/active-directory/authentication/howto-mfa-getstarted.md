@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892204"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269020"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planejamento de uma autenticação de multifator baseado em nuvem do Azure
 
@@ -60,8 +60,14 @@ Autenticação multifator do Azure é implantada pela imposição de políticas 
 * Dispositivo em conformidade
 * Dispositivo adicionado ao Azure AD híbrido
 * Aplicativo cliente aprovado
+ 
+
+Use os modelos de email e cartazes personalizáveis [materiais de distribuição de autenticação multifator] para implementar a autenticação multifator para sua organização. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Habilitar Autenticação Multifator com acesso condicional
 
 Políticas de acesso condicional impõem o registro, exigindo que os usuários não registrados concluir o registro na primeira entrada, uma consideração de segurança importante.
+
 
 [O Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribui para uma política de registro e as políticas de detecção e correção de risco automatizada na história da autenticação multifator do Azure. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir MFA quando uma entrada é considerado arriscado pelos seguintes [eventos](../reports-monitoring/concept-risk-events.md):
 
@@ -303,7 +309,7 @@ Autenticação multifator do Azure fornece relatórios por meio do portal do Azu
 
 Encontre soluções para problemas comuns com o Azure MFA na [artigo de solução de problemas do Azure a autenticação multifator](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) sobre o Microsoft Support Center.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Quais são os métodos de autenticação?](concept-authentication-methods.md)
 * [Habilitar o registro convergido para redefinição de senha self-service de autenticação multifator do Azure e o Azure AD](concept-registration-mfa-sspr-converged.md)

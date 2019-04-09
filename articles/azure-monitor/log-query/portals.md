@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
-ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110754"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259024"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Exibir e analisar dados de log no Azure Monitor
 O Log Analytics é a experiência principal para trabalhar com os dados de log e criar consultas no Azure Monitor. Abra o Log Analytics em **Logs** no menu do **Azure Monitor**. Você pode obter uma apresentação para este portal e inspecionar os recursos na [Introdução ao Log Analytics no portal do Azure](get-started-portal.md).
@@ -39,7 +39,7 @@ O Log Analytics fornece os seguintes recursos para trabalhar com consultas de lo
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### <a name="resource-logs"></a>Logs de recursos
+## <a name="resource-logs"></a>Logs de recursos
 O Log Analytics integra-se com diversos recursos do Azure como máquinas virtuais. Isso significa que você pode abrir o Log Analytics diretamente por meio do menu de monitoramento do recurso sem alternar para o Azure Monitor e perder o contexto do recurso. **Logs** ainda não foi habilitada para todos os recursos do Azure, mas ela começará a aparecer no menu do portal para tipos de recursos diferentes.
 
 Ao abrir o Log Analytics de um recurso específico, ele é analisado automaticamente para fazer registros somente desse recurso.   Se você quiser escrever uma consulta que inclua outros registros, precisará abri-la no menu do Azure Monitor.
@@ -52,7 +52,7 @@ As opções a seguir ainda não estão disponíveis por meio do modo de exibiç�
 - Alternar para o workspace/recurso diferente (não planejado no momento)
 
 
-### <a name="firewall-requirements"></a>Requisitos de firewall
+## <a name="firewall-requirements"></a>Requisitos de firewall
 Seu navegador requer acesso aos endereços a seguir para acessar o Log Analytics.  Se seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
 
 | Uri | IP | Portas |
@@ -60,14 +60,6 @@ Seu navegador requer acesso aos endereços a seguir para acessar o Log Analytics
 | portal.loganalytics.io | Dinâmico | 80.443 |
 | api.loganalytics.io    | Dinâmico | 80.443 |
 | docs.loganalytics.io   | Dinâmico | 80.443 |
-
-
-## <a name="log-search-classic"></a>Pesquisa de logs (clássica)
-A Pesquisa de Logs é a experiência herdada no portal do Azure para consultar e analisar dados de log no Azure Monitor. Ela será desativada em breve, mas no momento, ainda está disponível. Abra a Pesquisa de Logs em **Logs (clássico)** no menu do Log Analytics.
-
-
-
-![Pesquisa de log](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

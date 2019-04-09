@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883931"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264079"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -61,7 +61,8 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. O limite de tamanho para esse parâmetro é de 100 caracteres. |
 | x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
-| time-generated-field |O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
+| x-ms-AzureResourceId | ID de recurso do recurso do Azure, os dados deve estar associado. Isso preenche o [_ResourceId](log-standard-properties.md#_resourceid) propriedade e permite que os dados a serem incluídos no [centrados no recurso](manage-access.md#access-modes) consultas. Se esse campo não for especificado, os dados não serão incluídos em consultas centrados no recurso. |
+| time-generated-field | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
 Todas as solicitações para a API do Coletor de Dados HTTP do Azure Monitor devem incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o workspace que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
@@ -480,7 +481,7 @@ Embora a API do coletor de dados deve abranger a maioria das suas necessidades p
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Gerenciador de dados do Azure (ADX) é a plataforma de dados que habilita a análise do Application Insights e Logs do Azure Monitor. Agora geralmente disponível ("GA"), usando a plataforma de dados em sua forma bruta fornece flexibilidade (porém completo requerer a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema, etc). ADX fornece muitas [opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) arquivos. | <ul><li> Dados que não serão correlacionados para quaisquer outros dados no Application Insights ou Logs. </li><li> Dados exigindo avançadas ingestão ou não está disponíveis atualmente em Logs do Azure Monitor de recursos de processamento. </li></ul> |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Use a [API de Pesquisa de Logs](../log-query/log-query-overview.md) para recuperar dados do workspace do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Coletor de Dados ](create-pipeline-datacollector-api.md) usando fluxo de trabalho de Aplicativos Lógicos para Azure Monitor.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109807"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265824"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -32,7 +32,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 1. **Intervalo de Datas**
 
     Use a lista de Intervalo de Datas para definir um intervalo de tempo do relatório usando uma predefinição ou personalização.
-2. **Filtro Salvo**
+2. **Filtro salvo**
 
     Use a lista Filtro Salvo para salvar os grupos atuais e os filtros que são aplicados ao relatório. Os filtros salvos estão disponíveis em relatórios de custo e desempenho, incluindo:
 
@@ -57,7 +57,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Filtragem e agrupamento de marca de alocação de custos estão disponíveis como uma opção do menu **Grupos**.
 
-4. **Grupos nos relatórios**
+4. **Grupos em relatórios**
 
     Usar grupos em relatórios de Análise de Custo para mostrar categorias padrão detalhadas dos dados de cobrança em seu relatório.  No entanto, os grupos nos relatórios de Alocação de Custo mostram categorias baseadas em marcas de exibição. Categorias baseadas em marcas são definidas no modelo de alocação de custo e em categorias detalhadas padrão dos dados de cobrança.
 
@@ -66,32 +66,32 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     ![Segunda lista de exemplo de marcas que você pode agrupar por](./media/understanding-cost-reports/groups-tags02.png)
 
     Nos relatórios de Alocação de Custo, os grupos em categorias de grupo baseadas em marcas podem incluir:
-      - Rótulos 
+      - Marcas
       - marcas do grupo de recursos
       - Marcas de entidade de custo do Cloudyn
       - Categorias de marca de assinatura para fins de alocação de custo
 
    Os exemplos podem incluir:
    - Centro de custo
-   - Departamento
+   - department
    - Aplicativo
    - Ambiente
    - Código de custo
 
      Esta é uma lista de grupos internos disponíveis nos relatórios:
 
-     - **Tipo de Custo**
+     - **Tipo de custo**
      - Selecione um tipo de custo ou vários tipos de custo, ou selecione tudo. Os tipos de custo incluem:
        - Valor Único
        - Suporte
        - Custo de Uso
      - **Cliente**
        - Selecione um cliente específico, vários clientes ou todos os clientes.
-     - **Nome da Conta**
+     - **Nome da conta**
        - O nome da conta ou da assinatura. No Azure, é o nome da assinatura do Azure.
-     - **Nº da Conta**
+     - **N º da conta**
        - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da assinatura do Azure.
-     - **Conta Primária**
+     - **Conta primária**
        - Selecione a conta primária, várias contas ou selecione tudo.
      - **Serviço**
        - Selecione um serviço, vários serviços ou todos os serviços.
@@ -99,7 +99,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - O provedor de nuvem ao qual os ativos e as despesas estão associados.
      - **Região**
        - Região na qual o recurso está hospedado.
-     - **Zona de Disponibilidade**
+     - **Zona de disponibilidade**
        - Locais isolados do AWS em uma região.
      - **Tipo de recurso**
        - O tipo de recurso em uso.
@@ -107,25 +107,25 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Selecione o subtipo.
      - **Operação**
        - Selecione a operação ou **Mostrar tudo**.
-     - **Modelo de Preço**
+     - **Modelo de preço**
        - Todos os Pagamentos Antecipados
        - Sem Pagamentos Antecipados
        - Pagamentos Parciais Antecipados
        - Sob demanda
        - Reserva
        - À Vista
-     - **Tipo de Encargo**
+     - **Tipo de encargo**
        - Selecione o tipo de encargo Negativo ou Positivo, ou ambos.
      - **Locação**
        - Indica se um computador está em execução como um computador dedicado.
-     - **Tipo de Uso**
+     - **Tipo de uso**
        - O tipo de uso podem ser valores únicos ou recorrentes.
 
 5. **Filtros**
 
     Use filtros individuais ou de seleção múltipla para definir intervalos como valores selecionados. Para definir um filtro, clique em **Adicionar** e, depois, selecione as categorias e os valores de filtro.
 
-6. **Modelo de Custo**
+6. **Modelo de custo**
 
     Use o Modelo de Custo para selecionar um modelo de custo que você criou anteriormente com a Alocação de Custo 360. Talvez você tenha vários modelos de custo do Cloudyn, dependendo de seus requisitos de alocação de custo. Algumas de suas equipes organizacionais podem ter requisitos de alocação de custo diferentes das outras. Cada equipe pode ter seu próprio modelo de custo dedicado.
 
@@ -144,10 +144,10 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 8. **Resolução**
 
     Use Resolução para selecionar a resolução de tempo dentro do intervalo de datas selecionado. Sua resolução de tempo determina como as unidades são exibidas no relatório, e pode ser:
-    - Diariamente
-    - Semanalmente
-    - Mensalmente
-    - Trimestralmente
+    - Diário
+    - Semanal
+    - Mensal
+    - Trimestral
     - Anual
 
 9. **Regras de alocação**

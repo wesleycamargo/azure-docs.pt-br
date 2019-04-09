@@ -1,17 +1,17 @@
 ---
 title: Indexação no Azure Cosmos DB
 description: Entenda como funciona a indexação no Azure Cosmos DB.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.author: mjbrown
-ms.openlocfilehash: 9e1ae9faecea67e1abb2a1b08d5641bc25c9f38a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469083"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265688"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – visão geral
 
@@ -19,38 +19,38 @@ O Azure Cosmos DB é um banco de dados independente de esquema e permite que voc
 
 ## <a name="items-as-trees"></a>Itens como árvores
 
-Projetando itens em um contêiner como documentos JSON e representando-os como árvores, o Azure Cosmos DB normaliza a estrutura e os valores da instância entre os itens no conceito unificador de uma  **estrutura de caminho codificada dinamicamente**. Nessa representação, cada rótulo em um documento JSON, que inclui os nomes das propriedades e seus valores, torna-se um nó da árvore. As folhas da árvore contêm valores reais e os nós intermediários contêm as informações do esquema. A imagem a seguir representa as árvores criadas para dois itens (1 e 2) em um contêiner:
+Ao projetar itens em um contêiner, como documentos JSON e que os representam como árvores, Azure Cosmos DB normaliza a estrutura e os valores de instância em itens em conceito unificador de um **codificado dinamicamente a estrutura de caminho** . Essa representação, cada rótulo em um documento JSON, que inclui os nomes de propriedade e seus valores, torna-se um nó da árvore. As folhas da árvore contêm os valores reais e os nós intermediários contêm as informações de esquema. A imagem a seguir representa as árvores criadas para dois itens (1 e 2) em um contêiner do Azure Cosmos:
 
 ![Representação em árvore de dois itens diferentes em um contêiner do Azure Cosmos](./media/index-overview/indexing-as-tree.png)
 
-Um pseudo nó raiz é criado como pai para os nós reais correspondentes aos rótulos no documento abaixo. As estruturas de dados aninhadas direcionam a hierarquia na árvore. Nós artificiais intermediários rotulados com valores numéricos (por exemplo, 0, 1, ...) são empregados para representar enumerações e índices de matriz.
+Um nó de raiz de pseudo é criado como um pai de nós reais correspondente para os rótulos no documento JSON abaixo. As estruturas de dados aninhadas direcionam a hierarquia na árvore. Nós artificiais intermediários rotulados com valores numéricos (por exemplo, 0, 1, ...) são empregados para representar enumerações e índices de matriz.
 
 ## <a name="index-paths"></a>Caminhos de índice
 
-O Azure Cosmos DB projeta itens como documentos JSON e indexa como árvores. Portanto, é possível ajustar as políticas para os caminhos dentro da árvore. Você pode optar por incluir ou excluir caminhos da indexação. Isso pode oferecer melhor desempenho de gravação e diminuir o armazenamento de índice para cenários em que os padrões de consulta são conhecidos antecipadamente. para saber mais, consulte [Caminhos de Índice](index-paths.md).
+Itens em um contêiner do Azure Cosmos como documentos JSON e o índice como árvores de projetos do Azure Cosmos DB. Em seguida, você pode ajustar as políticas de índice para caminhos dentro da árvore. Você pode optar por incluir ou excluir caminhos da indexação. Isso pode oferecer melhor desempenho de gravação e diminuir o armazenamento de índice para cenários em que os padrões de consulta são conhecidos antecipadamente. Para obter mais informações, consulte [caminhos de índice](index-paths.md).
 
 ## <a name="indexing-under-the-hood"></a>Indexação: Nos bastidores
 
-O banco de dados do Azure Cosmos aplica a indexação automática aos dados, onde cada caminho em uma árvore é indexado, a menos que você configure para excluir determinados caminhos.
+Aplica-se o banco de dados do Azure Cosmos *indexação automática* aos dados, onde todos os caminhos em uma árvore é indexado, a menos que você configure para excluir determinados caminhos.
 
-O banco de dados do Azure Cosmos emprega estrutura de dados de índice invertido para armazenar as informações de cada item e facilitar a representação eficiente para consulta. A árvore de índice é um documento que é construído com a união de todas as árvores representando itens individuais no contêiner. A árvore de índice cresce com o tempo à medida que novos itens são adicionados ou itens existentes são atualizados no contêiner. Ao contrário da indexação de banco de dados relacional, o Azure Cosmos DB não reinicia a indexação do zero à medida que novos campos são introduzidos, novos itens são adicionados à estrutura existente. 
+O banco de dados do Azure Cosmos emprega estrutura de dados de índice invertido para armazenar as informações de cada item e facilitar a representação eficiente para consulta. A árvore de índice é um documento que é construído com a união de todas as árvores que representam os itens individuais em um contêiner. A árvore de índice cresce ao longo do tempo conforme novos itens são adicionados ou itens existentes são atualizados no contêiner. Ao contrário de indexação do banco de dados relacional, Azure Cosmos DB não reinicie a indexação do zero, como novos campos são introduzidos. Novos itens são adicionados à estrutura de índice existente. 
 
-Cada nó da árvore de índice é uma entrada de índice que contém os valores de rótulo e posição, chamados de termo, e as ids dos itens, chamadas de lançamentos. Os lançamentos nas chaves (por exemplo, {1,2}) no índice invertido correspondem aos itens, como Documento1 e Documento2, que contêm o valor do rótulo fornecido. Uma importante implicação de tratar uniformemente os rótulos de esquema e os valores de instância é que todos são compactados dentro de um índice grande. Um valor de instância que ainda está nas folhas não é repetido, pode estar em diferentes funções nos itens, com diferentes rótulos de esquema, mas é o mesmo valor. A imagem a seguir mostra a indexação invertida para itens diferentes:
+Cada nó de árvore de índice é uma entrada de índice que contém os valores de rótulo e a posição, chamados de *termo*e as IDs dos itens, chamados a *lançamentos*. Os lançamentos entre colchetes (por exemplo {1,2}) na Figura índice invertido correspondem aos itens, como *Documento1* e *Document2* que contém o valor de rótulo fornecido. Uma implicação importante do tratamento os rótulos de esquema e os valores de instância de maneira uniforme é que tudo o que é empacotado dentro de um índice grande. Um valor de instância que ainda está nas folhas não é repetido, pode estar em diferentes funções nos itens, com diferentes rótulos de esquema, mas é o mesmo valor. A imagem a seguir mostra a indexação invertido para dois itens diferentes:
 
 ![Indexação subjacente, Índice invertido](./media/index-overview/inverted-index.png)
 
 > [!NOTE]
 > O índice invertido pode parecer semelhante às estruturas de indexação usadas em um mecanismo de pesquisa no domínio de recuperação de informações. Com esse método, o Azure Cosmos DB permite que você pesquise qualquer item no banco de dado, independentemente da estrutura de esquema.
 
-Para o caminho normalizado, o índice codifica o caminho de encaminhamento desde a raiz até o valor, juntamente com as informações de tipo do valor. O caminho e o valor são codificados para fornecer vários tipos de indexação como intervalo, tipos espaciais. A codificação de valor é projetada para fornecer valor exclusivo ou uma composição de um conjunto de caminhos.
+Para o caminho normalizado, o índice codifica o caminho de encaminhamento desde a raiz até o valor, juntamente com as informações de tipo do valor. O caminho e o valor são codificados para fornecer vários tipos de indexação, como o intervalo, espacial, etc. A codificação de valor é projetada para fornecer valor exclusivo ou uma composição de um conjunto de caminhos.
 
 ## <a name="querying-with-indexes"></a>Consultar com índices
 
-O índice invertido permite que uma consulta identifique rapidamente os documentos que correspondem ao predicado da consulta. Ao tratar ambos os valores de instância e esquema uniformemente em termos de caminhos, o índice invertido também será uma árvore. Assim, o índice e os resultados podem ser serializados para um documento JSON válido e retornados como documentos, na medida em que são retornados na representação de árvore. Esse método permite a recursão dos resultados para consultas adicionais. A imagem a seguir ilustra um exemplo de indexação em uma consulta de ponto:  
+O índice invertido permite que uma consulta identifique rapidamente os documentos que correspondem ao predicado da consulta. Tratando o esquema e os valores de instância uniformemente em termos de caminhos, o índice invertido é também uma árvore. Assim, o índice e os resultados podem ser serializados para um documento JSON válido e retornados como documentos, na medida em que são retornados na representação de árvore. Esse método permite a recursão dos resultados para consultas adicionais. A imagem a seguir ilustra um exemplo de indexação em uma consulta de ponto:  
 
 ![Exemplo de consulta de ponto](./media/index-overview/index-point-query.png)
 
-Para uma consulta de intervalo, GermanTax é uma função definida pelo usuário executada como parte do processamento de consulta. A função definida pelo usuário é qualquer função Javascript registrada que possa fornecer lógica de programação avançada integrada à consulta. A imagem a seguir ilustra um exemplo de indexação em uma consulta de intervalo:
+Para uma consulta de intervalo *GermanTax* é um [função definida pelo usuário](stored-procedures-triggers-udfs.md#udfs) executado como parte do processamento de consulta. A função definida pelo usuário é qualquer função JavaScript registrada, que pode fornecer a lógica de programação avançada integrada na consulta. A imagem a seguir ilustra um exemplo de indexação em uma consulta de intervalo:
 
 ![Exemplo de consulta de intervalo](./media/index-overview/index-range-query.png)
 
