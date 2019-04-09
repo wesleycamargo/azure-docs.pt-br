@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266912"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
 O Azure Functions é executado em dois planos diferentes: Plano de consumo e plano Premium (visualização pública). O plano de consumo adiciona automaticamente o poder de computação quando seu código está em execução. Seu aplicativo é escalado horizontalmente quando necessário para manipular a carga e reduzido verticalmente quando código será interrompido. Você não precisa pagar por VMs ociosas nem reservar capacidade com antecedência.  O plano Premium também automaticamente será dimensionar e adicionar o poder de computação adicionais quando seu código está em execução.  O plano Premium vem com recursos adicionais como instâncias de computação premium, a capacidade de manter instâncias passiva indefinidamente e conectividade de rede virtual.  Se você tiver um plano de serviço de aplicativo existente, você também pode executar seus aplicativos de funções dentro deles.
 
 > [!NOTE]  
-> Ambos [plano Premium](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) e [plano de consumo para Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) estão atualmente em visualização.
+> Ambos [plano Premium](https://aka.ms/functions-premiumplan) e [plano de consumo para Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) estão atualmente em visualização.
 
 Se ainda não estiver familiarizado com o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
 

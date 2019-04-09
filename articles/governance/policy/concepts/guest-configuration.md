@@ -1,7 +1,6 @@
 ---
 title: Entender como o conteúdo de uma máquina virtual de auditoria
 description: Saiba como o Azure Policy usa a configuração do convidado para auditar as configurações dentro de uma máquina virtual do Azure.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339016"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277707"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -57,7 +56,7 @@ Na máquina virtual, o cliente de Configuração de Convidado usa ferramentas lo
 
 A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema operacional com suporte:
 
-|Sistema operacional|Ferramenta de validação|Anotações|
+|Sistema operacional|Ferramenta de validação|Observações|
 |-|-|-|
 | Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| O Ruby e o Python são instalados pela extensão de Configuração de Convidado. |
@@ -70,7 +69,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
 
-|Editor|Nome|Versões|
+|Publicador|NOME|Versões|
 |-|-|-|
 |Canônico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|

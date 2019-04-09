@@ -11,49 +11,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4239c07c73825f75dd39053e312ae731f6f0d7d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d03ca64f3f3d2f034433f2aaa49f6babb7f9e5b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162706"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260282"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
+
 Este artigo descreve como usar o [Portal do Microsoft Azure](https://portal.azure.com) para gerenciar o provisionamento e o desprovisionamento de conta de usuário automáticos para aplicativos que o suportam. Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
-Todos os aplicativos configurados para logon único em um diretório podem ser exibidos e gerenciados no [Portal do Microsoft Azure](https://portal.azure.com). Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
 
-![Painel Aplicativos Empresariais](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
+Use o portal do Azure Active Directory para exibir e gerenciar todos os aplicativos que estão configurados para logon único em um diretório. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização. Siga estas etapas para exibir e gerenciar seus aplicativos empresariais:
 
-Selecionar o link **Todos os aplicativos** à esquerda mostra uma lista de todos os aplicativos que foram configurados, incluindo aplicativos adicionados da galeria. Selecionar um aplicativo carrega o painel de recursos para esse aplicativo, onde os relatórios podem ser exibidos para que o aplicativo e uma variedade de configurações possam ser gerenciados.
+1. Abra o [portal do Azure Active Directory](https://aad.portal.azure.com).
 
-Configurações de provisionamento de conta de usuário podem ser gerenciadas selecionando **Provisionamento** à esquerda.
+1. Selecione **aplicativos empresariais** no painel esquerdo. Uma lista de todos os aplicativos configurados, incluindo os aplicativos que foram adicionados da galeria, é mostrada.
 
-![Painel Recurso de Aplicativo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+1. Selecione qualquer aplicativo para carregar seu painel de recursos, onde você pode exibir relatórios e gerenciar as configurações do aplicativo.
+
+1. Selecione **provisionamento** para gerenciar configurações para o aplicativo selecionado de provisionamento de conta de usuário.
+
+   ![Painel Recurso de Aplicativo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de provisionamento
-O painel **Provisionamento** começa com um menu **Modo**, que mostra quais modos de provisionamento têm suporte para um aplicativo empresarial e permite que eles sejam configurados. As opções disponíveis incluem:
 
-* **Automático** - essa opção aparecerá se o Azure AD der suporte ao provisionamento automático baseado em API e/ou ao desprovisionamento de contas de usuário para esse aplicativo. Selecionar esse modo exibe uma interface que orienta os administradores a configurar o Azure AD para conectar-se à API de gerenciamento de usuário do aplicativo, criando mapeamentos de conta e fluxos de trabalho que definem como os dados da conta de usuário devem fluir entre o Azure AD e o aplicativo e gerenciar o serviço de provisionamento do Azure AD.
-* **Manual** - essa opção será mostrada se o Azure AD não der suporte ao provisionamento automático de contas de usuário para esse aplicativo. Essa opção significa que registros de conta de usuário armazenados no aplicativo devem ser gerenciados usando um processo externo, com base nos recursos de gerenciamento e provisionamento do usuário fornecidos pelo aplicativo (o que pode incluir o provisionamento de SAML Just-In-Time).
+O **provisionamento** painel começa com um **modo** menu, que mostra os modos de provisionamento com suporte para um aplicativo empresarial e permite que você configurá-los. As opções disponíveis incluem:
+
+* **Automático** -essa opção será mostrada se Azure AD dá suporte ao provisionamento automático baseado em API ou desprovisionamento de contas de usuário para este aplicativo. Selecione este modo para exibir uma interface que ajuda os administradores:
+
+  * Configurar o Azure AD para se conectar à API de gerenciamento de usuário do aplicativo
+  * Criar mapeamentos de conta e fluxos de trabalho que definem como os dados da conta de usuário devem fluir entre o Azure AD e o aplicativo
+  * Gerenciar o serviço de provisionamento do AD do Azure
+
+* **Manual** -essa opção será mostrada se o AD do Azure não dá suporte a provisionamento automático de contas de usuário para este aplicativo. Nesse caso, os registros armazenados no aplicativo de conta de usuário deve ser gerenciada usando um processo externo, com base em que os recursos de gerenciamento e provisionamento de usuário fornecidos pelo aplicativo (o que pode incluir o provisionamento de SAML just-in-).
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configurar o provisionamento de contas de usuário automático
-Selecionar a opção **Automático** exibe uma tela dividida em quatro seções:
+
+Selecione o **automática** opção para especificar configurações de credenciais de administrador, mapeamentos, iniciando e parando e sincronização.
 
 ### <a name="admin-credentials"></a>Credenciais de administrador
-Esta seção é onde são inseridas as credenciais necessárias para o Azure AD conectar-se à API de gerenciamento de usuários do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, confira o [tutorial de configuração para o aplicativo específico](user-provisioning.md).
 
-Selecionar o botão **Testar Conexão** permite que você teste as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
+Expandir **credenciais de administrador** para inserir as credenciais necessárias para o Azure AD para se conectar à API de gerenciamento de usuário do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, confira o [tutorial de configuração para o aplicativo específico](user-provisioning.md).
+
+Selecione **Testar Conexão** para testar as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
 
 ### <a name="mappings"></a>Mapeamentos
-Esta seção é onde os administradores podem exibir e editar o fluxo de atributos de usuário entre o Azure AD e o aplicativo de destino, quando as contas de usuário são provisionadas ou atualizadas.
 
-Há um conjunto predefinido de mapeamentos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecionar um desses mapeamentos na tabela mostra o editor de mapeamento à direita, no qual eles podem ser visualizados e personalizados.
+Expandir **mapeamentos** para exibir e editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino quando as contas de usuário são provisionadas ou atualizadas.
+
+Há um conjunto predefinido de mapeamentos entre os objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecione um mapeamento na tabela para abrir o editor de mapeamento para a direita, onde você pode exibir e personalizá-los.
 
 ![Painel Recurso de Aplicativo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
@@ -61,21 +74,30 @@ As personalizações com suporte incluem:
 
 * Habilitar e desabilitar mapeamentos para objetos específicos, como o objeto de usuário do Azure AD para o objeto de usuário do aplicativo SaaS.
 * Editar os atributos que fluem do objeto de usuário do Azure AD para o objeto de usuário do aplicativo. Para obter mais informações sobre mapeamento de atributos, confira [Noções básicas sobre tipos de mapeamento de atributos](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtre as ações de provisionamento que o Azure AD executa no aplicativo de destino. Em vez de fazer com que o Azure AD sincronize totalmente objetos, você pode limitar as ações executadas. Por exemplo, selecionando apenas **Atualizar**, o Azure AD atualiza apenas contas de usuário existentes em um aplicativo e não cria novas. Selecionando apenas **Criar**, o Azure só cria novas contas de usuário, mas não atualiza as existentes. Esse recurso permite que os administradores criem mapeamentos diferentes para criar contas e atualizar os fluxos de trabalho.
+* Filtrando as ações de provisionamento do Azure AD é executado no aplicativo de destino. Em vez de ter o Azure AD sincronize totalmente objetos, você pode limitar as ações a executar. 
+
+  Por exemplo, selecione somente **atualização** e Azure AD atualiza apenas contas em um aplicativo de usuário existente, mas não cria novos. Selecione somente **criar** e Azure só cria novas contas de usuário, mas não atualiza as existentes. Esse recurso permite que os administradores criem mapeamentos diferentes para a criação da conta e atualizar os fluxos de trabalho.
+
+* Adicionando um novo mapeamento de atributo. Selecione **adicionar novo mapeamento** na parte inferior a **mapeamento de atributos** painel. Preencha a **Editar atributo** formam e selecione **Okey** para adicionar o novo mapeamento para a lista. 
 
 ### <a name="settings"></a>Configurações
-Esta seção permite que os administradores iniciem e parem o serviço de provisionamento do Azure AD para o aplicativo selecionado, bem como, opcionalmente, limpem o cache de provisionamento e reiniciem o serviço.
 
-Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicativo, ative o serviço alterando o **Status de Provisionamento** para **Ativado**. Esta mudança faz com que o serviço de provisionamento do Azure AD execute uma sincronização inicial, em que ele lê os usuários atribuídos na seção **Usuários e grupos**, consulta o aplicativo de destino para eles e, em seguida, executa as ações de provisionamento definidas na seção **Mapeamentos** do Azure AD. Durante esse processo, o serviço de provisionamento armazena dados em cache sobre quais contas de usuário ele está gerenciando, para que contas não gerenciadas nos aplicativos de destino que nunca estiveram em escopo para atribuição não sejam afetadas por operações de desprovisionamento. Após a sincronização inicial, o serviço de provisionamento sincroniza automaticamente objetos de usuário e grupo em um intervalo de dez minutos.
+Você pode iniciar e parar o serviço para o aplicativo selecionado de provisionamento do Azure AD a **as configurações** área da **provisionamento** tela. Você também pode optar por limpar o cache de provisionamento e reinicie o serviço.
 
-Alterar o **Status de Provisionamento** para **Desativado** simplesmente pausa o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza nem remove objetos de usuário ou grupo no aplicativo. Alterar o estado para ativado faz com que o serviço continue de onde parou.
+Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicativo, ative o serviço alterando o **Status de Provisionamento** para **Ativado**. Essa alteração faz com que o Azure AD serviço de provisionamento executar uma sincronização inicial. Ele lê os usuários atribuídos na **usuários e grupos** seção, consulta o aplicativo de destino para eles e, em seguida, executa as ações de provisionamento definidas no Azure AD **mapeamentos** seção. Durante esse processo, o serviço de provisionamento armazena dados em cache sobre quais contas de usuário que está gerenciando, para que contas não gerenciadas nos aplicativos de destino que nunca estiveram em escopo de atribuição não são afetadas por operações de desprovisionamento. Após a sincronização inicial, o serviço de provisionamento sincroniza automaticamente objetos de usuário e grupo em um intervalo de dez minutos.
 
-Marcar a caixa de seleção **Limpar o estado atual e reiniciar a sincronização** e salvar interrompe o serviço de provisionamento, despeja os dados de cache sobre quais contas o Azure AD está gerenciando, reinicia os serviços e executa novamente a sincronização inicial. Essa opção permite que os administradores iniciem novamente o processo de implantação de provisionamento.
+Alterar o **Status de provisionamento** à **Off** para pausar o serviço de provisionamento. Nesse estado, o Azure não criar, atualizar ou remover qualquer usuário ou objetos de grupo no aplicativo. Altere o estado de volta para **em** e o serviço escolhe de onde parou.
+
+Selecione o **limpar o estado atual e reiniciar a sincronização** caixa de seleção e selecione **salvar** para:
+
+* Parar o serviço de provisionamento
+* Despejar os dados armazenados em cache sobre quais contas do Azure AD está gerenciando
+* Reinicie os serviços e execute novamente a sincronização inicial
+
+Essa opção permite aos administradores iniciar o processo de implantação de provisionamento novamente.
 
 ### <a name="synchronization-details"></a>Detalhes da sincronização
-Esta seção fornece detalhes de adição sobre a operação de serviço do provisionamento, incluindo a primeira e a última vez que o serviço de provisionamento foi executado no aplicativo e quantos objetos de usuário e grupo estão sendo gerenciados.
 
-São fornecidos links para o **Relatório de atividade de provisionamento** que fornece um log de todos os usuários e grupos criados, atualizados e removidos entre o Azure AD e o aplicativo de destino e o **Relatório de erros de provisionamento** que fornece mensagens de erro mais detalhadas para objetos de usuário e grupo que não puderam ser lidos, criados, atualizados ou removidos. 
+Esta seção fornece detalhes adicionais sobre a operação do serviço de provisionamento, incluindo os tempos de primeiros e o últimos que serviço de provisionamento foi executado contra o aplicativo e quantos objetos de usuário e grupo que ele gerencia.
 
-
-
+É fornecido um link para o **relatório de atividade de provisionamento**, que fornece um log de todos os usuários e grupos criado, atualizado e removido entre o Azure AD e o aplicativo de destino. Também é fornecido um link para o **relatório de erros de provisionamento**, que fornece mais detalhado de mensagens de erro para objetos de usuário e grupo que não puderam ser lidos, criados, atualizados ou removidos.

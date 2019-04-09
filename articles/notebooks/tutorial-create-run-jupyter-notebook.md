@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903650"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258515"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
@@ -128,7 +128,7 @@ Com o arquivo de dados pronto e o ambiente do projeto definido, agora você pode
 1. Como você tem um arquivo *Requirements.txt* nas configurações do ambiente, verá a mensagem “Aguardando o contêiner concluir a preparação”. Você pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no notebook; no entanto, não é possível executar células de código até que o ambiente esteja totalmente configurado.
 1. O notebook é aberto na interface do Jupyter com uma única célula de código vazia como o padrão.
 
-    [![Exibição inicial de um novo notebook no Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Iexibição inicial de um novo bloco de anotações em blocos de anotações do Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Fazer um tour pela interface do notebook
 
@@ -144,7 +144,7 @@ Na parte superior da janela, você verá os seguintes itens:
 (F) Indicador de confiabilidade do notebook (o padrão é **Não Confiável**).
 (G) O kernel usado para executar o notebook, juntamente com um indicador de atividade.
 
-[![Principais áreas de interface do usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primária áreas de interface do usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 O Jupyter fornece um tour interno pelos elementos da interface do usuário principal. Inicie o tour selecionando o comando **Ajuda** > **Tour de Interface do Usuário** e clicando nos pop-ups.
 
@@ -421,14 +421,14 @@ Confira também [Visual Studio Code – suporte do Jupyter](https://code.visuals
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Explorar notebooks de exemplo](azure-notebooks-samples.md)
+- [Explore os notebooks de exemplo](azure-notebooks-samples.md)
 
 Artigos de instrução:
 
 - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
-- [Configurar e gerenciar dispositivos](configure-manage-azure-notebooks-projects.md)
-- [Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
+- [Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
 - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
 - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Usar os serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905878"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261030"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ Este documento descreve como você pode criar e configurar o IR auto-hospedado.
 3. Recupere a chave de autenticação e registre o tempo de execução da integração auto-hospedada com ela. Aqui está um exemplo do PowerShell:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurar um IR auto-hospedado em uma VM do Azure usando modelo do Azure Resource Manager (automação)
@@ -110,7 +112,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
-Um tempo de execução da integração auto-hospedada pode ser associado a vários computadores locais. Esses computadores são chamados de nós. Você pode ter até quatro nós associados a um tempo de execução da integração auto-hospedada. Os benefícios de ter vários nós (computadores locais com um gateway instalado) para um gateway lógico são:
+Um tempo de execução de integração auto-hospedado pode ser associado a vários computadores locais ou máquinas virtuais no Azure. Esses computadores são chamados de nós. Você pode ter até quatro nós associados a um tempo de execução da integração auto-hospedada. Os benefícios de ter vários nós (computadores locais com um gateway instalado) para um gateway lógico são:
 * Disponibilidade superior do tempo de execução da integração auto-hospedada para que ele não seja o único ponto de falha na sua solução de Big Data ou integração de dados de nuvem com o Azure Data Factory, garantindo a continuidade com até quatro nós.
 * Desempenho e taxa de transferência aprimorados durante a movimentação de dados entre os armazenamentos de dados de nuvem e locais. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 
@@ -344,5 +346,5 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 Se optar por não abrir a porta 8060 no computador do tempo de execução da integração auto-hospedada, use mecanismos diferentes do aplicativo Definindo Credenciais para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte o tutorial a seguir para obter instruções passo a passo: [Tutorial: Copiar dados locais na nuvem](tutorial-hybrid-copy-powershell.md).

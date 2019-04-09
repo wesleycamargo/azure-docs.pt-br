@@ -1,7 +1,6 @@
 ---
 title: Entender a ordem da sequência de implantação
 description: Saiba mais sobre o ciclo de vida que uma definição de planta percorre e os detalhes sobre cada fase.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434799"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266181"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -26,7 +25,7 @@ O Azure usa plantas uma **pedido de sequenciamento** para determinar a ordem de 
 
 Existem variáveis nos exemplos JSON que você precisa substituir por seus próprios valores:
 
-- `{YourMG}` - Substitua pelo nome do seu grupo de gerenciamento
+- `{YourMG}` – Substitua pelo nome do seu grupo de gerenciamento
 
 ## <a name="default-sequencing-order"></a>Ordem de sequenciamento padrão
 
@@ -47,7 +46,7 @@ Em cada artefato do **grupo de recursos**, a seguinte ordem de sequência é usa
 
 Ao redigir definições de plantas grande, pode ser necessário para os recursos a serem criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de planta inclui vários modelos do Azure Resource Manager. Blueprints lida com esse padrão permitindo que a ordem de sequenciamento seja definida.
 
-A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição de planta, para grupos de recursos e objetos de artefato suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
+A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição de planta, para grupos de recursos e objetos de artefato suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefato que o artefato específico precisa ser criado antes de ele é criado.
 
 ### <a name="example---ordered-resource-group"></a>Exemplo - ordenados de grupo de recursos
 

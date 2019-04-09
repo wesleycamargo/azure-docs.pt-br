@@ -16,11 +16,11 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
 ms.openlocfilehash: c635f228229a9afae8a7e325c4ead5a51a0767c8
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056360"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279322"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início Rápido: Criar uma máquina virtual do Linux server usando o PowerShell no Azure Stack
 
@@ -416,6 +416,6 @@ Limpe todos os recursos que você não precisa mais. Você pode usar o [Remove-A
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, você implantou uma máquina de virtual de servidor Linux básica. Para saber mais sobre máquinas virtuais do Azure Stack, acesse [considerações para máquinas virtuais no Azure Stack](azure-stack-vm-considerations.md).

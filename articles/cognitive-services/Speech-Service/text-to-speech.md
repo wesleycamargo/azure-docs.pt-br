@@ -1,32 +1,40 @@
 ---
 title: Texto em fala com os serviços de fala do Azure
 titleSuffix: Azure Cognitive Services
-description: Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades.
+description: Texto para fala a fala dos serviços do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010440"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263104"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
-Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Texto para fala a fala dos serviços do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 Tecnologia de texto para fala permite que os criadores de conteúdo interagir com seus usuários de diferentes maneiras. Texto para fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo de forma audível. Se o usuário tem uma deficiência visual, uma deficiência de aprendizagem, ou exige informações de navegação enquanto dirige, uma experiência existente pode melhorar o texto para fala. Texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
 
+### <a name="standard-voices"></a>Vozes padrão
+
+Vozes padrão são criadas usando técnicas de síntese paramétrica estatísticos e/ou síntese de concatenação. Esses vozes são altamente inteligível e parecer bastante naturais. Você pode habilitar facilmente seus aplicativos falar em mais de 45 idiomas, com uma ampla variedade de opções de voz. Esses vozes fornecem precisão pronúncia alta, incluindo suporte para abreviações, expansões de acrônimos, interpretações de data/hora, polyphones e muito mais. Use voz padrão para melhorar a acessibilidade de seus aplicativos e serviços, permitindo que os usuários interajam com seu conteúdo de forma audível.
+
 ### <a name="neural-voices"></a>Vozes neurais
 
+Vozes neurais usam redes neurais profundas para superar os limites dos sistemas tradicionais de texto em fala na correspondência de padrões de estresse e entonação no idioma falado e resumir as unidades de conversão de fala em uma voz de computador. Texto em fala padrão divide-se a métrica em análise linguística separado e etapas de previsão acústico controladas por modelos independentes. Isso pode resultar na síntese de voz muffled, buzzy. Nossa funcionalidade neural faz síntese de voz e previsão de métrica simultaneamente, o que resulta em uma voz mais fluida e alarme natural.
+
 Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a métrica de natural humana e clara Articulação das palavras, vozes Neural reduzem significativamente fadiga escuta ao interagir com sistemas de inteligência Artificial. Para obter mais informações sobre as vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
+
+Para saber mais sobre os benefícios de vozes neurais, consulte [novo serviço texto em fala neural da Microsoft ajuda a máquinas falar como pessoas](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
@@ -54,11 +62,7 @@ Esta tabela lista os principais recursos de texto em fala:
 
 Nós oferecemos guias de início rápido foi projetados para ter está executando código em menos de 10 minutos. Essa tabela inclui uma lista de texto em fala guias de início rápido organizados por idioma.
 
-| Guia de início rápido (REST) | Plataforma | Referência de API |
-|------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+### <a name="sdk-quickstarts"></a>Guias de início rápido do SDK
 
 | Guia de início rápido (SDK) | Plataforma | Referência de API |
 |------------|----------|---------------|
@@ -66,12 +70,20 @@ Nós oferecemos guias de início rápido foi projetados para ter está executand
 | [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Procurar](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
 
+### <a name="rest-quickstarts"></a>Guias de início rápido REST
+
+| Guia de início rápido (REST) | Plataforma | Referência de API |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
 ## <a name="sample-code"></a>Exemplo de código
 
 Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
 
-* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 * [Exemplos de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Documentos de Referência
 

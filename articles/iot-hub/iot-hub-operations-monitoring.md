@@ -8,43 +8,43 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791572"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258106"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitoramento (preterido)
 
 O monitoramento das operações do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade do seu Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
 
 >[!NOTE]
->O IoT Hub **operações de monitoramento foi preterido e foi removidas do IoT Hub em 10 de março de 2019**. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha do tempo de substituição, consulte [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
+>O IoT Hub **operações de monitoramento foi preterido e foi removidas do IoT Hub em 10 de março de 2019**. Para monitorar as operações e a integridade do IoT Hub, consulte [monitorar a integridade do IoT Hub do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md). Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 O Hub IoT monitora seis categorias de eventos:
 
 * Operações de identidade do dispositivo
 * Telemetria de dispositivo
 * Mensagens da nuvem para o dispositivo
-* Conexões
+* conexões
 * Carregamentos de arquivos
-* Roteamento de mensagens
+* Roteamento de mensagem
 
 > [!IMPORTANT]
 > O monitoramento de operações do Hub IoT não garante a entrega confiável ou ordenada de eventos. Dependendo da infraestrutura subjacente do Hub IoT, alguns eventos podem ser perdidos ou entregues fora de ordem. Use o monitoramento de operações para gerar alertas com base nos sinais de erro, como tentativas de conexão com falha ou desconexões de alta frequência de dispositivos específicos. Você não deve confiar em eventos do monitoramento de operações para criar um repositório consistente para o estado do dispositivo, por exemplo, um repositório de controle do estado de um dispositivo conectado ou desconectado. 
 
 ## <a name="how-to-enable-operations-monitoring"></a>Como habilitar o monitoramento de operações
 
-1. Crie um Hub IoT. Você pode encontrar instruções sobre como criar um Hub IoT no guia de [Introdução][lnk-get-started].
+1. Crie um Hub IoT. Você pode encontrar instruções sobre como criar um hub IoT na [começar](quickstart-send-telemetry-dotnet.md) guia.
 
-1. Abra a folha do seu Hub IoT. Nela, clique em **Monitoramento de operações**.
+2. Abra a folha do seu Hub IoT. Nela, clique em **Monitoramento de operações**.
 
-    ![Acessar a configuração do monitoramento de operações no portal][1]
+    ![Acessar a configuração do monitoramento de operações no portal](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. Selecione as categorias de monitoramento que deseja monitorar e, em seguida, clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub de Eventos listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT chama-se `messages/operationsmonitoringevents`.
+3. Selecione as categorias de monitoramento que deseja monitorar e, em seguida, clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub de Eventos listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT chama-se `messages/operationsmonitoringevents`.
 
-    ![Configurar o monitoramento de operações no Hub IoT][2]
+    ![Configurar o monitoramento de operações no Hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > A seleção do monitoramento **Detalhado** para a categoria **Conexões** faz com que o Hub IoT gere mensagens de diagnóstico adicionais. Para todas as outras categorias, a configuração **Detalhada** muda a quantidade de informações incluídas pelo Hub IoT em cada mensagem de erro.
@@ -120,7 +120,7 @@ A categoria de comandos da nuvem para o dispositivo rastreia erros que ocorrem n
 }
 ```
 
-### <a name="connections"></a>Conexões
+### <a name="connections"></a>conexões
 
 A categoria de conexões rastreia erros que ocorrem quando os dispositivos se conectam a um Hub IoT ou se desconectam dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 
@@ -145,7 +145,9 @@ A categoria de conexões rastreia erros que ocorrem quando os dispositivos se co
 A categoria de carregamento de arquivo rastreia erros que ocorrem no Hub IoT e estão relacionados à funcionalidade de carregamento de arquivo. Essa categoria inclui:
 
 * Erros que ocorrem com o URI de SAS, como quando ele expirar antes que um dispositivo notifique o hub de um carregamento concluído.
+
 * Carregamentos com falha relatados pelo dispositivo.
+
 * Erros que ocorrem quando um arquivo não for encontrado no armazenamento durante a criação de mensagem de notificação do Hub IoT.
 
 Essa categoria não pode capturar erros que ocorrem diretamente enquanto o dispositivo está carregando um arquivo no armazenamento.
@@ -188,31 +190,31 @@ A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a a
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Conectar-se ao ponto de extremidade de monitoramento
 
-O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial].
+O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) .
 
 Para se conectar ao ponto de extremidade de monitoramento, você precisa de uma cadeia de conexão e do nome do ponto de extremidade. As etapas a seguir mostram como localizar os valores necessários no portal:
 
 1. No portal, navegue até a folha de recursos do Hub IoT.
 
-1. Escolha **Monitoramento de operações** e anote os valores do **Nome compatível com o Hub de Eventos** e do **Ponto de extremidade compatível com o Hub de Eventos**:
+2. Escolha **Monitoramento de operações** e anote os valores do **Nome compatível com o Hub de Eventos** e do **Ponto de extremidade compatível com o Hub de Eventos**:
 
-    ![Valores de ponto de extremidade compatível com o Hub de Eventos][img-endpoints]
+    ![Valores de ponto de extremidade compatível com o Hub de Eventos](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote o valor da **Chave primária**:
+3. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote o valor da **Chave primária**:
 
-    ![Chave primária de política de acesso compartilhado de serviço][img-service-key]
+    ![Chave primária de política de acesso compartilhado de serviço](./media/iot-hub-operations-monitoring/service-key.png)
 
 O exemplo de código C# a seguir provém de um aplicativo de console C# da **Área de Trabalho Clássica do Windows** do Visual Studio. O projeto tem o pacote do NuGet **WindowsAzure.ServiceBus** instalado.
 
 * Substitua o espaço reservado da cadeia de conexão por uma cadeia de conexão que usa os valores de **ponto de extremidade compatível com o Hub de Eventos** e **Chave primária** do serviço anotados anteriormente, conforme mostrado no exemplo a seguir:
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * Substitua o espaço reservado nome de ponto de extremidade de monitoramento pelo valor de **Nome compatível com o Hub de Eventos** que você anotou anteriormente.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -262,25 +264,10 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
+
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT][lnk-devguide]
-* [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
+* [Guia do desenvolvedor do IoT Hub](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

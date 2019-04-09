@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d71df99096e58b3ac7adc920b91891b9a50cd6f7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479574"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262288"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implantar um modelo para o Azure Stack usando o PowerShell
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode usar o PowerShell para implantar modelos do Azure Resource Manager para o Azure Stack. Este artigo descreve como usar o PowerShell para implantar um modelo.
 
@@ -34,9 +34,9 @@ Você pode usar o PowerShell para implantar modelos do Azure Resource Manager pa
 Este exemplo usa **AzureRM** cmdlets do PowerShell e um modelo armazenado no GitHub. O modelo cria uma máquina virtual do Windows Server 2012 R2 Datacenter.
 
 >[!NOTE]
->Antes de tentar Este exemplo, certifique-se de que você já [configurado o PowerShell](azure-stack-powershell-configure-user.md) para um usuário do Azure Stack.
+> Antes de tentar Este exemplo, certifique-se de que você já [configurado o PowerShell](azure-stack-powershell-configure-user.md) para um usuário do Azure Stack.
 
-1. Vá para [ https://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Procurar o [AzureStackGitHub repo](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Abra um prompt de comando elevado do PowerShell.
 3. Substitua `username` e `password` no script a seguir com seu nome de usuário e senha e, em seguida, execute o script:
 
@@ -45,10 +45,10 @@ Este exemplo usa **AzureRM** cmdlets do PowerShell e um modelo armazenado no Git
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
     $myLocation = "local"
-   
+
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
-   
+
     # Deploy simple IaaS template
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
@@ -63,7 +63,7 @@ Este exemplo usa **AzureRM** cmdlets do PowerShell e um modelo armazenado no Git
     ```
 
     >[!IMPORTANT]
-    >Sempre que você executar esse script, incremente o valor da `$myNum` parâmetro para evitar a substituição de sua implantação.
+    > Sempre que você executar esse script, incremente o valor da `$myNum` parâmetro para evitar a substituição de sua implantação.
 
 4. Abra o portal, selecione Azure Stack **navegue**e, em seguida, selecione **máquinas virtuais** para encontrar sua nova máquina virtual (**myDeployment001**).
 

@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877356"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260384"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -60,7 +60,7 @@ A menos que um usuário seja atribuído a função de administrador limitado ou 
  Sim! Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
 Para bloquear o acesso de um usuário convidado ao [Portal do Azure](https://portal.azure.com), use uma política de acesso condicional na API do modelo de implantação clássico do Windows Azure:
 1. Modifique o grupo **Todos os Usuários** para que ele contenha somente os membros.
-   ![Captura de tela mostrando que o grupo todos os usuários em que o UserType não é igual convidado ](media/faq/modify-all-users-group.png)
+   ![Captura de tela mostrando que o grupo todos os usuários em que o UserType não é igual convidado](media/faq/modify-all-users-group.png)
 2. Crie um grupo dinâmico que contém usuários convidados.
    ![Captura de tela mostrando um novo grupo de todos os usuários convidados](media/faq/group-with-guest-users.png)
 3. Configure uma política de acesso condicional para impedir que os usuários convidados acessem o portal, conforme mostrado no seguinte vídeo:
@@ -119,7 +119,7 @@ Sim. A colaboração do Azure AD B2B dá suporte a listas de permissões e nega�
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quais licenças precisamos usar no Azure AD B2B?
 Para obter informações sobre as licenças que sua organização precisa usar no Azure AD B2B, consulte [Diretrizes de licenciamento da colaboração do Azure Active Directory B2B](licensing-guidance.md).
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 
