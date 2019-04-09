@@ -1,7 +1,7 @@
 ---
-title: Criar, carregar e consultar um índice usando o PowerShell e a API REST - Azure Search
-description: Criar, carregar e consultar um índice usando o PowerShell, Invoke-RestMethod e a API REST do Azure Search.
-ms.date: 03/15/2019
+title: 'Início Rápido: Criar, carregar e consultar um índice usando o PowerShell e a API REST - Azure Search'
+description: Criar, carregar e consultar um índice usando o PowerShell Invoke-RestMethod e a API REST do Azure Search.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372107"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268017"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início Rápido: Criar um índice de Azure Search usando o PowerShell e a API REST
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ Este artigo orienta você pelo processo de criar, carregar e consultar uma Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [encontrar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este início rápido. Outros pré-requisitos incluem os itens a seguir.
+Os seguintes serviços e ferramentas são usadas neste início rápido. 
+
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
 [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para etapas sequenciais e interativas.
 
-Obter o ponto de extremidade de URL e o administrador a chave de api do serviço de pesquisa. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+## <a name="get-a-key-and-url"></a>Obter uma chave e a URL
 
-1. No portal do Azure, em seu serviço search **visão geral** de página, obter a URL. Um ponto de extremidade de exemplo pode parecer com https:\//my-service-name.search.windows.net.
+As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-2. Na **as configurações** > **chaves**, obter uma chave de administração para todos os direitos sobre o serviço. Há duas chaves admin intercambiáveis, fornecidas para continuidade dos negócios, caso você precise derrubar uma. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. [Entrar no portal do Azure](https://portal.azure.com/)e em seu serviço search **visão geral** de página, obter a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-   ![Obter uma chave de acesso e de ponto de extremidade HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto de extremidade HTTP")
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-   Todas as solicitações requerem uma chave de api em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+
+Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 ## <a name="connect-to-azure-search"></a>Conectar-se ao Azure Search
 
@@ -165,7 +169,7 @@ Resultados devem ser semelhantes a este (truncado para os primeiros dois campos 
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - carregar documentos
+## <a name="2---load-documents"></a>2 - Carregar documentos
 
 Para enviar por push documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do seu índice. A API REST para essa tarefa é [adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -356,7 +360,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Tente adicionar descrições de francês para o índice. O exemplo a seguir inclui sequências em francês e demonstra as ações de pesquisa adicionais. Use mergeOrUpload para criar ou adicionar a campos existentes. As cadeias de caracteres a seguir precisam ser codificados em UTF-8.
 

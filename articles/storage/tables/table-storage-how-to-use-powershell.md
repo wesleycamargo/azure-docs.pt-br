@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540220"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273117"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,16 +32,19 @@ Este artigo de instruções abrange operações comuns do armazenamento de Tabel
 
 Este artigo de instruções mostra como criar uma nova conta de armazenamento do Azure em um novo grupo de recursos, de modo que você possa removê-la facilmente quando terminar. Se preferir usar uma conta de armazenamento existente, faça isso.
 
-Os exemplos requerem que os módulos PowerShell Az `Az.Storage (1.1.3 or greater)` e `Az.Resources (1.2.0 or greater)`. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+Os exemplos requerem que os módulos PowerShell Az `Az.Storage (1.1.0 or greater)` e `Az.Resources (1.2.0 or greater)`. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se nada for exibido ou você precisar fazer atualização, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Usar esse recurso do Azure do PowerShell exige que você tenha o módulo `Az` instalado. A versão atual do AzureRmStorageTable não é compatível com o módulo AzureRM mais antigo.
+> Usar esse recurso do Azure do PowerShell exige que você tenha o módulo `Az` instalado. A versão atual do `AzTable` não é compatível com o módulo do AzureRM mais antigo.
 > Siga as [mais recente instalar instruções para instalar o módulo de Az](/powershell/azure/install-az-ps) se necessário.
 
-Depois que o Azure PowerShell for instalado ou atualizado, você deverá instalar o módulo **AzureRmStorageTable**, que contém os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
+Depois que o Azure PowerShell é instalado ou atualizado, você deve instalar o módulo **AzTable**, que contém os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
+
+> [!IMPORTANT]
+> Módulo de compatibilidade de nome razões pelas quais ainda estamos publicando esse mesmo módulo com o nome antigo `AzureRmStorageTables` na Galeria do PowerShell. Este documento fará referência a apenas o novo nome.
 
 ```powershell
-Install-Module AzureRmStorageTable
+Install-Module AzTable
 ```
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
@@ -115,9 +118,9 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Propriedade de CloudTable de referência de uma tabela específica
 
 > [!IMPORTANT]
-> Uso de CloudTable é obrigatório ao trabalhar com **AzureRmStorageTable** módulo do PowerShell. Chame o **Get-AzTableTable** comando para obter a referência a esse objeto. Esse comando também cria a tabela se ela ainda não existir.
+> Uso de CloudTable é obrigatório ao trabalhar com **AzTable** módulo do PowerShell. Chame o **Get-AzTableTable** comando para obter a referência a esse objeto. Esse comando também cria a tabela se ela ainda não existir.
 
-Para executar operações em uma tabela usando **AzureRmStorageTable**, você precisa de uma referência à propriedade CloudTable de uma tabela específica.
+Para executar operações em uma tabela usando **AzTable**, você precisa de uma referência à propriedade CloudTable de uma tabela específica.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -158,8 +161,8 @@ Neste artigo de instruções, você aprendeu sobre operações comuns do armazen
 
 Para obter mais informações, consulte os seguintes artigos
 
-* [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage#storage)
+* [Cmdlets do PowerShell de armazenamento](/powershell/module/az.storage#storage)
 
-* [Trabalhando com tabelas do Azure do PowerShell – AzureRmStorageTable PS módulo v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [Trabalhando com tabelas do Azure do PowerShell – AzureRmStorageTable/AzTable PS módulo v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

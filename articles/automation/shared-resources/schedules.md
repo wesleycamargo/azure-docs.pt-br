@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623162"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008639"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -156,6 +156,9 @@ Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de 
 1. No portal do Azure, em sua conta de Automação, selecione **Agendas** na seção **Recursos Compartilhados** à esquerda.
 2. Clique no nome de uma agenda para abrir o painel de detalhes.
 3. Altere **Habilitado** para **Não**.
+
+> [!NOTE]
+> Se você quiser desabilitar um agendamento que tem uma hora de início no passado, você deve alterar a data de início para um momento no futuro antes de salvá-lo.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Para desabilitar uma agenda com o PowerShell
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006806"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278217"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurar e gerenciar políticas de replicação para recuperação de desastre do VMware no Azure
 Este artigo descreve como configurar uma política de replicação quando você replicar VMs do VMware no Azure, usando o [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ Este artigo descreve como configurar uma política de replicação quando você 
 ## <a name="create-a-policy"></a>Criar uma política
 
 1. Selecione **Gerenciar** > **Infraestrutura do Site Recovery**.
-2. Em **Para o VMware e Computadores físicos**, selecione **Políticas de replicação**. 
+2. Em **Para o VMware e Computadores físicos**, selecione **Políticas de replicação**.
 3. Clique em **+Política de replicação** e especifique o nome da política.
 4. Em **Limite de RPO**, especifique o limite de RPO. Os alertas serão gerados quando a replicação contínua excede esse limite.
 5. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto em uma janela de retenção. Há suporte para até 24 horas de retenção para computadores replicados no armazenamento premium. Há suporte para até 72 horas no armazenamento standard.
@@ -29,7 +29,7 @@ Este artigo descreve como configurar uma política de replicação quando você 
 
 Quando você cria uma política de replicação, uma política de replicação de failback correspondente é criada automaticamente, com o sufixo "failback". Depois de criar a política, você pode editá-la selecionando > **Editar Configurações**.
 
-## <a name="associate-a-configuration-server"></a>Associar um servidor de configuração 
+## <a name="associate-a-configuration-server"></a>Associar um servidor de configuração
 
 Associe a política de replicação ao servidor de configuração local.
 

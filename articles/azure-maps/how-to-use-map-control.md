@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540118"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256083"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Use o controle de mapa de mapas do Azure
 
@@ -30,8 +30,8 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
      a. Use a versão do CDN hospedada globalmente do SDK Web do Azure Mapas adicionando os pontos de extremidade da URL à folha de estilos e às referências de script no elemento `<head>` do arquivo:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
     b. Como alternativa, carregue o código-fonte do SDK Web do Azure Mapas localmente usando o pacote NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) e hospede-o com seu aplicativo. Esse pacote também inclui definições de TypeScript.
@@ -102,7 +102,7 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
     </script>
     ```
 
-    Ver [autenticação com o Azure mapas](azure-maps-authentication.md) para obter mais detalhes.
+    Para obter mais informações, consulte [autenticação com o Azure mapas](azure-maps-authentication.md) para obter mais detalhes.
 
 6. Como opção, você poderá considerar útil adicionar os seguintes elementos de marcação meta ao cabeçalho da sua página:
 
@@ -114,7 +114,7 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Ao final, o arquivo HTML deve ter esta aparência:
+7. Juntando as peças seu arquivo HTML deve ser algo parecido com o código a seguir:
 
     ```HTML
     <!DOCTYPE html>
@@ -131,8 +131,8 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <style>
             html, body {
@@ -164,13 +164,13 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
     </html>
     ```
 
-8. Abra o arquivo no seu navegador da Web e exiba o mapa renderizado. Sua tela deverá ter a seguinte aparência:
+8. Abra o arquivo no seu navegador da Web e exiba o mapa renderizado. Deve se parecer com o código a seguir:
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Confira a Caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>Como usar o controle de mapeamento</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como criar e interagir com um mapa:
 

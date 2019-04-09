@@ -13,21 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24945cae273e072d3be314a66248674e25fe287
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d17a3c81784d56c6fcad7c7608559abf732882a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198857"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057924"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cornerstone OnDemand para o provisionamento automático de usuário
 
-
 O objetivo deste tutorial é demonstrar as etapas a serem executadas na Cornerstone OnDemand e no Microsoft Azure AD (Azure Active Directory) para configurar o Microsoft Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para a Cornerstone OnDemand.
-
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -36,68 +34,62 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas na Cornerst
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-*   Um locatário do Azure AD
-*   Um locatário do Cornerstone OnDemand
-*   Uma conta de usuário na Cornerstone OnDemand com permissões de administrador
-
+* Um locatário do Azure AD
+* Um locatário do Cornerstone OnDemand
+* Uma conta de usuário na Cornerstone OnDemand com permissões de administrador
 
 > [!NOTE]
 > A integração de provisionamento do Microsoft Azure AD baseia-se no [Serviço da Web da Cornerstone OnDemand](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), que está disponível para equipes da Cornerstone OnDemand.
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Adicionando Cornerstone OnDemand da galeria
+
 Antes de configurar a Cornerstone OnDemand para provisionamento automático de usuário com Microsoft Azure AD, será necessário adicionar a Cornerstone OnDemand da galeria de aplicativos do Microsoft Azure AD na sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar a Cornerstone OnDemand da galeria de aplicativos do Microsoft Azure AD, execute as seguintes etapas:**
+**Para adicionar o Cornerstone OnDemand da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos empresariais** > **Todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![Seção de Aplicativos empresariais][2]
-    
-3. Para adicionar a Cornerstone OnDemand, clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-4. Na caixa de pesquisa, digite **Cornerstone OnDemand**.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/AppSearch.png)
+4. Na caixa de pesquisa, digite **Cornerstone OnDemand**, selecione **Cornerstone OnDemand** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-5. No painel de resultados, selecione **Cornerstone OnDemand** e, em seguida, clique no botão **Adicionar** para adicionar a Cornerstone OnDemand à lista de aplicativos SaaS.
-
-    ![Provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/AppSearchResults.png)
-
-    ![Provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/AppCreation.png)
+    ![Cornerstone OnDemand na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-cornerstone-ondemand"></a>Atribuir usuários para Cornerstone OnDemand
 
-O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Microsoft Azure AD são sincronizados. 
+O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Microsoft Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, será necessário decidir quais usuários e/ou grupos no Microsoft Azure AD precisarão acessar a Cornerstone OnDemand. Uma vez decidido, será possível atribuir esses usuários e/ou grupos à Cornerstone OnDemand seguindo estas instruções:
 
-*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Dicas importantes para atribuir usuários à Cornerstone OnDemand
 
-*   É recomendável que um único usuário do Microsoft Azure AD seja atribuído à Cornerstone OnDemand para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Microsoft Azure AD seja atribuído à Cornerstone OnDemand para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário à Cornerstone OnDemand, você deverá selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário à Cornerstone OnDemand, você deverá selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-cornerstone-ondemand"></a>Configurar o provisionamento automático de usuário para a Cornerstone OnDemand
 
 Esta seção guia-o através das etapas para configurar o serviço de provisionamento do Microsoft Azure AD para criar, atualizar e desabilitar usuários e/ou grupos na Cornerstone OnDemand com base em atribuições de usuário e/ou grupo no Microsoft Azure AD.
 
-
 ### <a name="to-configure-automatic-user-provisioning-for-cornerstone-ondemand-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para a Cornerstone OnDemand no Microsoft Azure AD:
 
+1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Cornerstone OnDemand**.
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory > Aplicativos empresariais > Todos os aplicativos**.
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Selecione a Cornerstone OnDemand da lista de aplicativos SaaS.
- 
-    ![Provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/Successcenter2.png)
+2. Na lista de aplicativos, selecione **Cornerstone OnDemand**.
+
+    ![O link do Cornerstone OnDemand na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
@@ -109,11 +101,11 @@ Esta seção guia-o através das etapas para configurar o serviço de provisiona
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário do Administrador**, **Senha de Administrador** e **Domínio** da conta da Cornerstone OnDemand.
 
-    *   No campo **Nome de Usuário do Administrador**, preencha o nome de usuário/domínio da conta de administrador no Locatário da Cornerstone OnDemand. Exemplo: contoso\admin.
+    * No campo **Nome de Usuário do Administrador**, preencha o nome de usuário/domínio da conta de administrador no Locatário da Cornerstone OnDemand. Exemplo: contoso\admin.
 
-    *   No campo **Senha de Administrador**, preencha a senha correspondente ao nome de usuário do administrador.
+    * No campo **Senha de Administrador**, preencha a senha correspondente ao nome de usuário do administrador.
 
-    *   No campo **Domínio**, preencha a URL do serviço da Web do locatário Cornerstone OnDemand. Exemplo: O serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`; para a Contoso, o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como recuperar a URL do serviço Web, consulte [aqui](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * No campo **Domínio**, preencha a URL do serviço da Web do locatário Cornerstone OnDemand. Exemplo: O serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`; para a Contoso, o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como recuperar a URL do serviço Web, consulte [aqui](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Ao preencher os campos mostrados na Etapa 5, clique em **Testar Conectividade** para garantir que o Microsoft Azure AD possa conectar-se à Cornerstone OnDemand. Se a conexão falhar, certifique-se de que a conta da Cornerstone OnDemand tenha permissões de administrador e tente novamente.
 
@@ -147,25 +139,24 @@ Esta seção guia-o através das etapas para configurar o serviço de provisiona
 
     ![Provisionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os relatórios de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento do Microsoft Azure AD na Cornerstone OnDemand.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+
 ## <a name="connector-limitations"></a>Limitações do conector
 
 * O atributo Cornerstone OnDemand **posição** espera um valor que corresponde às funções no portal da Cornerstone OnDemand. A lista de valores válidos de **Posição** podem ser obtidos navegando até **Editar Registro de Usuário > Estrutura organizacional > Posição** no portal da Cornerstone OnDemand.
+
     ![Usuário de Edição de Provisionamento da Cornerstone OnDemand ](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png) ![Provisionamento de Posicionamento da Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png) ![Lista de Posições de Provisionamento Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
-    
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como examinar os logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cornerstone-ondemand-provisioning-tutorial/tutorial_general_01.png

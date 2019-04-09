@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403677"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275429"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerenciar, implantar e monitorar modelos com os Serviços do Azure Machine Learning
 
@@ -33,7 +33,7 @@ O fluxo de trabalho de implantação inclui as seguintes etapas:
 
 Cada etapa pode ser executada independentemente ou como parte de um comando de implantação única. Além disso, você pode integrar a implantação em um **Fluxo de trabalho de CI/CD** conforme ilustrado neste gráfico.
 
-[![' Ciclo/integração contínua (CI/CD) de implantação do azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Ciclo de CI/CD (implantação) / integração contínua do Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Etapa 1: Registrar modelo
 
@@ -63,7 +63,9 @@ A imagem também pode incluir componentes do SDK para registro em log e monitora
 O Azure Machine Learning dá suporte para as estruturas mais populares, porém, em geral, qualquer estrutura que possa ser instalada com pip poderá funcionar.
 
 Quando seu workspace foi criado, também foram criados vários outros recursos do Azure usados pelo workspace.
-Todos os objetos usados para criar a imagem são armazenados na conta de Armazenamento do Azure no seu workspace. Você pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registro de imagem e podem ser consultadas para localizar a imagem.
+Todos os objetos usados para criar a imagem padrão são armazenados na conta de armazenamento do Azure no seu espaço de trabalho. Você pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registro de imagem e podem ser consultadas para localizar a imagem.
+
+Você também pode usar imagens personalizadas, que podem ser carregadas no registro de contêiner do Azure e usadas pelo serviço de Azure Machine Learning.
 
 Para obter mais informações, consulte a seção sobre configuração e registro de imagens em [Implantar modelos](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ Você pode implantar imagens registradas na nuvem ou em dispositivos de borda. O
 
 Implantações de serviço Web também podem ser pesquisadas. Por exemplo, você pode pesquisar todas as implantações de uma imagem ou de um modelo específico.
 
-[![Destinos de inferência](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Idestinos de nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Você pode implantar suas imagens nos seguintes destinos de implantação na nuvem:
 
@@ -103,7 +105,7 @@ Para obter mais informações, consulte [Como habilitar a coleta de dados de mod
 
 Atualizações em seu modelo não são registradas automaticamente. Da mesma forma, registrar uma nova imagem não atualiza automaticamente as implantações que foram criadas de uma versão anterior da imagem. Em vez disso, você deve registrar manualmente o modelo, registrar a imagem e, em seguida, atualizar o modelo. Para obter mais informações, consulte a seção sobre atualização em [Implantar modelos](how-to-deploy-and-where.md#update).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [como e em que local você pode implantar modelos](how-to-deploy-and-where.md) com o serviço do Azure Machine Learning. Para obter um exemplo de implantação, consulte [Tutorial: Implantar um modelo de classificação de imagem em instâncias de contêiner do Azure](tutorial-deploy-models-with-aml.md).
 

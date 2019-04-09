@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521084"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058757"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -133,6 +133,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Migração de banco de dados do Azure
 * Azure Databricks
 * Firewall do Azure
+* AKS (Serviço do Kubernetes do Azure)
 * Migrações para Azure
 * Azure NetApp Files
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
@@ -143,7 +144,6 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Espaços de Desenvolvimento
 * Dynamics LCS
 * ExpressRoute
-* Serviço do Kubernetes
 * Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou assinatura. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
 * Aplicativos gerenciados
 * Microsoft Genomics
@@ -180,8 +180,8 @@ Para mover máquinas virtuais configuradas com o Backup do Azure, use a seguinte
 * Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
 * Se estiver no portal do Azure, marque "Mostrar tipos ocultos"
 * Se estiver no PowerShell, use o cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Se estiver na CLI, use o `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Se na CLI, use o `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Localizar o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
 * Após a conclusão da exclusão, você poderá mover sua Máquina Virtual. Você pode mover a máquina virtual e o cofre para a assinatura de destino. Após a movimentação, você poderá continuar backups sem perda de dados.
 * Para saber mais sobre como mover cofres do Serviço de Recuperação para o backup, veja [Limitações dos serviços de recuperação](#recovery-services-limitations).

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404630"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057142"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas frequentes do Avere vFXT para Azure
 
@@ -200,6 +200,14 @@ Para ambientes sensíveis à latência, você deve usar uma solução de fibra c
 
 Não, o Avere vFXT deve ser operado dentro de um ambiente de rede protegido usando as melhores práticas.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Pode restringir o acesso à internet da rede virtual do meu cluster? 
+
+Em geral, você pode configurar a segurança adicional em sua rede virtual conforme necessário, mas algumas restrições podem interferir na operação do cluster.
+
+Por exemplo, restringir o acesso de internet de saída de sua rede virtual causa problemas para o cluster, a menos que você também adicionar regras que permitam o acesso a AzureConnectors e AzureCloud explicitamente. Essa situação é descrita em [documentação complementar no GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Para obter ajuda com segurança personalizada, contate o suporte conforme descrito em [Obtenha ajuda com o seu sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Técnico: Armazenamento de back-end (arquivistas principais)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>A quantos arquivistas principais um único ambiente do Avere vFXT dá suporte?
@@ -280,7 +288,7 @@ Para uma introdução ao Avere vFXT para Azure, leia estes artigos para saber co
 
 * [Planejar seu sistema Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Visão geral da implantação](avere-vfxt-deploy-overview.md)
-* [Preparar para criar um cluster do Avere vFXT](avere-vfxt-prereqs.md)
-* [Implantar cluster do Avere vFXT](avere-vfxt-deploy.md)
+* [Prepare-se para criar um cluster de vFXT Avere](avere-vfxt-prereqs.md)
+* [Implantar o cluster de vFXT Avere](avere-vfxt-deploy.md)
 
 Para saber mais sobre as funcionalidades e casos de uso do Avere vFXT, visite [Avere vFXT para Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

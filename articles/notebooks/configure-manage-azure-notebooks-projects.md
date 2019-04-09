@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774550"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268000"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
 
@@ -95,7 +95,7 @@ O comando **+ Novo** (atalho de teclado: n) cria novos arquivos ou pastas. Ao us
 
 | Tipo de item | DESCRIÇÃO | Comportamento do comando |
 | --- | --- | --- |
-| **Notebook** | Um Jupyter Notebook | Exibe um pop-up em que você especifica o nome do arquivo e a linguagem de programação do notebook. |
+| **Bloco de notas** | Um Jupyter Notebook | Exibe um pop-up em que você especifica o nome do arquivo e a linguagem de programação do notebook. |
 | **Pasta** | Uma subpasta | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome da pasta. |
 | **Arquivo em branco** | Um arquivo no qual você pode armazenar qualquer conteúdo como texto, dados, etc. | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome do arquivo. |
 | **Markdown** | Um arquivo markdown. | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome do arquivo. |
@@ -220,7 +220,7 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

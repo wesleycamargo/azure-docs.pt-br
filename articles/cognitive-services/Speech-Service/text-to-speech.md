@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521237"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010440"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
@@ -38,7 +38,7 @@ Esta tabela lista os principais recursos de texto em fala:
 
 | Caso de uso | . | REST |
 |----------|-----|------|
-| Converta texto em fala. | Não  | Sim |
+| Converta texto em fala. | Sim | Sim |
 | Carrega conjuntos de dados para a adaptação de voz. | Não  | Sim\* |
 | Criar e gerenciar modelos de fonte de voz. | Não  | Sim\* |
 | Criar e gerenciar implantações de fonte de voz. | Não  | Sim\* |
@@ -54,27 +54,34 @@ Esta tabela lista os principais recursos de texto em fala:
 
 Nós oferecemos guias de início rápido foi projetados para ter está executando código em menos de 10 minutos. Essa tabela inclui uma lista de texto em fala guias de início rápido organizados por idioma.
 
-| Início rápido | Plataforma | Referência de API |
+| Guia de início rápido (REST) | Plataforma | Referência de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Guia de início rápido (SDK) | Plataforma | Referência de API |
+|------------|----------|---------------|
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Procurar](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
 
 ## <a name="sample-code"></a>Exemplo de código
 
 Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
 
-* [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK da fala](speech-sdk-reference.md)
+* [SDK de fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
-* [API REST: conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: Conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter uma assinatura gratuita dos Serviços de Fala](get-started.md)
+* [Obter uma assinatura de serviços de fala disponíveis](get-started.md)
 * [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)

@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670828"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273134"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure?
 
@@ -156,7 +156,7 @@ Também estamos adicionando a família de recursos de [processamento de consulta
 O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
 
 > [!IMPORTANT]
-> Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada contra Ameaças
 
@@ -186,7 +186,7 @@ O Banco de Dados SQL permite gerenciar centralmente as identidades de usuário d
 
 ### <a name="compliance-certification"></a>Certificação de conformidade
 
-O Banco de Dados SQL participa de auditorias regulares e foi certificado por vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
+O Banco de Dados SQL participa de auditorias regulares e foi certificado por vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
 ## <a name="easy-to-use-tools"></a>Ferramentas fáceis de usar
 
@@ -250,7 +250,7 @@ Clientes do Banco de Dados SQL terão os direitos associados ao Benefício Híbr
 - [Comentários](https://aka.ms/sqlfeedback): relate bugs e solicite recursos
 - [Reddit](https://www.reddit.com/r/SQLServer/): discuta o SQL Server
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Confira a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para ver comparações de custos entre o banco de dados único e pools elásticos e calculadoras.
 - Veja estes inícios rápidos para começar:
@@ -260,5 +260,5 @@ Clientes do Banco de Dados SQL terão os direitos associados ao Benefício Híbr
   - [Criar um banco de dados SQL usando o PowerShell](sql-database-get-started-powershell.md)
 
 - Para ver vários exemplos da CLI do Azure e do PowerShell, consulte:
-  - [Exemplos da CLI do Azure para o Banco de Dados SQL do Azure](sql-database-cli-samples.md)
-  - [Exemplos do Azure PowerShell para o Banco de Dados SQL do Azure](sql-database-powershell-samples.md)
+  - [Exemplos CLI do Azure para o banco de dados SQL](sql-database-cli-samples.md)
+  - [Exemplos do Azure PowerShell para o banco de dados SQL](sql-database-powershell-samples.md)

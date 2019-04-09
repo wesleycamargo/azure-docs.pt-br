@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579454"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009727"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>Versão de APIs de preenchimento SaaS 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versão de APIs de preenchimento SaaS 1 (preterido)
 
-Este artigo explica como criar uma oferta de SaaS com APIs. As APIs são necessárias para permitir assinaturas para sua oferta de SaaS se você tem a opção Venda por meio do Azure selecionada.  
+Este artigo explica como criar uma oferta de SaaS com APIs. As APIs, compostas de métodos REST e pontos de extremidade, são necessárias para permitir que as assinaturas para sua oferta de SaaS se tiver vendidos por meio do Azure selecionados.  
 
 > [!WARNING]
-> Esta versão inicial da API de preenchimento SaaS foi preterida; em vez disso, use [SaaS cumprimento API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Este artigo é dividido em duas seções:
-
--   Autenticação serviço a serviço entre um serviço SaaS e o Azure Marketplace
--   Métodos de API e pontos de extremidade
+> Esta versão inicial da API de preenchimento SaaS foi preterida; em vez disso, use [SaaS cumprimento API V2](./cpp-saas-fulfillment-api-v2.md).  Essa API atualmente está sendo mantida apenas para servir editores existentes. 
 
 As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS ao Azure:
 
@@ -41,112 +36,11 @@ As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS a
 -   Converter
 -   Cancelar assinatura
 
-O diagrama a seguir mostra o fluxo de assinatura de um novo cliente e quando essas APIs são usadas:
 
-![Fluxo de API da oferta de SaaS](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Autenticação serviço a serviço entre um serviço SaaS e o Azure Marketplace
-
-Azure não impõe nenhuma restrição quanto à autenticação que o serviço SaaS expõe a seus usuários finais. No entanto, quando se trata da comunicação entre o serviço SaaS e as APIs do Azure Marketplace, a autenticação é feita no contexto de um Aplicativo Azure AD (Azure Active Directory).
-
-A seção a seguir descreve como criar um Aplicativo Azure AD.
-
-
-### <a name="register-an-azure-ad-application"></a>Registrar um Aplicativo Azure AD
-
-Para que você possa usar os recursos do AD do Azure em qualquer aplicativo desejado, primeiramente é preciso registrá-lo em um locatário do AD do Azure. Esse processo de registro envolve fornecer ao Azure AD detalhes sobre seu aplicativo, como a URL em que ele está localizado, a URL à qual enviar respostas depois que um usuário é autenticado, o URI que identifica o aplicativo, etc.
-
-Para registrar um novo aplicativo usando o portal do Azure, realize as seguintes etapas:
-
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. Se a sua conta der acesso a mais de um, clique em sua conta no canto superior direito e defina a sessão do portal para o desejado de locatário do Azure AD.
-3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo**.
-
-   ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration-v1.png)
-
-4. Na página Criar, insira as informações de registro do aplicativo:
-   - **Nome**: insira um nome significativo de aplicativo
-   - **Tipo de aplicativo**: 
-     - Selecione **Nativo** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos OAuth.
-     - Selecione **Aplicativo Web/API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [recurso/aplicativos de API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
-     O mesmo aplicativo também pode expor um cliente e o recurso/API.
-   - **URL de logon**: para aplicativos e API da Web, informe a URL base do aplicativo. Por exemplo, **http:\//localhost:31544** pode ser a URL para um aplicativo web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
-   - **URI de redirecionamento**: para aplicativos públicos, informe o URI usado pelo Microsoft Azure Active Directory para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo **http:\//MyFirstAADApp**.
-
-     ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration-v1-2.png)
-
-     Para obter exemplos específicos para aplicativos web ou aplicativos nativos, confira o início rápido guiado configurações que estão disponíveis na seção de Introdução ao [guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Ao terminar, clique em **Criar**. Uma ID do aplicativo exclusiva é atribuída pelo Azure AD ao aplicativo e você é levado à página de registro principal do aplicativo. Dependendo de se o seu aplicativo é Web ou nativo, diferentes opções serão fornecidas para adicionar mais recursos ao aplicativo.
-
->[!Note]
->Por padrão, o aplicativo recém-registrado é configurado para permitir que somente os usuários do mesmo locatário entrem no seu aplicativo.
-
-<a name="api-methods-and-endpoints"></a>Métodos de API e pontos de extremidade
--------------------------
+## <a name="api-methods-and-endpoints"></a>Pontos de extremidade e métodos de API
 
 As seções a seguir descrevem os métodos de API e os pontos de extremidade disponíveis para habilitar assinaturas para uma oferta de SaaS.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obter um token com base no Aplicativo Azure AD
-
-Método HTTP
-
-`GET`
-
-*URL de Solicitação*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*Parâmetro URI*
-
-|  **Nome do parâmetro**  | **Obrigatório**  | **Descrição**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | ID do locatário do aplicativo AAD registrado   |
-|  |  |  |
-
-
-*Cabeçalho da solicitação*
-
-|  **Nome do cabeçalho**  | **Obrigatório** |  **Descrição**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Tipo de conteúdo     | True         | Tipo de conteúdo associado à solicitação. O valor padrão é `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Corpo da solicitação*
-
-| **Nome da propriedade**   | **Obrigatório** |  **Descrição**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Tipo de concessão. O valor padrão é `client_credentials`.                    |
-|  Client_id          | True         |  Identificador do cliente/aplicativo associado ao Aplicativo Azure AD.                  |
-|  client_secret      | True         |  Senha associada ao Aplicativo Azure AD.                               |
-|  Recurso           | True         |  Recurso de destino para o qual o token é solicitado. O valor padrão é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Resposta*
-
-|  **Nome**  | **Tipo**       |  **Descrição**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Solicitação bem-sucedida   |
-|  |  |  |
-
-*TokenResponse*
-
-Token de resposta de exemplo:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Ponto de extremidade de API e a versão de API do Marketplace
 
@@ -167,7 +61,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Nome do Parâmetro** |     **Descrição**                                      |
+|  **Nome do Parâmetro** |     **DESCRIÇÃO**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  api-version        |  A versão da operação a ser usada para esta solicitação.   |
 |  |  |
@@ -175,7 +69,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -196,7 +90,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 }
 ```
 
-| **Nome do parâmetro** | **Tipo de dados** | **Descrição**                       |
+| **Nome do parâmetro** | **Tipo de dados** | **DESCRIÇÃO**                       |
 |--------------------|---------------|---------------------------------------|
 | ID                 | Cadeia de caracteres        | A ID da assinatura de SaaS.          |
 | subscriptionName| Cadeia de caracteres| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
@@ -207,7 +101,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                                         |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token resolvido com êxito.                                                            |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. Falha ao resolver o token porque ou ele está malformado ou expirou (o token só é válido por 1 hora depois de gerado). |
@@ -219,11 +113,11 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, esse valor é a ID de correlação do servidor.                   |
-| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações. |
+| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Essa ID é usada para qualquer reconciliações. |
 | Retry-After        | Não            | Esse valor é definido somente para uma resposta 429.                                                                   |
 |  |  |  |
 
@@ -236,15 +130,15 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID exclusiva da assinatura de SaaS, que é obtida depois de resolver o token por meio da API de resolução.                              |
+| subscriptionId      | Assinatura de ID de SaaS exclusiva que é obtida depois de resolver o token por meio da API de resolver.                              |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Cabeçalhos*
 
-|  **Chave de cabeçalho**        | **Obrigatório** |  **Descrição**                                                  |
+|  **Chave de cabeçalho**        | **Obrigatório** |  **DESCRIÇÃO**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
 | x-ms-requestid         |   Não          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | x-ms-correlationid     |   Não          | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -262,14 +156,14 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 }
 ```
 
-| **Nome do elemento** | **Tipo de dados** | **Descrição**                      |
+| **Nome do elemento** | **Tipo de dados** | **DESCRIÇÃO**                      |
 |------------------|---------------|--------------------------------------|
 | planId           | Cadeia de caracteres (obrigatória)        | A ID do plano do serviço SaaS que o usuário está assinando.  |
 |  |  |  |
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação da assinatura de SaaS recebida para um plano específico.                   |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão faltando ou então o corpo do JSON está malformado. |
@@ -284,7 +178,7 @@ Para obter uma resposta 202, acompanhe o status da operação de solicitação n
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, esse valor é a ID de correlação do servidor.                   |
@@ -301,7 +195,7 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | A ID da assinatura de SaaS.                              |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
@@ -309,7 +203,7 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**          | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave de cabeçalho**          | **Obrigatório** | **DESCRIÇÃO**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid          | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 | x-ms-correlationid      | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -326,14 +220,14 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 }
 ```
 
-|  **Nome do elemento** |  **Tipo de dados**  | **Descrição**                              |
+|  **Nome do elemento** |  **Tipo de dados**  | **DESCRIÇÃO**                              |
 |  ---------------- | -------------   | --------------------------------------       |
 |  planId           |  Cadeia de caracteres (obrigatória)         | A ID do plano do serviço SaaS que o usuário está assinando.          |
 |  |  |  |
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação da assinatura de SaaS recebida para um plano específico.                   |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão faltando ou então o corpo do JSON está malformado. |
@@ -346,7 +240,7 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, esse valor é a ID de correlação do servidor.                   |
@@ -361,11 +255,11 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 
 *Solicitação*
 
-**DELETE**
+**EXCLUIR**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | A ID da assinatura de SaaS.                              |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
@@ -373,7 +267,7 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -382,7 +276,7 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação da assinatura de SaaS recebida para um plano específico.                   |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão faltando ou então o corpo do JSON está malformado. |
@@ -396,7 +290,7 @@ Para obter uma resposta 202, acompanhe o status da operação de solicitação n
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
@@ -415,7 +309,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 **https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | ID exclusiva para a operação disparada.                |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
@@ -423,7 +317,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
@@ -442,7 +336,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 }
 ```
 
-| **Nome do parâmetro** | **Tipo de dados** | **Descrição**                                                                                                                                               |
+| **Nome do parâmetro** | **Tipo de dados** | **DESCRIÇÃO**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
 | ID                 | Cadeia de caracteres        | A ID da operação.                                                                      |
 | status             | Enum          | Status da operação, um dos seguintes: `In Progress`, `Succeeded` ou `Failed`.          |
@@ -453,7 +347,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. |
@@ -465,7 +359,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
@@ -483,7 +377,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | A ID da assinatura de SaaS.                              |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
@@ -491,7 +385,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                           |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -512,7 +406,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 }
 ```
 
-| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **DESCRIÇÃO**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
@@ -525,7 +419,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. |
@@ -537,7 +431,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
@@ -556,14 +450,14 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Nome do Parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **DESCRIÇÃO**                                       |
 |---------------------|-------------------------------------------------------|
 | api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Cabeçalhos*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                           |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -584,7 +478,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 }
 ```
 
-| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **DESCRIÇÃO**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
@@ -597,7 +491,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 *Códigos de resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de status HTTP** | **Código do Erro**     | **DESCRIÇÃO**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. |
@@ -609,7 +503,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 *Cabeçalhos de resposta*
 
-| **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                        |
+| **Chave de cabeçalho**     | **Obrigatório** | **DESCRIÇÃO**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
@@ -634,7 +528,7 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
   }
 ```
 
-| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **DESCRIÇÃO**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID  | Cadeia de caracteres       | ID exclusiva para a operação disparada.                |
 | activityId   | Cadeia de caracteres        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
