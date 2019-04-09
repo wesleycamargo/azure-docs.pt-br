@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878206"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282093"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN Ponto a Site
 
@@ -22,7 +22,7 @@ Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma con
 
 VPN Ponto a Site pode usar um dos seguintes protocolos:
 
-* OpenVPN, um protocolo de VPN baseado em SSL/TLS. Uma solução de SSL VPN pode invadir firewalls, desde que a maioria dos firewalls abra a porta TCP 443, usada pelo SSL. OpenVPN pode ser usado para conectar-se do Android, iOS (versões 11.0 e posteriores), dispositivos Windows, Linux e Mac (OSX versões 10.13 e acima).
+* **Protocolo de® OpenVPN**, um SSL/TLS com base em protocolo de VPN. Uma solução de SSL VPN pode invadir firewalls, desde que a maioria dos firewalls abra a porta TCP 443, usada pelo SSL. OpenVPN pode ser usado para conectar-se do Android, iOS (versões 11.0 e posteriores), dispositivos Windows, Linux e Mac (OSX versões 10.13 e acima).
 
 * SSTP (Secure Socket Tunneling Protocol), que é um protocolo VPN baseado em SSL proprietário. Uma solução de SSL VPN pode invadir firewalls, desde que a maioria dos firewalls abra a porta TCP 443, usada pelo SSL. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
 
@@ -54,7 +54,7 @@ O servidor RADIUS também pode ser integrado aos Serviços de Certificados do AD
 Um servidor RADIUS também pode integrar-se com outros sistemas de identidade externa. Isso possibilita várias opções de autenticação para VPNs P2S, incluindo opções de multifator.
 
 >[!NOTE]
->Não há suporte para o protocolo OpenVPN com a autenticação RADIUS.
+>**Protocolo de® OpenVPN** não é compatível com a autenticação RADIUS.
 >
 
 ![ponto a site](./media/point-to-site-about/p2s.png "Ponto a Site")
@@ -109,3 +109,5 @@ Uma configuração P2S exige algumas etapas específicas. Os seguintes artigos c
 * [Configurar uma conexão P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 
 * [Configurar uma conexão P2S – autenticação de certificado nativa do Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**"OpenVPN" é uma marca registrada da Inc OpenVPN.**

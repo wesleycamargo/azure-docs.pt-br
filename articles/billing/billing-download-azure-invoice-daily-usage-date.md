@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224627"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281175"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -202,7 +202,7 @@ Para saber mais sobre a fatura e os encargos, consulte:
 
 Se você tiver um contrato de cliente da Microsoft, consulte:
 
-- [Entender os encargos na fatura para o perfil de cobrança ](billing-mca-understand-your-bill.md)
+- [Entender os encargos na fatura para o perfil de cobrança](billing-mca-understand-your-bill.md)
 - [Compreender os termos na fatura para o perfil de cobrança](billing-mca-understand-your-invoice.md)
 - [Entender o arquivo de uso e os encargos do Azure para o perfil de cobrança](billing-mca-understand-your-usage.md)
 - [Exibir e baixar documentos de imposto para o perfil de cobrança](billing-mca-download-tax-document.md)

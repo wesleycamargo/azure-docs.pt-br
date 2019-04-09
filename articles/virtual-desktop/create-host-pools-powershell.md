@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439066"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258463"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
-Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário de visualização de área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário de Versão Prévia da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Use seu cliente do PowerShell para criar um pool de host
 
-Primeiro, [Baixe e importe o módulo do Windows PowerShell de área de trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar em sua sessão do PowerShell se você ainda não fez isso.
+Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso.
 
 Execute o seguinte cmdlet para entrar no ambiente de área de trabalho Virtual do Windows
 
@@ -112,9 +112,12 @@ Para registrar os agentes da área de trabalho Virtual do Windows, faça o segui
      - Selecione **arquivo**, em seguida, **abra...** e, em seguida, localize o script do PowerShell no arquivo de download e abri-lo.
      - Selecione o botão verde play para executar o script.
 
+>[!IMPORTANT]
+>Para ajudar a proteger seu ambiente de área de trabalho Virtual do Windows no Azure, é recomendável que não abrir a porta 3389 de entrada em suas VMs. Área de trabalho Virtual do Windows não exige uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de host. Se você deve abrir a porta 3389 para fins de solução de problemas, recomendamos que você use [acesso VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um pool de host, você pode preenchê-lo com os aplicativos remotos. Para saber mais sobre como gerenciar aplicativos na área de trabalho Virtual do Windows, consulte o tutorial de grupos de aplicativo de gerenciar.
+Agora que você criou um pool de host, você pode preenchê-lo com os aplicativos remotos. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 
 > [!div class="nextstepaction"]
 > [Gerenciar o tutorial de grupos de aplicativo](./manage-app-groups.md)

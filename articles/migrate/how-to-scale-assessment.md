@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057465"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265242"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -301,7 +301,7 @@ net.transmitted.average | Calcula o tamanho da VM
 > [!WARNING]
 > O método de descoberta única que contavam com as configurações de estatísticas do vCenter Server para coleta de dados de desempenho agora foi preterido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um grupo](how-to-create-a-group.md) para avaliação.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações são calculadas.

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 86821e2082deb500f050eeab827dcee593082661
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776352"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279883"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Descubra e use notebooks de exemplo
 
@@ -37,11 +37,11 @@ Após identificar um notebook que você gostaria de explorar, aqui estão alguns
 - [Galeria de notebooks interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Projeto do Jupyter no GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Instruções de física do [Departamento de Física do Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Exemplos de introdução ao Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- [O Azure Machine Learning, exemplos de Introdução](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
+- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Usar os serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

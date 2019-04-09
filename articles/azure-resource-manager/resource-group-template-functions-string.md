@@ -4,22 +4,20 @@ description: Descreve as funções a serem usadas em um modelo do Azure Resource
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621395"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278778"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
 
@@ -35,18 +33,19 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [guid](#guid)
+* [formato](#format)
+* [GUID](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [substitui](#replace)
+* [substituir](#replace)
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [string](#string)
+* [cadeia de caracteres](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -541,7 +540,7 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -714,9 +713,66 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | Cadeia de caracteres | one |
 | stringOutput | Cadeia de caracteres | O |
 
+## <a name="format"></a>formato
+
+`format(formatString, arg1, arg2, ...)`
+
+Cria uma cadeia de caracteres formatada de valores de entrada.
+
+### <a name="parameters"></a>parâmetros
+
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+|:--- |:--- |:--- |:--- |
+| formatString | Sim | cadeia de caracteres | A cadeia de caracteres de formato composto. |
+| arg1 | Sim | cadeia de caracteres, inteiros ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
+| argumentos adicionais | Não  | cadeia de caracteres, inteiros ou booliano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
+
+### <a name="remarks"></a>Comentários
+
+Use essa função para formatar uma cadeia de caracteres em seu modelo. Ele usa as mesmas opções de formatação como o [Format](/dotnet/api/system.string.format) método no .NET.
+
+### <a name="examples"></a>Exemplos
+
+O modelo de exemplo a seguir mostra como usar a função format.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| NOME | Tipo | Valor |
+| ---- | ---- | ----- |
+| formatTest | Cadeia de caracteres | Olá, o usuário. Número formatado: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
 
@@ -731,7 +787,7 @@ Cria um valor no formato de um identificador global exclusivo com base nos valor
 
 Essa função é útil quando você precisa criar um valor no formato de um identificador global exclusivo. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação.
 
-O valor retornado não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado tem 36 caracteres. Não é globalmente exclusivo. Para criar um novo GUID que não se baseia a esse valor de hash dos parâmetros, use o [Novo_guid](#newguid) função.
+O valor retornado não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado tem 36 caracteres. Não é globalmente exclusivo. Para criar um novo GUID não é baseado nesse valor de hash dos parâmetros, use o [Novo_guid](#newguid) função.
 
 Os exemplos a seguir mostram como usar guid para criar um valor exclusivo para níveis usados com mais frequência.
 
@@ -1229,7 +1285,7 @@ Retorna uma cadeia de caracteres com todos os caracteres após o número especif
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
+| numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz vazia ou uma cadeia de caracteres é retornada. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1554,7 +1610,7 @@ Retorna uma cadeia de caracteres com o número especificado de caracteres desde 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
+| numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da cadeia de caracteres ou matriz fornecida, todos os elementos da matriz ou cadeia de caracteres são retornados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1776,7 +1832,7 @@ Cria uma cadeia de caracteres de hash determinístico com base nos valores forne
 
 Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação. 
 
-O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real poderá variar de acordo com os parâmetros fornecidos.
+O valor retornado não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real poderá variar de acordo com os parâmetros fornecidos.
 
     tcvhiyu5h2o5o
 
@@ -1809,7 +1865,7 @@ O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se você precisar criar um novo nome exclusivo sempre que você implanta um modelo e não temos intenção de atualizar o recurso, você pode usar o [utcNow](#utcnow) função com uniqueString. Você pode usar essa abordagem em um ambiente de teste. Por exemplo, consulte [utcNow](#utcnow).
+Se você precisar criar um novo nome exclusivo sempre que você implanta um modelo e não pretende atualizar o recurso, você pode usar o [utcNow](#utcnow) função com uniqueString. Você pode usar essa abordagem em um ambiente de teste. Por exemplo, consulte [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -2120,7 +2176,7 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).

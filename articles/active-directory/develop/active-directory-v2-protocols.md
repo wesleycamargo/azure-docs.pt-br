@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175075"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266963"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 
@@ -41,10 +41,11 @@ Em quase todos os fluxos do OAuth 2.0 e do OpenID Connect, há quatro partes env
 * O **Servidor de Autorização** é o ponto de extremidade v2.0 e é responsável por garantir a identidade do usuário, conceder e revogar o acesso a recursos e emitir tokens. O servidor de autorização também é conhecido como provedor de identidade; ele trata com segurança tudo que estiver relacionado às informações do usuário, seu acesso e as relações de confiança entre as partes de um fluxo.
 * O **Proprietário do Recurso** normalmente é o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados ou recurso.
 * O **Cliente OAuth** é o seu aplicativo, identificado pela respectiva ID de Aplicativo. Geralmente é a parte com a qual usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão do proprietário do recurso para acessar o recurso.
-* O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
+* O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança e usa os tokens de acesso de portador para garantir que o acesso a um recurso pode ser concedido.
 
 ## <a name="app-registration"></a>Registro do Aplicativo
-Cada aplicativo que usa o ponto de extremidade v2.0 deve estar registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou por meio da nova experiência **Registros de aplicativo (versão prévia)** no [portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) para poder interagir usando OAuth ou OpenID Connect. O processo de registro de aplicativo coleta e atribui alguns valores a seu aplicativo:
+
+Todos os aplicativos que quer aceitar tanto pessoais e contas corporativas ou de estudante devem ser registrados por meio da nova **registros do aplicativo (versão prévia)** experiência na [portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) antes que ele pode entrar esses usuários usando o OAuth 2.0 ou OpenID Connect. O processo de registro de aplicativo coleta e atribui alguns valores a seu aplicativo:
 
 * Uma **ID de Aplicativo** que identifica exclusivamente o aplicativo
 * Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo
@@ -68,9 +69,12 @@ Em que o `{tenant}` pode ter um de quatro valores diferente:
 | `common` | Permite que os usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure AD entrem no aplicativo. |
 | `organizations` | Permite que somente usuários com contas corporativas/de estudante do Azure AD entrem no aplicativo. |
 | `consumers` | Permite que somente os usuários com MSA (Contas Pessoais da Microsoft) para entrem no aplicativo. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permite que somente os usuários com contas corporativas/de estudante de um locatário específico do Azure AD entrem no aplicativo. É possível usar o nome de domínio amigável do locatário do Azure AD ou o identificador GUID de locatário. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou o `contoso.onmicrosoft.com` | Permite que somente os usuários com contas corporativas/de estudante de um locatário específico do Azure AD entrem no aplicativo. É possível usar o nome de domínio amigável do locatário do Azure AD ou o identificador GUID de locatário. |
 
 Para saber mais sobre como interagir com esses pontos de extremidade, escolha um tipo específico de aplicativo na seção [Protocolos](#protocols) e siga os links.
+
+> [!TIP]
+> Qualquer aplicativo registrado no Azure AD pode usar o ponto de extremidade v 2.0, mesmo se eles não entrarem em contas pessoais.  Dessa forma, você pode migrar aplicativos existentes para a versão 2.0 e [MSAL](reference-v2-libraries.md) sem recriar seu aplicativo.  
 
 ## <a name="tokens"></a>Tokens
 
@@ -82,8 +86,8 @@ Mais detalhes sobre os diferentes tipos de token usados no ponto de extremidade 
 
 Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um dos tutoriais a seguir. Cada um corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual é o fluxo ideal para você, confira [os tipos de aplicativos que você pode compilar com a v2.0](v2-app-types.md).
 
-* [Criar aplicativos nativos e móveis com o OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Criar aplicativos Web com o OpenID Connect](v2-protocols-oidc.md)
-* [Criar aplicativos de página única com o fluxo implícito do OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Criar daemons ou processos do servidor com o fluxo de credenciais do cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Obter tokens em uma API Web com o OAuth 2.0 em nome do fluxo](v2-oauth2-on-behalf-of-flow.md)
+* [Compilar aplicativos nativos e móveis com o OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Crie aplicativos web com OpenID Connect](v2-protocols-oidc.md)
+* [Crie aplicativos de página única com o fluxo implícito do OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Criar daemons ou processos do lado do servidor com o fluxo de credenciais de cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+* [Obter tokens em uma API web com o fluxo OAuth 2.0 on-behalf-of](v2-oauth2-on-behalf-of-flow.md)

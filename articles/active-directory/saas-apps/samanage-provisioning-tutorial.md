@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092371"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280342"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar o Samanage para provisionamento automático do usuário
 
@@ -33,39 +34,34 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Samanage
 
 O cenário descrito neste tutorial pressupõe que você já possui o seguinte:
 
-*   Um locatário do Azure AD
-*   Um [locatário Samanage](https://www.samanage.com/pricing/)com o pacote Professional
-*   Uma conta de usuário no Samanage com permissões de Administrador
+* Um locatário do Azure AD
+* Um [locatário Samanage](https://www.samanage.com/pricing/)com o pacote Professional
+* Uma conta de usuário no Samanage com permissões de Administrador
 
 > [!NOTE]
 > A integração de provisionamento do Azure AD conta com a [API REST do Samanage](https://www.samanage.com/api/), que está disponível para desenvolvedores do Samanage para contas com o pacote Professional.
 
 ## <a name="adding-samanage-from-the-gallery"></a>Adição do Samanage da galeria
+
 Antes de configurar o Samanage para o provisionamento automático de usuário com o Azure AD, é necessário adicionar o Samanage da galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Samanage da galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar o Samanage da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos empresariais** > **Todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![Seção de Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar o Samanage, clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Samanage**.
+4. Na caixa de pesquisa, digite **Samanage**, selecione **Samanage** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Provisionamento do Samanage](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. No painel de resultados, selecione **Samanage** e, em seguida, clique no botão **Adicionar** para adicionar o Samanage à sua lista de aplicativos SaaS.
-
-    ![Provisionamento do Samanage](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Provisionamento do Samanage](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![Samanage na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>Atribuindo usuários ao Samanage
 
@@ -73,7 +69,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Samanage. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Samanage seguindo estas instruções:
 
-*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+*   [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Dicas importantes para atribuir usuários ao Samanage
 
@@ -92,11 +88,13 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Samanage no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory > Aplicativos empresariais > Todos os aplicativos**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Samanage**.
 
-2. Selecione o Samanage na sua lista de aplicativos SaaS.
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-    ![Provisionamento do Samanage](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. Na lista de aplicativos, selecione **Samanage**.
+
+    ![O link do Samanage na lista de Aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
@@ -163,13 +161,13 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como examinar os logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

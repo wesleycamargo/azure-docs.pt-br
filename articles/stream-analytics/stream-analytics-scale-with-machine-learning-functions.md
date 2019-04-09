@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557998"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257273"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar seu trabalho do Stream Analytics com funções do Azure Machine Learning
 É simples configurar um trabalho do Stream Analytics e executar alguns dados de exemplo por meio dele. O que podemos fazer quando precisamos executar o mesmo trabalho com um volume de dados maior? Precisamos entender como configurar o trabalho do Stream Analytics para que ele possa ser escalado. Neste documento, nos concentraremos nos aspectos especiais do dimensionamento de trabalhos do Stream Analytics com funções do Machine Learning. Para saber mais sobre como dimensionar trabalhos do Stream Analytics em geral, confira o artigo [Dimensionar os trabalhos do Stream Analytics](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Azure Machine Learning no Stream Analytics?
-Uma função do Machine Learning no Stream Analytics pode ser usada como uma chamada de função normal na linguagem de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, solicitações de Serviço Web do Azure Machine Learning. Os serviços Web do Machine Learning dão suporte a várias linhas de "lotes", chamadas de minilotes, na mesma chamada à API do serviço Web para melhorar a taxa de transferência geral. Para obter mais informações, consulte [Funções de Aprendizado de Máquina do Azure no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [Serviços da Web de Aprendizado de Máquina do Azure](../machine-learning/studio/consume-web-services.md).
+Uma função do Machine Learning no Stream Analytics pode ser usada como uma chamada de função normal na linguagem de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, solicitações de Serviço Web do Azure Machine Learning. Os serviços Web do Machine Learning dão suporte a várias linhas de "lotes", chamadas de minilotes, na mesma chamada à API do serviço Web para melhorar a taxa de transferência geral. Para obter mais informações, consulte [serviços da Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar seu trabalho do Stream Analytics com funções de Machine Learning
 Ao configurar uma função do Machine Learning para um trabalho do Stream Analytics, há dois parâmetros a serem considerados, o tamanho do lote das chamadas de função do Machine Learning e as SUs (unidades de streaming) provisionadas para o trabalho do Stream Analytics. Para determinar os valores apropriados para UAs, primeiro, é necessário tomar uma decisão entre latência e taxa de transferência, ou seja, latência do trabalho do Stream Analytics e taxa de transferência de cada UA. As SUs podem ser adicionadas sempre a um trabalho a fim de aumentar a produtividade de uma consulta do Stream Analytics bem particionada, embora SUs adicionais aumentem o custo da execução do trabalho.
@@ -112,7 +112,7 @@ Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo.
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Stream Analytics, confira:
 
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introdução ao uso do Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Dimensionar trabalhos do Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de API de REST de gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

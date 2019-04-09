@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401427"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279220"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um pool de host com um modelo do Azure Resource Manager
 
-Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário de visualização de área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário de Versão Prévia da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
 
 Siga as instruções desta seção para criar um pool de host para um locatário de área de trabalho Virtual do Windows com um modelo do Azure Resource Manager fornecido pela Microsoft. Este artigo informa como criar um pool de host na área de trabalho Virtual do Windows, crie um grupo de recursos com as VMs em uma assinatura do Azure, Junte-se nessas VMs ao domínio do AD e registrar as máquinas virtuais com área de trabalho Virtual do Windows.
 
@@ -52,7 +52,7 @@ Para obter orientação sobre quais parâmetros você deve inserir para seu cen�
 
 Após a conclusão do modelo do GitHub do Azure Resource Manager, atribua acesso de usuário antes de você começar a testar as áreas de trabalho de sessão completa em suas máquinas virtuais.
 
-Primeiro, [Baixe e importe o módulo do Windows PowerShell de área de trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar em sua sessão do PowerShell se você ainda não fez isso.
+Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso.
 
 Para atribuir usuários ao grupo de aplicativos da área de trabalho, abra uma janela do PowerShell e execute este cmdlet para entrar no ambiente de área de trabalho Virtual do Windows:
 
@@ -72,6 +72,9 @@ Depois disso, adicione usuários ao grupo de aplicativo da área de trabalho com
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-O UPN do usuário deve corresponder à identidade do usuário no Azure Active Directory (por exemplo, user1@contoso.com). Se você quiser adicionar vários usuários, você deve executar este cmdlet para cada usuário.
+O UPN do usuário deve corresponder à identidade dele no Azure Active Directory (por exemplo, user1@contoso.com). Se você desejar adicionar vários usuários, deverá executar este cmdlet para cada um.
 
-Depois de concluir essas etapas, os usuários adicionados ao grupo de aplicativo da área de trabalho podem entrar área de trabalho Virtual do Windows com clientes de área de trabalho remota com suporte e consulte um recurso para uma área de trabalho de sessão.
+Após concluir essas etapas, os usuários adicionados ao grupo de aplicativo de área de trabalho poderão entrar na Área de Trabalho Virtual do Windows com os clientes de Área de Trabalho Remota com suporte e verão um recurso para uma área de trabalho de sessão.
+
+>[!IMPORTANT]
+>Para ajudar a proteger seu ambiente de área de trabalho Virtual do Windows no Azure, é recomendável que não abrir a porta 3389 de entrada em suas VMs. Área de trabalho Virtual do Windows não exige uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de host. Se você deve abrir a porta 3389 para fins de solução de problemas, recomendamos que você use [acesso VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

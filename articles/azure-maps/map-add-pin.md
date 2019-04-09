@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500042"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056836"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
-Este artigo mostra como você pode renderizar os dados de ponto de uma fonte de dados como uma camada de Símbolo em um mapa. As camadas de Símbolo são renderizadas usando o WebGL e dão suporte a um número significativamente maior de pontos de dados comparado aos marcadores HTML, mas não dão suporte a elementos CSS e HTML tradicionais para estilos.  
+Este artigo mostra como você pode renderizar os dados de ponto de uma fonte de dados como uma camada de Símbolo em um mapa. Camadas de símbolo são renderizadas usando o WebGL e dar suporte a muito grandes conjuntos de pontos de marcadores HTML, mas não dão suporte a elementos CSS e HTML tradicionais para aplicação de estilo.  
 
 > [!TIP]
-> Por padrão, as camadas de Símbolo renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de tal forma que ela só processe recursos de geometrias, defina a `filter` propriedade da camada para `['==', '$type', 'Point']`
+> Por padrão, as camadas de Símbolo renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de tal forma que ele só processa geometria de ponto de conjunto de recursos do `filter` propriedade da camada para `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos MultiPoint também.
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
@@ -34,14 +34,14 @@ No segundo bloco de código, um objeto de fonte de dados é criado usando a clas
 
 O terceiro bloco de código cria um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) e atualiza as coordenadas do ponto após clique do mouse, usando o método [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) da classe shape.
 
-Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar dados com base em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  A fonte de dados, o ouvinte de eventos de clique e a camada de símbolo são criados e adicionados ao mapa dentro da função [ouvinte de evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o ponto seja exibido após o mapa ser totalmente carregado.
+Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar dados com base em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  A fonte de dados, o ouvinte de eventos de clique e a camada de símbolo são criados e adicionados ao mapa de dentro de `ready` [ouvinte de evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) função para garantir que o ponto é exibido após o mapa carregado e pronto para ser acessado.
 
 > [!TIP]
 > Por padrão, para o desempenho, as camadas de símbolo otimizam a renderização de símbolos, ocultando os símbolos que se sobrepõem. Conforme você ampliar os símbolos ocultos se tornarão visíveis. Para desabilitar esse recurso e renderizar todos os símbolos em todos os momentos, defina as `allowOverlap` propriedade do `iconOptions` as opções para `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicionar um ícone personalizado a uma camada de símbolo
 
-As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Esta amostra explica como adicionar um ícone de símbolo personalizado aos recursos de mapa e, em seguida, usá-lo para renderizar o ponto de dados com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Nesse caso, queremos processar a propriedade de temperatura do recurso de ponto como o valor de texto. Isso pode ser obtido com esta expressão: `['get', 'temperature']`. 
+As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Este exemplo mostra como adicionar um ícone personalizado para os recursos de mapa e, em seguida, usá-lo para renderizar o ponto de dados com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Nesse caso, queremos processar a propriedade de temperatura, mas como ele é um número, ele precisa ser convertido em uma cadeia de caracteres. Além disso, queremos acrescentar os "° F" para ele. Uma expressão pode ser usada para fazer isso; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -71,7 +71,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [Textoopções](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
@@ -79,10 +79,10 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Adicionar um pop-up](./map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [ Adicione uma forma ](./map-add-shape.md)
+> [Adicionar uma forma](./map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolhas](./map-add-bubble-layer.md)
+> [Adicionar uma camada de bolha](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar marcadores HTML](./map-add-bubble-layer.md)
+> [Adicione os criadores de HTML](./map-add-bubble-layer.md)

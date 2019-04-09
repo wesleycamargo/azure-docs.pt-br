@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010661"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281209"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -121,7 +121,6 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Proprietário da Conta de Âncoras Espaciais](#spatial-anchors-account-owner) | Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las |
 | [Leitor da Conta de Âncoras Espaciais](#spatial-anchors-account-reader) | Permite localizar e ler propriedades de âncoras espaciais em sua conta |
 | [Colaborador do banco de dados SQL](#sql-db-contributor) | Permite gerenciar Bancos de Dados SQL, mas não acessá-los. Além disso, não é possível gerenciar as políticas relacionadas à segurança ou respectivos servidores SQL pai. |
-| [Colaborador de instância gerenciada do SQL](#sql-managed-instance-contributor) | Permite que você gerencie as instâncias gerenciadas do SQL, mas não pode fornecer acesso a outras pessoas. |
 | [Gerenciador de Segurança do SQL](#sql-security-manager) | Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los. |
 | [Colaborador do SQL Server](#sql-server-contributor) | Permite gerenciar servidores e Bancos de Dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança. |
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) | Permite gerenciar contas de armazenamento, mas não acessá-las. |
@@ -2229,31 +2228,6 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *Nenhum* |  |
-> | **NotDataActions** |  |
-> | *Nenhum* |  |
-
-## <a name="sql-managed-instance-contributor"></a>Colaborador de instância gerenciada do SQL
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **DESCRIÇÃO** | Permite que você gerencie as instâncias gerenciadas do SQL, mas não pode fornecer acesso a outras pessoas. |
-> | **ID** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Ações** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Network/networkSecurityGroups/write | Criar um grupo de segurança de rede ou atualizar um grupo de segurança de rede existente |
-> | Microsoft.Network/routeTables/write | Cria uma tabela de rotas ou atualiza uma tabela de rotas existente |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/write | Criar uma sub-rede de rede virtual ou atualizar uma sub-rede de rede virtual existente |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Une a uma rede virtual. Não podem gerar alertas. |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | **NotActions** |  |
-> | *Nenhum* |  |
 > | **DataActions** |  |
 > | *Nenhum* |  |
 > | **NotDataActions** |  |

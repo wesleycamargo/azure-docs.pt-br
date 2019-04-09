@@ -1,23 +1,17 @@
 ---
 title: Regras e grupos de regras CRS de firewall do aplicativo Web Gateway de Aplicativo do Azure
 description: Esta página fornece informações sobre regras e grupos de regras CRS do firewall do aplicativo Web.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 4/16/2018
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302022"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279688"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de regras e grupos de regras CRS de firewall do aplicativo Web oferecidos
 
@@ -37,41 +31,23 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|911011|Regra 911011|
-|911012|Regra 911012|
 |911100|O método não é permitido pela política|
-|911013|Regra 911013|
-|911014|Regra 911014|
-|911015|Regra 911015|
-|911016|Regra 911016|
-|911017|Regra 911017|
-|911018|Regra 911018|
 
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-913-DETECÇÃO DE SCANNER</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|913011|Regra 913011|
-|913012|Regra 913012|
 |913100|Encontrado Agente-Usuário associado ao verificador de segurança|
 |913110|Encontrado cabeçalho de solicitação associado ao verificador de segurança|
 |913120|Encontrado nome de arquivo/argumento de solicitação associado ao verificador de segurança|
-|913013|Regra 913013|
-|913014|Regra 913014|
 |913101|Encontrado Agente-Usuário associado a cliente HTTP de scripting/genérico|
 |913102|Encontrado Agente-Usuário associado a bot/rastreador Web|
-|913015|Regra 913015|
-|913016|Regra 913016|
-|913017|Regra 913017|
-|913018|Regra 913018|
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|920011|Regra 920011|
-|920012|Regra 920012|
 |920100|Linha de solicitação de HTTP inválida|
 |920130|Falha ao analisar o corpo da solicitação.|
 |920140|Falha na validação estrita do corpo de solicitação com várias partes = %@{REQBODY_PROCESSOR_ERROR PE} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} %@{MULTIPART_DATA_BEFORE DB} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF %@{MULTIPART_LF_LINE} SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
@@ -102,30 +78,22 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |920430|A versão do protocolo HTTP não é permitida pela política|
 |920440|A extensão de arquivo da URL é restrita pela política|
 |920450|Cabeçalho HTTP é restrito pela política (%@{MATCHED_VAR})|
-|920013|Regra 920013|
-|920014|Regra 920014|
 |920200|Intervalo = excesso de campos (6 ou mais)|
 |920201|Intervalo = excesso de campos de solicitação de pdf (35 ou mais)|
 |920230|Várias codificações de URL detectadas|
 |920300|Falta cabeçalho de aceitação da solicitação|
 |920271|Caractere inválido na solicitação (caracteres não imprimíveis)|
 |920320|Cabeçalho do agente de usuário ausente|
-|920015|Regra 920015|
-|920016|Regra 920016|
 |920272|Caractere inválido na solicitação (além dos caracteres imprimíveis abaixo de ascii 127)|
-|920017|Regra 920017|
-|920018|Regra 920018|
 |920202|Intervalo = excesso de campos de solicitação de pdf (6 ou mais)|
 |920273|Caractere inválido na solicitação (além do conjunto muito estrito)|
 |920274|Caractere inválido no cabeçalho da solicitação (além do conjunto muito estrito)|
-|920460|Regra 920460|
+|920460|Caracteres de escape anormal|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|921011|Regra 921011|
-|921012|Regra 921012|
 |921100|Ataque de solicitação HTTP indesejada.|
 |921110|Ataque de solicitação HTTP indesejada|
 |921120|Ataque de divisão de resposta HTTP|
@@ -133,75 +101,43 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |921140|Ataque de injeção de cabeçalho HTTP por meio de cabeçalhos|
 |921150|Ataque de injeção de cabeçalho HTTP por meio de conteúdo (CR/LF detectado)|
 |921160|Ataque de injeção de cabeçalho HTTP por meio de conteúdo (CR/LF e header-name detectado)|
-|921013|Regra 921013|
-|921014|Regra 921014|
 |921151|Ataque de injeção de cabeçalho HTTP por meio de conteúdo (CR/LF detectado)|
-|921015|Regra 921015|
-|921016|Regra 921016|
-|921170|Regra 921170|
+|921170|Poluição de parâmetro HTTP|
 |921180|Poluição de parâmetro HTTP (% @{TX.1})|
-|921017|Regra 921017|
-|921018|Regra 921018|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|930011|Regra 930011|
-|930012|Regra 930012|
 |930100|Ataques de percurso de caminho (/../)|
 |930110|Ataques de percurso de caminho (/../)|
 |930120|Tentativa de acesso ao arquivo do sistema operacional|
 |930130|Tentativa de acesso a arquivo restrito|
-|930013|Regra 930013|
-|930014|Regra 930014|
-|930015|Regra 930015|
-|930016|Regra 930016|
-|930017|Regra 930017|
-|930018|Regra 930018|
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|931011|Regra 931011|
-|931012|Regra 931012|
 |931100|Possível ataque de RFI (inclusão de arquivo remoto) = parâmetro de URL usando endereço IP|
 |931110|Possível ataque de RFI (inclusão de arquivo remoto) = nome de parâmetro vulnerável RFI comum usado com carga de URL|
 |931120|Possível ataque de RFI (inclusão de arquivo remoto) = carga de URL usada com caractere de interrogação (?)|
-|931013|Regra 931013|
-|931014|Regra 931014|
 |931130|Possível ataque de RFI (inclusão de arquivo remoto) = link/referência fora do domínio|
-|931015|Regra 931015|
-|931016|Regra 931016|
-|931017|Regra 931017|
-|931018|Regra 931018|
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|932011|Regra 932011|
-|932012|Regra 932012|
 |932120|Execução de comando remoto = encontrado comando do Windows PowerShell|
 |932130|Execução de comando remoto = encontrada expressão de Shell do Unix|
 |932140|Execução de comando remoto = encontrado comando Windows FOR/IF|
 |932160|Execução de comando remoto = encontrado código de Shell do Unix|
 |932170|Execução de comando remoto = Shellshock (CVE-2014-6271)|
 |932171|Execução de comando remoto = Shellshock (CVE-2014-6271)|
-|932013|Regra 932013|
-|932014|Regra 932014|
-|932015|Regra 932015|
-|932016|Regra 932016|
-|932017|Regra 932017|
-|932018|Regra 932018|
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|933011|Regra 933011|
-|933012|Regra 933012|
 |933100|Ataque de injeção de PHP = marcação de abertura/fechamento encontrada|
 |933110|Ataque de injeção de PHP = carregamento de arquivo de Script PHP encontrado|
 |933120|Ataque de injeção de PHP = política de configuração encontrada|
@@ -209,58 +145,42 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |933150|Ataque de injeção de PHP = nome da função PHP de alto risco encontrado|
 |933160|Ataque de injeção de PHP = chamada de função PHP de alto risco encontrada|
 |933180|Ataque de injeção de PHP = chamada de função de variável encontrada|
-|933013|Regra 933013|
-|933014|Regra 933014|
 |933151|Ataque de injeção de PHP = nome da função PHP de médio risco encontrado|
-|933015|Regra 933015|
-|933016|Regra 933016|
 |933131|Ataque de injeção de PHP = variáveis encontradas|
 |933161|Ataque de injeção de PHP = chamada de função PHP de valor baixo encontrada|
 |933111|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
-|933017|Regra 933017|
-|933018|Regra 933018|
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|941011|Regra 941011|
-|941012|Regra 941012|
 |941100|Ataque de XSS detectado via libinjection|
 |941110|Filtro XSS - Categoria 1 = vetor de marca de script|
 |941130|Filtro XSS - Categoria 3 = vetor de atributo|
 |941140|Filtro XSS - Categoria 4 = Vector de URI de Javascript|
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
 |941180|Palavras-chave da lista negra do validador de nós|
-|941190|Filtros XSS do IE - ataque detectado.|
-|941200|Filtros XSS do IE - ataque detectado.|
-|941210|Filtros XSS do IE - ataque detectado.|
-|941220|Filtros XSS do IE - ataque detectado.|
-|941230|Filtros XSS do IE - ataque detectado.|
-|941240|Filtros XSS do IE - ataque detectado.|
-|941260|Filtros XSS do IE - ataque detectado.|
-|941270|Filtros XSS do IE - ataque detectado.|
-|941280|Filtros XSS do IE - ataque detectado.|
-|941290|Filtros XSS do IE - ataque detectado.|
-|941300|Filtros XSS do IE - ataque detectado.|
+|941190|Usando folhas de estilo XSS|
+|941200|XSS usando quadros VML|
+|941210|XSS usando Javascript ofuscado|
+|941220|XSS usando ofuscada Script VB|
+|941230|Marca XSS usando 'Inserir'|
+|941240|XSS, usando o atributo 'import' ou 'implementação'|
+|941260|XSS usando a marca 'meta'|
+|941270|XSS usando href 'link'|
+|941280|XSS usando a marca 'base'|
+|941290|XSS usando a marca 'applet'|
+|941300|XSS usando a marca 'object'|
 |941310|Filtro XSS de codificação mal feita US-ASCII - ataque detectado.|
 |941330|Filtros XSS do IE - ataque detectado.|
 |941340|Filtros XSS do IE - ataque detectado.|
 |941350|Codificação UTF-7 IE XSS - ataque detectado.|
-|941013|Regra 941013|
-|941014|Regra 941014|
 |941320|Possível ataque XSS detectado - manipulador de marcação HTML|
-|941015|Regra 941015|
-|941016|Regra 941016|
-|941017|Regra 941017|
-|941018|Regra 941018|
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|942011|Regra 942011|
-|942012|Regra 942012|
 |942100|Ataque de injeção de SQL detectado via libinjection|
 |942110|Ataques de injeção de SQL: Teste de injeção comum detectado|
 |942130|Ataques de injeção de SQL: Tautologia do SQL detectada.|
@@ -280,35 +200,21 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |942350|Detecta injeção de UDF MySQL e outras tentativas de manipulação de dados/estrutura|
 |942360|Detecta injeções de SQL básicas concatenadas e tentativas de SQLLFI|
 |942370|Detecta investigações de injeção de SQL clássicas 2/2|
-|942013|Regra 942013|
-|942014|Regra 942014|
 |942150|Ataque de injeção de SQL|
 |942410|Ataque de injeção de SQL|
 |942430|Detecção restrita de anomalias de caracteres SQL (args): # de caracteres especiais excedidos (12)|
 |942440|Sequência de comentário SQL detectada.|
 |942450|Codificação hexadecimal de SQL identificada|
-|942015|Regra 942015|
-|942016|Regra 942016|
 |942251|Detecta injeções de HAVING|
 |942460|Alerta de detecção de anomalias de metacaracteres - caracteres repetitivos que não são palavras|
-|942017|Regra 942017|
-|942018|Regra 942018|
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|DESCRIÇÃO|
 |---|---|
-|943011|Regra 943011|
-|943012|Regra 943012|
 |943100|Possível ataque de fixação da sessão = definindo valores de cookie em HTML|
 |943110|Possível ataque de fixação da sessão = nome do parâmetro de SessionID com referenciador fora do domínio|
 |943120|Possível ataque de fixação da sessão = nome do parâmetro de SessionID sem referenciador|
-|943013|Regra 943013|
-|943014|Regra 943014|
-|943015|Regra 943015|
-|943016|Regra 943016|
-|943017|Regra 943017|
-|943018|Regra 943018|
 
 ## <a name="owasp229"></a>OWASP_2.2.9
 
@@ -569,5 +475,3 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como desabilitar as regras de WAF visitando: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)
-
-[1]: ./media/application-gateway-integration-security-center/figure1.png

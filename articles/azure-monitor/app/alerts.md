@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244359"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257154"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
@@ -45,7 +45,7 @@ Abra a guia regras de alerta e, em seguida, use o botão Adicionar.
 * Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * Você pode desabilitar ou habilitar o alerta: Veja os botões na parte superior.
 
-*Não vejo o botão Adicionar Alerta.*
+*Não vejo o botão Adicionar alerta.*
 
 * Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Examine a guia de controle de acesso. [Saiba mais sobre o controle de acesso][roles].
 
@@ -143,7 +143,7 @@ Nesta seção, veremos como definir um alerta de exceção baseado em consulta. 
 
 10. Por fim, adicione seus detalhes do alerta (nome da regra, a descrição, a severidade do alerta). Quando você terminar, clique em **criar regra de alerta** na parte inferior.
 
-    ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade ](./media/alerts/9alertdetails.png)
+    ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 

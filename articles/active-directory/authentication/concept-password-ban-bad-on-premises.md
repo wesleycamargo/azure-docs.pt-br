@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862880"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264464"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -31,7 +31,8 @@ Proteção por senha do AD do Azure destina-se com esses princípios em mente:
 * Nenhuma alteração de esquema do Active Directory é necessária. O software usa o Active Directory existente **recipiente** e **serviceConnectionPoint** objetos de esquema.
 * Nenhum do Active Directory domínio ou floresta nível funcional mínimo (DFL/FFL) é necessário.
 * O software não criar nem exigem contas de domínios do Active Directory que ele protege.
-* Senhas de texto não criptografado de usuário não deixem o controlador de domínio durante as operações de validação de senha ou qualquer outro momento.
+* Senhas de texto não criptografado do usuário nunca deixam o controlador de domínio, durante as operações de validação de senha ou qualquer outro momento.
+* O software não é dependente de outros recursos do Azure AD; Por exemplo, a sincronização de hash de senha do Azure AD não está relacionada e não é necessária na ordem do Azure AD para proteção por senha para a função.
 * Implantação incremental tem suporte, mas a política de senha é imposta apenas onde o agente de controlador de domínio (agente de controlador de domínio) está instalado. Consulte o próximo tópico para obter mais detalhes.
 
 ## <a name="incremental-deployment"></a>Implantação incremental
@@ -62,7 +63,7 @@ O serviço do agente de controlador de domínio é responsável por iniciar o do
 
 Depois que o serviço do agente de controlador de domínio recebe uma nova política de senha do AD do Azure, o serviço armazena a política em uma pasta dedicada na raiz do seu domínio *sysvol* compartilhamento da pasta. O serviço do agente de controlador de domínio também monitora essa pasta, no caso de políticas mais recentes replicam de outros serviços do agente de controlador de domínio no domínio.
 
-O serviço do agente de controlador de domínio sempre solicitará uma nova política na inicialização do serviço. Depois que o serviço de agente de controlador de domínio é iniciado, ele verifica a idade da política atual disponível localmente por hora. Se a política é mais de uma hora, o agente de controlador de domínio solicita uma nova política do Azure AD, conforme descrito anteriormente. Se a política atual não for mais de uma hora, o agente de controlador de domínio continua a usar essa política.
+O serviço do agente de controlador de domínio sempre solicitará uma nova política na inicialização do serviço. Depois que o serviço de agente de controlador de domínio é iniciado, ele verifica a idade da política atual disponível localmente por hora. Se a política é mais de uma hora, o agente de controlador de domínio solicita uma nova política do Azure AD por meio do serviço de proxy, conforme descrito anteriormente. Se a política atual não for mais de uma hora, o agente de controlador de domínio continua a usar essa política.
 
 Sempre que uma política de senha de proteção de senha do Azure AD é baixada, essa política é específica para um locatário. Em outras palavras, as políticas de senha são sempre uma combinação de lista de senha banida global do Microsoft e a lista de senha banida personalizada por locatário.
 
@@ -77,6 +78,8 @@ O serviço de proxy é sem monitoração de estado. Ele nunca armazena em cache 
 O serviço do agente de controlador de domínio sempre usa a política de senha localmente disponível mais recente para avaliar a senha do usuário. Se nenhuma política de senha está disponível no controlador de domínio local, a senha é aceito automaticamente. Quando isso acontece, uma mensagem de evento é registrada para alertar o administrador.
 
 Proteção por senha do Azure AD não é um mecanismo de aplicação de políticas em tempo real. Pode haver um atraso entre quando uma alteração de configuração de política de senha é feita no Azure AD e quando alteradas atingir e são aplicadas em todos os controladores de domínio.
+
+Proteção por senha do AD do Azure atua como um suplemento para as políticas de senha do Active Directory existentes, não uma substituição. Isso inclui quaisquer outras dlls de filtro de senha 3ª parte que pode ser instalado. O Active Directory sempre requer que todos os componentes de validação de senha concordam antes de aceitar uma senha.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Associação de locatário/floresta para a proteção por senha
 
