@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
 ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058757"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272284"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -512,7 +512,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os cmdlets do PowerShell para gerenciar os recursos, consulte [usando o Azure PowerShell com o Resource Manager](manage-resources-powershell.md).
 * Para saber mais sobre os comandos da CLI do Azure para gerenciar os recursos, consulte [usando a CLI do Azure com o Resource Manager](manage-resources-cli.md).

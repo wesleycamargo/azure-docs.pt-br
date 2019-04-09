@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051115"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273032"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -232,6 +232,23 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Os aplicativos cliente aprovados fornecem suporte ao recurso de gerenciamento de aplicativo móvel Intune.
 - O requisito **Exigir o aplicativo do cliente aprovado**:
    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Requisito de política de proteção de aplicativo 
+
+Em sua política de acesso condicional, você pode exigir que uma política de proteção do aplicativo estar presente no aplicativo cliente antes de acesso está disponível para os aplicativos de nuvem selecionado. 
+
+![Controlar o acesso com a política de proteção de aplicativo](./media/technical-reference/22.png)
+
+Essa configuração se aplica aos seguintes aplicativos cliente:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Comentários**
+
+- Aplicativos para a política de proteção de aplicativo suportam o recurso de gerenciamento de aplicativo móvel do Intune com a política de proteção.
+- O **exigem a política de proteção de aplicativo** requisitos:
+    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,34 +1,34 @@
 ---
 title: Expirar dados no Azure Cosmos DB com Vida Útil
 description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do sistema após determinado período.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271264"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>A vida útil (TTL) no Azure Cosmos DB 
 
-Com a "Vida útil" ou TTL, o Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um determinado período de tempo. Por padrão, é possível definir a Vida Útil no nível do contêiner e substituir o valor em uma base por item. Após definir a Vida Útil em um nível de item ou contêiner, o Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de Vida Útil é configurado em segundos. Ao configurar a Vida Útil, o sistema excluirá automaticamente os itens expirados com base no valor de TTL, diferentemente de uma operação de exclusão explicitamente emitida pelo aplicativo cliente.
+Com o **tempo de vida** ou TTL, o Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo determinado. Por padrão, é possível definir a Vida Útil no nível do contêiner e substituir o valor em uma base por item. Após definir a Vida Útil em um nível de item ou contêiner, o Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de Vida Útil é configurado em segundos. Quando você configura o TTL, o sistema excluirá automaticamente os itens expirados com base no valor de TTL, sem a necessidade de uma operação de exclusão explicitamente é emitida pelo aplicativo cliente.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Vida Útil para contêineres e itens
 
-O valor de Vida Útil é definido em segundos e é interpretado como um delta a partir do momento em que um item foi modificado pela última vez. É possível definir a Vida Útil em um contêiner ou um item dentro do contêiner:
+O valor tempo de vida é definido em segundos, e ele será interpretado como um delta do momento em que um item foi modificado pela última vez. É possível definir a Vida Útil em um contêiner ou um item dentro do contêiner:
 
 1. **Vida Útil em um contêiner** (definir usando `DefaultTimeToLive`):
 
    - Se ausentes (ou definidos como nulo), os itens não serão expirados automaticamente.
 
-   - Se estiverem presentes e o valor estiver definido como "-1", será igual a infinito – os itens não expiram por padrão.
+   - Se estiverem presentes e o valor for definido como "-1", ele é igual ao infinito e itens não expirarão por padrão.
 
-   - Se estiverem presentes e o valor estiver definido para algum número ("n") – os itens expirarão em "n" segundos após o último horário de modificação.
+   - Se estiverem presentes e o valor for definido como um número *"n"* – itens expiram *"n"* segundos após a hora de modificação de seu último.
 
 2. **Vida Útil em um item** (definir usando `ttl`):
 
@@ -38,7 +38,7 @@ O valor de Vida Útil é definido em segundos e é interpretado como um delta a 
 
 ## <a name="time-to-live-configurations"></a>Configurações de Vida Útil
 
-* Se a TTL estiver definida como 'n' em um contêiner, os itens desse contêiner expirarão após n segundos.  Se houver itens no mesmo contêiner que tenham sua própria vida útil, definida como -1 (indicando que não expiram) ou se alguns itens substituíram a configuração de vida útil por um número diferente, esses itens expirarão com base na configuração do valor de TTL. 
+* Se o TTL é definido como *"n"* em um contêiner, em seguida, os itens nesse contêiner expirarão após *n* segundos.  Se houver itens no mesmo contêiner que tem seu próprio tempo para live, defina como -1 (indicando que não ocorra) ou se alguns itens tem substituído o tempo de vida de configuração com um número diferente, esses itens expiram com base em seu próprio valor TTL configurado. 
 
 * Se a TTL não estiver definida em um contêiner, o tempo de vida de um item nesse contêiner não terá efeito. 
 
@@ -50,4 +50,4 @@ A exclusão de itens com base na TTL é gratuita. Não haverá custos adicionais
 
 Saiba como configurar a vida útil nos seguintes artigos:
 
-* [Como configurar a Vida Útil](how-to-time-to-live.md)
+* [Como configurar o tempo de vida](how-to-time-to-live.md)

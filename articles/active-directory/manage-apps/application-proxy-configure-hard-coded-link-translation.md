@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118588"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262543"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -81,6 +81,31 @@ Há dois tipos comuns de links internos em aplicativos locais:
 
 - **Links internos relativos** que apontam para um recurso compartilhado em uma estrutura de arquivo local como `/claims/claims.html`. Esses links funcionam automaticamente em aplicativos que são publicados por meio do Proxy de Aplicativo e continuam funcionando com ou sem a conversão de link. 
 - **Links internos inseridos no código** para outros aplicativos de locais como `http://expenses` ou arquivos publicados como `http://expenses/logo.jpg`. O recurso de translação de link funciona em links internos inseridos no código e os altera para apontar para as URLs externas de que os usuários remotos precisam para avançar.
+
+A lista completa de marcas de código HTML que o Proxy de aplicativo dá suporte a translação de link para incluem:
+* a
+* audio
+* Base de dados de
+* botão
+* div
+* Incorporar
+* Formulário
+* Quadro
+* Head
+* html
+* IFRAME
+* img
+* input
+* link
+* MenuItem
+* meta
+* objeto
+* script
+* fonte
+* Faixa
+* video
+
+Além disso, dentro do CSS o atributo URL também é convertido.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Como aplicativos são vinculados entre si?
 

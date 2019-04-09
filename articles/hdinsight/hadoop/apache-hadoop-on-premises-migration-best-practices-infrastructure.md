@@ -3,24 +3,22 @@ title: Migrar clusters do Apache Hadoop local para o Azure HDInsight – prátic
 description: Aprenda as melhores práticas de infraestrutura para migrar clusters do Hadoop locais para o Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
-ms.reviewer: ashishth
+ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360190"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274682"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
 
 Este artigo apresenta recomendações para gerenciar a infraestrutura de clusters do Azure HDInsight. Ele faz parte de uma série que fornece as melhores práticas para ajudar a migrar sistemas locais do Apache Hadoop para o Azure HDInsight.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>Planejar capacidade do cluster HDInsight
 
@@ -43,15 +41,15 @@ Cada versão do HDInsight é uma distribuição em nuvem de uma versão da HDP (
 
 Você também pode usar a interface do usuário do Apache Ambari ou a API REST do Ambari para verificar os componentes e versões do Hadoop no HDInsight.
 
-Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que não fazem parte dos clusters do HDInsight, podem ser adicionados em um nó de borda ou em uma VM na mesma rede virtual que o cluster HDInsight. Um aplicativo Hadoop de terceiros que não está disponível no Azure HDInsight pode ser instalado usando a opção "Aplicativos" no cluster do HDInsight. Aplicativos personalizados do Hadoop podem ser instalados no cluster do HDInsight usando "ações de script". A tabela a seguir lista alguns dos aplicativos comuns e suas opções de integração do HDInsight:
+Aplicativos ou componentes que estavam disponíveis em clusters locais, mas não fazem parte dos clusters HDInsight podem ser adicionados em um nó de borda ou em uma VM na mesma rede virtual que o cluster HDInsight. Um aplicativo Hadoop de terceiros que não está disponível no Azure HDInsight pode ser instalado usando a opção "Aplicativos" no cluster do HDInsight. Aplicativos personalizados do Hadoop podem ser instalados no cluster do HDInsight usando "ações de script". A tabela a seguir lista alguns dos aplicativos comuns e suas opções de integração do HDInsight:
 
 |**Aplicativo**|**Integração**
 |---|---|
-|Fluxo de ar|Nó de Borda do HDInsight ou IaaS
+|Fluxo de ar|Nó de borda de IaaS ou HDInsight
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Nenhum (Somente HDP)
-|Datameer|Nó de Borda do HDInsight
+|Datameer|HDInsight edge node
 |Datastax (Cassandra)|IaaS (CosmosDB, uma alternativa no Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -60,14 +58,14 @@ Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que 
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB, uma alternativa no Azure)
 |NiFi|IaaS 
-|Pronto|Nó de Borda do HDInsight ou IaaS
+|Pronto|Nó de borda de IaaS ou HDInsight
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQLDW, uma alternativa no Azure)
 |Tableau|IaaS 
-|Waterline|Nó de Borda do HDInsight
+|Waterline|HDInsight edge node
 |StreamSets|Borda do HDInsight 
 |Palantir|IaaS 
 |Sailpoint|IaaS 
@@ -99,13 +97,13 @@ Ações de script também podem ser publicadas no Azure Marketplace como um apli
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Instalar aplicativos Apache Hadoop de terceiros no HDInsight](../hdinsight-apps-install-applications.md)
+- [Instalar aplicativos de terceiros Apache do Hadoop no HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalizar clusters do HDInsight utilizando ações de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicar um aplicativo HDInsight no Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalizar configurações do HDInsight usando Inicialização
 
-Alterações em configurações nos arquivos de configuração, como `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, podem ser feitas usando a inicialização. O script a seguir é um exemplo usando o PowerShell:
+Alterações em configurações nos arquivos de configuração, como `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, podem ser feitas usando a inicialização. O script a seguir está um exemplo usando o Powershell [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -130,7 +128,7 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-Para saber mais, confira o artigo [Personalizar clusters HDInsight usando a Inicialização](../hdinsight-hadoop-customize-cluster-bootstrap.md).
+Para saber mais, confira o artigo [Personalizar clusters HDInsight usando a Inicialização](../hdinsight-hadoop-customize-cluster-bootstrap.md).  Consulte também [gerenciar HDInsight clusters usando a API REST do Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Acesse as ferramentas do cliente a partir dos nós de borda do cluster do Hadoop HDInsight
 
@@ -148,37 +146,10 @@ Para obter mais informações, confira o artigo [Usar nós de borda vazios em cl
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Usar o recurso de ampliação e redução de clusters
 
-O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir verticalmente o número de nós de trabalho em seus clusters. Esse recurso permite que você reduza um cluster depois do horário comercial ou nos finais de semana e o expanda durante picos da demanda empresarial.
+O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir verticalmente o número de nós de trabalho em seus clusters. Esse recurso permite que você reduza um cluster depois do horário comercial ou nos finais de semana e o expanda durante picos da demanda empresarial. Para obter mais informações, consulte:
 
-A colocação em escala do cluster pode ser automatizada usando os seguintes métodos:
-
-### <a name="powershell-cmdlet"></a>Cmdlet do Powershell
-
-```powershell
-Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-```
-
-### <a name="azure-cli"></a>CLI do Azure
-
-```powershell
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
-
-### <a name="azure-portal"></a>Portal do Azure
-
-Ao adicionar nós ao cluster HDInsight em execução, trabalhos pendentes ou em execução não serão afetados. Novos trabalhos podem ser enviados com segurança enquanto o processo de colocação em escala está em execução. Se as operações de dimensionamento falharem por qualquer motivo, a falha será sutilmente tratada, mantendo o cluster em um estado funcional.
-
-No entanto, se você estiver reduzindo o cluster removendo nós, todos os trabalhos pendentes ou em execução falharão quando operação de colocação em escala for concluída. Essa falha é causada pelo reinício de alguns dos serviços durante o processo. Para resolver esse problema, você pode aguardar a conclusão dos trabalhos antes de reduzir verticalmente o cluster, encerrar os trabalhos manualmente ou enviar novamente os trabalhos após a conclusão da operação de colocação em escala.
-
-Se você reduzir o cluster ao mínimo de apenas um nó de trabalho, o HDFS pode ficar preso no modo de segurança quando os nós de trabalho forem reiniciados para a aplicação de patches ou imediatamente após a operação de colocação em escala. Você pode executar o seguinte comando para retirar o HDFS do modo de segurança:
-
-```bash
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
-```
-
-Depois de sair do modo de segurança, você pode remover manualmente os arquivos temporários ou aguardar que o Hive limpe-os automaticamente.
-
-Para saber mais, confira o artigo [Dimensionar clusters HDInsight](../hdinsight-scaling-best-practices.md).
+* [Dimensionar clusters HDInsight](../hdinsight-scaling-best-practices.md).
+* [Dimensionar clusters](../hdinsight-administer-use-portal-linux.md#scale-clusters).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Usar o HDInsight com a Rede Virtual do Azure
 
@@ -190,19 +161,19 @@ Usar a Rede Virtual do Azure com o HDInsight permite os seguintes cenários:
 - Conectar o HDInsight a armazenamentos de dados em uma Rede virtual do Azure.
 - Acessar diretamente os serviços do Hadoop que não estão disponíveis publicamente na Internet. Por exemplo, as APIs do Kafka ou a API Java do HBase.
 
-O HDInsight pode ser adicionado a uma Rede Virtual do Azure nova ou existente. Se o HDInsight estiver sendo adicionado a uma Rede Virtual existente, os grupos de segurança de rede e as rotas definidas pelo usuário existentes precisarão ser atualizados para permitir o acesso irrestrito a [vários endereços IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) no data center do Azure. Além disso, não bloqueie tráfego para as [portas](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) que estão sendo usadas pelos serviços do HDInsight.
+O HDInsight pode ser adicionado a uma Rede Virtual do Azure nova ou existente. Se o HDInsight estiver sendo adicionado a uma Rede Virtual existente, os grupos de segurança de rede e as rotas definidas pelo usuário existentes precisarão ser atualizados para permitir o acesso irrestrito a [vários endereços IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) no data center do Azure. Além disso, certifique-se de não bloquear o tráfego para o [portas](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), que estão sendo usado pelos serviços do HDInsight.
 
 > [!Note]  
 > O HDInsight no momento não dá suporte a túnel forçado. O túnel forçado é uma configuração de sub-rede que força o tráfego da Internet de saída para um dispositivo para inspeção e log. Remova o túnel forçado antes de instalar o HDInsight em uma sub-rede ou crie uma nova sub-rede para o HDInsight. O HDInsight também não dá suporte a restringir a conectividade de rede de saída.
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Visão-geral-de-redes-virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
+- [Virtual-redes-visão geral do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conecte-se com segurança aos serviços do Azure com os ponto de extremidade de serviço da Rede Virtual do Microsoft Azure
 
-O HDInsight dá suporte a [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) que permitem que você se conecte com segurança ao Armazenamento de Blobs do Azure, ao Azure Data Lake Storage Gen2, ao Cosmos DB e a bancos de dados SQL. Ao habilitar um ponto de extremidade de serviço para o Azure HDInsight, o tráfego flui por meio de uma rota protegida de dentro do data center do Azure. Com este nível aprimorado de segurança na camada de rede, você pode bloquear contas de armazenamento de Big Data para suas VNETs (redes virtuais) especificadas e ainda usar clusters HDInsight diretamente para acessar e processar os dados.
+Dá suporte ao HDInsight [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md), que permitem que você conecte com segurança a bancos de dados do armazenamento de BLOBs do Azure, Azure Data Lake armazenamento Gen2, Cosmos DB e SQL. Ao habilitar um ponto de extremidade de serviço para o Azure HDInsight, o tráfego flui por meio de uma rota protegida de dentro do data center do Azure. Com este nível aprimorado de segurança na camada de rede, você pode bloquear contas de armazenamento de Big Data para suas VNETs (redes virtuais) especificadas e ainda usar clusters HDInsight diretamente para acessar e processar os dados.
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -223,4 +194,4 @@ Para obter mais informações, confira o artigo [Conectar o HDInsight à sua red
 
 Leia o próximo artigo desta série:
 
-- [Melhores práticas de armazenamento para migração do local para o Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Práticas recomendadas de armazenamento para o local para a migração do Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)

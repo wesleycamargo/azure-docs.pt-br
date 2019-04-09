@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845130"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271587"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -29,11 +29,11 @@ Há duas maneiras de procurar um local de interesse. Uma maneira é usar um mód
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar a chave de assinatura. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um **SubscriptionKeyCredentialPolicy** para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. Em seguida, a **atlas.service.MapsURL.newPipeline()** usa o **SubscriptionKeyCredential** política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O **searchURL** representa uma URL para o Azure mapas [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
+O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. Em seguida, a `atlas.service.MapsURL.newPipeline()` usa o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `searchURL` representa uma URL para o Azure mapas [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
 
 O terceiro bloco de código cria um objeto de fonte de dados usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) e adiciona resultados de pesquisa a ele. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar dados com base em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Uma camada de símbolo é então criada e a fonte de dados é adicionada à camada de símbolo, que é então adicionada ao mapa.
 
-O quarto bloco de código usa o [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) método na [módulo de serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Ele permite que você execute uma pesquisa de texto de forma livre por meio de [obter pesquisa difusa rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. Obter pesquisa difusa API pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos do GeoJSON da resposta é, em seguida, extraída usando o **geojson.getFeatures()** método e adicionados à fonte de dados, que automaticamente resulta em dados que está sendo renderizados no mapa por meio da camada de símbolo.
+O quarto bloco de código usa o [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) método na [módulo de serviço](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js). Ele permite que você execute uma pesquisa de texto de forma livre por meio de [obter pesquisa difusa rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. Obter pesquisa difusa API pode lidar com qualquer combinação de entradas difusas. Uma coleção de recursos do GeoJSON da resposta é, em seguida, extraída usando o `geojson.getFeatures()` método e adicionados à fonte de dados, que automaticamente resulta em dados que está sendo renderizados no mapa por meio da camada de símbolo.
 
 O último bloco de código ajusta os limites da câmera para o mapa usando a propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Map.
 
@@ -62,12 +62,12 @@ A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limite
 Saiba mais sobre a **Pesquisa Difusa**:
 
 > [!div class="nextstepaction"]
-> [API de pesquisa difusa do Mapas do Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [O Azure mapeia o API de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 Consulte os seguintes artigos para obter exemplos de código completo:
 
@@ -75,4 +75,4 @@ Consulte os seguintes artigos para obter exemplos de código completo:
 > [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Mostrar trajetos de A para B](./map-route.md)
+> [Mostrar direções de A para B](./map-route.md)

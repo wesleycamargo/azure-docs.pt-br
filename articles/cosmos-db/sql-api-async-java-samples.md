@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 06/18/2018
 ms.author: sngun
-ms.openlocfilehash: 2b3a914feb09a88b06fcf11dc985965f89c85410
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 34551dcc64e6add2baa1ec94067037c98de67abe
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538605"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917933"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>O Azure Cosmos DB: Exemplos de Java Assíncrono para a API do SQL
 
@@ -54,7 +54,7 @@ Opcionalmente, é possível utilizar o Maven para obter os últimos binários do
 </dependency>
 ```
 
-**Executar aplicativos de exemplo**
+**Executando aplicativos de exemplo**
 
 Clone o repositório do exemplo:
 ```bash
@@ -139,7 +139,7 @@ O arquivo [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/bl
 | --- | --- |
 | [Executar uma consulta simples do documento](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L154-L190) | [AsyncDocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments) |
 | [Executar uma consulta simples de documento e localizar o custo total de RU](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L249-L268) | [FeedResponse.getRequestCharge](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.feedresponse.getrequestcharge) |
-| [Executar uma consulta simples de documento, ler uma página e cancelar a inscrição do observável retornado](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L274-L312) | |
+| [Executar uma consulta simples de documento, ler uma página e cancelar a assinatura do observável retornado](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L274-L312) | |
 | [Executar uma consulta simples de documento e filtrar os resultados](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L318-L368) | |
 | [Executar uma consulta de documento de partição cruzada por ordem](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java#L410-L457) | [FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.feedoptions.setenablecrosspartitionquery) |
 

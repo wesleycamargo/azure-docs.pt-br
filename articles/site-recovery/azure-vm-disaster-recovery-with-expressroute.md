@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087866"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272760"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -104,7 +104,7 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 #### <a name="spoke-to-hub"></a>Do spoke para o hub
 
-**Direção** | **Configuração** | **State**
+**Direção** | **Configuração** | **Estado**
 --- | --- | ---
 Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
 Do spoke para o hub | Permitir tráfego encaminhado | habilitado
@@ -115,7 +115,7 @@ Do spoke para o hub | Use remover gateways | habilitado
 
 #### <a name="hub-to-spoke"></a>Do hub para o spoke
 
-**Direção** | **Configuração** | **State**
+**Direção** | **Configuração** | **Estado**
 --- | --- | ---
 Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
 Do hub para o spoke | Permitir tráfego encaminhado | habilitado

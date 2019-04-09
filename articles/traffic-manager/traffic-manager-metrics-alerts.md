@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045297"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268272"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Alertas e métricas do Gerenciador de Tráfego
 
@@ -65,4 +65,4 @@ Além de processar e exibir métricas do Gerenciador de Tráfego, o Azure Monito
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md)
-- Saiba como [criar um gráfico usando o Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Saiba como [criar um gráfico usando o Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

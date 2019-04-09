@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276636"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Visualização de sentinela do Azure integrado
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006597"
 
 Este guia de início rápido, você aprenderá como Sentinel integrados do Azure. 
 
-Para a integração do Azure Sentinel, você precisa primeiro se conectar às suas fontes de dados. Sentinela do Azure vem com um número de conectores para soluções da Microsoft, disponíveis para fora a caixa e fornecendo integração em tempo real, incluindo soluções de proteção de ameaças da Microsoft, Microsoft 365 fontes, incluindo o Office 365, Azure AD, o Azure ATP, e Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato comum de eventos, Syslog ou API REST para se conectar suas fontes de dados com o Azure Sentinel.  
+A Sentinela integrados do Azure, primeiro você precisa habilitar Sentinel do Azure e, em seguida, conecte-se suas fontes de dados. Sentinela do Azure vem com um número de conectores para soluções da Microsoft, disponíveis para fora a caixa e fornecendo integração em tempo real, incluindo soluções de proteção de ameaças da Microsoft, Microsoft 365 fontes, incluindo o Office 365, Azure AD, o Azure ATP, e Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato comum de eventos, Syslog ou API REST para se conectar suas fontes de dados com o Azure Sentinel.  
 
 Depois de se conectar suas fontes de dados, escolha de uma galeria de painéis com habilidade criados que surgir insights com base nos seus dados. Esses painéis podem ser facilmente personalizados para suas necessidades.
 
@@ -40,9 +40,10 @@ Depois de se conectar suas fontes de dados, escolha de uma galeria de painéis c
 
 - Espaço de trabalho de análise de logs. Saiba como [criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - Permissões de Colaborador ao grupo de recursos vinculados a Sentinela do Azure
-    - Permissões de Colaborador ao grupo de recursos para habilitar o Azure Sentinel 
-
+-  Para habilitar o Azure Sentinel, você precisa de permissões de Colaborador à assinatura na qual reside o espaço de trabalho do Azure Sentinel. 
+- Para usar o Azure Sentinel, você precisa de permissões de Colaborador ou visualizador no grupo de recursos que o espaço de trabalho pertence
+- Permissões adicionais podem ser necessárias para se conectar a fontes de dados específicas
+ 
 ## Habilitar Sentinela do Azure <a name="enable"></a>
 
 1. Entra no portal do Azure.

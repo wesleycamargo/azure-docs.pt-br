@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057669"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276942"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Habilitar o Azure Disk Encryption para VMs de IaaS do Linux 
 
@@ -226,8 +226,7 @@ Use o [AzVmssDiskEncryptionExtension conjunto](/powershell/module/az.compute/set
 Para criptografar ou descriptografar conjuntos de dimensionamento de máquinas virtuais do Linux, use os modelos e instruções do Azure Resource Manager abaixo:
 
 - [Habilitar a criptografia em um conjunto de dimensionamento de máquina virtual do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Implantar um conjunto de dimensionamento VM de VMs do Linux com um jumpbox e habilitar a criptografia no conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Desabilitar a criptografia em um conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Desabilitar a criptografia em um conjunto de dimensionamento de máquina virtual do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Clique em **Implantar no Azure**.
      2. Preencha os campos obrigatórios e concorde com os termos e condições.
@@ -412,6 +411,6 @@ Em contraste com a sintaxe do Powershell, a CLI não exige que o usuário forne�
      3.  Clique em **Comprar** para desabilitar a criptografia de disco em uma VM do Windows em execução. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Habilitar a criptografia de disco do Azure para Windows](azure-security-disk-encryption-windows.md)

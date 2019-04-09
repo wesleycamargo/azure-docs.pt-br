@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013046"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273576"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -39,7 +39,7 @@ Há suporte para orçamentos de uma variedade de tipos de conta do Azure. Para e
 
  Para assinatura do Azure EA, você deve ter acesso de leitura para exibir orçamentos. Para criar e gerenciar orçamentos, você deve ter permissão de colaborador. Você pode criar orçamentos individuais para grupos de recursos e assinaturas de EA. No entanto, não é possível criar os orçamentos para contas de cobrança de EA.
 
-As seguintes permissões do Azure ou escopos, têm suporte por assinatura para os orçamentos por usuário e grupo. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
+As seguintes permissões do Azure ou escopos, têm suporte por assinatura para os orçamentos por usuário e grupo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Proprietário – pode criar, modificar ou excluir os orçamentos para uma assinatura.
 - Colaborador e contribuidor do Gerenciamento de Custos - pode criar, modificar ou excluir seus próprios orçamentos. Pode modificar o valor do orçamento para orçamentos criados por outras pessoas.
@@ -55,7 +55,7 @@ Para obter mais informações sobre como atribuir permissões aos dados de Geren
 
 Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se você cria um orçamento para uma assinatura ou para um grupo de gerenciamento.
 
-Para criar ou exibir um orçamento, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Por exemplo, navegue até **inscrições**, selecione uma assinatura na lista e, em seguida, selecione **orçamentos** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente, como um grupo de gerenciamento em orçamentos. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
+Para criar ou exibir um orçamento, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Por exemplo, navegue até **inscrições**, selecione uma assinatura na lista e, em seguida, selecione **orçamentos** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente, como um grupo de gerenciamento em orçamentos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 Depois de criar os orçamentos, eles mostram uma exibição simples de seus gastos atual em relação a eles.
 
@@ -63,7 +63,9 @@ Clique em **Adicionar**.
 
 ![Orçamentos de Gerenciamento de Custos mostrados no portal do Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md).
+Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um mensal, trimestral ou período de duração anual<sup>1</sup>. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> se você for um cliente de pré-pago, MSDN ou Visual Studio seu período de fatura de cobrança para uma assinatura não estar alinhado ao mês calendário. Para assinaturas e grupos de recursos que se enquadram nesse recipiente, você pode criar um orçamento que está alinhada à sua fatura ou meses do calendário. Para criar um orçamento alinhado à sua fatura, selecione um período de redefinição de mês de cobrança, a cobrança trimestre ou ano de cobrança no momento da criação. Para criar um orçamento alinhado ao mês calendário, selecione um período de redefinição de mensalmente, trimestralmente ou anualmente no momento da criação.
 
 Aqui está um exemplo de criação de um orçamento mensal de US$ 4.500. Um alerta por email é gerado quando 90% do orçamento é atingido.
 

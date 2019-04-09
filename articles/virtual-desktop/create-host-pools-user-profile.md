@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056088"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276381"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar um compartilhamento de perfil do usuário para um pool de host
 
@@ -66,3 +66,6 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 |---------------------|--------------------|-----------------------------------|
 | habilitado             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos"     |
+
+>[!IMPORTANT]
+>Para ajudar a proteger seu ambiente de área de trabalho Virtual do Windows no Azure, é recomendável que não abrir a porta 3389 de entrada em suas VMs. Área de trabalho Virtual do Windows não exige uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de host. Se você deve abrir a porta 3389 para fins de solução de problemas, recomendamos que você use [acesso VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

@@ -8,28 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141811"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261251"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
-Os Mapas do Azure usam o sistema de coordenadas de projeção do Spherical Mercator (EPSG: 3857).
+Mapas do Azure usam o sistema de coordenadas de projeção do Spherical Mercator (EPSG: 3857).
 
-O mundo é dividido em blocos quadrados. Render (Raster) possui 21 níveis de zoom, numerados de 0 a 20. Render (Vector) possui 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
+O mundo é dividido em blocos quadrados. Mapas do Azure fornece os blocos de varredura e vetoriais para 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
 
 ![Bloco de mundo](./media/zoom-levels-and-tile-grid/world0.png)
 
 Nível de zoom 1 usa quatro blocos para renderizar o mundo: um quadrado de 2 x 2
 
-![Superior esquerda do bloco de mundo](./media/zoom-levels-and-tile-grid/world1a.png)     ![Superior direita do bloco de mundo](./media/zoom-levels-and-tile-grid/world1c.png) 
+![Superior esquerda do bloco de mundo](media/zoom-levels-and-tile-grid/world1a.png)     ![Superior direita do bloco de mundo](media/zoom-levels-and-tile-grid/world1c.png) 
 
-![Inferior esquerda do bloco de mundo](./media/zoom-levels-and-tile-grid/world1b.png)     ![Inferior direita do bloco de mundo](./media/zoom-levels-and-tile-grid/world1d.png) 
+![Inferior esquerda do bloco de mundo](media/zoom-levels-and-tile-grid/world1b.png)     ![Inferior direita do bloco de mundo](media/zoom-levels-and-tile-grid/world1d.png) 
 
+Cada nível de zoom adicionais divide em quatro blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom</sup>. Nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>, ou peças 4,194,304 x 4,194,304 (17,592,186,044,416 peças no total).
 
-Cada nível de zoom subsequentes divide em quatro os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom</sup>. Nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>, ou peças 4,194,304 x 4,194,304 (17,592,186,044,416 peças no total).
+Os controles de mapa interativo de mapas do Azure para a web e suporte do Android zoom níveis 25 os níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estarão disponíveis nos níveis de zoom em quando os blocos estão disponíveis.
 
 A tabela a seguir fornece os valores da lista completa para os níveis de zoom:
 
@@ -58,15 +59,17 @@ A tabela a seguir fornece os valores da lista completa para os níveis de zoom:
 |20|0.15|38.2|
 |21|0.075|19.1|
 |22|0.0375|9.55|
+|23|0.01875|4.775|
+|24|0.009375|2.3875|
 
 Blocos são chamados por nível de zoom e as coordenadas x e y correspondentes à posição do bloco da grade para esse nível de zoom.
 
 Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa no seu bloco. Isso significa que o número de blocos necessário para exibir uma determinada extensão de território depende do posicionamento específico da grade de zoom no mundo. Por exemplo, se houver dois pontos de 900 metros de distância, ele *pode* levar apenas três blocos para exibir uma rota entre elas no nível de zoom 17. No entanto, se o ponto ocidental está à direita do seu bloco e o ponto oriental à esquerda do bloco, pode ter quatro blocos:
 
-![Escala de demonstração de zoom](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
+![Escala de demonstração de zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Uma vez determinado o nível de zoom, os valores x e y podem ser calculados. O bloco superior esquerdo de cada grade de zoom é x = 0, y = 0; o bloco inferior direito é em x=2<sup>zoom -1</sup>, y=2<sup>zoom 1</sup>.
+Uma vez determinado o nível de zoom, os valores x e y podem ser calculados. O bloco superior esquerdo em cada grade de zoom é x = 0, y = 0; no bloco do canto inferior direito está em x = 2<sup>zoom -1</sup>, y = 2<sup>zoom 1</sup>.
 
 Aqui está a grade de zoom para o nível de zoom 1:
 
-![Grade de zoom para o nível de zoom 1](./media/zoom-levels-and-tile-grid/api_x_y.png)
+![Grade de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)

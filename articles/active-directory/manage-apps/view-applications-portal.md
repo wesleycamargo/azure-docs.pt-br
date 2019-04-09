@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec039beecdcfa6dacd19e5910209c58f13543fce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199877"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918392"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Exibir seus aplicativos de locatário do Azure Active Directory
 
@@ -39,23 +39,19 @@ Seus aplicativos de locatário do Azure AD ficam visíveis na seção **Aplicati
 
 Para localizar seus aplicativos de locatário:
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, clique em **Azure Active Directory**. 
+1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**. 
 
-2. Na folha do Azure Active Directory, clique em **Aplicativos empresariais**. 
+2. No painel do **Azure Active Directory**, selecione **Aplicativos empresariais**. 
 
-3. No menu suspenso **Tipo de Aplicativo**, selecione **Todos os Aplicativos**e clique em **Aplicar**. Uma amostra aleatória de seus aplicativos de locatário é exibida.
-
-    ![Aplicativos corporativos](media/view-applications-portal/open-enterprise-apps.png)
+3. No menu suspenso **Tipo de Aplicativo**, selecione **Todos os Aplicativos** e escolha **Aplicar**. Uma amostra aleatória de seus aplicativos de locatário é exibida.
    
-4. Para exibir mais aplicativos, clique em **Mostrar mais** na parte inferior da lista. Dependendo do número de aplicativos em seu locatário, poderá ser mais fácil [pesquisar determinado aplicativo](#search-for-a-tenant-application) em vez de percorrer a lista.
+4. Para exibir mais aplicativos, selecione **Carregar mais** na parte inferior da lista. Dependendo do número de aplicativos em seu locatário, poderá ser mais fácil [pesquisar determinado aplicativo](#search-for-a-tenant-application) em vez de percorrer a lista.
 
 ## <a name="select-viewing-options"></a>Selecionar opções de exibição
 
-Nesta seção, selecione as opções de acordo com o que você está procurando.
+Selecionar as opções de acordo com o que você está procurando.
 
-1. Você pode exibir os aplicativos de acordo com as opções de **Tipo de Aplicativo**, **Status do Aplicativo** e **Visibilidade do Aplicativo**. 
-
-    ![Opções de pesquisa](media/view-applications-portal/search-options.png)
+1. É possível exibir os aplicativos por **Tipo de Aplicativo**, **Status do Aplicativo** e **Visibilidade do Aplicativo**. 
 
 2. Em **Tipo de Aplicativo**, escolha uma destas opções:
 
@@ -67,30 +63,30 @@ Nesta seção, selecione as opções de acordo com o que você está procurando.
 
 4. Em **Visibilidade do Aplicativo**, escolha **Qualquer um** ou **Oculto**. A opção **Oculto** mostra os aplicativos que estão no locatário, mas não estão visíveis para os usuários.
 
-5. Depois de escolher as opções desejadas, clique em **Aplicar**.
+5. Depois de escolher as opções desejadas, selecione **Aplicar**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Pesquisar um aplicativo de locatário
 
-Para procurar um aplicativo específico:
+Para pesquisar aplicativo específico:
 
-1. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos**e clique em **Aplicar**.
+1. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos** e escolha **Aplicar**.
 
 2. Insira o nome do aplicativo que você deseja encontrar. Se o aplicativo tiver sido adicionado ao locatário do Azure AD, ele será exibido nos resultados da pesquisa. Este exemplo mostra que o GitHub não foi adicionado aos aplicativos de locatário.
 
     ![Pesquisar um aplicativo](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Tente inserir as primeiras letras do nome de um aplicativo.  Este exemplo mostra todos os aplicativos que começam com **Vendas**.
+3. Tente inserir as primeiras letras do nome de um aplicativo. Este exemplo mostra todos os aplicativos que começam com **Vendas**.
 
     ![Pesquisar por um prefixo](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu a exibir os aplicativos em seu locatário do Azure AD e a filtrar a lista de aplicativos por tipo de aplicativo, status e visibilidade. Você também aprendeu a procurar determinado aplicativo.
+Neste início rápido, você aprendeu como exibir os aplicativos no locatário do Azure AD. Você aprendeu como filtrar a lista de aplicativos por tipo de aplicativo, status e visibilidade. Você também aprendeu a procurar determinado aplicativo.
 
-Agora que você localizou o aplicativo que estava procurando, pode continuar a [Adicionar mais aplicativos a seu locatário](add-application-portal.md) ou clicar no aplicativo para exibir ou editar propriedades e opções de configuração. Por exemplo, você pode configurar o logon único. 
+Agora você que localizou o aplicativo que está procurando, é possível passar para [Adicionar mais aplicativos ao seu locatário](add-application-portal.md). Ou é possível selecionar o aplicativo para exibir ou editar as opções de propriedades e de configuração. Por exemplo, você pode configurar o logon único. 
 
 > [!div class="nextstepaction"]
-> [Configurar Logon Único](configure-single-sign-on-portal.md)
+> [Configurar o logon único](configure-single-sign-on-portal.md)
 
 

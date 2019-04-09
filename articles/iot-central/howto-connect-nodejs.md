@@ -3,17 +3,17 @@ title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | M
 description: Como um desenvolvedor de dispositivo, como se conectar a um dispositivo genérico do Node. js ao seu aplicativo do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/04/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905317"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259959"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -97,7 +97,7 @@ Adicione o seguinte comando na **comandos** página:
 
 | Nome de exibição    | Nome do campo     | Tempo limite padrão | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
-| Contagem regressiva       | contagem regressiva      | 30              | número    |
+| Contagem regressiva       | Contagem regressiva      | 30              | número    |
 
 Adicione o seguinte campo de entrada para o comando de contagem regressiva:
 

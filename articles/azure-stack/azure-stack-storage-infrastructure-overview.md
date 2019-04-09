@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760266"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271281"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gerenciar a infraestrutura de armazenamento para o Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo descreve a integridade e o status operacional dos recursos de infraestrutura de armazenamento do Azure Stack. Esses recursos incluem unidades de armazenamento e volumes. As informações neste tópico podem ser inestimáveis ao tentar solucionar vários problemas, como uma unidade não pode ser adicionada a um pool.
 
@@ -32,7 +32,7 @@ Este artigo descreve a integridade e o status operacional dos recursos de infrae
 
 ### <a name="drives"></a>Unidades
 
-O Azure Stack fornecido pelo software do Windows Server definidos recursos de armazenamento, com uma combinação de espaços de armazenamento diretos (S2D) e Windows Server Failover Clustering, para fornecer um alto desempenho, o serviço de armazenamento escalonável e flexível.
+Azure Stack alimentado pelo software do Windows Server, define os recursos de armazenamento com uma combinação de espaços de armazenamento diretos (S2D) e Windows Server Failover Clustering para fornecer um alto desempenho, escalonável e de serviço de armazenamento resiliente.
 
 Parceiros de sistema integrado de pilha do Azure oferecem diversas variações de solução, incluindo uma ampla gama de flexibilidade de armazenamento. No momento, você pode selecionar uma combinação dos três tipos de unidade: NVMe (Express de memória não volátil), SATA/SAS SSD (unidade de estado sólido), HDD (unidade de disco rígido).
 

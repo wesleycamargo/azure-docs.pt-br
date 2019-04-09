@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918239"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -63,10 +63,10 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus com ativação compartilhada – Excel, Word e PowerPoint   |S                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 com pacotes populares pré-instalados    |S                      |S              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) com pacotes populares para linguagem Julia pré-instalados                         |S                      |S              |
-| Bancos de dados relacionais                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
+| Bancos de dados relacionais                                                            | [Microsoft SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[Microsoft SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Ferramentas de Banco de Dados                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> Drivers * ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (ferramenta de consultas), <br /> * bcp, sqlcmd <br /> Drivers * ODBC/JDBC|
 | Análise no banco de dados escalonável com os serviços do SQL Server ML (R, Python) | S     |N              |
-| **[Jupyter Notebook Server](https://jupyter.org/) com os kernels a seguir,**                                  | S     | S |
+| **[Servidor do Jupyter Notebook](https://jupyter.org/) com os kernels a seguir,**                                  | S     | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | S | S |
@@ -87,7 +87,7 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
-| PowerBI Desktop | S | N |
+| Power BI Desktop | S | N |
 | SDKs para acessar o Azure e o pacote de serviços Cortana Intelligence | S | S |
 | **Ferramentas de movimentação de dados e gerenciamento** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Gerenciador de Armazenamento do Azure | S | S |
@@ -100,7 +100,7 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Gateway de Gerenciamento de Dados da Microsoft](https://msdn.microsoft.com/library/dn879362.aspx): Mover dados entre OnPrem e Nuvem | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilitários de linha de comando Unix/Linux | S | S |
 | [Apache Drill](https://drill.apache.org) para Exploração de dados | S | S |
-| **Machine Learning Tools** |||
+| **Ferramentas de Machine Learning** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Integração com [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | S | S |
@@ -109,7 +109,7 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (somente Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (somente Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (somente Ubuntu) |
-| **Ferramentas de Aprendizado Avançado** <br>Todas as ferramentas funcionarão em uma CPU ou GPU |  |  |
+| **Ferramentas de aprendizado profundo** <br>Todas as ferramentas funcionarão em uma CPU ou GPU |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | S (Ubuntu) |
@@ -139,4 +139,4 @@ A Máquina Virtual de Ciência de Dados tem muitas ferramentas conhecidas de ci�
 * Para obter um passo a passo que mostre como executar várias tarefas comuns de ciência de dados com o VM Linux, CentOS e Ubuntu, confira [Ciência de dados na Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Guia do desenvolvedor do R para o Azure](../r-developers-guide.md)
+[Guia do desenvolvedor de R para Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

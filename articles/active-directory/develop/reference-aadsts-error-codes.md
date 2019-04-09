@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295446"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271791"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -58,7 +58,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS50007 | PartnerEncryptionCertificateMissing - O certificado de criptografia de parceiro não foi encontrado para este aplicativo. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para obter esse fixo. |
 | AADSTS50008 | InvalidSamlToken - A asserção SAML está ausente ou está mal configurada no token. Entre em contato com seu provedor de federação. |
 | AADSTS50010 | AudienceUriValidationFailed - A validação do URI de público para o aplicativo falhou, pois nenhum público-alvo de token foi configurado. |
-| AADSTS50011 | InvalidReplyTo - O endereço de resposta está ausente, está mal configurado ou não corresponde aos endereços de resposta configurados para o aplicativo. Teste a resolução listada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou o administrador do aplicativo. |
+| AADSTS50011 | InvalidReplyTo - O endereço de resposta está ausente, está mal configurado ou não corresponde aos endereços de resposta configurados para o aplicativo.  Como uma resolução Certifique-se de adicionar este endereço de resposta ausente para o aplicativo do Azure Active Directory ou alguém com as permissões para gerenciar seu aplicativo no Active Directory tem a fazer isso para você.|
 | AADSTS50012 | AuthenticationFailed - A autenticação falhou por um dos seguintes motivos:<ul><li>O nome da entidade do certificado de assinatura não está autorizado</li><li>Uma política de autoridade confiável correspondente não foi encontrada para o nome do assunto autorizado</li><li>A cadeia de certificados não é válida</li><li>O certificado de assinatura não é válido</li><li>A política não está configurada no inquilino</li><li>A impressão digital do certificado de assinatura não é autorizada</li><li>A declaração do cliente contém uma assinatura inválida</li></ul> |
 | AADSTS50013 | InvalidAssertion - A declaração é inválida devido a várias razões - O emissor do token não corresponde à versão da API dentro de seu intervalo de tempo válido - expirado - mal formado - O token de atualização na asserção não é um token de atualização principal. |
 | AADSTS50014 | GuestUserInPendingState - O resgate do usuário está em um estado pendente. A conta de usuário convidado ainda não está totalmente criada. |

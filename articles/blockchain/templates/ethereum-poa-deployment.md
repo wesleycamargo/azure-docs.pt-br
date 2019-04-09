@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905912"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274783"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Prova de autoridade do consórcio Ethereum
 
@@ -279,7 +279,7 @@ ID da Rede|A ID de rede para a rede de Ethereum consortium que está sendo impla
 Endereço do administrador Ethereum|Endereço de conta Ethereum que é usado para a participação na governança PoA.  É recomendável usar MetaMask para gerar um endereço de Ethereum.|42 caracteres alfanuméricos começando com 0x|ND
 Opções avançadas|Opções avançadas para configurações do Ethereum|Habilitar ou Desabilitar|Desabilitar
 IP público (opções avançadas = habilitar)|Implanta a rede por trás de um Gateway de rede virtual e remove o acesso de emparelhamento. Se essa opção for selecionada, todos os membros devem usar um Gateway de rede virtual para a conexão para ser compatível.|Rede virtual privada de IP público|IP público
-Limite de gás do bloco (opções avançadas = habilitar)|O limite inicial de gás do bloco da rede|Qualquer numérico|50.000.00
+Limite de gás do bloco (opções avançadas = habilitar)|O limite inicial de gás do bloco da rede|Qualquer numérico|50000000
 Período para selar o bloco novamente (s)|A frequência com que serão criados blocos vazios quando não existirem transações na rede. Uma frequência superior terá uma finalidade mais rápida, mas os custos de armazenamento serão maiores.|Qualquer numérico|15
 Contrato de permissão de transação (opções avançadas = habilitar)|Código de bytes para o contrato de permissão de transação. Restringe a implantação inteligente de contrato e a execução a uma lista permitida de contas Ethereum.|Código de bytes do contrato|ND
 
