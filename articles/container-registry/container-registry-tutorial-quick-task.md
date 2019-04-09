@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860466"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893700"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, a primeira parte de uma série:
 > * Criar uma imagem de contêiner no Azure
 > * Implantar um contêiner em Instâncias de Contêiner do Azure
 
-Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds de imagem de contêiner automatizados na confirmação de código e atualização da imagem base. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md) (no momento em versão prévia), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
+Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds de imagem de contêiner automatizados na confirmação de código e atualização da imagem base. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

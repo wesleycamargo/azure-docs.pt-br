@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919140"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -45,7 +45,7 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 
 |Propriedade |Valor |DESCRIÇÃO |
 |---|---|---|
-|**Nome** |Nome completo do usuário | O nome e sobrenome do usuário.
+|**NOME** |Nome completo do usuário | O nome e sobrenome do usuário.
 |**Nome de Usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário.
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de forma exclusiva o usuário na Web.|
 |**ID do locatário** |Guid | Um **guid** que representa exclusivamente a organização do Microsoft Azure Active Directory do usuário.|
@@ -82,12 +82,12 @@ Para restringir acesso de entrada de usuário para seu aplicativo, há várias o
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opção 1: Restrinja usuários da instância do Active Directory de uma única organização entre no seu aplicativo (único locatário)
 
-Essa opção é um cenário comum para *aplicativos de LOB*: Se você deseja que o aplicativo aceite entradas somente de contas que pertencem a uma instância específica do Active Directory do Azure (incluindo *contas de convidado* dessa instância) faça o seguinte:
+Essa opção é um cenário comum para *aplicativos de linha de negócios*: Se desejar que seu aplicativo aceite entradas apenas de contas pertencentes a uma instância específica do Azure Active Directory (incluindo *contas convidado* dessa instância), siga estas etapas:
 
 1. No arquivo **web. config**, altere o valor para o parâmetro `Tenant` de `Common` para o nome do locatário da organização, como `contoso.onmicrosoft.com`.
 2. Na [classe de inicialização OWIN](#configure-the-authentication-pipeline), defina o argumento `ValidateIssuer` como `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opção 2: Restringir o acesso ao seu aplicativo para usuários em uma lista específica de organizações
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opção 2: restringir o acesso ao seu aplicativo aos usuários em uma lista específica de organizações
 
 É possível restringir acesso de entrada apenas a contas de usuários que estão em uma organização do Microsoft Azure Active Directory que esteja na lista de organizações permitidas:
 1. Na [classe de inicialização OWIN](#configure-the-authentication-pipeline), defina o argumento `ValidateIssuer` como `true`.
@@ -95,6 +95,6 @@ Essa opção é um cenário comum para *aplicativos de LOB*: Se você deseja que
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Usar um método personalizado para validar emissores
 
-É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, leia sobre a [classe TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
+É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, leia sobre a [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

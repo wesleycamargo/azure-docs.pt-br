@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231807"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884679"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verificar o tráfego em uma agenda com os Aplicativos Lógicos do Azure
 
@@ -59,10 +59,10 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
    | Configuração | Valor | DESCRIÇÃO | 
    | ------- | ----- | ----------- | 
-   | **Nome** | LA-TravelTime | O nome do seu aplicativo lógico | 
+   | **NOME** | LA-TravelTime | O nome do seu aplicativo lógico | 
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | O nome e a ID da assinatura do Azure | 
    | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados | 
-   | **Localidade** | Leste dos EUA 2 | A região na qual armazenar informações sobre o seu aplicativo lógico | 
+   | **Local padrão** | Leste dos EUA 2 | A região na qual armazenar informações sobre o seu aplicativo lógico | 
    | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    |||| 
 
@@ -74,11 +74,12 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
 ## <a name="add-scheduler-trigger"></a>Adicionar gatilho de agendador
 
-1. No designer, digite "recorrência" na caixa de pesquisa. Selecione este gatilho: **Agenda – Recorrência**
+1. No designer, digite "recorrência" na caixa de pesquisa. Selecione este gatilho: **Agendar – Recorrência**
 
    ![Localizar e adicionar o gatilho “Agenda – Recorrência”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Na forma **Recorrência**, escolha o botão de **reticências** (**...** ) e escolha **Renomear**. Renomeie o gatilho com esta descrição:```Check travel time every weekday morning```
+2. Na forma **Recorrência**, escolha o botão de **reticências** (**...** ) e escolha **Renomear**. Renomeie o gatilho com esta descrição:
+```Check travel time every weekday morning```
 
    ![Renomear gatilho](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -117,7 +118,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
 
 1. No Designer de Aplicativos Lógicos, no gatilho, escolha **+ Nova etapa** > **Adicionar uma ação**.
 
-2. Pesquise "mapas" e selecione a ação: **Bing Mapas - Obter rota**
+2. Pesquise "mapas" e selecione esta ação: **Bing Mapas – Obter rota**
 
 3. Se você não tiver uma conexão do Bing Mapas, a criação será solicitada. Forneça esses detalhes de conexão e escolha **Criar**.
 
@@ -129,7 +130,8 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
    | **Chave de API** | <*your-Bing-Maps-key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. Se você não tiver uma chave do Bing Mapas, saiba <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">como obter uma chave</a>. | 
    | | | |  
 
-4. Renomeie a ação com esta descrição:```Get route and travel time with traffic```
+4. Renomeie a ação com esta descrição:
+```Get route and travel time with traffic```
 
 5. Forneça detalhes para a ação **Obter rota**, como mostrado e descrito aqui, por exemplo:
 
@@ -137,12 +139,12 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
 
    | Configuração | Valor | DESCRIÇÃO |
    | ------- | ----- | ----------- |
-   | **Localizador 1** | <*start-location*> | Origem da rota | 
-   | **Localizador 2** | <*end-location*> | Destino da rota | 
-   | **Evitar** | Nenhum | Todos os itens a serem evitados na rota, como vias expressas, pedágios e assim por diante | 
+   | **Ponto de passagem 1** | <*start-location*> | Origem da rota | 
+   | **Ponto de passagem 2** | <*end-location*> | Destino da rota | 
+   | **Evite** | Nenhum | Todos os itens a serem evitados na rota, como vias expressas, pedágios e assim por diante | 
    | **Otimizar** | timeWithTraffic | Um parâmetro para otimizar a rota, como distância, viagem de tempo com tráfego atual e assim por diante. Selecione este parâmetro: "timeWithTraffic" | 
-   | **Unidades de distância** | <*your-preference*> | A unidade de distância da rota. Este artigo usa a seguinte unidade: "Milhas"  | 
-   | **Modo de navegação** | Automóvel | O modo de viagem da rota. Selecione este modo: "Automóvel" | 
+   | **Unidade de distância** | <*your-preference*> | A unidade de distância da rota. Este artigo usa esta unidade: "Milha"  | 
+   | **Modo de viagem** | Automóvel | O modo de viagem da rota. Selecione este modo: "Dirigindo" | 
    | **Data /Hora de trânsito** | Nenhum | Aplica-se somente ao modo de trânsito | 
    | **Tipo de data e hora** | Nenhum | Aplica-se somente ao modo de trânsito | 
    |||| 
@@ -161,18 +163,19 @@ Por padrão, a ação **Obter rota** anterior retorna o tempo de viagem atual co
 
 1. Na ação **Obter rota**, escolha **+ Nova etapa** > **Adicionar uma ação**.
 
-2. Pesquise "variáveis" e selecione a ação: **Variáveis - Inicializar variável**
+2. Pesquise por "variáveis" e selecione esta ação: **Variáveis – Inicializar variável**
 
    ![Selecionar ação "Variáveis - Inicializar variável"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Renomear a ação com esta descrição:```Create variable to store travel time```
+3. Renomear esta ação com esta descrição:
+```Create variable to store travel time```
 
 4. Forneça os detalhes para a variável conforme descrito aqui:
 
    | Configuração | Valor | DESCRIÇÃO | 
    | ------- | ----- | ----------- | 
-   | **Nome** | travelTime | O nome da variável | 
-   | **Tipo** | Número inteiro | O tipo de dados da variável | 
+   | **NOME** | travelTime | O nome da variável | 
+   | **Type** | Número inteiro | O tipo de dados da variável | 
    | **Valor** | Uma expressão que converte o tempo de viagem atual de segundos em minutos (consulte as etapas nesta tabela). | O valor inicial da variável | 
    |||| 
 
@@ -190,7 +193,7 @@ Por padrão, a ação **Obter rota** anterior retorna o tempo de viagem atual co
       Se o navegador for amplo, a lista de conteúdo dinâmico será exibida. 
       Se o navegador for estreito, será exibida uma lista de parâmetros embutidos na caixa de edição que tem o foco no momento.
 
-   2. No editor de expressão, digite esta expressão:```div(,60)```
+   2. No editor de expressão, digite esta expressão: ```div(,60)```
 
       ![Digite esta expressão: "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -219,7 +222,7 @@ Em seguida, adicione uma condição que verifica se o tempo de viagem atual é m
 
 1. Na ação anterior, escolha **+ Nova etapa** > **Adicionar uma condição**. 
 
-2. Renomeie a condição com esta descrição:```If travel time exceeds limit```
+2. Renomeie a condição com esta descrição: ```If travel time exceeds limit```
 
 3. Crie uma condição que verifica se **travelTime** excede o limite especificado, como descrito e mostrado aqui:
 
@@ -256,13 +259,14 @@ Agora, adicione uma ação que envia email quando o tempo de viagem excede seu l
 
    Os Aplicativos Lógicos criam uma conexão à sua conta de email.
 
-4. Renomeie a ação com esta descrição:```Send email with travel time```
+4. Renomeie a ação com esta descrição:
+```Send email with travel time```
 
 5. Na caixa **Para**, insira o endereço de email do destinatário. Para fins de teste, use o seu endereço de email.
 
 6. Na caixa **Subject**, especifique o assunto do email e inclua a variável **travelTime**.
 
-   1. Insira o texto ```Current travel time (minutes): ``` com um espaço à direita. 
+   1. Insira o texto ```Current travel time (minutes):``` com um espaço à direita. 
    
    2. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **travelTime** em **Variáveis**. 
    
@@ -272,7 +276,7 @@ Agora, adicione uma ação que envia email quando o tempo de viagem excede seu l
 
 7. Na caixa **Body**, especifique o conteúdo do corpo do email. 
 
-   1. Insira o texto ```Add extra travel time (minutes): ``` com um espaço à direita. 
+   1. Insira o texto ```Add extra travel time (minutes):``` com um espaço à direita. 
    
    2. Se necessário, amplie seu navegador até que seja exibida a lista de conteúdo dinâmico. 
    Na lista Conteúdo dinâmico, escolha **Expressão**.

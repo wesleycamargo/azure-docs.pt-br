@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090314"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649691"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -48,8 +48,8 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, siga estas etapas:
-    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. 
-    3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. 
+    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. No momento, os tamanhos **pequeno**, **médio**, **grande** e **GPU** são permitidos.
+    3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Avançar**.
 
         ![Definir as especificações da VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,12 +69,12 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Na página **Configurar modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
-    1. Conecte-se à VM modelo selecionando **Conectar**. 
+    1. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
     2. Instale e configure software em sua VM modelo.     
     3. Insira uma **descrição** do modelo
 9. Selecione **Avançar** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as seguintes ações. 
-    1. Publicar o modelo imediatamente e selecionar **Publicar**.  
+    1. Para publicar o modelo imediatamente, selecione **Publicar**.  
 
         > [!WARNING]
         > Depois de publicar, você não pode cancelar a publicação. 
@@ -109,14 +109,19 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
 
 ## <a name="send-an-email-with-the-registration-link"></a>Envie um email com o link de registro
+
 1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
-2. Selecione usuário específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**Nome**) ou marque todas as caixas de seleção para todos os usuários na lista.
-3. Selecione **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome do aluno na lista e enviar o ícone de email. 
+2. Selecione usuário específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**Nome**) ou marque todas as caixas de seleção para todos os usuários na lista. Você pode ver o status do **estado de convite** nessa lista.  Na imagem a seguir, o estado de convite para todos os alunos é definido como **Convite não enviado**. 
+
+    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de email (envelope)** em uma das linhas (ou) selecione **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome do aluno na lista para ver o ícone de email. 
 
     ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Em **Enviar link de registro pela página de email**, siga estas etapas: 
     1. Digite uma **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
-    2. Em **Enviar link de registro pela página de email**, selecione **Enviar**. 
+    2. Em **Enviar link de registro pela página de email**, selecione **Enviar**. Você verá o status do convite mudar para **Enviando convite** e, em seguida, para **Convite enviado**. 
+        
+        ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode acessar uma VM no laboratório usando o link de registro, vá para o seguinte tutorial:

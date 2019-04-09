@@ -4,16 +4,16 @@ description: Saiba como usar os bloqueios de recursos do Azure Blueprints Soment
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855751"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629227"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
@@ -40,7 +40,7 @@ Primeiro, crie uma nova definição de blueprint.
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
-1. Localize o blueprint de exemplo **Exemplo em branco** na parte superior da página e selecione **Usar este exemplo**.
+1. Localize o exemplo de blueprint **Blueprint em Branco** na parte superior da página e selecione **Começar com blueprint em branco**.
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
@@ -81,7 +81,7 @@ Primeiro, crie uma nova definição de blueprint.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -182,6 +182,8 @@ A atribuição criou o grupo de recursos _TestingBPLocks_ e a conta de armazenam
 
    A atribuição de blueprint criou uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implantado para impor o modo de bloqueio _Somente Leitura_ do blueprint. A atribuição de negação impede que alguém com os direitos adequados execute ações específicas na guia _Atribuições de função_. A atribuição de negação afeta _Todas as entidades_.
 
+   Para obter informações sobre a exclusão de uma entidade de segurança de uma atribuição de negação, veja [bloqueio de recursos de blueprint](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
    A atribuição de negação está impedindo todas as operações com **\*** e a configuração **Ação**, mas permite o acesso de leitura excluindo **\*/read** por meio de **NotActions**.
@@ -221,9 +223,9 @@ Quando terminar este tutorial, exclua os seguintes recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](../concepts/resource-locking.md)
-- Aprenda a personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

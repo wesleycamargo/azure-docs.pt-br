@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto manuscrito – SDK, C#'
+title: 'Início Rápido: Extrair texto manuscrito – SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você extrai texto de uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d71a566d5c6dc5505b4bd939e294f8428e9a5b93
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312899"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878189"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Extrair texto usando o SDK da Pesquisa Visual Computacional e C#
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início Rápido: Extrair um texto manuscrito usando o SDK do C# da Pesquisa Visual Computacional
 
 Neste Início Rápido, você extrairá um texto manuscrito ou impresso de uma imagem usando o SDK da Pesquisa Visual Computacional para C#. Se desejar, baixe o código neste guia como um aplicativo de exemplo completo no repositório [Pesquisa Visual do CSharp dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) no GitHub.
 
@@ -37,7 +37,7 @@ Para executar a amostra, siga estas etapas:
     1. No menu, clique em **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução**.
     1. Clique na guia **Procurar** e, na caixa **Pesquisar**, digite "Microsoft.Azure.CognitiveServices.Vision.ComputerVision".
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando ela for exibida, então clique na caixa de seleção ao lado do nome do seu projeto e escolha **Instalar**.
-1. Substitua `Program.cs` pelo código a seguir. Os métodos `RecognizeTextAsync` e `RecognizeTextInStreamAsync` encapsulam a [API de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para imagens locais e remotas, respectivamente. O método `GetTextOperationResultAsync` encapsula a [Obter API de Resultados da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).
+1. Substitua `Program.cs` pelo código a seguir. Os métodos `BatchReadFileAsync` e `BatchReadFileInStreamAsync` encapsulam a [API do Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para imagens remotas e locais, respectivamente. O método `GetReadOperationResultAsync` encapsula a [API Obter Resultado da Operação de Leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d).
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -52,7 +52,7 @@ Para executar a amostra, siga estas etapas:
         class Program
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-            private const string subscriptionKey = "<SubscriptionKey>";
+            private const string subscriptionKey = "<Subscription key>";
 
             // For printed text, change to TextRecognitionMode.Printed
             private const TextRecognitionMode textRecognitionMode =
@@ -62,9 +62,7 @@ Para executar a amostra, siga estas etapas:
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
-                "Cursive_Writing_on_Notebook_paper.jpg/" +
-                "800px-Cursive_Writing_on_Notebook_paper.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg";
 
             private const int numberOfCharsInOperationId = 36;
 
@@ -78,12 +76,12 @@ Para executar a amostra, siga estas etapas:
                 // keys. For example, if you got your subscription keys from westus,
                 // replace "westcentralus" with "westus".
                 //
-                // Free trial subscription keys are generated in the "westus"
+                // Free trial subscription keys are generated in the westcentralus
                 // region. If you use a free trial subscription key, you shouldn't
                 // need to change the region.
 
                 // Specify the Azure region
-                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
+                computerVision.Endpoint = "https://westus.api.cognitive.microsoft.com";
 
                 Console.WriteLine("Images being analyzed ...");
                 var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
@@ -94,7 +92,7 @@ Para executar a amostra, siga estas etapas:
                 Console.ReadLine();
             }
 
-            // Recognize text from a remote image
+            // Read text from a remote image
             private static async Task ExtractRemoteTextAsync(
                 ComputerVisionClient computerVision, string imageUrl)
             {
@@ -105,9 +103,9 @@ Para executar a amostra, siga estas etapas:
                     return;
                 }
 
-                // Start the async process to recognize the text
-                RecognizeTextHeaders textHeaders =
-                    await computerVision.RecognizeTextAsync(
+                // Start the async process to read the text
+                BatchReadFileHeaders textHeaders =
+                    await computerVision.BatchReadFileAsync(
                         imageUrl, textRecognitionMode);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
@@ -127,8 +125,8 @@ Para executar a amostra, siga estas etapas:
                 using (Stream imageStream = File.OpenRead(imagePath))
                 {
                     // Start the async process to recognize the text
-                    RecognizeTextInStreamHeaders textHeaders =
-                        await computerVision.RecognizeTextInStreamAsync(
+                    BatchReadFileInStreamHeaders textHeaders =
+                        await computerVision.BatchReadFileInStreamAsync(
                             imageStream, textRecognitionMode);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
@@ -145,8 +143,8 @@ Para executar a amostra, siga estas etapas:
                     operationLocation.Length - numberOfCharsInOperationId);
 
                 Console.WriteLine("\nCalling GetHandwritingRecognitionOperationResultAsync()");
-                TextOperationResult result =
-                    await computerVision.GetTextOperationResultAsync(operationId);
+                ReadOperationResult result =
+                    await computerVision.GetReadOperationResultAsync(operationId);
 
                 // Wait for the operation to complete
                 int i = 0;
@@ -158,15 +156,18 @@ Para executar a amostra, siga estas etapas:
                         "Server status: {0}, waiting {1} seconds...", result.Status, i);
                     await Task.Delay(1000);
 
-                    result = await computerVision.GetTextOperationResultAsync(operationId);
+                    result = await computerVision.GetReadOperationResultAsync(operationId);
                 }
 
                 // Display the results
                 Console.WriteLine();
-                var lines = result.RecognitionResult.Lines;
-                foreach (Line line in lines)
+                var recResults = result.RecognitionResults;
+                foreach (TextRecognitionResult recResult in recResults)
                 {
-                    Console.WriteLine(line.Text);
+                    foreach (Line line in recResult.Lines)
+                    {
+                        Console.WriteLine(line.Text);
+                    }
                 }
                 Console.WriteLine();
             }
@@ -180,7 +181,6 @@ Para executar a amostra, siga estas etapas:
 1. Substitua `<LocalImage>` pelo nome de arquivo e caminho de uma imagem local.
 1. Opcionalmente, defina `remoteImageUrl` para uma imagem diferente.
 1. Execute o programa.
-
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311432"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630500"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Início Rápido: Analisar uma imagem remota usando o Java e a API REST da Pesquisa Visual Computacional
 
@@ -57,8 +57,6 @@ Para criar e executar o exemplo, siga estas etapas:
    1. Substitua o valor de `subscriptionKey` pela sua chave de assinatura.
    1. Substitua o valor de `uriBase` pela URL do ponto de extremidade para o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
    1. Outra opção é substituir o valor de `imageToAnalyze` pela URL de uma imagem diferente que você deseja analisar.
-1. Salve e crie o projeto Java.
-1. Se você usar um IDE, execute `Main`. Caso contrário, abra uma janela do prompt de comando e use o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>Compilar e executar o programa
+
+1. Salve e crie o projeto Java.
+1. Se você usar um IDE, execute `Main`.
+
+Como alternativa, se você estiver executando o programa de uma janela de linha de comando, execute os comandos a seguir. Esses comandos presumem que suas bibliotecas estão em uma pasta chamada `libs` que está na mesma pasta que `Main.java`; se não, você precisará substituir `libs` pelo caminho para suas bibliotecas.
+
+1. Compile o arquivo `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Execute o programa. Ele enviará a solicitação para a API de QnA Maker para criar a base de dados de conhecimento e, em seguida, sondará os resultados a cada 30 segundos. Cada resposta é impressa na janela de linha de comando.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 

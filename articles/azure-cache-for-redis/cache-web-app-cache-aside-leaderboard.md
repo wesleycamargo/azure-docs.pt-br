@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234859"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893734"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
 
@@ -79,7 +79,7 @@ Para saber mais sobre este pacote, consulte a página do NuGet [EntityFramework]
     using System.Data.Entity.SqlServer;
     ```
 
-1. Substitua a definição da classe `Team` pelo snippet de código a seguir, que contém uma definição de classe `Team` atualizada, bem como algumas outras classes auxiliares do Entity Framework. Este tutorial usa a abordagem de Code First com o Entity Framework. Essa abordagem permite que o Entity Framework crie o banco de dados com base no código. Para saber mais sobre a abordagem de code first do Entity Framework que é usada neste tutorial, confira [Code first para um novo banco de dados](https://msdn.microsoft.com/data/jj193542).
+1. Substitua a definição da classe `Team` pelo snippet de código a seguir, que contém uma definição de classe `Team` atualizada, bem como algumas outras classes auxiliares do Entity Framework. Este tutorial usa a abordagem de Code First com o Entity Framework. Essa abordagem permite que o Entity Framework crie o banco de dados com base no código. Para saber mais sobre a abordagem de code first do Entity Framework que é usada neste tutorial, confira [Code first para um novo banco de dados](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -665,7 +665,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
    | **Nome do banco de dados** | *ContosoTeamsDatabase* | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Assinatura** | *Sua assinatura*  | Selecione a mesma assinatura usada para criar o cache e hospedar o Serviço de Aplicativo. |
    | **Grupo de recursos**  | *TestResourceGroup* | Clique em **Usar existente** e use o mesmo grupo de recursos em que você colocou o cache e o Serviço de Aplicativo. |
-   | **Selecionar fonte** | **Banco de dados em branco** | Comece com um banco de dados em branco. |
+   | **Selecionar a origem** | **Banco de dados em branco** | Comece com um banco de dados em branco. |
 
 1. Em **Servidor**, clique em **Definir as configurações necessárias** > **Criar um novo servidor**, forneça as seguintes informações e clique no botão **Selecionar**:
 
@@ -674,7 +674,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
    | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, 8 caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
-   | **Localidade** | *Leste dos EUA* | Selecione a mesma região onde você criou o cache e o Serviço de Aplicativo. |
+   | **Local padrão** | *Leste dos EUA* | Selecione a mesma região onde você criou o cache e o Serviço de Aplicativo. |
 
 1. Clique em **Fixar no painel** e, em seguida, em **Criar** para criar o novo banco de dados e servidor.
 
@@ -689,7 +689,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
     | Placeholder | Valor sugerido |
     | --- | --- |
     | *{seu_nomedeusuário}* | Use o **logon de administrador do servidor** para o servidor de banco de dados recém-criado. |
-    | *{sua_senha}* | Use a senha para o servidor de banco de dados recém-criado. |
+    | *{your_password}* | Use a senha para o servidor de banco de dados recém-criado. |
 
     Ao adicionar o nome de usuário e a senha como uma Configuração de Aplicativo, seu nome de usuário e sua senha não são incluídos no código. Essa abordagem ajuda a proteger essas credenciais.
 
@@ -744,4 +744,4 @@ Ao terminar de usar o aplicativo do tutorial de exemplo, você poderá excluir o
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como dimensionar o Cache do Azure para Redis](./cache-how-to-scale.md)
+> [Como dimensionar o Cache Redis do Azure](./cache-how-to-scale.md)

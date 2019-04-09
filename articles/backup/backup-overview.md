@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122005"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621661"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -28,10 +28,14 @@ O Backup do Azure oferece estes principais benefícios:
 - **Descarregue o backup local**: O Backup do Azure oferece uma solução simples para fazer backup de seus recursos locais na nuvem. Obtenha um backup de curto e longo prazo sem a necessidade de implantar soluções complexas de backup local. 
 - **Faça backup de VMs IaaS do Azure**: O Backup do Azure fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e a escalabilidade são simples, os backups são otimizados e você pode fazer uma restauração com facilidade, conforme necessário.
 - **Dimensionar com facilidade** – o Backup do Azure usa o poder subjacente e a escala ilimitada da nuvem do Azure para proporcionar alta disponibilidade sem sobrecarga de manutenção ou de monitoramento. 
-- **Obter transferência de dados ilimitados** – o Backup do Azure não limita a quantidade de dados de entrada ou saída transferidos nem cobra pelos dados transferidos.
+- **Obter transferência de dados ilimitados**: o Backup do Azure não limita a quantidade de dados de entrada ou saída transferidos nem cobra pelos dados transferidos.
     - Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
     - Se você fizer um backup inicial offline usando o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md). 
-- **Mantenha os dados seguros**: A criptografia de dados permite a transmissão e o armazenamento seguros de seus dados na nuvem pública. A senha de criptografia é armazenada localmente e nunca é transmitida nem armazenada no Azure. Se for necessário restaurar os dados, somente você tem a senha de criptografia ou chave.
+- **Mantenha os dados seguros**:
+    - Localmente, os dados em trânsito são criptografados no computador local usando AES256. Os dados transmitidos são protegidos por HTTPS entre o armazenamento e o backup. O protocolo iSCSI protege os dados transmitidos entre o backup e o computador do usuário. O túnel seguro é usado para proteger o canal iSCSI.
+    - Para o backup de dados locais no Azure, os dados no Azure são criptografados em repouso usando a frase secreta que você fornece ao configurar o backup. A senha ou chave nunca é transmitida nem armazenada no Azure. Se for necessário restaurar os dados, somente você tem a senha de criptografia ou chave.
+    - Para VMs do Azure, os dados são criptografados na reinicialização usando a Criptografia do Serviço de Armazenamento (SSE). O backup criptografa automaticamente os dados antes de armazená-los. O Armazenamento do Azure descriptografa os dados antes de recuperá-los.
+    - O backup também dá suporte a VMs do Azure criptografadas usando ADE (Azure Disk Encryption). [Saiba mais](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Obtenha backups consistentes com aplicativo**: Um backup consistente com aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
 - **Manter os dados de curto e longo prazo**: Use os cofres dos Serviços de Recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo que os dados podem ser mantidos em um cofre de Serviços de Recuperação. Você poderá mantê-los por quanto tempo desejar. O Backup do Azure tem um limite de pontos de recuperação 9999 por instância protegidos. [Saiba mais](backup-introduction-to-azure-backup.md#backup-and-retention)sobre como esse limite afeta suas necessidades de backup.
 - **Gerenciamento automático de armazenamento** - ambientes híbridos geralmente exigem armazenamento heterogêneo, alguns locais e alguns na nuvem. Com o Backup do Azure, não há nenhum custo para o uso de dispositivos de armazenamento local. O Backup do Azure aloca e gerencia o armazenamento de backup automaticamente e usa um modelo de pagamento conforme o uso, de modo que você pague apenas pelo armazenamento que consumir. [ Saiba mais ](https://azure.microsoft.com/pricing/details/backup) sobre preços.

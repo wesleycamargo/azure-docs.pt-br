@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 879636b9db2d7c2c48c7a4a194b43985785d2623
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780279"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878240"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -34,15 +34,15 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
-   ![Pesquisar pela política](../media/create-and-manage/search-policy.png)
+   ![Pesquisar Política em todos os serviços](../media/create-and-manage/search-policy.png)
 
 1. Selecione **Atribuições** no lado esquerdo da página de Política do Azure. Uma atribuição é uma política que foi atribuída para entrar em vigor em um escopo específico.
 
-   ![Selecionar atribuições](../media/create-and-manage/select-assignments.png)
+   ![Selecionar Atribuições na página Visão geral da política](../media/create-and-manage/select-assignments.png)
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   ![Atribuir uma definição de política](../media/create-and-manage/select-assign-policy.png)
+   ![Atribuir uma definição de política na página Atribuições](../media/create-and-manage/select-assign-policy.png)
 
 1. Na página **Atribuir Política**, selecione o **Escopo** clicando no botão de reticências e selecionando uma assinatura ou então um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Escopo**.
 
@@ -54,7 +54,7 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 1. Selecione **Solicitar SQL Server versão 12.0**. Se você não conseguir localizá-la imediatamente, digite **require sql server** na caixa de pesquisa, pressione ENTER e clique fora da caixa de pesquisa. Clique em **Selecionar** na parte inferior da página **Definições** depois de ter encontrado e selecionado a definição de política.
 
-   ![Localizar uma política](../media/create-and-manage/select-available-definition.png)
+   ![Usar o filtro de pesquisa para localizar uma política](../media/create-and-manage/select-available-definition.png)
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Para este exemplo, use *Exigir SQL Server versão 12.0*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política.  **Atribuído por** é preenchido automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
 
@@ -68,7 +68,7 @@ Agora que você atribuiu uma definição de política interna, você pode fazer 
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
-   ![Definição em criação](../media/create-and-manage/definition-under-authoring.png)
+   ![Página de definição em Grupo de criação](../media/create-and-manage/definition-under-authoring.png)
 
 1. Selecione **+ Definição de política** na parte superior da página. Isso abre a página **Definição de política**.
 
@@ -120,7 +120,7 @@ Agora que você atribuiu uma definição de política interna, você pode fazer 
 
 É possível criar uma política com a API REST para definições de política. A API REST permite que você crie e exclua as definições de políticas e obtenha informações sobre as definições existentes. Para criar uma definição de política, use o exemplo a seguir:
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -158,7 +158,7 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Criar uma definição de política com o PowerShell
 
-Antes de continuar com o exemplo do PowerShell, certifique-se de ter instalado a versão mais recente do Azure PowerShell. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornarão um erro indicando que o parâmetro não pode ser encontrado.
+Antes de continuar com o exemplo do PowerShell, verifique se você instalou a versão mais recente do módulo Az do Azure PowerShell. 
 
 Você pode criar uma definição de política usando o cmdlet `New-AzPolicyDefinition`.
 
@@ -328,11 +328,11 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
-   ![Selecionar definições](../media/create-and-manage/definition-under-authoring.png)
+   ![Selecionar definição na página Definições](../media/create-and-manage/definition-under-authoring.png)
 
 1. Selecione **+Definição de Iniciativa** na parte superior da página, esta opção leva você para a página **Definição de Iniciativa**.
 
-   ![Definição de iniciativa](../media/create-and-manage/initiative-definition.png)
+   ![Analisar página de definição da iniciativa](../media/create-and-manage/initiative-definition.png)
 
 1. Use as reticências do **Local da definição** para selecionar um grupo de gerenciamento ou uma assinatura para armazenar a definição. Se a página anterior fosse o escopo para um único grupo de gerenciamento ou assinatura, o **Local da definição** seria populado automaticamente.
 
@@ -352,16 +352,16 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
    Após selecionar a definição de política na lista, ela é adicionada em **Políticas e Parâmetros**.
 
-   ![Definições de iniciativa](../media/create-and-manage/initiative-definition-2.png)
+   ![Analisar parâmetros de definição da iniciativa](../media/create-and-manage/initiative-definition-2.png)
 
 1. Se uma definição de política sendo adicionada à iniciativa tiver parâmetros, eles serão mostrados sob o nome da política na área **Políticas e Parâmetros**. O _valor_ pode ser definido como 'Definir valor' (embutido em código para todas as atribuições dessa iniciativa) ou 'Usar a iniciativa de parâmetro' (definir durante cada atribuição de iniciativa). Se a opção 'Definir valor' for selecionada, a lista suspensa à direita de _Valores_ permitirá a inserção ou a seleção dos valores. Se 'Usar Parâmetro de Iniciativa' estiver selecionado, uma nova seção de **Parâmetros de iniciativa** será exibida, permitindo que você defina o parâmetro que será definido durante a atribuição de iniciativa. Os valores permitidos nesse parâmetro de iniciativa podem restringir ainda mais o que pode ser definido durante a atribuição da iniciativa.
 
-   ![Parâmetros da definição de iniciativa](../media/create-and-manage/initiative-definition-3.png)
+   ![Alterar parâmetros de definição da iniciativa com base nos valores permitidos](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > No caso de alguns parâmetros `strongType`, a lista de valores não pode ser determinada automaticamente. Nesses casos, um sinal de reticências será exibido à direita da linha de parâmetro. Clicar nela abre a página “Escopo do parâmetro (&lt;nome do parâmetro&gt;)”. Nessa página, selecione a assinatura a ser usada para fornecer as opções de valor. Esse escopo de parâmetro é usado somente durante a criação da definição de iniciativa e não tem impacto sobre a avaliação de política ou o escopo da iniciativa quando atribuído.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="assign-an-initiative-definition"></a>Atribuir uma definição de iniciativa
 
@@ -369,11 +369,11 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Localize a definição de iniciativa **Manter Segurança** que você criou anteriormente e clique nela. Selecione **Atribuir** na parte superior da página para abrir a página **Ficar seguro: atribuir iniciativa**.
 
-   ![Atribuir uma definição](../media/create-and-manage/assign-definition.png)
+   ![Atribuir uma definição na página Definição da iniciativa](../media/create-and-manage/assign-definition.png)
 
    Você também pode clicar com o botão direito do mouse na linha selecionada ou clicar nas reticências no final da linha de um menu contextual.  Em seguida, selecione **Atribuir**.
 
-   ![Clique com o botão direito em uma linha](../media/create-and-manage/select-right-click.png)
+   ![Opções alternativas para uma iniciativa](../media/create-and-manage/select-right-click.png)
 
 1. Preencha a página **Ficar seguro: atribuir iniciativa** inserindo as informações de exemplo a seguir. Você pode usar suas próprias informações.
 
@@ -393,11 +393,11 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Localize a iniciativa **Obter Origem**. É provável que ainda esteja no _Estado de conformidade_ de **Não iniciado**. Clique na iniciativa para obter todos os detalhes sobre o progresso da atribuição.
 
-   ![Conformidade – não iniciado](../media/create-and-manage/compliance-status-not-started.png)
+   ![Página de conformidade da iniciativa – avaliações não iniciadas](../media/create-and-manage/compliance-status-not-started.png)
 
 1. Quando a atribuição de iniciativa tiver sido concluída, a página de conformidade será atualizada com o _Estado de conformidade_ de **Em conformidade**.
 
-   ![Conformidade – em conformidade](../media/create-and-manage/compliance-status-compliant.png)
+   ![Página de conformidade da iniciativa – recursos compatíveis](../media/create-and-manage/compliance-status-compliant.png)
 
 1. Clicar em qualquer política na página de conformidade da iniciativa abre a página de detalhes de conformidade da política. Esta página fornece detalhes no nível de recursos para fins de conformidade.
 
@@ -426,7 +426,7 @@ Neste exemplo, Trent Baker, um dos especialistas de virtualização sênior da C
 
 1. Definir o **Exclusão** clicando no botão de reticências e selecionando o grupo de recursos para excluir, *SQLServers_Excluded* neste exemplo.
 
-   ![Solicitar exclusão](../media/create-and-manage/request-exclusion.png)
+   ![Adicionar um grupo de recursos excluídos à atribuição de política](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Dependendo da política e seu efeito, a exclusão também pode ser concedida a recursos específicos dentro de um grupo de recursos dentro do escopo da atribuição. Como o efeito **Negar** foi usado neste tutorial, não faria sentido definir a exclusão em um recurso específico que já existe.
@@ -458,4 +458,4 @@ Neste tutorial, você realizou as seguintes tarefas com sucesso:
 Para saber mais sobre as estruturas das definições de políticas, consulte este artigo:
 
 > [!div class="nextstepaction"]
-> [Estrutura de definição do Azure Policy](../concepts/definition-structure.md)
+> [Estrutura de definição da Política do Azure](../concepts/definition-structure.md)

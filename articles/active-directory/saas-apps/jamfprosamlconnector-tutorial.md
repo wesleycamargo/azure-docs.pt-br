@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855811"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Azure Active Directory ao Jamf Pro
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Jamf Pro ao AD do Azure, você precisará adicionar o Jamf Pro da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Jamf Pro por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Jamf Pro da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,13 +105,13 @@ Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes 
 
     ![Informações de logon único em Domínio e URLs do Jamf Pro](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com`
 
     ![Informações de logon único em Domínio e URLs do Jamf Pro](common/metadata-upload-additional-signon.png)
 
@@ -160,18 +160,18 @@ Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes 
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-     a. Selecione **Outro** como opção no menu suspenso **IDENTITY PROVIDER**.
+     a. Selecione **Outro** como opção no menu suspenso **PROVEDOR DE IDENTIDADE**.
 
     b. Na caixa de texto **OTHER PROVIDER**, digite **Azure AD**.
 
-    c. Selecione **URL de metadados** como uma opção do menu suspenso **IDENTITY PROVIDER METADATA SOURCE** e, na caixa de texto a seguir, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do portal do Azure.
+    c. Selecione **URL de metadados** como uma opção do menu suspenso **FONTE DE METADADOS DO PROVEDOR DE IDENTIDADE** e, na caixa de texto a seguir, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do portal do Azure.
 
     d. Copie o valor **ID da entidade** e cole-o na caixa de texto **Identifier (Entity ID)** na seção **Jamf Pro Domain e URLs** no portal do Azure.
 
     > [!NOTE]
     > Aqui, o valor borrado é a parte do subdomínio. Use esse valor para concluir o URL de conexão e o URL de resposta na seção **Domínio e URLs Jamf Pro** no portal do Azure.
 
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -264,7 +264,7 @@ Para permitir que os usuários do Azure AD façam logon no Jamf Pro, eles devem 
 
     f. Na caixa de texto **VERIFICAR SENHA**, digite a senha do usuário.
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

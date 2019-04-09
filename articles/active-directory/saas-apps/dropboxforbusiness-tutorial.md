@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e54ea079789ddfb2a6d85f808453589637522f1d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d55ae4077b3ec14cb8dc2226714b094574ed9522
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896170"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integração do Azure Active Directory ao Dropbox for Business
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Dropbox for Business ao Azure AD, é necessário adicionar o Dropbox for Business à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o Dropbox for Business por meio da galeria, realize as seguintes etapas:**
+**Para adicionar o Dropbox for Business da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o Dropbox for Business, execute a
 
     ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar logon único")
 
-     a. Selecione **necessária** como uma opção no menu suspenso para o **logon único**.
+     a. Selecione **Obrigatório** como uma opção no menu suspenso para o **Logon único**.
 
     b. Clique em **Adicionar URL de credenciais** e, na caixa de texto **URL de credenciais do provedor de identidade**, cole o valor da **URL de Logon** copiado no portal do Azure e, em seguida, selecione **Concluído**.
 
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure AD com o Dropbox for Business, execute a
 
     d. Clique em **Copiar link** e cole o valor copiado na caixa de texto **URL de login** da seção **Dropbox for Business Domain e URLs** no portal do Azure.
 
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -184,7 +184,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487542"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578111"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo do Azure
 
@@ -93,13 +93,15 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
 
     Esse segredo é acessado com a API de configuração. Um sinal de dois pontos (:) funciona no nome da configuração com a API de configuração em todas as plataformas com suporte. Consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Abra Program.cs e atualize o método `CreateWebHostBuilder` para usar a Configuração de Aplicativo, chamando o método `config.AddAzureAppConfiguration()`.
+4. Abra *Program.cs* e adicione uma referência a um provedor de configuração .NET Core da Configuração de Aplicativos.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. Atualize o método `CreateWebHostBuilder` para usar a Configuração de Aplicativos chamando o método `config.AddAzureAppConfiguration()`.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
             .UseStartup<Startup>();
     ```
 
-5. Abra Index.cshtml no diretório Exibições > Página Inicial e substitua o conteúdo pelo código a seguir:
+6. Abra Index.cshtml no diretório Exibições > Página Inicial e substitua o conteúdo pelo código a seguir:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
     </html>
     ```
 
-6. Abra _Layout.cshtml no diretório Exibições > Compartilhado e substitua o conteúdo pelo código a seguir:
+7. Abra _Layout.cshtml no diretório Exibições > Compartilhado e substitua o conteúdo pelo código a seguir:
 
     ```html
     <!DOCTYPE html>

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007503"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892170"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: automatizar builds de imagem de contêiner na atualização da imagem base em um Registro de Contêiner do Azure 
 
@@ -45,7 +45,7 @@ Este tutorial pressupõe que você já concluiu as etapas nos dois primeiros tut
 
 Se você ainda não fez isso, conclua os dois primeiros tutoriais antes de continuar:
 
-[Compilar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-quick-task.md)
+[Criar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-quick-task.md)
 
 [Automatizar builds de imagem de contêiner com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-build-task.md)
 
@@ -79,7 +79,7 @@ Este tutorial orienta você através de um cenário de atualização da imagem b
 
 Nas seções a seguir, você criará uma tarefa, atualizará o valor `NODE_VERSION` no Dockerfile da imagem base e usará as Tarefas do ACR para compilar a imagem base. Quando a tarefa do ACR efetua push na nova imagem base para o registro, ela automaticamente dispara um build da imagem do aplicativo. Opcionalmente, você pode executar a imagem de contêiner do aplicativo localmente para ver as cadeias de caracteres de versões diferentes nas imagens compiladas.
 
-Neste tutorial, a tarefa ACR cria e envia por push uma única imagem de contêiner especificada em um Dockerfile. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md) (no momento em versão prévia), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
+Neste tutorial, a tarefa ACR cria e envia por push uma única imagem de contêiner especificada em um Dockerfile. As Tarefas do ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md), usando um arquivo YAML para definir as etapas para criar, efetuar push e, opcionalmente, testar vários contêineres.
 
 ## <a name="build-the-base-image"></a>Compilar a imagem base
 

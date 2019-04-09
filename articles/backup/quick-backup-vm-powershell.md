@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906065"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O módulo de [AZ do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) é usado para criar e gerenciar recursos do Azure a partir da linha de comando ou em scripts. 
 
@@ -27,8 +25,9 @@ O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores
 
 Este início rápido habilita o backup em uma VM do Azure existente. Se você precisar criar uma máquina virtual, poderá [criar uma máquina virtual com o Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Este início rápido requer o módulo de AZ do Azure PowerShell versão 1.0.0 ou posterior. Execute ` Get-Module -ListAvailable Az` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+Este início rápido requer o módulo de AZ do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>Fazer logon e registrar
 
@@ -73,6 +72,14 @@ Agora crie um cofre.
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
+3. Altere a configuração de redundância de armazenamento (LRS/GRS) do cofre com [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), da seguinte maneira:
+    
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+    ```
+    > [!NOTE]
+    > A Redundância do Armazenamento só poderá ser modificada se não houver itens de backup protegidos no cofre.
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Habilitar o backup para uma VM do Azure
 

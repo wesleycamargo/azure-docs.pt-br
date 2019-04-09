@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e00c086e0b91c0f48821143ff118c62afdd76e82
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485162"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575495"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -57,14 +57,16 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
         dotnet restore
 
-3. Abra o *Program.cs* e atualize o método `Main` para usar a Configuração de Aplicativo chamando o método `builder.AddAzureAppConfiguration()`.
+3. Abra *Program.cs* e adicione uma referência a um provedor de configuração .NET Core da Configuração de Aplicativos.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+4. Atualize o método `Main` para usar a Configuração de Aplicativos chamando o método `builder.AddAzureAppConfiguration()`.
 
+    ```csharp
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();

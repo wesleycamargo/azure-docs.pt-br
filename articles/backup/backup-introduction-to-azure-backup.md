@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994425"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621644"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -37,7 +37,11 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Transferência de dados ilimitada** - o Backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere. O Backup do Azure também não cobra pelos dados que são transferidos. No entanto, se você usar o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada. Para obter mais informações sobre esse custo, confira o [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md). Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
 
-**Criptografia de dados** - permite a transmissão segura e o armazenamento dos seus dados na nuvem pública. A senha de criptografia é armazenada localmente e nunca é transmitida nem armazenada no Azure. Se for necessário restaurar os dados, somente você tem a senha de criptografia ou chave.
+**Criptografia de dados**:
+- Localmente, os dados em trânsito são criptografados no computador local usando AES256. Os dados transmitidos são protegidos por HTTPS entre o armazenamento e o backup. O protocolo iSCSI protege os dados transmitidos entre o backup e o computador do usuário. O túnel seguro é usado para proteger o canal iSCSI.
+- Para o backup de dados locais no Azure, os dados no Azure são criptografados em repouso usando a frase secreta que você fornece ao configurar o backup. A senha ou chave nunca é transmitida nem armazenada no Azure. Se for necessário restaurar os dados, somente você tem a senha de criptografia ou chave.
+- Para VMs do Azure, os dados são criptografados na reinicialização usando a Criptografia do Serviço de Armazenamento (SSE). O backup criptografa automaticamente os dados antes de armazená-los. O Armazenamento do Azure descriptografa os dados antes de recuperá-los.
+- O backup também dá suporte a VMs do Azure criptografadas usando ADE (Azure Disk Encryption). [Saiba mais](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Backup consistente com o aplicativo** - Um backup consistente com o aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
 
@@ -84,9 +88,9 @@ A tabela a seguir mostra os componentes do Backup do Azure compatíveis com Linu
 **Componente** | **Linux (endossado pelo Azure)**
 --- | ---
 Agente de Backup do Azure (MARS) | Não (somente agente baseado no Windows)
-System Center DPM | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
+System Center DPM | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
 Servidor de Backup do Azure | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
-Backup de VM IaaS do Azure | Backup consistente de aplicativos usando a [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação em nível de arquivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM com base em um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM com base em um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
+Backup de VM IaaS do Azure | Backup consistente de aplicativos usando a [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação em nível de arquivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM com base em um disco restaurado](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Criar uma VM com base em um ponto de recuperação](backup-azure-arm-restore-vms.md#create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando VMs do Armazenamento Premium com o Backup do Azure
 O Backup do Azure protege VMs do Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvido para dar suporte a cargas de trabalho de E/S intensiva. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o Armazenamento Premium e outros tipos de disco, confira o artigo [Selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).

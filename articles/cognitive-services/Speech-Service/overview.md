@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519622"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662217"
 ---
 # <a name="what-are-the-speech-services"></a>O que é o Serviço de Fala?
 
@@ -39,7 +39,7 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 
 Saiba o que há de novo no Serviço de Fala do Azure.
 
-* Março de 2019 – Está disponível um novo ponto de extremidade de conversão de texto em fala que retorna uma lista completa das vozes disponíveis em uma região específica. Para obter mais informações, veja [Referência da API de conversão de texto em fala (REST)](rest-text-to-speech.md).
+* Março de 2019 – Está disponível um novo ponto de extremidade de conversão de TTS (texto em fala) que retorna uma lista completa das vozes disponíveis em uma região específica. Além disso, agora há suporte para as novas regiões para TTS. Para obter mais informações, veja [Referência da API de conversão de texto em fala (REST)](rest-text-to-speech.md).
 * Fevereiro de 2019 – lançado SDK de Fala 1.3.0 com suporte para [Unity (beta)](quickstart-csharp-unity.md). Adicionado suporte para a classe `AudioInput`, que permite que você escolha a fonte do streaming de áudio. Para obter uma lista completa de aperfeiçoamentos e problemas conhecidos, confira as [Notas sobre a versão](releasenotes.md).
 * Dezembro de 2018 – lançado o SDK de Fala 1.2.0 com suporte para [Python](quickstart-python.md) e [Node.js](quickstart-js-node.md), assim como o Ubuntu 18.04 LTS. Para obter mais informações, confira as [Notas sobre a versão](releasenotes.md).
 
