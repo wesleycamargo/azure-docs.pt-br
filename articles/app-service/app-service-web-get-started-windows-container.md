@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895220"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906048"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contêiner personalizado do Windows no Azure (Versão prévia)
 
@@ -61,7 +61,7 @@ Se o arquivo _Dockerfile_ não for aberto automaticamente, abra-o no **Gerenciad
 Você precisa usar uma [imagem pai com suporte](#use-a-different-parent-image). Altere a imagem pai, substituindo a linha `FROM` pelo código a seguir e salve o arquivo:
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 No menu, selecione **Depurar > Iniciar sem depuração** para executar o aplicativo Web localmente.
@@ -178,16 +178,13 @@ Para informar ao Serviço de Aplicativo que ele deve obter a nova imagem do Dock
 
 Você pode usar uma imagem personalizada do Docker diferente para executar seu aplicativo. No entanto, você deverá escolher a melhor [imagem pai](https://docs.docker.com/develop/develop-images/baseimages/) para a estrutura desejada: 
 
-- Para implantar aplicativos do .NET Framework, use uma imagem pai com base na versão do [LTSC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) do Windows Server Core 2016. 
-- Para implantar aplicativos do .NET Core, use uma imagem pai com base na versão do [LTSC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) do Windows Server Nano 2016. 
+- Para implantar aplicativos do .NET Framework, use uma imagem pai com base na versão do [LTSC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) do Windows Server Core 2019. 
+- Para implantar aplicativos do .NET Core, use uma imagem pai com base na versão do [LTSC (Canal de Manutenção em Longo Prazo)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) do Windows Server Nano 1809. 
 
 Leva algum tempo para baixar uma imagem pai durante a inicialização do aplicativo. No entanto, você pode reduzir o tempo de inicialização usando uma das seguintes imagens pai já armazenadas em cache no Serviço de Aplicativo do Azure:
 
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
-- [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 – este é o contêiner base usado em todas as imagens do Nano Server do Microsoft Windows e do Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet).
 
 ## <a name="next-steps"></a>Próximas etapas
 

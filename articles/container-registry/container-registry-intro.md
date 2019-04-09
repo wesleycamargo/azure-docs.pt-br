@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530255"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894006"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -54,10 +54,10 @@ Configure Tarefas do ACR para recompilar automaticamente as imagens de aplicativ
 
 [Tarefas do Registro de Contêiner do Azure](container-registry-tasks-overview.md) (Tarefas do ACR) é um pacote de recursos dentro do Registro de Contêiner do Azure que fornece builds de contêiner do Docker aprimorados e eficientes no Azure. Use as Tarefas do ACR para estender o loop interno de desenvolvimento para a nuvem descarregando operações `docker build` no Azure. Configurar tarefas de build para automatizar seu pipeline de patch de sistema operacional e estrutura do contêiner e compilar imagens automaticamente quando sua equipe confirma o código para controle do código-fonte.
 
-[Tarefas de várias etapas](container-registry-tasks-overview.md#multi-step-tasks-preview), uma versão prévia do recurso Tarefas do ACR, fornece a definição de tarefas com base em etapa e execução para criar, testar e aplicar patches em imagens de contêiner na nuvem. As etapas da tarefa definem o build de imagem de contêiner individual e operações de push. Elas também podem definir a execução de um ou mais contêineres, com cada etapa usando o contêiner como seu ambiente de execução.
+As [tarefas de várias etapas](container-registry-tasks-overview.md#multi-step-tasks) fornecem uma definição de tarefas com base em etapa e execução para criar, testar e aplicar patches em imagens de contêiner na nuvem. As etapas da tarefa definem o build de imagem de contêiner individual e operações de push. Elas também podem definir a execução de um ou mais contêineres, com cada etapa usando o contêiner como seu ambiente de execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um registro de contêiner usando o portal do Azure](container-registry-get-started-portal.md)
 * [Criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md)
-* [Automatizar o sistema operacional e a aplicação de patches de estrutura com as Tarefas de ACR](container-registry-tasks-overview.md)
+* [Automatizar a aplicação de patches no sistema operacional e na estrutura com as Tarefas de ACR](container-registry-tasks-overview.md)

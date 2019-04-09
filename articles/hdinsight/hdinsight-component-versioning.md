@@ -2,20 +2,19 @@
 title: Componentes e versões do Apache Hadoop - Azure HDInsight
 description: Aprenda os componentes e as versões do Apache Hadoop no HDInsight e os níveis de serviço disponíveis nesta distribuição em nuvem da Hortonworks Data Platform.
 keywords: versões do hadoop, componentes do ecossistema do hadoop, componentes do hadoop, como verificar a versão do hadoop
-services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1783bf51c33a1dec84572b76149771a9723fe209
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 1c8977090fe0ea0dfd5822c7bb448d313de7cf14
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519639"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917916"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?
 
@@ -50,14 +49,14 @@ As versões do componente associadas às versões do cluster HDInsight são list
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
 | Apache Livy |0,5 |0,4 |0.3 |0.3 |0,2 |-|-|-|
-| Apache Kafka | 1,1 |1.1, 1.0 * (consulte a observação abaixo) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1,1 |1.1, 1.0 * (Veja a Observação abaixo) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache Slider |-| 0.92.0 |-|-|-|-|-|-|
 
 > [!NOTE]
-> Devido a considerações de desempenho do sistema, o suporte para o Kafka versão 0.10 expirou em março de 2019.
+> Devido às considerações de desempenho do sistema, o suporte ao Kafka versão 0.10 expirou em março de 2019.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verificar informações atuais de versão do componente do Hadoop
 
@@ -75,7 +74,7 @@ As tabelas a seguir listam as versões do HDInsight. As versões HDP que corresp
 
 ### <a name="available-versions"></a>Versões disponíveis
 
-A tabela a seguir lista as versões do HDInsight que estão disponíveis no portal do Azure, bem como outros métodos de implantação como o PowerShell e o SDK do .NET.
+A tabela a seguir lista as versões do HDInsight estão disponíveis no portal do Azure, bem como outros métodos de implantação como o PowerShell e o SDK do .NET.
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -86,12 +85,12 @@ A tabela a seguir lista as versões do HDInsight que estão disponíveis no port
 *&ast; O suporte ao HDInsight 3.5 foi estendido apenas para tipos de cluster do Spark*
 
 > [!NOTE]  
-> Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o `Version` parâmetro no Windows PowerShell [AzHDInsightCluster New](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) comando e o SDK .NET até a data de desativação de versão.
+> Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) e o SDK .NET até a data de baixa da versão.
 >
 
 ### <a name="retired-versions"></a>Versões desativadas
 
-A tabela a seguir lista as versões do HDInsight que são **não** disponíveis no portal do Azure.
+A tabela a seguir lista as versões do HDInsight que **não** estão disponíveis no portal do Azure.
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -119,7 +118,7 @@ O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster H
     Para obter mais informações, consulte:
 
     - [Uma introdução à segurança do Apache Hadoop com clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md)
-    - [Planeje clusters do Apache Hadoop associados ao domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Planejar clusters do Apache Hadoop ingressados no domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Configurar ambiente de área restrita ingressado no domínio](./domain-joined/apache-domain-joined-configure.md)
     - [Configurar clusters HDInsight ingressados no domínio usando o Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
@@ -130,7 +129,7 @@ O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster H
 
     Para obter mais informações, consulte:
 
-  - [Configurar políticas do Apache Hive no HDInsight associado ao domínio](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configurar políticas do Apache Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Exiba os logs de auditoria para monitorar acessos e as políticas configuradas. 
 
@@ -280,8 +279,8 @@ As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clust
 > - A função de trabalho é conhecida como *Região* para o tipo de cluster HBase.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configuração de cluster para o Apache Hadoop, Spark e muito mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Trabalhe no Apache Hadoop no HDInsight a partir de um PC Windows](hdinsight-hadoop-windows-tools.md)
+- [Configuração do cluster para Apache Hadoop, Spark e mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Trabalhar no Apache Hadoop no HDInsight em um computador Windows](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

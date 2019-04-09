@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32511b638d4674198ce919b8b3a90e67b1c3cfc7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202564"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793247"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurar um grupo do Office 365 excluído na visualização do Azure Active Directory
 
-Quando você exclui um grupo do Office 365 no Azure AD (Azure Active Directory), o grupo excluído é mantido, mas não fica visível por 30 dias a partir da data de exclusão. Esse comportamento é para que o grupo e seu conteúdo possam ser restaurados, se necessário. Essa funcionalidade é restrita exclusivamente a grupos do Office 365 no Azure AD. Ele não fica disponível para grupos de segurança e de distribuição.
+Quando você exclui um grupo do Office 365 no Azure AD (Azure Active Directory), o grupo excluído é mantido, mas não fica visível por 30 dias a partir da data de exclusão. Esse comportamento é para que o grupo e seu conteúdo possam ser restaurados, se necessário. Essa funcionalidade é restrita exclusivamente a grupos do Office 365 no Azure AD. Ele não fica disponível para grupos de segurança e de distribuição. Observe que o período de restauração de grupo de 30 dias não é personalizável.
 
 > [!NOTE]
 > Não use `Remove-MsolGroup`, pois ele limpa o grupo permanentemente. Sempre use `Remove-AzureADMSGroup` para excluir um grupo do Office 365.
@@ -49,11 +49,13 @@ Usuário | Pode restaurar qualquer grupo do Office 365 excluído que era proprie
    - Remover permanentemente o grupo excluído, selecionando **Excluir permanentemente**. Para remover permanentemente um grupo, você deve ser um administrador.
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Exibir os grupos do Office 365 excluídos que estão disponíveis para restauração usando o PowerShell
+
 Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verificar que aqueles em que você está interessado ainda não foram permanentemente removidos. Esses cmdlets são parte do módulo do [PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Mais informações sobre esse módulo podem ser encontradas no artigo [Azure Active Directory PowerShell Versão 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.  Execute o cmdlet a seguir para exibir todos os grupos do Office 365 excluídos em seu locatário que ainda estão disponíveis para restauração.
    
-    ```
+
+    ```powershell
     Get-AzureADMSDeletedGroup
     ```
 
@@ -64,16 +66,19 @@ Os cmdlets a seguir podem ser usados para exibir os grupos excluídos para verif
     ```
 
 ## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>Como restaurar seu grupo do Office 365 excluído usa o Powershell
+
 Após ter verificado que o grupo ainda está disponível para restauração, restaure o grupo excluído com uma das etapas a seguir. Se o grupo contém documentos, sites de SP ou outros objetos persistentes, pode levar até 24 horas para restaurar completamente um grupo e seu conteúdo.
 
 1. Execute o cmdlet a seguir para restaurar o grupo e seu conteúdo.
  
+
    ```
     Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
     ``` 
 
 2. Como alternativa, o cmdlet a seguir pode ser executado para remover permanentemente o grupo excluído.
     
+
     ```
     Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
     ```
@@ -88,6 +93,7 @@ Para verificar se você restaurou com êxito um grupo do Office 365, execute o c
 - O grupo pode ser acessado de qualquer um dos pontos de extremidade do Exchange e outras cargas de trabalho do Office 365 que dão suporte a grupos do Office 365
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Esses artigos fornecem mais informações sobre grupos do Azure Active Directory.
 
 * [Consultar grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f024ee55a707534fbd42b647845179baed01ce
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 84564f4a230b402a56a29920cac90a0403cc5c7a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201034"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793401"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -40,7 +40,7 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Vá para o [portal do Azure – Registro de Aplicativo (Versão Prévia)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Vá para o [portal do Azure – Registro de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482327"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758593"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Windows no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis.
 
-Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este guia de início rápido mostra como implantar uma imagem de contêiner do Docker predefinida em um aplicativo do Service Fabric. Quando você terminar, terá um contêiner do Windows Server 2016 Nano Server e o IIS em execução. Este guia de início rápido descreve a implantação de um contêiner do Windows; leia [este guia de início rápido](service-fabric-quickstart-containers-linux.md) para implantar um contêiner do Linux.
+Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este guia de início rápido mostra como implantar uma imagem de contêiner do Docker predefinida em um aplicativo do Service Fabric. Quando você terminar, terá um contêiner do IIS e um Servidor do Windows Server Core 2016 em execução. Este guia de início rápido descreve a implantação de um contêiner do Windows; leia [este guia de início rápido](service-fabric-quickstart-containers-linux.md) para implantar um contêiner do Linux.
 
 ![Página de Web do IIS padrão][iis-default]
 
@@ -54,7 +54,7 @@ Selecione **Aplicativo do Service Fabric**, nomeie-o como "MyFirstContainer" e c
 
 Selecione **Contêiner** nos modelos **Aplicativos e Contêineres Hospedados**.
 
-Em **Nome da Imagem**, insira "microsoft/iis:nanoserver", a [imagem de base do Windows Server Nano Server e IIS](https://hub.docker.com/r/microsoft/iis/).
+Em **Nome da Imagem**, insira "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", o [Servidor do Windows Server Core e a imagem base do IIS](https://hub.docker.com/r/microsoft-windows-servercore-iis).
 
 Configure o mapeamento de portas porta a host do contêiner para que as solicitações de entrada para o serviço na porta 80 sejam mapeadas para a porta 80 no contêiner.  Defina a **Porta do Contêiner** como "80" e defina a **Porta do Host** como "80".  
 
@@ -74,14 +74,14 @@ A Microsoft publica imagens diferentes para versões do IIS criadas em diferente
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-O manifesto do serviço continua a especificar apenas uma imagem para o Nano Server, `microsoft/iis:nanoserver`.
+O manifesto do serviço continua a especificar apenas uma imagem para o Nano Server, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
 
 Além disso, no arquivo *ApplicationManifest.xml*, altere **PasswordEncrypted** para **false**. A conta e a senha estão em branco para a imagem de contêiner pública que está no Hub do Docker; portanto, desligamos a criptografia, porque criptografar uma senha em branco gerará um erro de build.
 

@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112080"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802251"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -72,7 +72,7 @@ Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-
 A maneira mais simples de encontrar propriedades é examinar um recurso existente do mesmo tipo. Os recursos já definidos com a configuração que você deseja impor também fornecem o valor para comparação.
 Examine a página **Script de automação** (em **Configurações**) no portal do Azure desse recurso específico.
 
-![Página Script de automação](../media/create-custom-policy-definition/automation-script.png)
+![Exportar a página de modelo no recurso existente](../media/create-custom-policy-definition/automation-script.png)
 
 Fazer isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 

@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3964d75aa87fe76432af6b28e74a48fd1f2b49ef
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543825"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801752"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemplo – Iniciativa de política de marcas de cobrança
 
@@ -29,7 +29,7 @@ Essa política exige valores de marca especificados para o nome do produto e o c
 
 ## <a name="deploy-with-the-portal"></a>Implantar com o portal
 
-[![Implantar no Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 

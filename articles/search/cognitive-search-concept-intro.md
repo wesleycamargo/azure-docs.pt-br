@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133052"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882475"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é a “pesquisa cognitiva” no Azure Search?
 
@@ -38,7 +38,7 @@ Processamento de imagens e de idioma natural é aplicada durante a fase de inges
 
 ## <a name="components-of-cognitive-search"></a>Componentes da pesquisa cognitiva
 
-A pesquisa cognitiva é uma versão prévia do recurso no [Azure Search](search-what-is-azure-search.md), com suporte [nestas regiões](#where-do-i-start). 
+A pesquisa cognitiva é uma versão prévia do recurso do [Azure Search](search-what-is-azure-search.md).
 
 O pipeline de pesquisa cognitiva baseia-se em [*indexadores* do Azure Search](search-indexer-overview.md) que rastreiam as fontes de dados e oferecem processamento de índice de ponta a ponta. Agora, as habilidades são anexadas aos indexadores, interceptando e enriquecendo documentos de acordo com o conjunto de habilidades que você define. Após a indexação, você pode acessar o conteúdo por meio de solicitações de pesquisa em todos os [tipos de consulta compatíveis com o Azure Search](search-query-overview.md).  Se você estiver começando a usar indexadores, esta seção o orientará pelas etapas.
 
@@ -76,7 +76,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 | Conceito | DESCRIÇÃO| Links |
 |---------|------------|-------|
-| Conjunto de habilidades | Um recurso nomeado de nível superior que contém uma coleção de habilidades. Um conjunto de habilidades é o pipeline de enriquecimento. Ele é invocado durante a indexação por um indexador. | [Definir um conjunto de habilidades](cognitive-search-defining-skillset.md) |
+| Conjunto de habilidades | Um recurso nomeado de nível superior que contém uma coleção de habilidades. Um conjunto de habilidades é o pipeline de enriquecimento. Ele é invocado durante a indexação por um indexador. | [Definir um conjunto de qualificações](cognitive-search-defining-skillset.md) |
 | Habilidades cognitivas | Uma transformação atômica em um pipeline de enriquecimento. Geralmente, é um componente que extrai ou infere a estrutura e, portanto, aumenta o seu entendimento sobre os dados de entrada. Quase sempre, a saída é baseada em texto e o processamento é de idioma natural ou de imagem que extrai ou gera o texto usando entradas de imagem. A saída de uma habilidade pode ser mapeada para um campo em um índice ou usada como entrada para um enriquecimento de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizada, ou seja, criada e implantada por você. | [Habilidades predefinidas](cognitive-search-predefined-skills.md) |
 | Extração de dados | Abrange uma ampla gama de processamento, mas em relação à pesquisa cognitiva, a habilidade de reconhecimento de entidade nomeada geralmente é usada para extrair dados (uma entidade) de uma fonte que não fornece informações de modo nativo. | [Habilidade de reconhecimento de entidade nomeada](cognitive-search-skill-named-entity-recognition.md)| 
 | Processamento de imagem | Infere o texto de uma imagem, como a capacidade de reconhecer um marco, ou extrai o texto de uma imagem. Exemplos comuns incluem o OCR para levantar caracteres de um arquivo de documento (JPEG) ou reconhecer o nome da rua em uma fotografia que contém uma placa de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [Habilidade de OCR](cognitive-search-skill-ocr.md)
@@ -94,20 +94,20 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 **Etapa 1: [Criar um recurso do Azure Search](search-create-service-portal.md)** 
 
-**Etapa 2: Tente alguns guias de início rápido e exemplos para experiência prática**
+**Etapa 2: Tente alguns inícios rápidos e exemplos para experiência prática**
 
 + [Início Rápido (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
 + [Habilidades personalizadas de exemplo (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Etapa 3: Rever a API (somente REST)**
+**Etapa 3: Analisar a API (somente REST)**
 
 Atualmente, apenas as APIs REST são fornecidas. Use o `api-version=2017-11-11-Preview` em todas as solicitações. Use as seguintes APIs para criar uma solução de pesquisa cognitiva. Apenas duas APIs são adicionadas ou estendidas para a pesquisa cognitiva. As outras APIs têm a mesma sintaxe que as versões disponíveis ao público.
 
 | API REST | DESCRIÇÃO |
 |-----|-------------|
-| [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
-| [Criar Conjunto de Habilidades (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades predefinidas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
+| [Criar fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
+| [Criar conjunto de qualificações (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades predefinidas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
 | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice do Azure Search. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
 | [Criar Indexador (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um corpus de pesquisa com base no esquema de índice, populado com os dados de origem, enriquecidos por conjuntos de habilidades.  |
 
@@ -136,5 +136,5 @@ Para obter mais informações sobre problemas ou dúvidas específicas, confira 
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Documentação da pesquisa cognitiva](cognitive-search-resources-documentation.md)
-+ [Guia de Início Rápido: Experimente a pesquisa cognitiva em um passo a passo no portal](cognitive-search-quickstart-blob.md)
++ [Início Rápido: Experimente a pesquisa cognitiva em um passo a passo no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Conheça as APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)

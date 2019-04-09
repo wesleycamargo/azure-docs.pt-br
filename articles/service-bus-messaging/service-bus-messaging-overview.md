@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900855"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918834"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
@@ -39,7 +39,7 @@ As mensagens são enviadas e recebidas a partir de *filas*. As filas permitem qu
 
 ![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As mensagens em filas são ordenadas e recebem carimbo de data/hora na chegada. Quando aceita, a mensagem é mantida protegida em armazenamento com redundância. As mensagens são entregues em modo  *pull*, que entrega mensagens mediante solicitação.
+As mensagens em filas são ordenadas e recebem carimbo de data/hora na chegada. Quando aceita, a mensagem é mantida protegida em armazenamento com redundância. As mensagens são entregues em modo *pull*, que entrega mensagens mediante solicitação.
 
 ## <a name="topics"></a>Tópicos
 
@@ -127,5 +127,5 @@ Para começar a usar o sistema de mensagens do Barramento de Serviço, consulte 
 
 * [Comparar os serviços de mensagens do Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Saiba mais sobre as camadas [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) do Barramento de Serviço do Azure e o respectivo preço
-* [Desempenho e latência da camada Premium do Barramento de Serviço do Azure](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* [Desempenho e latência da camada Premium do Barramento de Serviço do Azure](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Experimente os inícios rápidos em [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md)

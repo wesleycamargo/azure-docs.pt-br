@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877846"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892323"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -42,7 +42,7 @@ Os discos são criptografados usando a Criptografia de Unidade de Disco BitLocke
 a. Se você tiver 40 TB de dados (ou menos) que deseja transferir para o Azure, os Discos do Data Box serão uma boa opção.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P. Qual é o preço dos Discos do Data Box?
-a. Para saber mais sobre o preço do Data Box Disk, acesse a [página Preços](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+a. Para saber mais sobre o preço do Data Box Disk, acesse a [página Preços](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como fazer para obter Discos do Data Box? 
 a.  Para obter Azure Data Box Disks, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.
@@ -170,6 +170,6 @@ a. Sim. Seus dados foram transferidos por upload para o Azure. Caso não veja ne
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Reveja os [requisitos de sistema do Data Box](data-box-disk-system-requirements.md).
-- Entenda os [limites do Data Box](data-box-disk-limits.md).
+- Examine os [Requisitos de sistema do Data Box Disk](data-box-disk-system-requirements.md).
+- Entenda os [limites do Data Box Disk](data-box-disk-limits.md).
 - Implante rapidamente o [Azure Data Box Disk](data-box-disk-quickstart-portal.md) no portal do Azure.

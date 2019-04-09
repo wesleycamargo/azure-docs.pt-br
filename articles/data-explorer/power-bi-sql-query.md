@@ -3,19 +3,19 @@ title: 'Início Rápido: Visualizar dados usando uma consulta SQL no Power BI'
 description: 'Neste início rápido, você aprenderá a usar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Azure Data Explorer.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977277"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756349"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início Rápido: Visualizar dados usando o conector do Azure Data Explorer para o Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início Rápido: Visualize dados usando o conector do Azure Data Explorer para Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Power BI é uma solução de análise de negócios que permite que você visualize os dados e compartilhar os resultados na sua organização.
 
@@ -69,7 +69,7 @@ Geralmente, você usa a linguagem de consulta nativa com o Azure Data Explorer, 
 
     ![Entrar](media/power-bi-sql-query/sign-in.png)
 
-1. Na tela **help.kusto.windows.net: Exemplos**, selecione **Carregar**.
+1. Na tela **help.kusto.windows.net: exemplos**, selecione **Carregar**.
 
     ![Carregar dados](media/power-bi-sql-query/load-data.png)
 
@@ -86,4 +86,4 @@ Caso não precise mais do relatório que você criou para este início rápido, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Visualizar dados usando uma consulta importada no Power BI](power-bi-connector.md)
+> [Início Rápido: Visualize dados usando uma consulta importada no Power BI](power-bi-connector.md)

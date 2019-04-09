@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311116"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267139"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -54,14 +54,15 @@ A atividade de cópia passa pelos seguintes estágios para copiar dados de uma o
 
 Você pode usar a atividade de cópia para **copiar arquivos como estão** entre dois armazenamentos de dados baseados em arquivo, caso em que os dados são copiados de forma eficiente sem nenhuma serialização/desserialização.
 
-A Atividade de cópia também dá suporte à leitura e à gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet** e os codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate** têm suporte. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
+A Atividade de cópia também dá suporte à leitura e à gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet**e a compactação e decompresing arquivos com os seguintes codecs: **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
-* Copiar dados no SQL Server local e gravar ao no Azure Data Lake Store no formato ORC.
+* Copie os dados no SQL Server no local e gravar para o armazenamento do Azure Data Lake Gen2 no formato Parquet.
 * Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
-* Copiar os arquivos compactados do Sistema de Arquivos local e, em seguida, descompactá-los no Azure Data Lake Store.
+* Copie os arquivos compactados do sistema de arquivos local e, em seguida, descompacte o terra para o armazenamento do Azure Data Lake Gen2.
 * Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
+* E precisam de muitos casos mais com a serialização/desserialização ou compactação/descompactação.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -71,9 +72,9 @@ O serviço que possibilita a Atividade de Cópia está disponível globalmente n
 
 Para usar a atividade de cópia no Azure Data Factory, você precisa:
 
-1. **Criar serviços vinculados para armazenamentos de dados de origem e de coletor.** Consulte a seção “Propriedades de serviço vinculadas” do artigo do conector sobre como configurar e as propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [Formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats).
-2. **Criar conjuntos de dados de origem e do coletor.** Consulte a seção “Propriedades do conjunto de dados” dos artigos do conector de origem e de coletor sobre como configurar e as propriedades com suporte.
-3. **Criar um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.  
+1. **Crie serviços vinculados para armazenamento de dados de origem e de coletor.** Consulte a seção “Propriedades de serviço vinculadas” do artigo do conector sobre como configurar e as propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [Formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats).
+2. **Crie conjuntos de dados de origem e coletor.** Consulte a seção “Propriedades do conjunto de dados” dos artigos do conector de origem e de coletor sobre como configurar e as propriedades com suporte.
+3. **Crie um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.  
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -160,11 +161,11 @@ Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução d
 >[!TIP]
 >Para alguns cenários, você também verá "**Dicas de ajuste de desempenho**" no alto da página de monitoramento de cópia, que informa o gargalo identificado e o orienta sobre o que mudar para aumentar a taxa de transferência de cópia; confira o exemplo com detalhes [aqui](#performance-and-tuning).
 
-**Exemplo: cópia da Amazon S3 para o Azure Data Lake Store**
-![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+**Exemplo: copiar do Amazon S3 para o Azure Data Lake Store**
+![detalhes de monitorar a atividade de execução](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Exemplo: copiar do Banco de Dados SQL do Microsoft Azure para o SQL Data Warehouse do Microsoft Azure usando cópia preparada**
-![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+**Exemplo: cópia de banco de dados SQL para o SQL Data Warehouse do Azure usando cópia em etapas**
+![detalhes de monitorar a atividade de execução](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>Monitorar programaticamente
 
@@ -238,7 +239,7 @@ Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](copy-activ
 
 Em alguns casos, quando você executa uma atividade de cópia no ADF, verá diretamente "**Dicas de ajuste de desempenho**" na parte superior da [página de monitoramento de atividade de cópia](#monitor-visually) conforme mostra o exemplo a seguir. Ele não apenas informa o gargalo identificado para a execução de cópia determinada, como também o orienta sobre o que mudar para impulsionar a taxa de transferência de cópia. As dicas de ajuste de desempenho atualmente dão sugestões como usar o PolyBase ao copiar dados para o SQL Data Warehouse do Azure, aumentar a RU do Azure Cosmos DB ou a DTU de BD SQL do Azure, quando o recurso no lado de armazenamento de dados é o gargalo, remover a cópia em etapas desnecessária, etc. As regras de ajuste de desempenho serão aprimoradas gradualmente também.
 
-**Exemplo: cópia para o BD SQL do Azure com dicas de ajuste de desempenho**
+**Exemplo: a cópia no Azure SQL DB com dicas de ajuste de desempenho**
 
 Neste exemplo, durante a execução da cópia, o ADF nota que o coletor do BD SQL do Azure atinge alta utilização de DTU, o que diminui as operações de gravação, assim, a sugestão é aumentar a camada do BD SQL do Azure com mais de DTU. 
 
@@ -253,6 +254,6 @@ Na versão 1, com suporte do Azure Data Factory ler ou gravar dados particionado
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes guias de início rápido, tutoriais e exemplos:
 
-- [Copiar dados de um local para outro no mesmo Armazenamento de Blobs do Azure](quickstart-create-data-factory-dot-net.md)
-- [Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](tutorial-copy-data-dot-net.md)
-- [Copiar dados do SQL Server local para o Azure](tutorial-hybrid-copy-powershell.md)
+- [Copiar dados de um local para outro local no mesmo armazenamento de BLOBs do Azure](quickstart-create-data-factory-dot-net.md)
+- [Copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL](tutorial-copy-data-dot-net.md)
+- [Copiar dados do SQL Server no local para o Azure](tutorial-hybrid-copy-powershell.md)

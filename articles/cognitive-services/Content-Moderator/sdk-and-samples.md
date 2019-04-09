@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 929655f257dced1e12645d4d751b1475e2497b49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd71a48372bcdb459bb3b7509e9a9c5dba529555
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868354"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756600"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>SDKs do Content Moderator e exemplos
 
@@ -40,7 +40,7 @@ A lista a seguir inclui links para exemplos de código criados usando o SDK do C
 > Há um limite máximo de **cinco listas de imagens**, e cada lista **não deve exceder 10 mil imagens**.
 >
 
-- **Moderação de texto**: [Classifique um texto em relação a profanação e PII (informações de identificação pessoal)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consulte o [início rápido](text-moderation-quickstart-dotnet.md).
+- **Moderação de texto**: [Tela de texto para conteúdo ofensivo e dados pessoais](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consulte o [início rápido](text-moderation-quickstart-dotnet.md).
 - **Termos personalizados**: [Modere com listas de termos personalizadas](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Consulte o [início rápido](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]

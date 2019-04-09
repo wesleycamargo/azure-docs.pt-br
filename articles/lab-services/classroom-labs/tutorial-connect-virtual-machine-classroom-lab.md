@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775570"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650641"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acessar um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, você, como aluno, conecta-se a uma máquina virtual (VM) em um laboratório de sala de aula. 
@@ -45,8 +45,8 @@ Neste tutorial, você executa as seguintes ações:
 
     ![Conectar-se a uma VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Siga uma das etapas a seguir: 
-    1. Para VM **Windows**, salve o arquivo **RDP** no disco rígido e abra-o. Abra o arquivo RDP para se conectar à máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
-    3. Para máquinas virtuais **Linux**, copie e salve a cadeia de caracteres de conexão SSH na caixa de diálogo **Conectar-se a sua máquina virtual**. Use essa cadeia de caracteres de conexão em um terminal SSH (como [Putty](https://www.putty.org/)) para se conectar à máquina virtual. 
+    1. Para máquinas virtuais do **Windows**, salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para conectar a máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para entrar no computador. 
+    3. Para máquinas virtuais do **Linux**, você pode usar **SSH** ou **RDP** (se habilitado) para se conectar a elas. Para obter mais informações, veja [Habilitar conexão de área de trabalho remota para computadores Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você acessou um laboratório de sala de aula usando o link de registro obtido do seu professor/educador.

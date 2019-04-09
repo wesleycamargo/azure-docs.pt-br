@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285506"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881997"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -130,7 +130,7 @@ namespace todo.Tests
 }
 ```
 
-Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na opção **Arquivo de configurações**, especifique que os testes são configurados usando o arquivo **.RunSettings**. Na opção **Substituir parâmetros de execução de teste**, adicione ` -endpoint $(CosmosDbEmulator.Endpoint)`. Fazer isso configurará a tarefa de Teste para referir-se ao ponto de extremidade da tarefa de build do emulador, em vez daquele definido no arquivo **.RunSettings**.  
+Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na opção **Arquivo de configurações**, especifique que os testes são configurados usando o arquivo **.RunSettings**. Na opção **Substituir parâmetros de execução de teste**, adicione `-endpoint $(CosmosDbEmulator.Endpoint)`. Fazer isso configurará a tarefa de Teste para referir-se ao ponto de extremidade da tarefa de build do emulador, em vez daquele definido no arquivo **.RunSettings**.  
 
 ![Substituir a variável de ponto de extremidade com o ponto de extremidade de tarefa de build do Emulador](./media/tutorial-setup-ci-cd/addExtension_5.png)
 

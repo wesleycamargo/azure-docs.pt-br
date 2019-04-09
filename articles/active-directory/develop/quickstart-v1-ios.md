@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206762"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879957"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS
 
@@ -112,13 +112,13 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e e
 
 1. No projeto do Guia de início rápido, abra o arquivo plist `settings.plist`.
 1. Substitua os valores dos elementos na seção para usar os mesmos valores que você inseriu no portal do Azure. Seu código faz referência a esses valores sempre que ele usar a ADAL.
-    * O `tenant` é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
-    * O `clientId` é a ID do cliente do seu aplicativo que você copiou do portal.
-    * O `redirectUri` é a URL de redirecionamento que você registrou no portal.
+    * `tenant` é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
+    * `clientId` é a ID do cliente do seu aplicativo que você copiou do portal.
+    * `redirectUri` é a URL de redirecionamento que você registrou no portal.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 4: Usar a ADAL para obter tokens do Azure AD
 
-O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, ele simplesmente chama um completionBlock `+(void) getToken : `, e a ADAL faz o resto.
+O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, ele simplesmente chama um completionBlock `+(void) getToken :`, e a ADAL faz o resto.
 
 1. No projeto `QuickStart`, abra `GraphAPICaller.m` e localize o comentário `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` perto da parte de cima.
 
@@ -259,5 +259,5 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 Agora você pode passar para cenários de adicionais. É recomendável tentar o seguinte:
 
-* [Proteger uma API Web Node.js com o Azure AD](quickstart-v1-nodejs-webapi.md)
+* [Proteger uma API Web Node.JS com o Azure AD](quickstart-v1-nodejs-webapi.md)
 * Saiba [como habilitar o SSO entre aplicativos no iOS usando a ADAL](howto-v1-enable-sso-ios.md)  

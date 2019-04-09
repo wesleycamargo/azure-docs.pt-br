@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057482"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270779"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para o provisionamento automático do usuário
 

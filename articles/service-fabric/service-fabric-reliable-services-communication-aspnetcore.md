@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667473"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268510"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys em um serviço com estado
 
-O `HttpSysCommunicationListener` no momento não é projetado para uso em serviços com estado, devido a complicações com o recurso de compartilhamento de porta subjacente, *http.sys*. Para obter mais informações, consulte a seção a seguir sobre a alocação de porta dinâmica com o HttpSys. Para serviços com estado, o Kestrel é o servidor Web recomendado.
+`HttpSysCommunicationListener` Atualmente, não foi projetado para uso em serviços com estado devido a complicações com subjacente *HTTP. sys* recurso de compartilhamento de porta. Para obter mais informações, consulte a seção a seguir sobre a alocação de porta dinâmica com o HttpSys. Para serviços com estado, o Kestrel é o servidor Web recomendado.
 
 ### <a name="endpoint-configuration"></a>Configuração de ponto de extremidade
 
@@ -369,7 +369,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### <a name="default-key-mapping"></a>Mapeamento de chave padrão
-Por padrão, o provedor de sua configuração do Service Fabric inclui nome do pacote, o nome da seção e o nome da propriedade para formar a configuração do asp.net core usando a seguinte função da chave:
+Por padrão, o provedor de configuração do Service Fabric inclui o nome do pacote, o nome da seção e o nome da propriedade para formar a configuração do asp.net core usando a seguinte função da chave:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```

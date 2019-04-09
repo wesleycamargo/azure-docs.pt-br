@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184165"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792494"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
 
 Este início rápido mostra como implantar o acelerador de solução de monitoramento remoto do Azure IoT. Depois que você implantar a solução baseada em nuvem, poderá usar a página **Painel** da solução para visualizar os dispositivos simulados em um mapa e a página **Manutenção** para responder a um alerta de pressão de um dispositivo resfriador simulado. Você pode usar esse acelerador de solução como o ponto de partida para sua própria implementação ou como uma ferramenta de aprendizado.
 
 A implantação inicial configura o acelerador de solução para uma empresa chamada Contoso. Como operador da Contoso, você gerencia um conjunto de vários tipos de dispositivos, como resfriadores, implantados em ambientes físicos diferentes. Um dispositivo resfriador envia telemetria de temperatura, umidade e pressão para o acelerador de solução de Monitoramento Remoto.
+
+Este início rápido implanta uma versão **Básica** do acelerador de solução para fins de teste e demonstração que minimiza os custos. Para obter mais informações sobre as diferentes versões que você pode implantar, veja [Implantações básicas e padrão](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Para concluir este início rápido, você precisará de uma assinatura do Azure ativa.
 
@@ -36,9 +38,7 @@ Clique no bloco **Monitoramento Remoto**. Na página **Monitoramento Remoto**, c
 
 ![Escolha Monitoramento Remoto](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Na página **Criar solução de Monitoramento Remoto**, selecione uma implantação **Básica**. Se você estiver implantando o acelerador de solução para saber como ele funciona ou para executar uma demonstração, escolha a opção **Básico** para minimizar os custos.
-
-Escolha **.NET** como linguagem. As implementações de Java e .NET têm os mesmos recursos.
+Escolha **Microsserviços em C#** como **Opções de implantação**. As implementações de Java e C# têm os mesmos recursos.
 
 Insira um **Nome de solução** exclusivo para o acelerador de solução de Monitoramento Remoto. Para este início rápido, estamos chamando nosso **contoso-rm**.
 
@@ -111,7 +111,7 @@ Para agir no resfriador, role para baixo até **Informações relacionadas**, se
 
 No painel **Trabalhos**, escolha **Executar método** e então o método **EmergencyValveRelease**. Adicione o nome do trabalho **ChillerPressureRelease** e clique em **Aplicar**. Essas configurações criam um trabalho para você que é executado imediatamente.
 
-Para exibir o status do trabalho, retorne à página **Manutenção** e exiba a lista de trabalhos no modo de exibição **Trabalhos**. Talvez seja necessário aguardar alguns segundos para poder ver se o trabalho foi executado para liberar a pressão da válvula no resfriador:
+Para exibir o status do trabalho, retorne à página **Manutenção** e exiba a lista de trabalhos no modo de exibição **Trabalhos**. Talvez seja necessário aguardar alguns segundos para conseguir ver que o trabalho foi executado:
 
 [![O status dos trabalhos no modo de exibição Trabalhos](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

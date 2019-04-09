@@ -3,19 +3,15 @@ title: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos
 description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado baseado em caminhos de URL, usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 91cc28ec3df6a1d9ef4fc773687a0ec2870b623d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001371"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918375"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
 
@@ -41,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 1.0.0 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -134,7 +130,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para um pool de back-end. Neste tutorial, você criará vários ouvintes. O primeiro ouvinte básico espera tráfego na URL da raiz. Os outros ouvintes esperam tráfego em URLs específicas, como `http://52.168.55.24:8080/images/` ou `http://52.168.55.24:8081/video/`.
 
-Crie um ouvinte chamado *defaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração front-end e a porta front-end criadas anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end deve ser usado para tráfego de entrada. Crie uma regra básica chamada *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Crie um ouvinte chamado *defaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração front-end e a porta front-end criadas anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end deve ser usado para tráfego de entrada. Crie uma regra básica nomeada *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo o endereço IP para &lt;ip-address&gt;, e você deverá ver algo semelhante ao exemplo a seguir:
+Altere a URL para http://&lt;ip-address&gt;:8080/images/test.htm, substituindo o endereço IP por &lt;ip-address&gt;, e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar a URL de imagens no gateway de aplicativo](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 
@@ -514,7 +510,7 @@ Agora, altera a URL para http://&lt;ip-address&gt;:8081/images/test.htm, substit
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando não forem mais necessários, remova o grupo de recursos, o gateway do aplicativo e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

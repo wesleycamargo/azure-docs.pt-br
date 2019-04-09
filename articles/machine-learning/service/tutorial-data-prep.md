@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: sihhu
 ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361380"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665008"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -84,7 +84,7 @@ Toda a configuração para o seu trabalho de desenvolvimento pode ser realizada 
 Use o comando a seguir para instalar os pacotes necessários se você ainda não os tiver.
 
 ```shell
-pip install azureml-dataprep
+pip install azureml-dataprep==1.0.17
 ```
 
 Importe o SDK.
@@ -92,6 +92,9 @@ Importe o SDK.
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> Instale a versão 1.0.17. Este tutorial não funcionará com a versão mais recente 1.1.0
 
 ## <a name="load-data"></a>Carregar dados
 
@@ -1082,8 +1085,8 @@ Agora você tem um objeto de fluxo de dados totalmente transformado e preparado 
 
 ```python
 import os
-file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
 package = dprep.Package([final_df])
 package.save(file_path)
 ```

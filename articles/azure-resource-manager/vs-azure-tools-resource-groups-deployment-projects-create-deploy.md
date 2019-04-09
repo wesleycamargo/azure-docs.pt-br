@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097450"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905844"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
 Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você pode implantar um aplicativo Web e o Banco de Dados SQL.  
 
 Este artigo mostra como usar o [Visual Studio 2017 com as cargas de trabalho de Desenvolvimento do Azure e ASP.NET](/dotnet/azure/dotnet-tools). Se você usar o Visual Studio 2015 Atualização 2 e o SDK do Microsoft Azure para .NET 2.9, ou o Visual Studio 2013 com o SDK do Azure 2.9, sua experiência será basicamente a mesma.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do Grupo de Recursos do Azure
 
@@ -148,7 +150,7 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
    > [!NOTE]
    > O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Se solicitado, instale-os. Você precisa dos módulos do Azure PowerShell para implantar com êxito os grupos de recursos. O script do PowerShell no projeto não funciona com o novo [módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az). 
    >
-   > Para obter mais informações, consulte [Instalar e configurar módulos do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+   > Para obter mais informações, consulte [Instalar e configurar módulos do Azure PowerShell](/powershell/azure/install-Az-ps).
    > 
    > 
 6. A implantação pode demorar alguns minutos. Nas janelas de **Saída**, confira o status da implantação. Quando a implantação tiver sido concluída, a última mensagem indicará uma implantação bem-sucedida com algo semelhante a:

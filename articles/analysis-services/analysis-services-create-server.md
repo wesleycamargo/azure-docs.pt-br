@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186729"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802993"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor – Portal
 
@@ -46,7 +46,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Configuração de Armazenamento de Backup**: Opcional. Se você já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), você pode especificá-la como o padrão para o backup do banco de dados de modelo. Você também pode especificar a configuração de [backup e restauração](analysis-services-backup.md) mais tarde.
    * **Término da chave armazenamento**: Opcional. Especifique um período de expiração para a chave de armazenamento.
 
-A criação do servidor geralmente demora menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
+A criação do servidor geralmente demora menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Servidores oferecem suporte a modelos tabulares nos níveis de compatibilidade 1200 e superior. O nível de compatibilidade do modelo é especificado em SSDT ou SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

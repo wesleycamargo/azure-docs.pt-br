@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437502"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805339"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET
 
@@ -61,21 +61,21 @@ O Application Insights coleta dados de telemetria para seu aplicativo, independe
 
 Agora você pode abrir o Application Insights no Portal do Azure para exibir vários detalhes sobre o aplicativo em execução.
 
-1. Clique com o botão direito do mouse na pasta **Connected Services Application Insights** no Gerenciador de Soluções e clique em **Abrir Portal do Application Insights**.  Você pode ver algumas informações sobre seu aplicativo e uma variedade de opções.
+1. Expanda a pasta **Serviços Conectados** (ícone de nuvem e plugue) da pasta Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Application Insights** e clique em **Abrir Portal do Application Insights**.  Você pode ver algumas informações sobre seu aplicativo e uma variedade de opções.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/overview-001.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/4overview.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo.  Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/application-map-001.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/5appmap.png)
 
-3. Clique no ícone **Análise do Aplicativo** ![Mapa do Aplicativo](media/quick-monitor-portal/app-analytics-icon.png) em um dos componentes do aplicativo.  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights.  Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você.  Você pode escrever suas próprias consultas para analisar outros dados.
+3. Clique no ícone **Análise do Aplicativo** ![Mapa do Aplicativo](media/quick-monitor-portal/app-analytics-icon.png) **Exibir no Analytics** em um dos componentes do aplicativo. Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights.  Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
-    ![Análise](media/quick-monitor-portal/analytics.png)
+    ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Volte para a página **Visão geral** e clique em **Live Stream**.  Isso mostra estatísticas em tempo real sobre o seu aplicativo conforme ele é executado.  Isso inclui informações como o número de solicitações de entrada, a duração dessas solicitações e eventuais falhas que ocorram.  Você também pode inspecionar as métricas de desempenho críticas, tais como processador e memória.
+4. Clique em **Live Metrics Stream** à esquerda, em Investigar. Isso mostra estatísticas em tempo real sobre o seu aplicativo conforme ele é executado. Isso inclui informações como o número de solicitações de entrada, a duração dessas solicitações e eventuais falhas que ocorram. Você também pode inspecionar as métricas de desempenho críticas, tais como processador e memória.
 
-    ![Live Stream](media/quick-monitor-portal/live-stream.png)
+    ![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
     Se você está pronto para hospedar seu aplicativo no Azure, você pode publicá-lo agora. Siga as etapas descritas no [Guia de início rápido criar um aplicativo Web ASP.NET](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
 
@@ -106,8 +106,13 @@ Para saber mais, visite o repositório do GitHub para nosso [SDK do JavaScript d
 
 * Vídeo externo de passo a passo sobre [configuração do Application Insights com um aplicativo .NET a partir do zero](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando você terminar de testar, poderá excluir o grupo de recursos e todos os recursos relacionados. Para isso, siga as etapas abaixo.
+1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
+2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.
+
 ## <a name="next-steps"></a>Próximas etapas
-Nesse guia de início rápido, você habilitou o seu aplicativo para monitoramento pelo Azure Application Insights.  Continue para os tutoriais para aprender a usá-lo para monitorar as estatísticas e detectar problemas em seu aplicativo.
+Neste início rápido, você habilitou o seu aplicativo para monitoramento pelo Azure Application Insights.  Continue para os tutoriais para aprender a usá-lo para monitorar as estatísticas e detectar problemas em seu aplicativo.
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Azure Application Insights](tutorial-runtime-exceptions.md)

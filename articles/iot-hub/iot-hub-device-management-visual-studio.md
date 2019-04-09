@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109221"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269564"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usar o Cloud Explorer para Visual Studio para gerenciamento de dispositivo do Hub IoT do Azure
 
-![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama de ponta a ponta](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 O [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) para é uma extensão útil para Visual Studio que permite exibir os recursos do Azure, inspecionar suas propriedades e executar ações chave do desenvolvedor de dentro do Visual Studio. Ela é fornecida com opções de gerenciamento que podem ser usadas para executar várias tarefas.
 
@@ -43,8 +43,8 @@ Execute o Cloud Explorer para Visual Studio com várias opções de gerenciament
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- Uma assinatura ativa do Azure.
-- Um Hub IoT do Azure em sua assinatura.
+- Uma assinatura ativa do Azure
+- Um Hub de IoT do Azure em sua assinatura
 - Microsoft Visual Studio 2017 Atualização 8 ou posterior
 - Componente de Cloud Explorer do Instalador do Visual Studio (selecionado por padrão com a Carga de Trabalho do Azure)
 
@@ -90,7 +90,7 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 1. Insira a mensagem na caixa de entrada.
 1. Os resultados serão mostrados no painel de saída do **Hub IoT**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você aprendeu a usar o Cloud Explorer para Visual Studio com várias opções de gerenciamento.
 

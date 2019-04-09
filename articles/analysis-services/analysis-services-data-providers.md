@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3baccb6e0f5eef270dc8f0e06a8aa6b748fa4028
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056258"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270856"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
 
@@ -34,8 +34,8 @@ O AMO (Objetos de Gerenciamento de Serviços de Análise) e as bibliotecas de cl
 
 |Pacote  | Versão do produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.15.0.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.15.0.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
 
 Os assemblies de pacotes NuGet AssemblyVersion seguem a versão semântica: MAJOR.MINOR.PATCH. As referências de NuGet carregam a versão esperada, mesmo que haja uma versão diferente no GAC (resultante da instalação do MSI). PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
 
@@ -91,6 +91,6 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
 2. Clique com botão direito do mouse em **Microsoft.AnalysisServices.AdomdClient** > **Propriedades** > **Detalhes**.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Conectar com o Excel](analysis-services-connect-excel.md)    
 [Conectar com Power BI](analysis-services-connect-pbi.md)

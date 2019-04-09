@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842938"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876319"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure (versão prévia)
 
@@ -47,8 +47,7 @@ Antes de configurar a WAN Virtual, você precisa inscrever sua assinatura na ver
 
 **Considerações sobre a versão prévia:**
 
-* Disponibilidade de região: Centro-Oeste dos EUA
-* O Circuito de ExpressRoute deve estar habilitado em um país que dá suporte ao [Alcance Global do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+O circuito do ExpressRoute deve estar habilitado em um país que dá suporte ao [Alcance Global do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
 
@@ -70,16 +69,16 @@ Em um navegador, navegue para o [portal do Azure (versão prévia)](https://aka.
 
 ## <a name="hub"></a>4. Localizar e associar um circuito ao hub
 
-1. Selecione sua vWAN e, em **Arquitetura da WAN Virtual**, selecione **Circuitos do ExpressRoute**
-1. Se o circuito do ExpressRoute na mesma assinatura do que sua vWAN, clique em **Selecionar circuito do ExpressRoute** da(s) sua(s) assinatura(s) 
+1. Selecione sua vWAN e, em **Arquitetura da WAN Virtual**, selecione **Circuitos do ExpressRoute**.
+1. Se o circuito do ExpressRoute estiver na mesma assinatura que sua vWAN, clique em **Selecionar circuito do ExpressRoute** das suas assinaturas. 
 1. Usando a lista suspensa, selecione o ExpressRoute que você gostaria de associar ao hub.
 1. Se o circuito da ExpressRoute não estiver na mesma assinatura ou se você tiver recebido [uma chave de autorização e uma identificação de emparelhamento](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito ao resgatar uma chave de autorização**
 1. Insira os seguintes detalhes:
 1. **Chave de autorização**: gerada pelo proprietário do circuito, conforme descrito acima
 1. **URI do circuito de pares**: o URI do circuito que é fornecido pelo proprietário do circuito e é o identificador exclusivo para o circuito
 1. **Peso de roteamento** - [Peso de Roteamento](../expressroute/expressroute-optimize-routing.md) permite que você prefira determinados caminhos quando vários circuitos de localizações de emparelhamento diferentes estiverem conectados ao mesmo hub
-1. Clique em **Localizar circuito** e selecione o circuito, se encontrado
-1. Selecione um ou mais hubs na lista suspensa e clique em **Salvar**
+1. Clique em **Localizar circuito** e selecione o circuito, se encontrado.
+1. Selecione um ou mais hubs na lista suspensa e clique em **Salvar**.
 
 ## <a name="vnet"></a>5. Conectar sua VNET a um hub
 
