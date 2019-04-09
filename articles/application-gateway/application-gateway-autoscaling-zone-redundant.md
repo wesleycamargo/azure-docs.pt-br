@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444831"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010202"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalonamento automático e gateway de aplicativos com redundância de zona (visualização pública)
 
@@ -29,6 +29,9 @@ O Gateway de Aplicativo e o Web Application Firewall (WAF) agora estão disponí
 > O dimensionamento automático e o gateway de aplicativo com redundância de zona SKU está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+> [!NOTE]
+> O dimensionamento automático e o gateway de aplicativo com redundância de zona SKU agora dá suporte a [investigação de integridade padrão](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) para monitorar a integridade de todos os recursos em seu pool de back-end e remover qualquer recurso considerado não íntegro do pool automaticamente. O colocará de investigação de integridade padrão configurado automaticamente para todos os back-ends para o qual você não configurou nenhuma configuração de investigação personalizada. Para obter mais informações, consulte [investigações de integridade no gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de recursos entre o SKU de v1 e v2 SKU
 
@@ -76,6 +79,6 @@ Durante a visualização, não há nenhum custo. Você será cobrado por recurso
 |Integração do Netwatcher|Sem suporte na versão prévia pública.|
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)
+- [Criar um dimensionamento automático, o gateway de aplicativo com redundância de zona com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)
 - Saiba mais sobre [Gateway de aplicativo](overview.md).
 - Saiba mais sobre [Firewall do Azure](../firewall/overview.md).

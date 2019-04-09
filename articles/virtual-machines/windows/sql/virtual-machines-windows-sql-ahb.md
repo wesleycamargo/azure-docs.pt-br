@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005784"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure
 Este artigo descreve como alterar o modelo de licenciamento de uma máquina virtual do SQL Server no Azure usando o novo provedor de recursos da VM do SQL – **Microsoft.SqlVirtualMachine**. Há dois modelos para uma máquina virtual (VM) que hospeda o SQL Server - pago conforme o uso, de licenciamento e Traga sua própria licença (BYOL). E agora, usando o PowerShell ou a CLI do Azure, você pode modificar o modelo de licenciamento usado pela sua VM do SQL Server. 
@@ -35,12 +35,17 @@ Alternar entre os dois modelos de licença não resulta em **nenhum tempo de ina
 
 ## <a name="remarks"></a>Comentários
 
- - A capacidade de converter o modelo de licenciamento está disponível atualmente somente na inicialização com uma imagem de VM do SQL Server pré-paga. Se você iniciar com uma imagem Traga sua própria licença no portal, não poderá converter essa imagem para pré-paga.
  - Os clientes de CSP podem utilizar o AHB primeiro implantando uma VM pré-paga e, em seguida, convertendo-a para Traga sua própria licença. 
- - Atualmente, essa capacidade é habilitada apenas para instalações de nuvem pública.
  - Ao registrar uma imagem personalizada de VM do SQL Server com o provedor de recursos, especifique o tipo de licença como = 'AHUB'. Deixando a licença de tipo em branco, ou especificar 'PAYG' fará com que o registro falha. 
+ 
+## <a name="limitations"></a>Limitações
+
+ - A capacidade de converter o modelo de licenciamento está disponível atualmente somente na inicialização com uma imagem de VM do SQL Server pré-paga. Se você iniciar com uma imagem Traga sua própria licença no portal, não poderá converter essa imagem para pré-paga.
+  - Atualmente, alterar o modelo de licenciamento tem suporte apenas para máquinas virtuais implantadas usando o modelo do Resource Manager. Não há suporte para VMs implantadas usando o modelo clássico. 
+   - Atualmente, alterar o modelo de licenciamento é habilitado apenas para instalações de nuvem pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 O uso do provedor de recursos de VM do SQL requer a extensão IaaS do SQL. Assim, para continuar utilizando o provedor de recursos de VM do SQL, você precisará do seguinte:
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
 - [Do software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
@@ -231,9 +236,9 @@ Esse erro ocorre ao tentar alterar o modelo de licenciamento em uma VM do SQL Se
 
 Para obter mais informações, consulte os seguintes artigos: 
 
-* [Visão geral do SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+* [Visão geral do SQL Server em um VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server em um FAQ de VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Orientações sobre preço do SQL Server em uma VM Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [SQL Server em uma VM do Windows diretrizes de preços](virtual-machines-windows-sql-server-pricing-guidance.md)
 * [SQL Server em um notas de versão de VM do Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

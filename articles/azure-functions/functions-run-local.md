@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6c38591aa283491369562db8ea840ef7e5b17e6d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402619"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009828"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -36,7 +36,7 @@ A menos que indicado o contrário, os exemplos neste artigo são para a versão 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalação das ferramentas básicas do Azure Functions
 
-O [Ferramentas básicas do Azure Functions] é uma versão local do tempo de execução do Azure Functions que pode ser executada no computador local de desenvolvimento. Ele também fornece comandos para criar funções, se conectar ao Azure e implantar projetos de função.
+O [Azure Functions Core Tools] é uma versão local do tempo de execução do Azure Functions que pode ser executada no computador local de desenvolvimento. Ele também fornece comandos para criar funções, se conectar ao Azure e implantar projetos de função.
 
 ### <a name="v2"></a>Versão 2.x
 
@@ -136,7 +136,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` dá suporte às seguintes opções, que são somente da versão 2.x, a menos que haja outro tipo de orientação:
+`func init` suporta as seguintes opções, que são a versão 2. x somente, a menos que indicado o contrário:
 
 | Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
@@ -192,9 +192,9 @@ O arquivo local.settings.json armazena as configurações do aplicativo, as cade
 
 Os valores de configuração do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, confira a seção de variáveis de Ambiente desses tópicos de referência específicos de linguagem:
 
-* [C# pré-compilado](functions-dotnet-class-library.md#environment-variables)
+* [C#pré-compilado](functions-dotnet-class-library.md#environment-variables)
 * [Script do C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [Script F# (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [F#script (. fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -294,7 +294,7 @@ func host start
 
 O `host` comando apenas é necessário na versão 1. x.
 
-`func host start` dá suporte para as seguintes opções:
+`func host start` suporta as seguintes opções:
 
 | Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
@@ -386,7 +386,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 Você também pode invocar uma função diretamente usando `func run <FunctionName>` e fornecer dados de entrada para a função. Esse comando é semelhante à execução de uma função usando a guia **Testar** no Portal do Azure.
 
-`func run` dá suporte para as seguintes opções:
+`func run` suporta as seguintes opções:
 
 | Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |

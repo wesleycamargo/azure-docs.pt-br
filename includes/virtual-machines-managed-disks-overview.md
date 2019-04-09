@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807413"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291779"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -31,6 +31,10 @@ Usando discos gerenciados, é possível criar até 50 mil **discos** de VM de um
 
 Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
+## <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
+
+Gerenciado dá suporte a discos [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de alta disponibilidade que protege seus aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
+
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
 Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-introduction-to-azure-backup.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. No momento, o Backup do Azure dá suporte a tamanhos de disco de até quatro TiB (tebibytes). Para saber mais, confira [Using Azure Backup for VMs with managed disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Usando o Backup do Azure para VMs com discos gerenciados).
@@ -41,11 +45,15 @@ Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup
 
 ## <a name="disk-roles"></a>Funções do disco
 
-### <a name="data-disks"></a>Discos de dados
+Há três funções principais de disco no Azure: o disco de dados, o disco do sistema operacional e o disco temporário. Essas funções são mapeados para discos anexados à sua máquina virtual.
+
+![Funções de disco em ação](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>Disco de dados
 
 Um disco de dados é um disco gerenciado anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 32.767 gibibytes (GiB). O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
-### <a name="os-disks"></a>Discos do sistema operacional
+### <a name="os-disk"></a>Disco do sistema operacional
 
 Cada máquina virtual tem um disco de sistema operacional anexado. Esse disco do sistema operacional tem um SO pré-instalado, que foi selecionado quando a VM foi criada.
 
@@ -61,8 +69,8 @@ Um instantâneo de disco gerenciado é uma cópia completa somente leitura de um
 
 Para saber mais sobre como criar instantâneos com discos gerenciados, confira os seguintes recursos:
 
-* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenado como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenado como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imagens
 
@@ -71,7 +79,7 @@ Os discos gerenciados também dão suporte à criação de uma imagem personaliz
 Para saber mais sobre a criação de imagens, confira os artigos a seguir:
 
 * [Como capturar uma imagem gerenciada de uma VM generalizada no Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Como generalizar e capturar uma máquina virtual Linux usando a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
+* [Como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Imagens versus instantâneos
 

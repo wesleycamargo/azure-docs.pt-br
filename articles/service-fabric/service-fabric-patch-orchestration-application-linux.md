@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668187"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057635"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Linux em seu cluster do Service Fabric
 
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [ Windows](service-fabric-patch-orchestration-application.md)
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
@@ -121,13 +121,13 @@ Para Ubuntu, [atualizações autônomas](https://help.ubuntu.com/community/Autom
 
 O aplicativo juntamente com scripts de instalação podem ser baixados do [link de arquivo](https://go.microsoft.com/fwlink/?linkid=867984).
 
-O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
+O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA_v2.0.3.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar o aplicativo
 
 O comportamento do aplicativo de orquestração de patch pode ser configurado para atender às suas necessidades. Substitua os valores padrão passando o parâmetro de aplicativo durante a criação ou atualização do aplicativo. Parâmetros do aplicativo podem ser fornecidos especificando `ApplicationParameter` aos cmdlets `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication`.
 
-|**Parâmetro**        |**Tipo**                          | **Detalhes**|
+|**Parâmetro**        |**Type**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Número máximo de resultados da Atualização, que devem ser armazenados em cache. <br>O valor padrão é 3000, supondo que o: <br> - Número de nós é 20. <br> - Número de atualizações acontecendo em um nó por mês seja de cinco. <br> – Número de resultados por operação possa ser de 10. <br> - Resultados para os últimos três meses devem ser armazenados. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instaladas em um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instaladas em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para a atualização.)
@@ -173,7 +173,8 @@ Para sua conveniência, scripts de powershell (Undeploy.ps1) e de bash (Undeploy
 
 ## <a name="view-the-update-results"></a>Exibir os resultados da Atualização
 
-O aplicativo de orquestração de patch expõe as APIs REST para exibir os resultados históricos do usuário. Veja o exemplo de resultado a seguir: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+O aplicativo de orquestração de patch expõe as APIs REST para exibir os resultados históricos do usuário. A seguir está um exemplo de resultado:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -285,15 +286,15 @@ No exemplo a seguir, o cluster veio de um estado de erro temporário porque dois
 
 Caso o problema persista, consulte a seção de Solução de problemas.
 
-P. **O aplicativo de orquestração de patch está em estado de aviso**
+P. **Aplicativo de orquestração de patch está em estado de aviso**
 
 a. Verifique para ver se um relatório de integridade publicado em relação ao aplicativo é a causa raiz. Geralmente, o aviso contém detalhes do problema. Se o problema for transitório, o aplicativo deve esperar recuperar-se automaticamente desse estado.
 
-P. **O que fazer se o cluster não está íntegro e preciso fazer uma atualização urgente do sistema operacional?**
+P. **O que fazer se meu cluster não está íntegro e preciso fazer uma atualização urgente do sistema operacional?**
 
 a. O aplicativo de orquestração de patch não instala atualizações enquanto o cluster não está íntegro. Para desbloquear o fluxo de trabalho do aplicativo de orquestração de patch, coloque o cluster em um estado íntegro.
 
-P. **Por que a execução da aplicação de patch nos clusters leva tanto tempo?**
+P. **Por que aplicação de patch em clusters leva tanto tempo para ser executado?**
 
 a. O tempo que o aplicativo de orquestração de patch leva depende principalmente dos seguintes fatores:
 
@@ -303,26 +304,26 @@ a. O tempo que o aplicativo de orquestração de patch leva depende principalmen
 - O tempo médio necessário para baixar e instalar uma atualização, que não deve exceder alguma horas.
 - O desempenho da VM e largura da banda de rede.
 
-P. **Como o aplicativo de orquestração de patches decide quais atualizações são atualizações de segurança.**
+P. **Como o aplicativo de orquestração de patch faz decide quais atualizações são atualizações de segurança.**
 
 a. O aplicativo de orquestração de patches usa lógica específica de distribuição para determinar quais atualizações entre as atualizações disponíveis são as atualizações de segurança. Por exemplo:  No ubuntu, o aplicativo procura por atualizações de arquivos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
 
  
-P. **Como fixo em uma versão específica do pacote?**
+P. **Como bloquear em uma versão específica do pacote?**
 
 a. Use as configurações de ApprovedPatches para fixar seus pacotes em uma versão específica. 
 
 
-P. **O que acontece com as atualizações automáticas habilitadas no Ubuntu?**
+P. **O que acontece com as atualizações automáticas ativadas no Ubuntu?**
 
 a. Assim que você instalar o aplicativo de orquestração de patches no seu cluster, atualizações autônomas em seu nó de cluster serão desabilitadas. Todo o fluxo de trabalho de atualização periódica será determinado pelo aplicativo de orquestração de patches.
 Para que o ambiente de clusters seja consistente, é recomendável instalar as atualizações por meio apenas do aplicativo de orquestração de patches. 
  
-P. **Após a atualização, o aplicativo de orquestração de patches realiza a limpeza de pacotes não utilizados?**
+P. **Pós atualização patches do aplicativo de orquestração a limpeza de pacotes não utilizados?**
 
 a. Sim, a limpeza ocorre como parte das etapas pós-instalação. 
 
-P. **O aplicativo de Orquestração de Patch pode ser usado para o cluster de desenvolvimento (cluster de um nó) do patch?**
+P. **Aplicativo de orquestração de Patch pode ser usado para aplicar patch meu cluster de desenvolvimento (um nó de cluster)?**
 
 a. Não, o aplicativo de Orquestração de Patch não pode ser usado para cluster de um nó do patch. Essa limitação ocorre por design, uma vez que os [serviços de sistema do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todos os aplicativos cliente enfrentam tempo de inatividade e, portanto, qualquer trabalho de reparo para aplicação de patch nunca seria aprovado pelo gerenciador de reparo.
 
@@ -373,5 +374,10 @@ O aplicativo de orquestração de patch coleta a telemetria para acompanhar o us
 ### <a name="version-201"></a>Versão 2.0.1
 - Recompilação do aplicativo usando o SDK mais recente do Service Fabric
 
-### <a name="version-202-latest"></a>Versão 2.0.2 (mais recente)
+### <a name="version-202"></a>Versão 2.0.2 
 - Corrigido um problema com o aviso de integridade sendo deixado para trás durante a reinicialização.
+
+### <a name="version-203-latest"></a>Versão 2.0.3 (mais recente)
+- Correção do problema em que o uso da CPU do serviço do daemon de agente do nó atingido até 99% em VMs Standard_D1_v2.
+- Corrigindo o problema que afetado a aplicação de patch cyle de vida em um nó em caso de nós com o nome que é um subconjunto do nome do nó atual. Para esses nós, é possível que aplicação de patch seja ignorada ou a reinicialização fique pendente.
+- Corrigido um bug devido à qual o daemon de agente do nó fica travando quando configurações corrompidas são passadas para o serviço.

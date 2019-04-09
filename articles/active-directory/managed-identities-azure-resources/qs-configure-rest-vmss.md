@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3a32f9fb2755fc164c33a6759d0130ac7ddad5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445750"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009575"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -92,7 +92,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -160,7 +160,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
     }  
    ```  
 
-### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Habilitar identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais existente
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>Habilitar identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais existente
 
 Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais existente, você precisa adquirir um token de acesso e, em seguida, usar CURL para chamar o ponto de extremidade de REST do Resource Manager para atualizar o tipo de identidade.
 
@@ -187,7 +187,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -206,7 +206,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    A versão da API `2018-06-01` armazena identidades gerenciadas designadas pelo usuário no valor `userAssignedIdentities` em um formato de dicionário, em oposição ao valor `identityIds` em um formato de matriz usado na versão da API `2017-12-01`.
    
-   **API DE 2018 VERSÃO-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -220,7 +220,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
@@ -240,7 +240,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
     }
    ```
    
-   **VERSÃO DA API 2017-12-01**
+   **API VERSÃO 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -254,7 +254,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -298,7 +298,7 @@ Para desabilitar uma identidade gerenciada atribuída ao sistema em um conjunto 
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -341,7 +341,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
 5. Crie um conjunto de dimensionamento de máquinas virtuais usando o CURL para chamar o ponto de extremidade REST do Azure Resource Manager. O exemplo a seguir cria um conjunto de dimensionamento de máquinas virtuais nomeado *myVMSS* no grupo de recursos *myResourceGroup* com uma identidade gerenciada atribuída ao usuário `ID1`, identificada no corpo da solicitação pelo valor `"identity":{"type":"UserAssigned"}`. Substitua `<ACCESS TOKEN>` pelo valor recebido na etapa anterior quando você solicitou um token de acesso de portador e o valor de `<SUBSCRIPTION ID>` apropriado para seu ambiente.
  
-   **API DE 2018 VERSÃO-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -355,7 +355,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -428,7 +428,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     }
    ```   
 
-   **VERSÃO DA API 2017-12-01**
+   **API VERSÃO 2017-12-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -442,7 +442,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
@@ -544,7 +544,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    O exemplo a seguir atribui uma identidade gerenciada atribuída ao usuário, `ID1`, a um conjunto de dimensionamento de máquinas virtuais nomeado *myVMSS* no grupo de recursos *myResourceGroup*.  Substitua `<ACCESS TOKEN>` pelo valor recebido na etapa anterior quando você solicitou um token de acesso de portador e o valor de `<SUBSCRIPTION ID>` apropriado para seu ambiente.
 
-   **API DE 2018 VERSÃO-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -558,7 +558,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -576,7 +576,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     }
    ``` 
     
-   **VERSÃO DA API 2017-12-01**
+   **API VERSÃO 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -590,7 +590,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -608,7 +608,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
 5. Se você tiver uma identidade gerenciada atribuída ao usuário ou atribuída ao sistema atribuída ao conjunto de dimensionamento de máquinas virtuais:
    
-   **API DE 2018 VERSÃO-06-01**
+   **API VERSION 2018-06-01**
 
    Adicionar a identidade atribuída pelo usuário gerenciada para o `userAssignedIdentities` valor do dicionário.
 
@@ -626,7 +626,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -647,7 +647,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     }
    ```
 
-   **VERSÃO DA API 2017-12-01**
+   **API VERSÃO 2017-12-01**
 
    Reter as identidades gerenciadas atribuídas pelo usuário que você gostaria de manter no valor da matriz `identityIds` ao adicionar a nova identidade gerenciada atribuída pelo usuário.
 
@@ -665,7 +665,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -710,7 +710,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     
    Por exemplo, se você tiver identidades gerenciadas atribuídas ao usuário `ID1` e `ID2` atribuídas ao conjunto de dimensionamento de máquinas virtuais e você somente quer manter `ID1` atribuído e reter a identidade gerenciada atribuída ao sistema:
 
-   **API DE 2018 VERSÃO-06-01**
+   **API VERSION 2018-06-01**
 
    Adicionar `null` para o usuário atribuído gerenciado identidade que você deseja remover:
 
@@ -726,7 +726,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -742,7 +742,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     }
    ```
 
-   **VERSÃO DA API 2017-12-01**
+   **API VERSÃO 2017-12-01**
 
    Reter apenas as identidades gerenciadas atribuídas pelo usuário que você gostaria de manter na matriz `identityIds`:
 
@@ -758,7 +758,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -788,7 +788,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho da solicitação  |DESCRIÇÃO  |
 |---------|---------|
-|*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+|*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
 |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
@@ -815,7 +815,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho da solicitação  |DESCRIÇÃO  |
 |---------|---------|
-|*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+|*Tipo de conteúdo*     | Obrigatório. Defina como `application/json`.        |
 |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**

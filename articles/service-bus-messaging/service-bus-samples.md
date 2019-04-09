@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880153"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006561"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos nos seguintes locais:
@@ -27,7 +27,7 @@ Os exemplos de mensagens do Barramento de Serviço demonstram os principais recu
 | Linguagem de programação | Local do SDK ou exemplos |
 | -------------------- | ----------------------- |
 | .NET, Java e gerenciamento | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
@@ -38,6 +38,6 @@ Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalv
 
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
-* [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+* [Visão geral de mensagens do barramento de serviço](service-bus-messaging-overview.md)
 * [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 

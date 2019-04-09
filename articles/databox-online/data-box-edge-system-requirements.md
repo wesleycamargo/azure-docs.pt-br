@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905232"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006353"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda da caixa de dados do Azure
 
@@ -101,6 +101,37 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Considerações sobre dimensionamento de computação
+
+Use sua experiência ao desenvolver e testar sua solução para garantir que há capacidade suficiente em seu dispositivo de borda da caixa de dados e obter o desempenho ideal do seu dispositivo.
+
+Você deve considerar os fatores incluem:
+
+- **Informações específicas do contêiner** -pensar sobre o seguinte.
+
+    - Quantos contêineres estão em sua carga de trabalho? Você poderia ter muitos contêineres leves em comparação com aqueles alguns de muitos recursos.
+    - Quais são os recursos alocados para esses contêineres versus o que são os recursos que estão sendo consumidos?
+    - Quantas camadas de seus contêineres de compartilhamento?
+    - Há contêineres não utilizados? Um contêiner de parada ainda ocupa espaço em disco.
+    - Em qual idioma seus contêineres são gravados?
+- **Tamanho dos dados processados** -a quantidade de dados serão seus contêineres de processamento? Esses dados consumirão espaço em disco ou os dados serão processados na memória?
+- **Desempenho esperado** -quais são as características de desempenho desejado da sua solução? 
+
+Para compreender e refinar o desempenho de sua solução, você pode usar:
+
+- As métricas de computação disponíveis no portal do Azure. Vá para o recurso de borda da caixa de dados e, em seguida, vá para **monitoramento > métricas**. Examine os **computação de borda - o uso de memória** e **computação de borda – porcentagem de CPU** para entender os recursos disponíveis e como os recursos estão obtendo consumidos.
+- Os comandos de monitoramento disponíveis por meio da interface do PowerShell do dispositivo, como:
+
+    - `dkr` estatísticas para obter estatísticas de uso de recursos de uma transmissão ao vivo de contêineres. O comando dá suporte ao uso de memória, CPU, limite de memória e métricas de e/s de rede.
+    - `dkr system df` Para obter informações sobre a quantidade de espaço em disco usado. 
+    - `dkr image [prune]` a limpeza de imagens não usadas e liberar espaço.
+    - `dkr ps --size` Para exibir o tamanho aproximado de um contêiner em execução. 
+
+    Para obter mais informações sobre os comandos disponíveis, acesse [monitorar e solucionar problemas de computação módulos](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Por fim, certifique-se de que você valide sua solução em seu conjunto de dados e quantificar o desempenho na borda da caixa de dados antes de implantar na produção.
+
 
 ## <a name="next-step"></a>Próxima etapa
 

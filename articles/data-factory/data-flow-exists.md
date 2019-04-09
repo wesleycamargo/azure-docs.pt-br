@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734482"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006145"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Transformação de Ocorrências no Fluxo de Dados de Mapeamento do Azure Data Factory
 
@@ -25,3 +25,10 @@ A transformação de ocorrências é uma transformação de filtragem de linhas 
 Escolha a segunda fonte para suas ocorrências de modo que o fluxo de dados possa comparar os valores do fluxo 1 com os do fluxo 2.
 
 Selecione as colunas da fonte 1 e da fonte 2 cujos valores quiser verificar se existem ou não.
+
+## <a name="multiple-exists-conditions"></a>Várias condições de existe
+
+Ao lado de cada linha em suas condições de coluna para há, você encontrará um + sinal disponíveis quando você focaliza alcançar linha. Isso permitirá que você adicione várias linhas para condições de Exists.
+
+## <a name="next-steps"></a>Próximas etapas
+

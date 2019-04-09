@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430209"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006607"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -93,7 +93,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de Rede:** &nbsp; Ative o ponto de extremidade.
 - **Administrador do banco de dados:** &nbsp; Atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MySQL.
 
-*Alternativa de RBAC:*
+*Alternativa RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -107,6 +107,8 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados do Azure para MySQL, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de rede virtual, você deve permitir Azure services para acessar o servidor no servidor.
 
 - No firewall do Banco de Dados do Azure para MySQL, cada regra de rede virtual referencia uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados do Azure para MySQL.
 
@@ -140,8 +142,8 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter artigos sobre como criar regras de VNet, consulte:
-- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
-- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)
+- [Criar e gerenciar o banco de dados do Azure para regras de MySQL VNet usando o portal do Azure](howto-manage-vnet-using-portal.md)
+- [Criar e gerenciar o banco de dados do Azure para regras de MySQL VNet usando a CLI do Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

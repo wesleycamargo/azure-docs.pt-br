@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/02/2019
 ms.author: monhaber
-ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578944"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006744"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de segurança coleta dados de suas máquinas virtuais (VMs), os conjuntos de dimensionamento de máquina virtual, os contêineres de IaaS e os computadores não Azure (incluindo local) para monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O agente Microsoft Monitoring Agent também copia os arquivos de despejo para seu espaço de trabalho.
@@ -77,7 +77,7 @@ A Central de Segurança pode criar automaticamente um workspace padrão no qual 
 Para selecionar um workspace criados pela Central de Segurança:
 
 1. Em **Configuração do workspace padrão**, selecione Usar workspaces criados pela Central de Segurança.
-   ![Selecione o tipo de preço][10] 
+   ![Selecionar tipo de preço][10] 
 
 1. Clique em **Salvar**.<br>
     A Central de Segurança criará um novo grupo de recursos e um workspace padrão nessa geolocalização e conectará o agente a esse workspace. A convenção de nomenclatura para o grupo de recursos e o workspace é:<br>
@@ -137,8 +137,8 @@ Para selecionar um workspace existente do Log Analytics:
      a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
     b.  Selecione o Espaço de Trabalho desejado no qual você pretende conectar o agente, clicando em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
-        ![Selecione o workspace][8] c. Defina o tipo de preço.
-        ![Selecione o tipo de preço][9] 
+        ![Selecione o espaço de trabalho][8] c. Defina o tipo de preço.
+        ![Selecionar tipo de preço][9] 
    
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
@@ -179,7 +179,7 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 | --- | --- |
 | Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Comum | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Comum | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -256,16 +256,16 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
    b.  Selecione o Workspace ao qual você pretende conectar o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
        ![Selecione o workspace][8]
 3. Defina o tipo de preço.
-   ![Selecione o tipo de preço][9] 
+   ![Selecionar tipo de preço][9] 
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
    > 
 
 4. Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
 
-    a.  [Instalar a extensão da máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+    a.  [Instalar a extensão de máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalar a extensão da máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Instalar a extensão de máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implantar as extensões em VMs existentes, siga as instruções em [Coletar dados sobre Máquinas Virtuais do Microsoft Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

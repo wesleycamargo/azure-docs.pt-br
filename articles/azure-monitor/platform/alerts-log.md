@@ -1,5 +1,5 @@
 ---
-title: Criar, exibir e gerenciar alertas de log usando o Azure Monitor
+title: Criar, exibir e gerenciar alertas de log usando o Azure Monitor | Microsoft Docs
 description: Use o Azure Monitor para criar, exibir e gerenciar regras de alerta de log no Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873784"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006942"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
@@ -23,10 +23,10 @@ Este artigo mostra como configurar alertas usando a interface de alertas no port
 - Critérios: condição ou lógica específica que, quando aparecer no sinal, deverá disparar uma ação
 - Ação: chamada específica enviada a um destinatário de uma notificação: email, SMS, webhook, etc.
 
-O termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou no [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre a funcionalidade, a terminologia e o tipos em [Alertas de log – visão geral](../../azure-monitor/platform/alerts-unified-log.md).
+O termo **alertas de Log** para descrever alertas em que o sinal é a consulta de log em um [espaço de trabalho do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../app/analytics.md). Saiba mais sobre a funcionalidade, a terminologia e o tipos em [Alertas de log – visão geral](alerts-unified-log.md).
 
 > [!NOTE]
-> Os dados de log populares do [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Dados de log populares [um espaço de trabalho do Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) agora também está disponível na plataforma de métrica no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gerenciando alertas de log no portal do Azure
 
@@ -58,7 +58,7 @@ A seguir há um guia passo a passo detalhado para usar os alertas de log por mei
 
    > [!NOTE]
    > 
-   > Listas de alertas podem importar consulta analítica como tipo de sinal - **Log (Consulta Salva)**, como mostrado na ilustração acima. Dessa forma, os usuários podem aperfeiçoar sua consulta no Analytics e, em seguida, salvá-la para uso futuro em alertas - mais detalhes sobre o uso de consulta salvas disponível em [usando a pesquisa de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) ou [consulta compartilhada na análise do Application Insights](../../azure-monitor/log-query/log-query-overview.md).
+   > Listas de alertas podem importar consulta analítica como tipo de sinal - **Log (Consulta Salva)**, como mostrado na ilustração acima. Portanto, os usuários podem aperfeiçoar sua consulta no Analytics e, em seguida, salvá-los para uso futuro em alertas - mais detalhes sobre como usar consulta salvas disponível em [usando a consulta de log no Azure Monitor](../log-query/log-query-overview.md) ou [consulta compartilhada na análise do application insights ](../log-query/log-query-overview.md).
 
 1. *Alertas de log*: após escolhida, a consulta de alerta pode ser declarada no campo **Consulta de pesquisa**. Se a sintaxe da consulta estiver incorreta, o campo exibirá o erro em VERMELHO. Se a sintaxe de consulta estiver correta – para referência, os dados históricos da consulta indicada serão mostrados como um gráfico com a opção de ajustar a janela de tempo das últimas seis horas até a última semana.
 
@@ -126,12 +126,12 @@ Os usuários também podem finalizar a consulta de análise no [Log Analytics](.
 Os alertas de log no Azure Monitor são associadas ao tipo de recurso `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre esse tipo de recurso, consulte [Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Os alertas de log para o Application Insights ou Log Analytics podem ser criados usando a [API Regras de Consulta Agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Os alertas de log para o Log Analytics também podem ser gerenciados usando a [API Alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) herdada, bem como modelos herdados de [alertas e pesquisas salvas do Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Para saber mais sobre como usar a nova API ScheduledQueryRules detalhada aqui por padrão, confira [Alternar para a nova API de alertas do Log Analytics](alerts-log-api-switch.md).
+> Os alertas de log para o Log Analytics também podem ser gerenciados usando a [API Alerta do Log Analytics](api-alerts.md) herdada, bem como modelos herdados de [alertas e pesquisas salvas do Log Analytics](../insights/solutions-resources-searches-alerts.md). Para saber mais sobre como usar a nova API ScheduledQueryRules detalhada aqui por padrão, confira [Alternar para a nova API de alertas do Log Analytics](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Exemplo de criação de alerta de log usando o Modelo de Recurso do Azure
 
-A seguir vemos a estrutura para a [criação de Regras de Consulta Agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos usando a consulta de pesquisa de logs padrão de [alerta de log do tipo número de resultados](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), com o conjunto de dados de exemplo como variáveis.
+A seguir vemos a estrutura para a [criação de Regras de Consulta Agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos usando a consulta de pesquisa de logs padrão de [alerta de log do tipo número de resultados](alerts-unified-log.md#number-of-results-alert-rules), com o conjunto de dados de exemplo como variáveis.
 
 ```json
 {
@@ -316,7 +316,7 @@ Azure Monitor – API Regras de Consulta Agendada](https://docs.microsoft.com/re
 
 
 > [!NOTE]
-> Os alertas de log para o Log Analytics também podem ser gerenciados usando a [API Alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) herdada, bem como modelos herdados de [alertas e pesquisas salvas do Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Para saber mais sobre como usar a nova API ScheduledQueryRules detalhada aqui por padrão, confira [Alternar para a nova API de alertas do Log Analytics](alerts-log-api-switch.md).
+> Os alertas de log para o Log Analytics também podem ser gerenciados usando a [API Alerta do Log Analytics](api-alerts.md) herdada, bem como modelos herdados de [alertas e pesquisas salvas do Log Analytics](../insights/solutions-resources-searches-alerts.md). Para saber mais sobre como usar a nova API ScheduledQueryRules detalhada aqui por padrão, confira [Alternar para a nova API de alertas do Log Analytics](alerts-log-api-switch.md).
 
 Alertas de log atualmente não tem comandos do PowerShell ou CLI dedicados no momento; mas, conforme ilustrado abaixo pode ser usado por meio do cmdlet do PowerShell do Azure Resource Manager para o modelo de recurso mostrado anteriormente (sampleScheduledQueryRule.json) de exemplo na seção modelo de recurso:
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

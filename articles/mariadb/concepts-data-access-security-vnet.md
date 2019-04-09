@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958899"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006695"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 
@@ -91,7 +91,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de Rede:** &nbsp; Ative o ponto de extremidade.
 - **Administrador de banco de dados:** &nbsp; Atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MariaDB.
 
-*Alternativa de RBAC:*
+*Alternativa RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -105,6 +105,8 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados do Azure para MariaDB, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de rede virtual, você deve permitir Azure services para acessar o servidor no servidor.
 
 - No firewall do Banco de Dados do Azure para MariaDB, cada regra de rede virtual referencia uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados do Azure para MariaDB.
 
@@ -138,7 +140,7 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter artigos sobre como criar regras de VNet, consulte:
-- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MariaDB usando o portal do Azure](howto-manage-vnet-portal.md)
+- [Criar e gerenciar o banco de dados do Azure para regras de MariaDB VNet usando o portal do Azure](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
