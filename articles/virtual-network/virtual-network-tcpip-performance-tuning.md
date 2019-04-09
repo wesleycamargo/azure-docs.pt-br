@@ -19,7 +19,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author:
 - rimayber
 - dgoddard
@@ -28,308 +28,341 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905081"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276517"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
 
-A finalidade deste artigo é discutir comuns técnicas de ajuste de desempenho de TCP/IP e suas considerações para máquinas virtuais em execução no Microsoft Azure. É importante primeiro ter uma compreensão básica dos conceitos e, em seguida, discutir como eles podem ser ajustados.
+Este artigo discute técnicas comuns de ajuste de desempenho TCP/IP e algumas coisas a serem consideradas ao usá-las para máquinas virtuais em execução no Azure. Ele fornece uma visão geral básica das técnicas e explorar como eles podem ser ajustados.
 
 ## <a name="common-tcpip-tuning-techniques"></a>Técnicas comuns de ajuste de TCP/IP
 
-### <a name="mtu-fragmentation-and-large-send-offload-lso"></a>MTU, fragmentação e enviar LSO (descarregamento grande)
+### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU, fragmentação e descarregamento de envio grande
 
-#### <a name="explanation-of-mtu"></a>Explicação de MTU
+#### <a name="mtu"></a>MTU
 
-A unidade de transmissão máxima (MTU) é o maior tamanho quadro (pacote), especificado em bytes, que podem ser enviados por um adaptador de rede. A MTU é uma definição configurável e o padrão que MTU usado em VMs do Azure e a configuração padrão na maioria dos dispositivos de rede globalmente, é 1500 bytes.
+A unidade de transmissão máxima (MTU) é o maior tamanho quadro (pacote), especificado em bytes, que podem ser enviados por um adaptador de rede. A MTU é uma definição configurável. O padrão de MTU usado em VMs do Azure e a configuração padrão na maioria dos dispositivos de rede globalmente, é de 1.500 bytes.
 
-#### <a name="explanation-of-fragmentation"></a>Explicação de fragmentação
+#### <a name="fragmentation"></a>Fragmentação
 
-A fragmentação ocorre quando um pacote é enviado, que excede a MTU de uma interface de rede. O TCP/IP stack interromperá o pacote em partes menores (fragmentos) que estão em conformidade com as interfaces de MTU. A fragmentação ocorre na camada de IP e é independente do protocolo subjacente (como TCP). Quando um pacote de 2000 bytes é enviado por um adaptador de rede com uma MTU de 1500, em seguida, ele será ser dividido em um pacote de 1500 bytes e um pacote de 500 bytes.
+A fragmentação ocorre quando um pacote é enviado, que excede a MTU de uma interface de rede. O TCP/IP stack interromperá o pacote em partes menores (fragmentos) que estão em conformidade com a MTU da interface. A fragmentação ocorre na camada de IP e é independente do protocolo subjacente (como TCP). Quando um pacote de 2.000 bytes é enviado por um adaptador de rede com uma MTU de 1.500, o pacote será ser dividido em um pacote de 1.500 bytes e um pacote de 500 bytes.
 
-Dispositivos de rede no caminho entre a origem e destino têm a opção para ignorar pacotes que excedem o MTU ou fragmentar o pacote em partes menores.
+Dispositivos de rede no caminho entre a origem e destino podem qualquer um dos pacotes de soltar que excedem a MTU ou fragmentarem o pacote em partes menores.
 
-#### <a name="the-dont-fragment-df-bit-in-an-ip-packet"></a>O bit de "não Fragmentar" em um pacote IP
+#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>O fragmento não de bit em um pacote IP
 
-O bit de fragmento não é um sinalizador no cabeçalho de protocolo IP. Quando o bit DF estiver definido, ele indica que os dispositivos de rede intermediários no caminho entre o remetente e o receptor não devem fragmentar o pacote. Há muitas razões por que esse bit pode ser definido (consulte a seção de descoberta de caminho abaixo para obter um exemplo). Quando um dispositivo de rede recebe um pacote com o conjunto de bits de fragmento não e esse pacote ultrapassar a MTU da interface de dispositivos, o comportamento padrão é para o dispositivo remover o pacote e enviar um pacote de "ICMP fragmentação necessária" volta para a fonte original das pacote.
+O bit do não Fragmentar é um sinalizador no cabeçalho de protocolo IP. O bit DF indica que os dispositivos de rede no caminho entre o remetente e o receptor devem fragmenta o pacote. Esse bit foi definido por vários motivos. (Consulte a seção de "Descoberta de MTU de caminho" deste artigo para obter um exemplo). Quando um dispositivo de rede recebe um pacote com o conjunto de bits de fragmento não, e esse pacote ultrapassar a MTU da interface do dispositivo, o comportamento padrão é para o dispositivo remover o pacote. O dispositivo envia uma mensagem ICMP fragmentação necessária volta para a fonte original do pacote.
 
 #### <a name="performance-implications-of-fragmentation"></a>Implicações de desempenho de fragmentação
 
-Fragmentação pode ter implicações de desempenho negativo. Uma das principais razões para o impacto no desempenho é o impacto de CPU/memória de fragmentação e reagrupamento de pacotes. Quando um dispositivo de rede precisa de um pacote do fragmento, ele precisa alocar recursos de CPU/memória para executar a fragmentação. O mesmo deve acontecer quando o pacote é reorganizado. O dispositivo de rede deve armazenar todos os fragmentos até que elas são recebidas para que ele pode remontá-las para o pacote original. Esse processo de fragmentação/remontagem também pode causar a latência devido ao processo de fragmentação/remontagem.
+Fragmentação pode ter implicações de desempenho negativo. Uma das principais razões para o efeito no desempenho é o impacto de CPU/memória de fragmentação e reagrupamento de pacotes. Quando um dispositivo de rede precisa de um pacote do fragmento, ele precisa alocar recursos de CPU/memória para executar a fragmentação.
 
-A outra implicação de desempenho negativo possíveis de fragmentação é que os pacotes fragmentados podem chegar fora de ordem. Pacotes fora de ordem podem fazer com que certos tipos de dispositivos de rede para descartar os pacotes fora de ordem – que, em seguida, exige o pacote inteiro para ser retransmitida. Os cenários típicos para descartar fragmentos incluem dispositivos de segurança, como firewalls de rede ou quando um dispositivo de rede de recebimento do buffers são esgotados. Quando um dispositivo de rede de recebimento do buffers são esgotados, um dispositivo de rede está tentando remontar um pacote fragmentado, mas não tem os recursos para armazenar e reassume o pacote.
+A mesma coisa acontece quando o pacote é reorganizado. O dispositivo de rede precisa armazenar todos os fragmentos até que elas são recebidas para que ele pode remontá-las para o pacote original. Esse processo de fragmentação e reagrupamento também pode causar a latência.
 
-Fragmentação pode ser percebida como uma operação negativa, mas o suporte para fragmentação é necessária para conectar-se a diversas redes pela Internet.
+A outra implicação de desempenho negativo possíveis de fragmentação é que os pacotes fragmentados podem chegar fora de ordem. Quando os pacotes são recebidos fora de ordem, alguns tipos de dispositivos de rede poderá removê-los. Quando isso acontece, todo o pacote deve ser retransmitido.
+
+Fragmentos são normalmente descartados por dispositivos de segurança, como firewalls de rede ou quando um dispositivo de rede de recebimento do buffers são esgotados. Quando um dispositivo de rede de recebimento do buffers são esgotados, um dispositivo de rede está tentando remontar um pacote fragmentado, mas não tem os recursos para armazenar e reassume o pacote.
+
+A fragmentação pode ser vista como uma operação negativa, mas o suporte para fragmentação é necessária quando você estiver se conectando a diversas redes pela internet.
 
 #### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Benefícios e as consequências de modificar a MTU
 
-Como uma instrução geral, aumentando a MTU pode criar uma rede mais eficiente. Todos os pacotes que são transmitidos tem informações adicionais de cabeçalho que são adicionadas ao pacote original. Pacote mais significa cabeçalho mais sobrecarga e a rede é menos eficiente como resultado.
+Em termos gerais, você pode criar uma rede mais eficiente, aumentando a MTU. Todos os pacotes que são transmitidos tem informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, não há cabeçalho mais sobrecarga e que faz com que a rede menos eficiente.
 
-Por exemplo, o tamanho do cabeçalho Ethernet é 14 bytes mais um 4 bytes Frame Check Sequence (FCS) para garantir a consistência do quadro. Se um pacote de byte de 2000 é enviado, 18 bytes de sobrecarga de Ethernet é adicionado na rede. Se o pacote é fragmentado em um pacote de 1500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes do cabeçalho de Ethernet - ou 36 bytes. Enquanto um único pacote de byte de 2000 teria apenas um cabeçalho de Ethernet de 18 bytes.
+Aqui está um exemplo. O tamanho do cabeçalho Ethernet é 14 bytes mais de uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se um pacote de 2.000 bytes é enviado, 18 bytes de sobrecarga de Ethernet é adicionado na rede. Se o pacote é fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá de 18 bytes do cabeçalho de Ethernet, um total de 36 bytes.
 
-É importante observar que aumentar o MTU por si só não necessariamente criará uma rede mais eficiente. Se um aplicativo envia somente pacotes de 500 bytes, a sobrecarga de cabeçalho mesmo existirá se o MTU é 1500 bytes ou 9000 bytes. Em ordem para a rede para ser mais eficiente, em seguida, ele também deve usar tamanhos maiores de pacotes que são relativas a MTU.
+Tenha em mente que a aumentar a MTU necessariamente não criará uma rede mais eficiente. Se um aplicativo envia somente pacotes de 500 bytes, a sobrecarga de cabeçalho mesmo existirá se o MTU é 1.500 bytes ou 9.000 bytes. A rede se tornará mais eficiente apenas se ele usa o maior tamanho dos pacotes que é afetados pela MTU.
 
 #### <a name="azure-and-vm-mtu"></a>O Azure e MTU de VM
 
-A MTU para VMs do Azure padrão é 1500 bytes. A pilha de rede Virtual do Azure tentará do fragmento de um pacote em bytes 1400. No entanto, a pilha de rede Virtual do Azure permitirá pacotes até 2006 bytes quando o bit "Não fragmentar" é definido no cabeçalho IP.
+A MTU para VMs do Azure padrão é 1.500 bytes. A pilha de rede Virtual do Azure tentará um pacote em bytes 1.400 do fragmento. Mas a pilha de rede Virtual permitirá pacotes até 2,006 bytes quando o bit de fragmento não é definido no cabeçalho IP.
 
-É importante observar que essa fragmentação não implica que a pilha de rede Virtual do Azure é inerentemente ineficiente porque ele pacotes em 1400 bytes de fragmentos, enquanto as VMs têm uma MTU de 1500. A realidade é que uma grande porcentagem de pacotes de rede é muito menor do que 1.500 bytes ou de 1400 bytes.
+Observe que a pilha de rede Virtual não é inerentemente ineficiente porque ele pacotes em 1.400 bytes de fragmentos, embora as VMs têm uma MTU de 1.500. Uma grande porcentagem de pacotes de rede são muito menores do que 1.400 ou 1.500 bytes.
 
 #### <a name="azure-and-fragmentation"></a>Azure e a fragmentação
 
-Hoje, pilha de rede Virtual do Azure está configurada para descartar "Fora de ordem fragmentos" – que significa a pacotes fragmentados que não chegam na ordem original fragmentado. Esses pacotes são descartados, principalmente devido a uma vulnerabilidade de segurança de rede anunciada em novembro de 2018 chamado FragmentStack.
+Pilha de rede virtual é configurada para descartar "fragmentos fora de ordem", ou seja, os pacotes fragmentados que não chegam na ordem original fragmentado. Esses pacotes são descartados principalmente por causa de uma vulnerabilidade de segurança de rede anunciada em novembro de 2018 chamado FragmentStack.
 
-FragmentSmack é um defeito a maneira como o kernel do Linux manipulados reagrupamento de pacotes IPv4 e IPv6 fragmentados. Um invasor remoto pode usar essa falha às operações de remontagem fragmento caro disparador, levar a uma negação de serviço e de aumento de CPU no sistema de destino.
+FragmentSmack é um defeito a maneira como o kernel do Linux manipulados reagrupamento de pacotes IPv4 e IPv6 fragmentados. Um invasor remoto pode usar essa falha para disparar fragmento caro reagrupamento operações, que pode levar a uma negação de serviço e de aumento de CPU no sistema de destino.
 
 #### <a name="tune-the-mtu"></a>Ajustar a MTU
 
-VMs do Azure dão suporte a uma MTU configurável assim como qualquer outro sistema operacional. No entanto, a fragmentação que ocorre dentro do Azure e é detalhada acima, deve ser considerada ao configurar a MTU.
+Você pode configurar uma MTU de VM do Azure, como faria em qualquer outro sistema operacional. Mas você deve considerar a fragmentação que ocorre no Azure, como descrito acima, quando você estiver configurando uma MTU.
 
-Azure não incentivar os clientes a aumentar sua MTU de VM. Esta discussão destina-se a explicar em detalhes como o Azure implementa o MTU e executa a fragmentação hoje mesmo.
+Não Incentivamos os clientes a aumentar MTUs de VM. Esta discussão destina-se para explicar os detalhes de como o Azure implementa o MTU e executa a fragmentação.
 
 > [!IMPORTANT]
->Aumentando a MTU não tenha mostrado para melhorar o desempenho e pode ter um efeito negativo no desempenho do aplicativo.
+>Aumentando a MTU não é conhecido para melhorar o desempenho e pode ter um efeito negativo no desempenho do aplicativo.
 >
 >
 
-#### <a name="large-send-offload-lso"></a>Descarregamento de envio grande LSO)
+#### <a name="large-send-offload"></a>Descarregamento de envio grande
 
-Enviar LSO (descarregamento grande) pode melhorar o desempenho de rede ao descarregar a segmentação de pacotes para o adaptador de Ethernet. Com LSO habilitado, o TCP/IP stack criará um pacote grande de TCP e, em seguida, enviar para o adaptador Ethernet para segmentação antes de encaminhá-lo. O benefício de LSO é que ele pode liberar a CPU da segmentação de pacotes no tamanho dos pacotes que estão em conformidade com a MTU e que o processamento para a interface de Ethernet em que ele é executado em hardware de descarregamento. Mais informações sobre os benefícios de LSO podem ser encontradas no [desempenho na documentação do adaptador de rede Microsoft](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
+Descarregamento de envio grande (LSO) pode melhorar o desempenho de rede ao descarregar a segmentação de pacotes para o adaptador de Ethernet. Quando LSO está habilitado, o TCP/IP stack cria um pacote grande de TCP e envia para o adaptador de Ethernet para segmentação antes de encaminhá-lo. O benefício de LSO é que ele pode liberar a CPU da segmentação de pacotes em tamanhos que estão em conformidade com a MTU e que o processamento para a interface de Ethernet em que ele é executado em hardware de descarregamento. Para saber mais sobre os benefícios de LSO, consulte [que dão suporte a grande send offload](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-Quando LSO estiver habilitada, os clientes do Azure poderão ver tamanhos grandes de quadro quando a captura de pacote de desempenho. Esses tamanhos de quadro grande podem levar alguns clientes a acreditar que a fragmentação ou um jumbo que MTU está sendo usado quando não for. Com LSO, o adaptador ethernet pode anunciar um MSS maior para a pilha de TCP/IP para criar um pacote maior de TCP. Todo esse quadro não segmentado é então encaminhado para o adaptador de Ethernet e deve ser visível em uma captura de pacotes executada na VM. No entanto, o pacote será dividido em muitas estruturas menores pelo adaptador Ethernet de acordo com o MTU do adaptador de Ethernet.
+Quando LSO estiver habilitada, os clientes do Azure poderá ver tamanhos grandes de quadro ao executar capturas de pacote. Esses tamanhos de quadro grande podem levar alguns clientes pensar fragmentação está ocorrendo ou que uma MTU grande está sendo usado quando não for. Com LSO, o adaptador Ethernet pode anunciar um tamanho maior de máximo de segmento (MSS) para a pilha de TCP/IP para criar um pacote maior de TCP. Todo esse quadro não segmentado é então encaminhado para o adaptador de Ethernet e deve ser visível em uma captura de pacotes executada na VM. Mas o pacote será ser dividido pelo adaptador de Ethernet, de acordo com a MTU do adaptador de Ethernet em menor número de quadros.
 
-### <a name="tcpmss-window-scaling-and-pmtud"></a>Dimensionamento de janela TCP/MSS e PMTUD
+### <a name="tcp-mss-window-scaling-and-pmtud"></a>Dimensionamento de janela de MSS TCP e PMTUD
 
-#### <a name="explanation-of-tcp-mss"></a>Explicação de MSS TCP
+#### <a name="tcp-maximum-segment-size"></a>Tamanho máximo de segmento TCP
 
-Tamanho máximo do segmento do TCP (MSS) é uma configuração que se destina a definir o tamanho máximo de segmento TCP como para evitar a fragmentação de pacotes TCP. Sistemas operacionais geralmente definirá MSS como MSS = MTU - tamanho IP & cabeçalho de TCP (20 bytes ou total de 40 bytes). Portanto, uma interface com uma MTU de 1500 terá um MSS de 1460. No entanto, o MSS é configurável.
+Tamanho máximo de segmento TCP (MSS) é uma configuração que limita o tamanho de segmentos TCP, que evita a fragmentação de pacotes TCP. Sistemas operacionais geralmente usará esta fórmula para definir o MSS:
 
-Essa configuração foi acordada no handshake TCP de três vias, quando uma sessão TCP é configurada entre uma origem e destino. Ambos os lados enviar um valor de MSS e o menor dos dois é usado para a conexão TCP.
+`MSS = MTU - (IP header size + TCP header size)`
 
-Dispositivos de rede intermediários, como Gateways de VPN, incluindo o Gateway de VPN do Azure, têm a capacidade de ajustar a MTU independentemente da origem e destino para garantir um desempenho ideal de rede. Portanto, deve observar que a MTU da origem e destino sozinho não é os fatores exclusivos no valor de MSS real.
+O cabeçalho IP e o cabeçalho de TCP são 20 bytes ou o total de 40 bytes. Portanto, uma interface com uma MTU de 1.500 terá um MSS de 1,460. Mas o MSS é configurável.
 
-#### <a name="explanation-of-path-mtu-discovery-pmtud"></a>Explicação da descoberta MTU de caminho (PMTUD)
+Essa configuração foi acordada no handshake de três vias TCP quando uma sessão TCP é definida entre uma origem e um destino. Ambos os lados enviar um valor de MSS, e o menor dos dois é usado para a conexão TCP.
 
-Enquanto o MSS é negociada, pode não indicar o MSS real que pode ser usado como outros dispositivos de rede no caminho entre a origem e destino podem ter um valor MTU menor do que a origem e destino. Nesse caso, o dispositivo cujo MTU é menor do que o pacote será descartar o pacote e devolver uma mensagem de controle mensagem ICMP (Internet Protocol) fragmentação necessária (tipo 3, 4 de código) que contém seu MTU. Esta mensagem ICMP permite que o host de origem reduzir seu MTU de caminho adequadamente. O processo é chamado de descoberta de MTU de caminho.
+Tenha em mente que o MTUs de origem e destino não são os únicos fatores que determinam o valor de MSS. Dispositivos de rede intermediários, como gateways de VPN, incluindo o Gateway de VPN do Azure, podem ajustar a MTU independentemente de origem e destino para garantir um desempenho ideal de rede.
 
-O processo de PMTUD é inerentemente ineficiente e tem implicações no desempenho da rede. Quando os pacotes são enviados que exceder uma MTU de caminhos de rede, esses pacotes devem ser retransmitidas com um menor MSS. Se o remetente não receber o pacote ICMP fragmentação necessária, talvez devido a um firewall de rede no caminho (conhecido como blackhole PMTUD), em seguida, o remetente não sabe que ele precisa reduzir o MSS e será continuamente retransmita o pacote. Por esse motivo, não recomendamos aumentar o MTU de VM do Azure.
+#### <a name="path-mtu-discovery"></a>Descoberta de MTU de caminho
 
-#### <a name="vpn-considerations-with-mtu"></a>Considerações sobre VPN com MTU
+MSS é negociada, mas ele não pode indicar o MSS real que pode ser usado. Isso ocorre porque os outros dispositivos de rede no caminho entre a origem e o destino podem ter um valor MTU menor do que a origem e destino. Nesse caso, o dispositivo cujo MTU é menor do que o pacote descartará o pacote. O dispositivo enviará de volta uma mensagem ICMP fragmentação necessária (tipo 3, 4 de código) que contém seu MTU. Esta mensagem ICMP permite que o host de origem reduzir seu MTU de caminho adequadamente. O processo é chamado de descoberta de MTU de caminho (PMTUD).
 
-Os clientes que usam as VMs que executam o encapsulamento (como VPNs IPSec) podem ter implicações adicionais para o tamanho do pacote e MTU. VPNs adicionar cabeçalhos adicionais serão adicionados ao pacote original, portanto, aumentar o tamanho do pacote e exigindo um MSS menores.
+O processo PMTUD é ineficiente e afeta o desempenho de rede. Quando os pacotes são enviados que excedem o MTU do caminho de uma rede, os pacotes precisam ser retransmitida com um MSS inferior. Se o remetente não recebe a mensagem ICMP fragmentação necessária, talvez devido a um firewall de rede no caminho (normalmente conhecido como um *PMTUD blackhole*), o remetente não souber, ele precisa reduzir o MSS e será continuamente o pacote de retransmissão. É por isso não é recomendável aumentar o MTU de VM do Azure.
 
-A recomendação atual para o Azure é definir a fixação de MSS TCP para 1350 bytes e a interface de túnel MTU para 1400. Mais informações podem ser encontradas na [VPN dispositivos e a página de parâmetros de IPSec/IKE](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+#### <a name="vpn-and-mtu"></a>VPN e MTU
+
+Se você usar VMs que executam o encapsulamento (como VPNs IPsec), há algumas considerações adicionais sobre o tamanho do pacote e MTU. VPNs de adicionar mais cabeçalhos para pacotes, que aumenta o tamanho do pacote e requer um MSS menores.
+
+Para o Azure, recomendamos que você defina a fixação de MSS TCP para 1.350 bytes e criar um túnel de MTU da interface para 1.400. Para obter mais informações, consulte o [VPN dispositivos e a página de parâmetros de IPSec/IKE](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 ### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Latência, tempo de ida e volta e dimensionamento de janela TCP
 
 #### <a name="latency-and-round-trip-time"></a>Tempo de latência e de ida e volta
 
-Latência de rede é regida pela velocidade da luz em uma rede de fibra óptica. A realidade é que a taxa de transferência de rede de TCP também é controlada com eficiência (práticos limites máximos) devido ao tempo de ida e volta (RTT) entre os dois dispositivos de rede.
+Latência de rede é regida pela velocidade da luz em uma rede de fibra óptica. Taxa de transferência de rede de TCP efetivamente também é regida pelo tempo de ida e volta (RTT) entre os dois dispositivos de rede.
 
 | | | | |
 |-|-|-|-|
-|Rota|Distância|Tempo unidirecional|Tempo de ida e volta (RTT)|
+|**Rota**|**Distância**|**Tempo unidirecional**|**RTT**|
 |Nova Iorque para San Francisco|4,148 km|21 ms|42 ms|
 |Nova York para Londres|5,585 km|28 ms|56 ms|
 |Nova York para Sydney|15,993 km|80 ms|160 ms|
 
-Esta tabela mostra a distância linear entre dois locais, no entanto, em redes, a distância é geralmente mais do que a distância em linha reta. É uma fórmula simples para calcular o mínimo de RTT conforme regido pela velocidade da luz: RTT mínimo = 2 * (quilômetros de distância / velocidade de propagação).
+Esta tabela mostra a distância linear entre dois locais. Em redes, a distância é geralmente mais do que a distância em linha reta. Aqui está uma fórmula simples para calcular o mínimo RTT conforme regido pela velocidade da luz:
 
-Um valor padrão de 200 pode ser usado para velocidade de propagação - valor é que a distância em metros luz viaja em 1 milissegundo.
+`minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-No exemplo de Nova Iorque para San Francisco, é 4,148 km distância em linha reta. RTT mínimo = 2 * (4,148 / 20). A saída da equação será em milissegundos.
+Você pode usar a 200 para a velocidade de propagação. Essa é a distância, em metros, que a luz viaja em 1 milissegundo.
 
-Como a distância física entre dois locais é uma realidade fixa, se o desempenho de rede máxima for necessário, é a opção mais lógica selecionar destinos com a menor distância entre eles. Em segundo lugar, as decisões de design dentro da rede virtual podem ser feitas para o caminho do tráfego de otimizar e reduzir a latência. Essas considerações de rede virtual são descritas na seção considerações de Design de rede abaixo.
+Vamos dar Nova Iorque para San Francisco como exemplo. A distância em linha reta é 4,148 km. Esse valor se conectando a equação, obtemos o seguinte:
+
+`Minimum RTT = 2 * (4,148 / 200)`
+
+A saída da equação é em milissegundos.
+
+Se você quiser obter o melhor desempenho de rede, a opção lógica é selecionar destinos com a distância mais curta entre eles. Você também deve criar sua rede virtual para o caminho do tráfego de otimizar e reduzir a latência. Para obter mais informações, consulte a seção "Considerações de design de rede" deste artigo.
 
 #### <a name="latency-and-round-trip-time-effects-on-tcp"></a>Efeitos de tempo de latência e de ida e volta sobre TCP
 
-Ida e volta RTT (tempo) tem um efeito direto na taxa de transferência máxima de TCP. O protocolo TCP tem um conceito de tamanho da janela. O tamanho da janela é a quantidade máxima de tráfego que pode ser enviado por uma conexão TCP antes que o remetente deve receber a confirmação do receptor. Se o MSS TCP é definido como 1460 e o tamanho da janela TCP é definido como a 65535, em seguida, o remetente pode enviar 45 pacotes antes que ele deve receber a confirmação do receptor. Se não for recebida a confirmação, em seguida, o remetente retransmitirá. Neste exemplo, o tamanho de janela TCP / MSS TCP = pacotes enviados. Ou 65535 / 1460 é arredondado até 45.
+Tempo de ida e volta tem um efeito direto na taxa de transferência máxima de TCP. No protocolo TCP, *tamanho da janela* é a quantidade máxima de tráfego que pode ser enviado por uma conexão TCP antes que o remetente precisa receber a confirmação do receptor. Se o MSS TCP é definido como 1,460 e o tamanho da janela TCP é definido como 65.535, o remetente pode enviar 45 pacotes antes que ele deve receber a confirmação do receptor. Se o remetente não receber a confirmação, ele retransmitirá os dados. Aqui está a fórmula:
 
-Esse estado de "aguardando confirmação", como um mecanismo para criar uma entrega confiável de dados, é o que causa o RTT afetar a taxa de transferência TCP com eficiência. Quanto mais tempo o remetente aguarda confirmação, quanto mais tempo também deve aguardar antes de enviar mais dados.
+`TCP window size / TCP MSS = packets sent`
 
-A fórmula para calcular a taxa de transferência máxima de uma única conexão de TCP é da seguinte maneira: Tamanho da janela / (latência RTT em milissegundos / 1000) = máximo de bytes/segundo. A tabela a seguir é formatada em Megabytes para facilitar a leitura e mostra o máximo em megabytes por segundo taxa de transferência de uma única conexão de TCP.
+Neste exemplo, 65.535 / 1,460 é arredondado até 45.
 
-| | | | |
-|-|-|-|-|
-|Tamanho de janela TCP em Bytes|Latência RTT<br/>em milissegundos|Máximo<br/>Megabytes por segundo taxa de transferência|Máximo<br/> Megabits por segundo taxa de transferência|
-|65535|1|65.54|524.29|
-|65535|30|2.18|17.48|
-|65535|60|1.09|8.74|
-|65535|90|.73|5.83|
-|65535|120|.55|4.37|
+Esse estado de "aguardando confirmação", um mecanismo para garantir a entrega confiável de dados, é o que faz com que o RTT afetar a taxa de transferência TCP. Quanto mais tempo o remetente aguarda confirmação, quanto mais tempo ele precisa aguardar antes de enviar mais dados.
 
-Se houver alguma perda de pacotes, em seguida, isso pode reduzir a taxa de transferência máxima de uma conexão TCP enquanto o remetente retransmite dados que já foram enviados.
+Aqui está a fórmula para calcular a taxa de transferência máxima de uma única conexão de TCP:
 
-#### <a name="explanation-of-tcp-window-scaling"></a>Explicação de dimensionamento de janela TCP
+`Window size / (RTT latency in milliseconds / 1,000) = maximum bytes/second`
 
-Dimensionamento de janela TCP é um conceito que aumenta dinamicamente o tamanho da janela TCP permitindo que mais dados a serem enviados antes que uma confirmação é necessária. Em nosso exemplo anterior, 45 pacotes seriam enviados antes de uma confirmação foi necessária. Se o número de pacotes que são enviados antes de uma confirmação é aumentada, em seguida, a taxa de transferência máxima de TCP também é aumentada, reduzindo o número de vezes que um remetente aguarda o reconhecimento.
-
-Taxa de transferência TCP é demonstrada em uma tabela simple a seguir:
+Esta tabela mostra o máximo em megabytes por segundo taxa de transferência de uma única conexão de TCP. (Para facilitar a leitura, megabytes é usado para a unidade de medida).
 
 | | | | |
 |-|-|-|-|
-|Tamanho de janela TCP<br/>in Bytes|RTT latência em milissegundos|Máximo<br/>Megabytes por segundo taxa de transferência|Máximo<br/> Megabits por segundo taxa de transferência|
-|65535|30|2.18|17.48|
+|**Tamanho de janela TCP (bytes)**|**Latência RTT (ms)**|**Máximo em megabytes por segundo de taxa de transferência**|**Máximo megabits/segundo de taxa de transferência**|
+|65.535|1|65.54|524.29|
+|65.535|30|2.18|17.48|
+|65.535|60|1.09|8.74|
+|65.535|90|.73|5.83|
+|65.535|120|.55|4.37|
+
+Se os pacotes forem perdidos, a taxa de transferência máxima de uma conexão TCP será reduzida enquanto o remetente retransmite dados que já foram enviados.
+
+#### <a name="tcp-window-scaling"></a>Dimensionamento de janela TCP
+
+Dimensionamento de janela TCP é uma técnica que aumenta dinamicamente o tamanho da janela TCP para permitir que mais dados a serem enviados antes que uma confirmação é necessária. No exemplo anterior, os 45 pacotes seriam enviados antes de uma confirmação foi necessária. Se você aumentar o número de pacotes que podem ser enviados antes de uma confirmação é necessária, você está reduzindo o número de vezes que um remetente aguarda o reconhecimento, que aumenta a taxa de transferência máxima de TCP.
+
+Esta tabela ilustra essas relações:
+
+| | | | |
+|-|-|-|-|
+|**Tamanho de janela TCP (bytes)**|**Latência RTT (ms)**|**Máximo em megabytes por segundo de taxa de transferência**|**Máximo megabits/segundo de taxa de transferência**|
+|65.535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
 |524,280|30|17.48|139.81|
 
-No entanto, o valor do cabeçalho TCP para o tamanho de janela TCP é apenas 2 bytes de comprimento, que significa que o valor máximo para uma janela de recepção é 65535. Para aumentar o tamanho máximo da janela, um fator de dimensionamento de janela TCP foi introduzido.
+Mas o valor do cabeçalho TCP para o tamanho de janela TCP é apenas 2 bytes de comprimento, o que significa que o valor máximo para uma janela de recepção é de 65.535. Para aumentar o tamanho máximo da janela, um fator de dimensionamento de janela TCP foi introduzido.
 
-O fator de escala também é uma configuração que pode ser configurada em um sistema operacional. A fórmula para calcular o tamanho da janela TCP usando os fatores de escala é da seguinte maneira: Tamanho de janela TCP = tamanho da janela TCP em Bytes \* (2 ^ fator de dimensionamento). Se o fator de dimensionamento de janela é 3 e o tamanho da janela de 65535, o cálculo é da seguinte maneira: 65535 \* (2 ^ 3) = 262,140 bytes. Um fator de escala de 14 resulta em um tamanho de janela TCP de 14 (o deslocamento máximo permitido), o tamanho da janela TCP será 1,073,725,440 bytes (8,5 gigabits).
+O fator de escala também é uma configuração que você pode configurar em um sistema operacional. Aqui está a fórmula para calcular o tamanho da janela TCP por meio de fatores de dimensionamento:
+
+`TCP window size = TCP window size in bytes \* (2^scale factor)`
+
+Aqui está o cálculo para um fator de dimensionamento de janela de 3 e um tamanho de janela de 65.535:
+
+`65,535 \* (2^3) = 262,140 bytes`
+
+Um fator de escala de 14 resulta em um tamanho de janela TCP de 14 (o deslocamento máximo permitido). O tamanho da janela TCP será 1,073,725,440 bytes (8,5 gigabits).
 
 #### <a name="support-for-tcp-window-scaling"></a>Suporte para dimensionamento de janela TCP
 
-Windows tem a capacidade de definir diferente fatores de dimensionamento em uma base de tipo de conexão - existem várias classes de conexões (datacenter, internet e assim por diante). Você pode ver a classificação de conexão de dimensionamento de janela com o comando do powershell Get-NetTCPConnection.
+Windows podem definir diferente fatores de dimensionamento para tipos de conexão diferente. (As classes de conexões incluem datacenter, internet e assim por diante.) Você usa o `Get-NetTCPConnection` para exibir a tipo de conexão de dimensionamento da janela de comando do PowerShell:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-Você pode ver os valores de cada classe com o comando do powershell Get-NetTCPSetting.
+Você pode usar o `Get-NetTCPSetting` para exibir os valores de cada classe de comando do PowerShell:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-O tamanho de janela TCP inicial e o fator de dimensionamento de TCP podem ser definido no Windows por meio do comando do powershell Set-NetTCPSetting. Mais informações podem ser encontradas no [NetTCPSetting do conjunto de página](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)
+Você pode definir o tamanho de janela TCP inicial e o fator de escala de TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte [NetTCPSetting conjunto](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-As configurações de TCP em vigor para AutoTuningLevel são da seguinte maneira.
+Essas são as configurações de TCP em vigor para `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|AutoTuningLevel|Fator de escala|Multiplicador de escala|Fórmula para<br/>calcular o tamanho máximo da janela|
+|**AutoTuningLevel**|**Fator de escala**|**Multiplicador de escala**|**Fórmula para<br/>calcular o tamanho máximo da janela**|
 |Desabilitado|Nenhum|Nenhum|Tamanho da janela|
 |Restrito|4|2^4|Tamanho da janela * (2 ^ 4)|
 |Altamente restrito|2|2^2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2^8|Tamanho da janela * (2 ^ 8)|
 |Experimental|14|2^14|Tamanho da janela * (2 ^ 14)|
 
-Embora essas configurações são os mais prováveis afetar o desempenho de TCP, deve-se observar que muitos outros fatores através da Internet, fora do controle do Azure, também podem afetar o desempenho de TCP.
+Essas configurações são a maior probabilidade de afetar o desempenho de TCP, mas lembre-se de que muitos outros fatores através da internet, fora do controle do Azure, também podem afetar o desempenho de TCP.
 
 #### <a name="increase-mtu-size"></a>Aumentar o tamanho MTU
 
-Uma lógica pergunta é "pode aumentar a MTU aumentar o desempenho de TCP como uma MTU maior significa uma maior MSS"? A resposta simples é – provavelmente não. Conforme discutido, há prós e contras em relação a tamanho do pacote que são aplicáveis, além de apenas o tráfego de TCP. Como discutido acima, os fatores mais importantes que afetam o desempenho de taxa de transferência TCP é RTT, perda de pacotes e tamanho de janela TCP.
+Como uma MTU maior significa uma MSS maiores, você talvez esteja se perguntando se aumentar a MTU pode aumentar o desempenho de TCP. Provavelmente, não. Há prós e contras ao tamanho de pacote, além de apenas o tráfego de TCP. Conforme discutido anteriormente, os fatores mais importantes que afetam o desempenho de taxa de transferência TCP são RTT, perda de pacotes e tamanho de janela TCP.
 
 > [!IMPORTANT]
-> O Azure não recomenda que os clientes do Azure modifique o valor MTU padrão em máquinas virtuais.
+> Não recomendamos que os clientes do Azure altere o valor MTU padrão em máquinas virtuais.
 >
 >
 
-### <a name="accelerated-networking-and-receive-side-scaling"></a>Rede acelerada e Receive Side Scaling
+### <a name="accelerated-networking-and-receive-side-scaling"></a>Rede acelerada e RSS
 
-#### <a name="accelerated-networking"></a>Rede Acelerada
+#### <a name="accelerated-networking"></a>Redes aceleradas
 
-Funções de rede da máquina virtual foram historicamente intensivo sobre o convidado da VM e Host do hipervisor/de CPU. Todos os pacotes que transite por meio do host é processado no software pelo host de CPU – incluindo todos os a rede Virtual encapsulamento/de-capsulation. Assim, mais o tráfego que passa por host, em seguida, maior será a carga de CPU. E, se a CPU do host estiver ocupada com outras operações, em seguida, que também afeta taxa de transferência de rede e latência. Esse problema foi resolvido por meio da rede acelerada.
+Funções de rede da máquina virtual foram historicamente intensivo na VM convidada e host do hipervisor/de CPU. Todos os pacotes que transite por meio do host é processado no software pelo host de CPU, incluindo todos os encapsulamento de rede virtual e desencapsulamento. Portanto, mais o tráfego que passa por host, maior será a CPU carregar. E se a CPU do host está ocupada com outras operações, que também afetará taxa de transferência de rede e latência. Azure resolve esse problema com a rede acelerada.
 
-A rede acelerada fornece a latência de rede Ultra baixas consistentes por meio de hardware programável interno do Azure e tecnologias como SR-IOV. Movendo grande parte da pilha de rede definida pelo software do Azure desativar as CPUs e em SmartNICs baseada em FPGA, computação ciclos são recuperados por aplicativos de usuário final, colocando menos carga na VM, diminuindo a tremulação e a inconsistência na latência. Em outras palavras, o desempenho pode ser mais determinista.
+A rede acelerada fornece a latência de rede ultralow consistente por meio de hardware programável interno do Azure e tecnologias como SR-IOV. A rede acelerada passa grande parte do Azure definido pelo software pilha da rede em SmartNICs baseada em FPGA e as CPUs. Essa alteração permite que os aplicativos do usuário final recuperar ciclos de computação, que coloca menos carga na VM, diminuindo a tremulação e a inconsistência na latência. Em outras palavras, o desempenho pode ser mais determinista.
 
-A rede acelerada atinge melhorias de desempenho, permitindo que a VM convidada ignorar o host e estabelecer um caminho de dados diretamente com SmartNIC do host. Benefícios da rede acelerada são:
+A rede acelerada melhora o desempenho, permitindo que a VM para ignorar o host e estabelecer um caminho de dados diretamente com um host SmartNIC convidada. Aqui estão alguns benefícios da rede acelerada:
 
-- **Latência menor / maior pacotes por segundo (pps)**: remover o comutador virtual do caminho de dados elimina o tempo que os pacotes gastam no host para processamento da política e aumenta o número de pacotes que podem ser processados dentro da VM.
+- **Latência menor / maior pacotes por segundo (pps)**: Remover o comutador virtual do caminho de dados elimina o tempo pacotes gastam no host para processamento da política e aumenta o número de pacotes que podem ser processadas na VM.
 
-- **Tremulação reduzida**: o processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
+- **Tremulação reduzida**: Processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e a carga de trabalho da CPU que está fazendo o processamento. Descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, eliminando a comunicação de VM de host e todas as interrupções de software e de alternâncias de contexto.
 
 - **Menor utilização da CPU**: ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
 
-A rede acelerada deve ser habilitada explicitamente em uma base por VM. Instruções para habilitar a rede acelerada em uma VM estão disponíveis na [criar uma máquina virtual Linux com rede acelerada página](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+Para usar a rede acelerada, você precisa habilitá-lo explicitamente em cada VM aplicável. Ver [criar uma máquina virtual Linux com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para obter instruções.
 
-#### <a name="receive-side-scaling-rss"></a>Receive Side Scaling (RSS)
+#### <a name="receive-side-scaling"></a>O Receive side scaling
 
-RSS é uma tecnologia de driver de rede que distribui o recebimento do tráfego de rede com mais eficiência com a distribuição de processamento de recebimento entre várias CPUs em um sistema com vários processadores. Em termos simples, o RSS permite que um sistema processe uma maior quantidade de tráfego recebido, pois ela usa todas as CPUs disponíveis, em vez de apenas um. Uma discussão mais técnica de RSS pode ser encontrada na [Introdução ao Receive Side Scaling página](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Colocação em escala (RSS) é uma tecnologia de driver de rede que distribui o recebimento do tráfego de rede com mais eficiência com a distribuição de processamento de recebimento entre várias CPUs em um sistema multiprocessador do lado de recebimento. Em termos simples, o RSS permite que um sistema processar mais tráfego recebido, pois ela usa todas as CPUs disponíveis, em vez de apenas um. Para obter uma discussão mais técnica sobre RSS, consulte [Introdução ao RSS](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-RSS é necessária para alcançar desempenho máximo quando a rede acelerada está habilitada em uma máquina virtual. Também pode haver benefícios em usar o RSS em VMs que não têm a rede acelerada habilitada. Uma visão geral de como determinar se o RSS está habilitado e configuração para habilitá-la pode ser encontrada na [otimizar a taxa de transferência de rede para máquinas virtuais do Azure página](http://aka.ms/FastVM).
+Para obter o melhor desempenho quando a rede acelerada está habilitada em uma VM, você precisa habilitar o RSS. RSS também pode fornecer a rede acelerada de benefícios em VMs que não usam. Para uma visão geral de como determinar se o RSS está habilitado e como habilitá-lo, consulte [otimizar a taxa de transferência de rede para máquinas virtuais do Azure](http://aka.ms/FastVM).
 
-### <a name="tcp-time-wait-and-time-wait-assassination"></a>Tempo e espera de tempo TCP esperam Assassination
+### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT e TIME_WAIT assassination
 
-Outro problema comum que afeta o desempenho de rede e de aplicativo é a configuração de espera de tempo de TCP. Em VMs ocupadas que são de abertura e fechamento muitos soquetes, como um cliente ou servidor (fonte IP:Source porta + porta IP:Destination de destino), durante a operação normal do TCP, um soquete determinado pode terminar em um estado de espera de tempo para uma quantidade significativa de tempo. Esse estado de "tempo de espera", destina-se para permitir que todos os dados adicionais a serem entregues em um soquete antes de fechá-lo. Portanto, as pilhas de TCP/IP geralmente evitar a reutilização de um soquete soltando silenciosamente o pacote TCP SYN de clientes.
+TCP TIME_WAIT é outra configuração comum que afeta o desempenho de rede e de aplicativo. Em VMs ocupadas que estão abrindo e fechando muitos soquetes, como clientes ou servidores (origem IP:Source porta + porta IP:Destination de destino), durante a operação normal do TCP, um soquete determinado pode terminar em um estado TIME_WAIT por um longo tempo. O estado TIME_WAIT destina-se para permitir que todos os dados adicionais a serem entregues em um soquete antes de fechá-lo. Portanto, as pilhas de TCP/IP geralmente impedir a reutilização de um soquete soltando silenciosamente um pacote do cliente TCP SYN.
 
-Essa quantidade de tempo de um soquete está em estado de espera é configurável, mas pode variar de 30 segundos para 240 segundos de tempo. Soquetes são um recurso finito, e o número de soquetes que pode ser usado em um determinado momento é configurável (o número geralmente se encontra 30.000 em torno de soquetes possíveis). Se esse número é esgotado, ou os clientes e servidores têm configurações de espera de hora incompatíveis e uma VM tentar reutilizar um soquete em estado de espera de tempo, em seguida, novas conexões falhará, pois pacotes TCP SYN são descartadas silenciosamente.
+A quantidade de tempo que um soquete está em TIME_WAIT é configurável. Ele pode variar de 30 segundos a 240 segundos. Soquetes são um recurso finito, e o número de soquetes que pode ser usado em um determinado momento é configurável. (O número de soquetes disponíveis normalmente é cerca de 30.000.) Se os soquetes disponíveis são consumidos, ou se os clientes e servidores têm configurações de TIME_WAIT incompatíveis e uma VM tentar reutilizar um soquete em um estado TIME_WAIT, novas conexões falharão como TCP SYN silenciosamente os pacotes são descartados.
 
-Normalmente, o valor de intervalo de portas para soquetes, bem como as configurações de TCP tempo aguardar e reutilização de soquete são configuráveis na pilha de TCP/IP de um sistema operacional. Alterar esses números podem potencialmente melhorar a escalabilidade, mas, dependendo do cenário, poderia introduzir problemas de interoperabilidade e deve ser alterada com cuidado.
+O valor para o intervalo de portas para soquetes é geralmente configurável dentro da pilha de TCP/IP de um sistema operacional. O mesmo é verdadeiro para as configurações de TCP TIME_WAIT e reutilização de soquete. Alterar esses números pode melhorar a escalabilidade. Mas, dependendo da situação, essas alterações pode causar problemas de interoperabilidade. Você deve ter cuidado se você alterar esses valores.
 
-Um recurso chamado tempo de espera Assassination foi introduzido para resolver isso, limitação de dimensionamento. Assassination de espera de tempo permite que um soquete ser reutilizado em determinados cenários, como quando o número de sequência no pacote IP de que a nova conexão excede o número de sequência do último pacote da conexão anterior. Nesse caso, o sistema operacional permitirá que a nova conexão seja estabelecida (aceitar o novo SYN ACK) e feche o força a conexão anterior que foi no tempo de espera estado. Esse recurso tem suporte em VMs do Windows no Azure hoje mesmo e suporte dentro de outras VMs deve ser investigado pelos clientes do Azure com os respectivos fornecedores de sistema operacional.
+Você pode usar assassination TIME_WAIT para resolver essa limitação de colocação em escala. Assassination TIME_WAIT permite que um soquete a ser reutilizado em determinadas situações, como quando o número de sequência no pacote de IP a nova conexão excede o número de sequência do último pacote da conexão anterior. Nesse caso, o sistema operacional permitirá que a nova conexão seja estabelecida (ele aceitará o nova SYN/ACK) e feche o força a conexão anterior que estava em um estado TIME_WAIT. Esse recurso tem suporte em VMs do Windows no Azure. Para saber mais sobre o suporte a outras VMs, verifique com o fornecedor do sistema operacional.
 
-Documentação sobre como configurar as configurações de TCP tempo aguardar e intervalo de porta de origem está disponível na [as configurações que podem ser modificadas para página de melhorar o desempenho da rede](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+Para saber mais sobre como configurar as configurações de TCP TIME_WAIT e intervalo de porta de origem, consulte [as configurações que podem ser modificadas para melhorar o desempenho de rede](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
 
-## <a name="virtual-network-factors-that-can-affect-performance"></a>Fatores de rede virtuais que podem afetar o desempenho
+## <a name="virtual-network-factors-that-can-affect-performance"></a>Fatores de rede virtual que podem afetar o desempenho
 
 ### <a name="vm-maximum-outbound-throughput"></a>Produtividade de saída máxima de VM
 
-O Azure oferece uma variedade de tamanhos e tipos de VM, cada um com uma combinação diferente de funcionalidades de desempenho. Um tal recurso de desempenho é rede taxa de transferência (ou largura de banda), medida em megabits por segundo (Mbps). Como as máquinas virtuais são hospedadas em um hardware compartilhado, a capacidade de rede deve ser compartilhada adequadamente entre as máquinas virtuais que compartilham o mesmo hardware. Máquinas virtuais maiores recebem relativamente mais largura de banda que máquinas virtuais menores.
+O Azure fornece uma variedade de tamanhos de VM e tipos, cada um com uma combinação diferente de funcionalidades de desempenho. Um desses recursos é rede taxa de transferência (ou largura de banda) que é medida em megabits por segundo (Mbps). Como as máquinas virtuais são hospedadas no hardware compartilhado, a capacidade de rede precisa ser compartilhada adequadamente entre as máquinas virtuais usando o mesmo hardware. Máquinas virtuais maiores são alocadas mais largura de banda que máquinas virtuais menores.
 
-A largura de banda de rede alocada a cada máquina virtual é limitada no tráfego de saída (saída) da máquina virtual. Todo o tráfego de rede que deixa a máquina virtual é contado para o limite alocado, independentemente do destino. Por exemplo, se uma máquina virtual tem um limite de 1.000 Mbps, esse limite se aplica se o tráfego de saída destina-se a outra máquina virtual na mesma rede virtual ou fora do Azure.
-A entrada não é limitada diretamente. No entanto, há outros fatores, como limites de CPU e armazenamento, que podem afetar a capacidade de uma máquina virtual de processar dados de entrada.
+A largura de banda de rede alocada a cada máquina virtual é limitada no tráfego de saída (saída) da máquina virtual. Todo o tráfego de rede que deixa a máquina virtual é contado para o limite alocado, independentemente do destino. Por exemplo, se uma máquina virtual tem um limite de 1.000 Mbps, esse limite se aplica se o tráfego de saída destina-se a outra máquina virtual na mesma rede virtual ou um fora do Azure.
 
-Rede acelerada é um recurso projetado para melhorar o desempenho de rede, incluindo latência, taxa de transferência e utilização da CPU. Embora a rede acelerada possa melhorar a taxa de transferência de uma máquina virtual, poderá fazê-lo somente até a máquina de virtual alocados a largura de banda.
+A entrada não é limitada diretamente. Mas há outros fatores, como limites de CPU e armazenamento, que podem afetar a capacidade de uma máquina virtual de processar dados de entrada.
 
-As máquinas virtuais do Azure devem ter um, mas podem ter vários adaptadores de rede anexados a elas. A largura de banda alocada a uma máquina virtual é a soma de todo o tráfego de saída em todos os adaptadores de rede anexados a uma máquina virtual. Em outras palavras, a largura de banda alocada é por máquina virtual, independentemente de quantos adaptadores de rede estão anexados à máquina virtual.
- 
-Taxa de transferência de saída esperada e o número de interfaces de rede cada tamanho de VM com suporte é detalhada aqui. Para ver a taxa de transferência máxima, selecione um tipo, como de uso geral e uma série de tamanho na página resultante, como a série Dv2. Cada série tem uma tabela com as especificações na última coluna intitulada, máximo de NICs de rede / desempenho de rede (Mbps) esperado.
+A rede acelerada é projetada para melhorar o desempenho de rede, incluindo latência, taxa de transferência e utilização da CPU. Rede acelerada possa melhorar a taxa de transferência de uma máquina virtual, mas ele pode fazer isso somente até a largura de banda alocada da máquina virtual.
 
-O limite de taxa de transferência se aplica à máquina virtual. A taxa de transferência não é afetada pelos seguintes fatores:
+Máquinas virtuais do Azure têm pelo menos um adaptador de rede anexado a eles. Elas podem ter várias. A largura de banda alocada a uma máquina virtual é a soma de todo o tráfego de saída de todas as interfaces de rede anexadas à máquina. Em outras palavras, a largura de banda é alocada em uma base por-virtual machine, independentemente de quantos adaptadores de rede estão anexados à máquina.
 
-- **Número de adaptadores de rede**: O limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.
+Taxa de transferência de saída esperada e o número de interfaces de rede com suporte em cada tamanho VM são detalhados em [máquinas virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver a taxa de transferência máxima, selecione um tipo, como **propósito geral**e, em seguida, localize a seção sobre a série de tamanho na página resultante (por exemplo, "série Dv2"). Para cada série, há uma tabela que fornece especificações de rede na última coluna, que é intitulada "máximo de NICs / esperado (Mbps) da largura de banda de rede."
 
-- **Rede acelerada**: Embora o recurso pode ser útil para alcançar o limite publicado, ele não altera o limite.
+O limite de taxa de transferência se aplica à máquina virtual. Taxa de transferência não é afetada por estes fatores:
+
+- **Número de adaptadores de rede**: O limite de largura de banda se aplica à soma de todo o tráfego de saída da máquina virtual.
+
+- **Rede acelerada**: Embora esse recurso pode ser útil para alcançar o limite publicado, ele não altera o limite.
 
 - **Destino do tráfego**: Todos os destinos contam para o limite de saída.
 
 - **Protocolo**: Todo o tráfego de saída em todos os protocolos conta para o limite.
 
-Um [tabela de largura de banda máxima por tipo de VM pode ser encontrada ao visitar esta página](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e clicando no respectivo tipo VM. Em cada página de tipo, uma tabela mostrará as NICs máximo e a largura de banda máxima esperada da rede.
-
-Para obter mais informações sobre a largura de banda de rede de VM podem ser encontradas no [largura de banda de rede de máquina Virtual](http://aka.ms/AzureBandwidth).
+Para obter mais informações, consulte [largura de banda de rede de máquina Virtual](http://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Considerações sobre o desempenho da Internet
 
-Como discutido neste artigo, fatores na Internet e fora do controle do Azure podem afetar o desempenho da rede. Esses fatores são:
+Como discutido neste artigo, fatores na internet e fora do controle do Azure podem afetar o desempenho da rede. Aqui estão alguns desses fatores:
 
-- **Latência**: O tempo de ida e volta entre dois destinos pode ser afetado por problemas em redes intermediários, o tráfego não levando a distância "mais curta" caminhos de emparelhamento possíveis e abaixo do ideal caminho
+- **Latência**: O tempo de ida e volta entre dois destinos pode ser afetado por problemas em redes intermediários, o tráfego que não usa o caminho de distância "mais curto" e caminhos de emparelhamento abaixo do ideal.
 
-- **Perda de pacotes**: Perda de pacotes pode ser causada pelo congestionamento de rede, problemas de caminho físico e dispositivos de rede em execução
+- **Perda de pacotes**: Perda de pacotes pode ser causada pelo congestionamento de rede, problemas de caminho físico e com baixo desempenho de dispositivos de rede.
 
-- **Fragmentação da tamanho MTU**: A fragmentação ao longo do caminho pode levar a atrasos na chegada de dados ou pacotes que chegam fora de ordem, que podem afetar a entrega de pacotes
+- **Fragmentação da tamanho MTU**: A fragmentação ao longo do caminho pode levar a atrasos na chegada de dados ou em pacotes que chegam fora de ordem, que podem afetar a entrega de pacotes.
 
-Rastreamento de rotas é uma boa ferramenta para medir as características de desempenho de rede (como perda de pacotes e latência) ao longo de cada caminho de rede entre um dispositivo de origem e de destino.
+Rastreamento de rotas é uma boa ferramenta para medir as características de desempenho de rede (como perda de pacotes e latência) ao longo de cada caminho de rede entre um dispositivo de origem e um dispositivo de destino.
 
 ### <a name="network-design-considerations"></a>Considerações de design de rede
 
-Junto com as considerações acima, a topologia de uma rede Virtual pode afetar o desempenho de rede Virtual. Por exemplo, um hub e spoke design que tráfego backhauls globalmente para uma rede virtual de hub único apresentará latência de rede e, portanto, afetar o desempenho geral da rede. Da mesma forma, o número de dispositivos de rede que passa do tráfego de rede também pode afetar a latência geral. Por exemplo, em um design de hub e spoke, se o tráfego está passando por meio de um spoke dispositivo de rede Virtual e um dispositivo de Hub Virtual antes de trânsito com a Internet, em seguida, latência pode ser introduzida por dispositivos de rede Virtual.
+Junto com as considerações discutidas neste artigo, a topologia de uma rede virtual pode afetar o desempenho da rede. Por exemplo, um design de hub e spoke que backhauls tráfego global para uma rede virtual de hub único apresentará a latência de rede, o que afetará o desempenho geral da rede.
+
+O número de dispositivos de rede que passa do tráfego de rede também pode afetar a latência geral. Por exemplo, em um design de hub e spoke, se o tráfego passa por um dispositivo de rede virtual spoke e um dispositivo virtual de hub antes de transitar à internet, dispositivos de rede virtual podem introduzir latência.
 
 ### <a name="azure-regions-virtual-networks-and-latency"></a>Regiões do Azure, redes virtuais e latência
 
-Regiões do Azure são compostas de vários data centers que existem dentro de uma área geográfica geral. Esses datacenters não estejam fisicamente próximos uns dos outros e, em alguns casos, pode ser separados por até 10 km. A rede Virtual é uma sobreposição lógica na parte superior da rede do Centro de dados físicos do Azure e uma rede Virtual não implica em qualquer topologia de rede específico dentro do data center. Por exemplo, A VM e B de VM estão na mesma rede Virtual e sub-rede, mas podem estar em diferentes racks, linhas ou até mesmo datacenters. Eles podem ser separados por metros de cabo de fibra ótica ou quilômetros do cabo de fibra óptica. Essa realidade pode introduzir latência variável (diferença de alguns milissegundos) entre diferentes VMs.
+Regiões do Azure são compostas de vários data centers que existem dentro de uma área geográfica geral. Esses datacenters podem não estar fisicamente próximos uns dos outros. Em alguns casos, eles são separados por até 10 km. A rede virtual é uma sobreposição de lógica em cima da rede de datacenter físico do Azure. Uma rede virtual não implica em qualquer topologia de rede específico dentro do datacenter.
 
-Esse posicionamento geográfico e, portanto, a latência entre duas VMs, podem ser influenciados por meio da configuração de zonas de disponibilidade e conjuntos de disponibilidade, no entanto, a distância entre data centers em uma região é específico da região e predominantemente influenciou por topologia de data center na região.
+Por exemplo, duas VMs que estão na mesma rede virtual e sub-rede podem ser em diferentes racks, linhas ou até mesmo datacenters. Eles podem ser separados por metros de cabo de fibra ótica ou quilômetros do cabo de fibra óptica. Essa variação pode introduzir latência variável (diferença de alguns milissegundos) entre diferentes VMs.
+
+O posicionamento geográfico de VMs e a latência resultante possíveis entre duas VMs, podem ser influenciados pela configuração de zonas de disponibilidade e conjuntos de disponibilidade. Mas a distância entre os datacenters em uma região específica da região e influenciou principalmente pela topologia de data center na região.
 
 ### <a name="source-nat-port-exhaustion"></a>Esgotamento de porta NAT de origem
 
-Uma implantação no Azure pode se comunicar com pontos de extremidade fora do Azure na Internet pública e/ou espaço de IP público. Quando uma instância inicia essa conexão de saída, o Azure mapeia dinamicamente o endereço IP privado para um endereço IP público. Depois que esse mapeamento é criado, o tráfego de retorno para esse fluxo originado de saída também pode alcançar o endereço IP privado onde o fluxo foi originado.
+Uma implantação no Azure pode se comunicar com pontos de extremidade fora do Azure na internet pública e/ou no espaço de IP público. Quando uma instância inicia uma conexão de saída, o Azure mapeia dinamicamente o endereço IP privado para um endereço IP público. Depois que o Azure cria esse mapeamento, o tráfego de retorno para o fluxo originado de saída também pode acessar o endereço IP privado onde o fluxo foi originado.
 
-Para cada conexão de saída, o balanceador de carga do Azure deve manter esse mapeamento para um determinado período de tempo. Com a natureza de vários locatário do Azure, manter esse mapeamento para cada fluxo de saída para cada VM pode consumir muitos recursos. Portanto, há limites que são definidos e com base na configuração da rede Virtual do Azure. Ou declarados com mais precisão - uma VM do Azure só pode fazer um determinado número de conexões de saída em um determinado momento. Quando esses limites são esgotados, a VM do Azure será impedida de fazer quaisquer conexões de saída ainda mais.
+Para cada conexão de saída, o balanceador de carga do Azure precisa manter esse mapeamento para um determinado período de tempo. Com a natureza de vários locatários do Azure, manter esse mapeamento para cada fluxo de saída para cada VM pode ser recurso intensivo. Portanto, há limites que são definidos e com base na configuração da rede Virtual do Azure. Ou, digamos que, mais precisamente, uma VM do Azure só pode fazer um determinado número de conexões de saída em um determinado momento. Quando esses limites são atingidos, a VM não será capaz de fazer conexões de saída mais.
 
-Esse comportamento, entretanto, é configurável. Para obter mais informações sobre [SNAT e SNAT da porta esgotamento], consulte [deste artigo](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+Mas esse comportamento é configurável. Para obter mais informações sobre o SNAT e SNAT a porta esgotamento, consulte [deste artigo](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
 
 ## <a name="measure-network-performance-on-azure"></a>Medir o desempenho de rede no Azure
 
-Um número dos limites máximos de desempenho neste artigo está relacionado à latência de rede / ida e volta (RTT) de tempo entre duas VMs. Esta seção fornece algumas sugestões sobre como testar a latência/RTT, bem como o desempenho de TCP e desempenho da rede VM. Os valores de TCP/IP & rede discutidos acima podem ser ajustados e o desempenho testado usando as técnicas descritas abaixo. Os valores de latência, a MTU, MSS e tamanho da janela podem ser usados nos cálculos listados acima e máximos teóricos podem ser comparados com os valores reais observados durante o teste.
+Um número dos limites máximos de desempenho neste artigo está relacionado à latência de rede / ida e volta (RTT) de tempo entre duas VMs. Esta seção fornece algumas sugestões sobre como testar a latência/RTT e como testar o desempenho de TCP e o desempenho da rede VM. Você pode ajustar e os valores de TCP/IP e rede discutidos anteriormente, usando as técnicas descritas nesta seção de teste de desempenho. Você pode conectar valores de tamanho de janela, a MTU, MSS e latência em cálculos fornecidos anteriormente e comparar máximos teóricos com os valores reais que você observa durante o teste.
 
 ### <a name="measure-round-trip-time-and-packet-loss"></a>Medir o tempo de ida e volta e perda de pacotes
 
-Desempenho de TCP depende intensamente RTT e a perda de pacotes. A maneira mais simples para medir o RTT e a perda de pacotes está usando o utilitário ping disponível no Windows e Linux. A saída do ping mostrará max/min/média latência entre uma origem e destino, bem como perda de pacotes. Por padrão, o ping usa o protocolo ICMP. Para testar TCP RTT, em seguida, PsPing pode ser usado. Saiba mais sobre o PsPing está disponível em [esse link](https://docs.microsoft.com/sysinternals/downloads/psping).
+Desempenho de TCP depende intensamente RTT e a perda de pacotes. O utilitário PING disponível no Windows e Linux fornece a maneira mais fácil de medir RTT e perda de pacotes. A saída do PING mostrará a latência de mínimo/máximo/médio entre a origem e destino. Ela também mostrará a perda de pacotes. Por padrão, o PING usa o protocolo ICMP. Você pode usar PsPing para testar TCP RTT. Para obter mais informações, consulte [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Taxa de transferência real de uma conexão TCP medida
 
-NTttcp é uma ferramenta que é usada para testar o desempenho de TCP de uma VM Linux ou Windows. Várias configurações de TCP podem ser ajustadas e os benefícios testado usando o NTttcp. Para obter mais informações sobre o NTttcp podem ser encontradas nos links abaixo.
+NTttcp é uma ferramenta de teste de desempenho de TCP de uma VM Linux ou Windows. Você pode alterar várias configurações de TCP e, em seguida, testar os benefícios ao usar o NTttcp. Para obter mais informações, consulte estes recursos:
 
 - [Largura de banda/taxa de transferência (NTttcp) de teste](https://aka.ms/TestNetworkThroughput)
 
@@ -337,9 +370,9 @@ NTttcp é uma ferramenta que é usada para testar o desempenho de TCP de uma VM 
 
 ### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Medida largura de banda real de uma máquina virtual
 
-Teste de desempenho de diferentes tipos de VM, a rede acelerada e assim por diante, pode ser testado usando uma ferramenta chamada Iperf, também está disponível no Linux e Windows. O Iperf pode usar o TCP ou UDP para testar a taxa de transferência de rede geral. Testes de taxa de transferência TCP usando o Iperf são influenciados pelos fatores discutidos neste artigo (latência, tempo de resposta e assim por diante). Portanto, UDP pode produzem resultados melhores para simplesmente a taxa de transferência máxima de teste.
+Você pode testar o desempenho de diferentes tipos de VM, accelerated networking e assim por diante, usando uma ferramenta chamada iPerf. o iPerf também está disponível no Linux e Windows. o iPerf pode usar o TCP ou UDP para testar a taxa de transferência de rede geral. testes de taxa de transferência TCP iPerf são influenciados pelos fatores discutidos neste artigo (como latência e RTT). Portanto, o UDP pode produzem resultados melhores se você quiser apenas testar a taxa de transferência máxima.
 
-Informações adicionais podem ser encontradas abaixo:
+Para obter mais informações, consulte estes artigos:
 
 - [Solucionando problemas de desempenho de rede de Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
@@ -347,6 +380,12 @@ Informações adicionais podem ser encontradas abaixo:
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Detectar comportamentos TCP ineficientes
 
-Os clientes do Azure podem ver os pacotes TCP com sinalizadores de TCP (SACK, DUP ACK, retransmissão e rápida de retransmissão) em capturas de pacotes que podem indicar problemas de desempenho de rede. Esses pacotes indicam especificamente ineficiências de rede como resultado de perda de pacotes. No entanto, perda de pacotes não é necessariamente devido a problemas de desempenho do Azure. Problemas de desempenho pode ser o resultado de aplicativo, sistema operacional ou outros problemas que podem não estar diretamente relacionados com a plataforma do Azure. Também é importante observar que alguns retransmissão ou ACKs duplicados em uma rede é normal – protocolos TCP foram criados para ser confiável. E, evidência desses pacotes de TCP em uma captura de pacote não indica necessariamente um problema de rede sistêmicos a menos que sejam excessivas.
+Na captura de pacote, os clientes do Azure poderá ver os pacotes TCP com sinalizadores TCP (SACK, DUP ACK, retransmissão e rápida de retransmissão) que podem indicar problemas de desempenho de rede. Esses pacotes indicam especificamente ineficiências de rede resultantes da perda de pacotes. Mas a perda de pacotes não é necessariamente causada por problemas de desempenho do Azure. Problemas de desempenho pode ser o resultado de problemas de aplicativos, problemas de sistema operacional ou outros problemas que podem não estar diretamente relacionados com a plataforma do Azure.
 
-No entanto, ele deve ser declarado com clareza que esses tipos de pacote são indicações de que a taxa de transferência TCP não está alcançando seu desempenho máximo – pelos motivos discutidos em outras seções.
+Além disso, tenha em mente que alguns retransmissão e ACKs duplicados são normais em uma rede. Protocolos TCP foram criados para ser confiável. Evidência desses pacotes de TCP em uma captura de pacote não indica necessariamente um problema de rede sistemática, a menos que sejam excessivas.
+
+Ainda assim, esses tipos de pacote são indicações de que a taxa de transferência TCP não estiver obtendo o máximo desempenho, pelos motivos discutidos em outras seções deste artigo.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você aprendeu sobre ajuste de desempenho de TCP/IP para VMs do Azure, você talvez queira ler sobre outras considerações para o [planejamento de redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como conectar e configurar as redes virtuais ](https://docs.microsoft.com/en-us/azure/virtual-network/).

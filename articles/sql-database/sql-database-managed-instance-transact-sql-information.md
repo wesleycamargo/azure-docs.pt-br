@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893054"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010593"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -288,10 +288,9 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](https://docs.microsoft.com/sql
     - Não há suporte para leitor de fila.  
     - Ainda não há suporte para o shell de comando.
   - As instâncias gerenciadas não podem acessar recursos externos (por exemplo, compartilhamentos de rede por meio do Robocopy).  
-  - Ainda não há suporte para o PowerShell.
   - Não há suporte para o Analysis Services.
 - Há suporte parcial para notificações.
-- Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. Só pode haver um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile` na versão prévia pública (limitação temporária).  
+- Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. SQL Agent pode usar o perfil de email de apenas um banco de dados e ele deve ser chamado `AzureManagedInstance_dbmail_profile`.  
   - Não há suporte para o Pager.  
   - Não há suporte para o NetSend.
   - Ainda não há suporte para alertas.
@@ -432,10 +431,7 @@ As seguintes opções de banco de dados são definidas/substituídas e não pode
 - `.BAK` arquivos que contêm vários conjuntos de backup não podem ser restaurados.
 - `.BAK` arquivos que contêm vários arquivos de log não podem ser restaurados.
 - A restauração falhará se .bak contiver dados `FILESTREAM`.
-- Backups que contêm bancos de dados com objetos na memória ativos não podem ser restaurados no momento.  
-- Backups que contêm bancos de dados nos quais em algum momento existiram objetos na memória não podem ser restaurados no momento.
-- Backups que contêm bancos de dados em modo somente leitura não podem ser restaurados no momento. Essa limitação será removida em breve.
-
+- Os backups que contêm bancos de dados com objetos do Active Directory na memória não podem ser restaurados na instância de finalidade geral.  
 Para obter informações sobre instruções de restauração, consulte [instruções RESTAURAR](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
@@ -485,6 +481,8 @@ Não é possível restaurar a instância gerenciada [bancos de dados independent
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, e `RESTORE DATABASE` instruções podem falhar porque a instância pode atingir o limite de armazenamento do Azure.
+
 Cada instância de gerenciada de finalidade geral tem até 35 TB de armazenamento reservado para o espaço em disco Premium do Azure, e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna.
 
 Por exemplo, uma instância de gerenciada de propósito geral poderia ter um arquivo de 1,2 TB de tamanho que é colocado em um disco de 4 TB e 248 arquivos (cada 1 GB de tamanho) que são colocados em discos separados de 128 GB. Neste exemplo:
@@ -514,9 +512,13 @@ O SSMS (SQL Server Management Studio) e o SSDT (SQL Server Data Tools) podem ter
 
 Várias entradas de exibições do sistema, contadores de desempenho, mensagens de erro, XEvents e logs de erros exibem identificadores do banco de dados GUID em vez dos nomes reais do banco de dados. Não dependa desses identificadores GUID porque eles serão substituídos por nomes de banco de dados reais no futuro.
 
+### <a name="database-mail"></a>Database Mail
+
+`@query` parâmetro na [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedimento não funcionam.
+
 ### <a name="database-mail-profile"></a>Perfil do Database Mail
 
-O perfil de email do banco de dados usado pelo SQL Agent deve ser chamado `AzureManagedInstance_dbmail_profile`.
+O perfil de email do banco de dados usado pelo SQL Agent deve ser chamado `AzureManagedInstance_dbmail_profile`. Não há nenhuma restrição sobre outros nomes de perfil de email do banco de dados.
 
 ### <a name="error-logs-are-not-persisted"></a>Os logs de erros não são persistentes
 

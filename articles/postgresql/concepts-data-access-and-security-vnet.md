@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417475"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006343"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Use pontos de extremidade de serviço e regras da Rede virtual para o Banco de Dados do Azure para PostgreSQL
 
@@ -92,7 +92,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de Rede:** &nbsp; Ative o ponto de extremidade.
 - **Administrador do banco de dados:** &nbsp; atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para PostgreSQL.
 
-*Alternativa de RBAC:*
+*Alternativa RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -106,6 +106,8 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados do Azure para PostgreSQL, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de rede virtual, você deve permitir Azure services para acessar o servidor no servidor.
 
 - No firewall do Banco de Dados do Azure para PostgreSQL, cada regra de rede virtual referencia uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados do Azure para PostgreSQL.
 
@@ -139,8 +141,8 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter artigos sobre como criar regras de VNet, consulte:
-- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para PostgreSQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
-- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)
+- [Criar e gerenciar o banco de dados do Azure para regras de PostgreSQL VNet usando o portal do Azure](howto-manage-vnet-using-portal.md)
+- [Criar e gerenciar o banco de dados do Azure para regras de PostgreSQL VNet usando a CLI do Azure](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

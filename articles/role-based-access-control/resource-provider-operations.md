@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906201"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010729"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -5066,7 +5066,7 @@ Atualize dados do usuário e o nome de um grupo de pessoa existente. As propried
 > | Ação | Microsoft.Sql/servers/importExportOperationResults/read | Obter operações de importação/exportação em andamento |
 > | Ação | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Exclui o perfil de ponto de extremidade de interface especificado |
 > | Ação | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Devolve as propriedades para o perfil de ponto de extremidade de interface especificado |
-> | Ação | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Cria um perfil de ponto de extremidade de interface com os parâmetros especificados ou atualiza as propriedades ou marcas para o ponto de extremidade de interface especificado |
+> | Ação | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Cria um perfil de ponto de extremidade de interface com os parâmetros especificados ou atualiza as propriedades ou marcas para o ponto de extremidade da interface especificada |
 > | Ação | Microsoft.Sql/servers/jobAgents/delete | Exclui um agente de trabalho de BD SQL do Azure |
 > | Ação | Microsoft.Sql/servers/jobAgents/read | Obtém um agente de trabalho de BD SQL do Azure |
 > | Ação | Microsoft.Sql/servers/jobAgents/write | Cria ou atualiza um agente de trabalho de BD SQL do Azure |
