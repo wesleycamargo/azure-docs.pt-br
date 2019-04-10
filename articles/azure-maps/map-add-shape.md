@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282382"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma a um mapa
 
@@ -35,7 +35,7 @@ O primeiro bloco de código no código acima constrói um objeto Map. Você pode
 
 No segundo bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Um objeto [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) é criado e adicionado à fonte de dados.
 
-Um [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renderiza objetos de linha envolvidos na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). O último bloco de código cria e adiciona uma camada de linha ao mapa. Consulte as propriedades de uma camada de linha em [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). A origem de dados e a camada de linha são criadas e adicionadas ao mapa dentro da função [listener de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que a linha seja exibida após o carregamento total do mapa.
+Um [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renderiza objetos de linha envolvidos na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). O último bloco de código cria e adiciona uma camada de linha ao mapa. Consulte as propriedades de uma camada de linha em [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). A fonte de dados e a camada de linha são criados e adicionados ao mapa de dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que a linha é exibida depois que o mapa totalmente carregada.
 
 ### <a name="add-symbols-along-a-line"></a>Adicionar símbolos ao longo da linha
 
@@ -83,7 +83,7 @@ No código acima, o primeiro bloco do código constrói um objeto de mapa. Você
 
 No segundo bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Um [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) é criado a partir de uma matriz de coordenadas e adicionado à fonte de dados. 
 
-Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O último bloco de código cria e adiciona uma camada de polígono ao mapa. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A origem de dados e a camada de polígonos são criadas e adicionadas ao mapa dentro da função [listener de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o polígono seja exibido após o carregamento total do mapa.
+Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O último bloco de código cria e adiciona uma camada de polígono ao mapa. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A fonte de dados e a camada de polígono são criados e adicionados ao mapa de dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o polígono é exibido depois que o mapa totalmente carregada.
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>Usar uma camada de polígonos e linhas juntas
 
@@ -98,7 +98,7 @@ No segundo bloco de código, um objeto de fonte de dados é criado usando a clas
 
 Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Um [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) é uma matriz de linhas. Consulte as propriedades de uma camada de linha em [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). O terceiro bloco de código cria camadas de polígonos e linhas.
 
-O último bloco de código adiciona as camadas de polígono e linha ao mapa. A origem de dados e as camadas são criadas e incluídas no mapa dentro da função [listener de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o polígono seja exibido após o carregamento total do mapa.
+O último bloco de código adiciona as camadas de polígono e linha ao mapa. A fonte de dados e as camadas são criadas e adicionadas ao mapa de dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o polígono é exibido depois que o mapa totalmente carregada.
 
 > [!TIP]
 > Camadas de linha por padrão processará as coordenadas de polígonos, bem como as linhas em uma fonte de dados. Para limitar a camada de tal forma que ele processa somente LineString apresenta o conjunto de `filter` propriedade da camada para `['==', ['geometry-type'], 'LineString']` ou `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se você quiser incluir MultiLineString recursos também.
@@ -126,7 +126,7 @@ A camada de polígono tem apenas algumas opções de estilo. Aqui está uma ferr
 
 ## <a name="add-a-circle-to-the-map"></a>Adicionar um círculo no mapa
 
-Mapas do Azure usa uma versão estendida do esquema GeoJSON que fornece uma definição para círculos conforme observado [aqui](extend-geojson.md#circle). Um círculo pode ser renderizado no mapa com a criação de um `Point` recurso que tem um `subType` propriedade com um valor de `Circle` e um `radius` propriedade que tem um número que representa o raio em metros. Por exemplo: 
+Mapas do Azure usa uma versão estendida do esquema GeoJSON que fornece uma definição para círculos conforme observado [aqui](extend-geojson.md#circle). Um círculo pode ser renderizado no mapa com a criação de um `Point` recurso que tem um `subType` propriedade com um valor de `"Circle"` e um `radius` propriedade que tem um número que representa o raio em metros. Por exemplo: 
 
 ```javascript
 {
@@ -149,9 +149,9 @@ O SDK Web do Azure mapas converte esses `Pooint` recursos em `Polygon` recursos 
 
 O primeiro bloco de código no código acima constrói um objeto Map. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Um círculo é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de [Ponto](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) e tem um `subType` conjunto de propriedade definido para “círculo” e `radius` metros do valor de propriedade. Quando um recurso de ponto com um subtipo do círculo é adicionado a uma fonte de dados, ele converte em um polígono circular dentro do mapa.
+No segundo bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Um círculo é um [recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) dos [ponto](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) e tem um `subType` propriedade definida como `"Circle"` e um `radius` valor da propriedade em metros. Quando um recurso de ponto com um `subType` de `"Circle"` é adicionado a uma fonte de dados, ele convertido em um polígono circular dentro do mapa.
 
-Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O último bloco de código cria e adiciona uma camada de polígono ao mapa. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A fonte de dados e a camada de polígonos são criadas e adicionadas ao mapa dentro da função [listener de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o círculo seja exibido após o carregamento total do mapa.
+Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O último bloco de código cria e adiciona uma camada de polígono ao mapa. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A fonte de dados e a camada de polígono são criados e adicionados ao mapa de dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o círculo é exibido depois que o mapa totalmente carregada.
 
 ## <a name="make-a-geometry-easy-to-update"></a>Facilite a atualizar de uma geometria
 
@@ -171,14 +171,11 @@ O terceiro bloco de código cria uma função que pega o valor do elemento slide
 
 No quarto bloco de código, um objeto de fonte de dados é criado usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). O ponto é adicionado à fonte de dados.
 
-Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O terceiro bloco de código cria uma camada de polígono. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A origem de dados, o ouvinte de eventos de clique e a camada de polígonos são criados e adicionados ao mapa dentro da função [listener de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o ponto seja exibido após o carregamento total do mapa.
+Um [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renderiza dados agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O terceiro bloco de código cria uma camada de polígono. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A camada de polígono, o hanlder de evento de clique e a fonte de dados são criados e adicionados ao mapa de dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que o ponto é exibido depois que o mapa totalmente carregada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
 
 > [!div class="nextstepaction"]
-> [Marcadores HTML](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [Adicionar uma camada do mapa de calor](./map-add-heat-map-layer.md)
+> [Usar expressões de estilo orientado a dados](data-driven-style-expressions-web-sdk.md)

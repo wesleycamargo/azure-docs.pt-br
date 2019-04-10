@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010516"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360180"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
 
@@ -36,7 +36,7 @@ Diferentes modelos de compra estão disponíveis em modelos de implantação do 
 
 A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compra.
 
-|**Modelo de compra**|**Descrição**|**Mais adequado para**|
+|**Modelo de compra**|**DESCRIÇÃO**|**Mais adequado para**|
 |---|---|---|
 |Modelo baseado em DTU|Esse modelo é baseado em uma medida em pacote de recursos de E/S, armazenamento e computação. Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Mais adequado para clientes que desejam opções de recursos simples e pré-configuradas.|
 |Modelo baseado em vCore|Esse modelo permite escolher recursos de armazenamento e computação de maneira independente. O modelo de compra baseado em vCore também permite que você use o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para poupar custos.|Mais adequado para clientes que valorizam flexibilidade, controle e transparência.|
@@ -50,11 +50,11 @@ O custo de computação reflete a capacidade de computação total provisionada 
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância é alocado dinamicamente. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância. 
+Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância é alocado dinamicamente. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância.
 
 Sete dias de backups automatizados dos bancos de dados são copiados para o armazenamento de blobs RA-GRS Standard por padrão. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O tamanho do log de transações depende da taxa de alteração do banco de dados. Uma quantidade mínima de armazenamento igual a 100% do tamanho do banco de dados é fornecida sem encargos extras. O consumo adicional de armazenamento de backup será cobrado em GB/mês.
 
-Para obter mais informações sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/). 
+Para obter mais informações sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
@@ -71,7 +71,7 @@ O modelo de compra baseado em vCore permite que você escolha recursos de comput
 > **Limitações de região:** Para obter a lista atual de regiões compatíveis, consulte [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se você deseja criar uma Instância Gerenciada na região que atualmente não é suportada, você pode [enviar solicitação de suporte por meio do portal do Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Se o banco de dados individual ou pool elástico consome mais de 300 DTUs, convertê-lo para o modelo de compra baseado em vCore pode reduzir o custo. Se você decidir converter, poderá fazê-lo usando a API de sua preferência ou o portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU atender aos seus requisitos de desempenho e de negócios, você deverá continuar utilizando-o. Se você decidir converter do modelo de compra baseado em DTU para aquele baseado em vCore, selecione o tamanho de computação usando as seguintes regras básicas: 
+Se o banco de dados individual ou pool elástico consome mais de 300 DTUs, convertê-lo para o modelo de compra baseado em vCore pode reduzir o custo. Se você decidir converter, poderá fazê-lo usando a API de sua preferência ou o portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU atender aos seus requisitos de desempenho e de negócios, você deverá continuar utilizando-o. Se você decidir converter do modelo de compra baseado em DTU para aquele baseado em vCore, selecione o tamanho de computação usando as seguintes regras básicas:
 
 - Cada 100 DTUs na camada Standard requerem pelo menos 1 vCore na camada de uso geral
 - Cada 125 DTUs na camada Premium requerem pelo menos 1 vCore na camada comercialmente crítico

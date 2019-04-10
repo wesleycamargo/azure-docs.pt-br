@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905963"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359967"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905963"
 O novo modelo para Restauração instantânea oferece os seguintes aprimoramentos de recursos:
 
 * Capacidade de usar o instantâneo tirado como parte do trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Isso reduz o tempo de espera para instantâneos para copiar para o cofre antes de disparar a restauração.
-* Reduz os tempos de backup e restauração mantendo os instantâneos localmente. O padrão é de dois dias. O cofre padrão pode ser configurado com qualquer valor entre 1 e 5 dias.
-* Suporte a tamanhos de disco de até 4 TB.
+* Reduz os tempos de backup e restauração mantendo os instantâneos localmente. O padrão é de dois dias. Esse valor de retenção de instantâneo padrão é configurável para qualquer valor entre 1 e 5 dias.
+* Suporte a tamanhos de disco de até 4 TB. O Backup do Azure não oferece suporte a discos distribuídos. O redimensionamento de disco não é recomendado pelo Backup do Azure.
 * Dá suporte a discos SSD Standard juntamente com discos Standard HDD e SSD Premium.
 *   Capacidade de usar as contas de armazenamento originais de uma VM não gerenciada (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM possui discos distribuídos em contas de armazenamento. Isso acelera as operações de restauração para uma ampla variedade de configurações de VM.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Novidades deste recurso
 
@@ -75,9 +74,9 @@ No portal do Azure, você pode ver um campo adicionado na **política de Backup 
 > Do Az PowerShell versão 1.6.0 em diante, você pode atualizar o período de retenção de instantâneo a restauração instantânea na política usando o PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 A retenção de instantâneo padrão para cada política é definida como 2 dias. Usuário pode alterar o valor para um mínimo de 1 e um máximo de 5 dias. Para políticas semanais, a retenção de instantâneo é fixa para 5 dias.
 

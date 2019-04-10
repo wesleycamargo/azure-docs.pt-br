@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: cd07ff5beddf65c9788c9ba94802ba2d37172923
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257392"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360690"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização da pilha 1901 do Azure
 
@@ -316,9 +316,9 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>syslog 
-- A configuração de syslog não é mantida por meio de um ciclo de atualização, resultando no cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809).
-A solução alternativa é reconfigurar o cliente de syslog após aplicar uma atualização do Azure Stack.
+### <a name="syslog"></a>syslog
+
+- A configuração de syslog não é mantida por meio de um ciclo de atualização, fazendo com que o cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809). Para contornar esse problema, reconfigure o cliente de syslog após aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Baixe a atualização
 
@@ -326,7 +326,7 @@ Você pode baixar o pacote de atualização no Azure Stack 1901 [aqui](https://a
 
 Em cenários conectados apenas, as implantações do Azure Stack verificar periodicamente um ponto de extremidade seguro em notificá-lo automaticamente se uma atualização está disponível para a sua nuvem. Para obter mais informações, consulte [Gerenciando atualizações para o Azure Stack](azure-stack-updates.md#using-the-update-tile-to-manage-updates).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para uma visão geral do gerenciamento de atualizações no Azure Stack, consulte [gerenciar atualizações na visão geral do Azure Stack](azure-stack-updates.md).  
 - Para obter mais informações sobre como aplicar atualizações com o Azure Stack, consulte [aplicar as atualizações no Azure Stack](azure-stack-apply-updates.md).

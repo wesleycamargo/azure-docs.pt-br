@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 034/08/2019
-ms.openlocfilehash: 804e60b141f6ad4f089710d4b85c52a8dad33cfc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269513"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356871"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -56,9 +56,9 @@ Para obter mais informações, confira [Resolvendo diferenças de Transact-SQL d
 O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
 
 > [!IMPORTANT]
-> Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
+> Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar rapidamente com um banco de dados individual, comece com o [Guia de Início Rápido de banco de dados individual](sql-database-single-database-quickstart-guide.md).
 - Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).

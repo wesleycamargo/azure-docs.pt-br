@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846982"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359020"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Saiba como usar o backup e restauração no SQL Data Warehouse do Azure. Utilize
 
 Um *instantâneo de data warehouse* cria um ponto de restauração que pode ser aproveitado para recuperar ou copiar seu data warehouse para um estado anterior.  Considerando que o SQL Data Warehouse é um sistema distribuído, um instantâneo do data warehouse consiste em vários arquivos localizados no armazenamento do Azure. Os instantâneos capturam as alterações incrementais dos dados armazenados no data warehouse.
 
-A *restauração de um data warehouse* é um novo data warehouse criado por meio de um ponto de restauração de um data warehouse existente ou excluído. Restaurar o seu banco de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e de continuidade dos negócios, porque ela recria seus dados após uma exclusão ou corrupção acidental. O data warehouse também é um mecanismo eficiente para criar cópias do seu data warehouse para fins de teste ou desenvolvimento.  O SQL Data Warehouse usa mecanismos de restauração rápida na mesma região que foi medida para levar menos de 20 minutos para qualquer tamanho de dados.
+A *restauração de um data warehouse* é um novo data warehouse criado por meio de um ponto de restauração de um data warehouse existente ou excluído. Restaurar o seu banco de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e de continuidade dos negócios, porque ela recria seus dados após uma exclusão ou corrupção acidental. O data warehouse também é um mecanismo eficiente para criar cópias do seu data warehouse para fins de teste ou desenvolvimento.  As taxas de restauração do SQL Data Warehouse podem variar dependendo do tamanho do banco de dados e local do depósito de dados de origem e destino. Em média na mesma região, as taxas de restauração normalmente levar cerca de 20 minutos. 
 
 ## <a name="automatic-restore-points"></a>Pontos de restauração automática
 
@@ -106,6 +106,6 @@ Você pode [restaurar seu data warehouse](https://docs.microsoft.com/azure/sql-d
 > [!NOTE]
 > Para executar uma restauração com redundância geográfica, você não deve ter recusado esse recurso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre planejamento de desastre, consulte [Visão geral sobre a continuidade dos negócios](../sql-database/sql-database-business-continuity.md)

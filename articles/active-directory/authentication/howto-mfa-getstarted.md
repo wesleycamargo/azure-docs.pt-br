@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269020"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358116"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planejamento de uma autenticação de multifator baseado em nuvem do Azure
 
@@ -107,6 +107,9 @@ Os administradores podem escolher o [métodos de autenticação](../authenticati
 ### <a name="notification-through-mobile-app"></a>Notificação pelo aplicativo móvel
 
 Uma notificação por push é enviada para o aplicativo Microsoft Authenticator em seu dispositivo móvel. O usuário vê a notificação e seleciona **aprovar** para concluir a verificação. Notificações por push por meio de um aplicativo móvel oferecem a opção menos intrusiva para os usuários. Eles também são a opção mais confiável e segura, porque eles usam uma conexão de dados em vez de telefonia.
+
+> [!NOTE]
+> Se sua organização tiver funcionários trabalhando em ou em trânsito para a China, os **notificação pelo aplicativo móvel** método **dispositivos Android** não funciona nesse país. Métodos alternativos devem ser disponibilizados para os usuários.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação de aplicativo móvel
 

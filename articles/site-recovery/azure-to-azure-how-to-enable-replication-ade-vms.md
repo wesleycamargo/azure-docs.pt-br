@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117448"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277674"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para ADE (Azure Disk Encryption) para outra região do Azure
 
@@ -148,7 +148,7 @@ Você pode usar [o script](#copy-ade-keys-to-dr-region-using-powershell-script) 
 Você pode estar selecionando um cofre de chaves já criado na região de destino em vez de permitir a criação pelo Azure Site Recovery. Verifique se o cofre de chaves tem as permissões necessárias, conforme mencionado acima.</br>
 *Por exemplo*: Um usuário tenta replicar uma VM que tem um cofre de chaves na região de origem, o "ContososourceKeyvault".
 O usuário tem todas as permissões sobre o cofre de chaves da região de origem, mas durante a proteção, ele seleciona um cofre de chaves já criado, "ContosotargetKeyvault", para o qual ele não tem permissão. Então, a proteção gera um erro.</br>
-**Como corrigir:** Vá para "Página Inicial > Cofres de chaves > ContososourceKeyvault > Políticas de acesso" e adicione as permissões conforme mostrado acima. 
+**Como corrigir:** Vá para "Página Inicial > Cofres de chaves > ContososourceKeyvault > Políticas de acesso" e adicione as permissões conforme mostrado acima.
 
 **Causa 2:** Talvez você tenha selecionado um cofre de chaves já criado da região de destino que não tem as permissões de descriptografar-criptografar.
 Você pode estar selecionando um cofre de chaves já criado na região de destino em vez de permitir a criação pelo Azure Site Recovery. Verifique se o usuário tem as permissões de descriptografar-criptografar caso você também esteja criptografando a chave na região de origem.</br>

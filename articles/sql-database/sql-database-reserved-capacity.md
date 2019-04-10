@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650250"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359732"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pré-pagamento para recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre como as reservas do exchange ou o reembolso,
 
 A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. A capacidade reservada do Banco de Dados SQL também lhe oferece a flexibilidade para transferir temporariamente seus bancos de dados frequentes entre pools e bancos de dados individuais como parte de suas operações normais (dentro da mesma região e nível de desempenho) sem perder o benefício de capacidade reservada. Ao manter um buffer não aplicado em sua reserva, é possível gerenciar com eficiência os picos de desempenho sem exceder o orçamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O desconto de reserva vCore é aplicado automaticamente ao número de instâncias do Banco de Dados SQL que correspondem ao escopo e aos atributos de reserva de capacidade reservados do Banco de Dados SQL. Você pode atualizar o escopo da reserva de capacidade reservada do Banco de Dados SQL por meio do [Portal do Azure](https://portal.azure.com), PowerShell, CLI ou por meio da API.
 
@@ -85,11 +85,11 @@ Para saber como gerenciar a reserva de capacidade reserva do Banco de Dados SQL,
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são Reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
-- [Gerenciar Reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
-- [Compreender o desconto de Reservas do Azure](../billing/billing-understand-reservation-charges.md)
+- [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Entender o que desconto de reservas do Azure](../billing/billing-understand-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Reservas do Azure no programa de parceiro provedor de solução de nuvem Center (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 

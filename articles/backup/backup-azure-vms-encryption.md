@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266436"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358239"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -31,7 +31,7 @@ O Backup do Azure dá suporte ao backup de VMs do Azure que têm seus discos de 
 O Backup do Azure pode fazer backup e restaurar VMs do Azure usando o ADE com e sem o aplicativo do Azure AD, conforme resumido na tabela a seguir.
 
 **Tipo de disco de VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
---- | --- | --- 
+--- | --- | ---
 **Não Gerenciado** | Sim | Sim
 **Gerenciada**  | Sim | Sim
 
@@ -95,14 +95,14 @@ Além disso, há algumas coisas que você talvez precise fazer em algumas circun
 8. Se você estiver usando o Azure Key Vault, na página do cofre, você verá uma mensagem que o Backup do Azure precisa de acesso somente leitura às chaves e segredos no cofre de chaves.
 
     - Se você receber essa mensagem, nenhuma ação é necessária.
-    
+
         ![Acesso Okey](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Se você receber essa mensagem, você precisará definir permissões, conforme descrito na [procedimento a seguir](#provide-permissions).
-    
+
         ![Aviso de acesso](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Clique em **habilitar Backup** para implantar a política de backup no cofre e habilitar o backup para as VMs selecionadas. 
+9. Clique em **habilitar Backup** para implantar a política de backup no cofre e habilitar o backup para as VMs selecionadas.
 
 
 ## <a name="trigger-a-backup-job"></a>Disparar um trabalho de backup
@@ -129,18 +129,18 @@ Para definir permissões:
 1. No portal do Azure, selecione **todos os serviços**e procure **cofres de chaves**.
 2. Selecione o Cofre de chaves associado à VM criptografada estiver fazendo backup.
 3. Selecione **políticas de acesso** > **adicionar novo**.
-4. Selecione **selecionar entidade**e, em seguida, digite **gerenciamento de Backup**. 
+4. Selecione **selecionar entidade**e, em seguida, digite **gerenciamento de Backup**.
 5. Selecione **serviço de gerenciamento de Backup** > **selecione**.
 
     ![Seleção de serviço de backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. Na **adicionar política de acesso** > **configurar usando o modelo (opcional)**, selecione **Backup do Azure**.
     - As permissões necessárias para **Permissões de chave** e **Permissões de segredo** são preenchidas.
-    - Se sua VM é criptografada usando **somente BEK**, remova a seleção para **permissões de chave** , pois você só precisa de permissões para segredos. 
+    - Se sua VM é criptografada usando **somente BEK**, remova a seleção para **permissões de chave** , pois você só precisa de permissões para segredos.
 
     ![Seleção de backup do Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Clique em **OK**. **Serviço de gerenciamento de backup** é adicionado ao **políticas de acesso**. 
+6. Clique em **OK**. **Serviço de gerenciamento de backup** é adicionado ao **políticas de acesso**.
 
     ![Políticas de acesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -155,10 +155,9 @@ Você pode restaurar VMs criptografadas da seguinte maneira:
     - Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Crie uma nova VM de discos restaurados usando o Powershell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você tiver algum problema, examine
 
-- [Erros comuns de](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) quando fazendo backup e restaurando VMs do Azure criptografadas.
-- [Geral](backup-azure-vms-troubleshoot.md) problemas de VM do Azure.
+- [Erros comuns de](backup-azure-vms-troubleshoot.md) quando fazendo backup e restaurando VMs do Azure criptografadas.
 - [Extensão de agente/backup VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problemas.

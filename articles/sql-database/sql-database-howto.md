@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759212"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359700"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como usar o Banco de Dados SQL do Azure
 
@@ -25,9 +25,9 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 
 ## <a name="load-data"></a>Carregar dados
 
-- [Copiar um banco de dados individual ou em pool dentro do Azure](sql-database-copy.md)
+- [Copiar um único banco de dados ou o banco de dados em pool dentro do Azure](sql-database-copy.md)
 - [Importar um BD de um BACPAC](sql-database-import.md)
-- [Exportar um BD para um BACPAC](sql-database-export.md)
+- [Exportar um BD de um BACPAC](sql-database-export.md)
 - [Carregar dados com o BCP](sql-database-load-from-csv-with-bcp.md)
 - [Carregar dados com o ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
@@ -37,23 +37,23 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Agente de Sincronização de Dados](sql-database-data-sync-agent.md)
 - [Replicar alterações de esquema](sql-database-update-sync-schema.md)
 - [Monitorar com o OMS](sql-database-sync-monitor-oms.md)
-- [Melhores práticas para a sincronização de dados](sql-database-best-practices-data-sync.md)
-- [Solucionar problemas da sincronização de dados](sql-database-troubleshoot-data-sync.md)
+- [Práticas recomendadas para a Sincronização de Dados](sql-database-best-practices-data-sync.md)
+- [Solucionar problemas da Sincronização de Dados](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Monitoramento e ajuste
 
 - [Ajuste manual](sql-database-performance-guidance.md)
 - [Utilizar DMVs para monitorar o desempenho](sql-database-monitoring-with-dmvs.md)
-- [Usar o Repositório de Consultas para monitorar o desempenho](sql-database-operate-query-store.md)
+- [Usar o armazenamento de Consultas para monitorar o desempenho](sql-database-operate-query-store.md)
 - [Solucionar problemas de desempenho com o Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Usar o log de diagnóstico do Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Monitorar o espaço OLTP in-memory](sql-database-in-memory-oltp-monitoring.md)
+- [Monitorar o espaço OLTP na memória](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Eventos estendidos
 
 - [Eventos estendidos](sql-database-xevent-db-diff-from-svr.md)
-- [Armazenar eventos estendidos no arquivo de evento](sql-database-xevent-code-event-file.md)
-- [Armazenar eventos estendidos no buffer de anel](sql-database-xevent-code-ring-buffer.md)
+- [Store eventos estendidos no arquivo de evento](sql-database-xevent-code-event-file.md)
+- [Store eventos estendidos no buffer de anel](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Configurar recursos
 
@@ -68,16 +68,16 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Configurar OLTP na memória](sql-database-in-memory-oltp-migration.md)
 - [Configurar Automação do Azure](sql-database-manage-automation.md)
 
-## <a name="develop-applications"></a>Desenvolva aplicativos
+## <a name="develop-applications"></a>Desenvolver aplicativos
 
 - [Conectividade](sql-database-libraries.md)
 - [Usar o Conector do Spark](sql-database-spark-connector.md)
 - [Autenticar aplicativo](sql-database-client-id-keys.md)
 - [Mensagens de erro](sql-database-develop-error-messages.md)
-- [Usar o envio em lote para obter melhor desempenho](sql-database-use-batching-to-improve-performance.md)
+- [Usar envio em lote para melhorar o desempenho](sql-database-use-batching-to-improve-performance.md)
 - [Diretrizes de conectividade](sql-database-connectivity-issues.md)
 - [Aliases de DNS](dns-alias-overview.md)
-- [Configurar PowerShell de alias do DNS](dns-alias-powershell.md)
+- [Configurar o PowerShell de alias do DNS](dns-alias-powershell.md)
 - [Portas - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C e C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
@@ -91,8 +91,8 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 ### <a name="design-multi-tenant-saas-applications"></a>Design de aplicativos SaaS multilocatários
 
 - [Padrões de design do SaaS](saas-tenancy-app-design-patterns.md)
-- [Video Indexer de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [Segurança de aplicativo SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [Indexador de vídeo de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [Segurança de aplicativo de SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

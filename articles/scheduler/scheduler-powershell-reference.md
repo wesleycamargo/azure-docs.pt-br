@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 5c80e86699d671994a0989b99c0f97ebe2680592
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: daf960bec0fac5f0c96749c219304bc77a4ba905
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044990"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358560"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets do PowerShell para o Agendador do Azure
 
@@ -27,23 +27,23 @@ Para criar scripts para criar e gerenciar trabalhos do Agendador e conjuntos de 
 
 | Cmdlet | DESCRIÇÃO |
 |--------|-------------|
-| [Disable-AzSchedulerJobCollection](/powershell/module/az.scheduler/disable-azschedulerjobcollection) |Desabilita uma coleção de trabalhos. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/az.scheduler/enable-azschedulerjobcollection) |Habilita uma coleção de trabalhos. |
-| [Get-AzSchedulerJob](/powershell/module/az.scheduler/get-azschedulerjob) |Obtém os trabalhos do Agendador. |
-| [Get-AzSchedulerJobCollection](/powershell/module/az.scheduler/get-azschedulerjobcollection) |Obtém coleções de trabalhos. |
-| [Get-AzSchedulerJobHistory](/powershell/module/az.scheduler/get-azschedulerjobhistory) |Obtém o histórico de trabalhos. |
-| [New-AzSchedulerHttpJob](/powershell/module/az.scheduler/new-azschedulerhttpjob) |Cria um trabalho HTTP. |
-| [New-AzSchedulerJobCollection](/powershell/module/az.scheduler/new-azschedulerjobcollection) |Cria uma coleção de trabalhos. |
-| [New-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/new-azschedulerservicebusqueuejob) | Cria um trabalho de fila do barramento de serviço. |
-| [New-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/new-azschedulerservicebustopicjob) |Cria um trabalho de tópico do barramento de serviço. |
-| [New-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/new-azschedulerstoragequeuejob) |Cria um trabalho de fila de armazenamento. |
-| [Remove-AzSchedulerJob](/powershell/module/az.scheduler/remove-azschedulerjob) |Remove um trabalho do Agendador. |
-| [Remove-AzSchedulerJobCollection](/powershell/module/az.scheduler/remove-azschedulerjobcollection) |Remove uma coleção de trabalhos. |
-| [Set-AzSchedulerHttpJob](/powershell/module/az.scheduler/set-azschedulerhttpjob) |Modifica um trabalho HTTP do Agendador. |
-| [Set-AzSchedulerJobCollection](/powershell/module/az.scheduler/set-azschedulerjobcollection) |Modifica uma coleção de trabalhos. |
-| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/set-azschedulerservicebusqueuejob) |Modifica um trabalho de fila do barramento de serviço. |
-| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/set-azschedulerservicebustopicjob) |Modifica um trabalho de tópico do barramento de serviço. |
-| [Set-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/set-azschedulerstoragequeuejob) |Modifica um trabalho de fila de armazenamento. |
+| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azschedulerjobcollection) |Desabilita uma coleção de trabalhos. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azschedulerjobcollection) |Habilita uma coleção de trabalhos. |
+| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azschedulerjob) |Obtém os trabalhos do Agendador. |
+| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azschedulerjobcollection) |Obtém coleções de trabalhos. |
+| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azschedulerjobhistory) |Obtém o histórico de trabalhos. |
+| [New-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azschedulerhttpjob) |Cria um trabalho HTTP. |
+| [New-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azschedulerjobcollection) |Cria uma coleção de trabalhos. |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebusqueuejob) | Cria um trabalho de fila do barramento de serviço. |
+| [New-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebustopicjob) |Cria um trabalho de tópico do barramento de serviço. |
+| [New-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerstoragequeuejob) |Cria um trabalho de fila de armazenamento. |
+| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azschedulerjob) |Remove um trabalho do Agendador. |
+| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azschedulerjobcollection) |Remove uma coleção de trabalhos. |
+| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azschedulerhttpjob) |Modifica um trabalho HTTP do Agendador. |
+| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azschedulerjobcollection) |Modifica uma coleção de trabalhos. |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebusqueuejob) |Modifica um trabalho de fila do barramento de serviço. |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebustopicjob) |Modifica um trabalho de tópico do barramento de serviço. |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerstoragequeuejob) |Modifica um trabalho de fila de armazenamento. |
 ||| 
 
 Para mais detalhes, você pode executar qualquer um desses cmdlets: 

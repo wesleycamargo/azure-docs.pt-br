@@ -1,24 +1,22 @@
 ---
 title: Consultar dados do armazenamento do Azure compatível com o HDFS - Azure HDInsight
 description: Aprenda a consultar dados do Armazenamento do Azure e do Azure Data Lake Storage para armazenar os resultados da sua análise.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/08/2019
+ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361907"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360784"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
-Para analisar dados no cluster HDInsight, é possível armazenar os dados no [Armazenamento do Azure](../storage/common/storage-introduction.md), no [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md) ou em ambos. As duas opções de armazenamento permitem que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
+Para analisar dados em um cluster HDInsight, você pode armazenar os dados ou no [armazenamento do Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[armazenamento do Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md), ou uma combinação. Essas opções de armazenamento permitem que você excluir com segurança os clusters de HDInsight que são usados para cálculo sem perder dados do usuário.
 
 O Apache Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, você pode especificar um contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou, com o HDInsight 3.6, você pode selecionar o Armazenamento do Azure ou o Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 como o sistema de arquivos padrão com algumas exceções. Para o suporte do uso do Data Lake Storage Gen 1 como o armazenamento padrão e o vinculado, veja [Disponibilidade para o cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -41,6 +39,8 @@ Não há suporte para o compartilhamento de um contêiner de blobs como o sistem
  
  > [!NOTE]  
  > A camada de acesso aos arquivos é um tipo offline que tem uma latência de recuperação de várias horas e não é recomendada para uso com o HDInsight. Para saber mais, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Camada de acesso aos arquivos</a>.
+
+Se você optar por proteger a conta de armazenamento com o **Firewalls e redes virtuais** restrições de **redes selecionadas**, não se esqueça de habilitar a exceção **permitir que os Microsoft confiáveis serviços...**  para que o HDInsight pode acessar sua conta de armazenamento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 O diagrama a seguir fornece uma exibição abstrata da arquitetura de armazenamento do HDInsight de uso do Armazenamento do Azure:
@@ -297,25 +297,25 @@ Use o comando a seguir para listar os comandos relacionados ao blob:
 azure storage blob
 ```
 
-**Exemplo de como usar a CLI Clássica do Azure para carregar um arquivo**
+**Exemplo de como usar a CLI clássica do Azure para carregar um arquivo**
 
 ```cli
 azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Exemplo de como usar a CLI Clássica do Azure para baixar um arquivo**
+**Exemplo de como usar a CLI clássica do Azure para baixar um arquivo**
 
 ```cli
 azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Exemplo de como usar a CLI Clássica do Azure para excluir um arquivo**
+**Exemplo de como usar a CLI clássica do Azure para excluir um arquivo**
 
 ```cli
 azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Exemplo de como usar a CLI Clássica do Azure para listar arquivos**
+**Exemplo de como usar a CLI clássica do Azure para listar os arquivos**
 
 ```cli
 azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
@@ -340,7 +340,7 @@ Para obter mais informações, consulte:
 * [Usar o Apache Hive com HDInsight][hdinsight-use-hive]
 * [Usar Apache Pig com o HDInsight][hdinsight-use-pig]
 * [Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight][hdinsight-use-sas]
-* [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs

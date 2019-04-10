@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888495"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357936"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>camadas de serviço de vCore, Benefício Híbrido do Azure e migração
 
@@ -37,7 +37,7 @@ O modelo vCore fornece três camadas de serviço, Uso Geral, Hiperescala e Comer
 
 A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 
-||**Uso geral**|**Comercialmente Crítico**|**Hiperescala (versão prévia)**|
+||**Uso geral**|**Comercialmente Crítico**|**Hiperescala (visualização)**|
 |---|---|---|---|
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|Maioria das cargas de trabalho empresariais com requisitos de escala de leitura e armazenamento altamente escalonáveis|
 |Computação|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|
@@ -83,10 +83,10 @@ Com o Benefício Híbrido do Azure, você pode optar por pagar apenas pela infra
 
 - Para definir ou atualizar o tipo de licença usando a API REST:
 
-  - [Banco de Dados – Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Bancos de Dados – Atualizar](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [Bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Bancos de dados - atualização](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Instâncias - gerenciadas criar ou atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Instâncias gerenciadas - atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para modelo vCore
 

@@ -21,7 +21,7 @@ ms.locfileid: "58758140"
 
 A API do Azure Content Moderator é um serviço cognitivo que verifica conteúdo de textos, imagens e vídeos para verificar material que possa ser ofensivo, de risco ou, de alguma maneira, indesejável. Quando tal material é encontrado, o serviço aplica rótulos (sinalizadores) apropriados ao conteúdo. Seu aplicativo pode tratar de conteúdo sinalizado para cumprir as normas ou manter o ambiente desejado para os usuários. Confira a seção [APIs do Content Moderator](#content-moderator-apis) para saber mais sobre o que os vários sinalizadores de conteúdo indicam.
 
-## <a name="where-it-is-used"></a>Em local é usado
+## <a name="where-it-is-used"></a>Em que local é usado
 
 Estes são alguns cenários nos quais um desenvolvedor ou equipe de software usaria o Content Moderator:
 

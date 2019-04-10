@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361138"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu data warehouse para Gen2
 
@@ -34,7 +34,7 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 |:--- |:--- |:--- |
 | Leste da Austrália |Disponível |1 de junho de 2019 |
 | Sudeste da Austrália |15 de abril de 2019 |1º de maio de 2019 |
-| Sul do Brasil |15 de maio de 2019 |\* |
+| Sul do Brasil |15 de maio de 2019 |1 de junho de 2019 |
 | Canadá Central |Disponível |1 de junho de 2019 |
 | Leste do Canadá |\* |\* |
 | Centro dos EUA |Disponível |1 de junho de 2019 |
@@ -44,8 +44,8 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 | Norte da China 2 |\* |\* |
 | Ásia Oriental |Disponível |1 de junho de 2019 |
 | Leste dos EUA |Disponível |1 de junho de 2019 |
-| Leste dos EUA 2 |Disponível |1º de junho. 2019 |
-| França Central |\* |\* |
+| Leste dos EUA 2 |Disponível |1 de junho de 2019 |
+| França Central |\* |1 de junho de 2019 |
 | Alemanha Central |\* |\* |
 | Centro-oeste da Alemanha |1 de setembro de 2019|2 de janeiro de 2020 |
 | Centro da Índia |Disponível |1 de junho de 2019 |
@@ -145,7 +145,7 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 - R:  Não. Depois que uma região for atualizada, a criação de novas instâncias de Gen1 será desabilitada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Etapas de atualização](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)

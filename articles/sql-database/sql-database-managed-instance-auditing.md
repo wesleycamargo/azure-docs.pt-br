@@ -14,19 +14,19 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282110"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357433"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
 A auditoria de [instância gerenciada](sql-database-managed-instance.md) rastreia eventos de banco de dados e os grava em um log de auditoria na conta de armazenamento do Azure. A auditoria também:
 
 - Ajuda você a manter a conformidade regulatória, entender a atividade do banco de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações para os negócios ou suspeitas de violações de segurança.
-- Permite e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre o Azure programas de conformidade com padrões esse suporte, consulte o [Central de confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
+- Permite e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre o Azure programas de conformidade com padrões esse suporte, consulte o [Central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurar a auditoria para o servidor no Armazenamento do Azure
 
@@ -242,7 +242,7 @@ As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazena
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](sql-database-auditing.md).
-- Para obter mais informações sobre o Azure programas de conformidade com padrões esse suporte, consulte o [Central de confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
+- Para obter mais informações sobre o Azure programas de conformidade com padrões esse suporte, consulte o [Central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
 <!--Image references-->
 

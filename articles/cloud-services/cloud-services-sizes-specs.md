@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918256"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358241"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Cada tamanho tem uma ID que você coloca em seu [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na página [Preços de Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -205,7 +205,7 @@ Veja um exemplo de definição do tamanho da função como Standard_D2 para uma 
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Alterando o tamanho de uma função existente
 
-Conforme a natureza de sua carga de trabalho se altera ou novos tamanhos de VM se tornam disponíveis, você pode desejar alterar o tamanho de sua função. Para fazer isso, é necessário alterar o tamanho da VM no arquivo de definição de serviço (como mostrado acima), reempacotar seu Serviço de Nuvem e implantá-lo. Não é possível alterar os tamanhos de VM diretamente do portal ou do PowerShell.
+Conforme a natureza de sua carga de trabalho se altera ou novos tamanhos de VM se tornam disponíveis, você pode desejar alterar o tamanho de sua função. Para fazer isso, é necessário alterar o tamanho da VM no arquivo de definição de serviço (como mostrado acima), reempacotar seu Serviço de Nuvem e implantá-lo.
 
 >[!TIP]
 > Você pode desejar usar tamanhos de VM diferentes para sua função em ambientes diferentes (por exemplo teste versus produção). Uma maneira de fazer isso é criar vários arquivos de definição de serviço (.csdef) em seu projeto e, em seguida, criar diferentes pacotes de serviço de nuvem para cada ambiente durante a compilação automatizada, usando a ferramenta CSPack. Para saber mais sobre os elementos de um pacote de serviços de nuvem e como criá-los, consulte [O que é o modelo de serviços de nuvem e como empacotá-lo?](cloud-services-model-and-package.md)

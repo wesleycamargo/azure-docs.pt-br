@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847565"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359167"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -88,7 +88,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 Criar uma imagem diretamente da VM garante que a imagem inclua todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
 
-Antes de começar, certifique-se de que você tenha a versão mais recente do módulo do PowerShell do Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, confira [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/azurerm/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Antes de começar, certifique-se de que você tenha a versão mais recente do módulo do PowerShell do Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, confira [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 
 > [!NOTE]
@@ -240,6 +240,6 @@ Criar uma imagem gerenciada com base em uma imagem de VHD do sistema operacional
     ```
 
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 

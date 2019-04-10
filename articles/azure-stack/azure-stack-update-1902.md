@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271825"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361104"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -97,13 +97,14 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
   ```  
   
 - Para melhorar a confiabilidade e a disponibilidade dos serviços de infraestrutura de núcleo geral durante o processo de atualização, o provedor de recursos de atualização nativo como parte do plano de ação de atualização detectará e invocar as correções globais automática conforme necessário. Fluxos de trabalho de "Reparar" correção globais incluem:
-    - Procurando máquinas virtuais de infraestrutura que estiverem em um estado não ideal e tentar repará-los conforme necessário 
-    - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário
-    - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário
-    - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário
-    - Verifique o estado de nós de malha do serviço de Console de recuperação de emergência (ERCS) service e repará-los conforme necessário
-    - Verifique o estado de nós do service fabric XRP e repará-los conforme necessário
-    - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário
+
+  - A verificação de máquinas virtuais de infraestrutura que estiverem em um estado não ideal e tentar repará-los conforme necessário.
+  - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário.
+  - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário.
+  - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário
+  - Verifique o estado de nós do serviço de Console de recuperação de emergência (ERCS) service fabric e repará-los conforme necessário.
+  - Verificar o estado da função de infraestrutura e reparar conforme necessário.
+  - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -258,8 +259,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>syslog 
-- A configuração de syslog não é mantida por meio de um ciclo de atualização, resultando no cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809).
-A solução alternativa é reconfigurar o cliente de syslog após aplicar uma atualização do Azure Stack.
+
+- A configuração de syslog não é mantida por meio de um ciclo de atualização, fazendo com que o cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809). Para contornar esse problema, reconfigure o cliente de syslog após aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Baixe a atualização
 
@@ -267,7 +268,7 @@ Você pode baixar o pacote de atualização no Azure Stack 1902 [aqui](https://a
 
 Em cenários conectados apenas, as implantações do Azure Stack verificar periodicamente um ponto de extremidade seguro em notificá-lo automaticamente se uma atualização está disponível para a sua nuvem. Para obter mais informações, consulte [Gerenciando atualizações para o Azure Stack](azure-stack-updates.md#using-the-update-tile-to-manage-updates).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral do gerenciamento de atualizações no Azure Stack, consulte [gerenciar atualizações na visão geral do Azure Stack](azure-stack-updates.md).  
 - Para obter mais informações sobre como aplicar atualizações com o Azure Stack, consulte [aplicar as atualizações no Azure Stack](azure-stack-apply-updates.md).

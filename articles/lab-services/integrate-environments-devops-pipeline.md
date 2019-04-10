@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887173"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357399"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes em seus pipelines do Azure DevOps CI/CD
 Você pode usar a extensão de tarefas do Azure DevTest Labs é instalada nos serviços de DevOps do Azure (anteriormente conhecido como Visual Studio Team Services) para integrar facilmente a CI (integração contínua) / recurso build e versão entrega contínua (CD) de pipeline com o Azure DevTest Labs. Essas extensões torná-lo mais fácil de implantar rapidamente uma [ambiente](devtest-lab-test-env.md) para uma determinada tarefa de teste e, em seguida, excluí-lo quando o teste for concluído. 
@@ -56,7 +56,7 @@ O próximo estágio da implantação é criar o ambiente a ser usado para fins d
 
 1. Na definição da versão, selecione **Adicionar tarefas**.
 2. Sobre o **tarefas** guia, adicione uma tarefa de criar ambiente do Azure DevTest Labs. Configure as tarefas da seguinte forma:
-    1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/devops/pipelines/library/service-endpoints).
+    1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints).
 2. Para **nome do laboratório**, selecione o nome da instância que você criou anteriormente *.
 3. Para **nome do repositório**, selecione o repositório em que o modelo do Gerenciador de recursos (201) foi enviado para *.
 4. Para **nome do modelo**, selecione o nome do ambiente que você salvou em seu repositório de código de origem *. 
@@ -71,7 +71,7 @@ O estágio final é excluir o ambiente que você implantou em sua instância do 
 Na definição da versão, selecione **adicionar tarefas**e, em seguida, no **Deploy** guia, adicione um **excluir ambiente do Azure DevTest Labs** tarefa. Configure-o da seguinte maneira:
 
 1. Para excluir a VM, consulte [tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/devops/pipelines/library/service-endpoints).
+    1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints).
     2. Para **nome do laboratório**, selecione o laboratório onde existe o ambiente.
     3. Para **nome do ambiente**, insira o nome do ambiente a ser removido.
 2. Insira um nome para a definição da versão e, em seguida, salve-a.
@@ -80,5 +80,5 @@ Na definição da versão, selecione **adicionar tarefas**e, em seguida, no **De
 Confira os seguintes artigos: 
 - [Criar ambientes de várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 - Modelos do Gerenciador de recursos de início rápido para a automação do DevTest Labs do [repositório GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-- [Página de solução de problemas do VSTS](/devops/pipelines/troubleshooting)
+- [Página de solução de problemas do VSTS](/azure/devops/pipelines/troubleshooting)
 

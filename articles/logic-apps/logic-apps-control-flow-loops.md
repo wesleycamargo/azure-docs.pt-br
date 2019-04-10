@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225001"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360770"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
 Para processar uma matriz em seu aplicativo lógico, você pode criar um [loop "Foreach"](#foreach-loop). Esse loop repete uma ou mais ações em cada item na matriz. Para saber quais são os limites no número de itens de matriz que os loops "Foreach" podem processar, confira [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 
-Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). O aplicativo lógico executa todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para saber quais são os limites no número de loops "Until" em uma execução do aplicativo lógico, confira [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). Seu aplicativo lógico primeiro executa todas as ações dentro do loop e, em seguida, verifica o estado ou condição. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para saber quais são os limites no número de loops "Until" em uma execução do aplicativo lógico, confira [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Se você estiver trabalhando com a definição de JSON do aplicativo lógico, vo
 
 ## <a name="until-loop"></a>Loop "Until"
   
-Para repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". Aqui estão alguns cenários comuns em que é possível utilizar um loop "Until":
+Para executar e repetir ações até que uma condição é atendida ou um estado é alterado, coloque essas ações em um loop "Until". Seu aplicativo lógico primeiro executa quaisquer ações dentro do loop e, em seguida, verifica o estado ou condição. Se a condição é atendida, o loop para. Caso contrário, o loop repete.
+
+Aqui estão alguns cenários comuns em que é possível utilizar um loop "Until":
 
 * Chamar um ponto de extremidade até obter a resposta desejada.
 
@@ -193,8 +195,8 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    | Propriedade | Valor | DESCRIÇÃO |
    | -------- | ----- | ----------- |
-   | **Nome** | Limite | Nome da variável | 
-   | **Tipo** | Número inteiro | Tipo de dados da variável | 
+   | **NOME** | Limite | Nome da variável | 
+   | **Type** | Número inteiro | Tipo de dados da variável | 
    | **Valor** | 0 | Valor inicial de variável | 
    |||| 
 
@@ -343,6 +345,6 @@ Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um re
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar etapas baseadas em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Executar etapas baseadas no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Executar etapas com base no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

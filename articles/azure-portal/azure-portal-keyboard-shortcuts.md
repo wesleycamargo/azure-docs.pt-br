@@ -12,39 +12,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881164"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359705"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
-Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
+
+Este artigo lista os atalhos de teclado que funcionam em qualquer lugar no portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
 
 ## <a name="actions"></a>Ações
-|Para fazer isto |Pressione |
+
+|Para realizar essa ação |Pressione |
 | --- | --- |
-|Criar um novo recurso|G+N|
-|Abrir o painel 'Todos os serviços'|G+B|
-|Recursos do Search|G+/| 
+|Criar um recurso|G+N|
+|Abra **todos os serviços**|G+B|
+|Pesquisar recursos, serviços e documentos|G+/|
 |Procurar itens de menu do recurso|Ctrl+/ |
-|Mover para cima o item do painel esquerdo selecionado |ALT+Shift+Seta para Cima|
-|Mover para baixo o item do painel esquerdo selecionado |ALT+Shift+Seta para Baixo|
+|Mover para cima o item selecionado da barra lateral esquerda |ALT+Shift+Seta para Cima|
+|Mover o item da barra lateral esquerda selecionado para baixo |ALT+Shift+Seta para Baixo|
 
 ## <a name="navigation"></a>Navegação
-|Para fazer isto |Pressione |
+
+|Para fazer essa navegação |Pressione |
 | --- | --- |
 |Mover o foco para a barra de comando |G+, |
-|Alternar o foco entre a barra superior e a barra lateral | G+. |
+|Alternar o foco entre o cabeçalho e a barra lateral esquerda | G+. |
 
 ## <a name="go-to"></a>Ir para
-|Para fazer isto |Pressione |
+
+|Para ir para esse local |Pressione |
 | --- | --- |
-|Ir para o painel |G+D |
-|Ir para todos os recursos|G+A |
-|Ir para grupos de recursos|G+R |
-|Abrir o item do painel esquerdo nesta posição |G+número|
+|Vá para **painel** |G+D |
+|Vá para **todos os recursos**|G+A |
+|Vá para **grupos de recursos**|G+R |
+|Abra o item de barra lateral esquerda nesta posição |G+número|
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)
+- [Navegadores e dispositivos com suporte](../azure-preview-portal-supported-browsers-devices.md)
