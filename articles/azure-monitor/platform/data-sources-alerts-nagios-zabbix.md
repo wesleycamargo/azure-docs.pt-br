@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540038"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426182"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Azure Monitor do Agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Registros de alerta coletados pelo Nagios têm **Type** definido como **Alert** 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Type |*Alerta* |
-| SourceSystem |*Nagios* |
-| AlertName |Nome do alerta. |
-| AlertDescription | Descrição do alerta. |
-| AlertState | Status do serviço ou do host.<br><br>OK<br>AVISO<br>PARA CIMA<br>PARA BAIXO |
-| HostName | Nome do host que criou o alerta. |
-| PriorityNumber | Nível de prioridade do alerta. |
-| StateType | O tipo de estado do alerta.<br><br>SUAVE – problema que não foi verificado novamente.<br>GRAVE – problema que foi verificado novamente um número especificado de vezes.  |
-| TimeGenerated |Data e hora em que o alerta foi criado. |
+| `Type` |*Alerta* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Nome do alerta. |
+| `AlertDescription` | Descrição do alerta. |
+| `AlertState` | Status do serviço ou do host.<br><br>OK<br>AVISO<br>PARA CIMA<br>PARA BAIXO |
+| `HostName` | Nome do host que criou o alerta. |
+| `PriorityNumber` | Nível de prioridade do alerta. |
+| `StateType` | O tipo de estado do alerta.<br><br>SUAVE – problema que não foi verificado novamente.<br>GRAVE – problema que foi verificado novamente um número especificado de vezes.  |
+| `TimeGenerated` |Data e hora em que o alerta foi criado. |
 
 
 ### <a name="zabbix-alert-records"></a>Registros de alerta do Zabbix
@@ -108,19 +108,19 @@ Registros de alerta coletados pelo Zabbix têm **Type** definido como **Alert** 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Type |*Alerta* |
-| SourceSystem |*Zabbix* |
-| AlertName | Nome do alerta. |
-| AlertPriority | Severidade do alerta.<br><br>não classificado<br>informações<br>Aviso<br>média<br>alto<br>desastre  |
-| AlertState | Estado do alerta.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.  |
-| AlertTypeNumber | Especifica se o alerta pode ou não gerar vários eventos de problema.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.    |
-| Comentários | Comentários adicionais para o alerta. |
-| HostName | Nome do host que criou o alerta. |
-| PriorityNumber | Valor que indica a gravidade do alerta.<br><br>0 – não classificado<br>1 – informações<br>2 – aviso<br>3 – média<br>4 – alta<br>5 – desastre |
-| TimeGenerated |Data e hora em que o alerta foi criado. |
-| TimeLastModified |Data e hora em que o estado do alerta foi alterado pela última vez. |
+| `Type` |*Alerta* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Nome do alerta. |
+| `AlertPriority` | Severidade do alerta.<br><br>não classificado<br>informações<br>Aviso<br>média<br>alto<br>desastre  |
+| `AlertState` | Estado do alerta.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.  |
+| `AlertTypeNumber` | Especifica se o alerta pode ou não gerar vários eventos de problema.<br><br>0 - O estado está atualizado.<br>1 – o estado é desconhecido.    |
+| `Comments` | Comentários adicionais para o alerta. |
+| `HostName` | Nome do host que criou o alerta. |
+| `PriorityNumber` | Valor que indica a gravidade do alerta.<br><br>0 – não classificado<br>1 – informações<br>2 – aviso<br>3 – média<br>4 – alta<br>5 – desastre |
+| `TimeGenerated` |Data e hora em que o alerta foi criado. |
+| `TimeLastModified` |Data e hora em que o estado do alerta foi alterado pela última vez. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre os [alertas](alerts-overview.md) no Azure Monitor.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

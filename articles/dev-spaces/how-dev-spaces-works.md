@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500552"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361503"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -85,10 +85,10 @@ Envolve a preparação de cluster do AKS:
 * Habilitar espaços de desenvolvimento do Azure em seu cluster usando `az aks use-dev-spaces`
 
 Para obter mais informações sobre como criar e configurar um cluster do AKS para espaços de desenvolvimento do Azure, consulte um dos guias de Introdução:
-* [Começar em espaços de desenvolvimento do Azure com Java](get-started-java.md)
-* [Começar em espaços de desenvolvimento do Azure com .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
-* [Começar em espaços de desenvolvimento do Azure com o .NET Core](get-started-netcore.md)
-* [Começar em espaços de desenvolvimento do Azure com Node. js](get-started-nodejs.md)
+* [Introdução ao Azure Dev Spaces com Java](get-started-java.md)
+* [Introdução ao Azure Dev Spaces com .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
+* [Introdução ao Azure Dev Spaces com .NET Core](get-started-netcore.md)
+* [Introdução ao Azure Dev Spaces com Node.js](get-started-nodejs.md)
 
 Quando espaços de desenvolvimento do Azure estiver habilitado no cluster do AKS, ele instala o controlador para seu cluster. O controlador é um recurso separado do Azure fora do seu cluster e faz o seguinte para recursos no cluster:
 

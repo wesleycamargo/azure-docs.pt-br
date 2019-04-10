@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Cenários de resolução de nomes para a IaaS do Azure, soluções híbridas, entre diferentes serviços de nuvem, Active Directory e usando o seu próprio servidor DNS.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418730"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426419"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -210,7 +210,7 @@ Ao usar o modelo de implantação clássica, você pode especificar os servidore
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Modelo de implantação do Azure Resource Manager:
 
@@ -220,5 +220,5 @@ Modelo de implantação do Azure Resource Manager:
 Modelo de implantação clássico:
 
 * [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
-* [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
+* [Esquema de configuração de rede virtual](https://msdn.microsoft.com/library/azure/jj157100)
+* [Configurar uma rede Virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)

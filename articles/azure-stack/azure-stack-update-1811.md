@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0fe5b055665ef5a770fba71fdefcfd13b9809e37
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 138913414a8e45084d498a0c7b2e864bc443197f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282263"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362050"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização da pilha 1811 do Azure
 
@@ -391,9 +391,9 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>syslog 
-- A configuração de syslog não é mantida por meio de um ciclo de atualização, resultando no cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809).
-A solução alternativa é reconfigurar o cliente de syslog após aplicar uma atualização do Azure Stack.
+### <a name="syslog"></a>syslog
+
+- A configuração de syslog não é mantida por meio de um ciclo de atualização, fazendo com que o cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809). Para contornar esse problema, reconfigure o cliente de syslog após aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Baixe a atualização
 

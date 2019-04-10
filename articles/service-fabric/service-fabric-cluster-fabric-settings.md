@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361549"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -407,11 +407,14 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmico|Especifique o intervalo de tempo em segundos. Tempo limite para a operação xstore ser concluída. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSE |Dinâmico|Essa configuração habilita ou desabilita a limpeza automática de pacote de aplicativo em provisão com êxito. |
+|CleanupUnusedApplicationTypes|Bool, o padrão é FALSE |Dinâmico|Essa configuração se habilitada, permite automaticamente cancelar o registro de versões de tipo de aplicativos não utilizados, ignorando as versões mais recentes três não utilizadas, assim, cortando o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final de provisão bem-sucedida para esse tipo de aplicativo específico e também executa periodicamente uma vez por dia para todos os tipos de aplicativo. Número de versões não utilizadas para ignorar é configurável usando o parâmetro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, o padrão é false |estático| Essa configuração permite habilitar ou desabilitar a validação de soma de verificação durante o provisionamento de aplicativo. |
 |DisableServerSideCopy | Bool, o padrão é false |estático|Essa configuração habilita ou desabilita a cópia do lado do servidor do pacote de aplicativos no ImageStore durante o provisionamento de aplicativo. |
 |ImageCachingEnabled | Bool, o padrão é true |estático|Essa configuração permite habilitar ou desabilitar o cache. |
 |ImageStoreConnectionString |SecureString |estático|Cadeia de conexão para a raiz do ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, o padrão é 1024 |Dinâmico|A taxa de transferência mínima entre o cluster e o ImageStore. Esse valor é usado para determinar o tempo limite ao acessar o ImageStore externo. Altere este valor somente se a latência entre o cluster e o ImageStore for alta para dar mais tempo para o cluster baixar do ImageStore externo. |
+|MaxUnusedAppTypeVersionsToKeep | Int, o padrão é 3 |Dinâmico|Essa configuração define o número de versões de tipo não usadas de aplicativo deve ser ignorada para a limpeza. Esse parâmetro é aplicável somente se o parâmetro CleanupUnusedApplicationTypes está habilitado. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Diretrizes ou descrição resumida** |
@@ -875,5 +878,5 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |X509StoreLocation | cadeia de caracteres, o padrão é "" |Dinâmico| X509StoreLocation para UpgradeService. |
 |X509StoreName | cadeia de caracteres, o padrão é "My"|Dinâmico|X509StoreName para UpgradeService. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md) e [Atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).

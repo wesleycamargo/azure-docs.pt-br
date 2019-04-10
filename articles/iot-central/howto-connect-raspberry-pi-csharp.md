@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275953"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426351"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (C#)
 
@@ -269,7 +269,7 @@ Para concluir as etapas a seguir, você pode usar o Visual Studio Code. Para sab
 
 ## <a name="run-your-net-application"></a>Executar o aplicativo .NET
 
-Adicione a cadeia de conexão específica do dispositivo ao código do dispositivo para autenticação no Azure IoT Central. Siga estas instruções para [gerar a cadeia de caracteres de conexão do dispositivo](concepts-connectivity.md#get-a-connection-string) usando o **ID do escopo**, **ID do dispositivo**, e **chave primária** você fez uma Observação de anteriormente.
+Adicione a cadeia de conexão específica do dispositivo ao código do dispositivo para autenticação no Azure IoT Central. Siga estas instruções para [gerar a cadeia de caracteres de conexão do dispositivo](howto-generate-connection-string.md) usando o **ID do escopo**, **ID do dispositivo**, e **chave primária** você fez uma Observação de anteriormente.
 
 1. Substitua `{your device connection string}` no **Program.cs** arquivo com a cadeia de caracteres de conexão que você gerou.
 
@@ -359,7 +359,7 @@ Configurações de alternância
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
 | Texto            | Local padrão     | location   | N/D       |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como conectar um Raspberry Pi ao seu aplicativo do Azure IoT Central, aqui estão as próximas etapas sugeridas:
 

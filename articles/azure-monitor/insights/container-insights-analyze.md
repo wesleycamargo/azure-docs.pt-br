@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233993"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426385"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres 
 Com o Azure Monitor para contêineres, você pode usar os gráficos de desempenho e o status de integridade para monitorar a carga de trabalho dos clusters do AKS (Serviço de Kubernetes do Azure) por meio de duas perspectivas: diretamente em um cluster do AKS ou todos os clusters do AKS em uma assinatura no Azure Monitor. Também é possível exibir ACI (Instâncias de Contêiner do Azure) ao monitorar um cluster específico do AKS.
@@ -61,17 +61,17 @@ A tabela a seguir fornece um detalhamento do cálculo que controla os estados de
 
 | |Status |Disponibilidade |  
 |-------|-------|-----------------|  
-|**Pod de usuários**| | |  
+|**Usuário Pod**| | |  
 | |Healthy |100% |  
 | |Aviso |90 – 99% |  
 | |Crítico |<90% |  
 | |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |  
-|**Pod de sistemas**| | |  
+|**Sistema Pod**| | |  
 | |Healthy |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
 | |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
-|**Node** | | |
+|**Nó** | | |
 | |Healthy |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
@@ -100,6 +100,33 @@ O gráfico de desempenho exibe quatro métricas de desempenho:
 
 Você pode usar as teclas de seta para a esquerda/direita para percorrer cada ponto de dados no gráfico e as teclas de seta para cima/para baixo para percorrer as linhas de percentil.
 
+O Azure Monitor para contêineres também dá suporte ao Azure Monitor [do metrics explorer](../platform/metrics-getting-started.md), onde você pode criar seus próprios gráficos, correlacionar e investigar as tendências e fixar nos dashboards. No metrics explorer, você também pode usar os critérios que você definiu para visualizar suas métricas como a base de um [métrica com base em regra de alerta](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Exibir métricas de contêiner no metrics explorer
+No metrics explorer, você pode exibir o nó agregado e métricas de utilização do Azure Monitor para contêineres de pod. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar gráficos de métricas para visualizar métricas de contêiner.
+
+|Namespace | Métrica |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+Você pode aplicar [divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) de uma métrica para exibi-lo por dimensão e visualizar diferentes segmentos dele comparar entre si. Para um nó, você pode segmentar o gráfico pela *host* dimensão, e de um pod, você pode segmentá-lo pelas dimensões seguintes:
+
+* Controller
+* Namespace do Kubernetes
+* Nó
+* Fase
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analisar a integridade do contêiner, controladores e nós
+
 Quando você alterna para os **Nós**, **Controladores**, e guia **Contêineres**, exibido automaticamente no lado direito da página está o painel de propriedade.  Ele mostra as propriedades do item selecionado, incluindo rótulos que você definir para organizar objetos Kubernetes. Clique no **>>** link no painel de visualizar\ocultar o painel.  
 
 ![Exemplo do painel de propriedades de perspectivas de Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -121,7 +148,7 @@ Os Nós Virtuais de Instâncias de Contêiner do Azure executando o sistema oper
 ![Hierarquia de nós de exemplo com Instâncias de Contêiner listadas](./media/container-insights-analyze/nodes-view-aci.png)
 
 Em um nó expandido, é possível fazer drill down do pod ou contêiner em execução no nó até o controlador para exibir dados de desempenho filtrados para esse controlador. Clique no valor sob a coluna **Controlador** para o nó específico.   
-![Exemplo de drill down do nó até o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
+![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Você pode selecionar controladores ou contêineres na parte superior da página e examinar o status e a utilização de recursos para esses objetos.  Se, em vez disso, você quiser examinar a utilização de memória, na lista suspensa **Métrica**, selecione **RSS de Memória** ou **Conjunto de trabalho de memória**. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **Mín.&nbsp;%** como *NaN&nbsp;%*, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representável. 
 
@@ -133,7 +160,7 @@ Por padrão, os dados de Desempenho são baseados nas últimas seis horas, mas v
 
 Quando você passa o mouse sobre o gráfico de barras na coluna **Tendência**, cada barra mostra o uso de CPU ou de memória, dependendo de qual métrica está selecionada, em de um período de amostra de 15 minutos. Depois de selecionar o gráfico de tendência usando um teclado, você pode usar as teclas Alt+PageUp ou Alt+PageDown para percorrer cada barra individualmente e obter os mesmos detalhes que obteria passando o mouse por elas.
 
-![Exemplo de gráfico de barras de tendência ao passar o mouse](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Passe o mouse gráfico de barras de tendência ao longo de exemplo](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 No próximo exemplo, observe que, para o primeiro da lista, nó *aks-nodepool1-*, o valor de **Contêineres** é 9, que é o valor acumulado do número total de contêineres implantados.
 
@@ -176,10 +203,10 @@ As informações que são exibidas quando você exibe controladores são descrit
 |--------|-------------|
 | NOME | O nome do controlador.|
 | Status | O status de rollup dos contêineres quando a execução é concluída com status, como *OK*, *Encerrado*, *Com falha* *Parado* ou *Em pausa*. Se o contêiner estiver em execução, mas o status não tiver sido devidamente exibido ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *Desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
-| Méd.&nbsp;%, Mín.&nbsp;%, Máx.&nbsp;%, 50º&nbsp;%, 90º&nbsp;% | Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
-| Méd., Mín., Máx., 50º, 90º  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
+| Méd.&nbsp;%, Mín.&nbsp;%, Máx.&nbsp;%, 50º&nbsp;%, 90º&nbsp;% | Acumulação de média do percentual médio de cada entidade para a métrica selecionada e percentil. |
+| Méd., Mín., Máx., 50º, 90º  | Acumulação da média de millicore da CPU ou desempenho da memória do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
 | Contêineres | Número total de contêineres para o controlador ou pod. |
-| Reinícios | Rollup da contagem de reinicialização dos contêineres. |
+| Reinícios | Acumulação da contagem de reinicialização dos contêineres. |
 | Tempo de atividade | Representa o tempo desde o início de um contêiner. |
 | Nó | Somente para os contêineres e pods. Mostra quais são os controladores residentes. | 
 | Tendência Méd.&nbsp;%, Mín.&nbsp;%, Máx.&nbsp;%, 50º&nbsp;%, 90º&nbsp;%| A tendência de gráfico de barras representa a métrica percentil do controlador. |
