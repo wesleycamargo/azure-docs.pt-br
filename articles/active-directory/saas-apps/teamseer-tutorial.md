@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d3f95001ff26fe21c29baf0c8721be914e8fdf73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ef11011ec37f72003dd6c238ce748d417bfcd505
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905130"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integração do Azure Active Directory ao TeamSeer
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
     ![Configurações do SAML](./media/teamseer-tutorial/ic789637.png "Configurações do SAML")
 
-     a. Na caixa de texto **URL**, cole o valor **URL de Logon**, que você copiou do portal do Azure.
+    a. Na caixa de texto **URL**, cole o valor **URL de Logon**, que você copiou do portal do Azure.
 
     b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público do IdP**.
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
     ![Configurações do SAML](./media/teamseer-tutorial/ic789638.png "Configurações do SAML")
 
-     a. Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste.
+    a. Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste.
   
     b. Na caixa de texto **Emissor** , digite a URL do Emissor do provedor de serviços.
   
@@ -225,7 +225,7 @@ Para permitir que os usuários do Azure AD entrem no TeamSeer, eles devem ser pr
 
     ![Detalhes do Usuário](./media/teamseer-tutorial/ic789641.png "Detalhes do Usuário")
 
-     a. Digite o **Nome**, **Sobrenome** e **Nome de usuário (endereço de email)** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome**, **Sobrenome** e **Nome de usuário (endereço de email)** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
   
     b. Clique em **Próximo**.
 
@@ -242,8 +242,8 @@ Ao clicar no bloco do TeamSeer no Painel de Acesso, você deverá entrar automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

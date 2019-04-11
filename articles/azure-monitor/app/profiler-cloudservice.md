@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895474"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470824"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights
 
 Você também pode implantar o Application Insights Profiler nesses serviços:
-* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Aplicativos do Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Aplicativos do Service Fabric do Azure](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Application Insights Profiler é instalado com a extensão de Diagnóstico do Azure. Você só precisa configurar o Diagnóstico do Azure para instalar o Profiler e enviar perfis para o recurso Application Insights.
@@ -33,7 +33,7 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 
 1. Adicione o [SDK do Application Insights aos Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**Há um bug no criador de perfil que é fornecido com a versão mais recente do WAD para serviços de nuvem.** Para usar o criador de perfil com um serviço de nuvem, ele só dá suporte a SDK do AI até versão 2.7.2. Se você estiver usando uma versão mais recente do SDK do AI, você precisará voltar para 2.7.2 para usar o criador de perfil. Se você usar o Visual Studio para fazer downgrade da versão do SDK do App Insights, você pode receber um erro de redirecionamento de associação em tempo de execução. Isso ocorre porque o arquivo Web. config para Microsoft. applicationinsights "newVersion" deve ser definido como "2.7.2.0" depois de fazer o downgrade do SDK do AI, mas ele não é atualizado automaticamente.
+    **Foi corrigido o bug no criador de perfil que é fornecido com o WAD para serviços de nuvem.** A versão mais recente do WAD (1.12.2.0) para serviços de nuvem funciona com todas as versões recentes do SDK do App Insights. Hosts de serviço de nuvem atualizará WAD automaticamente, mas não é imediata. Para forçar uma atualização, você pode reimplantar o serviço ou reinicializar o nó.
 
 1. Acompanhe as solicitações com o Application Insights:
 

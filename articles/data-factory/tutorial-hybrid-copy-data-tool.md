@@ -3,20 +3,20 @@ title: Copiar dados locais usando a ferramenta Copy Data do Azure | Microsoft Do
 description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar dados de um banco de dados do SQL Server local para o armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 3569d39b8e4668894e44507dfdd0e20297028290
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 04/09/2018
+ms.author: abnarain
+ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226497"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261506"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,7 +191,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Em **Especificar o banco de dados do SQL Server local**, realize as seguintes etapas: 
 
-     a. Em **Nome**, insira **SqlServerLinkedService**.
+    a. Em **Nome**, insira **SqlServerLinkedService**.
 
     b. Em **Nome do servidor**, insira o nome da sua instância do SQL Server local.
 
@@ -205,21 +205,19 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Selecione **Avançar**.
 
-       ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
+   ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
 1. Na página **Selecionar tabelas das quais copiar os dados ou usar uma consulta personalizada**, selecione a tabela **[dbo].[emp]** na lista e selecione **Avançar**. Você pode selecionar qualquer outra tabela com base em seu banco de dados.
 
-       ![The Product table selection](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
+   ![A seleção da tabela Produto](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
 1. Na página **Armazenamento de dados de destino**, selecione **Criar nova conexão**
 
-       //image create-new-sink-connection.png
-
-       ![Create Destination linked service](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
+   ![Criar Serviço vinculado de destino](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
 1. Em **Novo serviço vinculado**, procure e selecione **Blobs do Azure**, em seguida, **Continuar**. 
 
-       ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Seleção de armazenamento de blobs](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. Na caixa de diálogo **Novo serviço vinculado (Armazenamento de Blobs do Azure)**, execute as seguintes etapas: 
 
@@ -231,47 +229,47 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
        d. Select **Next**.
 
-       ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   ![Especificar a conta de armazenamento](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
 1. Na caixa de diálogo **Armazenamento de dados de destino**, selecione **Avançar**. Em **Propriedades de conexão**, selecione **Serviço de armazenamento do Azure** como **Armazenamento de Blobs do Azure**. Selecione **Avançar**. 
 
-       ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+   ![propriedades da conexão](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
 1. Na caixa de diálogo **Escolha o arquivo ou a pasta de saída**, em **Caminho da pasta**, insira **adftutorial/fromonprem**. Você criou o contêiner **adftutorial** como parte dos pré-requisitos. Se a pasta de saída não existir (neste caso **fromonprem**), o Data Factory a cria automaticamente. Também é possível usar o botão **Procurar** para navegar no armazenamento de blobs e seus contêineres/pastas. Se você não especificar nenhum valor em **Nome de arquivo**, por padrão o nome da fonte será usado (neste caso **dbo.emp**).
            
-       ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   ![Escolha o arquivo ou a pasta de saída](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
 1. Na caixa de diálogo **Configurações de formato de arquivo**, selecione **Avançar**. 
 
-       ![File format settings page](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+   ![Página Configurações de formato de arquivo](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
 1. Na caixa de diálogo **Configurações**, selecione **Avançar**. 
 
-       ![Settings page](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+   ![Página Configurações](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
 1. Na caixa de diálogo **Resumo**, revise os valores para todas as configurações e selecione **Avançar**. 
 
-       ![Summary page](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+   ![Página Resumo](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
 1. Na página **Implantação**, selecione **Monitorar** para monitorar o pipeline ou a tarefa que você criou.
 
-       ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+   ![Página Implantação](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
 1. Na guia **Monitorar**, é possível ver o status do pipeline que você criou. É possível usar os links na coluna **Ação** para exibir execuções de atividades associadas à execução e re-execução do pipeline. 
 
-       ![Monitor pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+   ![Monitorar execuções de pipeline](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
 1. Selecione **Exibir Execuções da Atividade** na coluna **Ações** para ver a execução de atividade associada à execução de pipeline. Para ver detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para alternar novamente para a exibição de **Execuções de Pipeline**, selecione **Pipelines** na parte superior.
 
-       ![Monitor activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+   ![Monitorar execuções de atividade](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
 1. Confira se existe o arquivo de saída na pasta **fromonprem** do contêiner **adftutorial**. 
 
-       ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+   ![Blob de saída](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
 1. Selecione a guia **Editar** à esquerda para alternar para o modo de edição. É possível atualizar serviços vinculados, conjuntos de dados e pipelines criados pela ferramenta usando o editor. Selecione **Código** para exibir o código JSON associado à entidade aberta no editor. Para obter detalhes sobre como editar essas entidades na interface do usuário do Data Factory, confira [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
-       ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+   ![Guia Editar](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 166a9daed40c03ed603d9ecaf4db2d49da0bf93d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887026"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Azure Active Directory ao Percolate
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Percolate, execute as seguintes
 
     ![Configurar o logon único](./media/percolate-tutorial/configure02.png)
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
@@ -219,7 +219,7 @@ Para permitir que os usuários do Azure AD entrem no Percolate, eles devem ser p
 
     ![Configurar o logon único](./media/percolate-tutorial/configure04.png)
 
-     a. Na caixa de texto **Email** , insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Email** , insira o email do usuário como brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome completo** , insira o nome do usuário como **Brendafernandes**.
 
@@ -233,9 +233,9 @@ Ao clicar no bloco do Percolate no Painel de Acesso, você deverá entrar automa
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

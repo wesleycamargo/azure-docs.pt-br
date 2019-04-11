@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358428"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471555"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não há suporte para vários arquivos de log.
 - Não há suporte para objetos na memória na camada de serviço de Uso Geral.  
-- Há um limite de 280 arquivos por instância de finalidade geral implicando no máximo 280 arquivos por banco de dados. Os dados e arquivos de log em geral finalidade camada são contados para esse limite. [Camada comercialmente crítico dá suporte a 32.767 arquivos por banco de dados](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Há um limite de 280 arquivos por instância de finalidade geral implicando no máximo 280 arquivos por banco de dados. Os dados e arquivos de log em geral finalidade camada são contados para esse limite. [Camada comercialmente crítico dá suporte a 32.767 arquivos por banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - O banco de dados não pode conter grupos de arquivos que contenham dados de fluxo de arquivos.  A restauração falhará se .bak contiver dados `FILESTREAM`.  
 - Cada arquivo é colocado no Armazenamento de Blobs do Azure. A E/S e a taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.  
 
@@ -467,7 +467,6 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - `@@SERVICENAME` retorna NULL, pois o conceito de serviço como ela existe para o SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` há suporte. Retornará NULL se o logon do Azure AD não estiver em sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` não é suportado. Retorna dados incorretos (problema temporário conhecido). Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` e outras funções internas de data/hora sempre retorna a hora no fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Problemas e limitações conhecidos
 
@@ -494,7 +493,7 @@ Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição e
 
 Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
-Você pode [identifique o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você está acessando esse limite tentar [vazios e excluir alguns arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [camada comercialmente crítico que não possui esse limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Você pode [identifique o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você está acessando esse limite tentar [vazios e excluir alguns arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [camada comercialmente crítico que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuração incorreta da chave SAS durante a restauração do banco de dados
 
@@ -567,11 +566,11 @@ Os módulos CLR colocados em uma Instância Gerenciada e em servidores vinculado
 
 **Solução alternativa**: Usar conexões de contexto no módulo CLR, se possível.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Os bancos de dados criptografados por TDE não oferecem suporte a backups iniciados pelo usuário
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>Bancos de dados TDE criptografado com chave gerenciada por serviço não dão suporte a backups iniciados pelo usuário
 
-Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que esteja criptografado com TDE (Transparent Data Encryption). A TDE força os backups a serem criptografados com chaves TDE internas, e a chave não pode ser exportada, de modo que não é possível restaurar o backup.
+Você não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados é criptografado com serviços gerenciados criptografia TDE (Transparent Data). TDE gerenciada por serviço força backups a serem criptografados com a chave da TDE interna e a chave não pode ser exportada, portanto, não será possível restaurar o backup.
 
-**Solução alternativa**: Use backups automáticos e a restauração pontual, ou desabilite a criptografia no banco de dados.
+**Solução alternativa**: Use backups automáticos e restauração point-in-time ou use [gerenciadas pelo cliente (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso, ou desabilitar a criptografia no banco de dados.
 
 ## <a name="next-steps"></a>Próximos passos
 

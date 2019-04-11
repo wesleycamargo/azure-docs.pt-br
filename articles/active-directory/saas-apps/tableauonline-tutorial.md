@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: cdebeefac1a77cd834466a8731d0652136bdbd47
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906167"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory ao Tableau Online
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Tableau Online, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Tableau Online](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Tableau Online, execute as segu
 
 4. Na seção **Corresponder Instruções de Declaração**, insira o nome de instrução de declaração do Provedor de Identidade correspondente para **endereço de email**, **nome** e **sobrenome**. Para obter essas informações do Azure AD: 
   
-     a. No portal do Azure, acesse a página de integração de aplicativos do **Tableau Online**.
+    a. No portal do Azure, acesse a página de integração de aplicativos do **Tableau Online**.
 
     b. Na seção **Atributos do usuário e declarações****, clique no ícone editar.
 
@@ -243,8 +243,8 @@ Ao clicar no bloco do Tableau Online no Painel de Acesso, você deverá entrar a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
