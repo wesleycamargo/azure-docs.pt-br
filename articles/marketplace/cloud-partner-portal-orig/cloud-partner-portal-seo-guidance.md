@@ -1,5 +1,5 @@
 ---
-title: Guia do editor de otimização do mecanismo de pesquisa do Azure Marketplace | Microsoft Docs
+title: Diretrizes de SEO do Marketplace do Azure | Microsoft Docs
 description: Fornece diretrizes sobre como maximizar a SEO (otimização do mecanismo de pesquisa).
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834329"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469651"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Guia do editor de SEO do Azure Marketplace
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Diretrizes de SEO do Marketplace do Azure
 
-### <a name="general-explanation-of-algorithm"></a>Explicação geral do algoritmo
+Este artigo explica como maximizar a capacidade de descoberta da sua oferta por meio de funcionalidade de pesquisa do [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). 
 
-O mercado utiliza o Azure Search para potencializar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
+
+## <a name="general-explanation-of-algorithm"></a>Explicação geral do algoritmo
+
+Marketplaces da Microsoft utilizam o Azure Search para capacitar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
 
 Em geral, todos os campos de texto, categorias e setores e incluídos no peso da relevância. Termos especializados que são usados com pouca frequência por aplicativos, mas frequentemente no aplicativo, geram uma pontuação de correspondência maior com a pesquisa. Portanto, incluir termos como "VM" ofereceria pouco benefício, enquanto que o "Azure Search" seria muito mais especializado.
 A seguir, estão os campos mais relevantes a serem considerados.
@@ -42,7 +44,7 @@ A seguir, estão os campos mais relevantes a serem considerados.
 |  |  |  |
 
 
-### <a name="other-tips"></a>Outras dicas
+## <a name="other-tips"></a>Outras dicas
 
 -   A pesquisa sugere uma atividade intensa do usuário. Ele prioriza as correspondências em relação ao nome/editor do aplicativo. A descrição resumida torna-se o campo-chave para quando o termo de pesquisa não é uma correspondência exata com o nome do editor/aplicativo.
 -   Os documentos para download não estão incluídos na ponderação de pesquisa.

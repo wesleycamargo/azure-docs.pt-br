@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426368"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469889"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -320,8 +320,8 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
       
    Considere também:
    + Na configuração Automl, ao usar o Azure Databricks adicione os seguintes parâmetros:
-    1. ```max_concurrent_iterations``` com base no número de nós de trabalho em seu cluster. 
-    2. ```spark_context=sc``` contexto do spark padrão #databricks/spark. 
+        1. ```max_concurrent_iterations``` é baseada no número de nós de trabalho em seu cluster. 
+        2. ```spark_context=sc``` baseia-se no contexto do spark padrão. 
    + Ou, se você tiver uma versão antiga do SDK, desmarcá-la de bibliotecas de instalados do cluster e mover para Lixeira. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema depois de fazer isso, desanexe e anexe novamente o cluster.
 
 Se a instalação foi bem-sucedida, a biblioteca importada deve ser semelhante uma destas opções:
@@ -382,7 +382,7 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
     Este código grava o arquivo de configuração no arquivo *aml_config/config.json*.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Veja a referência do [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk)

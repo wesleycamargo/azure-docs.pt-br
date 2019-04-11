@@ -1,6 +1,6 @@
 ---
 title: Como integrar ao Active Directory do Azure | Microsoft Docs
-description: Um guia de benefícios e recursos para integração com o Active Directory do Azure.
+description: Conheça os benefícios da integração do seu aplicativo com o Azure Active Directory e obtenha recursos para recursos como gerenciamento simplificado de entrar, identidade, a autenticação multifator e controle de acesso.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b2848dc4bcf4e0c8935795eb66e07c3a5a7bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 726d70c46dca712deaf4846c24976cdabcc49be9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894620"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359906"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração ao Active Directory do Azure
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) fornece às organizações gerenciamento de identidades de nível empresarial para aplicativos em nuvem. A integração do AD do Azure oferece aos usuários uma experiência de entrada simplificada e ajuda seu aplicativo a manter-se em conformidade com a política de TI.
+Neste artigo, saiba mais sobre os benefícios da integração do seu aplicativo com o Azure Active Directory (Azure AD) e obtenha recursos para integração. Azure AD fornece às organizações gerenciamento de identidades de nível empresarial para aplicativos em nuvem. A integração do AD do Azure oferece aos usuários uma experiência de entrada simplificada e ajuda seu aplicativo a manter-se em conformidade com a política de TI.
 
 ## <a name="how-to-integrate"></a>Como integrar o
 

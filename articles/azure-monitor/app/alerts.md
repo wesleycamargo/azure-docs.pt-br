@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257154"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469787"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
@@ -144,6 +144,24 @@ Nesta seção, veremos como definir um alerta de exceção baseado em consulta. 
 10. Por fim, adicione seus detalhes do alerta (nome da regra, a descrição, a severidade do alerta). Quando você terminar, clique em **criar regra de alerta** na parte inferior.
 
     ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como cancelar a assinatura de notificações por email de alerta clássico
+
+Esta seção aplica-se a **alertas de disponibilidade clássico**, **alertas de métrica do Application Insights**e, ao **alertas de anomalias de falha clássico**.
+
+Você está recebendo notificações de email para esses alertas clássicos se qualquer um dos seguintes for aplicável:
+
+* Seu endereço de email está listado no campo de destinatários de email de notificação nas configurações de regra de alerta.
+
+* A opção de enviar notificações por email aos usuários, mantendo a determinadas funções para a assinatura for ativada, e você mantenha uma função respectiva para uma assinatura do Azure específica.
+
+![Captura de tela de notificação de alerta](./media/alerts/alert-notification.png)
+
+Para controlar melhor a sua segurança e privacidade, nós geralmente recomendamos que você especificar explicitamente os destinatários de notificação de alertas clássicas na **destinatários de email de notificação** campo. A opção de notificar todos os usuários, mantendo a determinadas funções é fornecida para compatibilidade com versões anteriores.
+
+Para cancelar a assinatura de notificações de email geradas por uma regra de alerta determinada, remover seu endereço de email a partir de **destinatários de email de notificação** campo.
+
+Se seu endereço de email não estiver listado explicitamente, é recomendável que você desabilite a opção de notificar todos os membros de certas funções automaticamente e, em vez disso, listar todos os emails de usuário que precisam receber notificações dessa regra de alerta no email de notificação campo de destinatários.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 

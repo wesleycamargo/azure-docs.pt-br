@@ -1,20 +1,18 @@
 ---
 title: Criar e gerenciar políticas para impor a conformidade
 description: Use a Política do Azure para impor padrões, atender requisitos de auditoria e regulamentares, controlar custos, manter a consistência de segurança e desempenho e impor princípios de design em toda a empresa.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 879636b9db2d7c2c48c7a4a194b43985785d2623
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878240"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283606"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -34,7 +32,7 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
-   ![Pesquisar Política em todos os serviços](../media/create-and-manage/search-policy.png)
+   ![Pesquisar Política em Todos os Serviços](../media/create-and-manage/search-policy.png)
 
 1. Selecione **Atribuições** no lado esquerdo da página de Política do Azure. Uma atribuição é uma política que foi atribuída para entrar em vigor em um escopo específico.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273576"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469481"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -63,9 +63,9 @@ Clique em **Adicionar**.
 
 ![Orçamentos de Gerenciamento de Custos mostrados no portal do Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um mensal, trimestral ou período de duração anual<sup>1</sup>. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md).
+Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md).
 
-<sup>1</sup> se você for um cliente de pré-pago, MSDN ou Visual Studio seu período de fatura de cobrança para uma assinatura não estar alinhado ao mês calendário. Para assinaturas e grupos de recursos que se enquadram nesse recipiente, você pode criar um orçamento que está alinhada à sua fatura ou meses do calendário. Para criar um orçamento alinhado à sua fatura, selecione um período de redefinição de mês de cobrança, a cobrança trimestre ou ano de cobrança no momento da criação. Para criar um orçamento alinhado ao mês calendário, selecione um período de redefinição de mensalmente, trimestralmente ou anualmente no momento da criação.
+Se você tiver uma assinatura pré-paga, do MSDN ou do Visual Studio, seu período de cobrança de fatura pode não estar alinhados ao mês calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar um orçamento que está alinhado ao período de fatura ou para os meses do calendário. Para criar um orçamento alinhado ao período de nota fiscal, selecione um período de redefinição de mês de cobrança, a cobrança trimestre ou ano de cobrança. Para criar um orçamento alinhado ao mês calendário, selecione um período de redefinição de mensal, trimestral ou anualmente.
 
 Aqui está um exemplo de criação de um orçamento mensal de US$ 4.500. Um alerta por email é gerado quando 90% do orçamento é atingido.
 

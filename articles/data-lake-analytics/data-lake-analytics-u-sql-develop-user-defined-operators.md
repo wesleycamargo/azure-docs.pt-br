@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040983"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469617"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver UDOs (operadores definidos pelo usuário) do U-SQL
 Este artigo descreve como desenvolver operadores definidos pelo usuário para processar dados em um trabalho do U-SQL.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definir e usar o operador definido pelo usuário no U-SQL
-**Para criar e enviar um trabalho do U-SQL**
+**Para criar e enviar um trabalho de U-SQL**
 
 1. No Visual Studio, selecione **Arquivo > Novo > Projeto > Projeto U-SQL**.
 2. Clique em **OK**. O Visual Studio cria uma solução com um arquivo Script.usql.
@@ -124,5 +124,5 @@ Este artigo descreve como desenvolver operadores definidos pelo usuário para pr
 2. Expanda Exemplos, expanda Saídas e clique duas vezes em **Drivers.csv**.
 
 ## <a name="see-also"></a>Consulte também
-* [Estendendo expressões U-SQL com o código de usuário](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [Usar as Ferramentas do Data Lake para Visual Studio para desenvolver aplicativos do U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+* [Estendendo expressões U-SQL com o código do usuário](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Usar ferramentas do Data Lake para Visual Studio para desenvolver aplicativos U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

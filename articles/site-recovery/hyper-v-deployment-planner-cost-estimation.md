@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320269"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359035"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
 
@@ -56,7 +56,7 @@ A primeira seção mostra o custo geral da recuperação de desastre pelos compo
 
 **Rede**: Custo do ExpressRoute e VPN site a site para necessidades de recuperação de desastre. 
 
-**Licença do ASR**: Custo da licença do Azure Site Recovery para todas as VMs compatíveis. Caso tenha inserido manualmente uma VM na tabela detalhada de análise de custo, o custo da licença do Site Recovery também estará incluído para essa VM.
+**Licença do Azure Site Recovery**: Custo da licença do Azure Site Recovery para todas as VMs compatíveis. Caso tenha inserido manualmente uma VM na tabela detalhada de análise de custo, o custo da licença do Site Recovery também estará incluído para essa VM.
 
 ### <a name="overall-dr-costs-by-states"></a>Custo geral de recuperação de desastre por estados
 O custo total da recuperação de desastre é categorizado com base em dois estados diferentes: a replicação e a análise de recuperação de desastre.
@@ -109,15 +109,15 @@ Para adicionar manualmente as máquinas virtuais:
 
      a. **Número de VMs**
 
-    b. **Tamanho da IaaS (Sua seleção)**
+    b. **Tamanho da IaaS (sua seleção)**
 
     c. **Tipo de armazenamento Standard/Premium**
 
     d. **Tamanho total de armazenamento da VM (GB)**
 
-    e. **Número de análises de recuperação de desastre em um ano**
+    e. **Número de análises de recuperação de Desastre em um ano**
 
-    f. **Duração de cada análise de recuperação de desastre (Dias)**
+    f. **A duração de cada análise recuperação de Desastre (dias)**
 
     g. **Tipo de sistema operacional**
 
@@ -157,7 +157,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Custo total de Análise de Recuperação de Desastre (média)**: Custo de computação e de armazenamento para análise de recuperação de desastre.
 
-**Custo de licença do ASR**: Custo de licença do Site Recovery.
+**Custo de licença do Azure Site Recovery**: Custo de licença do Site Recovery.
 
 ## <a name="supported-target-regions"></a>Regiões de destino com suporte
 O Planejador de Implantações do Site Recovery fornece uma estimativa de custo para as seguintes regiões do Azure. Se sua região não estiver listada aqui, será possível usar qualquer uma das regiões a seguir com o preço mais próximo de sua região:
@@ -178,5 +178,5 @@ O Planejador de Implantações do Site Recovery pode gerar o relatório de custo
 |SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como proteger [VMs do Hyper-V para o Azure usando o Site Recovery](hyper-v-azure-tutorial.md).

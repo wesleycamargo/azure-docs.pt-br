@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669769"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357851"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -147,7 +147,7 @@ Esse erro será exibido no Visual Studio Code se você tiver uma versão mais re
 
 Baixe e instale a última versão da CLI do Azure Dev Spaces:
 
-* [Windows](https://aka.ms/get-azds-windows)
+* [ Windows](https://aka.ms/get-azds-windows)
 * [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
@@ -187,11 +187,11 @@ A porta do contêiner não está disponível. Esse problema pode ocorrer porque:
 1. Verifique a configuração de porta. Os números de porta especificados devem ser **idênticos** em todos os seguintes ativos:
     * **Dockerfile:** Especificado pela instrução `EXPOSE`.
     * **[Pacote do Helm](https://docs.helm.sh):** Especificado pelos valores `externalPort` e `internalPort` para um serviço (geralmente localizado em um arquivo `values.yml`),
-    * Quaisquer portas sendo abertas no código do aplicativo, por exemplo, no Node.js: `var server = app.listen(80, function () {...}`
+    * As portas abertas no código do aplicativo, por exemplo, no Node. js: `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>Arquivo de configuração não encontrado
-Você executa `azds up` e obtém o erro a seguir: `Config file not found: .../azds.yaml`
+Executar `azds up` e obterá o seguinte erro: `Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>Motivo
 É necessário executar `azds up` a partir do diretório raiz do código que deseja executar e inicializar a pasta de código para execução com o Azure Dev Spaces.
@@ -208,7 +208,7 @@ Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro.
 2. Pressione F5 novamente.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Depurar erro 'Falha ao localizar a extensão do depurador para type:coreclr'
-Executar o depurador de VS Code relata o erro: `Failed to find debugger extension for type:coreclr.`
+Executar o depurador do VS Code relata o erro: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
 Não é necessário ter a extensão do VS Code para C# instalada no computador de desenvolvimento. O C# extensão inclui suporte para o .NET Core (CoreCLR) de depuração.
@@ -217,7 +217,7 @@ Não é necessário ter a extensão do VS Code para C# instalada no computador d
 Instalar a [extensão do VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Erro de depuração 'não há suporte para tipo de depuração configurado 'coreclr' '
-Executar o depurador de VS Code relata o erro: `Configured debug type 'coreclr' is not supported.`
+Executar o depurador do VS Code relata o erro: `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>Motivo
 Você não tem a extensão do VS Code para Azure Dev Spaces instalados no computador de desenvolvimento.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838265"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470688"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -49,6 +49,14 @@ Depois de reiniciar a VM para o novo kernel, a nova versão do kernel pode ser c
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Atualizar o agente de máquina Virtual do Azure e as versões da extensão
+
+Operações de criptografia de disco do Azure podem falhar em imagens de máquina virtual usando versões sem suporte do agente de máquina Virtual do Azure. Para obter mais informações, consulte [suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+A versão correta da extensão do agente de convidado Microsoft.Azure.Security.AzureDiskEncryption ou Microsoft.Azure.Security.AzureDiskEncryptionForLinux também é necessária. Versões da extensão são mantidas e atualizadas automaticamente pela plataforma, quando os pré-requisitos de agente de máquina Virtual do Azure são atendidos, uma versão com suporte do agente de máquina virtual é usada.
+
+A extensão Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux foi preterida e não é mais suportada.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Não é possível criptografar discos do Linux
 
@@ -144,9 +152,9 @@ O portal poderá exibir um disco criptografado mesmo depois que ele tiver sido d
 
 Para desativar corretamente o Azure Disk Encryption, iniciar a partir de um bom estado conhecido com a criptografia habilitada e, em seguida, usar o [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) e [AzVMDiskEncryptionExtension remover](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell comandos, ou o [desabilitar a criptografia de vm az](/cli/azure/vm/encryption) comando da CLI. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucioná-los. Para saber mais sobre esse serviço e seus recursos, confira os seguintes artigos:
 
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Criptografia de dados em repouso do Azure](azure-security-encryption-atrest.md)
+- [Criptografia de dados do Azure em repouso](azure-security-encryption-atrest.md)
