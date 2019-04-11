@@ -1,7 +1,6 @@
 ---
 title: Executar sua primeira consulta usando a CLI do Azure
 description: Este artigo orienta você pelas etapas para habilitar a extensão do Resource Graph para a CLI do Azure e executar a primeira consulta.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/22/2018
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 47f3c4bdf21d751cd3804c6a854e7f8706b0815a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767950"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266470"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Execute a primeira consulta ao Resource Graph usando a CLI do Azure
 
