@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250995"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471402"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL
 
@@ -26,7 +26,7 @@ Quando você desenvolve e ajusta consultas U-SQL em ambientes de desenvolvimento
 
 ## <a name="export-steps"></a>Etapas de exportação
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>Etapa 1: exporte o banco de dados no Gerenciador de Servidores
+### <a name="step-1-export-the-database-in-server-explorer"></a>Etapa 1: Exportar o banco de dados no Gerenciador de servidores
 
 Todas as contas do Data Lake Analytics para as quais você tem permissão estão listadas no Gerenciador de Servidores. Para exportar o banco de dados:
 
@@ -37,7 +37,7 @@ Todas as contas do Data Lake Analytics para as quais você tem permissão estão
 
      Se a opção de menu **Exportar** não estiver disponível, você precisará [atualizar a ferramenta para a versão mais recente](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Etapa 2: configure os objetos que deseja exportar
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Etapa 2: Configurar os objetos que você deseja exportar
 
 Se você precisar de uma pequena parte de um banco de dados grande, poderá configurar um subconjunto dos objetos que deseja exportar no assistente de exportação. 
 
@@ -45,7 +45,7 @@ A ação de exportação é concluída pela execução de um trabalho de U-SQL. 
 
 ![Assistente para exportação de banco de dados - selecionar objetos para exportação](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Etapa 3: verifique a lista de objetos e outras configurações
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Etapa 3: Verifique a lista de objetos e outras configurações
 
 Nesta etapa, você pode verificar os objetos selecionados na caixa **Lista de objetos para exportação**. Se houver erros, selecione **Anterior** para voltar e configurar corretamente os objetos que você deseja exportar.
 
@@ -61,7 +61,7 @@ Você também pode definir outras configurações para o destino de exportação
 
 ![Assistente de exportação de banco de dados - lista de objetos para exportação e outras configurações](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
-### <a name="step-4-check-the-export-results"></a>Etapa 4: verifique os resultados da exportação
+### <a name="step-4-check-the-export-results"></a>Etapa 4: Verificar os resultados da exportação
 
 Quando a exportação for concluída, você poderá exibir os resultados exportados na janela de log do assistente. O exemplo a seguir mostra como localizar script U-SQL e banco de dados de recursos exportados, incluindo assemblies, arquivos adicionais e dados de exemplo:
 
@@ -82,9 +82,9 @@ Para importar o banco de dados para outra conta do Data Lake Analytics:
 
 Atualmente, se você selecionar a opção **Esquema e dados** na Etapa 3, a ferramenta executa um trabalho de U-SQL para exportar os dados armazenados em tabelas. Por isso, o processo de exportação de dados pode ser lento e você pode incorrer em custos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Saiba mais sobre bancos de dados U-SQL](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
-* [Testar e depurar trabalhos U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
+* [Saiba mais sobre bancos de dados U-SQL](/u-sql/data-definition-language-ddl-statements) 
+* [Testar e depurar trabalhos do U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 
 

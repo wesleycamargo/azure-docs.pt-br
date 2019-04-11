@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 7c06489af7c418a437c2e7a8714c89bee1414c2b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357954"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471725"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicione sugestões ou preenchimento automático ao seu aplicativo do Azure Search
 
@@ -164,7 +164,7 @@ Abra o **HomeController.cs** arquivo sob o diretório Controllers.
 
 A primeira coisa que você pode notar é um método na parte superior da classe chamada `InitSearch`. Isso cria um cliente de índice HTTP autenticado para o serviço Azure Search. Para obter mais informações, consulte [como usar o Azure Search de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-Na linha 41, observe a função Suggest. Ele se baseia a [DocumentsOperationsExtensions.Suggest método](/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+Na linha 41, observe a função Suggest. Ele se baseia a [DocumentsOperationsExtensions.Suggest método](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -310,7 +310,7 @@ Até agora, você já usa o índice de demonstração NYCJobs hospedado. Se voc�
 
 1. Pressione F5 para executar o aplicativo. Aplicativo web de exemplo é aberto no navegador padrão. A experiência é idêntica para a versão de área restrita, somente o índice e os dados são hospedados em seu serviço.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este exemplo demonstra as etapas básicas para a criação de uma caixa de pesquisa que dá suporte a preenchimento automático e sugestões. Você viu como você poderia criar um aplicativo ASP.NET MVC e usar a API REST ou o SDK do .NET do Azure Search para recuperar sugestões.
 

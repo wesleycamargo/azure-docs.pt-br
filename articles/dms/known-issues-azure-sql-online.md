@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091487"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471232"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração e problemas conhecidos das migrações online para o BD SQL do Azure
 
 Os problemas conhecidos e as limitações associados às migrações online do SQL Server para o Banco de Dados SQL do Azure são descritos abaixo.
+
+> [!IMPORTANT]
+> Com as migrações online do SQL Server para o banco de dados SQL, não há suporte para migração dos tipos de dados SQL_variant.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>A migração das tabelas temporais não é compatível
 
@@ -62,17 +65,20 @@ Você poderá ver uma exceção do SQL sugerindo que "ntext é incompatível com
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. Exclua estas tabelas da folha **Definir configurações de migração**, em que você especifica tabelas para migração.
+2. Exclua estas tabelas da folha **Definir configurações de migração**, em que você especifica tabelas para migração.
 
-   1. Execute a atividade de migração novamente.
+3. Execute a atividade de migração novamente.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Falhas de migração com várias violações de integridade com gatilhos ativos no esquema durante o "Carregamento de dados completo" ou a "Sincronização de dados incremental"
 
 **Solução alternativa**
+
 1. Localize os gatilhos que estão atualmente ativos no banco de dados de origem usando a consulta abaixo:
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Desabilite os gatilhos em seu banco de dados de origem usando as etapas fornecidas no artigo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Execute a atividade de migração novamente.
@@ -101,11 +107,11 @@ O DMS não migra o valor do carimbo de data/hora da fonte, em vez disso, o DMS g
 
 Se você precisar DMS para migrar o valor de carimbo de hora exata armazenado na tabela de origem, entre em contato com a equipe de engenharia no [fazer migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Os erros de migração de dados não fornecem detalhes adicionais sobre a folha de status detalhada do banco de dados.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Erros de migração de dados não fornecem detalhes adicionais sobre a folha de status detalhado do banco de dados.
 
 **Sintoma**
 
-Quando você encontrar as falhas de migração na exibição de status de detalhes dos bancos de dados, selecionar o link **Erros de migração de dados** na faixa de opções superior não pode fornecer detalhes adicionais específicos para as falhas de migração.
+Quando você se deparar com falhas de migração na exibição de status de detalhes de bancos de dados, selecionando o **erros de migração de dados** link na faixa de opções superior não pode fornecer detalhes adicionais específicos para as falhas de migração.
 
 ![exemplos de erros de migração de dados sem detalhes](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
