@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077812"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270779"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para o provisionamento automático do usuário
 
@@ -43,29 +44,23 @@ O cenário descrito neste tutorial pressupõe que você já possui o seguinte:
 ## <a name="adding-tableau-online-from-the-gallery"></a>Adição do Tableau Online da galeria
 Antes de configurar o Tableau Online para o provisionamento automático de usuário com o Azure AD, é necessário adicionar o Tableau Online por meio da galeria de aplicativos do Azure AD à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Tableau Online por meio da galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar o Tableau Online da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos empresariais** > **Todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![Seção de Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar o Tableau Online, clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Tableau Online**.
+4. Na caixa de pesquisa, digite **Tableauonline**, selecione **Tableauonline** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicativo.
 
-    ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/AppSearch.png)
-
-5. No painel de resultados, selecione **Tableau Online** e, em seguida, clique no botão **Adicionar** para adicionar o Tableau Online à lista de aplicativos SaaS.
-
-    ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/AppSearchResults.png)
-
-    ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/AppCreation.png)
+    ![Tableau Online na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Atribuindo usuários ao Tableau Online
 
@@ -73,7 +68,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o provisionamento automático de usuário, é necessário decidir quais usuários e/ou grupos no Azure AD precisam acessar o Tableau Online. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Tableau Online seguindo estas instruções:
 
-*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+*   [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-tableau-online"></a>Dicas importantes para atribuir usuários ao Tableau Online
 
@@ -90,11 +85,13 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Tableau Online no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory > Aplicativos empresariais > Todos os aplicativos**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Tableau Online**.
 
-2. Selecione Tableau Online na lista de aplicativos SaaS.
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-    ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/AppInstanceSearch.png)
+2. Na lista de aplicativos, selecione **Tableau Online**.
+
+    ![O link do Tableau Online na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
@@ -116,13 +113,16 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 6. Depois que você fizer logon em sua conta administrativa do Tableau Online, os valores do **Domínio** e da **URL de Conteúdo** poderão ser extraídos da URL da página Administrador.
 
-    *   O **Domínio** da conta do Tableau Online pode ser copiado desta parte da URL: ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    * O **Domínio** da conta do Tableau Online pode ser copiado desta parte da URL:
 
-    *   A **URL de Conteúdo** da conta do Tableau Online pode ser copiada desta seção, e ela é um valor definido durante a configuração de conta. Neste exemplo, o valor é "contoso": ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+        ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+
+    * A **URL de Conteúdo** da conta do Tableau Online pode ser copiada desta seção, e ela é um valor definido durante a configuração de conta. Neste exemplo, o valor é "contoso":
+
+        ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
-        > O **Domínio** pode ser diferente daquele mostrado aqui. 
-
+        > O **Domínio** pode ser diferente daquele mostrado aqui.
 
 7. Ao popular os campos mostrados na Etapa 5, clique em **Testar Conectividade** para garantir que o Azure AD possa se conectar ao Tableau Online. Se a conexão falhar, verifique se a conta do Tableau Online tem permissões de Administrador e tente novamente.
 
@@ -132,35 +132,35 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-10. Clique em **Salvar**.
+9. Clique em **Salvar**.
 
-11. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Tableau**.
+10. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Tableau**.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-12. Examine os atributos de usuário que são sincronizados do Azure AD para o Tableau Online na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de usuário que são sincronizados do Azure AD para o Tableau Online na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Tableau**.
+12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Tableau**.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-14. Examine os atributos de grupo que são sincronizados do Azure AD para o Tableau Online na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+13. Examine os atributos de grupo que são sincronizados do Azure AD para o Tableau Online na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-16. Para habilitar o serviço de provisionamento do Azure AD no Tableau Online, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
+15. Para habilitar o serviço de provisionamento do Azure AD no Tableau Online, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-17. Defina os usuários e/ou grupos a serem provisionados no Tableau Online escolhendo os valores desejados em **Escopo** na seção **Configurações**.
+16. Defina os usuários e/ou grupos a serem provisionados no Tableau Online escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-18. Quando estiver pronto para provisionar, clique em **Salvar**.
+17. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -170,13 +170,12 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como examinar os logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

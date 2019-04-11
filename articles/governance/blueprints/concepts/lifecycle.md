@@ -1,7 +1,6 @@
 ---
 title: Entender ciclo de vida de um blueprint
 description: Saiba mais sobre o ciclo de vida de um blueprint e os detalhes de cada estágio.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001562"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266606"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
@@ -101,10 +100,10 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 Para saber como, confira [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Entenda como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md).
-- Saiba como fazer uso de [recurso de bloqueio do plano gráfico](resource-locking.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [solução de problemas gerais](../troubleshoot/general.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

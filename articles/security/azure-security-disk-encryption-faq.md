@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649894"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470042"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -37,12 +37,16 @@ O Azure Disk Encryption está disponível nas VMs da camada padrão, incluindo a
 
 ## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption dá suporte a quais distribuições do Linux?
 
-O Azure Disk Encryption tem suporte nas seguintes distribuições e versões do servidor Linux:
+Azure Disk Encryption tem suporte em um subconjunto de [distribuições do Linux endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), que é um subconjunto de todas as distribuições de possíveis, em si.
+
+ ![Diagrama de Venn de distribuições do Linux server que dá suporte à criptografia de disco do Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Distribuições não endossadas pelo Azure não dão suporte a Azure Disk Encryption e, desses endossadas, apenas as seguintes distribuições do Linux server e versões de suportam do Azure Disk Encryption:
 
 | Distribuição Linux | Versão | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
 | Ubuntu | 16.04| SO e disco de dados |
-| Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
+| Ubuntu | 14.04.5</br>[com o Azure ajustado kernel atualizado para 4,15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
 | RHEL | 7.6 | SO e disco de dados* |
 | RHEL | 7.5 | SO e disco de dados* |
 | RHEL | 7.4 | SO e disco de dados* |
@@ -64,7 +68,8 @@ O Azure Disk Encryption tem suporte nas seguintes distribuições e versões do 
 | SLES | 12-SP4 | Disco de dados |
 | SLES | 12-SP3 | Disco de dados |
 
-*__A nova implementação ADE tem suporte para o SO RHEL e disco de dados para imagens RHEL7 com pagamento conforme o uso. Atualmente, o ADE não dá suporte para imagens RHEL BYOS (Traga sua própria assinatura). Consulte também o artigo [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para saber mais.__
+> [!NOTE]
+> Nova implementação ADE tem suporte para RHEL SO e disco de dados para imagens RHEL7 pay-as. Atualmente, o ADE não dá suporte para imagens RHEL BYOS (Traga sua própria assinatura). Consulte também o [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) artigo para obter mais informações. _
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Como posso começar a usar o Azure Disk Encryption?
 
@@ -72,7 +77,7 @@ Para começar, leia as [visão geral do Azure Disk Encryption](azure-security-di
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Posso criptografar volumes de dados e de inicialização com o Azure Disk Encryption?
 
-Sim, você pode criptografar volumes de inicialização e de dados para VMs IaaS Windows e Linux. Em VMs Windows, não é possível criptografar os dados sem primeiro criptografar o volume do SO. Para VMs Linux, é possível criptografar o volume de dados sem precisar criptografar o volume do sistema operacional primeiro. Depois de criptografar o volume do SO para Linux, não há suporte para desabilitar a criptografia em um volume do SO para VMs do Linux IaaS.
+Sim, você pode criptografar volumes de inicialização e de dados para VMs IaaS Windows e Linux. Em VMs Windows, não é possível criptografar os dados sem primeiro criptografar o volume do SO. Para VMs Linux, é possível criptografar o volume de dados sem precisar criptografar o volume do sistema operacional primeiro. Depois de criptografar o volume do SO para Linux, não há suporte para desabilitar a criptografia em um volume do SO para VMs do Linux IaaS. Para VMs do Linux em um conjunto de dimensionamento, somente o volume de dados pode ser criptografado.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Para criptografar um volume desmontado com o Azure Disk Encryption?
 
@@ -165,6 +170,6 @@ Você pode fazer perguntas ou fornecer comentários no [Fórum do Azure Disk Enc
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativas ao Azure Disk Encryption. Para obter mais informações sobre esse serviço, veja os seguintes artigos:
 
-- [Visão geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md)
+- [Visão geral de criptografia de disco do Azure](azure-security-disk-encryption-overview.md)
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Criptografia de dados em repouso do Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

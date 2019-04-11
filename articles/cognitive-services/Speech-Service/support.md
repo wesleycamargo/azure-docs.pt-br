@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877693"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358054"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
@@ -23,6 +23,7 @@ Você apenas começando a explorar a funcionalidade dos serviços de fala? Você
 
 > [!div class="checklist"]
 > * Mantenha-se informado sobre novos desenvolvimentos dos *Serviços Cognitivos do Azure*, ou localizar as notícias mais recentes relacionadas ao *Serviço de Fala*.
+> * Notas de versão contêm informações para todas as versões.
 > * Pesquise para ver se o problema foi discutido pela comunidade, ou se a documentação existente para o recurso que você deseja implementar já existe.
 > * Se você não conseguir encontrar uma resposta satisfatória, faça uma pergunta *Stack Overflow*.
 > * Se você encontrar um problema com um dos exemplos no GitHub, gere um problema *GitHub*.
@@ -31,6 +32,10 @@ Você apenas começando a explorar a funcionalidade dos serviços de fala? Você
 ## <a name="stay-informed"></a>Continue informado
 
 Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhar os [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Notas de versão
+
+O [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizados assim que uma nova versão está disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
 ## <a name="search"></a>Search
 
@@ -62,22 +67,22 @@ Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa,
 |Componente/Área  |Marcas  |
 |---------|---------|
 |Reconhecimento de fala |[[microsoft-cognitivas + fala em texto]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Síntese de fala |[[microsoft-cognitivas + texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Tradução de Fala |[[microsoft-cognitivas + conversão]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intenção de fala |[[microsoft-cognitivas + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|SDK de fala geral |[[microsoft-cognitivas + microsoft-fala-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Síntese de fala |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Tradução de Fala |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Intenção de fala |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|SDK de fala geral |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  
-> * [Como fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
-> * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
+> * [Como posso fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
+> * [Como criar um mínimo, completo e verificável exemplo](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
 Normalmente, os exemplos são lançados como código-fonte aberto. Para perguntas e problemas, crie uma *problema* no respectivo repositório do GitHub. Você pode enviar uma solicitação de pull, também. A lista a seguir contém links para os repositórios de exemplo:
 
-* [SDK da fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK de fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de Dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Você pode criar um relatório de bug, solicitação de recurso, ou fazer uma pergunta geral e compartilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
 
@@ -95,11 +100,11 @@ Etapas para reproduzir o comportamento:
 
 Descrição clara e concisa do que você esperava que acontecesse.
 
-**Versão da SDK de Reconhecimento de Fala dos serviços Cognitivos**
+**Versão do SDK de reconhecimento do fala dos serviços Cognitivos**
 
 Qual versão do SDK você está usando.
 
-**Sistema Operacional da Plataforma e Linguagem de Programação**
+**Linguagem de programação, sistema operacional e plataforma**
 
  - Sistema operacional: [por exemplo, Windows, Linux, Android, iOS,...] - seja específico
  - Hardware - x64, x86, ARM,...

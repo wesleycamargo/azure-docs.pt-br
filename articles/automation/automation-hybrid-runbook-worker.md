@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/31/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c91bf389f5c63b95e5b68784b6657e92b109a46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852909"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265858"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -97,11 +97,11 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
 ### <a name="hybrid-worker-role"></a>Função de trabalhador híbrido
 
-Para o Hybrid Runbook Worker conectar e registre-se com os logs do Azure Monitor, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso é na parte superior para o [portas e URLs necessárias para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para conectar-se aos logs do Azure Monitor.
+Para o Hybrid Runbook Worker conectar e registre-se com a automação do Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso é na parte superior para o [portas e URLs necessárias para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para conectar-se aos logs do Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se você usar um servidor proxy para comunicação entre o agente e o serviço do Azure Monitor, certifique-se de que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se você usar um servidor proxy para comunicação entre o agente e o serviço de automação do Azure, certifique-se de que os recursos apropriados estejam acessíveis. O tempo limite para solicitações de Hybrid Runbook Worker e os serviços de automação é de 30 segundos. Depois de 3 tentativas a solicitação falhará. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker se comunicar com a Automação do Azure:
 
@@ -114,7 +114,7 @@ A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Work
 
 Se você tiver uma conta de Automação do Azure definida para uma região específica, você pode restringir a comunicação para esse centro de dados regional. A tabela a seguir fornece o registro DNS para cada região:
 
-| **Região** | **Registro DNS** |
+| **Região** | **Registro de DNS** |
 | --- | --- |
 | Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

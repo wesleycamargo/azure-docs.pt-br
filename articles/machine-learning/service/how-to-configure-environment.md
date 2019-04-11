@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577553"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469889"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -36,16 +36,19 @@ Este artigo concentra-se nos ambientes e ferramentas a seguir:
 
 * [Azure Databricks](#aml-databricks): Uma plataforma de análise de dados popular baseada no Apache Spark. Saiba como obter o SDK do Azure Machine Learning do cluster para que você possa implantar modelos.
 
+* [Azure Notebooks](#aznotebooks): Um serviço Jupyter Notebooks hospedado na nuvem do Azure. Também é uma maneira fácil de começar, porque o SDK de aprendizado de máquina do Azure já está instalado.  
+
 Se você já tiver um ambiente de Python 3 ou desejar ver apenas as etapas básicas para instalar o SDK, confira a seção [Computador local](#local).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um workspace de serviço do Azure Machine Learning. Para criar o espaço de trabalho, consulte [criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md).
 
-- Ambos os [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://conda.io/miniconda.html) Gerenciador de pacotes.
+Um espaço de trabalho é tudo o que você precisa para começar a usar sua [Azure Notebooks](#aznotebooks), um [DSVM](#dsvm), ou [Azure Databricks](#aml-databricks).
 
-    > [!IMPORTANT]
-    > Anaconda e Miniconda não serão necessários quando você estiver usando o Azure Notebooks.
+Para instalar o ambiente do SDK para seu [computador local](#local), [servidor de Jupyter Notebook](#jupyter) ou [Visual Studio Code](#vscode) também é necessário:
+
+- Ambos os [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://conda.io/miniconda.html) Gerenciador de pacotes.
 
 - No Linux ou MacOS, será necessário o shell do bash.
 
@@ -56,14 +59,15 @@ Se você já tiver um ambiente de Python 3 ou desejar ver apenas as etapas bási
 
 ## <a id="aznotebooks"></a>Azure Notebooks
 
-O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambiente de desenvolvimento interativo na nuvem do Azure. Essa é a maneira mais fácil para começar o desenvolvimento do Azure Machine Learning.
+O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambiente de desenvolvimento interativo na nuvem do Azure. É uma maneira fácil de Introdução ao desenvolvimento do Azure Machine Learning.
 
 * O SDK do Azure Machine Learning já está instalado.
 * Após criar um workspace de serviço do Azure Machine Learning no portal do Azure, você poderá clicar em um botão para configurar automaticamente o ambiente do Azure Notebook para trabalhar com o workspace.
 
-Para começar a desenvolver com o Azure Notebooks, consulte [Introdução ao serviço do Azure Machine Learning](quickstart-run-cloud-notebook.md).
+Use o [portal do Azure](https://portal.azure.com) começar com os blocos de anotações do Azure.  Abra seu espaço de trabalho e para o **visão geral** seção, selecione **Introdução ao Azure Notebooks**.
 
-Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
+
 
 ## <a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 
@@ -83,9 +87,9 @@ Para usar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
 
     * Portal do Azure:
 
-        * [Criar uma Máquina Virtual de Ciência de Dados do Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Criar uma máquina de Virtual de ciência de dados do Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
-        * [Criar uma máquina virtual de Ciência de Dados do Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+        * [Criar uma Máquina Virtual de Ciência de Dados do Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
     * CLI do Azure:
 
@@ -276,7 +280,7 @@ Como o Databricks do Azure funciona com o serviço de Azure Machine Learning:
 ### <a name="set-up-your-databricks-cluster"></a>Configurar o cluster do Databricks
 
 Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Algumas configurações se aplicam apenas se você instalar o SDK automatizado para aprendizado de máquina no Databricks.
-**Levará alguns minutos para criar o cluster.**
+**São necessários alguns minutos para criar o cluster.**
 
 Use estas configurações:
 
@@ -316,8 +320,8 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
       
    Considere também:
    + Na configuração Automl, ao usar o Azure Databricks adicione os seguintes parâmetros:
-    1. ```max_concurrent_iterations``` com base no número de nós de trabalho em seu cluster. 
-    2. ```spark_context=sc``` contexto do spark padrão #databricks/spark. 
+        1. ```max_concurrent_iterations``` é baseada no número de nós de trabalho em seu cluster. 
+        2. ```spark_context=sc``` baseia-se no contexto do spark padrão. 
    + Ou, se você tiver uma versão antiga do SDK, desmarcá-la de bibliotecas de instalados do cluster e mover para Lixeira. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema depois de fazer isso, desanexe e anexe novamente o cluster.
 
 Se a instalação foi bem-sucedida, a biblioteca importada deve ser semelhante uma destas opções:
@@ -376,6 +380,7 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
     ```
 
     Este código grava o arquivo de configuração no arquivo *aml_config/config.json*.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

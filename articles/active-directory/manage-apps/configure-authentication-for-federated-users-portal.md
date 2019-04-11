@@ -1,6 +1,6 @@
 ---
 title: Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial | Microsoft Docs
-description: Explica o que é um locatário do Azure AD e como gerenciar o Azure por meio do Azure Active Directory.
+description: Saiba como configurar a política de descoberta de Realm inicial para a autenticação do Active Directory do Azure para usuários federados, incluindo dicas de aceleração automática e de domínio.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190255"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360943"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
-O documento a seguir fornece uma introdução à configuração de comportamento de autenticação do Active Directory do Azure para usuários federados.   Ele abrange a configuração das restrições de aceleração automática e autenticação para usuários em domínios federados.
+Este artigo fornece uma introdução à configuração de comportamento de autenticação do Active Directory do Azure para usuários federados. Ele abrange a configuração das restrições de aceleração automática e autenticação para usuários em domínios federados.
 
 ## <a name="home-realm-discovery"></a>Descoberta de Realm Inicial
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  Ao entrar em um locatário do Azure AD para acessar um recurso, ou a página de entrada comum do Azure AD, um usuário digita um nome (UPN). O Azure AD usa esse nome para descobrir onde o usuário precisa entrar. 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051675"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471266"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -80,7 +80,7 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 - A compilação de 1902 introduz uma nova interface de usuário no portal do administrador de pilha do Azure para a criação de planos, ofertas, cotas e planos de complemento. Para obter mais informações, incluindo capturas de tela, consulte [criar planos, ofertas e cotas](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Aprimoramentos para a confiabilidade de expansão de capacidade durante adicionar nó ao alternar o estado da unidade de escala de "Expandindo armazenamento" em um estado de execução.
+- Aprimoramentos para a confiabilidade de expansão de capacidade durante uma operação de adição de nó ao alternar o estado da unidade de escala de "Expandindo armazenamento" para "Em execução".
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -97,16 +97,14 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
   ```  
   
 - Para melhorar a confiabilidade e a disponibilidade dos serviços de infraestrutura de núcleo geral durante o processo de atualização, o provedor de recursos de atualização nativo como parte do plano de ação de atualização detectará e invocar as correções globais automática conforme necessário. Fluxos de trabalho de "Reparar" correção globais incluem:
-    - Procurando máquinas virtuais de infraestrutura que estiverem em um estado não ideal e tentar repará-los conforme necessário 
-    - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário
-    - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário
-    - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário
-    - Verifique o estado de nós de malha do serviço de Console de recuperação de emergência (ERCS) service e repará-los conforme necessário
-    - Verifique o estado de nós do service fabric XRP e repará-los conforme necessário
-    - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário
 
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Aprimoramentos para a confiabilidade de expansão de capacidade durante adicionar nó ao alternar o estado da unidade de escala de "Expandindo armazenamento" em um estado de execução.    
+  - A verificação de máquinas virtuais de infraestrutura que estiverem em um estado não ideal e tentar repará-los conforme necessário.
+  - Verifique se há problemas de serviço do SQL como parte do plano de controle e tentar repará-los conforme necessário.
+  - Verifique o estado do serviço balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário.
+  - Verifique o estado do serviço de controlador de rede (NC) e tentar repará-la conforme necessário
+  - Verifique o estado de nós do serviço de Console de recuperação de emergência (ERCS) service fabric e repará-los conforme necessário.
+  - Verificar o estado da função de infraestrutura e reparar conforme necessário.
+  - Verifique o estado de nós de armazenamento consistente (ACS) do Azure service fabric e repará-los conforme necessário.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -200,6 +198,14 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- 1663805 - IS ASDK --> 
 - Você não pode exibir as permissões para sua assinatura usando os portais do Azure Stack. Como alternativa, use [PowerShell para verificar permissões](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- No portal do usuário, quando você navegar para um blob dentro de uma conta de armazenamento e tente abrir **política de acesso** na árvore de navegação, a janela subsequente não é carregado. Para contornar esse problema, os seguintes cmdlets do PowerShell permitem criar, recuperar, configurar e excluir políticas de acesso, respectivamente:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### <a name="compute"></a>Computação
@@ -259,6 +265,10 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+
+- A configuração de syslog não é mantida por meio de um ciclo de atualização, fazendo com que o cliente de syslog perder sua configuração e as mensagens do syslog para interromper o que está sendo encaminhado. Esse problema se aplica a todas as versões do Azure Stack, desde o GA do cliente syslog (1809). Para contornar esse problema, reconfigure o cliente de syslog após aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Baixe a atualização
 

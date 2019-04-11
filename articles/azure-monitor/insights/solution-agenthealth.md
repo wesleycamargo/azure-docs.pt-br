@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757959"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426215"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de integridade do agente no Azure Monitor
 A solução de integridade do agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou um grupo de gerenciamento do System Center Operations Manager conectados ao Azure Monitor, que não estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
@@ -51,7 +51,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | Grupo de gerenciamento do System Center Operations Manager | Sim | Eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes do Operations Manager para o Azure Monitor não é necessária. Dados de evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Usando a solução
-Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco da solução Integridade do Agente no painel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco no painel da solução integridade do agente](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do Agente**.  O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo de tempo especificado. É possível executar uma pesquisa de logs que fornece a lista inteira selecionando **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 
@@ -76,21 +76,21 @@ Um registro com o tipo **pulsação** é criado.  Esses registros têm as propri
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Type | *Pulsação*|
-| Categoria | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|
-| Computador | Nome do computador.|
-| OSType | Sistema operacional Windows ou Linux.|
-| OSMajorVersion | Versão principal do sistema operacional.|
-| OSMinorVersion | Versão secundária do sistema operacional.|
-| Versão | Versão do agente do log Analytics ou o agente do Operations Manager.|
-| SCAgentChannel | O valor é *Direct* e/ou *SCManagementServer*.|
-| IsGatewayInstalled | Se o Log de análise de Gateway estiver instalado, o valor é *verdadeira*, caso contrário, o valor é *falso*.|
-| ComputerIP | Endereço IP do computador.|
-| RemoteIPCountry | Localização geográfica onde o computador está implantado.|
-| ManagementGroupName | Nome do grupo de gerenciamento do Operations Manager.|
-| SourceComputerId | ID exclusiva do computador.|
-| RemoteIPLongitude | Longitude do local geográfico do computador.|
-| RemoteIPLatitude | Latitude da localização geográfica do computador.|
+| `Type` | *Pulsação*|
+| `Category` | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|
+| `Computer` | Nome do computador.|
+| `OSType` | Sistema operacional Windows ou Linux.|
+| `OSMajorVersion` | Versão principal do sistema operacional.|
+| `OSMinorVersion` | Versão secundária do sistema operacional.|
+| `Version` | Versão do agente do log Analytics ou o agente do Operations Manager.|
+| `SCAgentChannel` | O valor é *Direct* e/ou *SCManagementServer*.|
+| `IsGatewayInstalled` | Se o Log de análise de Gateway estiver instalado, o valor é *verdadeira*, caso contrário, o valor é *falso*.|
+| `ComputerIP` | Endereço IP do computador.|
+| `RemoteIPCountry` | Localização geográfica onde o computador está implantado.|
+| `ManagementGroupName` | Nome do grupo de gerenciamento do Operations Manager.|
+| `SourceComputerId` | ID exclusiva do computador.|
+| `RemoteIPLongitude` | Longitude do local geográfico do computador.|
+| `RemoteIPLatitude` | Latitude da localização geográfica do computador.|
 
 Cada agente subordinado a um servidor de gerenciamento do Operations Manager enviará duas pulsações e o valor da propriedade SCAgentChannel inclui tanto **direto** e **SCManagementServer** dependendo do que fontes de dados e soluções de monitoramento que você habilitou na sua assinatura. Se você se lembra, dados de soluções são ou enviados diretamente de um servidor de gerenciamento do Operations Manager para o Azure Monitor, ou por causa do volume de dados coletados no agente, são enviados diretamente do agente para o Azure Monitor. Para eventos de pulsação que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gerenciamento, desde que os dados realmente sejam carregados por ele.  Para pulsações em que SCAgentChannel está definido como **Direct**, é o endereço IP público do agente.  
 
@@ -115,6 +115,6 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas de consultas de log. 

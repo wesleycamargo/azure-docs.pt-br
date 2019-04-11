@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e709aa25a8fa0a8ff6c94bf2e813151e5ecbae65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006248"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876810"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrar seus dados para a conta de API de Tabela do Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Para executar uma migração de dados de tabela, conclua as seguintes tarefas:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 As opções para o comando são:
 
@@ -74,7 +74,7 @@ Para recuperar a cadeia de conexão da fonte ao importar de uma conta de API de 
 
 ![Captura de tela das opções de origem do HBase](./media/table-import/cosmos-connection-string.png)
 
-[Exemplo de comando de Armazenamento de Tabela do Azure](#azure-table-storage)
+[Exemplo de comando de Armazenamento de Tabelas do Azure](#azure-table-storage)
 
 [Exemplo de comando da API de Tabela do Azure Cosmos DB (versão prévia)](#table-api-preview)
 
@@ -147,4 +147,4 @@ Neste tutorial, você aprendeu a:
 Agora você pode seguir para o próximo tutorial e saber como consultar dados usando a API de Tabela do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Como consultar os dados?](../cosmos-db/tutorial-query-table.md)
+>[Como consultar dados?](../cosmos-db/tutorial-query-table.md)

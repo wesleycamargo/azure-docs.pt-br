@@ -19,6 +19,10 @@ items:
     href: advisor-performance-recommendations.md
   - name: Reduza os custos de serviço
     href: advisor-cost-recommendations.md
+  - name: Configure as recomendações
+    href: view-recommendations.md
+  - name: Permissões e ações bloqueadas
+    href: permissions.md
 - name: Referência
   items:
   - name: Central de Segurança
@@ -51,9 +55,9 @@ items:
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=advisor
-ms.openlocfilehash: 1f6f848d9e69d0e478c2027b4e3f09089b4714bb
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5df886b26bf81ffefc7e8e18f9a0aa0c6412ab2c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509891"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283232"

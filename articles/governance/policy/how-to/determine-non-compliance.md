@@ -1,19 +1,18 @@
 ---
 title: Determinar as causas de não conformidade
 description: Quando um recurso não está em conformidade, há muitas razões possíveis. Saiba mais descobrir o que causou a não conformidade.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802738"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276092"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
@@ -21,7 +20,7 @@ Quando um recurso do Azure é determinado para estar fora de conformidade para u
 
 > [!div class="checklist"]
 > - [Detalhes de conformidade](#compliance-details)
-> - [Histórico de alterações (versão prévia)](#change-history-preview)
+> - [Alterar histórico (Versão prévia)](#change-history-preview)
 
 ## <a name="compliance-details"></a>Detalhes de conformidade
 

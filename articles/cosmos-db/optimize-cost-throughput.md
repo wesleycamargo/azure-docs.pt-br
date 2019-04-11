@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877819"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009760"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de tr
 
 1. Você tem algumas dezenas de contêineres do Azure Cosmos e deseja compartilhar a taxa de transferência entre alguns ou todos eles. 
 
-2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitas coleções/tabelas/gráficos e não quiser fazer nenhuma alteração no modelo de dados. Observe que talvez seja necessário comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se você não está atualizando seu modelo de dados durante a migração de um banco de dados local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
+2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitos coleções/tabelas/gráficos e você não deseja fazer nenhuma alteração ao seu modelo de dados. Observe que talvez seja necessário comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se você não está atualizando seu modelo de dados durante a migração de um banco de dados local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
 
 3. Você deseja absorver picos não planejados em cargas de trabalho ocorridos quando uma taxa de transferência em pool no nível do banco de dados é sujeitada a picos inesperados em cargas de trabalho. 
 

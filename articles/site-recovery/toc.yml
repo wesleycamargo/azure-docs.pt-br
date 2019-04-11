@@ -45,7 +45,7 @@ items:
   - name: Recuperação de desastre da VM do Hyper-V para o Azure
     items:
     - name: Preparar o Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Preparar Hyper-V local
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Configurar a replicação para as VMs do Hyper-V
@@ -92,7 +92,7 @@ items:
       href: vmware-azure-about-disaster-recovery.md
     - name: Perguntas comuns
       href: vmware-azure-common-questions.md
-    - name: Matriz de suporte
+    - name: Matriz de suporte de VMware/físico para o Azure
       href: vmware-physical-azure-support-matrix.md
     - name: Requisitos de suporte para a implantação do servidor de configuração
       href: vmware-azure-configuration-server-requirements.md
@@ -112,7 +112,7 @@ items:
       href: hyper-v-azure-architecture.md
   - name: Sobre a recuperação de desastre de servidor físico para o Azure
     items:
-    - name: Matriz de suporte
+    - name: Matriz de suporte de VMware/físico para o Azure
       href: vmware-physical-azure-support-matrix.md
     - name: Arquitetura de servidor físico para o Azure
       href: physical-azure-architecture.md
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: d41716875c4fa91a9cb044746fd6610ea87b560f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: d6a20deca43d657f331f9aedd96882451b70f88d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847705"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357652"

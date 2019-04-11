@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577239"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276398"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar dados de log e espaços de trabalho no Azure Monitor
 O Azure Monitor armazena dados de log em um workspace do Log Analytics, que é essencialmente um contêiner que inclui informações de configuração e dados. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas aos workspaces. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
@@ -35,9 +35,9 @@ Para criar um espaço de trabalho do Log Analytics, você precisa:
 
 Consulte os seguintes artigos para obter detalhes sobre como criar um espaço de trabalho:
 
-- [Criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md)
-- [Criar um espaço de trabalho do Log Analytics com a CLI 2.0 do Azure](../learn/quick-create-workspace-cli.md)
-- [Criar um espaço de trabalho do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Criar um workspace do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md)
+- [Criar um workspace do Log Analytics com a CLI do Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Criar um workspace do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de workspaces que você precisa
 Um workspace do Log Analytics é um recurso do Azure e é um contêiner no qual os dados são coletados, agregados, analisados e apresentados no Azure Monitor. Você pode ter vários workspaces por assinatura do Azure e ter acesso a mais de um workspace, com a capacidade de realizar uma consulta facilmente. Esta seção descreve quando pode ser útil criar mais de um workspace.
@@ -102,7 +102,6 @@ O _modo de acesso_ refere-se como um usuário acessa um espaço de trabalho do L
 > - Service Fabric
 > - Application Insights
 > - Contêineres
-> - Logs personalizados criados pela API do coletor de dados HTTP
 >
 > Você pode testar se os logs associados corretamente seus recursos, executando uma consulta e inspecionar os registros você está interessado. Se a ID do recurso correto está no [_ResourceId](log-standard-properties.md#_resourceid) propriedade e, em seguida, dados estão disponíveis para consultas centrados no recurso.
 

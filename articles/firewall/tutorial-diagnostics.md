@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958962"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044854"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Monitorar os logs e as métricas do Firewall do Azure
 
@@ -31,6 +31,9 @@ Neste tutorial, você aprenderá como:
 > * Exibir e analisar os logs de regra de aplicativo e de rede
 > * Métricas de exibição
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ler [métricas e logs do Firewall do Azure](logs-and-metrics.md) para obter uma visão geral dos logs e métricas de diagnóstico disponíveis para o Firewall do Azure.
@@ -41,7 +44,7 @@ Antes de iniciar este tutorial, você deve ler [métricas e logs do Firewall do 
 Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois de concluir este procedimento para ativar o log de diagnósticos. Se você não vir algo a princípio, verifique novamente depois de alguns minutos.
 
 1. No portal do Azure, abra seu grupo de recursos de firewall e clique no firewall.
-2. Em **Monitoramento**, clique em **Logs de diagnóstico**.
+2. Em **Monitoramento**, clique em **Configurações de diagnóstico**.
 
    Para o Firewall do Azure, dois logs específicos de serviço estão disponíveis:
 
@@ -60,7 +63,7 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
    ![Iniciando o processo de configuração][1] Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
 12. Em **Log**, clique em **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** para coletar logs de regras de aplicativo e de rede.
    ![Salvar configurações de diagnóstico][2]
-13. Clique em **Salvar**.
+13. Clique em **Save** (Salvar).
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
 
@@ -79,7 +82,7 @@ Para habilitar os logs de diagnóstico, realize as seguintes etapas:
 3. Habilite o log de diagnóstico usando o seguinte cmdlet do PowerShell:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```

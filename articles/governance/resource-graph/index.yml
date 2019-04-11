@@ -4,7 +4,6 @@ title: Documentação do serviço Azure Resource Graph
 metadata:
   title: 'Documentação do Azure Resource Graph — Tutoriais, Referência de API'
   description: O Azure Resource Graph é um serviço do Azure que habilita a consulta complexa de recursos em escala.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -42,7 +41,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI do Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">PowerShell do Azure</a></p>
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI do Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
           - title: Languages
             html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">SDK do Azure para .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">SDK do Azure para Python</a></p>
           - title: REST

@@ -8,18 +8,41 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/03/2019
 ms.author: carlrab
-ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861275"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360090"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
 Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQL e na documentação do banco de dados SQL. Para aprimoramentos de serviço de banco de dados SQL, consulte também [atualizações de serviço de banco de dados SQL](https://azure.microsoft.com/updates/?product=sql-database). Para encontrar melhorias para outros serviços do Azure, consulte [atualizações de serviço](https://azure.microsoft.com/updates).
+
+## <a name="features-in-public-preview"></a>Recursos em visualização pública
+
+| Recurso | Detalhes |
+| ---| --- |
+| Trabalhos de banco de dados elástico | Para obter informações, consulte [criar, configurar e gerenciar trabalhos Elásticos](elastic-jobs-overview.md) |
+| Transações elásticas | [Transações distribuídas entre bancos de dados na nuvem](sql-database-elastic-transactions-overview.md) |
+| Consultas elásticas | Para obter informações, consulte [visão geral de consulta elástica](sql-database-elastic-query-overview.md) |
+| Replicação de instâncias gerenciadas |Para obter informações, consulte [configurar a replicação em um banco de dados de instância gerenciada do banco de dados SQL](replication-with-sql-database-managed-instance.md)|
+| Agrupamento de instância com instâncias gerenciadas |Para obter informações, consulte [usar o PowerShell com o modelo do Resource Manager para criar uma instância gerenciada SQL do Azure](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| R services / machine learning com bancos de dados únicos e pools Elásticos |Para obter informações, consulte [serviços do Machine Learning no Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
+| Recuperação de banco de dados acelerada com bancos de dados únicos e pools Elásticos | Para obter informações, consulte [recuperação acelerada de banco de dados](sql-database-accelerated-database-recovery.md)|
+| Descoberta de dados e classificação  |Para obter informações, consulte [descoberta de dados do banco de dados SQL e SQL Data Warehouse e classificação](sql-database-data-discovery-and-classification.md)|
+| Transparent data encryption (TDE) com Traga sua própria chave (BYOK) com instâncias gerenciadas |Para obter informações, consulte [Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: Oferecer suporte de sua própria chave](transparent-data-encryption-byok-azure-sql.md)|
+| Recriar bancos de dados descartados com instâncias gerenciadas |Para obter informações, consulte [recriar bancos de dados descartados na instância gerenciada do SQL do Azure](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
+| Detecção de ameaças com instâncias gerenciadas |Para obter informações, consulte [instância gerenciada de configurar a detecção de ameaças no banco de dados SQL](sql-database-managed-instance-threat-detection.md)|
+| Camadas de serviço em hiperescala com bancos de dados únicos |Para obter informações, consulte [camada de serviço em hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md)|
+| Editor de consultas no portal do Azure |Para obter informações, consulte [usar o editor de consultas SQL do portal do Azure para conectar e consultar dados](sql-database-connect-query-portal.md)|
+|Distinção de contagem aproximada|Para obter informações, consulte [distinção de contagem aproximada](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Modo de lote em Rowstore (no nível de compatibilidade 150)|Para obter informações, consulte [modo em lotes em Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|Comentários de concessão de memória (modo de linha) (em nível de compatibilidade 150)|Para obter informações, consulte [comentários de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|Tabela variável adiada compilação (no nível de compatibilidade 150)|Para obter informações, consulte [compilação adiada variável da tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|||
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -27,7 +50,7 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
-| Em breve ||
+| Disponibilidade geral: Suporte de expansão de leitura para Banco de Dados SQL do Azure | Para obter mais informações, consulte [expansão de leitura](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias na documentação

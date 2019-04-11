@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767202"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264702"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerenciar o acesso a recursos com controle de acesso Azure Stack Role-Based
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack oferece suporte a controle de acesso baseado em função (RBAC), o mesmo [modelo de segurança para gerenciamento de acesso](https://docs.microsoft.com/azure/role-based-access-control/overview) que usa o Microsoft Azure. Você pode usar o RBAC para gerenciar o usuário, grupo ou aplicativo acesso aos serviços, recursos e assinaturas.
 
@@ -40,28 +40,6 @@ O Azure Stack tem três funções básicas que você pode aplicar a todos os tip
 * **Proprietário** pode gerenciar tudo, incluindo o acesso aos recursos.
 * **Colaborador** pode gerenciar tudo, exceto o acesso aos recursos.
 * **Leitor** podem ver tudo, mas não é possível fazer alterações.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Herança e hierarquia de recursos
-
-O Azure Stack tem a hierarquia de recursos a seguir:
-
-* Cada assinatura pertence a um diretório.
-* Cada grupo de recursos pertence a uma assinatura.
-* Cada recurso pertence a um grupo de recursos.
-
-O acesso concedido a um escopo pai é herdado em escopos filho. Por exemplo: 
-
-* Você pode atribuir a função Leitor a um grupo do Azure AD no escopo de assinatura. Os membros desse grupo podem exibir cada recurso e grupo de recursos na assinatura.
-* Você pode atribuir a função Colaborador para um aplicativo no escopo do grupo de recursos. O aplicativo pode gerenciar recursos de todos os tipos no grupo de recursos, mas não outros grupos de recursos na assinatura.
-
-### <a name="assigning-roles"></a>Atribuição de funções
-
-Você pode atribuir mais de uma função a um usuário e cada função pode ser associada um escopo diferente. Por exemplo: 
-
-* Você pode atribuir a função de leitor de TestUser-A o à assinatura 1.
-* Você atribui a função TestUser-A o proprietário a TestVM-1.
-
-O Azure [atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre como exibir, atribuir e excluir funções.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Herança e hierarquia de recursos
 

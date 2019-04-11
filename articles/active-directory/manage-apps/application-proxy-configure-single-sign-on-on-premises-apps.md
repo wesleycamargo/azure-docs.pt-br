@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336211"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469685"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML SSO para aplicativos locais com o Proxy de aplicativo (visualização)
 
@@ -41,7 +41,7 @@ Tenha em mente o seguinte quando você vai o tutorial:
 )).
 * Cópia de **URL externa** para o aplicativo.
 * Como prática recomendada, use domínios personalizados, sempre que possível para uma experiência de usuário otimizadas. Saiba mais sobre [trabalhando com domínios personalizados no Proxy de aplicativo do Azure AD](application-proxy-configure-custom-domain.md).
-* Adicione pelo menos um usuário para o aplicativo e certifique-se que a conta de teste tenha acesso ao aplicativo local.
+* Adicione pelo menos um usuário para o aplicativo e certifique-se que a conta de teste tenha acesso ao aplicativo local. Usando o teste da conta de teste, se você pode alcançar o aplicativo visitando a **URL externa** validar o Proxy de aplicativo está configurado corretamente. Para obter informações de solução de problemas, consulte [problemas de solucionar problemas de Proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 
 ## <a name="set-up-saml-sso"></a>Configurar o SSO do SAML
 
@@ -50,7 +50,8 @@ Tenha em mente o seguinte quando você vai o tutorial:
 1. Selecione **SAML** como o método de logon único.
 1. No **definir o logon único com SAML** página, edite o **básicas de configuração de SAML** dados e siga as etapas [Enter básicas de configuração SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar baseado em SAML autenticação para o aplicativo.
 
-   * Certifique-se a **URL de resposta** raiz corresponde ou é um caminho sob o **URL externa** para o aplicativo no local que você adicionou para acesso remoto por meio do Proxy de aplicativo no Azure AD.
+   * Verifique se o **URL de resposta** corresponde ou é um caminho sob o **URL externa** para o aplicativo no local que você publicou por meio do Proxy de aplicativo. Se seu aplicativo requer um outro **URL de resposta** para a configuração de SAML, adicione isso como o **primeiro** URL na lista e mantenha o **URL externa** como uma URL adicional, ordenados após o primeiro.
+   * Certifique-se de que o aplicativo também especifica correto **URL de resposta** ou URL de serviço do consumidor de declaração a ser usado para receber o token de autenticação.
 
      ![Inserir dados de configuração básicos do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
@@ -62,7 +63,7 @@ Tenha em mente o seguinte quando você vai o tutorial:
 Depois de concluir todas essas etapas, seu aplicativo estará pronto para execução. Para testar o aplicativo:
 
 1. Abra um navegador e navegue até a URL externa que você criou quando publicou o aplicativo. 
-1. Entre com a conta de teste que você atribuiu ao aplicativo.
+1. Entre com a conta de teste que você atribuiu ao aplicativo. Você deve ser capaz de carregar o aplicativo e ter o SSO no aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

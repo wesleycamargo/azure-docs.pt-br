@@ -1,25 +1,24 @@
 ---
 title: Monitoramento remoto de IoT e notificações com os Aplicativos Lógicos do Azure | Microsoft Docs
 description: Use os Aplicativos Lógicos do Azure para monitoramento de temperatura de IoT em seu hub IoT e envio automático de notificações por email à sua caixa de correio sobre quaisquer anomalias detectadas.
-author: rangv
-manager: ''
+author: robinsh
 keywords: monitoramento de iot, notificações de iot, monitoramento de temperatura de iot
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: adda4e948c11f84517b1e8dd01e6cfe42155e1ca
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.author: robinsh
+ms.openlocfilehash: 5d5b1d1579600767153fcf5ad751e1224631d611
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409434"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262509"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
 
-![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/7.png)
+![Diagrama de ponta a ponta](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,6 +37,7 @@ Aprenda a criar um aplicativo lógico que conecta o hub IoT e a caixa de correio
 ## <a name="what-you-need"></a>O que você precisa
 
 * Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
+
   * Uma assinatura ativa do Azure.
   * Um hub IoT do Azure em sua assinatura.
   * O aplicativo cliente que envia mensagens para o hub IoT do Azure.
@@ -46,122 +46,149 @@ Aprenda a criar um aplicativo lógico que conecta o hub IoT e a caixa de correio
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um namespace de barramento de serviço
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Enterprise Integration** > **Barramento de Serviço**.
-1. Forneça as seguintes informações:
+1. Sobre o [portal do Azure](https://portal.azure.com/), selecione **criar um recurso** > **Enterprise Integration** > **barramento de serviço**.
 
-   **Nome**: o nome do barramento de serviço.
+2. Forneça as seguintes informações:
 
-   **Tipo de preço**: clique em **Básico** > **Selecionar**. A camada básica é suficiente para este tutorial.
+   **Nome**: O nome do barramento de serviço.
 
-   **Grupo de recursos**: use o mesmo grupo de recursos usado pelo seu hub IoT.
+   **Tipo de preço**: Selecione **básicas** > **selecione**. A camada básica é suficiente para este tutorial.
 
-   **Local**: use o mesmo local que o hub IoT usa.
-1. Clique em **Criar**.
+   **Grupo de recursos**: Use o mesmo grupo de recursos usado pelo hub IoT.
+
+   **Localização**: Use o mesmo local que usa o hub IoT.
+
+3. Selecione **Criar**.
 
    ![Criar um namespace de barramento de serviço no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
 ### <a name="add-a-service-bus-queue"></a>Adicionar uma fila do barramento de serviço
 
-1. Abra o namespace do barramento de serviço e, em seguida, clique em **+ Fila**.
-1. Insira um nome para a fila e, em seguida, clique em **Criar**.
-1. Abra a fila do barramento de serviço e, em seguida, clique em **Políticas de acesso compartilhado** > **+ Adicionar**.
-1. Insira um nome para a política, marque **Gerenciar** e clique em **Criar**.
+1. Abra o namespace do barramento de serviço e, em seguida, selecione **+ fila**.
+
+1. Insira um nome para a fila e, em seguida, selecione **criar**.
+
+1. Abra a fila do barramento de serviço e, em seguida, selecione **políticas de acesso compartilhado** > **+ adicionar**.
+
+1. Insira um nome para a política, marque **Manage**e, em seguida, selecione **criar**.
 
    ![Adicionar uma fila do barramento de serviço ao portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
 
-## <a name="add-an-endpoint-and-a-routing-rule-to-your-iot-hub"></a>Adicionar um ponto de extremidade e uma regra de roteamento ao hub IoT
+## <a name="add-an-endpoint-and-a-routing-query-to-your-iot-hub"></a>Adicionar um ponto de extremidade e uma consulta de roteamento ao hub IoT
+
+Agora, adicione um ponto de extremidade e uma consulta de roteamento ao hub Iot.
 
 ### <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
 
-1. Abra o hub IoT, clique em Pontos de Extremidade > + Adicionar.
+1. Abra o hub IoT, selecione **pontos de extremidade** > **+ adicionar**.
+
 1. Insira as seguintes informações:
 
-   **Nome**: o nome do ponto de extremidade.
+   **Nome**: O nome do ponto de extremidade.
 
-   **Tipo de ponto de extremidade**: selecione **Fila do Barramento de Serviço**.
+   **Tipo de ponto de extremidade**: Selecione **Fila do Barramento de Serviço**.
 
-   **Namespace do Barramento de Serviço**: selecione o namespace que você criou.
+   **Namespace do barramento de serviço**: Selecione o namespace que você criou.
 
-   **Fila do Barramento de Serviço**: selecione a fila que você criou.
-1. Clique em **OK**.
+   **Fila do Barramento de Serviço**: Selecione a fila que você criou.
+
+3. Selecione **OK**.
 
    ![Adicionar um ponto de extremidade ao hub IoT no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
 
 ### <a name="add-a-routing-rule"></a>Adicionar uma regra de roteamento
 
-1. No hub IoT, clique em **Rotas** > **+ Adicionar**.
-1. Insira as seguintes informações:
+1. No seu hub IoT, selecione **rotas** > **+ adicionar**.
 
-   **Nome**: o nome da regra de roteamento.
+2. Insira as seguintes informações:
 
-   **Fonte de dados**: selecione **DeviceMessages**.
+   **Nome**: O nome da regra de roteamento.
 
-   **Ponto de extremidade**: selecione o ponto de extremidade que você criou.
+   **Fonte de dados**: Selecione **DeviceMessages**.
 
-   **Cadeia de caracteres de consulta**: insira `temperatureAlert = "true"`.
-1. Clique em **Salvar**.
+   **Ponto de extremidade**: Selecione o ponto de extremidade que você criou.
+
+   **Cadeia de caracteres de consulta**: Digite `temperatureAlert = "true"`.
+
+3. Clique em **Salvar**.
 
    ![Adicionar uma regra de roteamento no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
 ## <a name="create-and-configure-a-logic-app"></a>Criar e configurar um aplicativo lógico
 
+Em seguida, você pode cria e configurar um aplicativo lógico.
+
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
-1. Insira as seguintes informações:
+1. No [portal do Azure](https://portal.azure.com/), selecione **criar um recurso** > **Enterprise Integration** > **aplicativo lógico**.
 
-   **Nome**: o nome do aplicativo lógico.
+2. Insira as seguintes informações:
 
-   **Grupo de recursos**: use o mesmo grupo de recursos usado pelo seu hub IoT.
+   **Nome**: O nome do aplicativo lógico.
 
-   **Local**: use o mesmo local que o hub IoT usa.
-1. Clique em **Criar**.
+   **Grupo de recursos**: Use o mesmo grupo de recursos usado pelo hub IoT.
+
+   **Localização**: Use o mesmo local que usa o hub IoT.
+
+3. Selecione **Criar**.
 
 ### <a name="configure-the-logic-app"></a>Configurar o aplicativo lógico
 
 1. Abra o aplicativo lógico que é aberto no Designer de aplicativos lógicos.
-1. No Designer de aplicativos lógicos, clique em **Aplicativo Lógico em Branco**.
+
+2. No Designer de aplicativos lógicos, selecione **aplicativo lógico em branco**.
 
    ![Iniciar com um aplicativo lógico em branco no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5_start-with-blank-logic-app-azure-portal.png)
 
-1. Clique em **Barramento de Serviço**.
+3. Selecione **Barramento de Serviço**.
 
    ![Selecionar o barramento de serviço para começar a criar o aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6_select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Clique em **Fila do Barramento de Serviço – quando uma ou mais mensagens chegam em uma fila (conclusão automática)**.
-1. Crie uma conexão do barramento de serviço.
+4. Selecione **barramento de serviço – quando uma ou mais mensagens chegam em uma fila (conclusão automática)**.
+
+5. Crie uma conexão do barramento de serviço.
+
    1. Insira um nome de conexão.
-   1. Clique no namespace do barramento de serviço > a política do barramento de serviço > **Criar**.
+
+   2. Selecione o namespace do barramento de serviço > a política de barramento de serviço > **criar**.
 
       ![Criar uma conexão do barramento de serviço para o aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. Clique em **Continuar** depois que a conexão do barramento de serviço é criada.
-   1. Selecione a fila que você criou e insira `175` para **Contagem máxima de mensagens**
+   3. Selecione **continuar** depois que a conexão do barramento de serviço é criado.
+
+   4. Selecione a fila que você criou e insira `175` para **contagem máxima de mensagens**.
 
       ![Especificar a contagem máxima de mensagens para a conexão do barramento de serviço no aplicativo lógico](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
-   1. Clique em Salvar para salvar as alterações.
 
-1. Crie uma conexão de serviço SMTP.
-   1. Clique em **Nova etapa** > **Adicionar uma ação**.
-   1. Digite `SMTP`, clique no serviço **SMTP** no resultado da pesquisa e, em seguida, clique em **SMTP – Enviar Email**.
+   5. Selecione o "botão Salvar" para salvar as alterações.
+
+6. Crie uma conexão de serviço SMTP.
+
+   1. Selecione **Nova etapa** > **Adicionar uma ação**.
+
+   2. Tipo de `SMTP`, selecione o **SMTP** no resultado da pesquisa de serviço e, em seguida, selecione **SMTP – Enviar Email**.
 
       ![Criar uma conexão SMTP em seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
 
-   1. Insira as informações de SMTP da caixa de correio e, em seguida, clique em **Criar**.
+   3. Insira as informações de SMTP da caixa de correio e, em seguida, selecione **criar**.
 
       ![Inserir informações de conexão SMTP em seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 
       Obtenha as informações de SMTP para [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
-   1. Insira seu endereço de email para **De** e **Para**, e `High temperature detected` para **Assunto** e **Corpo**.
-   1. Clique em **Salvar**.
+
+   4. Insira seu endereço de email para **De** e **Para**, e `High temperature detected` para **Assunto** e **Corpo**.
+
+   5. Clique em **Salvar**.
 
 O aplicativo lógico está em funcionamento quando você o salva.
 
 ## <a name="test-the-logic-app"></a>Testar o aplicativo lógico
 
 1. Inicie o aplicativo cliente que você implantar no dispositivo em [Conectar ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md).
-1. Aumente a temperatura ambiente em torno de SensorTag acima 30 C. Por exemplo, acenda uma vela em torno do SensorTag.
-1. Você deve receber uma notificação por email enviada pelo aplicativo lógico.
+
+2. Aumente a temperatura ambiente em torno de SensorTag acima 30 C. Por exemplo, acenda uma vela em torno do SensorTag.
+
+3. Você deve receber uma notificação por email enviada pelo aplicativo lógico.
 
    > [!NOTE]
    > O provedor de serviços de email talvez precise verificar a identidade do remetente para garantir que é você que envia o email.

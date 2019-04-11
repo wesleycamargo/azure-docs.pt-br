@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814938"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009958"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitorar e diagnosticar com latência de um segundo
 
@@ -34,9 +34,9 @@ Com o Live Metrics Stream, você pode:
 * Monitore qualquer contador de desempenho do Windows em tempo real.
 * Identifique com facilidade um servidor que está apresentando problemas e filtre todo o KPI/feed em tempo real para apenas aquele servidor.
 
-[![Vídeo do Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Lvídeo de métricas Stream IVE](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-O Live Metrics tem atualmente suporte para aplicativos ASP.NET, ASP.NET Core, Azure Functions e Java.
+Métricas em tempo real no momento, há suporte para aplicativos ASP.NET, ASP.NET Core, Azure Functions, Java e Node. js.
 
 ## <a name="get-started"></a>Introdução
 
@@ -208,6 +208,6 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: O Live Metrics 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
+* [Usando a pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Criador de perfil](../../azure-monitor/app/profiler.md)
-* [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Depurador de instantâneo](../../azure-monitor/app/snapshot-debugger.md)

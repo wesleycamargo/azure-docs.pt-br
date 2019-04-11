@@ -1,18 +1,24 @@
 items:
 - name: Documentação do Catálogo de Dados
-  href: index.md
+  href: index.yml
 - name: Visão geral
   items:
   - name: O que é o Catálogo de Dados?
-    href: data-catalog-what-is-data-catalog.md
+    href: overview.md
+- name: Início rápido
+  items:
+  - name: Criar um Catálogo de Dados do Azure
+    href: data-catalog-get-started.md
+- name: Tutoriais
+  items:
+  - name: Registrar ativos de dados
+    href: register-data-assets-tutorial.md
+- name: Conceitos
+  items:
   - name: Cenários comuns
     href: data-catalog-common-scenarios.md
   - name: Fontes de dados com suporte
     href: data-catalog-dsr.md
-- name: Introdução
-  items:
-  - name: Introdução ao Catálogo de Dados do Azure
-    href: data-catalog-get-started.md
   - name: Adoção do Catálogo de Dados do Azure
     href: data-catalog-adopting-data-catalog.md
   - name: Pré-requisitos
@@ -45,6 +51,8 @@ items:
     href: data-catalog-how-to-secure-catalog.md
   - name: Exibir ativos de dados relacionados
     href: data-catalog-how-to-view-related-data-assets.md
+  - name: Solucionar problemas
+    href: troubleshoot-policy-configuration.md
 - name: Referência
   items:
   - name: Exemplos de código
@@ -69,17 +77,15 @@ items:
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: Calculadora de preço
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Notas de versão
-    href: ../active-directory/fundamentals/whats-new.md
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-catalog
   - name: Terminologia
     href: data-catalog-terminology.md
-ms.openlocfilehash: 47fef3cf68ca9ab34c0dd349106ed4ca8c8ad4f1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0ef4cb62b8991db67df52fded512c1881050eac3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340635"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358391"

@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801247"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259789"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 
@@ -41,7 +41,7 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 
 1. Preencha o campo de ID do grupo de gerenciamento.
 
-   - **ID do Grupo de Gerenciamento** é o identificador exclusivo do diretório usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, visto que é usado em todo o sistema do Azure para identificar esse grupo.
+   - **ID do Grupo de Gerenciamento** é o identificador exclusivo do diretório usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, visto que é usado em todo o sistema do Azure para identificar esse grupo. O [grupo de gerenciamento raiz](index.md#root-management-group-for-each-directory) é criado automaticamente com uma ID que é a ID do Active Directory do Azure. Para todos os outros grupos de gerenciamento, atribuir uma ID exclusiva.
    - O campo de nome de exibição é o nome exibido no portal do Azure. Um nome de exibição separado é um campo opcional ao criar o gerenciamento de grupo e pode ser alterado a qualquer momento.  
 
    ![Painel de opções para criar um novo grupo de gerenciamento](./media/create_context_menu.png)  
@@ -50,36 +50,55 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 
 ### <a name="create-in-powershell"></a>Criar no PowerShell
 
-No PowerShell, você deve usar o cmdlet New-AzManagementGroup:
+Para o PowerShell, use o [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) para criar um novo grupo de gerenciamento.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** é um identificador exclusivo que está sendo criado. Essa ID é usada por outros comandos para fazer referência a esse grupo e não poderá ser alterada posteriormente.
+**GroupName** é um identificador exclusivo que está sendo criado. Essa ID é usada por outros comandos para fazer referência a esse grupo e não pode ser alterado posteriormente.
 
-Se quiser que o grupo de gerenciamento mostre um nome diferente dentro do portal do Azure, você deverá adicionar o parâmetro **DisplayName** com a cadeia de caracteres. Por exemplo, se quisesse criar um grupo de gerenciamento com o GroupName de Contoso e o nome de exibição de "Contoso Group", você usaria o seguinte cmdlet:
+Se você quiser que o grupo de gerenciamento para mostrar um nome diferente no portal do Azure, adicione a **DisplayName** parâmetro. Por exemplo, para criar um grupo de gerenciamento com o GroupName de Contoso e o nome de exibição de "Contoso Group", use o seguinte cmdlet:
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Use o parâmetro **ParentId** para criar esse grupo de gerenciamento sob um gerenciamento diferente.
+Nos exemplos anteriores, o novo grupo de gerenciamento é criado sob o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como o pai, use o **ParentId** parâmetro.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Criar na CLI do Azure
 
-Na CLI do Azure, você usa o comando az account management-group create.
+CLI do Azure, use o [criar grupo de gerenciamento de conta de az](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) comando para criar um novo grupo de gerenciamento.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+O **nome** é um identificador exclusivo que está sendo criado. Essa ID é usada por outros comandos para fazer referência a esse grupo e não pode ser alterado posteriormente.
+
+Se você quiser que o grupo de gerenciamento para mostrar um nome diferente no portal do Azure, adicione a **nome de exibição** parâmetro. Por exemplo, para criar um grupo de gerenciamento com o GroupName de Contoso e o nome de exibição de "Contoso Group", use o seguinte comando:
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+Nos exemplos anteriores, o novo grupo de gerenciamento é criado sob o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como o pai, use o **pai** parâmetro e forneça o nome do grupo pai.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
+```
+
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
-- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
-- [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)
+- [Grupos de gerenciamento de análise no módulo de recursos do Azure PowerShell](/powershell/module/az.resources#resources)
+- [Grupos de gerenciamento de análise na API REST](/rest/api/resources/managementgroups)
+- [Grupos de gerenciamento de análise na CLI do Azure](/cli/azure/account/management-group)

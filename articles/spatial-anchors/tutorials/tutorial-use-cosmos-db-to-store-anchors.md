@@ -1,5 +1,5 @@
 ---
-title: Tutorial – compartilhamento entre sessões e dispositivos com Âncoras Espaciais do Azure e um back-end do Azure Cosmos DB | Microsoft Docs
+title: Tutorial – Compartilhar Âncoras Espaciais do Azure entre sessões e dispositivos com um back-end do Azure Cosmos DB | Microsoft Docs
 description: Neste tutorial, você aprenderá a compartilhar os identificadores de Âncoras Espaciais do Azure entre os dispositivos Android/iOS no Unity com um serviço de back-end e Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286390"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915247"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Compartilhamento entre sessões e dispositivos com Âncoras Espaciais do Azure e um back-end do Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Compartilhar Âncoras Espaciais do Azure entre sessões e dispositivos com um back-end do Azure Cosmos DB
 
-Neste tutorial, você aprenderá a usar as [Âncoras Espaciais do Azure](../overview.md) para:
-
-- Criar âncoras durante em uma sessão e, em seguida, localizá-las em outra sessão no mesmo dispositivo ou em outro. Por exemplo, a segunda sessão pode ser em outro dia.
-- Crie âncoras que possam ser localizadas por vários dispositivos no mesmo lugar e ao mesmo tempo.
+Neste tutorial, você aprenderá a usar [Âncoras Espaciais do Azure](../overview.md) para criar âncoras durante uma sessão e, em seguida, localizá-las durante outra sessão, no mesmo dispositivo ou em um diferente. Por exemplo, a segunda sessão pode ser em outro dia. Essas mesmas âncoras também poderiam ser localizadas por vários dispositivos no mesmo lugar e ao mesmo tempo.
 
 ![Persistência de objetos que ilustram GIF](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ Localize a propriedade `StorageConnectionString` e defina o valor para que seja 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você usou o Azure Cosmos DB para compartilhar identificadores de âncora entre dispositivos. Para saber mais sobre a biblioteca de Âncoras Espaciais do Azure, veja nosso guia sobre como criar e localizar âncoras.
+Neste tutorial, você usou o Azure Cosmos DB para compartilhar identificadores de âncora entre dispositivos. Para saber mais sobre como usar Âncoras Espaciais do Azure em um novo aplicativo Android, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Criar e localizar as âncoras usando Âncoras Espaciais do Azure](../create-locate-anchors-overview.md)
+> [Como iniciar um novo aplicativo Android](./tutorial-new-android-app.md)

@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958483"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359636"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>A camada de serviço Premium RS do Banco de Dados SQL do Azure (versão prévia) está sendo desativada - opções para migração
 
@@ -48,7 +48,7 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 ### <a name="premium-rs-databases"></a>Banco de dados Premium RS
 
-|**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
+|**Se você estiver no momento...**|**Migre para comparáveis baseado em vCore...**|**Migre para comparáveis baseado em DTU...**|
 |---|---|---|
 |Premium RS 1|1 vCore de Uso Geral (Gen4)|Padrão 3|
 |Premium RS 2|2 vCores de Uso Geral (Gen4)|Padrão 4|
@@ -57,7 +57,7 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 ### <a name="premium-rs-pools"></a>Pools Premium RS
 
-|**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
+|**Se você estiver no momento...**|**Migre para comparáveis baseado em vCore...**|**Migre para comparáveis baseado em DTU...**|
 |---|---|---|
 |Pool Premium RS 125 DTU|1 vCore de Uso Geral (Gen4)|Pool Padrão 100 eDTUs|
 |Pool Premium RS 250 DTU|2 vCores de Uso Geral (Gen4)|Pool Padrão 250 eDTUs|
@@ -68,14 +68,14 @@ Para as cargas de trabalho Premium RS de computação intensiva, é recomendáve
 
 É recomendável migrar os bancos de dados individuais com uso intensivo de E/S para nossa camada Hiperescala com base em vCore, atualmente em versão prévia, e seus pools de bancos de dados com uso intensivo de E/S para nossa camada Comercialmente Crítico geralmente disponível, para a combinação ideal de desempenho e custo.  As seguintes opções com base em vCore manterão ou melhorarão o desempenho atual e poderão economizar seu dinheiro quando combinadas com Benefício Híbrido do Azure e preço de capacidade reserva.
 
-|**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
+|**Se você estiver no momento...**|**Migre para comparáveis baseado em vCore...**|**Migre para comparáveis baseado em DTU...**|
 |---|---|---|
 |Premium RS 1|(Versão prévia) 1 vCore de Hiperescala (Gen4) ou 1 vCore Comercialmente Crítico (Gen4)|Premium 1|
 |Premium RS 2|(Versão prévia) 2 vCores de Hiperescala (Gen4) ou 2 vCores Comercialmente Críticos (Gen4)|Premium 2|
 |Premium RS 4|(Versão prévia) 4 vCores de Hiperescala (Gen4) ou 4 vCores Comercialmente Críticos (Gen4)|Premium 4
 |Premium RS 6|(Versão prévia) 6 vCores de Hiperescala (Gen4) ou 6 vCores Comercialmente Críticos (Gen4)|Premium 6|
 
-|**Se atualmente você estiver em...**|**Migrar para comparável com base em vCore...**|**Migrar para comparável com base em DTU…**|
+|**Se você estiver no momento...**|**Migre para comparáveis baseado em vCore...**|**Migre para comparáveis baseado em DTU...**|
 |---|---|---|
 |Pool Premium RS 125 DTU|Comercialmente Crítico 2 vCores (Gen4)|Pool Premium 125 eDTUs|
 |Pool Premium RS 250 DTU|Comercialmente Crítico 2 vCores (Gen4)|Pool Premium 250 eDTUs|
@@ -98,7 +98,7 @@ A migração de um banco de dados de uma camada de serviço Premium RS para uma 
 
 É possível copiar qualquer banco de dados com um tamanho de computação Premium RS para um banco de dados com um tamanho de computação com base em DTU ou vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino dê suporte para o tamanho máximo do banco de dados de origem. O banco de dados cria um instantâneo de dados a partir do horário de início da operação de cópia e não executa a sincronização de dados entre a origem e o destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter detalhes sobre os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
 - Para obter detalhes sobre tamanhos de computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

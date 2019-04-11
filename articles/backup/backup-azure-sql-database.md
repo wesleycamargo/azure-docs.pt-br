@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285438"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847292"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
@@ -55,7 +55,7 @@ Antes de começar, verifique o seguinte:
 
 - O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não oferecemos CLI de suporte.
 - VM que executa o SQL Server exige conectividade com a Internet para acessar os endereços IP públicos do Azure.
-- Não há suporte para **Failover Cluster Instances (FCIs)** Always On do SQL Server.
+- Não há suporte para o SQL Server **FCI (Instância de Cluster de Failover)** e o SQL Server Always On na Instância de Cluster de Failover.
 - Não há suporte para operações de backup e restauração para bancos de dados de espelho e instantâneos do banco de dados.
 - Usar mais de uma solução de backup para fazer backup de sua instância do SQL Server ou SQL Always no grupo de disponibilidade pode levar à falha de backup. Evite fazer isso.
 - Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup. O Backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o cofre. Se o SQL Server Always no grupo de disponibilidade abranger várias regiões do Azure, configure o backup da região que tem o nó primário. O Backup do Microsoft Azure poderá detectar e proteger todos os bancos de dados no grupo de disponibilidade, de acordo com a sua preferência de backup.  

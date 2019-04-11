@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar o conteúdo de texto em C# – Content Moderator'
+title: 'Início Rápido: Analisar o conteúdo de texto em C# – Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como analisar conteúdo de texto para encontrar materiais indesejáveis usando o SDK do Content Moderator para .NET
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312235"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756543"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início Rápido: Analisar o conteúdo de texto para material indesejável em C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início Rápido: Analisar o conteúdo de texto para material indesejável em C#
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Você aprenderá a executar filtragem e classificação de conteúdo de texto baseadas em termos com o objetivo de moderar material potencialmente indesejável.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Adicione o código a seguir ao método **Principal**. O método **ScreenText** é a operação essencial. Seus parâmetros especificam quais operações de moderação de conteúdo serão feitas. Neste exemplo, o método está configurado para:
 - Detectar possíveis palavrões no texto.
 - Normalizar os erros de digitação de texto e a correção automática.
-- Detecte informações de identificação pessoal (PII), como números de telefone dos EUA e do Reino Unido, endereços de email e endereços dos EUA.
+- Detecte dados pessoais, como números de telefone dos Estados Unidos e do Reino Unido, endereços de email e endereços de correspondência dos EUA.
 - Usar modelos com base em aprendizado de máquina para classificar o texto em três categorias.
 
 Se você quiser saber mais sobre o que fazem essas operações, siga o link na seção [Próximas etapas](#next-steps).

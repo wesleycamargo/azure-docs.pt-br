@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: bd235193c5eee5587cfff6dac84c3378ecb44ce1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246544"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882862"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você decidir instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão Az 0.7 ou posterior. Execute ` Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você decidir instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão Az 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -136,4 +136,4 @@ Na primeira parte da série, você aprendeu como criar uma conta de armazenament
 Vá para a parte dois da série para carregar grandes quantidades de dados para uma conta de armazenamento usando repetição exponencial e paralelismo.
 
 > [!div class="nextstepaction"]
-> [Carregar grandes quantidades de arquivos grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)
+> [Fazer upload de grandes quantidades de arquivos grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)

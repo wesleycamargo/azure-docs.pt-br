@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521968"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258735"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory?
 
@@ -58,7 +58,7 @@ Com controles de concessão, você pode bloquear o acesso completamente ou permi
 - Todos os controles adicionados devem ser preenchidos (*AND*)
 - Um controle selecionado a ser preenchido (*OR*)
 
-![Controle](./media/controls/17.png)
+![Controle](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Autenticação multifator
 
@@ -77,8 +77,8 @@ Você pode configurar políticas de acesso condicional com base no dispositivo. 
 É necessário registrar o dispositivo no Azure AD, antes de poder marcá-lo como compatível. Para registrar um dispositivo, há três opções: 
 
 - [Dispositivos registrados no Azure AD](../devices/overview.md#azure-ad-registered-devices)
-- [Dispositivos ingressados no Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivos ingressados no Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivos adicionados ao Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Dispositivos adicionados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Para obter mais informações, consulte [como exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Como seus funcionários usam dispositivos móveis para as tarefas pessoais e de 
 Você pode usar [políticas de proteção do aplicativo Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da empresa independentemente de qualquer solução de gerenciamento de dispositivo móvel (MDM).
 
 Com aplicativos de cliente aprovados, você pode exigir que um aplicativo cliente tente acessar seus aplicativos de nuvem para oferecer suporte a [políticas de proteção do aplicativo Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook. Uma política de acesso condicional que exige um dispositivo confiável também é conhecida como [política de acesso condicional com base no dispositivo](app-based-conditional-access.md). Para obter uma lista de aplicativos cliente aprovados e com suporte, veja [requisito de aplicativo cliente aprovado](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>Política de proteção de aplicativo (visualização)
+
+Como seus funcionários usam dispositivos móveis para as tarefas pessoais e de trabalho, talvez você queira poder proteger os dados da empresa acessados por meio de dispositivos, mesmo no caso em que eles não são gerenciados por você.
+Você pode usar [políticas de proteção do aplicativo Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da empresa independentemente de qualquer solução de gerenciamento de dispositivo móvel (MDM).
+
+Com a política de proteção do aplicativo, você pode limitar o acesso a aplicativos cliente que relatados para o Azure AD tem recebeu [políticas de proteção de aplicativo do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook que tem uma política de proteção de aplicativo do Intune. Uma política de acesso condicional que exige a política de proteção de aplicativo também é conhecido como [política de acesso condicional baseado em proteção de aplicativo](app-protection-based-conditional-access.md). 
+
+Seu dispositivo deve ser registrado para o Azure AD antes de um aplicativo pode ser marcado como protegida de política.
+
+Para obter uma lista de política com suporte a aplicativos de cliente protegido, consulte [requisito de política de proteção de aplicativo](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Termos de Uso
 
@@ -112,7 +124,7 @@ Esses controles permitem o uso de determinados serviços externos ou personaliza
 Provedores que atualmente oferecem um serviço compatível incluem:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
@@ -162,11 +174,11 @@ Você pode usar esse controle para exigir que o Azure AD passe informações sob
 
 Para obter mais informações, consulte:
 
-- [Ativando acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Habilitando o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
-- [Ativando acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
+- [Habilitando o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087186"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283470"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -71,7 +71,7 @@ As condições de correspondência Solicitação identificam solicitações base
 
 NOME | Finalidade
 -----|--------
-[Endereço IP do cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
+[Endereço IP do Cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
 [Parâmetro de Cookie](#cookie-parameter) | Verifica o valor especificado nos cookies associados a cada solicitação.
 [Regex de Parâmetro de Cookie](#cookie-parameter-regex) | Verifica a expressão regular especificada nos cookies associados a cada solicitação.
 [Cname de Borda](#edge-cname) | Identifica solicitações que apontam para um CNAME de borda específico.
@@ -101,7 +101,7 @@ NOME | Finalidade
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referência para condições de correspondência do mecanismo de regras
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>Sempre
 
@@ -970,7 +970,7 @@ user=joe              | Esse padrão é correspondido quando a cadeia de caracte
 </br>
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md)
+* [Visão geral do Azure Content Delivery Network](cdn-overview.md)
 * [Referência do mecanismo de regras](cdn-rules-engine-reference.md)
 * [Expressões condicionais do mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Recursos do mecanismo de regras](cdn-rules-engine-reference-features.md)

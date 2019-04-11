@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905266"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263750"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para logs de ILogger do .NET Core
 
@@ -208,10 +208,10 @@ Enquanto o provedor antigo ainda pode ser usado (ele agora está obsoleto e ser�
 1. Provedor anterior não tinha suporte do [escopos](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). No novo provedor, as propriedades de escopo são automaticamente adicionadas como propriedades personalizadas à telemetria coletada.
 2. Os logs agora podem ser capturados muito mais cedo no pipeline de inicialização do aplicativo. ou seja Logs de inicialização e o programa de classes agora podem ser capturados.
 3. Com o novo provedor, a filtragem é feita no nível da estrutura em si. Filtragem de logs para o provedor do Application Insights pode ser feito em exatamente da mesma maneira que para outros provedores, incluindo provedores internos, como o Console de depuração e assim por diante. Também é possível aplicar os mesmo filtros em vários provedores.
-4. O [recomendado](https://github.com/aspnet/Announcements/issues/255) maneira no Asp.Net Core (versão 2.0 e posteriores) para habilitar provedores de log é por meio de métodos de extensão no ILoggingBuilder em `Program.cs` em si.
+4. O [recomendado](https://github.com/aspnet/Announcements/issues/255) maneira no ASP.NET Core (versão 2.0 e posteriores) para habilitar provedores de log é por meio de métodos de extensão no ILoggingBuilder em `Program.cs` em si.
 
 > [!Note]
-O novo provedor está disponível para aplicativos destinados ao `NETSTANDARD2.0` ou superior. Se seu aplicativo for destinado ao versões mais antigas do .NET Core, como .NET Core 1.1 ou direcionados ao .NET Framework, continue a usar o provedor antigo.
+> O novo provedor está disponível para aplicativos destinados ao `NETSTANDARD2.0` ou superior. Se seu aplicativo for destinado ao versões mais antigas do .NET Core, como .NET Core 1.1 ou destinados ao .NET Framework, continue a usar o provedor antigo.
 
 ## <a name="console-application"></a>Aplicativo de console
 
@@ -467,7 +467,7 @@ O código acima é necessário somente ao usar o provedor de log autônomo. Para
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

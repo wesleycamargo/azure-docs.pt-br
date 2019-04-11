@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 4/9/2019
+ms.author: ramamill
+ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106535"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362163"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para failback com servidores de processo adicionais
 
@@ -51,7 +51,7 @@ Os pré-requisitos para o servidor de processo adicional são resumidos na tabel
 
 Baixe o arquivo de instalação para o servidor de processo da seguinte maneira:
 
-1. Faça logon no portal do Azure e navegue até seu Cofre dos Serviços de Recuperação.
+1. Entrar no portal do Azure e navegue até seu cofre dos serviços de recuperação.
 2. Abra **Infraestrutura do Site Recovery** > **VMWare e Computadores Físicos** > **Servidores de Configuração** (sob Para VMware e Computadores Físicos).
 3. Selecione o servidor de configuração para fazer drill down nos detalhes do servidor. Clique em **+ Servidor de processo**.
 4. Em **Adicionar servidor de processo** >  **, escolha onde você quer implantar um servidor de processo** e selecione **Implantar uma expansão de servidor de processo local**.

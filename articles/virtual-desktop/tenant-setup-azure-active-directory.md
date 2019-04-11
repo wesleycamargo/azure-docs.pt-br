@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402891"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801667"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um locatário na Versão Prévia da Área de Trabalho Virtual do Windows
 
@@ -30,6 +30,8 @@ Isto é o que você precisa para configurar seu locatário da Área de Trabalho 
 * A ID de locatário do [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para os usuários da Área de Trabalho Virtual do Windows.
 * Uma conta de administrador global no locatário do Azure Active Directory.
    * Isso também se aplica às organizações CSP (Provedor de Soluções na Nuvem) que criam um locatário da Área de Trabalho Virtual do Windows para seus clientes. Se você for uma organização CSP, deverá conseguir entrar como administrador global do Azure Active Directory do cliente.
+   * A conta de administrador deve se originar de locatário do Azure Active Directory no qual você está tentando criar o locatário de Área de Trabalho Virtual do Windows. Esse processo não dá suporte a contas do Azure Active Directory B2B (convidado).
+   * A conta de administrador deve ser uma conta corporativa ou de estudante.
 * Uma ID da assinatura do Azure
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Conceder permissões do Azure Active Directory ao serviço da Versão Prévia da Área de Trabalho Virtual do Windows
@@ -75,7 +77,7 @@ Primeiro, [baixe e importe o módulo da Área de Trabalho Virtual do Windows](ht
 Entre na Área de Trabalho Virtual do Windows usando a conta de usuário TenantCreator com este cmdlet:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Depois disso, crie um locatário da Área de Trabalho Virtual do Windows associado ao locatário do Azure Active Directory:

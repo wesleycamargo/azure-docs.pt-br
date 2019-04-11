@@ -1,31 +1,27 @@
 ---
-title: Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Diferenças de T-SQL de instância gerenciada de banco de dados SQL do Azure | Microsoft Docs
 description: Este artigo aborda as diferenças do T-SQL entre uma Instância Gerenciada do Banco de Dados SQL do Azure e no SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.custom: seoapril2019
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893054"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471555"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
-A opção de implantação de Instância Gerenciada fornece alta compatibilidade com o Mecanismo de Banco de Dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server é compatível com uma Instância Gerenciada.
-
-![migração](./media/sql-database-managed-instance/migration.png)
-
-Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo resume e explica essas diferenças. <a name="Differences"></a>
+Este artigo resume e explica as diferenças de sintaxe e o comportamento entre o banco de dados de instância gerenciada do SQL e o mecanismo de banco de dados SQL Server local. <a name="Differences"></a>
 
 - [Disponibilidade](#availability), incluindo as diferenças no [AlwaysOn](#always-on-availability) e em [Backups](#backup);
 - [Segurança](#security), incluindo as diferenças em [Auditoria](#auditing), [Certificados](#certificates), [Credenciais](#credential), [Provedores de criptografia](#cryptographic-providers), [Logons/usuários](#logins--users) e [Chave de serviço e chave mestra de serviço](#service-key-and-service-master-key);
@@ -33,6 +29,10 @@ Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo re
 - [Funcionalidades](#functionalities), incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transações distribuídas](#distributed-transactions), [Eventos estendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Fluxo de arquivos e FileTable](#filestream-and-filetable), [Pesquisa semântica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicação](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker) e [Procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-triggers);
 - [Recursos que têm um comportamento diferente em instâncias gerenciadas](#Changes)
 - [Problemas conhecidos e limitações temporárias](#Issues)
+
+A opção de implantação de Instância Gerenciada fornece alta compatibilidade com o Mecanismo de Banco de Dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server é compatível com uma Instância Gerenciada.
+
+![migração](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não há suporte para vários arquivos de log.
 - Não há suporte para objetos na memória na camada de serviço de Uso Geral.  
-- Há um limite de 280 arquivos por instância de finalidade geral implicando no máximo 280 arquivos por banco de dados. Os dados e arquivos de log em geral finalidade camada são contados para esse limite. [Camada comercialmente crítico dá suporte a 32.767 arquivos por banco de dados](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Há um limite de 280 arquivos por instância de finalidade geral implicando no máximo 280 arquivos por banco de dados. Os dados e arquivos de log em geral finalidade camada são contados para esse limite. [Camada comercialmente crítico dá suporte a 32.767 arquivos por banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - O banco de dados não pode conter grupos de arquivos que contenham dados de fluxo de arquivos.  A restauração falhará se .bak contiver dados `FILESTREAM`.  
 - Cada arquivo é colocado no Armazenamento de Blobs do Azure. A E/S e a taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.  
 
@@ -288,10 +288,9 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](https://docs.microsoft.com/sql
     - Não há suporte para leitor de fila.  
     - Ainda não há suporte para o shell de comando.
   - As instâncias gerenciadas não podem acessar recursos externos (por exemplo, compartilhamentos de rede por meio do Robocopy).  
-  - Ainda não há suporte para o PowerShell.
   - Não há suporte para o Analysis Services.
 - Há suporte parcial para notificações.
-- Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. Só pode haver um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile` na versão prévia pública (limitação temporária).  
+- Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. SQL Agent pode usar o perfil de email de apenas um banco de dados e ele deve ser chamado `AzureManagedInstance_dbmail_profile`.  
   - Não há suporte para o Pager.  
   - Não há suporte para o NetSend.
   - Ainda não há suporte para alertas.
@@ -432,10 +431,7 @@ As seguintes opções de banco de dados são definidas/substituídas e não pode
 - `.BAK` arquivos que contêm vários conjuntos de backup não podem ser restaurados.
 - `.BAK` arquivos que contêm vários arquivos de log não podem ser restaurados.
 - A restauração falhará se .bak contiver dados `FILESTREAM`.
-- Backups que contêm bancos de dados com objetos na memória ativos não podem ser restaurados no momento.  
-- Backups que contêm bancos de dados nos quais em algum momento existiram objetos na memória não podem ser restaurados no momento.
-- Backups que contêm bancos de dados em modo somente leitura não podem ser restaurados no momento. Essa limitação será removida em breve.
-
+- Os backups que contêm bancos de dados com objetos do Active Directory na memória não podem ser restaurados na instância de finalidade geral.  
 Para obter informações sobre instruções de restauração, consulte [instruções RESTAURAR](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
@@ -471,7 +467,6 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - `@@SERVICENAME` retorna NULL, pois o conceito de serviço como ela existe para o SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` há suporte. Retornará NULL se o logon do Azure AD não estiver em sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` não é suportado. Retorna dados incorretos (problema temporário conhecido). Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` e outras funções internas de data/hora sempre retorna a hora no fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Problemas e limitações conhecidos
 
@@ -485,6 +480,8 @@ Não é possível restaurar a instância gerenciada [bancos de dados independent
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, e `RESTORE DATABASE` instruções podem falhar porque a instância pode atingir o limite de armazenamento do Azure.
+
 Cada instância de gerenciada de finalidade geral tem até 35 TB de armazenamento reservado para o espaço em disco Premium do Azure, e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna.
 
 Por exemplo, uma instância de gerenciada de propósito geral poderia ter um arquivo de 1,2 TB de tamanho que é colocado em um disco de 4 TB e 248 arquivos (cada 1 GB de tamanho) que são colocados em discos separados de 128 GB. Neste exemplo:
@@ -496,7 +493,7 @@ Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição e
 
 Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
-Você pode [identifique o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você está acessando esse limite tentar [vazios e excluir alguns arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou shitch para [camada comercialmente crítico que não possui esse limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Você pode [identifique o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você está acessando esse limite tentar [vazios e excluir alguns arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [camada comercialmente crítico que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuração incorreta da chave SAS durante a restauração do banco de dados
 
@@ -514,9 +511,13 @@ O SSMS (SQL Server Management Studio) e o SSDT (SQL Server Data Tools) podem ter
 
 Várias entradas de exibições do sistema, contadores de desempenho, mensagens de erro, XEvents e logs de erros exibem identificadores do banco de dados GUID em vez dos nomes reais do banco de dados. Não dependa desses identificadores GUID porque eles serão substituídos por nomes de banco de dados reais no futuro.
 
+### <a name="database-mail"></a>Database Mail
+
+`@query` parâmetro na [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedimento não funcionam.
+
 ### <a name="database-mail-profile"></a>Perfil do Database Mail
 
-O perfil de email do banco de dados usado pelo SQL Agent deve ser chamado `AzureManagedInstance_dbmail_profile`.
+O perfil de email do banco de dados usado pelo SQL Agent deve ser chamado `AzureManagedInstance_dbmail_profile`. Não há nenhuma restrição sobre outros nomes de perfil de email do banco de dados.
 
 ### <a name="error-logs-are-not-persisted"></a>Os logs de erros não são persistentes
 
@@ -565,13 +566,13 @@ Os módulos CLR colocados em uma Instância Gerenciada e em servidores vinculado
 
 **Solução alternativa**: Usar conexões de contexto no módulo CLR, se possível.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Os bancos de dados criptografados por TDE não oferecem suporte a backups iniciados pelo usuário
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>Bancos de dados TDE criptografado com chave gerenciada por serviço não dão suporte a backups iniciados pelo usuário
 
-Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que esteja criptografado com TDE (Transparent Data Encryption). A TDE força os backups a serem criptografados com chaves TDE internas, e a chave não pode ser exportada, de modo que não é possível restaurar o backup.
+Você não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados é criptografado com serviços gerenciados criptografia TDE (Transparent Data). TDE gerenciada por serviço força backups a serem criptografados com a chave da TDE interna e a chave não pode ser exportada, portanto, não será possível restaurar o backup.
 
-**Solução alternativa**: Use backups automáticos e a restauração pontual, ou desabilite a criptografia no banco de dados.
+**Solução alternativa**: Use backups automáticos e restauração point-in-time ou use [gerenciadas pelo cliente (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso, ou desabilitar a criptografia no banco de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre Instâncias Gerenciadas, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).

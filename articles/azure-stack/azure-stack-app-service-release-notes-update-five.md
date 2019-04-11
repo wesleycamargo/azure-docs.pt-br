@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500195"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260554"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Serviço de aplicativo em notas de versão de atualização 5 do Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e correções no serviço de aplicativo do Azure no Azure Stack Update 5 e problemas conhecidos. Problemas conhecidos são divididos em questões relacionadas diretamente para a implantação, o processo de atualização e a problemas com a compilação (após a instalação).
 
@@ -77,7 +77,7 @@ Serviço de aplicativo do Azure no Azure Stack com atualização 5 inclui os seg
 ### <a name="post-deployment-steps"></a>Etapas de pós-implantação
 
 > [!IMPORTANT]  
-> Se você tiver fornecido a RP de serviço de aplicativo com uma sempre na instância do SQL, você deve [adicionar os bancos de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar os bancos de dados para evitar a perda de serviço no evento de um failover de banco de dados.
+> Se você tiver fornecido o provedor de recursos do serviço de aplicativo com uma sempre na instância do SQL, você deve [adicionar os bancos de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar os bancos de dados para evitar a perda de serviço no caso de um failover de banco de dados.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 

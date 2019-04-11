@@ -6,41 +6,168 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: e5e84c22285d1cdec9678c8bf33dab1568d333cd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621576"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361508"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados durante a utilização do Servidor de Backup do Azure com as informações listadas na tabela a seguir:
 
+## <a name="backup"></a>Backup
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
+
+Código de erro: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Mensagem de erro: Copiando dados de backup do cofre atingiu o tempo limite
+
+Isso pode acontecer devido a erros transitórios de armazenamento ou a conta de armazenamento insuficiente IOPS para o serviço de backup para transferir dados para o cofre dentro do período de tempo limite. Configurar o backup VM usando essas [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) e repita a operação de backup.
+
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM não está em um estado que permite que os backups.
+
+Código de erro: UserErrorVmNotInDesirableState <br/>
+Mensagem de erro: A VM não está em um estado que permite que os backups.<br/>
+
+A operação de backup falhou porque a VM está em estado de falha. Para a VM de backup com êxito o estado deve ser em execução, parado ou interrompido (desalocado).
+
+* Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup.
+*  Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
+
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Falha ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos
+
+Código de erro: UserErrorFsFreezeFailed <br/>
+Mensagem de erro: Falha ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos.
+
+* Verifique o estado do sistema de arquivo de todos os dispositivos montados usando o **tune2fs** comando, por exemplo **tune2fs -l/dev/sdb1 \\** .\| grep **deestadodosistemadearquivos**.
+* Desmonte os dispositivos para o qual o estado do sistema de arquivo não foi limpo, usando o **unmount** comando.
+* Executar uma verificação de consistência do sistema de arquivos nesses dispositivos usando o **fsck** comando.
+* Montar os dispositivos novamente e repita a operação de backup.</ol>
+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - instalação de extensão/operação falhou devido a um erro de COM+
+
+Código de erro: ExtensionSnapshotFailedCOM <br/>
+Mensagem de erro: A operação de instantâneo falhou devido a um erro de COM+
+
+Código de erro: ExtensionInstallationFailedCOM  <br/>
+Mensagem de erro: Instalação de extensão/operação falhou devido a um erro de COM+
+
+Código de erro: Mensagem de erro ExtensionInstallationFailedMDTC: Falha na instalação da extensão. Erro "COM+ não pôde se comunicar com o Coordenador de transações distribuídas da Microsoft
+
+A operação de Backup falhou devido a um problema com o serviço do Windows **sistema COM+** aplicativo.  Para resolver esse problema, siga estas etapas:
+
+* Tente iniciar/reiniciar o serviço do Windows **COM+ System Application** (em um prompt de comando elevado **-net start COMSysApp**).
+* Certifique-se **coordenador de transações distribuídas** services está em execução como **serviço de rede** conta. Se não estiver, altere-o para executar como **serviço de rede** da conta e reinicie **COM+ System Application**.
+* Se não for possível reiniciar o serviço, em seguida, reinstalar **coordenador de transações distribuídas** serviço seguindo as etapas a seguir:
+    * Interrompa o serviço MSDTC
+    * Abra um prompt de comando (cmd)
+    * Execute o comando "msdtc-desinstalar"
+    * comando de desinstalação "msdtc-instalar"
+    * Inicie o serviço MSDTC
+* Inicie o serviço Windows **COM+ System Application**. Depois que o **Aplicativo do Sistema COM+** for iniciado, dispare um trabalho de backup no portal do Azure.</ol>
+
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - operação de instantâneo falhou porque os gravadores VSS estavam em um estado inválido
+
+Código de erro: ExtensionFailedVssWriterInBadState <br/>
+Mensagem de erro: Falha na operação de instantâneo porque os gravadores VSS estavam em um estado inválido.
+
+Reinicie os gravadores VSS que estão em um estado inválido. Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```. A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS com um estado que não seja **[1] Estável**, para reiniciar o gravador VSS, execute os seguintes comandos em um prompt de comando elevado:
+
+  * ```net stop serviceName```
+  * ```net start serviceName```
+
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração da extensão de backup
+
+Código de erro: ExtensionConfigParsingFailure<br/>
+Mensagem de erro: Falha ao analisar a configuração da extensão de backup.
+
+Esse erro acontece por causa das permissões alteradas no diretório **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Execute o comando a seguir e verifique se que as permissões na **MachineKeys** diretório são aqueles por padrão:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+As permissões padrão são:
+* Todos: (R,W)
+* BUILTIN\Administratores: (F)
+
+Se você vir as permissões no diretório **MachineKeys** que são diferentes dos padrões, siga estas etapas para corrigir as permissões, exclua o certificado e dispare o backup:
+
+1. Corrija as permissões no diretório **MachineKeys**. Usando as Propriedades de Segurança do Explorer e as Configurações Avançadas de Segurança no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário (exceto padrão) do diretório e assegure-se de que a permissão **Todos** tenha acesso especial para:
+
+    * Listar pastas / ler dados
+    * Atributos de leitura
+    * Atributos de leitura estendidos
+    * Criar arquivos/gravar dados
+    * Criar pastas/anexar dados
+    * Atributos de gravação
+    * Atributos de gravação estendidos
+    * Permissões de leitura
+2. Exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**:
+    * [Abra os certificados em um console de computador local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+    * Em **Pessoal** > **Certificados**, exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**.
+3. Dispare um trabalho de backup da VM.
+
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - estado de extensão não é dá suporte para a operação de backup
+
+Código de erro: ExtensionStuckInDeletionState <br/>
+Mensagem de erro: O estado de extensão não é dá suporte para a operação de backup
+
+A operação de Backup falhou devido a estado inconsistente de extensão de Backup. Para resolver esse problema, siga estas etapas:
+
+* Verifique se o Agente Convidado está instalado e respondendo
+* No portal do Azure, vá para **Máquina Virtual** > **Todas as Configurações** > **Extensões**
+* Selecione a extensão de backup VmSnapshot ou VmSnapshotLinux e clique em **Desinstalar**
+* Depois de excluir a extensão de backup, repita a operação de backup
+* A operação de backup subsequente instalará a nova extensão no estado desejado
+
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - operação de instantâneo falhou porque o limite de instantâneos foi excedido para alguns dos discos anexados
+
+Código de erro: ExtensionFailedSnapshotLimitReachedError  <br/>
+Mensagem de erro: Operação de instantâneo falhou porque o limite de instantâneos foi excedida para alguns dos discos anexados
+
+A operação de instantâneo falhou porque o limite de instantâneo foi excedido para alguns dos discos anexados. Conclua as etapas e, em seguida, repita a operação de solução de problemas abaixo.
+
+* Exclua os disco-instantâneos de blob que não são necessários. Tenha cuidado para não excluir o blob de disco, somente os blobs de instantâneo devem ser excluídos.
+* Se a exclusão reversível estiver habilitada em contas de armazenamento de disco VM, configure a retenção de exclusão reversível, de modo que os instantâneos existentes são menores do que o máximo permitido em qualquer momento.
+* Se o Azure Site Recovery está habilitado na VM do backup, em seguida, executar a abaixo:
+
+    * Verifique se o valor de **isanysnapshotfailed** é definido como false no /etc/azure/vmbackup.conf
+    * Agende o Azure Site Recovery em um momento diferente, de modo que a operação de backup não está em conflito.
+
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - operação de instantâneo falhou devido a recursos inadequados da VM.
+
+Código de erro: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Mensagem de erro: Falha na operação de instantâneo devido a recursos inadequados da VM.
+
+Falha na operação de backup na VM devido ao atraso nas chamadas de rede ao executar a operação de instantâneo. Para resolver esse problema, siga a Etapa 1. Se o problema persistir, tente as etapas 2 e 3.
+
+**Etapa 1**: Criar o instantâneo por meio do host
+
+Em um prompt de comando com privilégios elevados (administrador), execute o comando abaixo:
+
+```
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
+```
+
+Isso garantirá que os instantâneos são executados por meio do host em vez do convidado. Tente a operação de backup novamente.
+
+**Etapa 2**: Tente alterar o agendamento de backup para um horário quando a VM estiver em menos carga (menos CPU/IOps, etc.)
+
+**Etapa 3**: Tente [aumentando o tamanho da VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e repita a operação
+
+### <a name="common-vm-backup-errors"></a>Erros comuns de backup de VM
+
 | Detalhes do erro | Solução alternativa |
 | ------ | --- |
-| O backup não pôde executar a operação, pois a máquina virtual (VM) não existe mais: <br>Pare a proteção da máquina virtual sem excluir os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](https://go.microsoft.com/fwlink/?LinkId=808124). |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**or**</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| O agente da Máquina Virtual do Azure (agente de VM) não pode se comunicar com o serviço de Backup do Azure: <br>Verifique se a VM tem conectividade com a rede e se o agente da VM que está em execução e é o mais recente. Para saber mais, consulte [Falha do Backup do Azure para Solução de Problemas: Problemas com o agente ou extensão](https://go.microsoft.com/fwlink/?LinkId=800034). |Esse erro acontece se houver um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup) sobre como depurar problemas de instantâneo de VM. <br><br>Se o agente da VM não estiver causando problemas, reinicie a VM. Um estado de VM incorreto pode causar problemas e reiniciar a VM redefine o estado. |
+| Código de erro: 320001<br/> Mensagem de erro: Não foi possível executar a operação, pois a VM não existe mais. <br/> <br/> Código de erro: 400094 <br/> Mensagem de erro: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**ou o**</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | A VM está em Estado de Provisionamento com Falha: <br>Reinicie a VM e certifique-se de que a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá até a lista de extensões e veja se há uma extensão com falha, remova essa extensão e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. |
-| O backup não copiou o instantâneo da máquina virtual devido a espaço livre insuficiente na conta de armazenamento: <br>Certifique-se de que a conta de armazenamento tem espaço livre igual aos dados presentes nos discos de armazenamento premium anexados à máquina virtual. | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. <br><br>É recomendável que você aloque apenas 50 por cento, 17,5 TB, do espaço de conta de armazenamento total. Então, o serviço de Backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
-| Não é possível executar a operação porque o agente de VM não é responsivo. |Esse erro acontece se houver um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Para VMs Windows, verifique o status do serviço do agente de VM em serviços e se o agente é exibido em programas no painel de controle. <br><br>Tente remover o programa do painel de controle e reinstalar o agente, conforme mencionado [agente da VM](#vm-agent). Depois de reinstalar o agente, acione um backup ad-hoc para verificar. |
-| Falha na operação de extensão dos serviços de recuperação: <br>Certifique-se de que o agente da máquina virtual mais recente esteja presente na máquina virtual e que o serviço do agente esteja em execução. Tente a operação de backup novamente. Se a operação de backup falhar, contate o Suporte da Microsoft. |Esse erro é disparado quando o agente da VM está desatualizado. Consulte Solucionar problemas de backup de máquinas virtuais do Azure para atualizar o agente de VM. |
-| A máquina virtual não existe: <br>Certifique-se de que a máquina virtual exista ou selecione uma máquina virtual diferente. |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**or**<br></li><li>Pare a proteção da máquina virtual sem excluir os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Comando executado com falha: <br>Outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída. Em seguida, repita a operação. |Uma tarefa de backup existente está em execução e uma nova tarefa não pode ser iniciada até que a tarefa atual seja concluída. |
-| A cópia de VHDs do cofre dos Serviços de Recuperação atingiu o tempo limite: <br>Repita a operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Esse erro ocorre se houver um erro transitório no lado do armazenamento ou se o serviço de Backup não receber IOPS de conta de armazenamento suficiente para transferir dados para o cofre, dentro do período de tempo limite. Siga as [melhores práticas ao configurar as VMs](backup-azure-vms-introduction.md#best-practices). Mova a VM para uma conta de armazenamento diferente que não esteja carregada e tente novamente o trabalho de backup.|
-| Falha de backup, com um erro interno: <br>Repita a operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. |Você pode receber esse erro por dois motivos: <ul><li> Há um problema temporário ao acessar o armazenamento de VM. Verifique o [site do Status do Azure](https://azure.microsoft.com/status/) para ver se há problemas de Computação, Armazenamento ou Rede na região. Depois que o problema for resolvido, tente novamente o trabalho de backup. <li> A VM original foi excluída e o ponto de recuperação não pode ser usado. Para manter os dados de backup de uma VM excluída, mas remover os erros de backup: desproteja a VM e escolha a opção para reter os dados. Essa ação interrompe o trabalho de backup agendado e as mensagens de erro recorrentes. |
-| Falha no backup para instalar a extensão de serviços de recuperação do Azure no item selecionado: <br>O agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. |<ol> <li>Verifique se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente da VM. |
-| Falha na instalação da extensão. Erro **COM+ não pôde se comunicar com o Coordenador de Transações Distribuídas da Microsoft**. |Isso geralmente significa que o serviço COM+ não está em execução. Entre em contato com o Suporte da Microsoft para obter ajuda sobre como corrigir esse problema. |
+|Código de erro: UserErrorBCMPremiumStorageQuotaError<br/> Mensagem de erro: Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre insuficiente na conta de armazenamento | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. <br><br>É recomendável que você aloque apenas 50 por cento, 17,5 TB, do espaço de conta de armazenamento total. Então, o serviço de Backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
+| Falha ao instalar a extensão de serviços de recuperação da Microsoft como a máquina virtual não está em execução <br>O agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. |<ol> <li>Verifique se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente da VM. |
 | A operação de instantâneo falhou com o erro de operação do Serviço de Cópias de Sombra de Volume (VSS) **Essa unidade essa bloqueada pela Criptografia de Unidade de Disco BitLocker. Você deve desbloquear esta unidade no Painel de Controle.** |Desative o BitLocker para todas as unidades na VM e verifique se o problema VSS é resolvido. |
 | A VM não está em um estado que permite todos os backups. |<ul><li>Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup. <li> Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.  |
-| Uma máquina virtual do Azure não foi encontrada. |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM excluída. Corrija esse erro, da seguinte maneira: <ol><li>Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**, <br>**or** <li> Desative a proteção para esta VM para que os trabalhos de backup não sejam criados. </ol> |
 | O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. |Leia mais sobre [Instalação do Agente da VM e como validar a Instalação do Agente da VM](#vm-agent). |
-| A operação de instantâneo falhou porque os gravadores VSS estavam em um estado inválido. |Reinicie os gravadores VSS que estão em um estado inválido. Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```. A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS com um estado que não seja **[1] Estável**, para reiniciar o gravador VSS, execute os seguintes comandos em um prompt de comando elevado: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
-| Falha na operação de instantâneo devido a uma falha de análise da configuração. |Esse erro acontece por causa das permissões alteradas no diretório **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Execute o comando a seguir e verifique se as permissões no diretório **MachineKeys** são aquelas padrão:<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>As permissões padrão são: <ul><li>Todos: (R,W) <li>BUILTIN\Administratores: (F)</ul> Se você vir as permissões no diretório **MachineKeys** que são diferentes dos padrões, siga estas etapas para corrigir as permissões, exclua o certificado e dispare o backup: <ol><li>Corrija as permissões no diretório **MachineKeys**. Usando as Propriedades de Segurança do Explorer e as Configurações Avançadas de Segurança no diretório, redefina as permissões de volta para os valores padrão. Remova todos os objetos de usuário (exceto padrão) do diretório e assegure-se de que a permissão **Todos** tenha acesso especial para: <ul><li>Listar pastas / ler dados <li>Atributos de leitura <li>Atributos de leitura estendidos <li>Criar arquivos/gravar dados <li>Criar pastas/anexar dados<li>Atributos de gravação<li>Atributos de gravação estendidos<li>Permissões de leitura </ul><li>Exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**:<ol><li>[Abra os certificados em um console de computador local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>Em **Pessoal** > **Certificados**, exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**.</ol> <li>Dispare um trabalho de backup da VM. </ol>|
-| O Serviço de Backup do Azure não tem permissões suficientes para o Azure Key Vault para Backup de máquinas virtuais criptografadas. |Fornecer o serviço de Backup nessas permissões no PowerShell usando as etapas em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md). |
-|Falha na instalação da extensão do instantâneo com erro **COM+ não pôde se comunicar com o Coordenador de Transações Distribuídas da Microsoft**. | Em um prompt de comandos com privilégios elevados, inicie o serviço Windows **Aplicativo do Sistema COM+**. Um exemplo é **net start COMSysApp**. Se o serviço não iniciar, em seguida, execute as seguintes etapas:<ol><li> Certifique-se de que a Conta de logon do serviço **Coordenador de Transações Distribuídas** esteja como **Serviço de Rede**. Se não estiver, altere a conta de logon para **Serviço de Rede** e reinicie o serviço. Em seguida, tente iniciar **COM+ System Application**.<li>Se o **Aplicativo do Sistema COM+** não for iniciado, use as seguintes etapas para desinstalar/instalar o serviço **Coordenador de Transações Distribuídas**: <ol><li>Interrompa o serviço MSDTC. <li>Abra um prompt de comando, **cmd**. <li>Execute o comando ```msdtc -uninstall```. <li>Execute o comando ```msdtc -install```. <li>Inicie o serviço MSDTC. </ol> <li>Inicie o serviço Windows **COM+ System Application**. Depois que o **Aplicativo do Sistema COM+** for iniciado, dispare um trabalho de backup no portal do Azure.</ol> |
-|  A operação de instantâneo falhou devido a um erro do COM+. | É recomendável que você reinicie o serviço do Windows **COM+ System Application** a partir de um prompt de comando com privilégios elevados **net start COMSysApp**. Se o problema persistir, reinicie a VM. Se a reinicialização da VM não funcionar, tente [remover a Extensão VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) e disparar o backup manualmente. |
 | Falha do backup ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos. | Siga estas etapas: <ul><li>Verifique o estado do sistema de arquivos de todos os dispositivos montados usando o comando **'tune2fs'**. Um exemplo é **tune2fs -l/dev/sdb1 \\** .\| grep **estado do sistema de arquivos**. <li>Desmonte os dispositivos para os quais o estado do sistema de arquivos não é limpo usando o comando **'unmount'**. <li> Executar uma verificação de consistência do sistema de arquivos nesses dispositivos usando o comando **'fsck'**. <li> Montar os dispositivos novamente e tente fazer o backup.</ol> |
 | A operação de instantâneo falhou devido a falha ao criar um canal de comunicação de rede segura. | <ol><li> Abra o Editor do Registro executando **regedit.exe** no modo elevado. <li> Identificar todas as versões do .NET Framework presente no seu sistema. Eles estão presentes na hierarquia de chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | A operação de instantâneo falhou devido a falha ao instalar os Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012. | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Certifique-se de que o valor da chave do registro permite que a instalação desse serviço seja definido como o valor correto. Ou seja, o valor da chave do registro **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** é definido como **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.  |
@@ -51,7 +178,7 @@ Você pode solucionar os erros encontrados durante a utilização do Servidor de
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
 | Não há suporte para cancelamento para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
-| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**or**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase terminando. Aguarde até o trabalho ser concluído.|
+| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**ou o**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase terminando. Aguarde até o trabalho ser concluído.|
 | Backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte somente para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | Falha de backup para cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 

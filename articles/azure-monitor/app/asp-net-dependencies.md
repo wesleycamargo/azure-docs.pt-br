@@ -1,6 +1,6 @@
 ---
 title: Acompanhamento de dependência no Azure Application Insights | Microsoft Docs
-description: Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo Web do Microsoft Azure com o Application Insights.
+description: Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo de web do Microsoft Azure com o Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888076"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273100"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependência
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](../../azure-monitor/app/app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -50,7 +50,7 @@ As informações de dependência parciais são coletadas automaticamente pelo [S
 
 ## <a name="where-to-find-dependency-data"></a>Onde encontrar dados de dependência
 * O [Mapa do Aplicativo](#application-map) visualiza as dependências entre seu aplicativo e os componentes de vizinhança.
-* As [folhas de desempenho, de navegador e de falha](#performance-and-failure-blades) mostram dados de dependência de servidor.
+* As [folhas de desempenho, de navegador e de falha](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) mostram dados de dependência de servidor.
 * A [folha de navegadores](#ajax-calls) mostra chamadas AJAX de navegadores dos usuários.
 * Clique pelas solicitações com falha ou lentas para verificar a dependência de chamadas.
 * O [Analytics](#analytics) pode ser usado para consultar dados de dependência.
@@ -58,7 +58,7 @@ As informações de dependência parciais são coletadas automaticamente pelo [S
 ## <a name="application-map"></a>Mapa de aplicativo
 O Mapa de aplicativo atua como uma ajuda visual para descobrir dependências entre os componentes do seu aplicativo. Ele é gerado automaticamente da telemetria do seu aplicativo. Este exemplo mostra chamadas AJAX de scripts de navegador e chamadas REST do aplicativo de servidor para os dois serviços externos.
 
-![Mapa de aplicativo](./media/asp-net-dependencies/08.png)
+![Mapa de aplicativo](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **Navegue das caixas** até a dependência relevante e outros gráficos.
 * **Fixe o mapa** no [painel](../../azure-monitor/app/app-insights-dashboards.md), onde ele ficará totalmente funcional.
@@ -66,18 +66,12 @@ O Mapa de aplicativo atua como uma ajuda visual para descobrir dependências ent
 [Saiba mais](../../azure-monitor/app/app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Folhas de falha e de desempenho
-A folha de desempenho mostra a duração das chamadas de dependência feitas pelo aplicativo de servidor. Há um gráfico de resumo e uma tabela segmentadas por chamada.
-
-![Gráficos de dependência de folha de desempenho](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Clickthrough nos gráficos de resumo ou os itens de tabela para pesquisar ocorrências brutas dessas chamadas.
-
-![Instâncias de chamada de dependência](./media/asp-net-dependencies/dependency-call-instance.png)
+A folha de desempenho mostra a duração das chamadas de dependência feitas pelo aplicativo de servidor.
 
 As **contagens de falhas** são mostrados na folha **Falhas**. Uma falha é qualquer código de retorno que não esteja no intervalo 200-399, ou que seja desconhecido.
 
 > [!NOTE]
-> **Falhas de 100%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
+> **100% de falhas?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -85,52 +79,11 @@ As **contagens de falhas** são mostrados na folha **Falhas**. Uma falha é qual
 A folha Navegadores mostra a taxa de falha e a duração de chamadas AJAX de [JavaScript nas páginas da Web](../../azure-monitor/app/javascript.md). Elas são mostradas como Dependências.
 
 ## <a name="diagnosis"></a> Diagnosticar solicitações lentas
-Cada evento de solicitação está associado às chamadas de dependência, exceções e outros eventos que são rastreados enquanto seu aplicativo está processando a solicitação. Então se algumas solicitações são com baixo desempenho, você pode descobrir seja devido à lentidão nas respostas de uma dependência.
-
-Vamos examinar um exemplo disso.
-
-### <a name="tracing-from-requests-to-dependencies"></a>Rastreamento de solicitações de dependências
-Abra a folha Desempenho e examine a grade de solicitações:
-
-![Lista de solicitações com contagens e médias](./media/asp-net-dependencies/02-reqs.png)
-
-A solicitação superior está demorando muito. Vamos ver se conseguimos descobrir onde o tempo é gasto.
-
-Clique nesta linha para ver os eventos de solicitação individuais:
-
-![Lista de ocorrências de solicitação](./media/asp-net-dependencies/03-instances.png)
-
-Clique em qualquer instância de execução longa para inspecioná-la ainda mais e role para baixo até as chamadas de dependência remotas relacionadas a essa solicitação:
-
-![Localizar as chamadas para dependências remotas, identificar duração incomum](./media/asp-net-dependencies/04-dependencies.png)
-
-Parece a maior parte do tempo atendendo a solicitação foi gasto em uma chamada para um serviço local.
-
-Selecione a linha para obter mais informações:
-
-![Clique nessa dependência remota para identificar o culpado](./media/asp-net-dependencies/05-detail.png)
-
-Parece que o problema está aí. Nós já identificamos o problema, então agora simplesmente precisamos descobrir por que essa chamada está demorando tanto.
-
-### <a name="request-timeline"></a>Linha do tempo da solicitação
-Em outro caso, não há nenhuma chamada de dependência que seja tão longa. Mas, ao alternar para o modo de exibição de linha do tempo, podemos ver onde está o atraso durante nosso processamento interno:
-
-![Localizar as chamadas para dependências remotas, identificar duração incomum](./media/asp-net-dependencies/04-1.png)
-
-Parece haver uma grande lacuna após a primeira chamada de dependência e, portanto, devemos examinar nosso código para ver o motivo disso.
+Cada evento de solicitação está associado com as chamadas de dependência, exceções e outros eventos que são rastreados enquanto seu aplicativo está processando a solicitação. Então se algumas solicitações são com baixo desempenho, você pode descobrir seja devido à lentidão nas respostas de uma dependência.
 
 ### <a name="profile-your-live-site"></a>Perfil de seu site ativo
 
-Não sabe para onde o tempo vai? O [Application Insights Profiler](../../azure-monitor/app/profiler.md) rastreia chamadas HTTP para seu site ativo e mostra quais são as funções mais demoradas em seu código.
-
-## <a name="failed-requests"></a>Solicitações falhas
-As solicitações com falha também podem ser associadas a chamadas com falha para as dependências. Novamente, podemos fazer um clickthrough para rastrear o problema.
-
-![Clique no gráfico de solicitações com falha](./media/asp-net-dependencies/06-fail.png)
-
-Clique para uma ocorrência de uma solicitação com falha e examine os eventos associados.
-
-![Clique em um tipo de solicitação e na instância para obter uma exibição diferente da mesma instância, clique nele para obter detalhes da exceção.](./media/asp-net-dependencies/07-faildetail.png)
+Não sabe para onde o tempo vai? O [Application Insights profiler](../../azure-monitor/app/profiler.md) rastreamentos HTTP chama para seu site ativo e mostra quais funções em seu código mais demoradas.
 
 ## <a name="analytics"></a>Análise
 Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/query/). Veja alguns exemplos.
@@ -199,7 +152,7 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, poder
 Se desejar desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
-*O sinalizador de êxito da dependência sempre mostra true ou false.*
+*Sinalizador de êxito da dependência sempre mostra true ou false.*
 
 *Consulta SQL não mostrada por completo.*
 
@@ -212,11 +165,7 @@ Veja a tabela a seguir e garanta que você escolheu a configuração correta par
 | Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha do Application Insights no seu painel de controle do aplicativo Web](../../azure-monitor/app/azure-web-apps.md) e escolha Instalar, se solicitado. |
 | Serviço de Nuvem do Azure |[Usar tarefa de inicialização](../../azure-monitor/app/cloudservices.md) ou [Instalar o .NET Framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
-* [Dados do usuário e da página](../../azure-monitor/app/javascript.md)
+* [Dados de usuário e da página](../../azure-monitor/app/javascript.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

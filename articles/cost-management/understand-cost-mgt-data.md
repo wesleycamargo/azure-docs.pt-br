@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046779"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282977"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -31,8 +31,8 @@ As informações a seguir mostram as atuais [ofertas do Microsoft Azure](https:/
 | **Azure Government** | Azure Governamental Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **EA (Enterprise Agreement)** | Desenvolvimento/Teste Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **EA (Enterprise Agreement)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure para Desenvolvimento/Teste](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
+| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure para Desenvolvimento/Teste](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pré-paga** | [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pré-paga** | [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ As tabelas a seguir mostram os dados que estão incluídos ou não no Gerenciame
 | **Incluso** | **Não incluso** |
 | --- | --- |
 | Uso do serviço do Azure<sup>1</sup> | Compras de reserva – Para obter mais informações, consulte [APIs para automação de reserva do Azure](../billing/billing-reservation-apis.md). |
-| Uso de oferta do Marketplace | Compras do Marketplace – Para obter mais informações, consulte [Encargos de serviço de terceiros](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Uso de oferta de Marketplace<sup>2</sup> | Compras do Marketplace – Para obter mais informações, consulte [Encargos de serviço de terceiros](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Encargos de suporte – Para obter mais informações, consulte [Termos da fatura explicados](../billing/billing-understand-your-invoice.md). |
 |   | Impostos – Para obter mais informações, consulte [Termos da fatura explicados](../billing/billing-understand-your-invoice.md). |
 |   | Créditos – Para obter mais informações, consulte [Termos da fatura explicados](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> O uso do serviço do Azure é baseado nos preços negociados e de reserva.
+<sup>2</sup> mercado a oferecer o uso não está disponível para o pré-pago, MSDN, e o Visual Studio oferece no momento.
 
 **Metadados**
 
 | **Incluso** | **Não incluso** |
 | --- | --- |
-| Marcas de recurso<sup>2</sup> | Marcas de grupo de recursos |
+| As marcas de recurso<sup>3</sup> | Marcas de grupo de recursos |
 
-<sup>2</sup> Marcas de recurso são aplicadas conforme o uso é transmitido por cada serviço e não ficam disponíveis retroativamente para o uso histórico.
+<sup>3</sup> marcas de recurso são aplicadas conforme o uso é emitido de cada serviço e não estão disponíveis retroativamente a histórico de uso.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de uso calculados
 

@@ -1,7 +1,6 @@
 ---
 title: Criar um blueprint com a API REST
 description: Use o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994855"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273151"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
@@ -30,6 +29,9 @@ Aprender a criar e atribuir blueprints permite definir padrões comuns para dese
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
 Se você não estiver familiarizado com a API REST, comece examinando a [Referência de API REST do Azure](/rest/api/azure/) para obter um entendimento geral sobre a API REST, especificamente o corpo da solicitação e o URI de solicitação. Este artigo usa esses conceitos para fornecer instruções para trabalhar com Azure Blueprints e pressupõe um conhecimento prático deles. Ferramentas como [ARMClient](https://github.com/projectkudu/ARMClient) e outras pessoas podem lidar com autorização automaticamente e são recomendadas para iniciantes.
@@ -40,10 +42,10 @@ Para as especificações do Blueprints, consulte [API REST do Azure BluePrints](
 
 Se você ainda não tiver uma ferramenta para fazer chamadas à API REST, considere usar o PowerShell para essas instruções. A seguir está um cabeçalho de exemplo para autenticação com o Azure. Gere um cabeçalho de autenticação, às vezes chamado de um **token de portador**, e forneça o URI da API REST para se conectar com quaisquer parâmetros ou um **corpo da solicitação**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +70,8 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
-- `{subscriptionId}`: substitua por sua ID da assinatura
+- `{YourMG}` – Substitua pela ID do grupo de gerenciamento
+- `{subscriptionId}` – Substitua pela ID da assinatura
 
 > [!NOTE]
 > Especificações técnicas também podem ser criadas no nível da assinatura. Para ver um exemplo, consulte [criar um blueprint em um exemplo de assinatura](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -335,8 +337,8 @@ Depois que um blueprint é publicado usando a API REST, ele pode ser atribuído 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
 - `{tenantId}` – Substitua pela ID de locatário
-- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
-- `{subscriptionId}`: substitua por sua ID da assinatura
+- `{YourMG}` – Substitua pela ID do grupo de gerenciamento
+- `{subscriptionId}` – Substitua pela ID da assinatura
 
 1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ele usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 

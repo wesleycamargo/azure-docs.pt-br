@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339390"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005155"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar pronúncia personalizada
 
@@ -50,7 +50,7 @@ A forma falada é a sequência fonética da forma de exibição. Ela é composta
 
 Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-US) e alemão (de-DE). O conjunto de caracteres que pode ser usado para expressar a forma falada de um termo (no arquivo de pronúncia personalizada) é mostrado na tabela a seguir:
 
-| Linguagem | Personagens |
+| Linguagem | Caracteres |
 |---------- |----------|
 | Inglês (en-us) | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Alemão (de-DE) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
@@ -63,7 +63,7 @@ Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-
 Um formulário de exibição pode ser apenas uma palavra personalizada, um acrônimo ou palavras compostas que combinam palavras existentes.
 
 >[!NOTE]
->Não recomendamos o uso desse recurso para reformular palavras comuns ou para modificar a forma falada. É melhor executar o decodificador para ver se algumas palavras incomuns (como abreviações, palavras técnicas e palavras estrangeiras) são decodificadas incorretamente. Se elas forem, adicione-as ao arquivo de pronúncia personalizada. No modelo de idioma, você deve sempre e somente usar a forma de exibição de uma palavra.
+>Não recomendamos o uso desse recurso para reformular palavras comuns ou para modificar a forma falada. É melhor seleção se algumas palavras incomuns (por exemplo, as abreviações, palavras técnicas ou palavras estrangeiras) incorretamente são transribed antes que esse recurso é usado. Se elas forem, adicione-as ao arquivo de pronúncia personalizada. No modelo de idioma, você deve sempre e somente usar a forma de exibição de uma palavra.
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do arquivo
 O tamanho do arquivo .txt que contém as entradas de pronúncia é limitado a 1 megabyte (1 KB para chaves de chamada gratuitas). Normalmente, você não precisa carregar grandes quantidades de dados por meio desse arquivo. É provável que a maioria dos arquivos de pronúncia personalizada tenham apenas poucos kilobytes (KBs) de tamanho. A codificação do arquivo. txt para todas as localidades deve ser UTF-8 BOM. Para a localidade inglês, ANSI também é aceitável.

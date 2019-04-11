@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875230"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266285"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -64,8 +64,8 @@ Essas propriedades são suportadas por um serviço vinculado ao Banco de Dados S
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
 - [Autenticação do SQL](#sql-authentication)
-- [Autenticação de token do aplicativo Azure AD: Entidade de serviço](#service-principal-authentication)
-- [Autenticação de token do aplicativo Azure AD: identidades gerenciadas para recursos do Azure](#managed-identity)
+- [Uso da autenticação de token do aplicativo Azure Active Directory: Entidade de serviço](#service-principal-authentication)
+- [Uso da autenticação de token do aplicativo Azure Active Directory: Identidades gerenciadas dos recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se ocorrer erro com código de erro como "UserErrorFailedToConnectToSqlServer" e mensagem como "O limite da sessão para o banco de dados é XXX e foi atingido.", adicione `Pooling=false` à cadeia de conexão e tente novamente.
@@ -93,7 +93,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 }
 ```
 
-**Senha no Azure Key Vault:** 
+**Senha no cofre de chaves do Azure:** 
 
 ```json
 {
@@ -277,7 +277,7 @@ Para copiar dados do Banco de Dados SQL do Azure, defina a propriedade **tipo** 
 ### <a name="points-to-note"></a>Pontos a serem observados
 
 - Se **sqlReaderQuery** for especificado para o **SqlSource**, o Copy Activity executará essa consulta em relação à origem do Banco de Dados SQL do Azure para obter os dados. Ou você pode especificar um procedimento armazenado. Especifique **sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado receber parâmetros.
-- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção **structure** do conjunto de dados JSON serão usadas para construir uma consulta. `select column1, column2 from mytable`é executado no Banco de Dados SQL do Azure. Se a definição do conjunto de dados não tiver a **estrutura**, todas as colunas serão selecionadas da tabela.
+- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção **structure** do conjunto de dados JSON serão usadas para construir uma consulta. `select column1, column2 from mytable` é executado no banco de dados SQL. Se a definição do conjunto de dados não tiver a **estrutura**, todas as colunas serão selecionadas da tabela.
 
 #### <a name="sql-query-example"></a>Exemplo de consulta SQL
 
@@ -373,7 +373,7 @@ Para copiar dados para o banco de dados do SQL Azure, defina o **tipo** do colet
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | O **tipo** do coletor de atividade de cópia deve ser definida como **SqlSink**. | Sim |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** .<br/> O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
+| writeBatchSize | Número de linhas para inserções na tabela SQL **por lote**.<br/> O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
 | writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **timespan**. Exemplo: “00:30:00” (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Banco de Dados SQL do Azure. É invocado apenas uma vez por cópia. Use essa propriedade para limpar os dados pré-carregados. | Não  |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. Um exemplo é fazer upserts ou transformar usando sua própria lógica de negócios. <br/><br/>Este procedimento armazenado é **chamado por lote**. Para operações que são executadas apenas uma vez e não têm nada a ver com dados de origem, use a `preCopyScript` propriedade. Exemplos de operações são excluir e truncar. | Não  |
@@ -535,7 +535,7 @@ Você pode usar um procedimento armazenado quando os mecanismos internos de cóp
 
 A amostra a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no Banco de Dados SQL do Azure. Supondo que os dados de entrada e cada tabela **Marketing** do coletor tenham três colunas: **ProfileID**, **State** e **Category**. Faça o upsert com base na coluna **ProfileID** e aplique-o apenas a uma categoria específica.
 
-#### <a name="output-dataset"></a>Conjunto de dados de saída
+**Conjunto de dados de saída:** "tableName" deve ser o mesmo nome de parâmetro de tipo de tabela em seu procedimento armazenado (veja abaixo o script de procedimento armazenado).
 
 ```json
 {
@@ -554,7 +554,7 @@ A amostra a seguir mostra como usar um procedimento armazenado para fazer um ups
 }
 ```
 
-Defina a seção **SqlSink** em Atividade de Cópia:
+Definir as **coletor SQL** seção na atividade de cópia da seguinte maneira.
 
 ```json
 "sink": {
@@ -640,5 +640,5 @@ Quando você copia dados de ou para o Banco de Dados SQL do Azure, os seguintes 
 >[!NOTE]
 > Em mapas de tipos de dados para o tipo provisório Decimal, atualmente o ADF dá suporte a uma precisão de até 28. Se você tiver dados com precisão maior do que 28, considere a conversão da cadeia de caracteres em consulta SQL.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de repositórios de dados com suporte como fontes e repositórios por Atividade de Cópia no Azure Data Factory, consulte [repositórios de dados e formatos compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).

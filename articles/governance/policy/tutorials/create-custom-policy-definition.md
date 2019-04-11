@@ -1,19 +1,18 @@
 ---
 title: Criar uma definição de política personalizada
 description: Crie uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112080"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267745"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -72,7 +71,7 @@ Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-
 A maneira mais simples de encontrar propriedades é examinar um recurso existente do mesmo tipo. Os recursos já definidos com a configuração que você deseja impor também fornecem o valor para comparação.
 Examine a página **Script de automação** (em **Configurações**) no portal do Azure desse recurso específico.
 
-![Página Script de automação](../media/create-custom-policy-definition/automation-script.png)
+![Exportar a página de modelo no recurso existente](../media/create-custom-policy-definition/automation-script.png)
 
 Fazer isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 

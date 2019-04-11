@@ -1,7 +1,6 @@
 ---
 title: Use parâmetros para criar blueprints dinâmicos
 description: Conheça parâmetros estáticos e dinâmicos e como sua utilização cria blueprints dinâmicos.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805560"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279968"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -77,8 +76,8 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
-- `{subscriptionId}`: substitua por sua ID da assinatura
+- `{YourMG}` – Substitua pelo nome do seu grupo de gerenciamento
+- `{subscriptionId}` -Substitua pela sua ID de assinatura
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint
 
@@ -239,7 +238,7 @@ Os artefatos de um grupo de recursos são definidos com as propriedades "nome do
   }
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).

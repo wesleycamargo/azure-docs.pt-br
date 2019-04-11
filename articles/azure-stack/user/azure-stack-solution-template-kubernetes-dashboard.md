@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255930"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Acessar o painel do Kubernetes no Azure Stack 
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack* 
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack* 
 > [!Note]   
 > Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview. 
 
@@ -47,7 +47,7 @@ Kubernetes inclui um painel da web que você pode usar para operações básicas
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Visão geral das etapas para habilitar o painel de controle
 
 1.  Exporte os certificados de Kubernetes do nó mestre no cluster. 
-2.  Importe os certificados para o Azure Stack em seu computador de gerenciamento.
+2.  Importe os certificados no computador de gerenciamento do Azure Stack.
 2.  Abra o painel da web do Kubernetes. 
 
 ## <a name="export-certificate-from-the-master"></a>Exportar o certificado do servidor mestre 
@@ -70,7 +70,7 @@ Você pode recuperar a URL para o painel de nó mestre no cluster.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Encontre a URL para o painel. Por exemplo: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Encontre a URL para o painel. Por exemplo:   `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Extraia o certificado autoassinado e convertê-lo para o formato PFX. Execute o comando a seguir:
 

@@ -4,18 +4,21 @@ description: Descreve como avaliar grandes números de computadores locais usand
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116666"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265242"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
-As Migrações para Azure têm um limite de 1500 computadores por projeto e este artigo descreve como avaliar um grande número de VMs (máquinas virtuais) locais usando as [Migrações para Azure](migrate-overview.md).   
+As Migrações para Azure têm um limite de 1500 computadores por projeto e este artigo descreve como avaliar um grande número de VMs (máquinas virtuais) locais usando as [Migrações para Azure](migrate-overview.md).
+
+> [!NOTE]
+> Temos uma versão de visualização disponível que permite a descoberta de até 10.000 VMs do VMware em um único projeto usando um único dispositivo, se você estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,9 +65,9 @@ No caso de descoberta única (agora preterida), a descoberta funciona em um mode
 
 Planeje suas descobertas e avaliações com base nos limites a seguir:
 
-| **Entidade** | **Limite de máquinas** |
+| **Entidade** | **Limite de computador** |
 | ---------- | ----------------- |
-| Projeto    | 1.500             |
+| Project    | 1.500             |
 | Descoberta  | 1.500             |
 | Avaliação | 1.500             |
 
@@ -244,7 +247,7 @@ Para cada descoberta que você precisa executar, execute o coletor para descobri
 3.  Na área de trabalho, selecione o atalho **Executar coletor**.
 4.  No Coletor de Migrações para Azure, abra **Configurar pré-requisitos** e:
 
-    a. Aceite os termos de licença e leia as informações de terceiros.
+     a. Aceite os termos de licença e leia as informações de terceiros.
 
     O coletor verifica se a VM tem acesso à Internet.
 
@@ -298,7 +301,7 @@ net.transmitted.average | Calcula o tamanho da VM
 > [!WARNING]
 > O método de descoberta única que contavam com as configurações de estatísticas do vCenter Server para coleta de dados de desempenho agora foi preterido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um grupo](how-to-create-a-group.md) para avaliação.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações são calculadas.

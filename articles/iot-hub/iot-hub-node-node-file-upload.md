@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f110fe84ab09e930947411a79c950af21cc5334c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544504"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274511"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -23,28 +23,31 @@ ms.locfileid: "57544504"
 Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-node-node-c2d.md) para mostrar como usar os [recursos de upload de arquivo do Hub IoT](iot-hub-devguide-file-upload.md) para carregar um arquivo para o [armazenamento de blobs do Azure](../storage/index.yml). Este tutorial mostra como:
 
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
+- 
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
 O tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
-* Arquivos grandes que contêm imagens
-* vídeos
-* Dados de vibração amostrados a alta frequência
-* Alguma forma de dados pré-processados.
+*  Arquivos grandes que contêm imagens
+*  vídeos
+*  Dados de vibração amostrados a alta frequência
+*  Alguma forma de dados pré-processados.
 
 Esses arquivos normalmente são processados em lote na nuvem usando ferramentas como o [Azure Data Factory](../data-factory/introduction.md) ou a pilha do [Hadoop](../hdinsight/index.yml). Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
 
 No final deste tutorial, você executará dois aplicativos de console do Node.js:
 
 * **SimulatedDevice.js**, que carrega um arquivo no armazenamento usando um URI da SAS fornecido pelo seu Hub IoT.
+
 * **ReadFileUploadNotification.js**, que recebe notificações de upload de arquivo de seu Hub IoT.
 
 > [!NOTE]
-> O Hub IoT é compatível com muitas plataformas de dispositivo e linguagens (incluindo C, .NET, Javascript, Python e Java) por meio dos SDKs do dispositivo IoT do Azure. Confira a [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao Hub IoT do Azure.
+> O Hub IoT é compatível com muitas plataformas de dispositivo e linguagens (incluindo C, .NET, Javascript, Python e Java) por meio dos SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao IoT Hub do Azure, consulte o [Azure IoT Central de desenvolvedores].
 
 Para concluir este tutorial, você precisará do seguinte:
 
 * Node.js versão 4.0.x ou posterior.
+
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -59,25 +62,25 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     npm init
     ```
 
-1. No prompt de comando, na pasta ```simulateddevice```, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-mqtt**:
+2. No prompt de comando, na pasta ```simulateddevice```, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-mqtt**:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Usando um editor de texto, crie um arquivo **SimulatedDevice.js** na pasta ```simulateddevice```.
+3. Usando um editor de texto, crie um arquivo **SimulatedDevice.js** na pasta ```simulateddevice```.
 
-1. Adicione as seguintes instruções ```require``` no início do arquivo **SimulatedDevice.js** :
+4. Adicione as seguintes instruções ```require``` no início do arquivo **SimulatedDevice.js** :
 
     ```javascript
     'use strict';
-    
+
     var fs = require('fs');
     var mqtt = require('azure-iot-device-mqtt').Mqtt;
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. Adicione uma variável ```deviceconnectionstring``` e use-a para criar uma instância de **cliente**.  Substitua ```{deviceconnectionstring}``` pelo nome do dispositivo criado na seção _Criar um Hub IoT_:
+5. Adicione uma variável `deviceconnectionstring` e use-a para criar uma instância de **cliente**.  Substitua `{deviceconnectionstring}` pelo nome do dispositivo criado na seção *Criar um Hub IoT*:
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -87,19 +90,19 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     > [!NOTE]
     > Por uma questão de simplicidade, a cadeia de conexão está incluída no código: esta não é uma prática recomendada e, dependendo do seu caso de uso e da arquitetura, talvez você queira considerar maneiras mais seguras de armazenar este segredo.
 
-1. Adicione o código a seguir para se conectar ao cliente:
+6. Adicione o código a seguir para se conectar ao cliente:
 
     ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
-1. Crie um retorno de chamada e use a função **uploadToBlob** para carregar o arquivo.
+7. Crie um retorno de chamada e use a função **uploadToBlob** para carregar o arquivo.
 
     ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
-    
+
         client.uploadToBlob(filename, rr, stats.size, function (err) {
             if (err) {
                 console.error('Error uploading file: ' + err.toString());
@@ -110,9 +113,9 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     });
     ```
 
-1. Salve e feche o arquivo **SimulatedDevice.js** .
+8. Salve e feche o arquivo **SimulatedDevice.js** .
 
-1. Copie um arquivo de imagem para a pasta `simulateddevice` e renomeie-o como `myimage.png`.
+9. Copie um arquivo de imagem para a pasta `simulateddevice` e renomeie-o como `myimage.png`.
 
 ## <a name="receive-a-file-upload-notification"></a>Receber uma notificação de upload de arquivo
 
@@ -126,23 +129,23 @@ Você pode usar a cadeia de conexão **iothubowner** do seu Hub IoT para conclui
     npm init
     ```
 
-1. No prompt de comando na pasta ```fileuploadnotification```, execute o seguinte comando para instalar o pacote do SDK **azure-iothub**:
+2. No prompt de comando na pasta ```fileuploadnotification```, execute o seguinte comando para instalar o pacote do SDK **azure-iothub**:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-1. Usando um editor de texto, crie um arquivo **FileUploadNotification.js** na pasta ```fileuploadnotification```.
+3. Usando um editor de texto, crie um arquivo **FileUploadNotification.js** na pasta `fileuploadnotification`.
 
-1. Adicione as seguintes instruções ```require``` no início do arquivo **FileUploadNotification.js**:
+4. Adicione as seguintes instruções `require` no início do arquivo **FileUploadNotification.js**:
 
     ```javascript
     'use strict';
-    
+
     var Client = require('azure-iothub').Client;
     ```
 
-1. Adicione uma variável ```iothubconnectionstring``` e use-a para criar uma instância de **cliente**.  Substitua ```{iothubconnectionstring}``` pela cadeia de conexão do Hub IoT criado na seção _Criar um Hub IoT_:
+5. Adicione uma variável `iothubconnectionstring` e use-a para criar uma instância de **cliente**.  Substitua `{iothubconnectionstring}` pela cadeia de conexão do Hub IoT criado na seção _Criar um Hub IoT_:
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -151,13 +154,13 @@ Você pode usar a cadeia de conexão **iothubowner** do seu Hub IoT para conclui
     > [!NOTE]
     > Por uma questão de simplicidade, a cadeia de conexão está incluída no código: esta não é uma prática recomendada e, dependendo do seu caso de uso e da arquitetura, talvez você queira considerar maneiras mais seguras de armazenar este segredo.
 
-1. Adicione o código a seguir para se conectar ao cliente:
+6. Adicione o código a seguir para se conectar ao cliente:
 
     ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-1. Abra o cliente e use a função **getFileNotificationReceiver** para receber atualizações de status.
+7. Abra o cliente e use a função **getFileNotificationReceiver** para receber atualizações de status.
 
     ```javascript
     serviceClient.open(function (err) {
@@ -179,7 +182,7 @@ Você pode usar a cadeia de conexão **iothubowner** do seu Hub IoT para conclui
     });
     ```
 
-1. Salve e feche o arquivo **FileUploadNotification.js**.
+8. Salve e feche o arquivo **FileUploadNotification.js**.
 
 ## <a name="run-the-applications"></a>Executar os aplicativos
 
@@ -209,17 +212,10 @@ Você pode usar o portal para exibir o arquivo carregado no contêiner de armaze
 
 ![Arquivo carregado](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar explorando os recursos e cenários do Hub IoT com os seguintes artigos:
 
-* [Criar um Hub IoT de modo programático][lnk-create-hub]
-* [Introdução ao SDK de C][lnk-c-sdk]
-* [SDKs do Azure IoT][lnk-sdks]
-
-<!-- Links -->
-[Centro de Desenvolvedores do IoT do Azure]: https://azure.microsoft.com/develop/iot
-
-[lnk-create-hub]: iot-hub-rm-template-powershell.md
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+*  [Crie um hub IoT programaticamente](iot-hub-rm-template-powershell.md)
+*  [Introdução ao SDK de C](iot-hub-device-sdk-c-intro.md)
+*  [SDKs do Azure IoT](iot-hub-devguide-sdks.md)

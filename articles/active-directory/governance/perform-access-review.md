@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579675"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470603"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou revisões de acesso de aplicativos no Azure AD
 
@@ -46,7 +46,7 @@ Se você não tiver o email, você pode encontrar que seu acesso pendentes revis
 
 1. No canto superior direito da página, clique no símbolo do usuário para exibir seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
 
-1. No lado direito da página, clique no **revisões de acesso** lado a lado para ver uma lista das revisões de acesso pendente.
+1. Clique o **revisões de acesso** lado a lado para ver uma lista das revisões de acesso pendente.
 
     Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
 
@@ -71,11 +71,13 @@ Há duas maneiras que você pode aprovar ou negar o acesso:
 
 1. Examine a lista de usuários para decidir se deseja aprovar ou negar o acesso contínuo.
 
-1. Para aprovar ou negar cada solicitação, clique na linha para abrir a janela para especificar a ação a ser tomada.
+1. Para aprovar ou negar cada solicitação, clique na linha para abrir uma janela para especificar a ação a ser tomada.
 
 1. Clique em **aprovar** ou **negar**. Se você não tiver certeza, você poderá clicar **desconhece**. Isso resultará no usuário mantém o seu acesso, mas a seleção será refletida nos logs de auditoria.
 
     ![Executar análise de acesso](./media/perform-access-review/approve-deny.png)
+
+1. Se necessário, insira um motivo do **motivo** caixa.
 
     O administrador da revisão de acesso pode exigir que você forneça um motivo para aprovar o acesso contínuo ou associação de grupo.
 

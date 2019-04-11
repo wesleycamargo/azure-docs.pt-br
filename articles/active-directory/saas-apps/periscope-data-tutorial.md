@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403622"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Periscope Data no Azure AD, você precisará adicionar o Periscope Data da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Periscope Data da galeria, execute as seguintes etapas:**
+**Para adicionar o Periscope Data da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -104,12 +104,12 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Periscope Data](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite qualquer uma das URLs:
+    a. Na caixa de texto **URL de logon**, digite qualquer uma das URLs:
     
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://app.periscopedata.com/<SITENAME>/sso`
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
     ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure01.png)
 
-     a. Copie a **URL de Metadados de Federação do Aplicativo** da etapa 5 **Certificado de Assinatura SAML** e abra-o em um navegador. Isso abrirá um documento XML.
+    a. Copie a **URL de Metadados de Federação do Aplicativo** da etapa 5 **Certificado de Assinatura SAML** e abra-o em um navegador. Isso abrirá um documento XML.
 
     b. Na caixa de texto **Logon Único**, selecione **Azure Active Directory**.
 
@@ -215,7 +215,7 @@ Para habilitar que os usuários do Azure AD façam logon no Periscope Data, eles
 
       ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure04.png)
 
-     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
+    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
@@ -231,9 +231,9 @@ Quando você clica no bloco Periscope Data no painel de acesso, deve entrar auto
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

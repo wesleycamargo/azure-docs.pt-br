@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904824"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270176"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
@@ -116,7 +116,7 @@ C:\ az managementpartner update --partner-id 12345
 C:\ az managementpartner delete --partner-id 12345
 ``` 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Participe da discussão da [Comunidade de Parceiros da Microsoft](https://aka.ms/PALdiscussion) para receber atualizações ou enviar comentários.
 
@@ -151,9 +151,9 @@ Você pode encontrar a receita influenciou da emissão de relatórios [painel de
 
 Não é possível ver o cliente nos relatórios seguintes motivos
 
-1. A conta de usuário vinculado não tem [acesso baseado em função ](https://docs.microsoft.com/azure/role-based-access-control/overview) em todos os recursos ou assinatura do Azure do cliente.
+1. A conta de usuário vinculado não tem [acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) em todos os recursos ou assinatura do Azure do cliente.
 
-2. A assinatura do Azure no qual o usuário tem [acesso baseado em função ](https://docs.microsoft.com/azure/role-based-access-control/overview) access não terá qualquer uso.
+2. A assinatura do Azure no qual o usuário tem [acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) access não terá qualquer uso.
 
 **Vincular a parceiro que ID funciona com o Azure Stack?**
 

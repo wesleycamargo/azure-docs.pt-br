@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278810"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo mostra as etapas a seguir para configurar relatórios para o Backup do Azure por meio de um cofre dos Serviços de Recuperação. Ele também mostra como acessar relatórios por meio do Power BI. Depois de concluir essas etapas, você pode ir diretamente para o Power BI para exibir, personalizar e criar relatórios.
@@ -43,9 +43,6 @@ Siga estas etapas para configurar a conta de armazenamento para o cofre dos Serv
 
    * Na lista de recursos, digite **Serviços de Recuperação**.
    * Quando você começa a digitar, a lista é filtrada com base em sua entrada. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
-
-      ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * A lista de cofres de Serviços de Recuperação aparecerá. Na lista de cofres de Serviços de Recuperação, selecione um cofre.
 
      O painel de cofres selecionados será aberto.
@@ -153,6 +150,6 @@ Sim, você pode configurar a mesma conta de armazenamento entre vários cofres p
 ## <a name="next-steps"></a>Próximas etapas
 Após você configurar a conta de armazenamento e importar o pacote de conteúdo do Backup do Azure, a próxima etapa é personalizar esses relatórios e usar um modelo de dados de relatório para criar relatórios. Para obter mais informações, consulte os seguintes artigos.
 
-* [Usar um modelo de dados de relatórios do Backup do Azure](backup-azure-reports-data-model.md)
+* [Usar um modelo de dados de relatórios de Backup do Azure](backup-azure-reports-data-model.md)
 * [Filtrar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

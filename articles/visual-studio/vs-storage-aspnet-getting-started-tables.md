@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444626"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010134"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -31,7 +31,7 @@ Este tutorial mostra como gravar código ASP.NET para alguns cenários comuns us
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
+* [Conta de Armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -537,7 +537,7 @@ Conforme mencionado na seção [Adicionar uma entidade a uma tabela](#add-an-ent
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Crie uma instância de um objeto **TableQuery** que especifica a consulta na cláusula **Where**. Usando a classe **CustomerEntity** e os dados apresentados na seção [Adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o snippet de código a seguir consulta a tabela em busca de uma entidade na qual **PartitionKey** (sobrenome do cliente) tem um valor de “Rodrigues”:
+1. Crie uma instância de um objeto **TableQuery** que especifica a consulta na cláusula **Where**. Usando o **CustomerEntity** classe e os dados apresentados na seção [adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o trecho de código a seguir consulta a tabela de todas as entidades em que o **PartitionKey**  (Sobrenome do cliente) tem um valor de "Rodrigues":
 
     ```csharp
     TableQuery<CustomerEntity> query = 

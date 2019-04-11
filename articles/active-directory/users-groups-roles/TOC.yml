@@ -66,8 +66,6 @@ items:
       href: domains-admin-takeover.md
     - name: Azure AD Connect
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Configurar identidade visual da empresa
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Gerenciar grupos
     items:
     - name: Gerenciar o acesso com grupos
@@ -140,6 +138,14 @@ items:
         href: directory-emergency-access.md
     - name: Unidades administrativas
       href: directory-administrative-units.md
+  - name: Gerenciar credenciais
+    items:
+    - name: Personalizar a identidade visual da empresa
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Opções de entrada
+      href: signin-account-support.md
+    - name: Descoberta de Realm Inicial
+      href: signin-realm-discovery.md
   - name: Integrar serviços no Azure AD
     items:
     - name: Integrar LinkedIn no Azure AD
@@ -165,9 +171,9 @@ items:
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
   - name: Limites de serviço do Azure AD
     href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 34c4dcef7b986fdec7a3d611c6f42917542b4271
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: dc0d3340fd855bfd3cddf5eed0f4011e48071e41
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509245"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256015"

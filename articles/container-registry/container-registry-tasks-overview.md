@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915910"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256185"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar a aplicação de patches no sistema operacional e na estrutura com as Tarefas de ACR
 
@@ -97,10 +97,9 @@ Saiba mais sobre as tarefas de várias etapas em [Run multi-step build, test, an
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Quando você estiver pronto para automatizar a aplicação de patch no sistema operacional e na estrutura compilando imagens de contêiner na nuvem, confira a série de tutoriais de três partes das Tarefas do ACR.
+Quando você estiver pronto para automatizar o sistema operacional e a aplicação de patch do framework, criando as imagens de contêiner na nuvem, confira as três partes [série de tutoriais de ACR tarefas](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Criar imagens de contêiner na nuvem com as tarefas de registro de contêiner do Azure](container-registry-tutorial-quick-task.md)
+Opcionalmente, instalar o [extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e o [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensão para trabalhar com seus registros de contêiner do Azure. Efetuar pull e push de imagens para um registro de contêiner do Azure ou executar tarefas de ACR, tudo no Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

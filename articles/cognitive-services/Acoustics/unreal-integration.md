@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313440"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006489"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projeto acústica Unreal e integração de Wwise
 Estas instruções fornecem as etapas detalhadas de integração do pacote de plug-in do projeto acústica em seu projeto de jogo existente Unreal e Wwise. 
 
 Requisitos de software:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1. +
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 ou 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Plug-in de Wwise para Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Se você estiver usando uma integração direta do SDK Wwise em vez de usar os plug-ins Wwise Unreal, consulte o plug-in do projeto acústica Unreal e ajustar as chamadas à API Wwise.
 
@@ -45,7 +45,7 @@ Há essas etapas principais para instalar o pacote e implantá-lo em seu jogo.
 7. Configuração de áudio no Unreal
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1. Instalar o plug-in do projeto acústica mixer
-* Abra o inicializador de Wwise, em seguida, nos **plug-ins** guia, em **instalar novos plug-ins**, selecione **adicionar do diretório**. 
+* Abra o inicializador de Wwise, em seguida, na guia **Plugins**, em **Instalar novos plug-ins**, selecione **Adicionar do diretório**. 
 
     ![Captura de tela de instalação de um plug-in no iniciador de Wwise](media/wwise-install-new-plugin.png)
 
@@ -59,7 +59,7 @@ Implante novamente Wwise para seu jogo, mesmo se você já tenha integrado Wwise
 
 * **Plug-in do mecanismo:** Se você tiver Wwise instalado como um plug-in do jogo em um projeto C++ Unreal, ignore esta etapa. Se ele é instalado como um plug-in do mecanismo, para a instância porque seu projeto Unreal é única, implantação de Wwise Blueprint com nossos plug-in do mixer é mais complexa. Criar um projeto de C++ Unreal fictício, vazio, fechá-la se Unreal editor é aberto e siga o procedimento restante para implantar Wwise para este projeto fictício. Em seguida, copie o plug-in do Wwise implantado.
  
-* No inicializador de Wwise, clique no **Unreal Engine** guia, em seguida, clique no menu de hambúrguer seguida **projetos recentes de Unreal Engine** e selecione **procurar projeto**. Abrir projeto de seus jogos Unreal `.uproject` arquivo.
+* No inicializador do Wwise, clique na **Unreal Engine**, em seguida, clique no menu de hambúrguer próximo a **Projetos recentes do Unreal Engine** e selecione **Procurar projeto**. Abrir projeto de seus jogos Unreal `.uproject` arquivo.
 
     ![Guia do captura de tela de Wwise iniciador Unreal](media/wwise-unreal-tab.png)
 
@@ -76,13 +76,13 @@ Implante novamente Wwise para seu jogo, mesmo se você já tenha integrado Wwise
 
 ## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Estender a funcionalidade de plug-in Unreal do Wwise
 * O plug-in do projeto acústica Unreal requer um comportamento adicional seja exposto a partir o Wwise Unreal plug-in API por [estas diretrizes](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). Incluímos um arquivo em lotes para automatizar o procedimento de aplicação de patch. 
-* Dentro de `Plugins\ProjectAcoustics\Resources`, execute `PatchWwise.bat`. Imagem de exemplo abaixo usa o nosso projeto de exemplo AcousticsGame.
+* Dentro `Plugins\ProjectAcoustics\Resources`, execute `PatchWwise.bat`. Imagem de exemplo abaixo usa o nosso projeto de exemplo AcousticsGame.
 
     ![Realce de janela de captura de tela do Windows Explorer fornecido o script para patch Wwise](media/patch-wwise-script.png)
 
 * Se você não tiver instalado o SDK do DirectX, você precisará de comentar a linha que contém DXSDK_DIR no `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![Captura de tela do editor de código mostrando DXSDK comentado](media/directx-sdk-comment.png)
+    ![Captura de tela do editor de código mostrando o DXSDK comentado](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Compile o jogo e verifique o que Python está habilitado
 

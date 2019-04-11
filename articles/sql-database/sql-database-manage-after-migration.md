@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216927"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358423"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -88,7 +88,7 @@ Há [dois métodos de autenticação](sql-database-control-access.md#authenticat
 
 Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD) é um serviço de gerenciamento de identidades e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. O ADD oferece suporte a [MFA (Autenticação multifator)](sql-database-ssms-mfa-authentication.md) e, com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md), pode ser integrado ao Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece uma nome de usuário/senha e pode autenticar usuários para qualquer banco de dados em um determinado servidor de Banco de Dados SQL. Isso também permite que o Banco de Dados SQL e o SQL Data Warehouse ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
 
-|**Se você...**|**Banco de Dados SQL / SQL Data Warehouse**|
+|**Se você...**|**Banco de dados SQL / SQL Data Warehouse**|
 |---|---|
 |Preferir não usar o Azure AD (Active Directory) no Azure|Use a [autenticação do SQL](sql-database-security-overview.md)|
 |Usou AD no SQL Server local|[Federe o AD com o Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)e use a autenticação do Azure AD. Com isso, você pode usar o logon único.|
@@ -152,7 +152,7 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 |**Características**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
-|**O servidor de banco de dados pode acessar dados confidenciais**|Não |Sim, desde que a criptografia seja para os dados em repouso|
+|**Servidor de banco de dados pode acessar dados confidenciais**|Não |Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
 |**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|
@@ -195,19 +195,19 @@ O diagrama a seguir mostra as opções de armazenamento de chaves para as chaves
 
 O tráfego de rede entre sua organização e o Banco de Dados SQL geralmente seria é roteado pela rede pública. No entanto, se optar por otimizar esse caminho e torná-lo mais seguro, você pode examinar Rota Expressa. A Rota Expressa essencialmente permite estender sua rede corporativa na plataforma Azure por meio de uma conexão privada. Fazendo isso, você não passa pela Internet pública. Você também obtém maior segurança, confiabilidade e otimização de roteamento que resulta em menores latências de rede e muito mais rapidez do que normalmente conseguiria passando pela Internet pública. Se está planejando transferir uma parte significativa dos dados entre sua organização e o Azure, usar a Rota Expressa pode gerar benefícios de custo. Você pode escolher entre três modelos diferentes de conectividade para a conexão de sua organização com o Azure:
 
-- [Co-posicionamento do Exchange de Nuvem](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [De qualquer ponto a qualquer ponto](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Ponto a ponto](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Colocalização do Cloud Exchange](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Para qualquer](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Point-to-Point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 A Rota Expressa permite aumentar até 2 vezes o limite da largura de banda adquirida sem custos adicionais. Também é possível configurar conectividade entre regiões usando a Rota expressa. Para ver uma lista de provedores de conectividade de ER, consulte: [Localizações de Emparelhamento e Parceiros do ExpressRoute](../expressroute/expressroute-locations.md). Os artigos abaixo descrevem a Rota Expressa em mais detalhes:
 
-- [Introdução à Rota Expressa](../expressroute/expressroute-introduction.md)
+- [Introdução à rota expressa](../expressroute/expressroute-introduction.md)
 - [Pré-requisitos](../expressroute/expressroute-prerequisites.md)
 - [Fluxos de trabalho](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>O Banco de Dados SQL está em conformidade com os requisitos regulatórios? Como isso ajuda na conformidade da minha organização?
 
-O Banco de Dados SQL atende a várias regras de conformidade regulatória. Para exibir o último conjunto de conformidades atendido, visite o [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) e veja os detalhes sobre as conformidades que são importantes para sua organização para saber se o Banco de Dados SQL está incluído nos serviços do Azure em conformidade. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
+O Banco de Dados SQL atende a várias regras de conformidade regulatória. Para exibir o último conjunto de conformidades atendido pelo banco de dados SQL, visite o [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e fazer uma busca detalhada sobre as conformidades que são importantes para sua organização para saber se o banco de dados SQL está incluído na conformidade Serviços do Azure. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoramento e manutenção de banco de dados inteligente após a migração
 
@@ -283,7 +283,7 @@ O Banco de Dados SQL oferece várias camadas de serviço: Básica, Standard e Pr
 
 |**Camada de serviço**|**Cenários de caso de uso comuns**|
 |---|---|
-|**Básico**|Aplicativos com usuários de uma série e um banco de dados que não tem requisitos de alta simultaneidade, escala e desempenho. |
+|**Basic**|Aplicativos com usuários de uma série e um banco de dados que não tem requisitos de alta simultaneidade, escala e desempenho. |
 |**Standard**|Aplicativos com requisitos de simultaneidade considerável, escala e desempenho juntamente com baixas a médias demandas de E/S. |
 |**Premium**|Aplicativos com muitos usuários simultâneos, alto consumo de CPU/memória e altas demandas de E/S. Aplicativos confidenciais de alta simultaneidade, alta taxa de transferência e latência podem aproveitar o nível Premium. |
 |||
@@ -315,6 +315,6 @@ Há várias maneiras fazer isso:
 - **[Sincronização de Dados](sql-database-sync-data.md)** – Esse recurso ajuda a sincronizar dados bidirecionalmente entre vários bancos de dados locais do SQL Server e do Banco de Dados SQL. Para sincronizar com bancos de dados do SQL Server local, você precisa instalar e configurar o agente de sincronização em um computador local e abrir a porta TCP de saída 1433.
 - **[Replicação de Transação](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com replicação de transação, você pode sincronizar os dados do local para o Azure SQL DB com o local que está sendo o publicador e o Azure SQL DB que está sendo o assinante. Por ora, apenas há suporte apenas para esta configuração. Para obter mais informações sobre como migrar seus dados do local para o Azure SQL com o mínimo tempo de inatividade, consulte: [Usar Replicação da Transação](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Conheça o [Banco de Dados SQL](sql-database-technical-overview.md).

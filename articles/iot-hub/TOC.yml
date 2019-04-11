@@ -184,6 +184,8 @@ items:
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Usar o serializador
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Informações de recursos do SDK do C do Azure IoT
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Desenvolver para dispositivos restritos
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Desenvolver para dispositivos móveis
@@ -298,13 +300,13 @@ items:
       href: iot-hub-distributed-tracing.md
     - name: Configurar a filtragem de IP
       href: iot-hub-ip-filtering.md
-    - name: Configurar dispositivos em escala
+    - name: Gerenciamento de dispositivo automático em escala
       items:
       - name: Usar o portal do Azure
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Usar a CLI do Azure
-        href: iot-hub-auto-device-config-cli.md
-    - name: Gerenciamento em massa de dispositivos IoT
+        href: iot-hub-automatic-device-management-cli.md
+    - name: Importação e exportação em massa para dispositivos IoT
       href: iot-hub-bulk-identity-mgmt.md
   - name: Usar dispositivos reais
     items:
@@ -457,9 +459,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1360a16f6b8fe786eb933de991e45f9f6d0ce825
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bd2ac9a20e4797f9f25ffbd3ed4d369da1c3e469
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630744"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263772"

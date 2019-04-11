@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878291"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280886"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
@@ -87,6 +87,8 @@ Os modelos implantados são empacotados como uma imagem. A imagem contém as dep
 
 Para implantações de **Instância de Contêiner do Azure**, **Serviço de Kubernetes do Azure** e **Azure IoT Edge**, a classe [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) é usada para criar uma configuração de imagem. Em seguida, a configuração da imagem é usada para criar uma nova imagem do Docker.
 
+Ao criar a configuração de imagem, você pode usar um __imagem padrão__ fornecidos pelo serviço do Azure Machine Learning ou um __imagem personalizada__ fornecida por você.
+
 O código a seguir demonstra como criar uma nova configuração de imagem:
 
 ```python
@@ -112,6 +114,36 @@ Os parâmetros importantes usados neste exemplo são descritos na tabela a segui
 Para obter um exemplo de criação de uma configuração de imagem, consulte [implantar um classificador de imagem](tutorial-deploy-models-with-aml.md).
 
 Para obter mais informações, consulte a documentação de referência da [classe ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Usar uma imagem personalizada
+
+Ao usar uma imagem personalizada, a imagem deve atender aos seguintes requisitos:
+
+* Ubuntu 16.04 ou posterior.
+* 4.5 Conda. # ou maior.
+* Python 3.5. # ou 3.6. #.
+
+Para usar uma imagem personalizada, defina o `base_image` propriedade de configuração da imagem para o endereço da imagem. O exemplo a seguir demonstra como usar uma imagem de um registro de contêiner do Azure públicas e privadas:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Para obter mais informações sobre como carregar imagens para um registro de contêiner do Azure, consulte [envie sua primeira imagem para um registro de contêiner do Docker privado](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+Se seu modelo é treinado em computação do Azure Machine Learning, usando __versão 1.0.22 ou maior__ do SDK do Azure Machine Learning, uma imagem é criada durante o treinamento. O exemplo a seguir demonstra como usar esta imagem:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Script de execução
 
@@ -396,7 +428,7 @@ Para obter um passo a passo de implantação de um modelo usando o Projeto Brain
 
 ## <a name="define-schema"></a>Definir o esquema
 
-Os decoradores personalizados podem ser usados para [OpenAPI](https://swagger.io/docs/specification/about/) geração de especificação e entrada do tipo de manipulação ao implantar o serviço web. No `score.py` arquivo, você fornece um exemplo de entrada e/ou à saída no construtor para um dos objetos de tipo definido, e o tipo e o exemplo são usados para gerar automaticamente o esquema. Atualmente, há suporte para os seguintes tipos:
+Os decoradores personalizados podem ser usados para [OpenAPI](https://swagger.io/docs/specification/about/) geração de especificação e entrada do tipo de manipulação ao implantar o serviço web. No `score.py` arquivo, você fornece um exemplo de entrada e/ou à saída no construtor para um dos objetos de tipo definido, e o tipo e o exemplo são usados para criar automaticamente o esquema. Atualmente, há suporte para os seguintes tipos:
 
 * `pandas`
 * `numpy`
@@ -609,7 +641,7 @@ Para excluir um modelo registrado, use `model.delete()`.
 
 Para obter mais informações, confira a documentação de referência para [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)

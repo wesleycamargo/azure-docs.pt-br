@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877271"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Usando C#, criar a base de dados de conhecimento e responder à pergunta
 
@@ -32,10 +32,10 @@ Este tutorial guiará você pela criação e publicação programáticas de uma 
 
 Este início rápido chama as APIs de QnA Maker:
 
-* [Criar KB (Base de dados de conhecimento)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Criar KB (base de dados de conhecimento)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Obter detalhes da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Obter detalhes da Base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Obter pontos de extremidade da Base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
+* [Obter detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
+* [Obter pontos de extremidade da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -158,7 +158,7 @@ O _ponto de extremidade primário_ é passado como um cabeçalho para autenticar
 
 |Nome do cabeçalho|Valor do cabeçalho|
 |--|--|
-|Autorização|`Endpoint ` + **ponto de extremidade primário**<br>Exemplo: `Endpoint xxxxxxx`<br>Observe o espaço entre o texto do `Endpoint` e o valor do ponto de extremidade primário. 
+|Autorização|`Endpoint` + **ponto de extremidade primário**<br>Exemplo: `Endpoint xxxxxxx`<br>Observe o espaço entre o texto do `Endpoint` e o valor do ponto de extremidade primário. 
 
 O corpo da solicitação precisa passar o JSON correto:
 

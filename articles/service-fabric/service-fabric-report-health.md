@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670380"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058604"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) desenvolvido para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatores de integridade** (componentes do sistema e watchdogs). O objetivo é facilitar e agilizar o diagnóstico e o reparo. Os criadores de serviço precisam pensar à frente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser apontada, especialmente se ela puder ajudar a sinalizar problemas próximos da raiz. As informações de integridade podem economizar tempo e esforço na investigação e depuração. A utilidade é especialmente clara quando o serviço está em funcionamento em grande escala na nuvem (Azure ou privada).
@@ -55,18 +55,18 @@ Uma vez o design de relatório de integridade estiver claro, os relatórios de i
 > 
 
 ## <a name="health-client"></a>Cliente de integridade
-Os relatórios de integridade são enviados ao repositório de integridade usando um cliente de integridade, que reside dentro do cliente de malha. O cliente de integridade pode ser configurado da seguinte maneira:
+Os relatórios de integridade são enviados para o Gerenciador de integridade por meio de um cliente de integridade, que reside dentro do cliente de malha. O Gerenciador de integridade salva relatórios no repositório de integridade. O cliente de integridade pode ser configurado da seguinte maneira:
 
-* **HealthReportSendInterval**: o atraso entre o momento em que o relatório é adicionado ao cliente e o momento em que ele é enviado ao repositório de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
-* **HealthReportRetrySendInterval**: o intervalo no qual o cliente de integridade reenvia os relatórios de integridade acumulados ao repositório de integridade. Padrão: 30 segundos.
-* **HealthOperationTimeout**: o período de tempo limite de uma mensagem de relatório enviada ao repositório de integridade. Se a mensagem atingir o tempo limite, o cliente de integridade fará uma nova tentativa até que o repositório de integridade confirme que o relatório foi processado. Padrão: dois minutos.
+* **HealthReportSendInterval**: O atraso entre a hora em que o relatório será adicionado ao cliente e o tempo que ele é enviado para o Gerenciador de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
+* **HealthReportRetrySendInterval**: Relata o intervalo no qual o cliente de integridade reenvia integridade acumulados ao Gerenciador de integridade. Padrão: 30 segundos no mínimo: 1 segundo.
+* **HealthOperationTimeout**: O período de tempo limite para uma mensagem de relatório enviada ao Gerenciador de integridade. Se uma mensagem de tempo limite, o cliente de integridade fará uma nova tentativa até que o Gerenciador de integridade confirme que o relatório foi processado. Padrão: dois minutos.
 
 > [!NOTE]
-> Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o repositório de integridade não puder aplicá-la devido a erros transitórios, o cliente da malha deverá ser mantido em atividade por mais tempo para que tenha a chance de tentar novamente.
+> Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o Gerenciador de integridade não pode aplicá-las devido a erros transitórios, o cliente de malha deve ser mantido ativo mais dar-lhe a oportunidade de tentar novamente.
 > 
 > 
 
-O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe, no máximo, um relatório como este na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados ao repositório de integridade é de apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
+O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe, no máximo, um relatório como este na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados para o Gerenciador de integridade é apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
 Os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando o [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para as entradas relacionadas à integridade.
 
 O exemplo a seguir cria um cliente de malha e especifica que os relatórios devem ser enviados quando forem adicionados. Em tempos limite e erros que podem ser recuperados, as repetições ocorrem a cada 40 segundos.
@@ -304,7 +304,7 @@ Envie relatórios de integridade usando o REST com solicitações POST que vão 
 ## <a name="next-steps"></a>Próximas etapas
 Com base nos dados de integridade, os criadores de serviço e administradores de cluster/aplicativo podem pensar em maneiras de consumir as informações. Por exemplo, eles podem configurar alertas com base no status de integridade para capturar problemas graves antes que eles provoquem interrupções. Os administradores também podem definir os sistemas de reparo para corrigir problemas automaticamente.
 
-[Introdução ao monitoramento da integridade do Service Fabric](service-fabric-health-introduction.md)
+[Introdução à integridade do Service Fabric monitoramento](service-fabric-health-introduction.md)
 
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 

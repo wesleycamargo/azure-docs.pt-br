@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Catálogo de Dados do Azure
+metadata:
+  title: 'Documentação do Catálogo de Dados do Azure: Tutoriais, Referência de API'
+  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
+  services: data-catalog
+  author: markingmyname
+  ms.author: maghan
+  ms.service: data-catalog
+  ms.topic: landing-page
+  ms.date: 04/05/2019
+abstract:
+  description: 'Saiba como usar o Catálogo de Dados para ajudar a sua organização e a sua equipe a descobrir, a entender e a consumir suas fontes de dados. Os tutoriais, a referência da API REST e outra documentação mostram como planejar e configurar seu repositório de dados em que os consumidores de dados podem descobrir fontes de dados disponíveis e obter conhecimento enviado por especialistas no assunto.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Saiba como implantar seu primeiro Catálogo de Dados do Azure:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/data-catalog.svg
+            text: Portal do Azure
+            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como registrar, pesquisar, anotar, gerenciar e excluir ativos no Catálogo de Dados do Azure:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="register-data-assets-tutorial">Gerenciar ativos de dados no Catálogo de Dados do Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/datacatalog/">referência da API REST</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Referência de sintaxe de pesquisa</a></p>
+          - title: Gerenciador de Recursos
+            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Modelos do Gerenciador de Recursos</a></p>

@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046692"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271808"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -39,7 +39,39 @@ Esta página é atualizada mensalmente; portanto, visite-a regularmente. Se voc�
 
 ---
 
+## <a name="april-2019"></a>Abril de 2019
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Aumentar a segurança usando a política de acesso condicional baseado em proteção de aplicativo no Azure AD (visualização pública)
+
+**Tipo:** New recurso  
+**Categoria de serviço:** Acesso Condicional  
+**Funcionalidade do produto:** Segurança de identidade e proteção
+
+Acesso condicional com base em proteção do aplicativo agora está disponível usando o **exigir proteção de aplicativo** política. Essa nova política ajuda a aumentar a segurança de sua organização, ajudando a evitar:
+
+- Usuários obtenham acesso a aplicativos sem uma licença do Microsoft Intune.
+
+- Usuários não é possível obter uma política de proteção de aplicativo do Microsoft Intune.
+
+- Usuários obtenham acesso a aplicativos sem uma política de proteção de aplicativo configurado do Microsoft Intune.
+
+Para obter mais informações, consulte [como exigir a política de proteção do aplicativo para acesso de aplicativo de nuvem com acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## <a name="march-2019"></a>Março de 2019
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Novo suporte para o Azure AD único logon e o acesso condicional no Microsoft Edge (visualização pública)
+
+**Tipo:** New recurso  
+**Categoria de serviço:** Acesso Condicional  
+**Funcionalidade do produto:** Segurança de identidade e proteção
+
+Nós aprimoramos o nosso suporte do Azure AD para o Microsoft Edge, inclusive fornecendo o novo suporte para acesso condicional e logon único do Azure AD. Se você tiver usado anteriormente o Microsoft Intune Managed Browser, agora você pode usar Microsoft Edge em vez disso.
+
+Para obter mais informações sobre como configurar e gerenciar seus dispositivos e aplicativos usando o acesso condicional, consulte [exigem dispositivos para acesso de aplicativo de nuvem com acesso condicional gerenciados](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) e [exigir aplicativos de cliente para a nuvem aprovados acesso a aplicativos com acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). Para obter mais informações sobre como gerenciar o acesso usando o Microsoft Edge com políticas do Microsoft Intune, consulte [gerenciar o acesso à Internet usando um navegador protegido por política do Microsoft Intune](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Estrutura de experiência de identidade e a política personalizada do suporte no Azure Active Directory B2C agora está disponível (GA)
 

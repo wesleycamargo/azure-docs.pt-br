@@ -23,8 +23,6 @@ items:
     href: front-door-quickstart-template-samples.md
 - name: Conceitos
   items:
-  - name: WAF
-    href: waf-overview.md
   - name: Back-ends e pools de back-end
     href: front-door-backend-pool.md
   - name: Armazenando em cache com o Front Door
@@ -49,6 +47,16 @@ items:
     href: front-door-routing-methods.md
   - name: Regravação de URL
     href: front-door-url-rewrite.md
+  - name: WAF
+    items:
+    - name: Visão geral
+      href: waf-overview.md
+    - name: Regras personalizadas
+      href: waf-front-door-custom-rules.md
+    - name: Configurações de política
+      href: waf-front-door-policy-settings.md
+    - name: Monitoramento e registro em log
+      href: waf-front-door-monitor.md
 - name: Guias de instruções
   items:
   - name: Solucionar problemas
@@ -57,6 +65,14 @@ items:
       href: front-door-troubleshoot-routing.md
     - name: Autoridades de certificação habilitadas
       href: front-door-troubleshoot-allowed-ca.md
+  - name: Configurar WAF
+    items:
+    - name: Configurar a política do WAF – portal
+      href: waf-front-door-create-portal.md
+    - name: Configurar a política do WAF – Azure PowerShell
+      href: waf-front-door-custom-rules-powershell.md
+    - name: Configurar o código de resposta personalizada
+      href: waf-front-door-configure-custom-response-code.md
 - name: Perguntas frequentes
   items:
   - name: Perguntas frequentes sobre o Front Door
@@ -81,9 +97,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 20afe50b6b17acb0f155769e95c5ec66c19c8fba
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 209f0eaca474b33519e133145bc28c02870b668f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906235"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356749"

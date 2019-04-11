@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268374"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure - visão geral da implantação
 
@@ -32,14 +32,6 @@ Aqui está uma visão geral de todas as etapas.
 1. Configurar pré-requisitos 
 
    Antes de criar uma VM, você deve criar uma nova assinatura para o projeto Avere vFXT, configurar a propriedade da assinatura, verificar cotas e solicitar um aumento, se necessário, e aceitar os termos para usar o software Avere vFXT. Leia [Preparar para criar o Avere vFXT](avere-vfxt-prereqs.md) para instruções detalhadas.
-
-1. Crie uma função de acesso para os nós de cluster
-
-   O Azure usa [controle de acesso baseado em função](../role-based-access-control/index.yml) (RBAC) para autorizar as VMs do nó do cluster a executar determinadas tarefas. Por exemplo, os nós do cluster precisam poder atribuir ou reatribuir endereços IP a outros nós do cluster. Antes de criar o cluster, você deve definir uma função que forneça as permissões adequadas.
-
-   Leia [Crie a função de acesso do nó do cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) para obter instruções.
-
-   O controlador de cluster também usa uma função de acesso, mas você pode aceitar a função padrão, Proprietário, em vez de criar sua própria. Se você quiser criar uma função personalizada para o controlador de cluster, leia [Função de acesso de controlador personalizada](avere-vfxt-controller-role.md). 
 
 1. Crie o cluster Avere vFXT 
 
@@ -64,7 +56,7 @@ Aqui está uma visão geral de todas as etapas.
 
    Conecte-se à interface de configuração do Avere vFXT (Avere Control Panel) para personalizar as configurações do cluster. Opte pelo monitoramento de suporte e adicione seu sistema de armazenamento se você estiver usando um datacenter local.
 
-   * [Acessar o cluster vFXT](avere-vfxt-cluster-gui.md)
+   * [Acessar o cluster do vFXT](avere-vfxt-cluster-gui.md)
    * [Habilitar o suporte](avere-vfxt-enable-support.md)
    * [Configurar o armazenamento](avere-vfxt-add-storage.md) (se necessário)
 

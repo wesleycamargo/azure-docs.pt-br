@@ -1,6 +1,6 @@
 ---
 title: Exemplo do PowerShell para restaurar o backup do Banco de Dados SQL do Azure | Microsoft Docs
-description: Script de exemplo do Azure PowerShell para restaurar um Banco de Dados SQL do Azure individual de backups com redundância geográfica
+description: Script de exemplo do Azure PowerShell para restaurar um banco de dados SQL do Azure individual para um ponto anterior no tempo de backups automáticos
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883603"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621338"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Use o PowerShell para restaurar um Banco de Dados SQL do Azure individual de backups
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usar o PowerShell para restaurar um banco de dados SQL do Azure individual para um ponto anterior no tempo
 
-Este exemplo de script do PowerShell restaura um Banco de Dados SQL do Azure de um backup com redundância geográfica, restaura um Banco de Dados SQL do Azure excluído para o backup mais recente e restaura um Banco de Dados SQL do Azure para um ponto no tempo específico.  
+Este exemplo de script do PowerShell restaura um banco de dados SQL do Azure para um ponto específico no tempo.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

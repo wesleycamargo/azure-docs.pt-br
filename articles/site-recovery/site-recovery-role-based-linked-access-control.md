@@ -2,16 +2,16 @@
 title: Gerenciar o acesso ao Azure Site Recovery com o controle de acesso baseado em função (RBAC) | Microsoft Docs
 description: Este artigo descreve como aplicar o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218063"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281702"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
@@ -38,7 +38,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 > [!IMPORTANT]
 >Certifique-se de que as permissões relevantes sejam adicionadas pelo modelo de implantação (Resource Manager/Clássico) usado para implantação de recursos.
 
-| **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
+| **Tipo de recurso** | **Modelo de Implantação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Gerenciador de Recursos | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |

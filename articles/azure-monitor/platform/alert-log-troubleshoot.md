@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de alertas de log no Azure Monitor
+title: Solução de problemas de alertas do log no Azure Monitor | Microsoft Docs
 description: Problemas comuns, erros e resoluções para as regras de alerta de log no Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429439"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005297"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo mostra como resolver problemas comuns observados ao configurar alertas de log no monitor do Azure. Além disso, fornece soluções para perguntas frequentes sobre funcionalidade ou configuração de alertas de log. 
+Este artigo mostra como resolver problemas comuns enfrentados ao configurar alertas de log no Azure Monitor. Além disso, fornece soluções para perguntas frequentes sobre funcionalidade ou configuração de alertas de log. 
 
-O termo **Alertas de Log** descreve alertas que são acionados com base em uma consulta personalizada no [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos em [Alertas de log - Visão geral](../platform/alerts-unified-log.md).
+O termo **alertas de Log** descreve os alertas que incêndio com base em uma consulta de log em um [espaço de trabalho do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos em [Alertas de log - Visão geral](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Este artigo não considera os casos em que o portal do Azure é exibido, a regra de alerta é disparada e uma notificação é executada por Grupos de Ações associados. Para esses casos, consulte os detalhes no artigo sobre [Grupos de Ação](../platform/action-groups.md).
@@ -33,7 +33,7 @@ A seguir, são apresentados alguns motivos comuns por que uma regra de alerta de
 
 ### <a name="data-ingestion-time-for-logs"></a>Hora da ingestão de dados para logs
 
-O alerta de log executa periodicamente a consulta com base no [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Como o Log Analytics processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a um atraso de tempo variável. Para saber mais, confira [Tempo de ingestão de dados no Log Analytics](../platform/data-ingestion-time.md).
+O alerta de log executa periodicamente a consulta com base no [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Como Azure Monitor processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados em Logs do Azure Monitor](../platform/data-ingestion-time.md).
 
 Para atenuar atraso na ingestão de dados, o sistema aguardará e repetirá a consulta de alerta várias vezes, se descobrir que os dados necessários ainda não foram processados. O sistema tem um tempo de espera de aumento exponencial. O alerta de log será disparado somente depois que os dados estiverem disponíveis, portanto, o atraso poderá ocorrer devido à lenta ingestão de dados. 
 
@@ -57,7 +57,7 @@ Conforme descrito na etapa 8 do artigo sobre a [criação de uma regra de alerta
 
 Por exemplo, suponha que uma regra de alerta de log de medição métrica foi configurada como:
 
-- a consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - período de 6 horas
 - limite de 50
 - lógica de alerta de três violações consecutivas
@@ -84,7 +84,7 @@ Veja a seguir alguns motivos comuns por que uma [regra de alerta de log configur
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta disparado por dados parciais
 
-As análises que capacitam o Log Analytics e o Application Insights estão sujeitas a atrasos de ingestão e processamento; por isso, no momento da execução da consulta de alerta de log especificada, talvez nenhum dado esteja disponível ou apenas alguns dados estejam disponíveis. Para saber mais, confira [Tempo de ingestão de dados no Log Analytics](../platform/data-ingestion-time.md).
+As análises que capacitam o Log Analytics e o Application Insights estão sujeitas a atrasos de ingestão e processamento; por isso, no momento da execução da consulta de alerta de log especificada, talvez nenhum dado esteja disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados de Log no Azure Monitor](../platform/data-ingestion-time.md).
 
 Dependendo de como a regra de alerta foi configurada, poderá haver acionamentos incorretos se não houver dados ou apenas dados parciais nos logs no momento da execução do alerta. Nesses casos, aconselhamos que você altere a consulta do alerta ou a configuração. 
 
@@ -100,4 +100,4 @@ O que é mostrado na caixa da **consulta a ser executada** é o que o serviço d
 
 - Saiba mais sobre os [Alertas de log nos alertas do Azure](../platform/alerts-unified-log.md)
 - Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md)
-- Saiba mais sobre o [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Saiba mais sobre [consultas de log](../log-query/log-query-overview.md)

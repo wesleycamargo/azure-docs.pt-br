@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter respostas da base de dados de conhecimento – REST, Java – QnA Maker'
+title: 'Início Rápido: Obter respostas da base de dados de conhecimento – REST, Java – QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Este início rápido baseado em Java REST orienta você para obter uma resposta de uma base de dados de conhecimento programaticamente.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312980"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884934"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obter respostas a uma pergunta de uma base de dados de conhecimento com Java
 
-Este início rápido o orienta a obter programaticamente uma resposta de uma base de dados de conhecimento publicada do QnA Maker. A base de dados de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/data-sources-supported.md), como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta prevista na parte superior. 
+Este início rápido o orienta a obter programaticamente uma resposta de uma base de dados de conhecimento publicada do QnA Maker. A base de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/data-sources-supported.md), como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta prevista na parte superior. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,7 +70,7 @@ O código a seguir faz uma solicitação HTTPS à API de QnA Maker para enviar a
 
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
-O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey `. 
+O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey`. 
 
 Saiba mais sobre a [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e a [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 

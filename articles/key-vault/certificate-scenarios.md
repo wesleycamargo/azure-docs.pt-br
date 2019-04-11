@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075622"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275888"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -102,6 +102,17 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
 
 -   Além disso, o usuário pode editar a política, que está funcionando no momento da importação, mas contém padrões onde nenhuma informação foi especificada durante a importação. Ex.: sem informações do emissor  
 
+### <a name="formats-of-import-we-support"></a>Formatos de importação, damos suporte a
+Oferecemos suporte o seguinte tipo de importação para o formato de arquivo PEM. Um único certificado PEM codificado, juntamente com um PKCS n º 8 codificados, chave não criptografada que tem as seguintes
+
+---BEGIN CERTIFICATE------END CERTIFICATE--
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY--
+
+Na mesclagem de certificado damos suporte a formatos PEM com base 2. Você também pode mesclar um único certificado codificado de PKCS n º 8 um codificado por base64 ou arquivo P7B. ---BEGIN CERTIFICATE------END CERTIFICATE--
+
+Atualmente não damos suporte a chaves EC no formato PEM.
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criar um certificado com uma autoridade de certificação não parceira do Key Vault  
  Esse método permite trabalhar com outras autoridades de certificação diferentes dos provedores parceiros do Key Vault, o que significa que sua organização pode trabalhar com uma autoridade de certificação de sua escolha.  
 
@@ -121,4 +132,4 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
 
 ## <a name="see-also"></a>Veja também
 
-- [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- [Sobre Chaves, Segredos e Certificados](about-keys-secrets-and-certificates.md)

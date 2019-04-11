@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549130"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260741"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
@@ -46,7 +46,7 @@ Se você achar que seu data factory não tem uma identidade gerenciada associada
 
 - [Gerar a identidade gerenciada usando o PowerShell](#generate-managed-identity-using-powershell)
 - [Gerar a identidade gerenciada usando a API REST](#generate-managed-identity-using-rest-api)
-- Gerar a identidade gerenciada usando um modelo do Azure Resource Manager
+- [Gerar a identidade gerenciada usando um modelo do Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Gerar a identidade gerenciada usando o SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Você pode recuperar a identidade gerenciada do portal do Azure ou programaticam
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar a identidade gerenciada usando o portal do Azure
 
-Você pode encontrar as informações de identidade gerenciada do portal do Azure -> seu data factory -> Configurações -> Propriedades:
+Você pode encontrar as informações de identidade gerenciada do portal do Azure -> seu data factory -> Propriedades:
 
-- ID DA IDENTIDADE DO SERVIÇO
-- LOCATÁRIO DA IDENTIDADE DO SERVIÇO
-- **ID DO APLICATIVO DA IDENTIDADE DO SERVIÇO** > copie esse valor
+- ID de Objeto da Identidade Gerenciada
+- Locatário da Identidade Gerenciada
+- **Gerenciado a ID do aplicativo de identidade** > Copie este valor
 
 ![Recuperar a identidade gerenciada](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

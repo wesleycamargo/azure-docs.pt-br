@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af30568d3ab35b35d2a0e0bef00921debb1ea451
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110113"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917797"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure Active Directory
 
@@ -42,54 +42,45 @@ Para testar as etapas deste tutorial, recomendamos o uso de um ambiente que não
 
 Para adicionar um aplicativo de galeria ao locatário do Azure AD:
 
-1. No [portal do Azure](https://portal.azure.com), no painel navegação à esquerda, clique em **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
-2. Na folha do **Azure Active Directory**, clique em **Aplicativos empresariais**.
+2. No painel do **Azure Active Directory**, selecione **Aplicativos empresariais**.
 
     ![Abrir aplicativos empresariais](media/add-application-portal/open-enterprise-apps.png)
 
-3. A folha **Todos os aplicativos** é aberta para mostrar uma amostra aleatória dos aplicativos em seu locatário do Azure AD.
-
-    ![Folha Todos os aplicativos](media/add-application-portal/applications-blade.png)
-
-
-4. Clique em **Novo aplicativo** na parte superior da folha **Todos os aplicativos**.
+3. O painel **Todos os aplicativos** é aberto para mostrar uma amostra aleatória dos aplicativos em seu locatário do Azure AD. Selecione **Novo aplicativo** na parte superior do painel **Todos os aplicativos**.
 
     ![Novo aplicativo](media/add-application-portal/new-application.png)
 
-5. Para ver uma lista de aplicativos na galeria, é mais fácil usar as **Categorias**, já que os ícones embaixo de **Aplicativos em destaque** são uma amostra aleatória de aplicativos da galeria.
+4. No painel **Categorias**, você verá ícones na área **Aplicativos em destaque** que são uma amostra aleatória de aplicativos da galeria.  Para ver mais aplicativos, selecione **Mostrar mais**. No entanto, não recomendamos pesquisar dessa maneira, pois há milhares de aplicativos na galeria.
 
     ![Pesquisar por nome ou categoria](media/add-application-portal/categories.png)
 
-    Para ver mais aplicativos, clique em **Mostrar mais**. Não recomendamos a pesquisa dessa forma, pois há milhares de aplicativos na galeria.
-
-6. Para procurar um aplicativo, em **Adicionar da galeria**, insira o nome do aplicativo que você deseja adicionar. Selecione o aplicativo nos resultados e clique em **Adicionar**. O exemplo a seguir mostra o formulário **Adicionar aplicativo** que aparece depois da pesquisa de github.com.
+5. Para pesquisar um aplicativo, em **Adicionar da galeria**, insira o nome do aplicativo que você deseja adicionar. Selecione o aplicativo nos resultados e selecione **Adicionar**. O exemplo a seguir mostra o formulário **Adicionar aplicativo** que aparece depois da pesquisa de github.com.
 
     ![Adicionar um aplicativo](media/add-application-portal/add-an-application.png)
 
 6. No formulário específico do aplicativo, você pode alterar as informações de propriedade. Por exemplo, você pode editar o nome do aplicativo para atender às necessidades de sua organização. Este exemplo usa o nome **GitHub-test**.
 
-8. Quando você terminar de fazer alterações às propriedades, clique em **Adicionar**.
+7. Quando você terminar de fazer alterações nas propriedades, selecione **Adicionar**.
 
-9. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização.
+8. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização.
 
-    ![Menu de introdução](media/add-application-portal/get-started.png)
-
-Você terminou de adicionar o aplicativo. Fique à vontade para fazer um intervalo. As seções a seguir mostram como alterar o logotipo e editar outras propriedades do aplicativo.
+Você terminou de adicionar seu aplicativo. Fique à vontade para fazer um intervalo. As seções a seguir mostram como alterar o logotipo e editar outras propriedades do aplicativo.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Localizar seu aplicativo de locatário do Azure AD
 
-Vamos supor que você teve que sair e agora você está retornando para continuar a configurar o aplicativo. A primeira coisa a fazer é encontrar o aplicativo.
+Vamos supor que você teve que sair e agora você está retornando para continuar a configurar o aplicativo. A primeira coisa a fazer é localizar o aplicativo.
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, clique em **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
-2. Na folha do Azure Active Directory, clique em **Aplicativos empresariais**.
+2. No painel do **Azure Active Directory**, selecione **Aplicativos empresariais**.
 
-3. No menu suspenso **Tipo de Aplicativo**, selecione **Todos os Aplicativos**e clique em **Aplicar**. Para saber mais sobre as opções de exibição, consulte [Exibir aplicativos de locatário](view-applications-portal.md).
+3. No menu suspenso **Tipo de Aplicativo**, selecione **Todos os Aplicativos** e, sem seguida, **Aplicar**. Para saber mais sobre as opções de exibição, consulte [Exibir aplicativos de locatário](view-applications-portal.md).
 
-4. Agora você pode ver uma lista de todos os aplicativos em seu locatário do Azure AD. A lista é uma amostra aleatória. Para ver mais aplicativos, clique em **Mostrar mais** uma ou mais vezes.
+4. Agora você pode ver uma lista de todos os aplicativos em seu locatário do Azure AD. A lista é uma amostra aleatória. Para ver mais aplicativos, selecione **Mostrar mais** uma ou mais vezes.
 
-5. Para localizar rapidamente um aplicativo no locatário, insira o nome do aplicativo na caixa de pesquisa e clique em **Aplicar**. Este exemplo localiza o aplicativo de teste do GitHub que adicionamos anteriormente.
+5. Para localizar rapidamente um aplicativo no locatário, insira o nome dele na caixa de pesquisa e selecione **Aplicar**. Este exemplo localiza o aplicativo de teste do GitHub adicionado anteriormente.
 
     ![Pesquisar um aplicativo](media/add-application-portal/find-application.png)
 
@@ -98,20 +89,20 @@ Vamos supor que você teve que sair e agora você está retornando para continua
 
 Agora que você localizou o aplicativo, pode abri-lo e configurar suas propriedades.
 
-Para editar as propriedades do aplicativo
+Para editar as propriedades do aplicativo:
 
-1. Clique no aplicativo para abri-lo.
-2. Clique em **Propriedades** para abrir a folha de propriedades para edição.
+1. Selecione o aplicativo para abri-lo.
+2. Selecione **Propriedades** para abrir o painel de propriedades para edição.
 
-    ![Editar folha de propriedades](media/add-application-portal/edit-properties.png)
+    ![Editar painel de propriedades](media/add-application-portal/edit-properties.png)
 
-3. Reserve um tempo para entender as opções de entrada. As regras **Habilitado para usuários entrarem**, **Atribuição de usuário obrigatória** e **Visível para usuário** são combinadas para determinar se os usuários atribuídos ou não atribuídos para o aplicativo podem entrar. Elas também determinam se o usuário pode ver o aplicativo no painel de acesso.
+3. Reserve um tempo para entender as opções de entrada. As opções determinam como os usuários que foram atribuídos ou não ao aplicativo podem entrar nele. Além disso, as opções também determinam se um usuário pode ver o aplicativo no painel de acesso.
 
     - **Habilitado para que os usuários entrem** determina se os usuários atribuídos ao aplicativo podem entrar nele.
-    - **Atribuição de usuário obrigatória** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
+    - A **atribuição de usuário obrigatória** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
     - **Visível para usuário** determina se os usuários atribuídos a um aplicativo podem vê-lo no painel de acesso e no inicializador do O365.
 
-4. Use as tabelas a seguir para ajudá-lo a escolher as opções mais adequadas para suas necessidades.
+4. Use as tabelas a seguir para ajudar você a escolher as melhores opções para suas necessidades.
 
    - Comportamento de usuários **atribuídos**:
 
@@ -148,10 +139,10 @@ Para editar as propriedades do aplicativo
 Para usar um logotipo personalizado:
 
 1. Crie um logotipo de 215 x 215 pixels e salve-o no formato PNG.
-2. Já que você encontrou seu aplicativo, clique nele.
-2. Na folha à esquerda, clique em **Propriedades**.
+2. Como você já localizou seu aplicativo, selecione-o.
+2. No painel esquerdo, selecione **Propriedades**.
 4. Carregue o logotipo.
-5. Quando tiver terminado, clique em **Salvar**.
+5. Quando terminar, selecione **Salvar**.
 
     ![Alterar o logotipo](media/add-application-portal/change-logo.png)
 
@@ -163,6 +154,6 @@ Neste início rápido, você aprendeu a adicionar um aplicativo de galeria ao lo
 Agora, você está pronto para configurar o aplicativo para logon único.
 
 > [!div class="nextstepaction"]
-> [Configurar Logon Único](configure-single-sign-on-portal.md)
+> [Configurar o logon único](configure-single-sign-on-portal.md)
 
 

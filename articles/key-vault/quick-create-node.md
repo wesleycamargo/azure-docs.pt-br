@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 1e234b599325da0626c83a57d86ff977b88b5577
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991267"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882743"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web Node 
 
 Este início rápido mostra como armazenar um segredo no Azure Key Vault e como recuperá-lo usando um aplicativo Web. Usar o Key Vault ajuda a proteger as informações. Para ver o valor do segredo, será necessário executar esse início rápido no Azure. O início rápido usa Node.js e identidades gerenciadas para recursos do Azure. Você aprenderá como:
 
@@ -183,7 +183,7 @@ Registre a saída do comando anterior. Ela deve estar no formato:
 Em seguida, execute o comando usando o nome do seu cofre de chaves e o valor de **principalId**:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
 ## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Implante o aplicativo Node no Azure e recupere o valor do segredo
@@ -199,4 +199,4 @@ Depois de fazer isso, quando você navegar por https://<app_name>.azurewebsites.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [SDK do Azure para o Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+> [SDK do Azure para Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

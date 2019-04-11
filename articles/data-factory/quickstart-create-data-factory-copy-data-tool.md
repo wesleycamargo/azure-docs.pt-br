@@ -3,22 +3,22 @@ title: Como copiar dados usando a ferramenta Copy Data do Azure | Microsoft Docs
 description: Crie um Azure Data Factory e, em seguida, use a ferramenta Copy Data para copiar um local no armazenamento de Blobs do Azure para outro local.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: yexu
+ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992748"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256253"
 ---
-# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Use a ferramenta Copy Data para copiar dados
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início Rápido: Use a ferramenta Copy Data para copiar dados
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -71,7 +71,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
    ![Página “Propriedades”](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
 1. Na página **Configurações do armazenamento de dados**, conclua as seguintes etapas:
 
-     a. Clique em **+ Criar nova conexão** para adicionar uma conexão.
+    a. Clique em **+ Criar nova conexão** para adicionar uma conexão.
 
     ![Página “Armazenamento de dados de origem”](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
@@ -90,7 +90,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
 1. Na página **Escolha o arquivo de entrada ou a pasta**, execute as seguintes etapas:
 
-    a. Clique em **Navegar** para navegar até a pasta **adftutorial/input**, selecione o arquivo **emp.txt**, depois clique em **Escolher**. 
+   a. Clique em **Navegar** para navegar até a pasta **adftutorial/input**, selecione o arquivo **emp.txt**, depois clique em **Escolher**. 
 
    ![Na página “Escolher o arquivo de entrada ou a pasta”](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 

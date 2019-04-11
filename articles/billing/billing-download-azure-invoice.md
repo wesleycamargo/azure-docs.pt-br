@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652375"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264056"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Exibir e baixar sua fatura do Microsoft Azure
 
@@ -131,11 +131,11 @@ Pode haver vários motivos pelos quais você não vê uma fatura:
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a fatura e os encargos, consulte:
 
-- [Exibir e baixar seus encargos e o uso do Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Exibir e baixar sua fatura de uso e cobrança do Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md)
 - [Compreender os termos na sua fatura do Azure](billing-understand-your-invoice.md)
 - [Compreender os termos em uso detalhado do Microsoft Azure](billing-understand-your-usage.md)
@@ -143,7 +143,7 @@ Para saber mais sobre a fatura e os encargos, consulte:
 
 Se você tiver um contrato de cliente da Microsoft, consulte:
 
-- [Entender os encargos na fatura para o perfil de cobrança ](billing-mca-understand-your-bill.md)
+- [Entender os encargos na fatura para o perfil de cobrança](billing-mca-understand-your-bill.md)
 - [Compreender os termos na fatura para o perfil de cobrança](billing-mca-understand-your-invoice.md)
 - [Entender o arquivo de uso e os encargos do Azure para o perfil de cobrança](billing-mca-understand-your-usage.md)
 - [Exibir e baixar documentos de imposto para o perfil de cobrança](billing-mca-download-tax-document.md)

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510316"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471657"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
@@ -27,12 +27,12 @@ O Azure Functions oferece [integração interna](https://docs.microsoft.com/azur
 
 | Funções do Azure                       | V1                | V2 (2018 do Ignite)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **SDK .NET do Application Insights**   | **2.5.0**       | **2.7.2**         |
+| **SDK .NET do Application Insights**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Coleta automática de**        |                 |                   |               
 | &bull; Solicitações                     | Sim             | Sim               | 
 | &bull; Exceções                   | Sim             | Sim               | 
-| &bull; Contadores de desempenho         | Sim             |                   |
+| &bull; Contadores de desempenho         | Sim             | Sim               |
 | &bull; Dependências                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|                 | Sim               | 
@@ -65,3 +65,30 @@ Os critérios de filtro personalizados especificados são enviados para o compon
 ## <a name="sampling"></a>amostragem
 
 As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+
+Se seu projeto usa uma dependência no SDK do Application Insights para fazer o acompanhamento de telemetria manual, você pode enfrentar um comportamento estranho se sua configuração de amostragem é diferente de configuração de amostragem do Functions. 
+
+É recomendável usar a mesma configuração como funções. Com o **Functions v2**, você pode obter a mesma configuração usando a injeção de dependência em seu construtor:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```

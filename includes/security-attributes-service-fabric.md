@@ -2,22 +2,22 @@
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 179d87a0c1af587148f1b5ffa2cad8085ef0886f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 41a8d6c2812b0fbd1d7e2fd4fd88a4343b52714f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306854"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007265"
 ---
 ## <a name="preventative"></a>Preventivo
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>| Sim | O cliente é proprietário do cluster e do conjunto de dimensionamento de VMs (máquinas virtuais) em que o cluster se baseia. O Azure Disk Encryption pode ser habilitado no conjunto de dimensionamento de VMs. |
+| Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>| Sim | O cliente é proprietário do cluster e do conjunto de dimensionamento de VMs (máquinas virtuais) em que o cluster se baseia. Criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquina virtual. |
 | Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de VNET</li><li>Criptografia de rede virtual a rede virtual</ul>| Sim |  |
-| Manipulação de chave de criptografia (CMK, BYOK, etc.)| Sim | O cliente é proprietário do cluster e do conjunto de dimensionamento de VMs (máquinas virtuais) em que o cluster se baseia. O Azure Disk Encryption pode ser habilitado no conjunto de dimensionamento de VMs. |
+| Manipulação de chave de criptografia (CMK, BYOK, etc.)| Sim | O cliente é proprietário do cluster e do conjunto de dimensionamento de VMs (máquinas virtuais) em que o cluster se baseia. Criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquina virtual. |
 | Criptografia de nível de coluna (Serviços de Dados do Azure)| N/D |  |
 | Chamadas à API criptografadas| Sim | Chamadas à API do Service Fabric são feitas por meio do Azure Resource Manager. Um JWT (token Web JSON) válido é necessário. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "56306854"
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Suporte ao monitoramento do Azure (Log Analytics, Application Insights, etc.)| Sim | Usando o suporte de terceiros e o suporte do monitoramento do Azure. |
+| Monitoramento (Log analytics, insights de aplicativo, etc.) de suporte do Azure| Sim | Usando o suporte de terceiros e suporte de monitoramento do Azure. |
 
 ## <a name="iam-support"></a>Suporte IAM
 

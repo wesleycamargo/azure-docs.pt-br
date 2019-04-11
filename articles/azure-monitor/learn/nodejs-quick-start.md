@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 542bc1a185f80eaae442931650eb3cd604c197b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080295"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849384"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Começar a monitorar o aplicativo Web Node.js
 
@@ -33,17 +33,20 @@ Se você não tiver um aplicativo Web Node.js, você poderá criar um seguindo o
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
 O Application Insights pode coletar dados de telemetria de qualquer aplicativo conectado à Internet, independentemente de ele estar sendo executado localmente ou na nuvem. Use as etapas a seguir para começar a exibir esses dados.
 
-1. Selecione **Criar um recurso** > **Monitoramento + Gerenciamento** > **Application Insights**.
+1. Selecione **Criar um recurso** > **Ferramentas de desenvolvedor** > **Application Insights**.
 
-   ![Adicionando um Recurso do Application Insights](./media/nodejs-quick-start/001-u.png)
+   ![Adicionando um Recurso do Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
+
+   ![Adicionando um Recurso do Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
@@ -58,9 +61,9 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 ## <a name="configure-app-insights-sdk"></a>Configurar o SDK do Application Insights
 
-1. Selecione **Visão Geral** > **Essentials** > Copiar a **Chave de Instrumentação** do aplicativo.
+1. Selecione **Visão Geral** e copie a **Chave de Instrumentação** do aplicativo.
 
-   ![Formulário de recursos do Application Insights novo](./media/nodejs-quick-start/instrumentation-key-001.png)
+   ![Formulário de recursos do Application Insights novo](./media/nodejs-quick-start/3key.png)
 
 2. Adicione o SDK do Application Insights para Node.js ao aplicativo. Da pasta raiz do seu aplicativo, execute:
 
@@ -84,19 +87,19 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Agora você pode reabrir a página **Visão Geral** do Application Insights no Portal do Azure, na qual você recuperou sua chave de instrumentação, para exibir detalhes sobre o seu aplicativo em execução atualmente.
 
-   ![Menu Visão Geral do Application Insights](./media/nodejs-quick-start/overview-001.png)
+   ![Menu Visão Geral do Application Insights](./media/nodejs-quick-start/4overview.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo. Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-   ![Mapa de aplicativo](./media/nodejs-quick-start/application-map.png)
+   ![Mapa de aplicativo](./media/nodejs-quick-start/5appmap.png)
 
-3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/nodejs-quick-start/006.png).  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
+3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/nodejs-quick-start/006.png) **Exibir no Analytics**.  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
-   ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/nodejs-quick-start/007-Black.png)
+   ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/nodejs-quick-start/6analytics.png)
 
-4. Volte para a página **Visão geral** e examine os gráficos KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
+4. Volte para a página **Visão geral** e examine os gráficos KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem.
 
-   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/nodejs-quick-start/overview-perf.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/nodejs-quick-start/7kpidashboards.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
@@ -120,15 +123,15 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
    </script>
    ```
 
-5. Clique em **Navegador** sob o cabeçalho **Investigar**. Aqui você encontra métricas relacionadas ao desempenho das páginas do aplicativo. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes.
+5. À esquerda, clique em **Métricas**. Use o Metrics Explorer para investigar a integridade e o uso do recurso. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes. Por exemplo, é possível fazer um gráfico que exiba o tempo médio de carregamento de página de um navegador ao escolher "Procurar o tempo de carregamento de página" no menu suspenso "Métricas" e "Média" na agregação. Para saber mais sobre o Azure Metrics Explorer, acesse [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![Grafo de métricas do servidor](./media/nodejs-quick-start/009-Black.png)
+   ![Grafo de métricas do servidor](./media/nodejs-quick-start/8metrics.png)
 
 Para saber mais sobre como monitorar o Node.js, confira a [documentação adicional do Node.js do Application Insights](../../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você pretende continuar trabalhando com guias de início rápido posteriores ou com os tutoriais, não limpe os recursos criados neste guia de início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.
+Quando você terminar de testar, poderá excluir o grupo de recursos e todos os recursos relacionados. Para isso, siga as etapas abaixo.
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.

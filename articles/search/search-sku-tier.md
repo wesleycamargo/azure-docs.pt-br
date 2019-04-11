@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621260"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270928"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
-No Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os níveis incluem **livre**, **básica**, **padrão**, ou **otimizados para armazenamento**.  **Standard** e **otimizados para armazenamento** estão disponíveis em várias configurações e capacidades. A maioria dos clientes começam com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para uma das camadas pagas mais altas para implantações de desenvolvimento e produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso.
+No Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os níveis incluem **livre**, **básica**, **padrão**, ou **otimizados para armazenamento**.  **Standard** e **otimizados para armazenamento** estão disponíveis em várias configurações e capacidades. 
+
+A maioria dos clientes começam com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para uma das camadas pagas mais altas para implantações de desenvolvimento e produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso.
 
 > [!NOTE]
 > As camadas de serviço com otimização de armazenamento estão atualmente disponíveis como uma visualização a um preço com desconto para fins de teste e experimentação com o objetivo de coletar comentários. Preço final será anunciado posteriormente quando essas camadas são geralmente disponíveis. É recomendável usar essas camadas para aplicativos de produção.
@@ -29,7 +31,7 @@ As camadas refletem as características do hardware que hospeda o serviço (em v
 + Número de índices que você pode criar
 + Tamanho e velocidade de partições (armazenamento físico)
 
-Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem exigir requisitos de níveis mais altos. Por exemplo, a indexação de [pesquisa cognitiva](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingem o tempo limite em um serviço gratuito, a menos que o conjunto de dados seja pequeno.
+Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem exigir requisitos de níveis mais altos. Por exemplo, [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingir o tempo limite em um serviço gratuito, a menos que o conjunto de dados, por acaso, é pequeno.
 
 > [!NOTE] 
 > A exceção à paridade de recursos são os [indexadores](search-indexer-overview.md), que não estão disponíveis no S3HD.
@@ -53,7 +55,7 @@ A tabela a seguir lista as camadas disponíveis. Incluem outras fontes de inform
 |Armazenamento otimizado 2 (L2) | 2 TB/partição (máximo 24 TB por serviço) |
 
 > [!NOTE] 
-> As camadas de armazenamento otimizado oferecem maior capacidade de armazenamento a um preço menor por TB do que as camadas Standard.  A desvantagem principal é mais alta latência da consulta, que você deve validar para seus requisitos de aplicativo específico.  Para saber mais sobre as considerações de desempenho desta camada, consulte [considerações de desempenho e otimização](search-performance-optimization.md).
+> As camadas de armazenamento otimizado oferecem maior capacidade de armazenamento a um preço menor por TB do que as camadas Standard. A desvantagem principal é mais alta latência da consulta, que você deve validar para seus requisitos de aplicativo específico.  Para saber mais sobre as considerações de desempenho desta camada, consulte [considerações de desempenho e otimização](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
@@ -70,17 +72,27 @@ Na seguinte captura de tela, por preço por unidade é indicado para gratuita, B
 
 As partições e réplicas adicionais são um complemento para o carregamento inicial. Um serviço de pesquisa requer uma réplica e uma partição, portanto, a configuração mínima é um de cada. Além do mínimo, você adicionar partições e réplicas de forma independente. Por exemplo, você pode adicionar somente réplicas ou apenas as partições. 
 
-Partições e réplicas adicionais são cobradas com base em um [fórmula](#search-units). Os custos não são lineares (duplicar capacidade mais do que o custo de duplicatas). Para obter um exemplo de como funciona a fórmula, consulte ["Como alocar partições e réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Partições e réplicas adicionais são cobradas com base em um [fórmula](#search-units). Os custos não são lineares (duplicar capacidade mais do que o custo de duplicatas). Para obter um exemplo de como funciona a fórmula, consulte ["Como alocar partições e réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Encargos de saída de dados durante a indexação
 
-Ao efetuar pull de dados de uma fonte de dados do Banco de Dados SQL do Azure ou do Cosmos DB, você verá cobranças pela transação na fatura para esses recursos. Esses encargos não são metros de Azure Search, mas eles são mencionados aqui, porque se você estiver usando indexadores para extrair dados do banco de dados SQL ou o Azure Cosmos DB, você verá esse custo em sua fatura.
+Uso de [indexadores do Azure Search](search-indexer-overview.md) pode resultar em impacto dependendo de onde se encontram os serviços de cobrança. Você pode eliminar encargos de saída de dados totalmente se você criar o serviço Azure Search na mesma região que seus dados.
+
++ Não há encargos para quaisquer dados de entrada para qualquer serviço do Azure.
+
++ Não há encargos para quaisquer dados de saída do Azure Search.
+
++ Não há encargos para dados ou arquivos de saída do banco de dados SQL, Cosmos, armazenamento de BLOBs (de entrada para o Azure Search) desde que todos os serviços estão na mesma região.
+
++ Encargos se aplicam para dados de saída ou arquivos, se o armazenamento e o Azure Search estão em regiões diferentes.
+
+Ao rotear dados entre regiões do Azure, você verá encargos de largura de banda na fatura para esses recursos. Esses encargos não são parte de sua conta do Azure Search, mas eles são mencionados aqui, porque se você estiver usando indexadores para efetuar pull de dados ou arquivos durante a transmissão, você verá que encargos na sua fatura geral.
+
+Se você não estiver usando indexadores, não há nenhum encargo de largura de banda. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexação aprimorada usando os serviços Cognitivos
 
-Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), a extração da imagem durante a decodificação de documentos é cobrada apenas com base no número de imagens extraídas dos documentos. A extração de texto atualmente é gratuita. Outros aprimoramentos de baseiam [habilidades cognitivas internos](cognitive-search-predefined-skills.md) são cobrados em relação a um recurso de serviços Cognitivos. Aprimoramentos são cobrados com a mesma taxa usada se você executa a tarefa usando os Serviços Cognitivos diretamente.
-
-Se você não estiver usando [pesquisa cognitiva](cognitive-search-concept-intro.md) nem [indexadores do Azure Search](search-indexer-overview.md), seus únicos custos serão relacionados às réplicas e partições em uso ativo, para cargas de trabalho de indexação e consulta regulares.
+Para [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md) , extração da imagem durante a decodificação de documentos é cobrada apenas com base no número de imagens extraídos de seus documentos. A extração de texto atualmente é gratuita. Outros aprimoramentos, como o processamento de linguagem natural, se baseiam [habilidades cognitivas internos](cognitive-search-predefined-skills.md) são cobrados em relação a um recurso de serviços Cognitivos. Aprimoramentos são cobrados com a mesma taxa usada se você executa a tarefa usando os Serviços Cognitivos diretamente.
 
 <a name="search-units"></a>
 
@@ -181,7 +193,7 @@ Para determinar o tamanho de um índice, você precisa [compilar um](search-crea
 
 Uma abordagem para calcular a capacidade é iniciar com a camada **Livre**. Lembre-se de que o serviço **Livre** oferece até 3 índices, 50 MB de armazenamento e de indexação de 2 minutos. Ele pode ser um desafio para estimar um tamanho de índice projetado com essas restrições, mas o exemplo a seguir ilustra uma abordagem:
 
-+ [Cria um serviço grátis](search-create-service-portal.md)
++ [Criar um serviço gratuito](search-create-service-portal.md)
 + Preparar um conjunto de dados pequeno, representativo (supondo documentos de cinco il e tamanho de modelo dez por cento)
 + [Criar um índice inicial](search-create-index-portal.md) e anote seu tamanho no portal (supondo que 30 MB)
 
@@ -209,7 +221,7 @@ O número de índice e o tamanho são igualmente relevantes para sua análise po
 > Os requisitos de armazenamento podem ser excessivos se os documentos contiverem dados estranhos. Idealmente, os documentos contêm apenas os dados necessários para a experiência de pesquisa. Dados binários não são pesquisáveis e devem ser armazenados separadamente (talvez em um armazenamento de blobs ou tabela do Azure) com um campo no índice para manter uma URL de referência aos dados externos. O tamanho máximo de um documento individual é de 16 MB (ou menos, se você estiver carregando em massa vários documentos em uma solicitação). [Os limites de serviço no Azure Search](search-limits-quotas-capacity.md) tem mais informações.
 >
 
-**Considerações sobre volume de consultas**
+**Considerações de volume de consulta**
 
 A QPS (consultas por segundo) é uma medida que obtém importância durante o ajuste de desempenho, mas geralmente não é uma consideração de camada, a menos que você espera um volume alto de consulta desde o início.
 

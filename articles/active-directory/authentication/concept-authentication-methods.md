@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894586"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360641"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
-Como um administrador escolhendo métodos de autenticação para a autenticação multifator do Azure e a senha de autoatendimento redefinição de senha (SSPR) é recomendável que você exija que os usuários registrem os vários métodos de autenticação. Quando um método de autenticação não está disponível para um usuário, eles podem optar por autenticar com outro método.
+Como administrador, escolher métodos de autenticação para redefinição de senha de autoatendimento (SSPR) é recomendável que você exija que os usuários registrem os vários métodos de autenticação e de autenticação multifator do Azure. Quando um método de autenticação não está disponível para um usuário, eles podem optar por autenticar com outro método.
 
 Os administradores podem definir na política quais métodos de autenticação estão disponíveis para usuários do SSPR e do MFA. Alguns métodos de autenticação podem não estar disponíveis para todos os recursos. Para obter mais informações sobre como configurar suas políticas consulte os artigos [como distribuir com sucesso a redefinição de senha de autoatendimento](howto-sspr-deployment.md) e [planejamento baseados em nuvem do Azure a autenticação multifator](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ O aplicativo Microsoft Authenticator pode ajudar a impedir o acesso não autoriz
 
 Se você ativar o uso da notificação por meio do aplicativo móvel e do código de verificação do aplicativo para dispositivos móveis, os usuários que registrarem o aplicativo Microsoft Authenticator usando uma notificação poderão usar a notificação e o código para confirmar sua identidade.
 
+> [!NOTE]
+> Se sua organização tiver funcionários trabalhando em ou em trânsito para a China, os **notificação pelo aplicativo móvel** método **dispositivos Android** não funciona nesse país. Métodos alternativos devem ser disponibilizados para os usuários.
+
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação de aplicativo móvel
 
 O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem ser usados como um token de software para gerar um código de verificação OATH. Depois de inserir seu nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de login. O código de verificação oferece uma segunda forma de autenticação.
@@ -149,11 +152,11 @@ O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem se
 > Para redefinição de senha de autoatendimento quando apenas um método é necessário para redefinir, o código de verificação é a única opção disponível para os usuários **garantirem o mais alto nível de segurança**.
 >
 
-Os usuários podem ter uma combinação de até 5 tokens OATH de hardware ou aplicativos de autenticador, como o aplicativo Microsoft Authenticator configurado para uso a qualquer momento.
+Os usuários podem ter uma combinação de até cinco tokens OATH de hardware ou aplicativos de autenticador, como o aplicativo Microsoft Authenticator configurado para uso a qualquer momento.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens OATH de hardware (versão prévia pública)
 
-O OATH é um padrão livre que especifica os códigos de OTP (senha única) são gerados. O Azure AD será compatível com o uso de tokens OATH-TOTP SHA-1 das variedades de 30 segundos ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor de sua escolha. Observe que as chaves secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todos os tokens.
+O OATH é um padrão livre que especifica os códigos de OTP (senha única) são gerados. O Azure AD será compatível com o uso de tokens OATH-TOTP SHA-1 das variedades de 30 segundos ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor de sua escolha. Chaves secretas são limitadas a 128 caracteres, que podem não ser compatíveis com todos os tokens.
 
 ![Carregando tokens OATH até a folha de tokens OATH do servidor de MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ Dependendo do tamanho do arquivo CSV, ele poderá levar alguns minutos para ser 
 
 Depois que os erros forem resolvidos, o administrador poderá ativar cada chave clicando em **Ativar** para o token a ser ativado e inserindo a OTP exibido no token.
 
-Os usuários podem ter uma combinação de até 5 tokens OATH de hardware ou aplicativos de autenticador, como o aplicativo Microsoft Authenticator configurado para uso a qualquer momento.
+Os usuários podem ter uma combinação de até cinco tokens OATH de hardware ou aplicativos de autenticador, como o aplicativo Microsoft Authenticator configurado para uso a qualquer momento.
 
 ## <a name="mobile-phone"></a>Telefone celular
 
@@ -231,7 +234,7 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 * Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo ao usar a verificação em duas etapas com os clientes, dependendo de onde eles se autenticam. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
 * Por padrão, os usuários não podem criar senhas de aplicativo. Se você precisar permitir que os usuários criem senhas de aplicativos, selecione a opção **Permitir que usuários criem senhas de aplicativos para fazer login em aplicativos que não são de navegador** em configurações de serviço.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Habilitar o serviço de autoatendimento redefinição de senha para sua organização](quickstart-sspr.md)
 

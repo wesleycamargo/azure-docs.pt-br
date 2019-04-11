@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513291"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007224"
 ---
 ## <a name="preventative"></a>Preventivo
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513291"
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Suporte a monitoramento do Azure (Log Analytics, Application Insights, etc.)| Sim | Há suporte para o Log Analytics por meio dos logs de diagnóstico. Confira Monitorar cargas de trabalho protegidas do Backup do Azure usando o Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
+| Monitoramento (Log analytics, insights de aplicativo, etc.) de suporte do Azure| Sim | Há suporte para o Log Analytics por meio dos logs de diagnóstico. Confira Monitorar cargas de trabalho protegidas do Backup do Azure usando o Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
 
 ## <a name="iam-support"></a>Suporte IAM
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
 | Gerenciamento de acesso - Autenticação| Sim | A autenticação é feita pelo Azure Active Directory. |
-| Gerenciamento de acesso - Autorização| Sim | São usadas regras de RBAC internas e criadas pelo cliente. Confira Controle de Acesso Baseado em Função para gerenciar pontos de recuperação do Backup do Azure (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) para obter mais informações. |
+| Gerenciamento de acesso - Autorização| Sim | São usadas regras de RBAC internas e criadas pelo cliente. Consulte controle de acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure (/ azure/backup/rbac-rs-Cofre de backup) para obter mais informações. |
 
 
 ## <a name="audit-trail"></a>Trilha de auditoria

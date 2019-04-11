@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905748"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361966"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Mover um cofre dos Serviços de Recuperação entre Assinaturas do Azure e Grupos de Recursos (Versão Prévia Pública Limitada)
 
@@ -22,7 +22,9 @@ Este artigo explica como mover um cofre dos Serviços de Recuperação configura
 > [!NOTE]
 > Para mover um cofre dos serviços de recuperação e seus recursos associados ao grupo de recursos diferente, primeiro você deve [registrar a assinatura de código-fonte](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>Áreas geográficas com suporte
+
+Movimentação de recursos para o Cofre de serviços de recuperação tem suporte no Leste da Austrália, Leste da Austrália do Sul, Central do Canadá, Leste do Canadá, Sudeste Asiático, Ásia Oriental, centro dos EUA, Centro Norte dos EUA, Leste dos EUA, Leste dos EUA 2, sul central EUA, Centro-Oeste dos EUA, oeste Central dos EUA 2, oeste dos EUA, Índia central, Sul da Índia, Leste do Japão, oeste do Japão, Coreia Central, Coreia do Sul, Norte da Europa, Europa Ocidental, Norte da África do Sul da Índia, Oeste da África do Sul, Sul do Reino Unido, oeste do Reino Unido, EAU Central e Norte dos EAU.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Pré-requisitos para mover um cofre
 
@@ -34,12 +36,12 @@ Este artigo explica como mover um cofre dos Serviços de Recuperação configura
 - No momento, você pode mover um cofre dos Serviços de Recuperação por região por vez.
 - Se uma VM não for movida com o cofre dos Serviços de Recuperação entre assinaturas, ou para um novo grupo de recursos, os pontos de recuperação da VM atuais permanecerão intactos no cofre até expirarem.
 - Seja a VM movida com o cofre ou não, você sempre pode restaurar a VM do histórico de backup retido no cofre.
--   O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure.
--   Para mover uma máquina virtual com discos gerenciados, veja este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
--   As opções de movimentação dos recursos implantados por meio do modelo Clássico apresentam diferenças dependendo de se você está movendo os recursos em uma assinatura ou para uma nova assinatura. Para obter mais informações, veja este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
--   Políticas de backup definidas para o cofre são mantidas após o cofre ser movido entre assinaturas ou para um novo grupo de recursos.
--   Atualmente, não é possível mover cofres que contenham arquivos do Azure, Sincronização de Arquivos do Azure ou SQL em VMs IaaS entre assinaturas e grupos de recursos. O suporte para esses cenários será adicionado em futuras versões.
--   Se você mover um cofre contendo dados de backup da VM entre assinaturas, deverá mover as VMs para a mesma assinatura e usar o mesmo grupo de recursos de destino para continuar com os backups.<br>
+- O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure.
+- Para mover uma máquina virtual com discos gerenciados, veja este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- As opções de movimentação dos recursos implantados por meio do modelo Clássico apresentam diferenças dependendo de se você está movendo os recursos em uma assinatura ou para uma nova assinatura. Para obter mais informações, veja este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- Políticas de backup definidas para o cofre são mantidas após o cofre ser movido entre assinaturas ou para um novo grupo de recursos.
+- Atualmente, não é possível mover cofres que contenham arquivos do Azure, Sincronização de Arquivos do Azure ou SQL em VMs IaaS entre assinaturas e grupos de recursos.
+- Se você mover um cofre contendo dados de backup da VM entre assinaturas, deverá mover as VMs para a mesma assinatura e usar o mesmo grupo de recursos de destino para continuar com os backups.<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ Para registrar a assinatura de origem para **Mover** o cofre dos Serviços de Re
 1. Entre na sua conta do Azure
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. Selecione a assinatura que você deseja registrar
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. Registrar esta assinatura
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Executar o comando
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Aguarde 30 minutos para que a assinatura ser colocada na lista de permissões antes de começar a operação de movimentação usando o portal do Azure ou o PowerShell.
@@ -139,18 +141,18 @@ Você pode mover um cofre dos Serviços de Recuperação e seus recursos associa
 
 ## <a name="use-powershell-to-move-a-vault"></a>Usar o PowerShell para mover um cofre
 
-Para mover um cofre dos Serviços de Recuperação para outro grupo de recursos, use o cmdlet `Move-AzResource`. `Move-AzResource` requer o nome do recurso e o tipo de recurso. Você pode obter ambos do cmdlet `Get-AzRecoveryServicesVault`.
+Para mover um cofre dos Serviços de Recuperação para outro grupo de recursos, use o cmdlet `Move-AzureRMResource`. `Move-AzureRMResource` requer o nome do recurso e o tipo de recurso. Você pode obter ambos do cmdlet `Get-AzureRmRecoveryServicesVault`.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Para mover os recursos para uma assinatura diferente, inclua o parâmetro `-DestinationSubscriptionId`.
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Depois de executar os cmdlets acima, você será solicitado a confirmar se deseja mover os recursos especificados. Digite **Y** para confirmar. Após uma validação bem-sucedida, o recurso será movido.
@@ -172,7 +174,7 @@ Para mover para uma nova assinatura, forneça o parâmetro `--destination-subscr
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas.
 

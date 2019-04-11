@@ -1,6 +1,6 @@
 ---
 title: Direcionando o tráfego do Azure para o Banco de Dados SQL do Azure e o SQL Data Warehouse | Microsoft Docs
-description: Este documento explica a arquitetura de conectividade do Banco de Dados SQL do Azure e do SQL Data Warehouse de dentro ou fora do Azure.
+description: Este documento explica a arquitetura de onnectivity Azcure SQL para conexões de banco de dados de dentro do Azure ou de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918596"
+ms.locfileid: "59006782"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
 Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azure e do SQL Data Warehouse, além de como os diferentes componentes funcionam para direcionar o tráfego para a instância do SQL do Azure. Esses componentes de conectividade funcionam para direcionar o tráfego de rede para o Banco de Dados SQL do Azure ou o SQL Data Warehouse com clientes que se conectam dentro e fora do Azure. Este artigo também fornece exemplos de script para alterar o modo como ocorre a conectividade e as considerações relacionadas à alteração das configurações de conectividade padrões.
-
-> [!IMPORTANT]
-> **[Alteração futura] Para conexões de ponto de extremidade de serviço para servidores do SQL Azure, uma `Default` alterações de comportamento de conectividade `Redirect`.**
-> Os clientes são aconselhados a criar novos servidores e a definir os existentes com o tipo de conexão explicitamente definido para Redirecionar (preferível) ou Usar um proxy, dependendo de sua arquitetura de conectividade.
->
-> Para impedir a interrupção da conectividade por meio de um ponto de extremidade de serviço em ambientes existentes como resultado dessa alteração, usamos a telemetria para fazer o seguinte:
->
-> - Para os servidores que detectamos que foram acessados por meio de pontos de extremidade de serviço antes da alteração, alternamos o tipo de conexão para `Proxy`.
-> - Para todos os outros servidores, alternamos o tipo de conexão para `Redirect`.
->
-> Os usuários do ponto de extremidade de serviço ainda poderão ser afetados nos seguintes cenários:
->
-> - O aplicativo se conecta a um servidor existente com pouca frequência e, portanto, nossa telemetria não capturou as informações sobre esses aplicativos
-> - Lógica de implantação automatizados cria um servidor de banco de dados SQL, supondo que o comportamento padrão para conexões de ponto de extremidade de serviço é `Proxy`
->
-> Se não foi possível estabelecer conexões do ponto de extremidade de serviço com o servidor SQL do Azure e você suspeita que foi afetado por essa alteração, verifique se o tipo de conexão está explicitamente definido como `Redirect`. Se esse for o caso, você precisa abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços IP do Azure na região que pertencem ao Sql [marca de serviço](../virtual-network/security-overview.md#service-tags) para as portas de 11000-11999. Se essa não for uma opção para você, alterne o servidor explicitamente para `Proxy`.
-> [!NOTE]
-> Este tópico se aplica a servidores de banco de dados SQL que hospedam bancos de dados únicos e pools Elásticos, bancos de dados SQL Data Warehouse, banco de dados do Azure para MySQL, banco de dados do Azure para MariaDB e banco de dados do Azure para PostgreSQL. Para simplificar, o banco de dados SQL é usado ao fazer referência ao banco de dados SQL, o SQL Data Warehouse, o banco de dados do Azure para MySQL, o banco de dados do Azure para MariaDB e o banco de dados do Azure para PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 

@@ -1,7 +1,6 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de diretiva de recurso é usada pela Política do Azure para estabelecer convenções para recursos em sua organização, descrevendo quando a diretiva é aplicada e qual efeito tomar.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894420"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426453"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -76,11 +75,11 @@ Todos os exemplos do Azure Policy estão em [Exemplos de política](../samples/i
 O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
 
 - `all`: avaliar grupos de recursos e todos os tipos de recursos
-- `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
+- `indexed`: avaliar apenas os tipos de recursos que dão suporte a marcas e local
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que oferecem suporte a marcas, consulte [suporte para recursos do Azure de marcação](../../../azure-resource-manager/tag-support.md).
+`indexed` deve ser usado durante a criação de políticas que impõem as marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que oferecem suporte a marcas, consulte [suporte para recursos do Azure de marcação](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>parâmetros
 
@@ -95,7 +94,7 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
 - **nome**: o nome do parâmetro. Usado pela função de implantação `parameters` dentro da regra de política. Para saber mais, confira [Usar o valor de parâmetro](#using-a-parameter-value).
-- `type`: determina se o parâmetro é uma **cadeia de caracteres** ou uma **matriz**.
+- `type`: determina se o parâmetro é uma **cadeia de caracteres**ou uma**matriz.
 - `metadata`: define as subpropriedades usadas principalmente pelo portal do Azure para exibição de informações simples:
   - `description`: a explicação de uso do parâmetro. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável exibido no portal para o parâmetro.
@@ -141,12 +140,16 @@ Este exemplo faz referência ao parâmetro **allowedLocations** que foi demonstr
 
 Na propriedade `metadata`, você pode usar **strongType** para fornecer uma lista de opções de seleção múltipla no portal do Azure. Os valores atualmente permitidos para **strongType** incluem:
 
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+- `location`
+- `resourceTypes`
+- `storageSkus`
+- `vmSKUs`
+- `existingResourceGroups`
+- `omsWorkspace`
+- `Microsoft.EventHub/Namespaces/EventHubs`
+- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.RecoveryServices/vaults`
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Local da definição
 
@@ -259,7 +262,7 @@ Há suporte para os seguintes campos:
 - aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda são maneiras aceitáveis de declarar um campo de marcas.
+> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda aceitável maneiras de declarar um campo de marcas.
 > No entanto, as expressões preferenciais são aquelas listadas acima.
 
 #### <a name="use-tags-with-parameters"></a>Usar marcas com parâmetros
@@ -421,7 +424,7 @@ Todas as [funções de modelo do Resource Manager](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
+Além disso, a função `field` está disponível para as regras de política. `field` é basicamente usado com **AuditIfNotExists** e **DeployIfNotExists** a campos de referência no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
@@ -617,7 +620,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Revise os exemplos em [amostras da Política do Azure](../samples/index.md)
 - Revisão [Noções básicas sobre os efeitos de política](effects.md)

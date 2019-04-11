@@ -1,7 +1,7 @@
 ---
 title: Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 description: Obtenha uma visão geral das configurações com suporte em uma política de acesso condicional do Active Directory do Azure.
-services: active-directory.
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051115"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359003"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -232,6 +232,23 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Os aplicativos cliente aprovados fornecem suporte ao recurso de gerenciamento de aplicativo móvel Intune.
 - O requisito **Exigir o aplicativo do cliente aprovado**:
    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Requisito de política de proteção de aplicativo 
+
+Em sua política de acesso condicional, você pode exigir que uma política de proteção do aplicativo estar presente no aplicativo cliente antes de acesso está disponível para os aplicativos de nuvem selecionado. 
+
+![Controlar o acesso com a política de proteção de aplicativo](./media/technical-reference/22.png)
+
+Essa configuração se aplica aos seguintes aplicativos cliente:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Comentários**
+
+- Aplicativos para a política de proteção de aplicativo suportam o recurso de gerenciamento de aplicativo móvel do Intune com a política de proteção.
+- O **exigem a política de proteção de aplicativo** requisitos:
+    - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Próximas etapas
 

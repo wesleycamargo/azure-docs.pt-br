@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: Nuvem do SQL Server, SQL Server na nuvem, banco de dados PaaS, SQL Server na nuvem, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835411"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360809"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Escolher a melhor opção do Microsoft SQL Server no Azure
 
@@ -74,7 +74,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 
 | | Pools elásticos e bancos de dados individuais do Banco de Dados SQL | Instâncias gerenciadas do Banco de Dados SQL |Máquinas virtuais do Azure com o SQL Server |
 | --- | --- | --- |---|
-| **Mais adequado para:** |Novos aplicativos projetados em nuvem que desejam usar os mais recentes recursos estáveis do SQL Server e têm restrições de tempo no desenvolvimento e no marketing. | Novos aplicativos ou aplicativos locais existentes que precisam usar os recursos estáveis mais recentes do SQL Server e que são migrados para a nuvem com o mínimo de alterações.  | Aplicativos existentes que requerem uma migração rápida para a nuvem com o mínimo de alterações ou nenhuma alteração. Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção. |
+| **Melhor para:** |Novos aplicativos projetados em nuvem que desejam usar os mais recentes recursos estáveis do SQL Server e têm restrições de tempo no desenvolvimento e no marketing. | Novos aplicativos ou aplicativos locais existentes que precisam usar os recursos estáveis mais recentes do SQL Server e que são migrados para a nuvem com o mínimo de alterações.  | Aplicativos existentes que requerem uma migração rápida para a nuvem com o mínimo de alterações ou nenhuma alteração. Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção. |
 |  | Equipes que precisam da atualização, recuperação de desastres e alta disponibilidade interna para o banco de dados. | Mesmo que os bancos de dados individuais e em pool do Banco de Dados SQL. | Equipes que podem configurar, ajustar, personalizar e gerenciar a alta disponibilidade, a recuperação de desastre e a aplicação de patch do SQL Server. Alguns recursos automatizados fornecidos simplificam muito isso. |
 |  | Equipes que não desejam gerenciar o sistema operacional subjacente e definições de configuração. | Mesmo que os bancos de dados individuais e em pool do Banco de Dados SQL. | Você precisa de um ambiente personalizado com direitos administrativos completos. |
 |  | Bancos de dados de até 100 TB. | Até 8 TB. | Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. |
@@ -119,7 +119,7 @@ Com o **SQL Server nas VMs do Azure**, você pode usar qualquer imagem do SQL Se
 
 Quando você começar a usar uma plataforma de nuvem, o custo de execução do aplicativo incluirá os custos do novo desenvolvimento e da administração contínua, mais os custos de serviço da plataforma de nuvem pública.
 
-**Ao usar o Banco de Dados SQL do Azure:**
+**Ao usar o banco de dados SQL:**
 
 - Custos de administração altamente minimizados
 - Custos de desenvolvimento limitados para aplicativos migrados (instâncias gerenciadas)
@@ -135,9 +135,9 @@ Quando você começar a usar uma plataforma de nuvem, o custo de execução do a
 
 Para obter mais informações sobre preços, consulte os recursos a seguir:
 
-- [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Preço do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 

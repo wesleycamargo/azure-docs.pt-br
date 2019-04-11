@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896243"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358166"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -43,7 +43,8 @@ Aplicativos de função podem ser hospedados de várias maneiras diferentes.
 
 As restrições de IP permitem definir uma lista de prioridade ordenada de permissão/negação dos endereços IP que são permitidos a acessar o seu aplicativo. A lista de permissões pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, há, em seguida, uma negação implícita de tudo o que existe no final da lista. O recurso de restrições de IP funciona com a função de todas as opções de hospedagem.
 
-> ! [IMPORTANTE] Para poder usar o editor do portal do Azure, o portal deve ser capaz de acessar diretamente o seu aplicativo de função em execução e o dispositivo que você está usando para acessar o portal deve ter sua lista de permissões IP. Com as restrições de rede em vigor, você ainda pode acessar qualquer recurso na **recursos da plataforma** guia.
+> [!NOTE]
+> Para poder usar o editor do portal do Azure, o portal deve ser capaz de acessar diretamente o seu aplicativo de função em execução e o dispositivo que você está usando para acessar o portal deve ter sua lista de permissões IP. Com as restrições de rede em vigor, você ainda pode acessar qualquer recurso na **recursos da plataforma** guia.
 
 [Saiba mais aqui](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

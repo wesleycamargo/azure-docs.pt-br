@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360710"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357238"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autotreinar um modelo de previsão de série temporal
 
 Neste artigo, você aprenderá a treinar um modelo de regressão previsão de série temporal usando automatizado de machine learning no serviço de Azure Machine Learning. A configuração de um modelo de previsão é semelhante à configuração de um modelo de regressão padrão usando o aprendizado de máquina automatizados, mas algumas etapas de configuração Opções e o pré-processamento existem para trabalhar com dados de série temporal. Os exemplos a seguir mostram como para:
 
 * Preparar dados para modelagem de série temporal
-* Configurar parâmetros de série temporal específicos em uma [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto
+* Configurar parâmetros de série temporal específicos em uma [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objeto
 * Executar previsões com dados de série temporal
 
 ## <a name="prerequisites"></a>Pré-requisitos

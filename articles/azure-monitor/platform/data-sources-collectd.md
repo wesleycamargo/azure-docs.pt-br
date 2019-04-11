@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999310"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426130"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Coletar dados do CollectD em agentes do Linux no Azure Monitor
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre como coletar dados de desempenho do CollectD no Azure Monitor.
@@ -112,15 +112,15 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 
 | Campo Métrica do CollectD | Campo do Azure Monitor |
 |:--|:--|
-| host | Computador |
-| plug-in | Nenhum |
-| plugin_instance | Nome da Instância<br>Se **plugin_instance** é *null*, então InstanceName="*_Total*" |
-| Tipo | ObjectName |
-| type_instance | CounterName<br>Se **type_instance** é *null*, então CounterName=**blank** |
-| dsnames[] | CounterName |
-| dstypes | Nenhum |
-| values[] | CounterValue |
+| `host` | Computador |
+| `plugin` | Nenhum |
+| `plugin_instance` | Nome da Instância<br>Se **plugin_instance** é *null*, então InstanceName="*_Total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Se **type_instance** é *null*, então CounterName=**blank** |
+| `dsnames[]` | CounterName |
+| `dstypes` | Nenhum |
+| `values[]` | CounterValue |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
 * Use [campos personalizados](custom-fields.md) para analisar dados dos registros do syslog em campos individuais.

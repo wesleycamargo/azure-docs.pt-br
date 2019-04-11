@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315768"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361893"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V locais para recuperação de desastre no Azure
 
-Este tutorial mostra como preparar sua infraestrutura de Hyper-V local quando você deseja replicar VMs Hyper-V para o Azure para fins de recuperação de desastre. Os hosts Hyper-V podem ser gerenciados no System Center Virtual Machine Manager (VMM), mas isso não é obrigatório.  Neste tutorial, você aprenderá a:
+Este artigo descreve como preparar sua infraestrutura de Hyper-V local quando você deseja configurar a recuperação de desastre de VMs do Hyper-v para o Azure, usando [Azure Site Recovery](site-recovery-overview.md).
+
+
+Esse é o segundo tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs do Hyper-V local. No primeiro tutorial, estamos [configurar os componentes do Azure](tutorial-prepare-azure.md) necessários para recuperação de desastre do Hyper-V.
+
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Examinar os requisitos do Hyper-V e os requisitos do VMM, se aplicável.
-> * Preparar o VMM, se aplicável
-> * Verificar o acesso à Internet para locais do Azure
-> * Preparar as VMs para que você possa acessá-las após o failover para o Azure
+> * Examine os requisitos do Hyper-V e requisitos do VMM se seus hosts Hyper-V forem gerenciados pelo System Center VMM.
+> * Prepare o VMM se aplicável.
+> * Verifique se o acesso à internet para locais do Azure.
+> * Prepare VMs para que você pode acessá-los após o failover no Azure.
 
-Este é o segundo tutorial da série. Verifique se você [configurou os componentes do Azure](tutorial-prepare-azure.md) conforme foi descrito no tutorial anterior.
+> [!NOTE]
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção como a do Site Recovery do sumário.
 
+## <a name="before-you-start"></a>Antes de começar
 
+Certifique-se de que você preparou Azure conforme descrito na [primeiro tutorial nesta série](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Revisar requisitos e pré-requisitos
 
@@ -79,12 +87,12 @@ Para se conectar a VMs do Windows usando o RDP após o failover, permita o acess
 
 1. Para acessar a Internet, habilite o RDP na VM local antes do failover. Verifique se as regras de TCP e de UDP foram adicionadas no perfil **Público** e se o RDP é permitido no **Firewall do Windows** > **Aplicativos permitidos** para todos os perfis.
 2. Para acessar por meio da VPN site a site, habilite o RDP no computador local. O RDP deve ser permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para redes de **Domínio e Privadas**.
-   Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não deve haver nenhuma atualização pendente do Windows na VM quando você dispara um failover. Se houver, não será possível fazer logon na máquina virtual até que a atualização seja concluída.
+   Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não deve haver nenhuma atualização pendente do Windows na VM quando você dispara um failover. Se houver, você não conseguirá entrar para a máquina virtual até que a atualização seja concluída.
 3. Na VM do Microsoft Azure após o failover, verifique o **Diagnóstico de inicialização** para exibir uma captura de tela da VM. Se você não puder se conectar, verifique se a VM está em execução e examine estas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Após o failover, você pode acessar as VMs do Azure usando o mesmo endereço IP da VM replicada no local ou um endereço IP diferente. [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre como configurar o endereçamento IP para failover.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação de desastres do Azure para VMs Hyper-V](tutorial-hyper-v-to-azure.md)

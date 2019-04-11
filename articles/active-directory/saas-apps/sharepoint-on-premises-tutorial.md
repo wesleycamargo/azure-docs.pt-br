@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dca14f4c74c130145ba6792d2a3ee5c43f3c72b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874789"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
 
     ![Informações de logon único de Domínio e URLs do SharePoint local](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `urn:sharepoint:federation`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do SharePoint local](https://support.office.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
     > [!TIP]
     > Se você for novo no uso do PowerShell ou se quiser saber mais sobre como funciona o PowerShell, veja [PowerShell do SharePoint](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
 
-    ```
+    ```powershell
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
     $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -220,7 +220,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![Criar um grupo de segurança do Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > Para atribuir grupos de segurança do Microsoft Azure Active Directory ao SharePoint local, será necessário instalar e configurar o [AzureCP](https://yvand.github.io/AzureCP/) no farm do SharePoint local OU desenvolva e configure um provedor de declarações personalizadas alternativo para o SharePoint.  Confira a seção Mais informações no final do documento para saber como criar seu próprio provedor de declarações personalizadas, caso não use o AzureCP.
+    > Para atribuir grupos de segurança do Azure Active Directory ao SharePoint local, será necessário instalar e configurar o [AzureCP](https://yvand.github.io/AzureCP/) no farm do SharePoint local OU desenvolver e configurar um provedor de declarações personalizado alternativo para o SharePoint.  Confira a seção Mais informações no final do documento para saber como criar seu próprio provedor de declarações personalizadas, caso não use o AzureCP.
 
 ### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Permitir acesso a um grupo de segurança do SharePoint local
 
@@ -268,9 +268,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 10. Configure o AzureCP no farm do SharePoint local ou uma solução alternativa de provedor de declarações personalizadas.  Neste exemplo, estamos usando o AzureCP.
 
     > [!NOTE]
-    > O AzureCP não é um produto da Microsoft ou com suporte pelo suporte técnico da Microsoft. Fazer o download, instalar e configurar o AzureCP no farm do SharePoint local por https://yvand.github.io/AzureCP/ 
+    > O AzureCP não é um produto da Microsoft ou com suporte pelo suporte técnico da Microsoft. Baixar, instalar e configurar o AzureCP no farm do SharePoint local por https://yvand.github.io/AzureCP/ 
 
-11. **Permitir acesso ao grupo de segurança do Microsoft Azure Active Directory no SharePoint local**: os grupos devem ter acesso ao aplicativo no SharePoint local.  Use as etapas a seguir para definir as permissões para acessar o aplicativo Web.
+11. **Permitir acesso ao grupo de segurança do Azure Active Directory no SharePoint local**: os grupos devem ter acesso ao aplicativo no SharePoint local.  Use as etapas a seguir para definir as permissões para acessar o aplicativo Web.
 
 12. Na Administração Central, clique em Gerenciamento de aplicativos, Gerenciar aplicativos Web. Em seguida, selecione o aplicativo Web para ativar a faixa de opções e clique em Política de usuário.
 
@@ -310,11 +310,12 @@ A configuração funciona para um único aplicativo Web, mas precisa de configur
 
 5. No servidor do SharePoint, abra o **Shell de Gerenciamento do SharePoint 2016** e execute os comandos a seguir, usando o nome do emissor do token de identidade confiável que você usou anteriormente.
 
-    ```
+    ```powershell
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. Em Administração Central, vá para o aplicativo Web e habilite o provedor de identidade confiável existente. Lembre-se de também configurar a URL da página de entrada como uma página de entrada personalizada `/_trust/`.
 
 7. Em Administração Central, clique no aplicativo Web e escolha **Política de Usuário**. Adicione um usuário com as permissões apropriadas, conforme demonstrado anteriormente neste artigo.

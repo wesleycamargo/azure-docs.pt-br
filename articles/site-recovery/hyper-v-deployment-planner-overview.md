@@ -1,18 +1,18 @@
 ---
 title: Sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastres de VMs do Hyper-V para o Azure | Microsoft Docs
 description: Saiba mais sobre a recuperação de desastre do Hyper-V do Planejador de Implantações do Azure Site Recovery para o Azure.
-author: nsoneji
+author: mayurigupta13
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.date: 4/9/2019
+ms.author: mayg
+ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207387"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360291"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -30,7 +30,7 @@ A ferramenta fornece os seguintes detalhes:
 
 * Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM.
 
-**Largura de banda de rede necessária versus avaliação de RPO**
+**Avaliação de largura de banda de rede necessária versus RPO**
 
 * A largura de banda de rede estimada que é necessária para a replicação delta
 * A taxa de transferência que o Azure Site Recovery pode obter do local para o Azure
@@ -51,13 +51,13 @@ A ferramenta fornece os seguintes detalhes:
 * O espaço de armazenamento livre necessário em cada volume do armazenamento do Hyper-V para a replicação inicial e a replicação delta bem-sucedidas para garantir que a replicação de VM não causará nenhum tempo de inatividade indesejado para seus aplicativos de produção
 * Frequência máxima de cópia a ser definida para replicação do Hyper-V
 
-**Diretrizes de envio em lote da replicação inicial** 
+**Diretriz de envio em lote da replicação inicial** 
 * Número de lotes de VMs a serem usados para proteção
 * Lista de VMs em cada lote
 * Ordem na qual cada lote deve ser protegido
 * Tempo estimado para concluir a replicação inicial de cada lote
 
-**Custo estimado de recuperação de desastre para o Azure**
+**Custo estimado de recuperação de Desastre para Azure**
 * Custo total estimado de recuperação de desastre para o Azure: custos de licença de computação, armazenamento, rede e do Azure Site Recovery
 * Detalhes de análise de custo por VM
 
@@ -70,9 +70,9 @@ A ferramenta fornece os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |SIM|sim|Não |Sim*|Não 
+Cenários com suporte |Sim|sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND
@@ -132,9 +132,9 @@ Se você tiver uma versão anterior do Planejador de Implantações, siga um des
   >Cada novo planejador de implantação é uma atualização cumulativa do arquivo .zip. Você não precisa copiar os arquivos mais recentes para a pasta anterior. Você pode criar e usar uma nova pasta.
 
 ## <a name="version-history"></a>Histórico de versão
-A última versão da ferramenta do Planejador de Implantações do ASR é 2.3.
-Consulte a página [Histórico de versões do Planejador de Implantações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções adicionadas em cada atualização.
+A versão mais recente da ferramenta Planejador de implantação do Azure Site Recovery é 2.3.
+Consulte a [histórico de versão do Azure Site Recovery implantação Planejador](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) página para obter as correções adicionadas em cada atualização.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Execute o Planejador de Implantações](site-recovery-hyper-v-deployment-planner-run.md).

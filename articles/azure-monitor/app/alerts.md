@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244359"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469787"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
@@ -45,7 +45,7 @@ Abra a guia regras de alerta e, em seguida, use o botão Adicionar.
 * Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * Você pode desabilitar ou habilitar o alerta: Veja os botões na parte superior.
 
-*Não vejo o botão Adicionar Alerta.*
+*Não vejo o botão Adicionar alerta.*
 
 * Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Examine a guia de controle de acesso. [Saiba mais sobre o controle de acesso][roles].
 
@@ -143,7 +143,25 @@ Nesta seção, veremos como definir um alerta de exceção baseado em consulta. 
 
 10. Por fim, adicione seus detalhes do alerta (nome da regra, a descrição, a severidade do alerta). Quando você terminar, clique em **criar regra de alerta** na parte inferior.
 
-    ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade ](./media/alerts/9alertdetails.png)
+    ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como cancelar a assinatura de notificações por email de alerta clássico
+
+Esta seção aplica-se a **alertas de disponibilidade clássico**, **alertas de métrica do Application Insights**e, ao **alertas de anomalias de falha clássico**.
+
+Você está recebendo notificações de email para esses alertas clássicos se qualquer um dos seguintes for aplicável:
+
+* Seu endereço de email está listado no campo de destinatários de email de notificação nas configurações de regra de alerta.
+
+* A opção de enviar notificações por email aos usuários, mantendo a determinadas funções para a assinatura for ativada, e você mantenha uma função respectiva para uma assinatura do Azure específica.
+
+![Captura de tela de notificação de alerta](./media/alerts/alert-notification.png)
+
+Para controlar melhor a sua segurança e privacidade, nós geralmente recomendamos que você especificar explicitamente os destinatários de notificação de alertas clássicas na **destinatários de email de notificação** campo. A opção de notificar todos os usuários, mantendo a determinadas funções é fornecida para compatibilidade com versões anteriores.
+
+Para cancelar a assinatura de notificações de email geradas por uma regra de alerta determinada, remover seu endereço de email a partir de **destinatários de email de notificação** campo.
+
+Se seu endereço de email não estiver listado explicitamente, é recomendável que você desabilite a opção de notificar todos os membros de certas funções automaticamente e, em vez disso, listar todos os emails de usuário que precisam receber notificações dessa regra de alerta no email de notificação campo de destinatários.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 

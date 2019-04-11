@@ -4,7 +4,6 @@ title: Documentação do serviço Azure Policy
 metadata:
   title: 'Documentação do Azure Policy — Tutoriais, Referência de API'
   description: 'O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço.'
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -48,7 +47,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Criar e gerenciar o Azure Policy</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Criar e gerenciar a Política do Azure</a>
           - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Criar uma definição de política personalizada</a>
   - title: Exemplos
     items:
@@ -66,7 +65,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: '<p><a href="/cli/azure/policy">CLI do Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (política)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (insights de política)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configuração do convidado)</a></p>'
+            html: '<p><a href="/cli/azure/policy">CLI do Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (política)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (insights de política)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configuração do participante)</a></p>'
           - title: Modelos do Gerenciador de Recursos
             html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Atribuições</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definições de Política</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definições de Iniciativas</a></p>
           - title: REST

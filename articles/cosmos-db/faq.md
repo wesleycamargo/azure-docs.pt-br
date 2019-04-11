@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881028"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010610"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -95,8 +95,9 @@ As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmo
 * Até três coleções por assinatura para contas do MongoDB.
 * Capacidade de armazenamento de 10 GB.
 * A replicação global está disponível atualmente nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): Centro dos EUA, Europa Setentrional e Sudeste Asiático
-* Produtividade máxima de 5 mil RU/s.
-* As assinaturas expiram após 24 horas e podem ser estendidas para um máximo de 48 horas no total.
+* Taxa de transferência máxima de 5 mil RU/s quando provisionados no nível do contêiner.
+* Taxa de transferência máxima de 20 mil RU/s quando provisionados no nível do banco de dados.
+* As assinaturas expiram após 30 dias e podem ser estendidas a um máximo de 31 dias de total.
 * Não é possível criar tíquetes de suporte do Azure para contas Experimente o Azure Cosmos DB; no entanto, é oferecido suporte para assinantes com planos de suporte existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurar o Azure Cosmos DB

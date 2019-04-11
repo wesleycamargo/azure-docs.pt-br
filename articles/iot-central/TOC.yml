@@ -36,6 +36,8 @@ items:
   items:
   - name: Conectar dispositivos
     items:
+    - name: Obter uma cadeia de conexão do dispositivo
+      href: howto-generate-connection-string.md
     - name: Preparar e conectar um aplicativo Node.js (genérico)
       href: howto-connect-nodejs.md
     - name: Preparar e conectar um MXChip IoT DevKit
@@ -144,9 +146,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Navegadores com suporte
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 09145448edd42e03b77abde46a120ade1631d6bf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 277b1ca0a239bddc02ca32d93ca1ffebbf542240
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520727"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425892"

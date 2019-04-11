@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835445"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471079"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usar expressões C# para a data de hoje
 
-Para efetuar pull da data de hoje, podemos usar a seguinte expressão C#: `DateTime.Now.ToString("M/d/yyyy")`
+Para efetuar pull da data de hoje, podemos usar o seguinte C# expressão: `DateTime.Now.ToString("M/d/yyyy")`
 
 Aqui está um exemplo de como usar essa expressão em um script:
 
@@ -533,9 +533,9 @@ A interface `IFormatter` serializa e desserializa um grafo de objeto com o tipo 
 
 * **Serializar**: Serializa um objeto ou um grafo de objetos com a raiz especificada para o fluxo fornecido.
 
-Instância `MyType`: Instância do tipo.  
-Gravador `IColumnWriter`/leitor `IColumnReader`: O fluxo da coluna subjacente.  
-Contexto `ISerializationContext`: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
+`MyType` Instância: Instância do tipo.  
+`IColumnWriter` Gravador / `IColumnReader` leitor: O fluxo da coluna subjacente.  
+`ISerializationContext` contexto: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
 
 * **Intermediário**: Especifica que o contexto de origem ou de destino não é um repositório persistente.
 
@@ -949,13 +949,13 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Segundo parâmetro para accumulate
 * TResult: Tipo de retorno de terminate
 
-Por exemplo:
+Por exemplo: 
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-ou
+ou o
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1269,7 +1269,7 @@ public class MyOutputter : IOutputter
 
 * `Output` é chamado para cada linha de entrada. Retorna o conjunto de linhas `IUnstructuredWriter output`.
 * A classe Constructor é usada para passar parâmetros ao outputter definido pelo usuário.
-* `Close` é usado para, opcionalmente, substituir e liberar estado caro ou determinar quando a última linha foi gravada.
+* `Close` é usado para, opcionalmente, substituir para liberar estado caro ou determinar quando a última linha foi gravada.
 
 O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registrado como um outputter definido pelo usuário. Essa classe não pode ser herdada.
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Para saber mais sobre como usar aplicadores na expressão SELECT., veja [U-SQL SELECT selecionando de CROSS APPLY e OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+Para saber mais sobre como usar aplicadores na expressão SELECT., veja [U-SQL SELECT selecionando de CROSS APPLY e OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 A definição de classe base do aplicador definido pelo usuário é a seguinte:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Para saber mais, veja [Expressão COMBINE (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Para saber mais, veja [Expressão COMBINE (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 Para definir um combinador definido pelo usuário, precisamos criar a interface `ICombiner` com o atributo [`SqlUserDefinedCombiner`], que é opcional para a definição do combinador definido pelo usuário.
 
@@ -1877,7 +1877,7 @@ Os conjuntos de linhas de entrada são passados como tipo `IRowset` **esquerdo**
 
 Para fins de caching, podemos criar um tipo List\<T\> de estrutura de memória como resultado de uma execução da consulta LINQ, especificamente List<`IRow`>. O tipo de dados anônimo também pode ser usado durante a enumeração.
 
-Veja [Introdução a consultas LINQ (C#)](https://msdn.microsoft.com/library/bb397906.aspx) para obter mais informações sobre consultas LINQ e [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) para obter mais informações sobre a interface IEnumerable\<T\>.
+Veja [Introdução a consultas LINQ (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) para obter mais informações sobre consultas LINQ e [IEnumerable\<T\> Interface](/dotnet/api/system.collections.generic.ienumerable-1) para obter mais informações sobre a interface IEnumerable\<T\>.
 
 Para obter os valores de dados reais do `IRowset` de entrada, usamos o método Get() da interface `IRow`.
 

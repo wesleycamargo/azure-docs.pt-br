@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 31f67481-360d-4471-88c9-1cc9bdafee24
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 42da57ee7320ec78de0c1d3a5336034289e30f76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086268"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275463"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler para provisionamento automático de usuário
 
@@ -27,46 +28,42 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Zscaler 
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
+
 > Esse conector está atualmente em visualização pública. Para obter mais informações sobre os termos do Microsoft Azure gerais de uso para recursos de visualização, consulte [termos de uso adicionais para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já possui o seguinte:
 
-*   Um locatário do Azure AD
-*   Um locatário do Zscaler
-*   Uma conta de usuário no Zscaler com permissões de administrador
+* Um locatário do Azure AD
+* Um locatário do Zscaler
+* Uma conta de usuário no Zscaler com permissões de administrador
 
 > [!NOTE]
 > A integração de provisionamento do Azure AD depende da API de SCIM do Zscaler, que está disponível para desenvolvedores do Zscaler para contas com o pacote Enterprise.
 
 ## <a name="adding-zscaler-from-the-gallery"></a>Adicionar o Zscaler da galeria
+
 Antes de configurar o Zscaler para provisionamento com o Azure AD automático de usuário, você precisará adicionar o Zscaler da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Zscaler da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos empresariais** > **Todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![Seção de Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar o Zscaler, clique o **novo aplicativo** botão na parte superior da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Zscaler**.
+4. Na caixa de pesquisa, digite **Zscaler**, selecione **Zscaler** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/app-search.png)
-
-5. No painel de resultados, selecione **Zscaler**e, em seguida, clique no **Add** botão para adicionar o Zscaler à sua lista de aplicativos SaaS.
-
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/app-search-results.png)
-
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/app-creation.png)
+    ![Zscaler na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler"></a>Atribuir usuários ao Zscaler
 
@@ -74,13 +71,13 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Zscaler. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Zscaler, seguindo as instruções aqui:
 
-*   [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler"></a>Dicas importantes para atribuir usuários ao Zscaler
 
-*   É recomendável que um único usuário do Azure AD seja atribuído ao Zscaler para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao Zscaler para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um usuário ao Zscaler, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Zscaler, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configurando o provisionamento automático de usuário ao Zscaler
 
@@ -91,11 +88,13 @@ Esta seção orienta você pelas etapas de configuração do AD do Azure serviç
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Para configurar o provisionamento automático de usuário zscaler no Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory > Aplicativos empresariais > Todos os aplicativos**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Zscaler**.
 
-2. Selecione o Zscaler da sua lista de aplicativos SaaS.
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/app-instance-search.png)
+2. Na lista de aplicativos, selecione **Zscaler**.
+
+    ![O link do Zscaler na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
@@ -107,20 +106,20 @@ Esta seção orienta você pelas etapas de configuração do AD do Azure serviç
 
 5. Sob o **credenciais de administrador** seção, insira o **URL do locatário** e **Token secreto** da sua conta do Zscaler, conforme descrito na etapa 6.
 
-6. Para obter o **URL do locatário** e **Token secreto**, navegue até **Administração > configurações de autenticação** na interface de usuário do portal do Zscaler e clique em **SAML** sob **tipo de autenticação**. 
+6. Para obter o **URL do locatário** e **Token secreto**, navegue até **Administração > configurações de autenticação** na interface de usuário do portal do Zscaler e clique em **SAML** sob **tipo de autenticação**.
 
     ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
-    Clique em **configurar SAML** para abrir **configuração SAML** opções. 
+    Clique em **configurar SAML** para abrir **configuração SAML** opções.
 
     ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
-    
+
     Selecione **Enable SCIM-Based provisionamento** para recuperar **URL de Base** e **Token de portador**, em seguida, salve as configurações. Cópia de **Base URL** para **URL do locatário**, e **Token de portador** para **Token secreto** no portal do Azure.
 
 7. Ao popular os campos mostrados na etapa 5, clique em **Conexão de teste** para garantir que o Azure AD pode se conectar ao Zscaler. Se a conexão falhar, verifique se que sua conta do Zscaler tem permissões de administrador e tente novamente.
 
     ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/test-connection.png)
-    
+
 8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/notification.png)
@@ -163,12 +162,12 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como examinar os logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-provisioning-tutorial/tutorial-general-01.png

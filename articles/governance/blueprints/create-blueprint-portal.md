@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004911"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804387"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um Azure Blueprint no portal
 
@@ -40,7 +40,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
    - Alternativamente, clique em **Criar** na página **Introdução** para ir direto para a criação de um blueprint.
 
-   ![Criar plano gráfico](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Criar blueprint da página de Definições de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Forneça um **Nome do blueprint** como "MyBlueprint" (letras e números – até 48 caracteres, mas sem espaços nem caracteres especiais) para o blueprint, mas deixe **Descrição do blueprint** em branco por enquanto. Na caixa **Definir local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que deseja salvar o blueprint e clique em **Selecione**.
 
@@ -48,7 +48,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
 1. Adicionar atribuição de função na assinatura: Clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura** e a janela "Adicionar artefato" é aberta no lado direito do navegador. Selecione 'Atribuição de função' para _tipo de Artefato_. Em _Papel_, selecione 'Colaborador' e deixe o campo _Adicionar usuário, aplicativo ou grupo_ com a caixa de seleção indicando um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
-   ![Artefato - atribuição de função](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Artefato de Blueprint – Atribuição de Função](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > A maioria dos artefatos _suporta_ parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um **parâmetro estático**. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um **parâmetro dinâmico**. Para obter mais informações, consulte [parâmetros de blueprint](./concepts/parameters.md).
@@ -113,11 +113,11 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
    }
    ```
 
-   ![Artefato - modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Artefato de blueprint – modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Seu blueprint concluído deve ser semelhante ao seguinte. Observe que cada artefato tem '_x_ de _y_ parâmetros preenchidos' sob a coluna _Parâmetros_. Os **parâmetros dinâmicos** são definidos durante cada atribuição do blueprint.
 
-   ![Projeto concluído](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Definição de blueprint concluído](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Agora que todos os artefatos planejados foram adicionados, clique em **Salvar rascunho** na parte inferior da página.
 
@@ -135,11 +135,11 @@ Em [Criar um blueprint](#create-a-blueprint), uma Descrição não foi fornecida
 
 1. Adicionar atribuição de função sob o grupo de recursos: Clique com o botão esquerdo na linha **+ Adicionar artefato...**, diretamente sob a entrada **ResourceGroup**. Selecione 'Atribuição de função' para _tipo de Artefato_. Em _Função_, selecione 'Proprietário' e remova a marca de seleção do campo _Adicionar usuário, aplicativo ou grupo_ e pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Esse artefato usa um **parâmetro static** definido igualmente em todas as atribuições deste projeto. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
-   ![Artifact - Role Assignment #2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Artefato de blueprint – Atribuição de Função nº 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Seu blueprint concluído deve ser semelhante ao seguinte. Observe que a designação de função adicionada recentemente mostra **1 de 1 parâmetros preenchidos**, o que significa que é um **parâmetro estático**.
 
-   ![Modelo concluído #2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Definição de blueprint concluído nº 2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Clique em **Salvar rascunho** agora que foi atualizado.
 
@@ -224,7 +224,7 @@ Agora que o blueprint foi atribuído a uma assinatura, verifique o progresso da 
 
 1. Na lista de blueprints, clique com o botão direito do mouse no que você atribuiu anteriormente e selecione **Exibir detalhes da atribuição**.
 
-   ![Exibir detalhes de atribuição](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Exibir detalhes da atribuição da página de Blueprints atribuídos](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. Na página **Atribuição de blueprint**, valide se todos os artefatos foram implantados com sucesso e se não houve erros durante a implantação. Em caso de erro, confira a [solução de problemas de blueprint](./troubleshoot/general.md) a fim de obter as etapas para determinar o que deu errado.
 

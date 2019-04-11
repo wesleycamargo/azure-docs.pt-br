@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628997"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276381"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar um compartilhamento de perfil do usuário para um pool de host
 
-O serviço de visualização de área de trabalho Virtual do Windows oferece FSLogix contêineres de perfil como a solução de perfil do usuário recomendada. Não recomendamos usar a solução de disco de perfil de usuário (UDP), e ele será preterido em versões futuras do Windows de área de trabalho Virtual.
+O serviço de visualização de área de trabalho Virtual do Windows oferece FSLogix contêineres de perfil como a solução de perfil do usuário recomendada. Não recomendamos usando a solução de disco de perfil de usuário (UDP), que será preterida em futuras versões do Windows de área de trabalho Virtual.
 
 Esta seção informa como configurar um compartilhamento de contêiner FSLogix perfil para um pool de host. Para obter documentação geral sobre FSLogix, consulte o [FSLogix site](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Depois de criar a máquina virtual, uni-lo ao domínio, fazendo o seguinte:
 
 A seguir estão as instruções gerais sobre como preparar uma máquina virtual para atuar como um compartilhamento de arquivos para perfis de usuário:
 
-1. Associar as máquinas de virtuais do host de sessão para um [grupo de segurança do Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Esse grupo de segurança será usado para autenticar as máquinas de virtuais de hosts de sessão para a máquina virtual de compartilhamento de arquivo que acabou de criar.
+1. Adicionar os usuários do Active Directory do Windows Virtual da área de trabalho para um [grupo de segurança do Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Esse grupo de segurança será usado para autenticar os usuários da área de trabalho Virtual do Windows para a máquina virtual de compartilhamento de arquivo que acabou de criar.
 2. [Conectar-se à máquina de virtual do compartilhamento de arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Na máquina virtual do compartilhamento de arquivo, crie uma pasta na **unidade C** que será usado como o compartilhamento de perfil.
 4. Clique com botão direito na nova pasta, selecione **propriedades**, selecione **Sharing**, em seguida, selecione **compartilhamento avançado...** .
 5. Selecione **compartilhar esta pasta**, selecione **permissões...** , em seguida, selecione **adicionar...** .
-6. Pesquise o grupo de segurança ao qual você adicionou as máquinas de virtuais do host de sessão e, em seguida, verifique se esse grupo tem **controle total**.
+6. Pesquise o grupo de segurança ao qual você adicionou os usuários da área de trabalho Virtual do Windows e, em seguida, verifique se esse grupo tem **controle total**.
 7. Depois de adicionar o grupo de segurança, clique com botão direito na pasta, selecione **propriedades**, selecione **compartilhamento**, em seguida, copie o **caminho de rede** usar para uso posterior.
 
 Para obter mais informações sobre permissões, consulte a [FSLogix documentação](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,16 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Conectar-se à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais que você forneceu ao criar a máquina virtual.
 2. Inicie um navegador da internet e navegue até [esse link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente FSLogix. Como parte da demonstração pública do Windows de área de trabalho Virtual, você obterá uma chave de licença para ativar o software FSLogix. A chave é o arquivo LicenseKey.txt incluído no arquivo. zip FSLogix agente.
-3. Instale o agente FSLogix.
+3. Navegue até um \\ \\Win32\\versão ou \\ \\X64\\versão no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente FSLogix.
 4. Navegue até **Program Files** > **FSLogix** > **aplicativos** para confirmar se o agente instalado.
-5. No menu Iniciar, executar **RegEdit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfis**
-6. Crie os seguintes valores:
+5. No menu Iniciar, executar **RegEdit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Crie uma chave nomeada **perfis**.
+7. Crie os seguintes valores para a chave de perfis:
 
 | NOME                | Type               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
 | habilitado             | DWORD              | 1                                 |
-| VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos" |
-| VolumeType          | Cadeia de caracteres             | VHDX                              |
-| SizeInMBs           | DWORD              | "inteiro para o tamanho do perfil de"     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos"     |
+
+>[!IMPORTANT]
+>Para ajudar a proteger seu ambiente de área de trabalho Virtual do Windows no Azure, é recomendável que não abrir a porta 3389 de entrada em suas VMs. Área de trabalho Virtual do Windows não exige uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de host. Se você deve abrir a porta 3389 para fins de solução de problemas, recomendamos que você use [acesso VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

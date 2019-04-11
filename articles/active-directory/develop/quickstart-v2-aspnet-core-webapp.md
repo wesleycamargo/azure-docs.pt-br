@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200983"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903583"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -40,7 +40,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o [portal do Azure - Registros de aplicativo (Versão prévia)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Acesse o [portal do Azure – Registros de aplicativo](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -51,7 +51,8 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo (Versão prévia)** > **Novo registro**.
+> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
+> 1. Selecione **Novo registro**.
 > 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
 >    - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `AspNetCore-Quickstart`.
 >    - Na **URL de Resposta**, adicione `https://localhost:44321/` e selecione **Registrar**.
@@ -68,7 +69,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 > > [Fazer essa alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) Seu aplicativo já está configurado com esses atributos.
+> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) Seu aplicativo está configurado com esses atributos.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Etapa 2: Baixar o projeto do ASP.NET Core
 
@@ -78,7 +79,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 
 1. Extraia o arquivo zip para uma pasta local na pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Se você usa o Visual Studio 2017, abra a solução no Visual Studio (opcional).
-1. Edite o arquivo **appsettings.json**. Localize `ClientId` e substitua `Enter_the_Application_Id_here` pela **ID do aplicativo (cliente)** do aplicativo que você acabou de registrar. 
+1. Edite o arquivo **appsettings.json**. Localize `ClientId` e atualize o valor de `ClientId` com o valor da **ID do aplicativo (cliente)** do aplicativo que você acabou de registrar. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -87,11 +88,11 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** para o aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
-> - `Enter_the_Tenant_Info_Here` - é uma das seguintes opções:
+> - `Enter_the_Application_Id_here` – é a **ID do aplicativo (cliente)** para o aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
+> - `Enter_the_Tenant_Info_Here` – é uma das seguintes opções:
 >   - Se seu aplicativo dá suporte a **Contas apenas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
->   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`
+>   - Se o aplicativo der suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, substitua esse valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7772797aa6c20c8f583608bac8fc002a92796a11
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444035"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801854"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure 
 
@@ -84,7 +84,7 @@ Você pode usar a identidade gerenciada da VM para recuperar os dados no Azure S
 1. Navegue de volta para sua conta de armazenamento criado recentemente.  
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  
 3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função à sua VM.
-4. Em **Função**, no menu suspenso, selecione **Leitor de Dados de Blob de Armazenamento (Versão prévia)**. 
+4. Em **Função**, no menu suspenso, selecione **Leitor de Dados de Blob de Armazenamento**. 
 5. No menu suspenso seguinte, em **Atribuir acesso a**, escolha **Máquina Virtual**.  
 6. Depois, verifique se a assinatura correta está listada no menu suspenso **Assinatura** e defina **Grupo de Recursos** como **Todos os grupos de recursos**.  
 7. Em **Selecionar**, escolha sua VM e clique em **Salvar**.

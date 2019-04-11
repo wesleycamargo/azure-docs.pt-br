@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248105"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257987"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Instalar o Visual Studio e conecte-se ao Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplicável a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode usar o Visual Studio para escrever e implantar o Azure Resource Manager [modelos](azure-stack-arm-templates.md) para o Azure Stack. As etapas neste artigo explicam a instalação do Visual Studio no [do Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou em um computador externo, se você planeja usar o Azure Stack por meio [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Você pode usar o Visual Studio para escrever e implantar o Azure Resource Manager [modelos](azure-stack-arm-templates.md) para o Azure Stack. As etapas neste artigo descrevem como instalar o Visual Studio [do Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou em um computador externo, se você planeja usar o Azure Stack por meio [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Instalar Visual Studio
 
@@ -39,9 +39,9 @@ Você pode usar o Visual Studio para escrever e implantar o Azure Resource Manag
 
 4. Desinstalar o **Microsoft Azure PowerShell** que é instalado como parte do SDK do Azure.
 
-    ![Etapas de instalação de captura de tela do WebPI](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Etapas de instalação de captura de tela do WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
+5. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
 
 6. Depois que a instalação for concluída, reinicie o sistema operacional.
 
@@ -65,9 +65,7 @@ Depois de conectado, você pode [implantar modelos](azure-stack-deploy-template-
 
 3. Expandir **ambiente** na **painel de navegação** e selecione **contas**.
 
-4. Selecione **adicionar**e insira o ponto de extremidade do Gerenciador de recursos do usuário do Azure.  
-  Para o Kit de desenvolvimento do Azure Stack, a URL é: `https://management.local.azurestack/external`.  
-  Para sistemas integrados do Azure Stack, a URL é: `https://management.[Region}.[External FQDN]`.
+4. Selecione **adicionar**e insira o ponto de extremidade do Gerenciador de recursos do usuário do Azure. Para o Kit de desenvolvimento do Azure Stack, a URL é: `https://management.local.azurestack/external`.  Para sistemas integrados do Azure Stack, a URL é: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,17 +77,17 @@ Depois de conectado, você pode [implantar modelos](azure-stack-deploy-template-
 
 6. Selecione **Cloud Explorer** da **exibição** menu.
 
-1. Selecione **adicionar conta** e entre com suas credenciais do AD FS.  
+7. Selecione **adicionar conta** e entre com suas credenciais do AD FS.  
 
     ![Gerenciador de Nuvem](./media/azure-stack-install-visual-studio/image7.png)
 
-    Cloud Explorer consultará as assinaturas disponíveis. Você pode selecionar um uma assinatura disponível para gerenciar.
+    Cloud Explorer consultará as assinaturas disponíveis. Você pode selecionar uma assinatura disponível para gerenciar.
 
     ![Gerenciador de Nuvem](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Navegação de seus recursos existentes, os grupos de recursos ou implantar modelos.
+8. Navegar por seus recursos existentes, os grupos de recursos ou implantar modelos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
- - Leia mais sobre o Visual Studio [lado a lado](https://msdn.microsoft.com/library/ms246609.aspx) com outras versões do Visual Studio.
- - [Desenvolver modelos para o Azure Stack](azure-stack-develop-templates.md).
+- Leia mais sobre o Visual Studio [lado a lado](/visualstudio/install/install-visual-studio-versions-side-by-side) com outras versões do Visual Studio.
+- [Desenvolver modelos para o Azure Stack](azure-stack-develop-templates.md).

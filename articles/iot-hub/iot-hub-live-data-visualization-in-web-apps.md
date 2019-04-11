@@ -1,19 +1,19 @@
 ---
 title: Visualização de dados em tempo real de dados de sensor do seu Hub IoT do Azure – aplicativos Web | Microsoft Docs
 description: Use a funcionalidade do aplicativo Web do Serviço de Aplicativo do Microsoft Azure para visualizar dados de temperatura e umidade que são coletados do sensor e enviados para o seu Hub IoT.
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.author: robinsh
+ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158713"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270873"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure
 
@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como visualizar dados de sensor em tempo real q
   * Um Hub IoT em sua assinatura
   * Um aplicativo cliente que envia mensagens para o seu Hub IoT
 
-* [Baixar Git](https://www.git-scm.com/downloads)
+* [Baixar o Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
@@ -114,7 +114,7 @@ Você deve ver os dados de temperatura e umidade em tempo real de seu Hub IoT.
 > [!NOTE]
 > Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você receberá um gráfico em branco, você pode consultar os tutoriais em [configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você usou com êxito seu aplicativo Web para visualizar dados do sensor em tempo real do seu Hub IoT.
 

@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094221"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469515"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou o Azure para assinatura Students Starter para pré-pago
 
-Se você tiver um [avaliação gratuita](https://azure.microsoft.com/free/), você pode atualizar para uma [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) assinatura no portal do Azure. Se você tiver um [do Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) assinatura, você pode atualizar [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de contas do Azure.
+Se você tiver um [avaliação gratuita](https://azure.microsoft.com/free/) ou um [do Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) assinatura, você pode atualizar [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) no portal do Azure. Se você tiver uma assinatura do Azure for Students Starter e está qualificados para uma avaliação gratuita, você pode atualizar para a avaliação gratuita.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ Se você tiver um [avaliação gratuita](https://azure.microsoft.com/free/), voc
 Ao atualizar de uma assinatura de avaliação gratuita, você mantém o crédito restante pelos 30 dias após ter criado a assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Pesquisar em **gerenciamento + cobrança de custos.**
+1. Pesquisar em **assinaturas.**
 
-    ![Captura de tela que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search.png)
+    ![Captura de tela que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Selecione sua assinatura de avaliação gratuita.
 1. Na folha de visão geral da assinatura, clique em **atualizar assinatura** na barra de comandos.
@@ -63,15 +63,24 @@ Se você quiser [transferir a assinatura](billing-subscription-transfer.md) apó
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Atualizar sua assinatura do Azure for Students Starter para pré-pago
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions).
+Quando você seguir as etapas a seguir, podemos lhe oferecerá a opção de atualizar para uma avaliação gratuita se você está qualificado.
+
+1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Pesquisar em **assinaturas.**
+
+    ![Captura de tela que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Selecione sua assinatura do Azure for Students Starter.
-1. Sob **status da assinatura**, clique em **atualizar agora**.
+1. Na folha de visão geral da assinatura, clique em **atualizar assinatura** na barra de comandos.
 
-    ![Captura de tela que mostra a atualização para aluno](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![Captura de tela que mostra o botão Atualizar para alunos](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Insira um nome para sua assinatura.
+1. Se você estiver atualizando para o pré-pago e ainda não tiver um método de pagamento para a sua assinatura, você será solicitado a adicioná-lo.
+1. Você talvez seja necessário inserir um número de telefone para verificar sua identidade.
+1. Digite um nome para sua assinatura.
+1. Se você estiver atualizando para pré-pago, escolha um plano de suporte para a sua assinatura. Para saber mais sobre planos de suporte, consulte [planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Clique em **atualizar agora**.
+1. Clique em **Atualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

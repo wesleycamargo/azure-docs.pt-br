@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: d36cbe50ab040549353efd19dd794ec7fab51b7b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774397"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280461"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides de notebook
 
@@ -60,8 +60,8 @@ Se você pegar um notebook aleatório e usá-lo para uma apresentação de slide
     | Slide | A célula é um slide principal, navegada usando as setas à esquerda e direita do controle de navegação. |
     | Subslide | A célula esta “abaixo” do slide principal, navegado usando a seta para baixo do controle de navegação. A seta para cima retorna para o slide principal. Subslides são usados para o material secundário que você poderia ignorar no caminho principal de uma apresentação, mas está prontamente disponível, se necessário. |
     | Fragmento | Conteúdo da célula aparece no contexto do slide anterior ou subslide ao usar a seta para baixo de navegação (um fragmento é removido ao usar a seta para cima). Você pode usar um fragmento com uma célula de código para fazer com que esse código apareça dentro de um slide, ou você pode usar vários fragmentos para fazer os marcadores de texto aparecerem um por um (veja o exemplo na próxima seção). Uma vez que os fragmentos são construídos no slide atual, os fragmentos em excesso não ficarão visíveis na parte inferior da janela do navegador. |
-    | Ignorar | A célula não é mostrada na apresentação de slides. |
-    | Notes | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
+    | Skip | A célula não é mostrada na apresentação de slides. |
+    | Observações | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
 
 1. Inicialmente, é útil escolher **Slide** para cada célula. Você pode executar a apresentação de slides e fazer os ajustes apropriados.
 
@@ -103,6 +103,6 @@ Uma vez que a apresentação de slides processa fragmentos com espaçamento mais
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
-- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
+- [Como: Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
+- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)

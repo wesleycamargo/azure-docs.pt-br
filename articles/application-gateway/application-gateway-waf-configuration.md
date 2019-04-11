@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790148"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277402"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação e listas de exclusões de firewall do aplicativo Web
 
@@ -40,7 +40,7 @@ Os seguintes atributos podem ser adicionados a listas de exclusão:
 
 * Cabeçalhos de solicitação
 * Cookies de solicitação
-* Corpo de Solicitação
+* Corpo da solicitação
 
    * Dados de várias partes do formulário
    * XML
@@ -54,6 +54,7 @@ A seguir estão os operadores de critérios de correspondência com suporte:
 - **Começa com**: Esse operador corresponde com todos os campos que começam com o valor do seletor especificado.
 - **Termina com**:  Esse operador corresponde com todos os campos de solicitação que terminam com o valor do seletor especificado.
 - **Contém**: Esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
+- **Igual a qualquer**: Esse operador corresponde a todos os campos de solicitação. * será o valor do seletor.
 
 Em todos os casos, a correspondência diferencia maiúsculas de minúsculas e a expressão regular não é permitida como seletor.
 

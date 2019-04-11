@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258370"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863008"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer backup de VMs do Azure com o PowerShell
 
@@ -82,7 +82,7 @@ Crie um cofre conforme a seguir:
 
 Os backups são executados de acordo com o agendamento especificado na política de backup. Quando você cria um cofre dos Serviços de Recuperação, ele vem com proteção e políticas de retenção padrão.
 
-- A política de proteção padrão dispara um trabalho de backup por dia em um horário especificado.
+- A política de proteção padrão dispara um trabalho de backup uma vez por dia em um horário especificado.
 - A política de retenção padrão retém o ponto de recuperação diário por 30 dias. 
 
 Para habilitar e fazer backup da VM do Azure neste tutorial, vamos fazer o seguinte:
@@ -122,5 +122,5 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Revisar](backup-azure-vms-automation.md) uma explicação mais detalhada de backup e restauração de VMs do Azure com o PowerShell. 
-- [Gerenciar e monitorar o backup de VM do Azure](backup-azure-manage-vms.md)
-- [Restaurar máquinas virtuais do Azure](backup-azure-arm-restore-vms.md)
+- [Gerenciar e monitorar as VMs do Azure](backup-azure-manage-vms.md)
+- [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md)

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802109"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009564"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 Adicionar novos usuários ou excluir usuários existentes de sua organização do Azure Active Directory (Azure AD).
@@ -47,7 +47,7 @@ Você pode criar um novo usuário usando o portal do Azure Active Directory.
 
    - **Grupos.** Opcionalmente, você pode adicionar o usuário a um ou mais grupos existentes. Você também pode adicionar o usuário aos grupos posteriormente. Para obter mais informações sobre como adicionar usuários a grupos, consulte [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
-   - **Função de diretório.** Opcionalmente, você pode adicionar o usuário a um Azure AD função de administrador. Você pode atribuir o usuário seja um Administrador Global ou um ou mais das funções de administrador limitado do Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
+   - **Função de diretório.** Opcionalmente, você pode adicionar o usuário a uma função de administrador do AD do Azure. Você pode atribuir o usuário seja um Administrador Global ou um ou mais das funções de administrador limitado do Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
 
 4. Copie a senha gerada automaticamente fornecida na caixa **Senha**. Você precisará fornecer essa senha ao usuário para o processo de logon inicial.
 
@@ -79,9 +79,9 @@ Você pode excluir um usuário existente usando o portal do Azure Active Directo
 
 Depois de adicionar seus usuários, você pode executar os seguintes processos básicos:
 
-- [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
+- [Adicionar ou alterar informações do perfil](active-directory-users-profile-azure-portal.md)
 
-- [Atribuir funções a usuários](active-directory-users-assign-role-azure-portal.md)
+- [Atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md)
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 

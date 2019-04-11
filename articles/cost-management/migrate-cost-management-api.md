@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518772"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279866"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do Enterprise Agreement para APIs de contrato do cliente da Microsoft
 
@@ -81,7 +81,7 @@ Se você usar quaisquer APIs de EA existente, você precisará atualizá-los par
 | Finalidade | Oferta antiga | Nova oferta |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Gerenciamento de Custos do Azure](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Consumo de informações do Microsoft](/power-bi/desktop-connect-azure-consumption-insights) pack e o conector de conteúdo | [Aplicativo Microsoft Azure consumo Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [ conector do Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Consumo de informações do Microsoft](/power-bi/desktop-connect-azure-consumption-insights) pack e o conector de conteúdo | [Aplicativo Microsoft Azure consumo Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [conector do Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>APIs para obter o equilíbrio e créditos
 

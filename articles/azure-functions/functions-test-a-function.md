@@ -9,14 +9,14 @@ keywords: azure functions, funções, processamento de eventos, webhooks, comput
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 030/25/2019
+ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439321"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357631"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -26,7 +26,7 @@ Este artigo demonstra como criar testes automatizados para o Azure Functions.
 
 O conteúdo a seguir é dividido em duas seções diferentes direcionadas a linguagens e ambientes distintos. Você pode aprender a criar testes:
 
-- [C# no Visual Studio com xUnit](#c-in-visual-studio)
+- [C#no Visual Studio com xUnit](#c-in-visual-studio)
 - [JavaScript no VS Code com Jest](#javascript-in-vs-code)
 
 O repositório de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
@@ -253,6 +253,8 @@ Os membros implementados nesta classe são:
 
 - **Timer_should_log_message**: Esse teste cria uma instância de `ListLogger` e passa-a para uma função de temporizador. Depois que a função é executada, o log é verificado para garantir que a mensagem esperada está presente.
 
+Se você quiser acessar as configurações de aplicativo em seus testes, você pode usar [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### <a name="run-tests"></a>Executar testes
 
 Para executar os testes, navegue até a **Gerenciador de Testes** e clique em **Executar todos**.
@@ -372,7 +374,7 @@ Para depurar seus testes, adicione a seguinte configuração ao arquivo *launch.
 
 Em seguida, defina um ponto de interrupção no teste e pressione **F5**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a gravar testes automatizados das funções, continue com estes recursos:
 - [Executar manualmente uma função não disparada por HTTP](./functions-manually-run-non-http.md)

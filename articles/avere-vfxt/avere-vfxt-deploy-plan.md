@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990978"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271060"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
 
@@ -82,7 +82,7 @@ O cache de disco por nó é configurável e pode variar de 1.000 GB a 8.000 GB.
 
 Para obter informações adicionais sobre essas VMs, leia a documentação do Microsoft Azure:
 
-* [Tamanhos de máquina virtual otimizada para memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+* [Tamanhos de máquinas virtuais com GPU otimizadas para memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Cota da conta
 
@@ -130,6 +130,17 @@ Ao criar o cluster, você pode escolher se deseja ou não criar um endereço IP 
 
 * Se você criar uma VNET ou uma nova sub-rede, o controlador de cluster receberá um endereço IP público.
 * Se você selecionar uma VNET e uma sub-rede existentes, o controlador de cluster terá apenas os endereços IP privados. 
+
+## <a name="vm-access-roles"></a>Funções de acesso VM 
+
+O Azure usa [controle de acesso baseado em função](../role-based-access-control/index.yml) (RBAC) para autorizar as VMs do cluster para executar determinadas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar as VMs do nó de cluster. Os nós de cluster precisam ser capaz de atribuir ou reatribuir os endereços IP para outros nós do cluster.
+
+Duas funções internas do Azure são usadas para as máquinas de virtuais Avere vFXT: 
+
+* O controlador de cluster usa a função interna [Avere Colaborador](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Nós de cluster usam a função interna [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Se você precisar personalizar as funções de acesso para Avere vFXT componentes, você deve definir sua própria função e, em seguida, atribuí-lo para as VMs no momento em que eles são criados. Você não pode usar o modelo de implantação no Azure Marketplace. Consulte o suporte e atendimento ao cliente Microsoft abrindo um tíquete no portal do Azure, conforme descrito em [Obtenha ajuda com o seu sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Próxima etapa: Compreender o processo de implantação
 

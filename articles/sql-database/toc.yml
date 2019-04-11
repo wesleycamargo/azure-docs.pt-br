@@ -169,7 +169,7 @@ items:
         href: sql-database-dtu-resource-limits-elastic-pools.md
       - name: Recursos de escala
         href: sql-database-elastic-pool-scale.md
-    - name: Criar e gerenciar
+    - name: Gerenciar recursos do pool
       href: sql-database-elastic-pool-manage.md
   - name: Instâncias gerenciadas
     items:
@@ -224,6 +224,7 @@ items:
     - name: Visão geral da segurança
       href: sql-database-security-index.yml
     - name: Funcionalidades de segurança
+      displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       href: sql-database-security-overview.md
     - name: Segurança de dados avançada
       items:
@@ -729,9 +730,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: c5499ed8f5fc5de742ff75c0692221f54a56b1a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 55afe0d516861f0c1042893374b6faef8927ac16
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894552"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358030"

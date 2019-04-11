@@ -7,30 +7,32 @@ items:
     href: about-azure-maps.md
 - name: Guia de início rápido
   items:
-  - name: Criar um aplicativo de mapa
+  - name: Criar um aplicativo Web
     href: quick-demo-map-app.md
 - name: Tutoriais
   items:
-  - name: 1 - Pesquisar pontos de interesse
-    href: tutorial-search-location.md
-  - name: 2- Rotear para um destino
-    href: tutorial-route-location.md
-  - name: 3 - Várias rotas por modo de viagem
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Criar um localizador de lojas
-    href: tutorial-create-store-locator.md
-  - name: 5 – Configurar uma cerca geográfica
-    href: tutorial-geofence.md
+  - name: Tutoriais do SDK da Web
+    items:
+    - name: Pesquisar ponto de interesse
+      href: tutorial-search-location.md
+    - name: Rota para um destino
+      href: tutorial-route-location.md
+    - name: Várias rotas por modo de viagem
+      href: tutorial-prioritized-routes.md
+    - name: Criar um localizador de lojas
+      href: tutorial-create-store-locator.md
+  - name: Tutoriais da API REST
+    items:
+    - name: Configurar uma cerca geográfica
+      href: tutorial-geofence.md
 - name: Conceitos
   items:
-  - name: Níveis de zoom e grade lado a lado
-    href: zoom-levels-and-tile-grid.md
+  - name: Autenticação com Azure Mapas
+    href: azure-maps-authentication.md
   - name: Integração da Grade de Eventos do Azure Mapas
     href: azure-maps-event-grid-integration.md
   - name: Escolher o melhor tipo de preço
     href: choose-pricing-tier.md
-  - name: Autenticação com Azure Mapas
-    href: azure-maps-authentication.md
   - name: Cobertura
     items:
     - name: Cobertura da geocodificação
@@ -43,10 +45,12 @@ items:
       href: routing-coverage.md
   - name: Idiomas com suporte
     href: supported-languages.md
-  - name: Estilos de mapa com suporte
+  - name: Estilos de mapa compatíveis
     href: supported-map-styles.md
   - name: Navegadores compatíveis com o SDK Web
     href: supported-browsers.md
+  - name: Níveis de zoom e grade lado a lado
+    href: zoom-levels-and-tile-grid.md
 - name: Guias de instruções
   items:
   - name: Gerenciar contas do Azure Mapas
@@ -63,6 +67,8 @@ items:
     items:
     - name: Pesquisar um endereço
       href: how-to-search-for-address.md
+    - name: Melhores práticas para pesquisar
+      href: how-to-use-best-practices-for-search.md
     - name: Renderizar dados personalizados no mapa estático
       href: how-to-render-custom-data.md
   - name: Desenvolver com o SDK da Web
@@ -89,6 +95,8 @@ items:
         href: map-add-heat-map-layer.md
       - name: Dados de ponto de cluster
         href: clustering-point-data-web-sdk.md
+      - name: Usar expressões de estilo orientadas por dados
+        href: data-driven-style-expressions-web-sdk.md
       - name: Sobrepor uma imagem
         href: map-add-image-layer.md
       - name: Adicionar camadas de bloco
@@ -159,7 +167,7 @@ items:
   items:
   - name: Termos de uso do Azure Mapas
     href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Preços
+  - name: Preços do Azure Mapas
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculadora de preço
     href: https://azure.microsoft.com/pricing/calculator/
@@ -167,7 +175,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Glossário
+  - name: Vídeos do Azure Mapas
+    href: https://aka.ms/AzureMapsVideos
+  - name: Glossário do Azure Mapas
     href: glossary.md
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates
@@ -177,7 +187,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Estudos de casos técnicos
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: vídeos
+  - name: Azure Mapas na escola de IoT
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: Relacionados
   items:
@@ -205,9 +215,9 @@ items:
       href: /azure/iot-edge
     - name: SDKs do dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: db82c8eac3288867b524f19b688b6358b8e6bbc6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575816"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263580"

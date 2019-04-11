@@ -2,16 +2,16 @@
 title: Reter endereços IP durante o failover de VMs do Azure com o Azure Site Recovery | Microsoft Docs
 description: Descreve como reter endereços IP ao falhar nas VMs do Azure para recuperação de desastres em uma região secundária com o Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357893"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
@@ -49,7 +49,7 @@ Esta é a arquitetura antes do failover.
         - O Sudeste Asiático tem uma VNet de recuperação (**VNet de Recuperação**) idêntica à **VNet de Origem**.
         - O Sudeste Asiático tem uma VNet adicional (**VNet do Azure**) com o espaço de endereço 10.2.0.0/16.
         - A **VNet do Azure** contém uma sub-rede (**Sub-rede 4**) com o espaço de endereço 10.2.4.0/24.
-        - Nós de réplica para o SQL Server Always On, para o controlador de domínio etc ficam localizados na **Sub-rede 4**.
+        - Nós de réplica para o SQL Server Always On, controlador de domínio etc. estão localizados em **subrede 4**.
     - A **VNet de origem** e a **VNet do Azure** estão conectadas por meio de uma conexão site a site via VPN.
     - A **VNet de recuperação** não é conectada a nenhuma outra rede virtual.
     - A **Empresa A** atribui/verifica os endereços IP de destino para itens replicados. O IP de destino é o mesmo que o IP de origem para cada VM.
@@ -92,7 +92,7 @@ Antes do failover, a arquitetura é a seguinte:
 - A região secundária (de destino) é o Azure no Sudeste Asiático, que conta com VNets de recuperação (**VNet de Recuperação 1** e **VNet de Recuperação 1**) idênticas à **VNet de Origem 1** e à **VNet2 de Origem 2**.
         A - **VNet de Recuperação 1** e a **VNet de Recuperação 2** têm duas sub-redes que correspondem às sub-redes na **VNet de Origem 1** e na **VNet de Origem 2** – no Sudeste Asiático, há uma VNet adicional (**VNet do Azure**) com o espaço de endereço 10.3.0.0/16.
         A - **VNet do Azure** contém uma sub-rede (**Sub-rede 4**) com o espaço de endereço 10.3.4.0/24.
-        – Nós de réplica para o SQL Server Always On, para o controlador de domínio etc ficam localizados na **Sub-rede 4**.
+        -Nós de réplica para o SQL Server Always On, controlador de domínio etc. estão localizados em **subrede 4**.
 - Há um número de conexões de VPN site a site: 
     - **VNet de Origem 1** e **VNet do Azure**
     - **VNet de Origem 2** e **VNet do Azure**

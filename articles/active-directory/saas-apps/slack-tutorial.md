@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875027"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Azure Active Directory ao Slack
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Slack ao Azure AD, você precisa adicionar o Slack por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Slack por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Slack da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o Slack, realize as seguintes eta
     ![image](common/edit-attribute.png)
 
     > [!NOTE] 
-    > Se você tiver usuários com **endereços de email**  atribuídos que não estejam em uma licença do Office365, a declaração **User.Email** não será exibida no token SAML. Nesses casos, é recomendável usar **user.userprincipalname** como o valor do atributo **User.Email** para mapear como **Identificador Exclusivo**.
+    > Se você tiver usuários com um **endereço de email** atribuído que não esteja em uma licença do Office365, a declaração **User.Email** não será exibida no token SAML. Nesses casos, é recomendável usar **user.userprincipalname** como o valor do atributo **User.Email** para mapear como **Identificador Exclusivo**.
 
 6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Slack, realize as seguintes eta
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -206,7 +206,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -247,7 +247,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Slack.
 > Se você precisar criar um usuário manualmente, contate a [equipe de suporte do Slack](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure Active Directory Connect é a ferramenta de sincronização que pode sincronizar no local de identidades do Active Directory para o Azure AD e, em seguida, esses usuários sincronizados também podem usar os aplicativos como outros usuários de nuvem.
+> O Azure AD Connect é a ferramenta de sincronização que pode sincronizar Identidades do Active Directory local ao Azure AD e, em seguida, esses usuários sincronizados também poderão usar os aplicativos como outros usuários de nuvem.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

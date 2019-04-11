@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202003"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005539"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em Instâncias de Contêiner do Azure
 
@@ -41,7 +41,9 @@ Este grupo de contêineres de exemplo:
 
 ## <a name="deployment"></a>Implantação
 
-Aqui estão duas maneiras de implantar um grupo de vários contêineres: usar um [modelo do Resource Manager] [ resource-manager template] ou uma [arquivo YAML][yaml-file]. Usar um modelo do Resource Manager quando você precisa para implantar recursos adicionais de serviço do Azure (por exemplo, um [compartilhamento de arquivos do Azure][azure-files]) no momento em que você implantar as instâncias de contêiner. Devido à natureza mais concisa desse formato YAML, um arquivo YAML é recomendado quando sua implantação inclui apenas as instâncias de contêiner.
+Aqui estão duas maneiras de implantar um grupo de vários contêineres: usar um [modelo do Resource Manager] [ resource-manager template] ou uma [arquivo YAML][yaml-file]. Um modelo do Resource Manager é recomendado quando você precisa implantar recursos adicionais de serviço do Azure (por exemplo, um [compartilhamento de arquivos do Azure][azure-files]) quando você implanta as instâncias de contêiner. Devido à natureza mais concisa desse formato YAML, um arquivo YAML é recomendado quando sua implantação inclui apenas as instâncias de contêiner.
+
+Para preservar a configuração do grupo de um contêiner, você pode exportar a configuração para um arquivo YAML usando o comando de CLI do Azure [exportação do contêiner az][az-container-export]. Exportação permite que você armazene suas configurações de grupo de contêiner no controle de versão para "configuração como código". Ou então, usar o arquivo exportado como ponto de partida ao desenvolver uma nova configuração em YAML.
 
 ## <a name="resource-allocation"></a>Alocação de recurso
 
@@ -110,3 +112,4 @@ Saiba como implantar um grupo de contêineres com vários contêineres com um mo
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

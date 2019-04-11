@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: ef021bc9a4f3cb8b49ab3b455e00dfa8dc27dc76
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58909994"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255913"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Perguntas frequentes sobre o firewall do aplicativo web do Azure
 
@@ -77,5 +77,5 @@ Distribuído globalmente nas bordas de rede do Azure, porta de entrada do Azure 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [ firewall do aplicativo web do Azure](waf-overview.md).
+- Saiba mais sobre [firewall do aplicativo web do Azure](waf-overview.md).
 - Saiba mais sobre [do Azure da frente](front-door-overview.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358704"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267116"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia do Azure Data Factory faz o mapeamento de esquema e de tipo de dados dos dados de origem para os dados do coletor ao executar a cópia dos dados.
@@ -146,8 +146,8 @@ O mapeamento de esquema é aplicado ao copiar dados entre dados em formato hier�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do tradutor da atividade de cópia deve ser definida como: **TabularTranslator** | SIM |
-| schemaMapping | Uma coleção de pares de valores-chave, que representa a relação de mapeamento do lado tabular para o lado hierárquico.<br/>- **Chave:** o nome da coluna de dados tabulares conforme definido na estrutura do conjunto de dados.<br/>- **Valor:** a expressão de caminho JSON para cada campo de extrair e mapear. Para os campos sob o objeto root, comece com root $; para os campos dentro da matriz escolhidos pela propriedade `collectionReference`, comece do elemento de matriz.  | SIM |
+| Tipo | A propriedade type do tradutor da atividade de cópia deve ser definida como: **TabularTranslator** | Sim |
+| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado do código-fonte para o coletor lado**.<br/>- **Chave:** fonte representa. Para **origem tabular**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **origem hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear.<br/>- **Valor:** coletor representa. Para **coletor tabular**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear. <br/> No caso de dados hierárquicos, campos sob o objeto raiz, o caminho JSON começa com root $; para os campos dentro da matriz escolhidos pela `collectionReference` propriedade, o caminho JSON começa do elemento de matriz.  | Sim |
 | collectionReference | Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. Essa propriedade só terá suporte quando os dados hierárquicos forem a origem. | Não  |
 
 **Exemplo: copiar do MongoDB para o SQL:**
@@ -233,7 +233,7 @@ O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode
 * DateTime
 * Datetimeoffset
 * Decimal
-* Duplo
+* Double
 * Guid
 * Int16
 * Int32
@@ -268,5 +268,5 @@ Nos cenários abaixo, a seção “structure” no conjunto de dados é sugerida
 Consulte os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
-- [Tolerância a falhas da atividade de cópia](copy-activity-fault-tolerance.md)
+- [Copie a tolerância a falhas de atividade](copy-activity-fault-tolerance.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)
