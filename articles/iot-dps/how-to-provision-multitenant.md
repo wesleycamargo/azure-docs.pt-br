@@ -3,17 +3,17 @@ title: Como fornecer o provisionamento dos dispositivos para multilocação com 
 description: Como fornecer o provisionamento dos dispositivos para multilocação com a Instância de Serviço de Provisionamento de Dispositivos
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544436"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500729"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -208,7 +208,7 @@ Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exe
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Atualmente, o tamanho desse repositório está em torno de 220 MB. Essa operação deve demorar alguns minutos.
+    Essa operação deve demorar alguns minutos.
 
 1. Para ambas as VMs, crie uma nova pasta **cmake** dentro do repositório e mude para a pasta.
 
@@ -418,9 +418,9 @@ Para excluir o grupo de recursos por nome:
 
 4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
+- Para saber mais Reprovisioning, consulte [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
 - Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
 
 

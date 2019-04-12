@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9cbb44fed8a9cc9e30e70e58f33fb943ee43b412
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269156"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494962"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 
@@ -76,9 +76,9 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 
 | Provisionamento inicial de uso único  |  |
 |-|-|
-| Número de objetos | 10 milhões de objetos |
-| Tamanho do conjunto de dados| ~4 TiB |
-| Tamanho médio de arquivo | ~500 KiB (Arquivo maior: 100 GiB) |
+| Número de objetos | 25 milhões de objetos |
+| Tamanho do conjunto de dados| ~4.7 TiB |
+| Tamanho médio de arquivo | Cerca de 200 KiB (maior arquivo: 100 GiB) |
 | Carregue a taxa de transferência | 20 objetos por segundo |
 | Fazer o download do Namespace * | 400 objetos por segundo |
 

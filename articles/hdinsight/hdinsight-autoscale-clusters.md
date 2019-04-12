@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227531"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501001"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters de HDInsight do Azure (visualização)
 
@@ -83,7 +83,7 @@ Para obter mais informações sobre como criar cluster com modelos do Resource M
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Habilitar e desabilitar o dimensionamento automático para um cluster em execução
 
-Você pode habilitar ou desabilitar o dimensionamento automático para clusters HDInsight criados após 1 de janeiro de 2019 por meio do portal do Azure.
+Você só pode habilitar ou desabilitar o dimensionamento automático para novos clusters HDInsight.
 
 ## <a name="monitoring"></a>Monitoramento
 
@@ -108,8 +108,8 @@ As métricas acima são verificadas a cada 60 segundos. Dimensionamento automát
 
 Quando as condições a seguir são detectadas, o dimensionamento automático emitirá uma solicitação de aumento de escala:
 
-* O total de CPU pendente é maior que o total de CPU livre por mais de 1 minuto.
-* O total de memória pendente é maior que o total de memória livre por mais de 1 minuto.
+* Total pendente da CPU é maior que o total de CPU livre para mais de 3 minutos.
+* Total de memória pendentes é maior que o total de memória livre para mais de 3 minutos.
 
 Podemos calcular a que um determinado número de novos nós de trabalho é necessários para atender aos requisitos de CPU e memória atuais e, em seguida, emitir uma solicitação de aumento de escala que adicionará esse número de novos nós de trabalho.
 
@@ -120,7 +120,7 @@ Quando as condições a seguir são detectadas, o dimensionamento automático em
 * O total de CPU pendente é menor que o total de CPU livre por mais de 10 minutos.
 * O total de memória pendente é menor que o total de memória livre por mais de 10 minutos.
 
-Com base no número de contêineres de AM por nó e os requisitos de memória e CPU atual, a AutoEscala emitirá uma solicitação para remover um determinado número de nós, especifica quais nós são candidatos em potencial para remoção. Por padrão, dois nós serão removidos em um ciclo.
+Com base no número de contêineres de AM por nó e os requisitos de memória e CPU atual, a AutoEscala emitirá uma solicitação para remover um determinado número de nós, especifica quais nós são candidatos em potencial para remoção. A escala para baixo irá disparar o encerramento de nós e depois que os nós forem encerrados completamente, eles serão removidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

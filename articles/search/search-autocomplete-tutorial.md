@@ -11,11 +11,11 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471725"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495729"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicione sugestões ou preenchimento automático ao seu aplicativo do Azure Search
 
@@ -310,7 +310,7 @@ Até agora, você já usa o índice de demonstração NYCJobs hospedado. Se voc�
 
 1. Pressione F5 para executar o aplicativo. Aplicativo web de exemplo é aberto no navegador padrão. A experiência é idêntica para a versão de área restrita, somente o índice e os dados são hospedados em seu serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este exemplo demonstra as etapas básicas para a criação de uma caixa de pesquisa que dá suporte a preenchimento automático e sugestões. Você viu como você poderia criar um aplicativo ASP.NET MVC e usar a API REST ou o SDK do .NET do Azure Search para recuperar sugestões.
 

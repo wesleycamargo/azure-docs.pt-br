@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439289"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501343"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -98,7 +98,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Atualmente, o tamanho desse repositório está em torno de 220 MB. Essa operação deve demorar alguns minutos.
+    Essa operação deve demorar alguns minutos.
 
 1. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta.
 
@@ -242,7 +242,7 @@ Para atualizar a configuração da amostragem do rastreamento distribuído para 
 
 | Nome do elemento | Obrigatório | Type | DESCRIÇÃO |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sim | Número inteiro | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` está Habilitado e `2` está Desabilitado. |
+| `sampling_mode` | Sim | Número inteiro | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` é no e, `2` está desativado. |
 | `sampling_rate` | Sim | Número inteiro | Esse valor é uma porcentagem. Somente valores de `0` para `100` (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consultar e visualizar
@@ -276,7 +276,7 @@ Para entender os diferentes tipos de logs, confira [Logs de diagnóstico do Azur
 Para visualizar o fluxo de mensagens de IoT, configure o aplicativo de exemplo do Mapa do aplicativo. O aplicativo de exemplo envia os logs de rastreamento distribuído ao [Mapa do aplicativo](../application-insights/app-insights-app-map.md) usando uma função do Azure e um Hub de eventos.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter a amostra no Github</a>
 
 Essa imagem abaixo mostra o rastreamento distribuído no Mapa de aplicativo com três pontos de extremidade de roteamento:
 

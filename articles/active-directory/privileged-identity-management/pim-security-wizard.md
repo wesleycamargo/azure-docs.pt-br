@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576353"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496600"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistente de segurança de funções no Azure Active Directory no PIM
 
@@ -67,7 +67,7 @@ A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuiç
 
 Se você precisar converter outras atribuições de função com privilégios para qualificados, você pode executar o assistente novamente. Se você quiser usar a interface do PIM, em vez do assistente, consulte [atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Permitir acesso a outros administradores para gerenciar o PIM](pim-how-to-give-access-to-pim.md)

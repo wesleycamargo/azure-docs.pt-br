@@ -1,6 +1,6 @@
 ---
-title: Coletar dados de F5 na visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados de F5 no Azure Sentinel.
+title: Conectar-se a dados F5 para versão prévia do Azure Sentinel | Microsoft Docs
+description: Saiba como se conectar a dados de F5 para Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b78ed31fec3716e06f74d9c026ca2af2c48e0312
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0f5452ade7a34a06cef4564760dc31981f1d8f37
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883455"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492559"
 ---
 # <a name="connect-your-f5-appliance"></a>Conectar seu dispositivo de F5
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883455"
 Você pode conectar Sentinel do Azure para qualquer dispositivo de F5, salvando os arquivos de log como Syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas entre os dados do arquivo de log da F5. Para obter mais informações sobre como o Azure Sentinel ingere dados CEF, consulte [appliances conectar CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
 
 ## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>Etapa 1: Conectar seu dispositivo de F5 usando um agente
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implantar o agente no Azure
 
-1. No portal do Azure Sentinel, clique em **coleta de dados** e selecione o tipo de dispositivo. 
+1. No portal do Azure Sentinel, clique em **connecctors dados** e selecione o tipo de dispositivo. 
 
 1. Sob **configuração do agente de Syslog do Linux**:
    - Escolher **implantação automática** se você deseja criar uma nova máquina que é pré-instalado com o agente do Azure Sentinel e inclui todos os a configuração necessária, conforme descrito acima. Selecione **implantação automática** e clique em **implantação automática do agente**. Isso leva você até a página de compra para uma VM dedicada que é conectado automaticamente ao seu espaço de trabalho, é. A VM é uma **v3 de D2s standard (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
@@ -79,7 +79,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 Se você não estiver usando o Azure, implante manualmente o agente de sentinela do Azure para ser executado em um servidor dedicado do Linux.
 
 
-1. No portal do Azure Sentinel, clique em **coleta de dados** e selecione o tipo de dispositivo.
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione o tipo de dispositivo.
 1. Para criar uma VM do Linux dedicado, sob **configuração do agente de Syslog do Linux** escolher **implantação Manual**.
    1. Sob **Baixe e instale o agente do Syslog**, selecione **computador não Azure Linux**. 
    1. No **agente direto** tela que é aberta, selecione **Agent para Linux** para baixar o agente ou execute este comando para baixá-lo em seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
@@ -122,7 +122,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu como conectar dispositivos de F5 para Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884300"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494741"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
 
@@ -39,21 +39,40 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
 
 1. Abra uma janela do prompt de comando no seu computador. As seguintes instruções são compatíveis com todos os ambientes de desenvolvimento do Windows, Linux e Mac.
 
-2. Crie um aplicativo Web MVC ASP.NET Core:
+1. Crie um aplicativo Web MVC ASP.NET Core:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Altere o diretório de trabalho para a pasta raiz do projeto.
+1. Altere o diretório de trabalho para a pasta raiz do projeto.
 
-4. Adicione o pacote do NuGet para coletar os rastreamentos do Profiler:
+1. Adicione o pacote do NuGet para coletar os rastreamentos do Profiler:
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Adicione uma linha de código na seção **HomeController.cs** para atrasar aleatoriamente alguns segundos:
+1. Habilite o Application Insights em Program.cs:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Habilite o Profiler em Startup.cs:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. Adicione uma linha de código na seção **HomeController.cs** para atrasar aleatoriamente alguns segundos:
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
             }
     ```
 
-6. Salve e confirme suas alterações no repositório local:
+1. Salve e confirme suas alterações no repositório local:
 
     ```
         git init
@@ -143,10 +162,7 @@ Você deverá ver uma saída semelhante ao exemplo a seguir:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![Definir as configurações do aplicativo](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     Quando as configurações de aplicativo são alteradas, o site é reiniciado automaticamente. Depois que as novas configurações são aplicadas, o Profiler é executado imediatamente por dois minutos. O Profiler, em seguida, é executado por dois minutos a cada hora.
 
@@ -160,16 +176,8 @@ Você deverá ver uma saída semelhante ao exemplo a seguir:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>A ação de Habilitar no painel de Configuração do Profiler não funciona
-
-> [!NOTE]
-> Se você hospedar seu aplicativo usando o Serviço de Aplicativo no Linux, você não precisa habilitar novamente o Profiler no painel **Desempenho** no portal do Application Insights. Você pode incluir o pacote NuGet em seu projeto e defina o valor de **iKey** do Application Insights nas configurações do aplicativo web para habilitar o Profiler.
-
-Se você seguir o fluxo de trabalho de habilitação para [Application Insights Profile para Windows](./profiler.md) e selecionar **Habilitar** no painel **Configurar Profiler**, você receberá um erro. A ação de habilitar tenta instalar a versão para Windows do agente do Profiler no ambiente do Linux.
-
-Estamos trabalhando em uma solução para esse problema.
-
-![Não tente reativar o Profiler no painel de Desempenho](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Agora o botão não funciona para Linux Profiler de perfil
+A versão do Linux do criador de perfil do App Insights ainda não dá suporte sob demanda de criação de perfil usando o perfil agora botão.
 
 
 ## <a name="next-steps"></a>Próximas etapas

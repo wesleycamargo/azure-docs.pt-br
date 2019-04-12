@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199623"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492338"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual
 
@@ -37,9 +37,6 @@ Há dois cenários descritos neste documento:
 1. Ambas as redes virtuais estão usando o modelo de implantação do Resource Manager
 2. A rede virtual de spoke é clássica e a rede virtual de hub com o gateway está no Resource Manager
 
-> [!IMPORTANT]  
-> No momento, há suporte para o trânsito de gateway com o emparelhamento de rede virtual global na visualização. A visualização está disponível em todas as regiões do Azure, regiões de nuvem da China e regiões de nuvem do governo, mas não entre nuvens. Nenhuma lista de permissões é necessária. Você pode testar no modo de visualização por meio da CLI, PowerShell, modelos ou API. Não há suporte para o portal na visualização. 
-
 ## <a name="requirements"></a>Requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -53,7 +50,7 @@ O exemplo deste documento exige a criação dos seguintes recursos:
 
 Veja os seguintes documentos para obter instruções:
 
-1. [Criar um gateway de VPN e uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+1. [Criar um gateway de VPN em uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 2. [Criar um emparelhamento de rede virtual com o mesmo modelo de implantação](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [Criar um emparelhamento de rede virtual com diferentes modelos de implantação](../virtual-network/create-peering-different-deployment-models.md)
 
@@ -63,9 +60,9 @@ As contas usadas para criar um emparelhamento de rede virtual precisam ter as fu
     
 |Rede virtual|Modelo de implantação|Função|Permissões|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Não aplicável|
-|Spoke-Classic|Resource Manager|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|Hub-RM|Gerenciador de Recursos|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
+|Spoke-Classic|Gerenciador de Recursos|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Saiba mais sobre [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e como atribuir permissões específicas a [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (somente para o Resource Manager).

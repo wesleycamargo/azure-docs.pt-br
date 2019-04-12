@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360090"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495098"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -42,6 +42,8 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 |Modo de lote em Rowstore (no nível de compatibilidade 150)|Para obter informações, consulte [modo em lotes em Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |Comentários de concessão de memória (modo de linha) (em nível de compatibilidade 150)|Para obter informações, consulte [comentários de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Tabela variável adiada compilação (no nível de compatibilidade 150)|Para obter informações, consulte [compilação adiada variável da tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)|
+| Suporte a fuso horário para instâncias gerenciadas|Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>Março de 2019
@@ -57,6 +59,7 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 
 | Melhorias na documentação | Detalhes |
 | --- | --- |
+| Suporte a fuso horário para instâncias gerenciadas|Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL](sql-database-managed-instance-timezone.md)|
 | Adicionado log limites para bancos de dados únicos|Para obter mais informações, consulte [limites de recursos de vCore do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md).|
 | Adicionado log limites para pools Elásticos e bancos de dados em pool|Para obter mais informações, consulte [vCore limites de recursos dos pools Elásticos](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Governança de taxa de log de transação adicionada| Adicionado novo conteúdo para [governança de taxa de log de transação](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

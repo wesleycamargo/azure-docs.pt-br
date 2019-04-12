@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180595"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490352"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Passo a passo do acelerador de solução da Fábrica Conectada
 
@@ -73,7 +73,7 @@ O Módulo OPC Publisher conecta-se aos servidores OPC UA da estação e assina o
 
 1. Converte os dados do nó em formato JSON.
 1. Criptografa o JSON.
-1. Envia o JSON ao IoT Hub como mensagens OPC UA Pub/Sub.
+1. Envia o JSON ao IoT Hub como OPC UA pub/sub mensagens.
 
 O módulo OPC Publisher exige apenas uma porta de saída https (443) e pode trabalhar com a infraestrutura corporativa existente.
 
@@ -225,12 +225,12 @@ O aplicativo da Web implementado como parte do acelerador de solução inclui um
 > [!NOTE]
 > Para o servidor de agente do usuário de OPC e a pilha de agente do usuário de OPC no WebApp da Fábrica Conectada, a comunicação de Proxy de OPC é transparente e todos os recursos de segurança de agente do usuário de OPC para autenticação e criptografia são aplicáveis.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode continuar a introdução aos aceleradores de solução de IoT lendo os seguintes artigos:
 
 * [Permissões no site azureiotsolutions.com][lnk-permissions]
-* [Implantar um gateway no Windows ou Linux para o acelerador de solução da Fábrica Conectada](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Implantar um gateway no Windows ou Linux para o Acelerador de solução de fábrica conectada](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implementação de referência do Publicador de OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

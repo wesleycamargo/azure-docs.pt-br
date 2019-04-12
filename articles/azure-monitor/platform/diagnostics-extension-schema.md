@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471643"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493307"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
@@ -29,7 +29,7 @@ Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fo
 >
 > Esta página só é relevante se você estiver usando um desses serviços.
 
-A extensão do Diagnóstico do Azure é usada com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics. Para saber mais, veja [Visão geral das ferramentas de monitoramento da Microsoft](../../azure-monitor/overview.md).
+A extensão de diagnóstico do Azure é usada com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e Log Analytics. Para saber mais, veja [Visão geral das ferramentas de monitoramento da Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões do SDK e Diagnóstico do Azure  
 
@@ -56,11 +56,11 @@ A extensão do Diagnóstico do Azure é usada com outros produtos de diagnóstic
 ## <a name="schemas-index"></a>Índice de esquemas  
 Versões diferentes do Diagnóstico do Azure usam esquemas de configuração diferentes.
 
-[Esquema de Configuração do Diagnóstico 1.0](diagnostics-extension-schema-1dot0.md)  
+[Esquema de configuração de diagnóstico 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Esquema de Configuração do Diagnóstico 1.2](diagnostics-extension-schema-1dot2.md)  
+[Esquema de configuração de diagnóstico 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Esquema de Configuração do Diagnóstico 1.3 e posterior](diagnostics-extension-schema-1dot3.md)  
+[Diagnóstico 1.3 e posterior esquema de configuração](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Histórico de versão
 
@@ -207,7 +207,7 @@ Por exemplo, suponha que você selecione esta caixa de seleção e a cadeia de c
 Se você estiver atualizando seu projeto do SDK do Azure 2.4 para o SDK do Azure 2.5 ou posterior, considere as seguintes diferenças de funcionalidade de diagnóstico.
 
 * **APIs de configuração estão preteridos** – A configuração programática de diagnóstico está disponível no SDK do Azure 2.4 ou anteriores, mas foi preterida no SDK do Azure 2.5 e posteriores. Se sua configuração de diagnóstico está definida atualmente no código, você precisará reconfigurar as configurações do zero no projeto migrado para que o diagnóstico continue a funcionar. O arquivo de configuração de diagnóstico do SDK do Azure 2.4 é diagnostics.wadcfg e para o SDK do Azure 2.5 e posteriores, diagnostics.wadcfgx.
-* **Diagnóstico para aplicativos de serviço de nuvem só podem ser configurados no nível de função, não no nível de instância.**
+* **Diagnóstico para aplicativos de serviço de nuvem só pode ser configurado no nível de função, não no nível de instância.**
 * **Sempre que você implanta seu aplicativo, a configuração de diagnóstico é atualizada** – isso pode causar problemas de paridade, se você altera a configuração de diagnóstico do Gerenciador de Servidores e, em seguida, reimplanta o aplicativo.
 * **No SDK do Azure 2.5 e posteriores, despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, precisará transferir manualmente a configuração de código para o arquivo de configuração, pois os despejos de memória não são transferidos durante a migração para o SDK do Azure 2.6.
 

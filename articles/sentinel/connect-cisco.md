@@ -1,6 +1,6 @@
 ---
-title: Coletar dados de Cisco na visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados de Cisco no Azure Sentinel.
+title: Conectar-se a dados Cisco para versão prévia do Azure Sentinel | Microsoft Docs
+description: Saiba como se conectar a dados da Cisco para Sentinel do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883897"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495695"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Conectar seu dispositivo Cisco ASA 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883897"
 Você pode conectar o Azure Sentinel para qualquer dispositivo Cisco ASA. Cisco ASA é integrado nativamente com o Azure Sentinel para ingestão de dados, para que, mesmo que seu dispositivo Cisco não salva os logs como CEF, Sentinel Azure ingere-los da mesma forma que ele lida com os logs do CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas entre os dados do arquivo de log do Cisco ASA. 
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Etapa 1: Conectar seu dispositivo Cisco ASA usando um agente
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implantar o agente no Azure
 
-1. No portal do Azure Sentinel, clique em **coleta de dados** e selecione o tipo de dispositivo. 
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione o tipo de dispositivo. 
 
 1. Sob **configuração do agente de Syslog do Linux**:
    - Escolher **implantação automática** se você deseja criar uma nova máquina que é pré-instalado com o agente do Azure Sentinel e inclui todos os a configuração necessária, conforme descrito acima. Selecione **implantação automática** e clique em **implantação automática do agente**. Isso leva você até a página de compra para uma VM dedicada que é conectado automaticamente ao seu espaço de trabalho, é. A VM é uma **v3 de D2s standard (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
@@ -79,7 +79,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 Se você não estiver usando o Azure, implante manualmente o agente de sentinela do Azure para ser executado em um servidor dedicado do Linux.
 
 
-1. No portal do Azure Sentinel, clique em **coleta de dados** e selecione o tipo de dispositivo.
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione o tipo de dispositivo.
 1. Para criar uma VM do Linux dedicado, sob **configuração do agente de Syslog do Linux** escolher **implantação Manual**.
    1. Sob **Baixe e instale o agente do Syslog**, selecione **computador não Azure Linux**. 
    1. No **agente direto** tela que é aberta, selecione **Agent para Linux** para baixar o agente ou execute este comando para baixá-lo em seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
@@ -121,7 +121,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu como conectar dispositivos Cisco ASA ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

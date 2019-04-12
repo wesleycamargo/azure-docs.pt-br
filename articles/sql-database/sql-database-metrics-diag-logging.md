@@ -1,10 +1,10 @@
 ---
 title: Métricas de banco de dados SQL do Azure e log de diagnósticos | Microsoft Docs
-description: Saiba como configurar o Banco de Dados SQL do Azure para armazenar o uso de recursos e as estatísticas de execução de consulta.
+description: Saiba como habilitar o diagnóstico no banco de dados SQL Azure para armazenar informações sobre a utilização de recursos e as estatísticas de execução de consulta.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426471"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490061"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
+
+Neste tópico, você aprenderá como configurar logs de telemetria de diagnóstico para o banco de dados SQL por meio do portal do Azure, PowerShell, CLI do Azure, API de REST do Azure Monitor e modelo do Resource Manager. Estes diagnósticos podem ser usados para medir a utilização de recursos e as estatísticas de execução de consulta. 
 
 Bancos de dados individuais, bancos de dados em pool em pools elásticos e bancos de dados de instância em uma instância gerenciada podem transmitir logs de diagnóstico e métricas para facilitar o monitoramento de desempenho. Você pode configurar um banco de dados para transmitir o uso de recursos, trabalhos e sessões e conectividade para um dos seguintes recursos do Azure:
 

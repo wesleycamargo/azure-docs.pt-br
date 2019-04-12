@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369523"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493052"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -118,7 +118,7 @@ A seguinte lista explica essa atividade em detalhes:
 A seguinte lista explica essa atividade em detalhes:
 
 * **Descrição da atividade**: Indica que um administrador executou uma redefinição de senha em nome de um usuário no portal do Azure.
-* **Ator da atividade**: O administrador que realizou a redefinição da senha em nome de outro usuário final ou administrador. Deve ser o administrador global, o administrador de senha, o administrador de usuário ou o administrador de assistência técnica.
+* **Ator da atividade**: O administrador que realizou a redefinição da senha em nome de outro usuário final ou administrador. Deve ser um administrador de senha, o usuário administrador ou o administrador de assistência técnica.
 * **Destino da atividade**: O usuário cuja senha foi redefinida. O usuário pode ser um usuário final ou um administrador diferente.
 * **Status de atividade**:
   * _Êxito_: Indica que um administrador redefiniu a senha de um usuário com êxito.
@@ -176,16 +176,16 @@ A seguinte lista explica essa atividade em detalhes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
+* [Como posso concluir uma implementação bem-sucedida do SSPR?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registro para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md).
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
-* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
+* [Qual é o write-back de senha e por que me preocupar sobre isso?](howto-sspr-writeback.md)
+* [Quais são todas as opções no SSPR e o que eles significam?](concept-sspr-howitworks.md)
+* [Eu acho que algo não está funcionando. Como solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que não foi respondida em algum lugar else](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemplo de logs de auditoria da atividade de SSPR no Azure AD"

@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204892"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492695"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Redefinir a senha de um usuário usando o Azure Active Directory
+
 Como um administrador, você pode redefinir a senha de um usuário se a senha for esquecida, se o usuário for bloqueado em um dispositivo ou se o usuário nunca recebeu uma senha.
 
 >[!Note]
@@ -32,7 +33,7 @@ Como um administrador, você pode redefinir a senha de um usuário se a senha fo
 
 ## <a name="to-reset-a-password"></a>Para redefinir uma senha
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global, administrador de usuários ou administrador de senhas. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Entrar para o [portal do Azure](https://portal.azure.com/) como um usuário administrador ou administrador de senha. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Selecione **Azure Active Directory**, selecione **Usuários**, pesquise e selecione o usuário que precisa da redefinição e, em seguida, selecione **Redefinir Senha**.
 
@@ -50,13 +51,14 @@ Como um administrador, você pode redefinir a senha de um usuário se a senha fo
     >A senha temporária nunca expira. Na próxima vez em que o usuário entrar, a senha continuará funcionando, independentemente de quanto tempo se passou desde que a senha temporária foi gerada.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Após redefinir a senha do usuário, você poderá executar os processos básicos a seguir:
 
 - [Adicionar ou excluir usuários](add-users-azure-active-directory.md)
 
-- [Atribuir funções a usuários](active-directory-users-assign-role-azure-portal.md)
+- [Atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md)
 
-- [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
+- [Adicionar ou alterar informações do perfil](active-directory-users-profile-azure-portal.md)
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 

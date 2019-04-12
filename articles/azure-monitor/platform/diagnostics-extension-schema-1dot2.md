@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486148"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496481"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração do Azure Diagnostics 1.2
 > [!NOTE]
 > Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Escala de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
 >
 
-O Diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
+O diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e Log Analytics.
 
 Esse esquema define os possíveis valores que podem ser usados para inicializar as definições de configuração de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
@@ -100,7 +100,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Obrigatório. Definições de configuração para os dados de telemetria a serem coletados.|  
 |**StorageAccount**|O nome da conta do Armazenamento do Azure para armazenar os dados. Isso também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual a ser usado pelo agente de monitoramento para armazenar dados de evento. Caso não seja definido, será usado o seguinte diretório padrão:<br /><br /> Para uma função de Trabalho/da Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> -                      **path** - o diretório no sistema a ser usado pelo Diagnóstico do Azure.<br /><br /> -                      **expandEnvironment** - controla se as variáveis de ambiente estão expandidas ou não no nome do caminho.|  
+|**LocalResourceDirectory**|O diretório na máquina virtual a ser usado pelo agente de monitoramento para armazenar dados de evento. Caso não seja definido, será usado o seguinte diretório padrão:<br /><br /> Para uma função de trabalho/da web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> -                      **path** - o diretório no sistema a ser usado pelo Diagnóstico do Azure.<br /><br /> -                      **expandEnvironment** - controla se as variáveis de ambiente estão expandidas ou não no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
 Define as configurações para que os dados de telemetria sejam coletados. A tabela abaixo descreve os elementos filhos:  
@@ -122,7 +122,7 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 |Nome do elemento|DESCRIÇÃO|  
 |------------------|-----------------|  
 |**CrashDumpConfiguration**|Obrigatório. Atributo obrigatório:<br /><br /> **processName** - o nome do processo para o qual você deseja que o Diagnóstico do Azure colete um despejo de memória.|  
-|**crashDumpType**|Configura o Diagnóstico do Azure para coletar minidespejos de memória ou despejos completos de memória.|  
+|**crashDumpType**|Configura o Diagnóstico do Azure para coletar minidespejos de memória ou despejos de memória completos.|  
 |**directoryQuotaPercentage**|Configura o percentual de **overallQuotaInMB** a ser reservado para despejos de memória na VM.|  
 
 ## <a name="directories-element"></a>Elemento Directories  
@@ -146,7 +146,7 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 
 |Nome do elemento|DESCRIÇÃO|  
 |------------------|-----------------|  
-|**Absolute**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> -                     **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> -                      **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
+|**absoluto**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> -                     **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> -                      **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
 |**LocalResource**|O caminho relativo a um recurso local a ser monitorado. Os atributos obrigatórios são:<br /><br /> -                     **Name** - o recurso local que contém o diretório a ser monitorado<br /><br /> -                     **relativePath** - o caminho relativo a Name que contém o diretório a ser monitorado|  
 
 ## <a name="etwproviders-element"></a>Elemento EtwProviders  
@@ -192,7 +192,7 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 
 |Nome do elemento|DESCRIÇÃO|  
 |------------------|-----------------|  
-|**anotação**|Atributo obrigatório:<br /><br /> **displayName** - o nome de exibição para o contador<br /><br /> Atributo opcional:<br /><br /> **locale** - local onde exibir o nome do contador|  
+|**Anotação**|Atributo obrigatório:<br /><br /> **displayName** - o nome de exibição para o contador<br /><br /> Atributo opcional:<br /><br /> **locale** - local onde exibir o nome do contador|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  A tabela abaixo descreve os elementos filhos:  

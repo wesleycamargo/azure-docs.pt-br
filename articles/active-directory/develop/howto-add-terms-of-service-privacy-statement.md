@@ -1,5 +1,5 @@
 ---
-title: Termos de declaração de privacidade e de serviço para aplicativos do Azure AD | Microsoft Docs
+title: Termos de serviço e a declaração de privacidade para aplicativos | Azure
 description: Saiba como você pode configurar os termos de declaração de privacidade e de serviço de aplicativo registrado para usar o AD do Azure.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193502"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500288"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Termos de declaração de privacidade e de serviço para aplicativos registrados do Active Directory do Azure
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e a declaração de privacidade para um aplicativo
 
 Os desenvolvedores que criam e gerenciar aplicativos que se integram ao Azure Active Directory (AD do Azure) e contas da Microsoft devem incluir links para os termos do aplicativo de serviço e declarações de privacidade. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Eles ajudam seus usuários a saberem que podem confiar em seu aplicativo. Os termos da declaração de privacidade e de serviço são especialmente importantes para aplicativos de multilocação voltadas para o usuário – aplicativos que são usados por vários diretórios ou estão disponíveis para qualquer conta da Microsoft.
 
@@ -47,7 +47,7 @@ Antes de adicionar links aos termos de serviço e aos documentos da declaração
 | Diretriz     | DESCRIÇÃO                           |
 |---------------|---------------------------------------|
 | Formatar        | URL Válida                             |
-| Esquemas válidos | HTTP e HTTPS</br>Recomendamos HTTPS |
+| Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
 | Comprimento máximo    | 2048 caracteres                       |
 
 Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statement`
@@ -56,10 +56,10 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 
 Quando os termos de serviço e a declaração de privacidade estiverem prontos, você poderá adicionar links para esses documentos no seu aplicativo usando um destes métodos:
 
-* [ através do portal do Azure ](#registered-in-azure-portal)
-* [ No Portal de Registro de Aplicativos ou no Centro de Desenvolvimento ](#registered-in-app-reg-portal)
-* [ Usando o objeto de aplicativo JSON ](#app-object-json)
-* [ Usando a API REST do MSGraph beta ](#msgraph-beta-rest-api)
+* [No portal do Azure](#registered-in-azure-portal)
+* [No Portal de registro de aplicativo, ou centro de desenvolvimento](#registered-in-app-reg-portal)
+* [Usando o objeto JSON do aplicativo](#app-object-json)
+* [Usando o API REST versão beta do MSGraph](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se você registrou seu aplicativo no portal do Azure
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Tenha cuidado para não sobrescrever quaisquer valores preexistentes atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl` e `logoUrl`
+> * Tenha cuidado para não substituir todos os valores existentes previamente atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl`, e `logoUrl`
 > * A API REST beta do MSGraph só funcionará quando você fizer login com uma conta do AD do Azure. Contas pessoais da Microsoft não são suportadas.

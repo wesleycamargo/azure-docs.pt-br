@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841099"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492797"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Colete dados de log com o agente do Log Analytics do Azure
 
@@ -41,8 +41,9 @@ O agente para Linux e Windows não serve apenas para conectar-se ao Log Analytic
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
 
-* Windows Server 2008 R2 ou posterior
-* Windows 7 SP1 e posterior.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
+* Windows 7 SP1 e posterior
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
 Esta seção fornece detalhes sobre as distribuições de Linux com suporte.    
@@ -104,7 +105,8 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 |proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |
 |porta | Número da porta opcional para o servidor proxy/gateway do Log Analytics |
 
-Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
+Por exemplo: 
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Se você usar caracteres especiais, como “\@” em sua senha, você receberá um erro de conexão de proxy porque o valor é analisado incorretamente.  Para contornar esse problema, codifique a senha na URL usando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
@@ -117,7 +119,7 @@ Conectar máquinas em sua assinatura do Azure ou ambiente híbrido diretamente c
 |VM do Azure| - Extensão de VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) usando a CLI do Azure ou com um modelo do Azure Resource Manager<br>- [Manualmente no portal do Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | A extensão instala o agente do Log Analytics nas máquinas virtuais do Azure e as registra em uma área de trabalho do Azure Monitor existente.|
 | Computador Windows híbrido|- [Instalação manual](agent-windows.md)<br>- [DSC de Automação do Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com o Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instalar o agente Microsoft Monitoring da linha de comando ou usando um método automatizado como DSC de automação do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo do Azure Resource Manager, se você implantou o Microsoft Azure Stack no seu datacenter.| 
 | Computador Linux híbrido| [Instalação manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale o agente para Linux chamando um script de wrapper hospedado no GitHub. | 
-| System Center Operations Manager|[Conectar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure a integração entre o Operations Manager e o Log Analytics para encaminhar dados coletados de computadores Linux e Windows subordinados a um grupo de gerenciamento.|  
+| System Center Operations Manager|[Integrar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure a integração entre o Operations Manager e o Log Analytics para encaminhar dados coletados de computadores Linux e Windows subordinados a um grupo de gerenciamento.|  
 
 ## <a name="next-steps"></a>Próximas etapas
 

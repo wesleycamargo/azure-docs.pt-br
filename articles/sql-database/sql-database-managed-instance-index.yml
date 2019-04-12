@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Uma instância gerenciada SQL do Azure é um totalmente gerenciado banco de dados de mecanismo de instância do SQL Server hospedado na nuvem do Azure. Isso é a melhor opção de PaaS para migrar seu banco de dados do SQL Server para a nuvem. Aprenda a criar e usar a Instância Gerenciada com nossos inícios rápidos, tutoriais e modelos.'
@@ -78,6 +78,7 @@ sections:
           - html: Instâncias gerenciadas são protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
           - html: '(Visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Recriar descartado bancos de dados usando o PowerShell</a>'
           - html: 'Funcionalidade de restauração geográfica permite que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar seu banco de dados para outro data center usando o PowerShell</a>.'
+          - html: '(Visualização) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuso horário de configurar</a> durante a criação de instância.'
   - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph

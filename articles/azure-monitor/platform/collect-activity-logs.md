@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: HT
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905980"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505627"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar logs de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor
 
 ![Símbolo dos logs de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
+A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](activity-logs-overview.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
 
 Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* para qualquer operação de gravação (PUT, POST, DELETE) feitas para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo de implantação Clássico.
 
@@ -52,28 +52,39 @@ Ao contrário da maioria das outras soluções do Azure Monitor, os dados não s
 
 | Fonte Conectada | Com suporte | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não  | A solução não coleta informações de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de agentes do Linux. |
-| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
+| [Agentes do Windows](agent-windows.md) | Não  | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de agentes do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](om-agents.md) | Não  | A solução não coleta informações de agentes subordinados a um grupo de gerenciamento do Operations Manager. |
 | [Conta de Armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acessar informações do log de atividades do Azure, você deve ter uma assinatura do Azure.
+Para acessar informações do log de atividades do Azure, você deve ter uma assinatura do Azure.
+
+A solução também requer que os seguintes dois provedores de recursos são registrados em sua assinatura:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Para saber como registrar ou verificar se eles são registrados, consulte [tipos e provedores de recursos do Azure](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configuração
 
 Execute as seguintes etapas para configurar a solução Análise do Log de Atividades para seus workspaces.
 
-1. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](../../azure-monitor/insights/solutions.md).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+
+2. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](../insights/solutions.md).
+
 2. Configure os logs da atividade para ir para o espaço de trabalho do Log Analytics.
     1. No portal do Azure, selecione seu workspace e clique em **Log de Atividades do Azure**.
     2. Para cada assinatura, clique no nome da assinatura.  
+        
         ![adicionar assinatura](./media/collect-activity-logs/add-subscription.png)
+    
     3. Na folha *SubscriptionName*, clique em **Conectar**.  
+    
         ![Conectar assinatura](./media/collect-activity-logs/subscription-connect.png)
-
-Entre no portal do Azure para conectar uma assinatura do Azure ao seu workspace.  
 
 ## <a name="using-the-solution"></a>Usando a solução
 
@@ -98,5 +109,5 @@ Os dados do log de atividades aparecem apenas *depois* que você os configura pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Crie um [alerta](../../azure-monitor/platform/alerts-metric.md) quando ocorrer uma atividade específica.
-- Use a [Pesquisa de Logs](../../azure-monitor/log-query/log-query-overview.md) para exibir informações detalhadas de seus logs de atividade.
+- Crie um [alerta](../platform/alerts-metric.md) quando ocorrer uma atividade específica.
+- Use a [Pesquisa de Logs](../log-query/log-query-overview.md) para exibir informações detalhadas de seus logs de atividade.

@@ -1,5 +1,5 @@
 ---
-title: Como implantar as dependências de nuvem de gerenciamento de dispositivo do Azure IoT OPC UA | Microsoft Docs
+title: Como implantar as dependências de nuvem do gêmeo de OPC no Azure | Microsoft Docs
 description: Como implantar as dependências do Azure do gêmeo de OPC.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759363"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491979"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local
 
@@ -52,7 +52,7 @@ O script de implantação tenta registrar aplicativos do AAD no Azure Active Dir
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você implantou com êxito os serviços de gerenciamento de dispositivo de OPC para um projeto existente, aqui está a próxima etapa sugerida:
+Agora que você implantou serviços OPC gêmeo com êxito a um projeto existente, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre como implantar módulos de gerenciamento de dispositivo OPC](howto-opc-twin-deploy-modules.md)
+> [Saiba mais sobre como implantar módulos Gêmeos de OPC](howto-opc-twin-deploy-modules.md)

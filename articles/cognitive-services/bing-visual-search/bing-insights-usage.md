@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
 ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470127"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489460"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemplos de uso de insights do Bing
 
@@ -73,7 +73,7 @@ Marcas não padrão incluem a caixa delimitadora que identifica a área de inter
 
 ![Caixas delimitadoras e ponto de acesso](./media/click-to-search.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar com sua primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 

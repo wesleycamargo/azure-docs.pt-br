@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339373"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505568"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como usar o Reconhecimento de Entidade Nomeada na Análise de Texto (versão prévia)
 
@@ -35,33 +35,33 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 No Text Analytics [Versão 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), tanto o link da entidade quanto o reconhecimento da entidade nomeada (NER) estão disponíveis.
 
-### <a name="language-support"></a>Suporte de idioma
+### <a name="language-support"></a>Suporte ao idioma
 
 O uso da vinculação de entidade em vários idiomas exige o uso de uma base de conhecimento correspondente em cada idioma. Para vinculação de entidade na Análise de Texto, isso significa que cada idioma com suporte do ponto de extremidade `entities` será vinculado ao corpus da Wikipédia correspondente nesse idioma. Como o tamanho do corpora varia entre as linguagens, espera-se que a funcionalidade de vinculação de entidade também variará.
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos com Suporte para Reconhecimento de Entidade Nomeada
 
-| Digite  | SubType | Exemplo |
+| Type  | SubType | Exemplo |
 |:-----------   |:------------- |:---------|
 | Pessoa        | N/D\*         | "João", "Bill Gates"     |
-| Localizaçãoização      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Local padrão      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "seis"     | 
-| Quantidade      | Porcentagem    | "50%", "cinquenta por cento"| 
+| Quantidade      | Percentual    | "50%", "cinquenta por cento"| 
 | Quantidade      | Ordinal       | "2º", "segundo"     | 
 | Quantidade      | NumberRange   | "4 a 8"     | 
 | Quantidade      | Idade           | "90 dias", "30 anos"    | 
-| Quantidade      | Conversor de Moedas      | "US$ 10,99"     | 
+| Quantidade      | Moeda      | "US$ 10,99"     | 
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
 | DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
-| Data e Hora     | Tempo          | "8h", "8:00"  | 
+| DateTime      | Hora          | "8h", "8:00"  | 
 | DateTime      | DateRange     | "2 de maio a 5 de maio"    | 
 | DateTime      | TimeRange     | "18h às 19h"     | 
-| DateTime      | Duração      | "1 minuto e 45 segundos"   | 
-| DateTime      | Conjunto           | "toda terça-feira"     | 
-| DateTime      | TimeZone      |    | 
+| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
+| DateTime      | Definir           | "toda terça-feira"     | 
+| DateTime      | timeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -96,7 +96,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 + Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Vinculação de Entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Defina o ponto de extremidade HTTP para extração de entidade. Deve incluir o recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Defina o ponto de extremidade HTTP para extração de entidade. Ele deve incluir o `/entities` recursos: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
@@ -289,9 +289,9 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 
  [Visão geral da Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Página de produto de Análise de Texto do Azure Machine Learning](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Página de produto de análise de texto](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [API de Análise de Texto do Azure Machine Learning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

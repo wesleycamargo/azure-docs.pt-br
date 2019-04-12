@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242591"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500491"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como usar filas do Barramento de Serviço com Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [pacote de Barramento de Serviço do Azure para Python][Python Azure Service Bus package]. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**.
+Neste tutorial, você aprenderá como criar aplicativos de Python para enviar e receber mensagens de uma fila do barramento de serviço. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas na [portal do Azure de uso para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) artigo.
+    1. Leia o quick **visão geral** do barramento de serviço **filas**. 
+    2. Criar um barramento de serviço **namespace**. 
+    3. Obter o **cadeia de caracteres de conexão**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Para instalar o Python ou o [pacote do Barramento de Serviço do Azure para Python][Python Azure Service Bus package], veja o [Guia de instalação do Python](../python-how-to-install.md).
-> 
-> Consulte a documentação completa do SDK do Python de barramento de serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Você aprenderá a criar uma **fila** no namespace do barramento de serviço usando o Python neste tutorial. 
+1. Instalar o Python ou o [pacote de barramento de serviço do Azure Python][Python Azure Service Bus package], consulte a [guia de instalação do Python](../python-how-to-install.md). Consulte a documentação completa do SDK do Python de barramento de serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O **ServiceBusClient** objeto permite que você trabalhe com filas. Adicione o seguinte código próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Barramento de Serviço de forma programática:

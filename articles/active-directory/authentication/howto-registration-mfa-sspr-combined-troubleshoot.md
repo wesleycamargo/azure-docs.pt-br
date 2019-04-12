@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262560"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489186"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solução de problemas combinado de registro de informações de segurança (visualização)
 
@@ -154,7 +154,7 @@ Em uma janela do PowerShell, execute o seguinte comando, fornecendo os locais de
 
 Para desabilitar a experiência de visualização para seus usuários, conclua estas etapas:
 
-1. Entre no portal do Azure como administrador global ou administrador de usuários.
+1. Entre no portal do Azure como um administrador do usuário.
 2. Vá para **Azure Active Directory** > **configurações do usuário** > **gerenciar as configurações de recursos de visualização do painel de acesso**.
 3. Sob **os usuários podem usar recursos de visualização para registrar e gerenciar informações de segurança**, defina o seletor **None**e, em seguida, selecione **salvar**.
 

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848557"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501630"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -127,6 +127,19 @@ A pré-busca de mensagens aumenta a taxa de transferência geral de uma fila ou 
 A propriedade de vida útil (TTL) de uma mensagem é verificada pelo servidor no momento em que o servidor envia a mensagem para o cliente. O cliente não verifica a propriedade TTL da mensagem quando a mensagem é recebida. Em vez disso, a mensagem poderá ser recebida mesmo se a TTL da mensagem tiver passado enquanto a mensagem estava armazenada em cache pelo cliente.
 
 A pré-busca não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço. O protocolo HTTP não dá suporte à pré-busca. A pré-busca está disponível para as operações de recebimento síncrono e assíncrono.
+
+## <a name="prefetching-and-receivebatch"></a>A pré-busca e ReceiveBatch
+
+Embora os conceitos de pré-busca juntos de várias mensagens possuem semântica semelhante ao processamento de mensagens em um lote (ReceiveBatch), há algumas pequenas diferenças que devem ser mantidas em mente ao aproveitar esses juntos.
+
+Pré-busca é uma configuração (ou modo) no cliente (QueueClient e SubscriptionClient) e ReceiveBatch é uma operação (que tem a semântica de solicitação-resposta).
+
+Ao usar esses juntos, considere os seguintes casos:-
+
+* Pré-busca deve ser maior que ou igual ao número de mensagens que estiver esperando receber da ReceiveBatch.
+* Pré-busca pode ser até n/3 vezes o número de mensagens processadas por segundo, onde n é a duração de bloqueio padrão.
+
+Há alguns desafios com tendo um greedy abordagem (ou seja, mantendo a contagem de pré-busca muito alta), porque ele implica que a mensagem ficará bloqueada para um destinatário específico. A recomendação é tentar out pré-busca valores entre os limites mencionados acima e Empiricamente, identifique o que se encaixa.
 
 ## <a name="multiple-queues"></a>Várias filas
 

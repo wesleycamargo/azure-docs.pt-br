@@ -1,6 +1,6 @@
 ---
-title: Coletar dados do Azure AD na visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados do Azure Active Directory no Azure Sentinel.
+title: Conectar-se a dados do Azure AD para o Azure Sentinel Preview | Microsoft Docs
+description: Saiba como se conectar a dados do Active Directory do Azure para Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575123"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494877"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Coletar dados do Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Conectar-se a dados do Azure Active Directory
 
 > [!IMPORTANT]
 > No momento, o Azure Sentinel está em versão prévia pública.
@@ -38,7 +38,7 @@ Sentinela do Azure permite que você colete dados do [Azure Active Directory](..
 
 ## <a name="connect-to-azure-ad"></a>Conecte-se ao AD do Azure
 
-1. No Azure Sentinel, selecione **coleta de dados** e, em seguida, clique no **Azure Active Directory** lado a lado.
+1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no **Azure Active Directory** lado a lado.
 
 2. Ao lado dos logs que você deseja transmitir para o Azure Sentinel, clique em **Connect**.
 
@@ -47,7 +47,7 @@ Sentinela do Azure permite que você colete dados do [Azure Active Directory](..
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu como conectar o Azure AD ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

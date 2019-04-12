@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046830"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499845"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
@@ -27,7 +27,7 @@ Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre 
 
 * **Quarentena**: Semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
 
-Para obter uma visão geral mais detalhada do reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos do Hub IoT](concepts-device-reprovision.md).
+Para mais uma visão mais detalhada de reprovisionamento, consulte [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurar a política de alocação de registro
@@ -93,7 +93,7 @@ Para encontrar um código de exemplo do envio de solicitações de provisionamen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
+- Para saber mais Reprovisioning, consulte [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
 - Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
 
 

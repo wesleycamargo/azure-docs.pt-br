@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619791"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488398"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure com um arquivo ZIP ou WAR
 
@@ -31,7 +31,7 @@ Essa implantação de arquivo zip usa o mesmo serviço Kudu que alimenta impleme
 - Opção para ativar o processo de compilação padrão que inclui a restauração do pacote.
 - [Personalização da implantação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), incluindo execução de scripts de implantação.  
 - Logs de implantação. 
-- Um limite de tamanho do arquivo de 512 MB.
+- Um limite de tamanho do arquivo de 2048 MB.
 
 Para obter mais informações, consulte [Documentação do Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -118,5 +118,5 @@ Para cenários mais avançados de implantação, tente [implantação no Azure c
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Kudu: implementação de um arquivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: Implantar a partir de um arquivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Credenciais de implantação do Serviço de Aplicativo do Azure](deploy-ftp.md)

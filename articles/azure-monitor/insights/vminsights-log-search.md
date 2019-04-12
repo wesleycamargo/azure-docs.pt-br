@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188961"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492081"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
 O Azure Monitor para VMs coleta de desempenho e métricas de conexão, computador e dados de inventário do processo e informações de estado de integridade e a encaminha para o espaço de trabalho do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
@@ -125,7 +125,12 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 ### <a name="ports"></a>Portas 
 Portas em um computador que ativamente aceitam tráfego de entrada ou potencialmente podem aceitar o tráfego, mas estão ociosos durante a janela de tempo de geração de relatórios, são gravadas na tabela VMBoundPort.  
 
-Por padrão, os dados não são gravados nesta tabela. Para que os dados gravados nessa tabela, envie um email para vminsights@microsoft.com junto com a ID do espaço de trabalho e a região do espaço de trabalho.   
+>[!NOTE]
+>O Azure Monitor para VMs não oferece suporte a coletar e registrar dados de porta em um espaço de trabalho do Log Analytics nas seguintes regiões:  
+>- Leste dos EUA  
+>- Europa Ocidental
+>
+> Coleta desses dados está habilitado na outra [regiões com suporte](vminsights-onboard.md#log-analytics) para o Azure Monitor para VMs. 
 
 Todos os registros VMBoundPort é identificado pelos seguintes campos: 
 

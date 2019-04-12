@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577145"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494860"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Definir configurações de função de recurso do Azure no PIM
 
@@ -63,14 +63,14 @@ Siga estas etapas para abrir as configurações de uma função de recursos do A
 | | |
 | --- | --- |
 | **Permitir atribuição qualificada permanente** | Administradores de recursos podem atribuir membros qualificados permanentes. |
-| **Expirar atribuição qualificada após** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
+| **Atribuição qualificada depois de expirar** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
 
 E, você pode escolher uma destas opções de duração da atribuição **ativa**:
 
 | | |
 | --- | --- |
 | **Permitir atribuição ativa permanente** | Administradores de recursos podem atribuir membros ativos permanentes. |
-| **Expirar atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
+| **Expirar a atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
 
 > [!NOTE] 
 > Todas as atribuições que têm uma data de término especificada poderão ser renovadas por administradores de recursos. Além disso, os membros podem iniciar solicitações de autoatendimento para [estender ou renovar atribuições de função](pim-resource-roles-renew-extend.md).

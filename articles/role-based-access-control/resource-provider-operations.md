@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278863"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501460"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -1107,7 +1107,7 @@ Lista dos rostos persistedFaceId e dados do usuário em uma lista de face grande
 Atualize campo de userData do rosto especificado em uma lista grande face seu persistedFaceId. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Recupere largeFaceListId da lista uma face grandes, o nome, userData.
 Liste informações de listas de face grandes de largeFaceListId, nome e dados do usuário. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Envie uma grande lista treinamento tarefa. O treinamento é uma etapa crucial que apenas uma lista de face grande treinado pode ser usada por |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Envie uma grande lista treinamento tarefa. O treinamento é uma etapa crucial que apenas uma lista de face grande treinado pode usar. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Para verificar o status de treinamento de lista de face grandes ainda em andamento ou concluído. Treinamento de LargeFaceList é uma operação assíncrona |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Crie uma lista de face grande vazia com largeFaceListId especificado pelo usuário, nome e um opcional userData.
 Atualize as informações de uma lista de face grande, incluindo o nome e dados do usuário. |
@@ -1123,7 +1123,7 @@ Lista informações de todas as pessoas no grupo grande de pessoa especificada, 
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Atualizar o nome ou a dados do usuário de uma pessoa. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Recupere as informações de um grupo grande de pessoa, incluindo seu nome e os dados do usuário. Essa API retorna pessoa grande de informações do grupo
 Liste do todos os grandes pessoa grupos existentes largePesonGroupId, nome e dados do usuário. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Envie uma tarefa de treinamento de grupo grande de pessoa. O treinamento é uma etapa crucial que pode ser usado apenas um grupo de pessoa grande treinado |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Envie uma tarefa de treinamento de grupo grande de pessoa. O treinamento é uma etapa crucial que apenas um grupo de pessoa grande treinado pode usar. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Para verificar o status de treinamento de grupo de pessoa grandes ainda em andamento ou concluídos. Treinamento de LargePersonGroup é uma operação assíncrona |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Crie um novo grupo de pessoa grandes com largePersonGroupId especificado pelo usuário, nome e userData opcional.
 Atualize dados do usuário e o nome de um grupo grande de pessoa existente. As propriedades mantêm inalteradas se não estiverem no corpo da solicitação. |
@@ -1139,7 +1139,7 @@ Listar informações de todas as pessoas no grupo de pessoa especificada, inclui
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Atualizar o nome ou a dados do usuário de uma pessoa. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Recupere dados do usuário e o nome do grupo de pessoa. Para obter informações de pessoa sob este personGroup, use
 Listar grupos de pessoas pesonGroupId, nome e dados do usuário. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Envie uma tarefa de treinamento do grupo de pessoa. O treinamento é uma etapa crucial que apenas um grupo de pessoa treinado pode ser usado por |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Envie uma tarefa de treinamento do grupo de pessoa. O treinamento é uma etapa crucial que apenas um grupo de pessoa treinado pode usar. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Para verificar o status de treinamento de grupo de pessoa concluído ou ainda em andamento. Uma operação assíncrona que disparou o treinamento de PersonGroup é |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Crie um novo grupo de pessoas com personGroupId especificado, o nome e dados do usuário fornecido pelo usuário.
 Atualize dados do usuário e o nome de um grupo de pessoa existente. As propriedades mantêm inalteradas se não estiverem no corpo da solicitação. |
@@ -5899,7 +5899,7 @@ Atualize dados do usuário e o nome de um grupo de pessoa existente. As propried
 > | Ação | Microsoft.WorkloadMonitor/notificationSettings/write | Configurar configurações de notificação para o recurso |
 > | Ação | Microsoft.WorkloadMonitor/operations/read | Obter as operações com suporte |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Funções internas para recursos do Azure](built-in-roles.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887243"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489564"
 ---
 # <a name="your-marketplace-benefits"></a>Seus benefícios do Marketplace
 
@@ -73,7 +73,7 @@ A tabela a seguir resume os requisitos de qualificação:
 
 \* Requer a competência gold ou silver. <br>
 \*\* Requer a competência gold. <br>
-\*\*\* Requer a competência gold e listagem no catálogo OCP como pronto para fazer venda conjunta. <br>
+\*\*\* Requer a competência gold e co-sell Ready em listagens de parceiros. <br>
 Apenas Transact aplicável para o Azure Marketplace.
 
 ## <a name="next-steps"></a>Próximas etapas

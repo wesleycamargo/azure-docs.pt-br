@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588340"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501103"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Como usar filas do Barramento de Serviço com Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este guia descreve como usar as filas do barramento de serviço. Os exemplos são gravados no Ruby e usam a gema do Azure. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**. Para saber mais sobre filas de Barramento de Serviços, confira a seção [Próximas etapas](#next-steps).
+Neste tutorial, você aprenderá como criar aplicativos Ruby para enviar e receber mensagens de uma fila do barramento de serviço. Os exemplos são gravados no Ruby e usam a gema do Azure.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas na [portal do Azure de uso para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) artigo.
+    1. Leia o quick **visão geral** do barramento de serviço **filas**. 
+    2. Criar um barramento de serviço **namespace**. 
+    3. Obter o **cadeia de caracteres de conexão**. 
 
-## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > Você aprenderá a criar uma **fila** no namespace do barramento de serviço usando o Ruby neste tutorial. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
@@ -74,7 +79,7 @@ As mensagens são recebidas de uma fila usando o método `receive_queue_message(
 
 O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que também torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `delete_queue_message()` e fornecendo a mensagem a ser excluída como um parâmetro. O método `delete_queue_message()` marcará a mensagem como tendo sido consumida e a removerá da fila.
 
-Se o parâmetro `:peek_lock` estiver definido como **false**, a leitura e a exclusão da mensagem se tornam o modelo mais simples e funcionam melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Se o `:peek_lock` parâmetro é definido como **falso**, ler e excluir a mensagem se torna o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando `receive_queue_message()`. O exemplo primeiro recebe e exclui uma mensagem usando `:peek_lock` definido como **false**, então recebe outra mensagem e exclui a mensagem usando `delete_queue_message()`:
 

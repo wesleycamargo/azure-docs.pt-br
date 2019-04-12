@@ -1,5 +1,5 @@
 ---
-title: Como implantar o módulo de gerenciamento de certificado do Azure IoT OPC UA do zero | Microsoft Docs
+title: Como implantar o módulo OPC cofre do zero - Azure | Microsoft Docs
 description: Como implantar o cofre do OPC do zero.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759348"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496889"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>Implantar o cofre do OPC do zero
+# <a name="deploy-opc-vault-from-scratch"></a>Implantar o cofre OPC do zero
 
-Azure IoT OPC UA gerenciamento de certificado, também conhecido como cofre OPC, é um microsserviço que pode ser configurados, registre-se e gerenciar o ciclo de vida de certificado para aplicativos de cliente e servidor OPC UA na nuvem. Este artigo mostra como implantar o cofre do OPC do zero.
+Cofre de OPC é um microsserviço que pode configurar, registrar e gerenciar o ciclo de vida de certificado para o servidor OPC UA e aplicativos de cliente na nuvem. Este artigo mostra como implantar o cofre do OPC do zero.
 
 ## <a name="configuration-and-environment-variables"></a>Configuração e variáveis de ambiente
 
@@ -179,7 +179,7 @@ Orientação sobre o estilo de código do projeto:
 
 - Campos APIs de serviço da Web sejam CamelCased exceto metadados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como implantar o cofre do OPC do zero, aqui está a próxima etapa sugerida:
 

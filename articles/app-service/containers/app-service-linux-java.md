@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803505"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500457"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -69,43 +69,50 @@ Para saber mais, confira [Transmitir logs com a CLI do Azure](../troubleshoot-di
 
 ### <a name="app-logging"></a>Registro em log do aplicativo
 
-Habilite o [registro em log de aplicativos](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) por meio do portal do Azure ou da [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicativo do Azure para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no Armazenamento de Blobs do Azure. O registro em log na instância do sistema de arquivos do Serviço de Aplicativo local será desabilitado 12 horas após ser configurado. Se você precisar de uma retenção mais longa, configure o aplicativo para gravar a saída em um contêiner do armazenamento de blobs.
+Habilite o [registro em log de aplicativos](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) por meio do portal do Azure ou da [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicativo do Azure para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no Armazenamento de Blobs do Azure. O registro em log na instância do sistema de arquivos do Serviço de Aplicativo local será desabilitado 12 horas após ser configurado. Se você precisar de uma retenção mais longa, configure o aplicativo para gravar a saída em um contêiner do armazenamento de blobs. Seus logs de aplicativos Java e Tomcat podem ser encontradas no `/home/LogFiles/Application/` directory.
 
 Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreamento, será possível encaminhá-los para revisão no Azure Application Insights usando as instruções de configuração de estrutura de registros em [Explorar os logs de rastreamento de Java no Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### <a name="troubleshooting-tools"></a>Solucionando problemas de ferramentas
+
+Imagens internas do Java se baseiam os [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) sistema operacional. Use o `apk` Gerenciador de pacotes para instalar qualquer solução de problemas de ferramentas ou comandos.
 
 ## <a name="customization-and-tuning"></a>Personalização e ajuste
 
 O Serviço de Aplicativo do Azure para Linux é compatível com o ajuste e a personalização de caixas por meio do portal e da CLI do Azure. Examine os seguintes artigos para saber mais sobre a configuração de aplicativos Web específica para não Java:
 
-- [Definir configurações do Serviço de Aplicativo](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Definir as configurações do serviço de aplicativo](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurar um domínio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Habilitar SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Adicionar uma CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar o site do Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução do Java
 
-Para definir a memória alocada ou outras opções de tempo de execução da JVM nos ambientes do Tomcat e do Java SE, defina JAVA_OPTS conforme mostrado abaixo como uma [configuração de aplicativo](/azure/app-service/web-sites-configure#app-settings). O Serviço de Aplicativo no Linux passa essa configuração como uma variável de ambiente para o tempo de execução do Java quando ele é iniciado.
+Para definir a memória alocada ou outras opções de tempo de execução da JVM em ambientes de Java SE e o Tomcat, crie uma [configuração de aplicativo](/azure/app-service/web-sites-configure#app-settings) denominado `JAVA_OPTS` com as opções. O Serviço de Aplicativo no Linux passa essa configuração como uma variável de ambiente para o tempo de execução do Java quando ele é iniciado.
 
-No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` que inclui as configurações adicionais, como `$JAVA_OPTS -Xms512m -Xmx1204m`.
+No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` que inclui as configurações adicionais, como `-Xms512m -Xmx1204m`.
 
-Para definir a configuração de aplicativo do plug-in do Maven do Serviço de Aplicativo do Azure no Linux, adicione marcas configuração/valor à seção de plug-in do Azure. O exemplo a seguir define um tamanho de heap de Java específico mínimo e máximo:
+Para configurar a configuração de aplicativo do plug-in do Maven, adicione marcas/valor da configuração na seção de plug-in do Azure. O exemplo a seguir define um tamanho de heap de Java específico mínimo e máximo:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Os desenvolvedores que executam um único aplicativo com um slot de implantação no Plano do Serviço de Aplicativo podem usar as seguintes opções:
 
-- Instâncias B1 e S1: -Xms1024m -Xmx1024m
-- Instâncias B2 e S2: -Xms3072m -Xmx3072m
-- Instâncias B3 e S3: -Xms6144m -Xmx6144m
+- Instâncias B1 e S1: `-Xms1024m -Xmx1024m`
+- Instâncias B2 e S2: `-Xms3072m -Xmx3072m`
+- Instâncias B3 e S3: `-Xms6144m -Xmx6144m`
 
 Ao ajustar as configurações de heap do aplicativo, examine os detalhes do Plano do Serviço de Aplicativo e considere os vários aplicativos e slots de implantação necessários para encontrar a alocação de memória ideal.
+
+Se você estiver implantando um aplicativo de JAR, ele deve ser chamado `app.jar` para que a imagem interna possa identificar corretamente o seu aplicativo. (O plug-in do Maven faz essa renomeação automaticamente.) Se você não quiser renomear seu JAR do `app.jar`, você pode carregar um script de shell com o comando para executar o JAR. Em seguida, cole o caminho completo para esse script na [arquivo de inicialização](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do Portal.
 
 ### <a name="turn-on-web-sockets"></a>Ativar os soquetes da Web
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>Definir a codificação de caractere padrão
 
-No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` com o valor `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` com o valor `-Dfile.encoding=UTF-8`.
 
 Como alternativa, é possível definir a configuração do aplicativo usando o plug-in do Maven do Serviço de Aplicativo. Adicione as marcas de nome e valor de configuração à configuração do plug-in:
 
@@ -134,10 +141,14 @@ Como alternativa, é possível definir a configuração do aplicativo usando o p
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>Ajustar o tempo limite de inicialização
+
+Se seu aplicativo Java é especialmente grande, você deverá aumentar o limite de tempo de inicialização. Para fazer isso, crie uma configuração de aplicativo, `WEBSITES_CONTAINER_START_TIME_LIMIT` e defini-lo como o número de segundos que o serviço de aplicativo deve aguardar antes de atingir o tempo limite. O valor máximo é `1800` segundos.
 
 ## <a name="secure-applications"></a>Aplicativos seguros
 
@@ -336,7 +347,7 @@ O suporte ao produto do [Azul Zulu JDK com suporte do Azure](https://www.azul.co
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o Azul Zulu JDK por meio do Suporte do Azure se tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Acesse a central para [Desenvolvedores do Azure para Java](/java/azure/) para conferir inícios rápidos, tutoriais e documentação de referência do Java.
 

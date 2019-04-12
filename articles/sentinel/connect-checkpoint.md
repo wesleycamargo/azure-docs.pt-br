@@ -1,6 +1,6 @@
 ---
-title: Ponto de verificação de coletar dados na visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados de ponto de verificação no Azure Sentinel.
+title: Conectar-se a dados de ponto de verificação para versão prévia do Azure Sentinel | Microsoft Docs
+description: Saiba como se conectar a dados de ponto de verificação a Sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876489"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489169"
 ---
 # <a name="connect-your-check-point-appliance"></a>Conectar seu dispositivo de ponto de verificação
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876489"
 Você pode conectar Sentinel do Azure para qualquer dispositivo de ponto de verificação, salvando os arquivos de log como Syslog CEF. A integração com o Azure Sentinel permite que você execute facilmente análises e consultas entre os dados do arquivo de log do ponto de verificação. Para obter mais informações sobre como o Azure Sentinel ingere dados CEF, consulte [appliances conectar CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Etapa 1: Conectar seu dispositivo de ponto de verificação usando um agente
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [conectar fontes de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implantar o agente no Azure
 
-1. No portal do Azure Sentinel, clique em **coleta de dados** e selecione o tipo de dispositivo. 
+1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione o tipo de dispositivo. 
 
 1. Sob **configuração do agente de Syslog do Linux**:
    - Escolher **implantação automática** se você deseja criar uma nova máquina que é pré-instalado com o agente do Azure Sentinel e inclui todos os a configuração necessária, conforme descrito acima. Selecione **implantação automática** e clique em **implantação automática do agente**. Isso leva você até a página de compra para uma VM dedicada que é conectada automaticamente ao seu espaço de trabalho. A VM é uma **v3 de D2s standard (2 vcpus, 8 GB de memória)** e tem um endereço IP público.

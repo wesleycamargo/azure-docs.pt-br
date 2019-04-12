@@ -1,5 +1,5 @@
 ---
-title: Como implantar o módulo de gerenciamento de dispositivo do Azure IoT OPC UA a um projeto existente | Microsoft Docs
+title: Como implantar um módulo gêmeo OPC em um projeto existente do Azure | Microsoft Docs
 description: Como implantar o gêmeo de OPC para um projeto existente.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255879"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493239"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o gêmeo de OPC para um projeto existente
 
-O módulo gêmeo de dispositivo de OPC é executado no IoT Edge e fornece vários serviços de borda para o OPC dispositivo gêmeo e os serviços de registro. 
+O módulo gêmeo de OPC é executado no IoT Edge e fornece vários serviços de borda para o gêmeo de OPC e os serviços de registro. 
 
-O serviço de micro Gêmeos de dispositivo OPC facilita a comunicação entre dispositivos de servidor OPC UA no chão de fábrica, por meio de um módulo do IoT Edge OPC gêmeo e operadores de fábrica. O serviço micro expõe os serviços de OPC UA (Procurar, leitura, gravação e execução) por meio de sua API REST. 
+O serviço de micro gêmeos OPC facilita a comunicação entre dispositivos de servidor OPC UA no chão de fábrica, por meio de um módulo do IoT Edge OPC gêmeo e operadores de fábrica. O serviço micro expõe os serviços de OPC UA (Procurar, leitura, gravação e execução) por meio de sua API REST. 
 
-O serviço de registro de dispositivo do OPC UA micro fornece acesso a aplicativos de OPC UA registrados e seus pontos de extremidade. Operadores e administradores podem registrar e cancelar o registro de novos aplicativos de OPC UA e procurar os existentes, incluindo seus pontos de extremidade. Além de aplicativo e gerenciamento de ponto de extremidade, o serviço de registro também cataloga módulos registrados do dispositivo gêmeo IoT Edge de OPC. A API do serviço lhe dá controle da funcionalidade de módulo de borda, por exemplo, iniciar ou parar de descoberta do servidor (serviços de verificação) ou ativar novo Gêmeos de ponto de extremidade que podem ser acessados usando o serviço de micro Gêmeos de OPC.
+O microsserviço de registro de dispositivo OPC UA fornece acesso a aplicativos de OPC UA registrados e seus pontos de extremidade. Operadores e administradores podem registrar e cancelar o registro de novos aplicativos de OPC UA e procurar os existentes, incluindo seus pontos de extremidade. Além de aplicativo e gerenciamento de ponto de extremidade, o serviço de registro também cataloga módulos do IoT Edge do OPC gêmeo registrados. A API do serviço lhe dá controle da funcionalidade de módulo de borda, por exemplo, iniciar ou parar de descoberta do servidor (serviços de verificação) ou ativar novo Gêmeos de ponto de extremidade que podem ser acessados usando o serviço de micro Gêmeos de OPC.
 
-O núcleo do módulo é a identidade do Supervisor. O supervisor gerencia Gêmeos de ponto de extremidade, que corresponde aos pontos de extremidade de servidor de OPC UA que são ativados usando a API de registro de OPC UA correspondente. Gêmeos esse ponto de extremidade traduzem OPC UA JSON recebido do serviço micro gêmeos OPC em execução na nuvem em mensagens binárias OPC UA, que são enviadas por um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de descoberta que enviam eventos de descoberta do dispositivo para o serviço de integração de dispositivo de UA OPC para processamento, em que esses eventos resultam em atualizações para o registro de OPC UA.  Este artigo mostra como implantar o módulo gêmeo OPC em um projeto existente. 
+O núcleo do módulo é a identidade do Supervisor. O supervisor gerencia Gêmeos de ponto de extremidade, que corresponde aos pontos de extremidade de servidor de OPC UA que são ativados usando a API de registro de OPC UA correspondente. Gêmeos esse ponto de extremidade traduzem OPC UA JSON recebido do serviço micro gêmeos OPC em execução na nuvem em mensagens binárias OPC UA, que são enviadas por um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de descoberta que enviam eventos de descoberta do dispositivo para o serviço de integração do dispositivo OPC UA para processamento, em que esses eventos resultam em atualizações para o registro de OPC UA.  Este artigo mostra como implantar o módulo gêmeo OPC em um projeto existente. 
 
 > [!NOTE]
 > Para obter mais informações sobre detalhes de implantação e instruções, consulte o GitHub [repositório](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ O script de implantação tenta registrar dois aplicativos AAD no Azure Active D
 2. Como alternativa, implante um locatário do AAD privado em outra assinatura, reinicie o script e selecione a usá-lo.
 
 > [!WARNING]
-> NUNCA continue sem autenticação.  Se você optar por fazer isso, qualquer pessoa pode acessar seus pontos de extremidade de gerenciamento de dispositivo OPC da Internet não autenticada.   Você sempre pode escolher o [opção de implantação "local"](howto-opc-twin-deploy-dependencies.md) antes de se comprometer.
+> NUNCA continue sem autenticação.  Se você optar por fazer isso, qualquer pessoa pode acessar seus pontos de extremidade de Gêmeos de OPC da Internet não autenticada.   Você sempre pode escolher o [opção de implantação "local"](howto-opc-twin-deploy-dependencies.md) antes de se comprometer.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implantar uma demonstração de serviços de IoT industrial do all-in-one
 
@@ -135,7 +135,7 @@ Locatário do AAD para usar.
 -credentials
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como implantar o gêmeo de OPC em um projeto existente, aqui está a próxima etapa sugerida:
 

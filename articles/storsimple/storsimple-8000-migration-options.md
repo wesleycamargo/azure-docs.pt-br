@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 04/10/2019
 ms.author: alkohli
-ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339446"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500899"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções para migrar dados do StorSimple séries 5000-7000 
 
@@ -49,15 +49,28 @@ Para obter mais informações sobre como migrar dados para a Sincronização de 
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Migrar para o NAS do Panzura Freedom
 
-Clientes do StorSimple 5000-7000 podem optar por migrar para o Panzura Freedom para manter os dados no Azure. A solução Panzura Freedom fornece uma solução NAS que abrange datacenters, escritórios e nuvens públicas e privadas. A solução habilita fluxos de trabalho de dados na nuvem, híbridos e locais para clientes móveis, SMB e NFS. Há suporte para essa migração no Panzura e os clientes podem começar solicitando o suporte à migração do [site do Panzura](https://panzura.com/storsimple-migration/).
+Clientes do StorSimple 5000-7000 podem optar por migrar para o Panzura Freedom para manter os dados no Azure. A solução Panzura Freedom fornece uma solução NAS que abrange datacenters, escritórios e nuvens públicas e privadas. A solução habilita fluxos de trabalho de dados na nuvem, híbridos e locais para clientes móveis, SMB e NFS. 
+
+Há suporte para essa migração no Panzura e os clientes podem começar solicitando o suporte à migração do [site do Panzura](https://panzura.com/storsimple-migration/).
 
 #### <a name="migrate-to-cohesity"></a>Migrar para o Cohesity
 
-O Cohesity permite que você migre dados do seu StorSimple 5000–7000 atual para a Plataforma de Dados do Cohesity no Azure. A Plataforma de Dados do Cohesity é uma solução de escala da Web definida pelo software que consolida arquivos, backups, objetos e VMs em uma única solução nativa da nuvem. Após a migração para a Plataforma de Dados, você pode gerenciar, proteger e provisionar dados e aplicativos da nuvem para o núcleo por meio de um único painel. Com o Cohesity, inicie com um mínimo de três nós. Saiba mais sobre a [migração para o Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+O Cohesity permite que você migre dados do seu StorSimple 5000–7000 atual para a Plataforma de Dados do Cohesity no Azure. A Plataforma de Dados do Cohesity é uma solução de escala da Web definida pelo software que consolida arquivos, backups, objetos e VMs em uma única solução nativa da nuvem. Após a migração para a Plataforma de Dados, você pode gerenciar, proteger e provisionar dados e aplicativos da nuvem para o núcleo por meio de um único painel. Com o Cohesity, inicie com um mínimo de três nós. 
+
+Saiba mais sobre [migração para a plataforma de dados Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 #### <a name="migrate-to-nasuni"></a>Migrar para a Nasuni
 
-Nasuni torna fácil para os clientes StorSimple 5000-7000 migrar e manter seus dados no Azure.  Nasuni é uma solução de armazenamento com base no Azure à esquerda, dando aos clientes, o desempenho e segurança esperam de soluções no local, com economia de nuvem e escala.  Além do armazenamento de arquivos de alto desempenho, Nasuni e o Azure backup de identificador e recuperação de Desastre, que permite compartilhar e colaborar em seus dados em todo o mundo com o gerenciamento de armazenamento de arquivos centralizado. Nasuni tem a experiência para facilitar a migração – comece hoje mesmo: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni torna fácil para os clientes StorSimple 5000-7000 migrar e manter seus dados no Azure.  Nasuni é uma solução de armazenamento com base no Azure à esquerda, dando aos clientes, o desempenho e segurança esperam de soluções no local, com economia de nuvem e escala.  Além do armazenamento de arquivos de alto desempenho, Nasuni e o Azure backup de identificador e recuperação de Desastre, que permite compartilhar e colaborar em seus dados em todo o mundo com o gerenciamento de armazenamento de arquivos centralizado. 
+
+Nasuni tem a experiência para facilitar a migração – comece hoje mesmo: https://info.nasuni.com/nasuni-storsimple-migration
+
+#### <a name="migrate-to-talon-fast"></a>Migrar para o Tiago FAST
+
+Tiago torna mais fácil para os clientes StorSimple 5000-7000 continuar a aproveitar os benefícios com valor grande parte na plataforma do StorSimple (no local superfície pequena apoiada por recursos de nuvem ilimitado) com a função ainda maior.  Com a solução Tiago rápida, os clientes podem migrar e manter seus dados no Azure, ao mesmo tempo ter um volume no local somente de software ainda menor agora e adição de benefícios, como o arquivo global bloqueio, namespace global e a colaboração de vários site.  Tiago é uma solução líder do ecossistema do Azure, trabalhando com clientes globais para migrar suas cargas de trabalho do servidor de arquivos locais em uma superfície consolidada, com base no Azure sem comprometer a experiência ou fluxo de trabalho do usuário.  
+
+Saiba mais sobre como evoluir para uma empresa consolidado de nuvem em https://www.talonstorage.com/alliances/microsoft-storsimple.
+
 
 ## <a name="migration---frequently-asked-questions"></a>Migração - Perguntas frequentes
 
@@ -100,8 +113,8 @@ a. A migração da série 5000 ou 7000 é uma operação totalmente com suporte.
 a. O custo da migração varia dependendo da opção escolhida. Embora a migração seja gratuita, se você decidir atualizar para um StorSimple série 8000, haverá o custo do dispositivo de hardware. 
 
 Da mesma forma, ao usar a Sincronização de Arquivos do Azure, os valores de assinatura do serviço poderão ser aplicados. Em cada caso, os clientes também terão que pagar os custos de armazenamento contínuos. Consulte o seguinte para uma estimativa: 
-- [Preço do StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
-- [Preço do AFS]( https://azure.microsoft.com/pricing/details/storage/files/)
+- [Preços do StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [Preços de AFS]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>P.  Quanto tempo demora para concluir uma migração?
 
@@ -114,4 +127,4 @@ a. A data de Encerramento do Suporte para a série StorSimple 8000 é publicada 
 
 ## <a name="next-steps"></a>Próximas etapas
  - [Migrar dados de um StorSimple séries 5000-7000 para um dispositivo da série 8000](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrar dados de um StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure](storsimple-5000-7000-afs-migration.md)
+ - [Migrar dados de um StorSimple 5000-7000 series para sincronização de arquivos do Azure](storsimple-5000-7000-afs-migration.md)

@@ -1,6 +1,6 @@
 ---
-title: Coletar dados de Barracuda na visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados de Barracuda no Azure Sentinel.
+title: Conectar-se a dados Barracuda para versão prévia do Azure Sentinel | Microsoft Docs
+description: Saiba como se conectar a dados Barracuda a Sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574711"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492831"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Conectar seu dispositivo Barracuda 
 
@@ -31,11 +31,10 @@ Conector do Barracuda Web Application WAF (Firewall) permite que você se conect
 
 
 > [!NOTE]
-> 
-> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando Sentinel do Azure.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurar e conectar o Barracuda WAF
-Firewall do aplicativo Web Barracuda pode integrar e exportar logs diretamente para [ASI] por meio do servidor de OMS do Azure.
+Firewall do aplicativo Web Barracuda pode integrar e exportar logs diretamente para o Azure Sentinel por meio do servidor de OMS do Azure.
 1. Vá para [fluxo de configuração do Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e siga as instruções para configurar a conexão, usando esses parâmetros:
     - **ID do espaço de trabalho**: Copie o valor da sua ID do espaço de trabalho da página de conector do Azure Sentinel Barracuda.
     - **Chave primária**: Copie o valor da sua chave primária da página de conector do Azure Sentinel Barracuda.
@@ -51,7 +50,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu como conectar dispositivos Barracuda ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

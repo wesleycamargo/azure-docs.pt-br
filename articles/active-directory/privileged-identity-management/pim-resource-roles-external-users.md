@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576872"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493086"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Convidar usuários e atribuir funções de recurso do Azure no PIM
 
@@ -165,7 +165,7 @@ Assim como um usuário membro, você pode exibir os logs de auditoria para contr
 
     ![auditoria de organização](./media/pim-resource-roles-external-users/audit-directory.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de administrador do AD do Azure no PIM](pim-how-to-add-role-to-user.md)
-- [O que é o acesso de usuários convidados no B2B do Azure Active Directory?](../b2b/what-is-b2b.md)
+- [O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?](../b2b/what-is-b2b.md)

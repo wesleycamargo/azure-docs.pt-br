@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470688"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490025"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -152,7 +152,7 @@ O portal poderá exibir um disco criptografado mesmo depois que ele tiver sido d
 
 Para desativar corretamente o Azure Disk Encryption, iniciar a partir de um bom estado conhecido com a criptografia habilitada e, em seguida, usar o [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) e [AzVMDiskEncryptionExtension remover](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell comandos, ou o [desabilitar a criptografia de vm az](/cli/azure/vm/encryption) comando da CLI. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucioná-los. Para saber mais sobre esse serviço e seus recursos, confira os seguintes artigos:
 

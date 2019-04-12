@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862838"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505610"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Central de segurança do Azure (ASC) para IoT** módulo fornece uma solução abrangente de segurança para seu dispositivo IoT Edge.
@@ -75,8 +75,25 @@ Há três etapas para criar uma implantação do IoT Edge para a Central de segu
 1. Dos **Adicionar módulos** guia **módulos de implantação** área, clique em **AzureSecurityCenterforIoT**. 
    
 1. Alterar o **nome** à **azureiotsecurity**.
-1. Altere o nome da **URI da imagem** para **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Alterar o **URI de imagem** à **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Verifique se o **opções de criar contêiner** valor é definido como:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Verifique **propriedades desejadas do gêmeo do módulo de conjunto** é selecionado e alterar o objeto de configuração para:
       
     ``` json
@@ -89,12 +106,16 @@ Há três etapas para criar uma implantação do IoT Edge para a Central de segu
 1. Clique em **Salvar**.
 1. Role até a parte inferior da guia e selecione **definir configurações de tempo de execução do Edge avançadas**.
    
-  >[!Note]
-  > Fazer **não** desabilitar a comunicação de AMQP para o Hub do IoT Edge.
-  > Central de segurança do Azure para o módulo do IoT requer comunicação AMQP com o Hub do IoT Edge.
+   >[!Note]
+   > Fazer **não** desabilitar a comunicação de AMQP para o Hub do IoT Edge.
+   > Central de segurança do Azure para o módulo do IoT requer comunicação AMQP com o Hub do IoT Edge.
    
-1. Alterar o **imagem** sob **Hub de borda** para **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Alterar o **imagem** sob **Hub de borda** para **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > Central de segurança do Azure para o módulo do IoT requer uma versão bifurcada do Hub do IoT Edge, com base no SDK versão 1.20.
+   > Alterando a imagem do Hub do IoT Edge, você está instruindo o dispositivo do IoT Edge para substituir a versão estável mais recente com a versão bifurcada do Hub do IoT Edge, que não é oficialmente suportado pelo serviço do IoT Edge.
+
 1. Verifique se **criar opções** é definida como: 
          
     ``` json
@@ -137,8 +158,8 @@ Se você encontrar um problema, os logs do contêiner são a melhor maneira de s
    
    | NOME | IMAGEM |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Se o mínimo necessário de contêineres não estiverem presentes, verifique se o manifesto de implantação do IoT Edge é alinhado com as configurações recomendadas. Para obter mais informações, consulte [módulo do IoT Edge implantar](#deployment-using-azure-portal).

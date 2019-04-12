@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba como criar um emparelhamento de rede virtual entre redes virtuais criadas por meio do Resource Manager que existem em assinaturas do Azure diferentes.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403452"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492287"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Resource Manager, assinaturas diferentes
 
@@ -39,7 +39,9 @@ Use o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) 
 
 ## <a name="portal"></a>Criar emparelhamento – portal do Azure
 
-Se as redes virtuais que você deseja emparelhar estiverem em assinaturas associadas a diferentes locatários do Azure Active Directory, siga as etapas na seção de CLI e PowerShell deste artigo. O portal não tem suporte para emparelhar redes virtuais pertencentes a assinaturas de diferentes locatários do Active Directory.
+Se as redes virtuais que você deseja emparelhar estiverem em assinaturas associadas a diferentes locatários do Azure Active Directory, siga as etapas na seção de CLI e PowerShell deste artigo. O portal não tem suporte para emparelhar redes virtuais pertencentes a assinaturas de diferentes locatários do Active Directory. 
+
+Observe que o Cloud Shell tem limitações na troca de assinaturas e locatários devido à qual o emparelhamento de rede virtual ou o emparelhamento VNet Global entre redes virtuais pertencentes a assinaturas em diferentes locatários do Azure Active Directory não funcionará. Use o PowerShell ou CLI.
 
 As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, pule as etapas para fazer logoff do portal e ignore as etapas para atribuir permissões de outro usuário para as redes virtuais.
 
@@ -333,7 +335,7 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
    Remove-AzResourceGroup -Name myResourceGroupB -force
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Familiarize por completo com [comportamentos e restrições importantes do emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar um emparelhamento de rede virtual para uso em produção.
 - Saiba mais sobre todas as [configurações de emparelhamento de rede virtual](virtual-network-manage-peering.md#create-a-peering).

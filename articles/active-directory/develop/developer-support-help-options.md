@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235182"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501579"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
@@ -55,8 +55,7 @@ Em que *{Seus Termos de Pesquisa}* correspondem às palavras-chave de pesquisa.
 | Ferramenta  | DESCRIÇÃO  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Cole uma ID ou token de acesso para decodificar os nomes das declarações e valores. |
-| [Analisador do código de erro](https://apps.dev.microsoft.com/portal/tools/errors)| Cole um código de erro recebido durante a conexão ou páginas de consentimento para ver as possíveis causas e resoluções. |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Ferramentas que permitem fazer solicitações e ver as respostas na API do Microsoft Graph. |
+| [Explorador do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Ferramentas que permitem fazer solicitações e ver as respostas na API do Microsoft Graph. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Postar uma pergunta no Stack Overflow
 
@@ -69,14 +68,14 @@ Se não conseguir encontrar uma resposta para sua pergunta por meio da pesquisa,
 | Biblioteca ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Biblioteca MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
 | Middleware OWIN  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [B2B do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [API do Microsoft Graph](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | Qualquer outra área relacionada aos tópicos de autenticação ou autorização | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 As seguintes postagens do Stack Overflow contêm dicas sobre como fazer perguntas e adicionar o código-fonte. Siga essas diretrizes para aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:
 
-* [Como fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask)
+* [Como posso fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask)
 * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub

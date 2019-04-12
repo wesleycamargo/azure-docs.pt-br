@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: HT
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650284"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496872"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -48,7 +48,7 @@ O Log de Atividades contém várias categorias de dados. Para obter todos os det
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
 
-[Veja este artigo para compreender o esquema de evento do Log de Atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)
+[Consulte este artigo para compreender o esquema de evento do Log de atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
 
@@ -58,7 +58,7 @@ Veja algumas coisas que você pode fazer com o Log de Atividades:
 
 
 * Consultar e exibi-lo no **Portal do Azure**.
-* [Criar um alerta em um evento do Log de Atividades.](../../azure-monitor/platform/activity-log-alerts.md)
+* [Crie um alerta em um evento de Log de atividades.](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream-lo para um **Hub de eventos** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou uma solução de análises personalizadas, como o Power BI.
 * Analisá-los no Power BI usando o [ **o pacote de conteúdo do Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](../../azure-monitor/platform/archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando o **Perfil de Log**.
@@ -92,22 +92,14 @@ Para ainda mais poder, você pode clicar no ícone **Logs**, que exibe os dados 
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
 * Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
-* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *O significado de "categoria" em Perfis de Log e eventos de Log de Atividades é diferente. No Perfil de Log, "Category" representa o tipo de operação (Gravar, Excluir, Ação). Em um evento do Log de Atividades, a propriedade "category" representa a origem ou o tipo de evento (por exemplo, Administração, Serviço de Integridade, Alerta e muito mais).*
+* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *O significado de "category" em perfis de Log e eventos de Log de atividades é diferente. No Perfil de Log, "Category" representa o tipo de operação (Gravar, Excluir, Ação). Em um evento de Log de atividades, a propriedade "category" representa a origem ou o tipo de evento (por exemplo, administração, ServiceHealth, alerta e muito mais).*
 * Quais regiões (locais) devem ser exportados. Inclua "global", pois muitos eventos no Log de Atividades são eventos globais.
 * Quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento.
-    - Uma retenção de zero dias significa que os logs serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
+    - Uma retenção de zero dias significa que os logs serão mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
     - Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma Conta de Armazenamento estiver desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
     - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. A exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da conta de armazenamento.
 
 Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
-
-> [!NOTE]
->  Atualmente, você não pode arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
-
-> [!WARNING]
-> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
@@ -191,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../../azure-resource-manager/resource-group-audit.md)
+* [Saiba mais sobre o Log de atividades (anteriormente conhecido como Logs de auditoria)](../../azure-resource-manager/resource-group-audit.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

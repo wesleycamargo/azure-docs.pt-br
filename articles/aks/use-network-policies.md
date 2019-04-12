@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181479"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494758"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Visualização - proteger o tráfego entre os pods usando diretivas de rede no serviço de Kubernetes do Azure (AKS)
 
 Ao executar aplicativos modernos baseados em microsserviços no Kubernetes, muitas vezes você deseja controlar quais componentes podem se comunicar uns com os outros. O princípio de privilégio mínimo deve ser aplicado a como o tráfego pode fluir entre os pods em um cluster do serviço de Kubernetes do Azure (AKS). Digamos que você provavelmente deseja bloquear o tráfego diretamente para os aplicativos de back-end. O *política de rede* recurso no Kubernetes permite que você defina regras para tráfego de entrada e saída entre os pods em um cluster.
 
-Malhado, uma rede de código-fonte aberto e solução de segurança de rede fundada por Tigera, oferece um mecanismo de políticas de rede que pode implementar regras de política de rede do Kubernetes. Este artigo mostra como instalar o mecanismo de políticas de rede Malhado e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre os pods no AKS.
+Este artigo mostra como instalar o mecanismo de políticas de rede e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre os pods no AKS. Esse recurso está atualmente na visualização.
 
 > [!IMPORTANT]
 > Recursos de visualização do AKS são Self-service e aceitação. As visualizações são fornecidas para reunir opiniões e bugs de nossa comunidade. No entanto, eles não são suportados pelo suporte técnico do Azure. Se você cria um cluster ou adicionar esses recursos para clusters existentes, há suporte para esse cluster até que o recurso não está mais em visualização e muda para GA (disponibilidade geral).
@@ -27,7 +27,7 @@ Malhado, uma rede de código-fonte aberto e solução de segurança de rede fund
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisará da CLI do Azure versão 2.0.56 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 Para criar um cluster do AKS que pode usar a diretiva de rede, primeiro habilite um sinalizador de recursos em sua assinatura. Para registrar o sinalizador de recurso *EnableNetworkPolicy*, use o comando [az feature register][az-feature-register] como mostrado no exemplo a seguir:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Todos os compartimentos em um cluster AKS podem enviar e receber tráfego sem limitações, por padrão. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Aplicativos de back-end geralmente só são expostos para os serviços front-end necessários, por exemplo. Ou, os componentes de banco de dados só são acessíveis para as camadas de aplicativo que se conectam a eles.
 
-As políticas de rede são recursos do Kubernetes que possibilitam controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base nas configurações, como rótulos atribuídos, o namespace ou porta do tráfego. Diretivas de rede são definidas como se manifesta YAML. Essas diretivas podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou serviço.
+Política de rede é uma especificação de Kubernetes que define as políticas de acesso para a comunicação entre os Pods. Usando diretivas de rede, você definir um conjunto ordenado de regras para enviar e receber o tráfego e aplicá-las a uma coleção de pods que correspondem a um ou mais seletores de rótulo.
+
+Essas regras de política de rede são definidas como se manifesta YAML. Políticas de rede podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou serviço.
+
+### <a name="network-policy-options-in-aks"></a>Opções de política de rede no AKS
+
+O Azure fornece duas maneiras de implementar a diretiva de rede. Você escolher uma opção de diretiva de rede quando você cria um cluster do AKS. A opção de política não pode ser alterada depois que o cluster é criado:
+
+* Implementação do Azure, chamada *diretivas de rede do Azure*.
+* *Políticas de rede Malhado*, uma rede de código-fonte aberto e uma solução de segurança de rede fundada por [Tigera][tigera].
+
+Ambas as implementações de usam o Linux *IPTables* para impor as políticas especificadas. As políticas são convertidas em conjuntos de pares IP permitidos e não permitidos. Esses pares são programados, em seguida, como regras de filtro de IPTable.
+
+Política de rede funciona somente com a opção CNI do Azure (Avançado). Implementação é diferente para as duas opções:
+
+* *Políticas de rede do Azure* -o CNI do Azure configura uma ponte de host de VM para a rede de dentro do próprio nó. As regras de filtragem são aplicadas quando os pacotes passam por meio da ponte.
+* *Políticas de rede Malhado* -o CNI do Azure configura as rotas de kernel local para o tráfego de dentro do próprio nó. As políticas são aplicadas na interface de rede do pod.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e Malhado e seus recursos
+
+| Recurso                               | Azure                      | Malhado                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Plataformas com suporte                      | Linux                      | Linux                       |
+| Suporte para as opções de rede             | Azure CNI                  | Azure CNI                   |
+| Conformidade com a especificação do Kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
+| Recursos adicionais                      | Nenhum                       | Estendido consistindo de ponto de extremidade do Host, rede Global definida e a política de rede Global de modelo de política. Para obter mais informações sobre como usar o `calicoctl` CLI para gerenciar esses recursos, consulte [referência de usuário calicoctl][calicoctl]. |
+| Suporte                                  | Compatível com a equipe de engenharia e suporte do Azure | Suporte da comunidade de Malhado. Para obter mais informações sobre o suporte pago adicional, consulte [opções de suporte do projeto Malhado][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
 
 Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda em uma política que define o fluxo de tráfego:
 
@@ -59,9 +87,7 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda em 
 * Permite o tráfego com base nos rótulos do pod.
 * Permite o tráfego com base no namespace.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
-
-A política de rede só pode ser habilitada ao criar o cluster. Não é possível habilitar a política de rede em um cluster AKS existente. 
+Primeiro, vamos criar um cluster do AKS que dá suporte à política de rede. O recurso de política de rede pode ser habilitado apenas quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
 
 Para usar a diretiva de rede com um cluster do AKS, você deve usar o [plug-in do Azure CNI] [ azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking].
 
@@ -71,6 +97,7 @@ O exemplo de script a seguir:
 * Cria um Azure Active Directory (Azure AD) entidade de serviço para uso com o cluster do AKS.
 * Atribui permissões de *Colaborador* para a entidade de serviço do cluster do AKS em uma rede virtual.
 * Cria um cluster do AKS na rede virtual definida e habilita a política de rede.
+    * O *azure* opção de política de rede é usada. Para usar Malhado como a opção de política de rede em vez disso, use o `--network-policy calico` parâmetro.
 
 Forneça sua própria *SP_PASSWORD* segura. Você pode substituir a *nome_do_grupo_de_recursos* e *CLUSTER_NAME* variáveis:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 São necessários alguns minutos para criar o cluster. Quando o cluster estiver pronto, configure `kubectl` para se conectar ao cluster Kubernetes usando o [az aks get-credentials] [ az-aks-get-credentials] comando. Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las:
@@ -454,6 +481,9 @@ Para saber mais sobre as políticas, consulte [políticas de rede do Kubernetes]
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
