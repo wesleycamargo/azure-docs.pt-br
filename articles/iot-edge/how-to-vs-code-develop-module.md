@@ -224,7 +224,7 @@ No computador de desenvolvimento, é possível iniciar o simulador do IoT Edge, 
 
 1. Abra o arquivo de módulo (`Program.cs`, `app.js`, `App.java`, ou `<your module name>.cs`) e adicione um ponto de interrupção.
 
-1. Na exibição do Visual Studio Code Explorer, clique com botão direito no `deployment.debug.template.json` arquivo para sua solução e, em seguida, selecione **solução de compilação e execução do IoT Edge no simulador**. É possível observar todos os registros de contêiner de módulo na mesma janela. Você também pode navegar para a exibição do Docker para observar o status do contêiner.
+1. Na exibição do Visual Studio Code Explorer, clique com botão direito no `deployment.debug.template.json` arquivo para sua solução e, em seguida, selecione **solução de compilação e execução do IoT Edge no simulador**. É possível observar todos os logs de contêiner de módulo na mesma janela. Você também pode navegar para a exibição do Docker para observar o status do contêiner.
 
    ![Observar variáveis](media/how-to-develop-csharp-module/view-log.png)
 

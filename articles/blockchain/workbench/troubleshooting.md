@@ -54,7 +54,7 @@ Este script aceita os seguintes parâmetros:
 | LookbackHours | Número de horas a utilizar ao efetuar pull de telemetria. O valor padrão é de 24 horas. O valor máximo é de 90 horas | Não  |
 | OmsSubscriptionId | A ID da assinatura em que o Azure Monitor registra é implantada. Apenas passe esse parâmetro se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
 | OmsResourceGroup |O grupo de recursos em que o Azure Monitor registra é implantado. Apenas passe esse parâmetro se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsWorkspaceName | O nome do workspace do Log Analytics. Passar esse parâmetro somente se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench | Não  |
+| OmsWorkspaceName | O nome do espaço de trabalho do Log Analytics. Passar esse parâmetro somente se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench | Não  |
 
 ## <a name="what-is-collected"></a>O que é coletado?
 
@@ -70,7 +70,7 @@ O arquivo ZIP de saída contém a seguinte estrutura de pasta:
 
 O arquivo de resumo oferece um instantâneo da integridade do aplicativo e o estado geral do aplicativo. O resumo fornece as ações recomendadas, destaca os principais erros e os metadados sobre a execução de serviços.
 
-A pasta **Métrica** contém as métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o arquivo de saída `\Details\Workbench\apiMetrics.txt` contém um resumo de códigos de resposta diferentes e tempos de resposta durante o período de coleção. A pasta **Detalhes** contém registros detalhados para solucionar problemas específicos com o Workbench ou a rede de blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das exceções mais recentes que ocorreram no sistema, o que é útil para solucionar erros com contratos inteligentes ou interações com a blockchain. 
+A pasta **Métrica** contém as métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o arquivo de saída `\Details\Workbench\apiMetrics.txt` contém um resumo de códigos de resposta diferentes e tempos de resposta durante o período de coleção. A pasta **Detalhes** contém logs detalhados para solucionar problemas específicos com o Workbench ou a rede de blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das exceções mais recentes que ocorreram no sistema, o que é útil para solucionar erros com contratos inteligentes ou interações com a blockchain. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

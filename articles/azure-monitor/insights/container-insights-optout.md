@@ -112,7 +112,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
     ![Página de propriedades do contêiner](media/container-insights-optout/container-properties-page.png)
 
-    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Workspace**. Esse valor será necessário se você decidir que deseja excluir o workspace do Log Analytics posteriormente. A exclusão do workspace do Log Analytics não é executada como parte desse processo. 
+    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Workspace**. Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho do Log Analytics posteriormente. A exclusão do espaço de trabalho do Log Analytics não é executada como parte desse processo. 
 
 5. Salve esse arquivo como **OptOutParam.json** em uma pasta local.
 6. Você está pronto para implantar o modelo. 
@@ -150,5 +150,5 @@ A alteração da configuração pode levar alguns minutos para ser concluída. Q
 ProvisioningState       : Succeeded
 ```
 
-Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um workspace, confira [Excluir um workspace do Azure Log Analytics com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID do Recurso de Workspace** copiada anteriormente na etapa 4; você precisará dela. 
+Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID do Recurso de Workspace** copiada anteriormente na etapa 4; você precisará dela. 
 

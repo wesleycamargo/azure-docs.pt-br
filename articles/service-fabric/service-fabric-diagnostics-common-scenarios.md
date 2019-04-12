@@ -101,7 +101,7 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Como posso monitorar contadores de desempenho?
 
-1. Depois que você tiver adicionado o Agente do Log Analytics ao cluster de que você precisa para adicionar contadores de desempenho específicos que você deseja controlar. Navegue até a página do Workspace do Log Analytics no portal – na página da solução, a guia de workspace está no menu à esquerda.
+1. Depois que você tiver adicionado o Agente do Log Analytics ao cluster de que você precisa para adicionar contadores de desempenho específicos que você deseja controlar. Navegue até a página do Espaço de Trabalho do Log Analytics no portal – na página da solução, a guia de espaço de trabalho está no menu à esquerda.
 
     ![Guia de espaço de trabalho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 

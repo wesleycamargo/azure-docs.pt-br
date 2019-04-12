@@ -24,7 +24,7 @@ Você pode transmitir o [Log de Atividades do Azure](../../azure-monitor/platfor
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>O que você pode fazer com o Log de Atividades e os Hubs de Eventos
 Veja duas maneiras de usar o recurso de streaming para o Log de Atividade:
 
-* **Transmitir para sistemas de telemetria e registro em log de terceiros**: Ao longo do tempo, a transmissão de Hubs de Eventos do Azure se tornará o mecanismo para direcionar seu Log de Atividades para SIEMs e soluções de análise de log de terceiros.
+* **Transmitir para sistemas de telemetria e registro em log de terceiros**: Ao longo do tempo, a transmissão de Hubs de Eventos do Azure se tornará o mecanismo para direcionar seu Log de Atividades para SIEMs e soluções de análise de logs de terceiros.
 * **Criar uma plataforma de registro em log e telemetria personalizada**: se você já tem uma plataforma de telemetria personalizada ou está pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a ingestão flexível de log de atividades. Consulte mais informações no [vídeo de Dan Rosanova sobre o uso de Hubs de Eventos em uma plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Habilitar o streaming do Log de Atividades

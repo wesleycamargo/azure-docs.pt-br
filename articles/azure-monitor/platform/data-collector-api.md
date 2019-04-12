@@ -1,6 +1,6 @@
 ---
 title: API do Coletor de Dados HTTP do Azure Monitor | Microsoft Docs
-description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST a um workspace do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
+description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST a um espaço de trabalho do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -29,9 +29,9 @@ Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de
 > A API do Coletor de Dados HTTP do Azure Monitor está em visualização pública.
 
 ## <a name="concepts"></a>Conceitos
-É possível usar a API do Coletor de Dados HTTP para enviar dados de log a um workspace do Log Analytics no Azure Monitor de qualquer cliente que possa chamar uma API REST.  Pode ser um runbook no Automação do Azure que coleta dados de gerenciamento do Azure ou de outra nuvem, ou pode ser um sistema de gerenciamento alternativo que usa o Azure Monitor para consolidar e analisar dados de log.
+É possível usar a API do Coletor de Dados HTTP para enviar dados de log a um espaço de trabalho do Log Analytics no Azure Monitor de qualquer cliente que possa chamar uma API REST.  Pode ser um runbook no Automação do Azure que coleta dados de gerenciamento do Azure ou de outra nuvem, ou pode ser um sistema de gerenciamento alternativo que usa o Azure Monitor para consolidar e analisar dados de log.
 
-Todos os dados no workspace do Log Analytics são armazenados como um registro com um tipo de registro específico.  Formate seus dados para enviar à API do Coletor de Dados HTTP como vários registros em JSON.  Quando você envia os dados, um registro individual é criado no repositório de cada registro no conteúdo da solicitação.
+Todos os dados no espaço de trabalho do Log Analytics são armazenados como um registro com um tipo de registro específico.  Formate seus dados para enviar à API do Coletor de Dados HTTP como vários registros em JSON.  Quando você envia os dados, um registro individual é criado no repositório de cada registro no conteúdo da solicitação.
 
 
 ![Visão geral do Coletor de Dados HTTP](media/data-collector-api/overview.png)
@@ -51,7 +51,7 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
 | Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
-| CustomerID |O identificador exclusivo do workspace do Log Analytics. |
+| CustomerID |O identificador exclusivo do espaço de trabalho do Log Analytics. |
 | Recurso |O nome do recurso de API: /api/logs. |
 | Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
 
@@ -179,7 +179,7 @@ Há algumas restrições acerca dos dados publicados na API de Coleta de Dados d
 * Máximo de 30 MB por post na API do Coletor de Dados do Azure Monitor. Este é um limite de tamanho para um único post. Se os dados de uma única postagem excederem 30 MB, será necessário dividi-los em partes menores e enviá-los simultaneamente.
 * Limite máximo de 32 KB para valores de campo. Se o valor do campo for maior do que 32 KB, os dados serão truncados.
 * O número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e usabilidade.  
-* Uma tabela em um workspace do Log Analytics apenas dá suporte para até 500 colunas (referido como um campo neste artigo). 
+* Uma tabela em um espaço de trabalho do Log Analytics apenas dá suporte para até 500 colunas (referido como um campo neste artigo). 
 * O número máximo de caracteres para o nome da coluna é 500.
 
 ## <a name="return-codes"></a>Códigos de retorno
@@ -213,7 +213,7 @@ Nas próximas seções, você encontrará exemplos de como enviar dados para a A
 
 Para cada exemplo, realize essas etapas para definir as variáveis para o cabeçalho de autorização:
 
-1. No portal do Azure, localize seu workspace do Log Analytics.
+1. No portal do Azure, localize seu espaço de trabalho do Log Analytics.
 2. Selecione **Configurações Avançadas** e, em seguida, **Fontes Conectadas**.
 2. À direita da **ID do Workspace**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID**.
 3. À direita da **Chave Primária**, selecione o ícone de cópia e cole a ID como o valor da variável **Shared Key**.
@@ -482,6 +482,6 @@ Embora a API do coletor de dados deve abranger a maioria das suas necessidades p
 
 
 ## <a name="next-steps"></a>Próximos passos
-- Use a [API de Pesquisa de Logs](../log-query/log-query-overview.md) para recuperar dados do workspace do Log Analytics.
+- Use a [API de Pesquisa de Logs](../log-query/log-query-overview.md) para recuperar dados do espaço de trabalho do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Coletor de Dados ](create-pipeline-datacollector-api.md) usando fluxo de trabalho de Aplicativos Lógicos para Azure Monitor.

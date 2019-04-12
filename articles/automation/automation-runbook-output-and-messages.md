@@ -221,7 +221,7 @@ Na captura de tela anterior, é possível ver que, ao habilitar o log Detalhado 
    ![Página Registro e Rastreamento de Criação Gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-monitor-logs"></a>Logs do Microsoft Azure Monitor
-A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o workspace do Log Analytics. Com os logs do Azure Monitor, você pode,
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Com os logs do Azure Monitor, você pode,
 
 * Obter informações sobre os trabalhos de Automação 
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso) 

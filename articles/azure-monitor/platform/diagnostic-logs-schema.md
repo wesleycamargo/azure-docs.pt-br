@@ -156,9 +156,9 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Network/securegateways|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|
 |Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|
 |Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|
-|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registro de Diagnóstico de Gateway|
-|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registro de Diagnóstico de Túnel|
-|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registro de Diagnóstico de Rota|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Logs de Diagnóstico de Túnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Logs de Diagnóstico de Rota|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Logs de Diagnóstico IKE|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Logs de Diagnóstico P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de Resultados de Integridade de Investigação do Gerenciador de Tráfego|

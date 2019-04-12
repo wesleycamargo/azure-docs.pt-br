@@ -377,7 +377,7 @@ O que acontece enquanto você espera:
 
 - **Criação de imagem**: Uma imagem do Docker é criada, correspondendo ao ambiente Python especificado pelo estimador. A imagem é carregada no workspace. A criação e o envio da imagem leva **cerca de cinco minutos**. 
 
-  Este estágio ocorre uma vez para cada ambiente Python, pois o contêiner é armazenado em cache para execuções subsequentes. Durante a criação da imagem, os logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da criação da imagem usando esses registros.
+  Este estágio ocorre uma vez para cada ambiente Python, pois o contêiner é armazenado em cache para execuções subsequentes. Durante a criação da imagem, os logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da criação da imagem usando esses logs.
 
 - **Dimensionamento**: Se o cluster remoto exigir mais nós para realizar a execução que está disponível, mais nós serão adicionados automaticamente. O dimensionamento normalmente leva **cerca de cinco minutos.**
 

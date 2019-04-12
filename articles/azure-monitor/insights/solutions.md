@@ -63,7 +63,7 @@ Clique no nome de uma solução para abrir a página de resumo. Essa página exi
 
 
 ## <a name="install-a-monitoring-solution"></a>Instalar uma solução de monitoramento
-As soluções de monitoramento da Microsoft e parceiros estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com). Você pode procurar soluções disponíveis e instalá-las usando o procedimento a seguir. Ao instalar uma solução, você deverá selecionar um [Workspace do Log Analytics](../platform/manage-access.md) no qual a solução será instalada e onde seus dados serão coletados.
+As soluções de monitoramento da Microsoft e parceiros estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com). Você pode procurar soluções disponíveis e instalá-las usando o procedimento a seguir. Ao instalar uma solução, você deverá selecionar um [Espaço de Trabalho do Log Analytics](../platform/manage-access.md) no qual a solução será instalada e onde seus dados serão coletados.
 
 1. Na [lista de soluções para a assinatura](#list-installed-monitoring-solutions), clique em **Adicionar**. 
 1. À direita de **Soluções de gerenciamento**, clique em **Mais**. 
@@ -76,7 +76,7 @@ As soluções de monitoramento da Microsoft e parceiros estão disponíveis no [
 ### <a name="install-a-solution-from-the-community"></a>Instalar uma solução a partir da comunidade
 Os membros da comunidade podem enviar soluções de gerenciamento para Modelos de Início Rápido do Azure. É possível instalar essas soluções diretamente ou baixá-las para instalação posterior.
 
-1. Siga o processo descrito no [Workspace do Log Analytics e na Conta de automação](#log-analytics-workspace-and-automation-account) para vincular um workspace e uma conta.
+1. Siga o processo descrito no [Espaço de Trabalho do Log Analytics e na Conta de automação](#log-analytics-workspace-and-automation-account) para vincular um espaço de trabalho e uma conta.
 2. Acesse os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/). 
 3. Pesquise uma solução na qual você esteja interessado.
 4. Selecione a solução nos resultados para exibir seus detalhes.
@@ -85,25 +85,25 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
 7. Clique em **Comprar** para instalar a solução.
 
 
-## <a name="log-analytics-workspace-and-automation-account"></a>Workspace do Log Analytics e Conta de automação
-Todas as soluções de monitoramento exigem um [workspace do Log Analytics](../platform/manage-access.md) para armazenar dados coletados pela solução e hospedar as exibições e pesquisas de logs. Algumas soluções também exigem uma [conta de Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. O workspace e a conta devem atender aos seguintes requisitos.
+## <a name="log-analytics-workspace-and-automation-account"></a>Espaço de Trabalho do Log Analytics e Conta de automação
+Todas as soluções de monitoramento exigem um [espaço de trabalho do Log Analytics](../platform/manage-access.md) para armazenar dados coletados pela solução e hospedar as exibições e pesquisas de logs. Algumas soluções também exigem uma [conta de Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. O workspace e a conta devem atender aos seguintes requisitos.
 
-* Cada instalação de uma solução somente pode usar um workspace do Log Analytics e uma conta de Automação. É possível instalar a solução separadamente em vários workspaces.
-* Se uma solução exigir uma conta de Automação, o workspace do Log Analytics e a conta de Automação deverão estar vinculadas entre si. Um workspace do Log Analytics só pode ser vinculado a uma Conta de automação e uma Conta de automação só pode ser vinculada a um workspace do Log Analytics.
-* Para ser vinculado, o workspace do Log Analytics e a Conta de automação devem estar no mesmo grupo de recursos e região. A exceção é um workspace na região Leste dos EUA e uma conta de Automação no Leste dos EUA 2.
+* Cada instalação de uma solução somente pode usar um espaço de trabalho do Log Analytics e uma conta de Automação. É possível instalar a solução separadamente em vários workspaces.
+* Se uma solução exigir uma conta de Automação, o espaço de trabalho do Log Analytics e a conta de Automação deverão estar vinculadas entre si. Um espaço de trabalho do Log Analytics só pode ser vinculado a uma Conta de automação e uma Conta de automação só pode ser vinculada a um espaço de trabalho do Log Analytics.
+* Para ser vinculado, o espaço de trabalho do Log Analytics e a Conta de automação devem estar no mesmo grupo de recursos e região. A exceção é um workspace na região Leste dos EUA e uma conta de Automação no Leste dos EUA 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar um link entre um workspace do Log Analytics e uma conta de Automação
-Como você especifica o workspace do Log Analytics e Conta de automação depende do método de instalação para sua solução.
+### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar um link entre um espaço de trabalho do Log Analytics e uma conta de Automação
+Como você especifica o espaço de trabalho do Log Analytics e Conta de automação depende do método de instalação para sua solução.
 
 * Ao instalar uma solução através do Azure Marketplace, um workspace e uma conta de Automação serão solicitados. Se ainda não estiverem vinculados, o link entre eles será criado.
-* Para soluções fora do Azure Marketplace, você deverá vincular o workspace do Log Analytics e a Conta de automação antes de instalar a solução. Você poderá fazer isso selecionando qualquer solução no Azure Marketplace e selecionando o workspace do Log Analytics e a Conta de automação. Não é necessário efetivamente instalar a solução porque o vínculo é criado quando o workspace do Log Analytics e a conta Automação são selecionados. Depois que o vínculo é criado, você poderá usar esse workspace do Log Analytics e a Conta de automação para qualquer solução.
+* Para soluções fora do Azure Marketplace, você deverá vincular o espaço de trabalho do Log Analytics e a Conta de automação antes de instalar a solução. Você poderá fazer isso selecionando qualquer solução no Azure Marketplace e selecionando o espaço de trabalho do Log Analytics e a Conta de automação. Não é necessário efetivamente instalar a solução porque o vínculo é criado quando o espaço de trabalho do Log Analytics e a conta Automação são selecionados. Depois que o vínculo é criado, você poderá usar esse espaço de trabalho do Log Analytics e a Conta de automação para qualquer solução.
 
-### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifique o link entre um workspace do Log Analytics e uma conta de Automação
-Você pode verificar o vínculo entre um workspace do Log Analytics e uma Conta de automação usando o procedimento a seguir.
+### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifique o link entre um espaço de trabalho do Log Analytics e uma conta de Automação
+Você pode verificar o vínculo entre um espaço de trabalho do Log Analytics e uma Conta de automação usando o procedimento a seguir.
 
 1. Selecione a conta de automação no portal do Azure.
 1. Role até a seção **Recursos Relacionados** do menu.
-1. Se a configuração **Workspace** estiver habilitada, essa conta será vinculada a um workspace do Log Analytics. Você pode clicar no **Workspace** para exibir os detalhes do workspace.
+1. Se a configuração **Workspace** estiver habilitada, essa conta será vinculada a um espaço de trabalho do Log Analytics. Você pode clicar no **Workspace** para exibir os detalhes do workspace.
 
 ## <a name="remove-a-monitoring-solution"></a>Remover uma solução de monitoramento
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **Excluir**.

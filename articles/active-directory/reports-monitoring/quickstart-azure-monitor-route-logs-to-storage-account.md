@@ -40,7 +40,7 @@ Para usar esse recurso, você precisa de:
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory** > **Atividade** > **Trilhas de auditoria**. 
+2. Selecione **Azure Active Directory** > **Atividade** > **Logs de auditoria**. 
 
 3. Selecione **Exportar Configurações**. 
 
@@ -60,7 +60,7 @@ Para usar esse recurso, você precisa de:
 8. Selecione **OK** para sair da configuração.
 
 9. Siga um destes procedimentos, ou ambos:
-    * Para enviar as trilhas de auditoria para a conta de armazenamento, marque a caixa de seleção **AuditLogs**. 
+    * Para enviar os logs de auditoria para a conta de armazenamento, marque a caixa de seleção **AuditLogs**. 
     * Para enviar os logs de entrada para a conta de armazenamento, marque a caixa de seleção **SignInLogs**.
 
 10. Use o controle deslizante para definir a retenção dos dados de log. Por padrão, esse valor é *0*, o que significa que os logs são mantidos na conta de armazenamento indefinidamente. Se você definir um valor diferente, os eventos mais antigos que o número de dias selecionado serão limpos automaticamente.
@@ -69,7 +69,7 @@ Para usar esse recurso, você precisa de:
 
     ![Configurações de diagnóstico](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Após cerca de 15 minutos, verifique se os logs são enviados por push para sua conta de armazenamento. Vá para o [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento**, selecione a conta de armazenamento que você usou anteriormente e selecione **Blobs**. Como **Trilhas de auditoria**, selecione **insights-log-audit**. Como **Logs de entrada**, selecione **insights-log-signin**.
+12. Após cerca de 15 minutos, verifique se os logs são enviados por push para sua conta de armazenamento. Vá para o [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento**, selecione a conta de armazenamento que você usou anteriormente e selecione **Blobs**. Como **Logs de auditoria**, selecione **insights-log-audit**. Como **Logs de entrada**, selecione **insights-log-signin**.
 
     ![Conta de armazenamento](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 

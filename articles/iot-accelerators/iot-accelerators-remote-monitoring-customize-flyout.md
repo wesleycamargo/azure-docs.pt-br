@@ -10,7 +10,7 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
 ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49167410"
@@ -22,7 +22,7 @@ Este artigo mostra como adicionar um novo desdobrável em uma página na interfa
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar um novo flyout a uma página na interface do usuário da web.
 
-O flyout de exemplo deste artigo é exibido na página com a grade que a seção [Adicionar uma grade personalizada ao artigo explicativo de UI da Web do acelerador de solução do Remote Monitoring](iot-accelerators-remote-monitoring-customize-grid.md) mostra como adicionar.
+O flyout de exemplo deste artigo é exibido na página com a grade que a seção [Adicionar uma grade personalizada ao artigo explicativo de UI da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-grid.md) mostra como adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,6 +139,6 @@ O comando anterior é executado localmente na interface do usuário [http://loca
 
 Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na interface do usuário da Web no acelerador de solução de monitoramento remoto.
 
-Agora você definiu um submenu em uma página, a próxima etapa é [Adicionar um painel ao painel na IU da Web do acelerador de solução do Remote Monitoring](iot-accelerators-remote-monitoring-customize-panel.md).
+Agora você definiu um submenu em uma página, a próxima etapa é [Adicionar um painel ao painel na IU da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md).
 
 Para obter mais informações conceituais sobre o Acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

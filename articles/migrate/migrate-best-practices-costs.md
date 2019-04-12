@@ -269,7 +269,7 @@ Geralmente, os grupos de recursos são usados para representar limites de custo.
 
 ## <a name="best-practice-optimize-azure-monitor-retention"></a>Melhor prática: Otimizar a retenção do Azure Monitor
 
-Conforme você move recursos para o Azure e habilita o log de diagnósticos para eles, você gera muitos dados de log. Normalmente, esses dados de log são enviados para uma conta de armazenamento que é mapeada para um workspace do Log Analytics.
+Conforme você move recursos para o Azure e habilita o log de diagnósticos para eles, você gera muitos dados de log. Normalmente, esses dados de log são enviados para uma conta de armazenamento que é mapeada para um espaço de trabalho do Log Analytics.
 
 - Quanto maior for o período de retenção de dados de log, mais dados você terá.
 - Nem todos os dados de log são iguais e alguns recursos gerarão mais dados de log do que outros.

@@ -30,7 +30,7 @@ Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerencia
 
 Para habilitar a solução somente para a VM, assegure-se de que **Habilitar para esta VM** está selecionado. Para integrar várias máquinas à solução, selecione **Habilitar para VMs nesta assinatura** e, em seguida, selecione **Clique para selecionar as máquinas para habilitar**. Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
 
-Selecione o workspace do Azure Log Analytics e a conta de Automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Selecione o espaço de trabalho do Azure Log Analytics e a conta de Automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Integrar solução de Gerenciamento de Atualizações](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
@@ -70,7 +70,7 @@ Selecione uma das pesquisas salvas para exibir a consulta usada para preencher o
 
 ## <a name="unlink-workspace"></a>Desvincular o workspace
 
-As seguintes soluções são dependentes de um workspace do Log Analytics:
+As seguintes soluções são dependentes de um espaço de trabalho do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
 * [Controle de alterações](automation-change-tracking.md)
@@ -91,7 +91,7 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-3. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+3. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

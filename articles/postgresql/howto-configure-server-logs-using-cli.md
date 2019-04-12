@@ -1,6 +1,6 @@
 ---
 title: Configurar e acessar logs do servidor para PostgreSQL usando a CLI do Azure
-description: Este artigo descreve como configurar e acessar os registros de serviço no Banco de Dados do Azure para PostgreSQL usando a linha de comando da CLI do Azure.
+description: Este artigo descreve como configurar e acessar os logs do servidor no Banco de Dados do Azure para PostgreSQL usando a linha de comando da CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55700189"
@@ -30,7 +30,7 @@ Você pode configurar o servidor para acessar os logs de erro e os logs de consu
 
 Para mais informações, confira [Personalizando os parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Liste os registros para servidor de Banco de Dados do Azure para PostgreSQL
+## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Liste os logs para servidor de Banco de Dados do Azure para PostgreSQL
 Para listar os arquivos de log disponíveis para o servidor, execute o comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 Você pode listar os arquivos de log para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup**. Em seguida, direcione-os para um arquivo de texto chamado **log\_files\_list.txt**.

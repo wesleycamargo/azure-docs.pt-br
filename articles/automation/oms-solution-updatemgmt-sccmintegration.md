@@ -25,7 +25,7 @@ Você pode relatar e atualizar servidores Windows gerenciados criando e preparan
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * É necessário ter a [solução de Gerenciamento de Atualizações](automation-update-management.md) adicionada à sua conta de Automação.
-* Servidores Windows atualmente gerenciados pelo seu ambiente do System Center Configuration Manager também precisam relatar para o workspace do Log Analytics, que também tem a solução de Gerenciamento de Atualizações habilitada.
+* Servidores Windows atualmente gerenciados pelo seu ambiente do System Center Configuration Manager também precisam relatar para o espaço de trabalho do Log Analytics, que também tem a solução de Gerenciamento de Atualizações habilitada.
 * Esse recurso está habilitado no System Center Configuration Manager versão do branch atual 1606 e superior. Para integrar seu site de administração central do Configuration Manager ou um site primário autônomo com logs do Azure Monitor e importar coleções, examine [conectar o Configuration Manager para o Azure Monitor registra](../azure-monitor/platform/collect-sccm.md).  
 * Os agentes do Windows deverão ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update se eles não receberem atualizações de segurança do Configuration Manager.   
 
@@ -35,7 +35,7 @@ Como gerenciar clientes hospedados no IaaS do Azure com seu ambiente existente d
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Gerenciar atualizações de software do Configuration Manager 
 
-Se você pretende continuar gerenciando implantações de atualização do Configuration Manager, execute as etapas a seguir. A Automação do Azure conecta-se ao Gerenciador de Configurações para aplicar atualizações aos computadores clientes conectados ao workspace do Log Analytics. O conteúdo de atualização está disponível do cache do computador cliente, como se a implantação fosse gerenciada pelo Configuration Manager.
+Se você pretende continuar gerenciando implantações de atualização do Configuration Manager, execute as etapas a seguir. A Automação do Azure conecta-se ao Gerenciador de Configurações para aplicar atualizações aos computadores clientes conectados ao espaço de trabalho do Log Analytics. O conteúdo de atualização está disponível do cache do computador cliente, como se a implantação fosse gerenciada pelo Configuration Manager.
 
 1. Crie uma implantação de atualização de software do site de nível superior na hierarquia do Configuration Manager usando o processo descrito em [processo de implantação de atualização de software](/sccm/sum/deploy-use/deploy-software-updates). A única configuração que deve ser realizada de forma diferente de uma implantação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de download do pacote de implantação. Esse comportamento é gerenciado pela solução de Gerenciamento de Atualizações por meio da criação de uma implantação de atualização agendada na próxima etapa.
 

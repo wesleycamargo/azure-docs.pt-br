@@ -41,7 +41,7 @@ As etapas a seguir resumem as etapas para configurar a integração do Configura
 Você pode ler mais sobre como conectar o Configuration Manager para o Azure Monitor no [sincronizar dados do Configuration Manager para o espaço de trabalho do Log Analytics do Microsoft](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Conceder o Configuration Manager com permissões para o Log Analytics
-No procedimento a seguir, você concede a função *Colaborador* no workspace do Log Analytics ao aplicativo do AD e à entidade de serviço criada anteriormente para o Configuration Manager.  Se você ainda não tiver um espaço de trabalho, consulte [criar um espaço de trabalho no Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager autentique e conecte-se ao workspace do Log Analytics.  
+No procedimento a seguir, você concede a função *Colaborador* no espaço de trabalho do Log Analytics ao aplicativo do AD e à entidade de serviço criada anteriormente para o Configuration Manager.  Se você ainda não tiver um espaço de trabalho, consulte [criar um espaço de trabalho no Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager autentique e conecte-se ao espaço de trabalho do Log Analytics.  
 
 > [!NOTE]
 > Você deve especificar permissões no espaço de trabalho do Log Analytics para o Configuration Manager. Caso contrário, você receberá uma mensagem de erro ao usar o assistente de configuração do Configuration Manager.

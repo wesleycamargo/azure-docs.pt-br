@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55099321"
@@ -35,7 +35,7 @@ Há várias vantagens de criar e gerenciar alertas no portal do Azure, como:
 ## <a name="process-of-extending-your-alerts"></a>Processo de extensão dos alertas
 O processo de mover alertas do Log Analytics para os Alertas do Azure não envolve alterar sua definição, consulta ou configuração de alertas de nenhuma maneira. A única alteração necessária é a do Azure. Você executa todas as ações usando um grupo de ações. Se os grupos de ação já estiverem associados ao seu alerta, eles serão incluídos quando estendidos para o Azure.
 
-Ao agendar alertas em um workspace do Log Analytics para serem estendidos para o Azure, eles continuarão funcionando e não comprometerão, de forma alguma, sua configuração. Quando agendados, seus alertas podem ficar indisponíveis para modificação temporariamente, mas é possível continuar criando novos Alertas do Azure durante esse período. Se você tentar editar ou criar alertas no portal do Operations Management Suite, terá a opção de continuar criando-os do workspace do Log Analytics. Também é possível criá-los dos Alertas do Azure no Portal do Azure.
+Ao agendar alertas em um espaço de trabalho do Log Analytics para serem estendidos para o Azure, eles continuarão funcionando e não comprometerão, de forma alguma, sua configuração. Quando agendados, seus alertas podem ficar indisponíveis para modificação temporariamente, mas é possível continuar criando novos Alertas do Azure durante esse período. Se você tentar editar ou criar alertas no portal do Operations Management Suite, terá a opção de continuar criando-os do espaço de trabalho do Log Analytics. Também é possível criá-los dos Alertas do Azure no Portal do Azure.
 
  ![Captura de tela da opção de criar alertas do Log Analytics ou dos Alertas do Azure](media/alerts-extend/ScheduledDirection.png)
 

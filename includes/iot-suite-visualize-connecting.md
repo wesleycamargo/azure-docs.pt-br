@@ -54,4 +54,4 @@ Para invocar métodos em seus dispositivos, use o **Device Explorer** página na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O artigo [Personalizar o acelerador de Monitoramento Remoto pré-configurado](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas maneiras de personalizar o acelerador da solução.
+O artigo [Personalizar o acelerador de solução de Monitoramento Remoto pré-configurado](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas maneiras de personalizar o acelerador da solução.

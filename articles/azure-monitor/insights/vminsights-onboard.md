@@ -51,7 +51,7 @@ O Azure Monitor para VMs oferece suporte a um espaço de trabalho do Log Analyti
 <sup>1</sup> Atualmente, essa região não dá suporte ao recurso Integridade do Azure Monitor para VMs.
 
 >[!NOTE]
->As máquinas virtuais do Azure podem ser implantadas de qualquer região e não são limitadas para as regiões com suporte para o workspace do Log Analytics.
+>As máquinas virtuais do Azure podem ser implantadas de qualquer região e não são limitadas para as regiões com suporte para o espaço de trabalho do Log Analytics.
 >
 
 Caso não tenha um workspace, crie um com um dos seguintes métodos:
@@ -62,12 +62,12 @@ Caso não tenha um workspace, crie um com um dos seguintes métodos:
 
 Se estiver habilitando o monitoramento para uma VM individual do Azure no portal do Azure, você poderá criar um workspace durante esse processo.
 
-Para habilitar a solução para o cenário em escala, primeiro configure o seguinte no workspace do Log Analytics:
+Para habilitar a solução para o cenário em escala, primeiro configure o seguinte no espaço de trabalho do Log Analytics:
 
 * Instale as soluções ServiceMap e InfrastructureInsights. Conclua essa instalação usando um modelo do Azure Resource Manager que é fornecido neste artigo.
 * Configure o espaço de trabalho do Log Analytics para coletar contadores de desempenho.
 
-Para configurar o workspace no cenário em escala, confira Configurar o workspace do Log Analytics para uma implantação em escala.
+Para configurar o espaço de trabalho no cenário em escala, confira Configurar o espaço de trabalho do Log Analytics para uma implantação em escala.
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
@@ -166,9 +166,9 @@ Para habilitar e acessar os recursos do Azure Monitor para VMs, você precisará
 
 - Para habilitar a solução, você precisará ter a função *colaborador do Log Analytics*.
 
-- Para exibir os dados de desempenho, integridade e mapa, você precisará ter a função *Leitor de Monitoramento* na VM do Azure. O workspace do Log Analytics precisa ser configurado para o Azure Monitor para VMs.
+- Para exibir os dados de desempenho, integridade e mapa, você precisará ter a função *Leitor de Monitoramento* na VM do Azure. O espaço de trabalho do Log Analytics precisa ser configurado para o Azure Monitor para VMs.
 
-Para obter mais informações sobre como controlar o acesso a um workspace do Log Analytics, veja [Gerenciar workspaces](../../azure-monitor/platform/manage-access.md).
+Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-monitoring-in-the-azure-portal"></a>Habilitar o monitoramento no portal do Azure
 Para habilitar o monitoramento da VM do Azure no portal do Azure, faça o seguinte:
@@ -184,11 +184,11 @@ Para habilitar o monitoramento da VM do Azure no portal do Azure, faça o seguin
 1. Na página **Insights (versão prévia)**, selecione **Experimentar agora**.
 
     ![Habilitar o Azure Monitor para VMs em uma VM](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
-1. Na página **Integração de Insights do Azure Monitor**, caso você tenha um workspace existente do Log Analytics na mesma assinatura, selecione-o na lista suspensa.  
+1. Na página **Integração de Insights do Azure Monitor**, caso você tenha um espaço de trabalho do Log Analytics existente na mesma assinatura, selecione-o na lista suspensa.  
     A lista pré-seleciona o workspace e o local padrão nos quais a máquina virtual é implantada na assinatura. 
 
     >[!NOTE]
-    >Caso deseje criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, siga as instruções em [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) em uma das regiões com suporte já listadas.
+    >Caso deseje criar um espaço de trabalho do Log Analytics para armazenar os dados de monitoramento da VM, siga as instruções em [Criar um espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) em uma das regiões com suporte já listadas.
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição das métricas de integridade para a máquina virtual.
 
@@ -198,7 +198,7 @@ Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minut
 ## <a name="deploy-at-scale"></a>Implantar em escala
 Nesta seção, você implanta o Azure Monitor para VMs em escala usando o Azure Policy ou o Azure PowerShell.
 
-Antes de implantar as VMs, pré-configure o workspace do Log Analytics fazendo o seguinte:
+Antes de implantar as VMs, pré-configure o espaço de trabalho do Log Analytics fazendo o seguinte:
 
 1. Caso ainda não tenha um workspace, crie um que possa dar suporte ao Azure Monitor para VMs.  
     Antes de continuar, confira [Gerenciar workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) para entender as considerações sobre custo, gerenciamento e conformidade.
@@ -209,16 +209,16 @@ Antes de implantar as VMs, pré-configure o workspace do Log Analytics fazendo o
 
 1. Instale e habilite as soluções ServiceMap e InfrastructureInsights no workspace.
 
-### <a name="set-up-a-log-analytics-workspace"></a>Configurar um workspace do Log Analytics
-Caso não tenha um workspace do Log Analytics, crie um examinando os métodos sugeridos na seção ["Pré-requisitos"](#log-analytics).
+### <a name="set-up-a-log-analytics-workspace"></a>Configurar um espaço de trabalho do Log Analytics
+Caso não tenha um espaço de trabalho do Log Analytics, crie um examinando os métodos sugeridos na seção ["Pré-requisitos"](#log-analytics).
 
 #### <a name="enable-performance-counters"></a>Habilitar contadores de desempenho
-Se o workspace do Log Analytics referenciado pela solução ainda não estiver configurado para coletar os contadores de desempenho necessários para a solução, você precisará habilitá-los. Faça isso de umas dessas duas maneiras:
+Se o espaço de trabalho do Log Analytics referenciado pela solução ainda não estiver configurado para coletar os contadores de desempenho necessários para a solução, você precisará habilitá-los. Faça isso de umas dessas duas maneiras:
 * Manualmente, conforme descrito em [Fontes de dados de desempenho do Windows e do Linux no Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Baixando e executando um script do PowerShell disponível na [Galeria do Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Instale as soluções ServiceMap e InfrastructureInsights
-Esse método inclui um modelo JSON que especifica a configuração para habilitar os componentes da solução no workspace do Log Analytics.
+Esse método inclui um modelo JSON que especifica a configuração para habilitar os componentes da solução no espaço de trabalho do Log Analytics.
 
 Caso não esteja familiarizado com a implantação de recursos usando um modelo, confira:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -631,12 +631,12 @@ Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 | Arquivos de armazenamento binário | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Habilitar contadores de desempenho
-Se o workspace do Log Analytics referenciado pela solução ainda não estiver configurado para coletar os contadores de desempenho necessários para a solução, você precisará habilitá-los. Faça isso de umas dessas duas maneiras:
+Se o espaço de trabalho do Log Analytics referenciado pela solução ainda não estiver configurado para coletar os contadores de desempenho necessários para a solução, você precisará habilitá-los. Faça isso de umas dessas duas maneiras:
 * Manualmente, conforme descrito em [Fontes de dados de desempenho do Windows e do Linux no Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Baixando e executando um script do PowerShell disponível na [Galeria do Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ### <a name="deploy-azure-monitor-for-vms"></a>Implantar o Azure Monitor para VMs
-Esse método inclui um modelo JSON que especifica a configuração para habilitar os componentes da solução no workspace do Log Analytics.
+Esse método inclui um modelo JSON que especifica a configuração para habilitar os componentes da solução no espaço de trabalho do Log Analytics.
 
 Caso não esteja familiarizado com a implantação de recursos usando um modelo, confira:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -712,7 +712,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 1. Salve esse arquivo como *installsolutionsforvminsights.json* em uma pasta local.
 
-1. Edite os valores de *WorkspaceName*, *ResourceGroupName* e *WorkspaceLocation*. O valor de *WorkspaceName* é a ID completa do recurso do workspace do Log Analytics, que inclui o nome do workspace. O valor de *WorkspaceLocation* é a região na qual o workspace foi definido.
+1. Edite os valores de *WorkspaceName*, *ResourceGroupName* e *WorkspaceLocation*. O valor de *WorkspaceName* é a ID completa do recurso do espaço de trabalho do Log Analytics, que inclui o nome do espaço de trabalho. O valor de *WorkspaceLocation* é a região na qual o workspace foi definido.
 
 1. Você está pronto para implantar esse modelo usando o seguinte comando do PowerShell:
 
@@ -728,7 +728,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
    Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição do estado de integridade e das métricas para o computador híbrido.
 
 ## <a name="performance-counters-enabled"></a>Contadores de desempenho habilitados
-O Azure Monitor para VMs configura um workspace do Log Analytics para coletar os contadores de desempenho usados pela solução. A tabela a seguir lista os objetos e os contadores configurados pela solução que são coletados a cada 60 segundos.
+O Azure Monitor para VMs configura um espaço de trabalho do Log Analytics para coletar os contadores de desempenho usados pela solução. A tabela a seguir lista os objetos e os contadores configurados pela solução que são coletados a cada 60 segundos.
 
 ### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 

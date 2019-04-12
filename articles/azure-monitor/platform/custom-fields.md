@@ -73,7 +73,7 @@ Após você ter executado a extração inicial, o Log Analytics exibirá seus re
 7. Use o campo personalizado como qualquer outra propriedade de registro.  Você pode usá-lo para agregar e agrupar dados e até mesmo usá-lo para gerar novas percepções.
 
 ## <a name="viewing-custom-fields"></a>Exibindo campos personalizados
-Exiba uma lista de todos os campos personalizados do grupo de gerenciamento no menu **Configurações Avançadas** do workspace do Log Analytics no portal do Azure.  Selecione **Dados** e **Campos personalizados** para obter uma lista de todos os campos personalizados no workspace.  
+Exiba uma lista de todos os campos personalizados do grupo de gerenciamento no menu **Configurações Avançadas** do espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Dados** e **Campos personalizados** para obter uma lista de todos os campos personalizados no workspace.  
 
 ![Campos Personalizados](media/custom-fields/list.png)
 

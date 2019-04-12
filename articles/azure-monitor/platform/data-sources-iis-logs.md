@@ -1,5 +1,5 @@
 ---
-title: Fontes de dados no Azure Monitor | Microsoft Docs
+title: Logs de IIS no Azure Monitor | Microsoft Docs
 description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do Azure Monitor.
 services: log-analytics
 documentationcenter: ''

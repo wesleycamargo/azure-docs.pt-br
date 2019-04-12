@@ -15,7 +15,7 @@ ms.date: 01/16/2018
 ms.author: magoedte
 ms.openlocfilehash: 902cf62e53581785caf2730f63af3633d8e1e498
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56005430"
@@ -26,14 +26,14 @@ ms.locfileid: "56005430"
 
 Este artigo descreve como você pode usar a solução Surface Hub no Azure Monitor para monitorar dispositivos Microsoft Surface Hub. A solução lhe ajuda a controlar a integridade dos seus Surface Hubs e a compreender como eles estão sendo usados.
 
-Cada Surface Hub tem o Microsoft Monitoring Agent instalado. É por meio do agente que você pode enviar dados do seu Surface Hub para um workspace do Log Analytics no Azure Monitor. Os arquivos de log são lidos de seus Surface Hubs e são, em seguida, enviados para o Azure Monitor. Problemas como servidores offline, o calendário não está sincronizando ou se a conta do dispositivo não puder fazer logon no Skype serão mostrados no painel do Surface Hub no Azure Monitor. Ao usar os dados no painel, você pode identificar os dispositivos que não estão em execução ou que têm outros problemas e, potencialmente, aplicar correções para os problemas detectados.
+Cada Surface Hub tem o Microsoft Monitoring Agent instalado. É por meio do agente que você pode enviar dados do seu Surface Hub para um espaço de trabalho do Log Analytics no Azure Monitor. Os arquivos de log são lidos de seus Surface Hubs e são, em seguida, enviados para o Azure Monitor. Problemas como servidores offline, o calendário não está sincronizando ou se a conta do dispositivo não puder fazer logon no Skype serão mostrados no painel do Surface Hub no Azure Monitor. Ao usar os dados no painel, você pode identificar os dispositivos que não estão em execução ou que têm outros problemas e, potencialmente, aplicar correções para os problemas detectados.
 
 ## <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as informações a seguir para instalar e configurar a solução. Para gerenciar seus Surface Hubs no Azure Monitor, você precisará do seguinte:
 
 * Um nível de [assinatura do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) que dará suporte ao número de dispositivos que você deseja monitorar. Os preços do Log Analytics variam dependendo de quantos dispositivos estão registrados e a quantidade de dados que ele processa. Convém levar isso em consideração ao planejar a distribuição do Surface Hub.
 
-Em seguida, você irá adicionar um workspace existente do Log Analytics ou crie um. Instruções detalhadas para usar qualquer um dos métodos em [criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md). Quando o workspace do Log Analytics estiver configurado, há duas maneiras de registrar seus dispositivos Surface Hub:
+Em seguida, você irá adicionar um espaço de trabalho do Log Analytics existente ou crie um. Instruções detalhadas para usar qualquer um dos métodos em [criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md). Quando o espaço de trabalho do Log Analytics estiver configurado, há duas maneiras de registrar seus dispositivos Surface Hub:
 
 * Automaticamente por meio do Intune
 * Manualmente por meio das **configurações** em seu dispositivo do Surface Hub.
@@ -42,9 +42,9 @@ Em seguida, você irá adicionar um workspace existente do Log Analytics ou crie
 Você pode monitorar a integridade e a atividade do seu Surface Hub usando o Azure Monitor. Você pode registrar o Surface Hub usando o Intune ou localmente usando as **Configurações** no Surface Hub.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Conectar Surface Hubs ao Azure Monitor através do Intune
-Será necessário o ID do workspace e a chave do workspace para o workspace do Log Analytics que gerenciará os Surface Hubs. Você pode obter das configurações de workspace no portal do Azure.
+Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do Log Analytics que gerenciará os Surface Hubs. Você pode obter das configurações de workspace no portal do Azure.
 
-O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do workspace do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
+O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do espaço de trabalho do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
 
 1. Entre no Intune.
 2. Navegue até **configurações** > **Fontes conectadas**.
@@ -55,10 +55,10 @@ O Intune é um produto da Microsoft que permite que você gerencie centralmente 
 
    ![Política do Intune](./media/surface-hubs/intune.png)
 
-O Intune então sincroniza as configurações do Log Analytics com os dispositivos no grupo de destino, registrando-os em seu workspace do Log Analytics.
+O Intune então sincroniza as configurações do Log Analytics com os dispositivos no grupo de destino, registrando-os em seu espaço de trabalho do Log Analytics.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-using-the-settings-app"></a>Conectar Surface Hubs ao Azure Monitor usando o aplicativo Configurações
-Será necessário o ID do workspace e a chave do workspace para o workspace do Log Analytics que gerenciará os Surface Hubs. Você pode obter das configurações para o workspace do Log Analytics no portal do Azure.
+Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do Log Analytics que gerenciará os Surface Hubs. Você pode obter das configurações para o espaço de trabalho do Log Analytics no portal do Azure.
 
 Se você não usar o Intune para gerenciar seu ambiente, poderá registrar dispositivos manualmente por meio das **Configurações** em cada Surface Hub:
 

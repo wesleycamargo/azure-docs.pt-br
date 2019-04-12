@@ -10,7 +10,7 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464214"
@@ -25,7 +25,7 @@ O acelerador de solução de Monitoramento Remoto Azure IoT é um código-fonte 
 
 A solução de Monitoramento Remoto segue a arquitetura de referência do [Azure IoT recomendada publicada recomendada](https://aka.ms/iotrefarchitecture).
 
-Esse artigo descreve as principais escolhas arquitetônicas e técnicas feitas em cada um dos subsistemas de Monitoramento Remoto. No entanto, as escolhas técnicas da Microsoft feitas na solução Monitoramento Remoto não são a única forma de implementar uma solução IoT de monitoramento remoto. Você deve considerar a implementação técnica como uma linha de base para a criação de um aplicativo com êxito e você deve modificá-lo para:
+Esse artigo descreve as principais escolhas arquitetônicas e técnicas feitas em cada um dos subsistemas de Monitoramento Remoto. No entanto, as escolhas técnicas da Microsoft feitas na solução de Monitoramento Remoto não são a única forma de implementar uma solução de monitoramento remoto de IoT. Você deve considerar a implementação técnica como uma linha de base para a criação de um aplicativo com êxito e você deve modificá-lo para:
 
 - Ajustar as habilidades disponíveis e experiência em sua organização.
 - Atender às necessidades do seu aplicativo vertical.
@@ -57,7 +57,7 @@ Para conectividade do dispositivo IoT, você pode usar:
 
 ### <a name="stream-processing"></a>Processamento de fluxo
 
-Para o processamento de fluxo, o Monitoramento Remoto usa o Azure Stream Analytics para o processamento de regras complexas. Para clientes que desejam regras mais simples, há um microsserviço personalizado com suporte para o processamento de regras simples, embora essa configuração não faça parte da implantação imediata. A arquitetura de referência recomenda o Azure Functions para processamento de regra simples e o Azure Stream Analytics para o processamento de regra complexa.
+Para o processamento de fluxo, a solução de Monitoramento Remoto usa o Azure Stream Analytics para o processamento de regras complexas. Para clientes que desejam regras mais simples, há um microsserviço personalizado com suporte para o processamento de regras simples, embora essa configuração não faça parte da implantação imediata. A arquitetura de referência recomenda o Azure Functions para processamento de regra simples e o Azure Stream Analytics para o processamento de regra complexa.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -70,7 +70,7 @@ O Azure Cosmos DB é a solução de armazenamento warm de uso geral recomendado 
 
 ### <a name="business-integration"></a>Integração de negócios
 
-A integração de negócios no Monitoramento Remoto é limitada à geração de alertas, que são colocados no armazenamento warm. Conecte a solução com os Aplicativos Lógicos do Azure para implementar cenários de integração mais profundos de negócios.
+A integração de negócios na solução de Monitoramento Remoto é limitada à geração de alertas, que são colocados no armazenamento warm. Conecte a solução com os Aplicativos Lógicos do Azure para implementar cenários de integração mais profundos de negócios.
 
 ### <a name="user-interface"></a>Interface do usuário
 
@@ -78,7 +78,7 @@ A interface do usuário da Web é criada com JavaScript React. O React oferece u
 
 ### <a name="runtime-and-orchestration"></a>Tempo de execução e orquestração
 
-A solução Monitoramento Remoto usa contêineres Docker para executar os subsistemas com Kubernetes como o orquestrador para escala horizontal. Essa arquitetura permite definições de escala individuais para cada subsistema. No entanto, essa arquitetura incorre custos de DevOps para manter as máquinas virtuais e contêineres, atualizados e protegidos.
+A solução de Monitoramento Remoto usa contêineres Docker para executar os subsistemas com Kubernetes como o orquestrador para escala horizontal. Essa arquitetura permite definições de escala individuais para cada subsistema. No entanto, essa arquitetura incorre custos de DevOps para manter as máquinas virtuais e contêineres, atualizados e protegidos.
 
 Alternativas ao Docker incluem microsserviços de hospedagem nos serviços PaaS como Serviço de Aplicativo do Azure. Alternativas ao Kubernetes incluem orquestradores como o Service Fabric, DC/SO ou Swarm.
 

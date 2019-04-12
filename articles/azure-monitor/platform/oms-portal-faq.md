@@ -14,7 +14,7 @@ ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55990421"
@@ -30,13 +30,13 @@ Este artigo responde às perguntas comuns dos usuários que estão fazendo essa 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Onde está o Log Analytics no Azure?
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu workspace. A página de resumo do workspace será exibida.
 
-![Workspace do Log Analytics](media/oms-portal-faq/log-analytics.png)
+![Espaço de trabalho do Log Analytics](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Como fazer para gerenciar permissões?
-Se você não tiver acesso ao seu workspace do Log Analytics no Portal do Azure, precisará configurar as permissões usando o [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). Para obter detalhes sobre como gerenciar permissões do workspace, confira [Gerenciar workspaces](manage-access.md#manage-accounts-and-users). Para saber mais sobre como gerenciar permissões para alertas, confira [Introdução às funções, permissões e segurança com o Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
+Se você não tiver acesso ao seu espaço de trabalho do Log Analytics no Portal do Azure, precisará configurar as permissões usando o [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). Para obter detalhes sobre como gerenciar permissões do workspace, confira [Gerenciar workspaces](manage-access.md#manage-accounts-and-users). Para saber mais sobre como gerenciar permissões para alertas, confira [Introdução às funções, permissões e segurança com o Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Como fazer para criar um novo workspace? 
-Na lista de workspaces no Portal do Azure, clique em **Adicionar** na lista de workspaces.  Para obter detalhes completos, confira [Criar um workspace do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md).
+Na lista de workspaces no Portal do Azure, clique em **Adicionar** na lista de workspaces.  Para obter detalhes completos, confira [Criar um espaço de trabalho do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md).
 
 ![Página de visão geral](media/oms-portal-faq/new-workspace.png)
 

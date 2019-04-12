@@ -96,7 +96,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Selecione **Salvar** para iniciar a sincronização inicial de usuários atribuídos ao Pingboard.
 
-A sincronização inicial leva mais tempo para ser executada do que as sincronizações, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs da atividade de provisionamento. Os registros descrevem todas as ações realizadas pelo serviço de provisionamento no seu aplicativo Pingboard.
+A sincronização inicial leva mais tempo para ser executada do que as sincronizações, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs da atividade de provisionamento. Os logs descrevem todas as ações realizadas pelo serviço de provisionamento no seu aplicativo Pingboard.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 

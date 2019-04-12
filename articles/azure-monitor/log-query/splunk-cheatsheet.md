@@ -33,7 +33,7 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias entre clusters. O Splunk, não. |
  | Caches de dados |  buckets  |  Políticas de retenção e armazenamento em cache |  Controla o período e o nível de armazenamento em cache dos dados. Essa configuração afeta diretamente o desempenho das consultas e o custo da implantação. |
  | Partição lógica dos dados  |  índice  |  Banco de Dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
- | Metadados de eventos estruturados | N/D | tabela |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. O Azure Monitor tem o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
+ | Metadados de eventos estruturados | N/D | tabela |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
  | Registro de dados | evento | linha |  Mudança de terminologia apenas. |
  | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |

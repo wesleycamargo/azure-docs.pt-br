@@ -66,7 +66,7 @@ Ao configurar o Azure Monitor para importar associações de grupos do Active Di
 > [!NOTE]
 > Os grupos importados do Active Directory contêm apenas computadores Windows.
 
-Você configura o Azure Monitor para importar grupos de segurança do Active Directory a partir das **Configurações avançadas** no workspace do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
+Você configura o Azure Monitor para importar grupos de segurança do Active Directory a partir das **Configurações avançadas** no espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
 
 ![Grupos de computadores do Active Directory](media/computer-groups/configure-activedirectory.png)
 
@@ -75,7 +75,7 @@ Quando os grupos são importados, o menu lista o número de computadores com a a
 ### <a name="windows-server-update-service"></a>Serviços de Atualização do Windows Server
 Ao configurar o Azure Monitor para importar associações de grupos do WSUS, ele analisa a associação de grupo de direcionamento de qualquer computador com o agente do Log Analytics.  Se você estiver usando direcionamento no lado do cliente, qualquer computador que estiver conectado ao Azure Monitor e fizer parte de qualquer grupo de direcionamento do WSUS terá as associações de grupo importadas para o Azure Monitore. Se você estiver usando direcionamento no lado do servidor, o agente do Log Analytics deverá ser instalado no servidor do WSUS para que as informações de associação de grupo sejam importadas para o Azure Monitor.  Essa associação é atualizada continuamente a cada 4 horas. 
 
-Você configura o Azure Monitor para importar grupos do WSUS a partir de **Configurações avançadas** no workspace do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **WSUS** e, em seguida, **Importar associações de grupo do WSUS**.  Não é necessária nenhuma configuração.
+Você configura o Azure Monitor para importar grupos do WSUS a partir de **Configurações avançadas** no espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **WSUS** e, em seguida, **Importar associações de grupo do WSUS**.  Não é necessária nenhuma configuração.
 
 ![Grupos de computadores do WSUS](media/computer-groups/configure-wsus.png)
 
@@ -84,14 +84,14 @@ Quando os grupos são importados, o menu lista o número de computadores com a a
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Quando você configura o Azure Monitor para importar associações de coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas a cada 3 horas para manter os grupos de computadores atualizados. 
 
-Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  Em seguida, você poderá configurar a importação a partir das **Configurações avançadas** no workspace do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **SCCM** e, em seguida, **Importar associações de coleção do Configuration Manager**.  Não é necessária nenhuma configuração.
+Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  Em seguida, você poderá configurar a importação a partir das **Configurações avançadas** no espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **SCCM** e, em seguida, **Importar associações de coleção do Configuration Manager**.  Não é necessária nenhuma configuração.
 
 ![Grupos de computadores do SCCM](media/computer-groups/configure-sccm.png)
 
 Quando as coleções tiverem sido importadas, o menu listará o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
 ## <a name="managing-computer-groups"></a>Gerenciando grupos de computadores
-É possível exibir grupos de computadores que foram criados a partir de uma consulta de log ou API de Pesquisa de Logs pelas **Configurações avançadas** no workspace do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores** e então **Grupos Salvos**.  
+É possível exibir grupos de computadores que foram criados a partir de uma consulta de log ou API de Pesquisa de Logs pelas **Configurações avançadas** no espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores** e então **Grupos Salvos**.  
 
 Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Clique no ícone **Exibir membros** para que um grupo execute a pesquisa de log do grupo que retorna seus membros.  Não é possível modificar um grupo de computadores, assim, em vez disso, você precisar excluir e recriar o grupo com as configurações modificadas.
 
@@ -123,7 +123,7 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
-Um registro é criado no workspace do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
+Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |

@@ -27,7 +27,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 
 ## <a name="access-the-azure-portal"></a>Acesse o portal do Azure
 
-No workspace do OMS, clique em **Abrir no Azure**. Isso navegará para o workspace do Log Analytics que o OMS usou.
+No workspace do OMS, clique em **Abrir no Azure**. Isso navegará para o espaço de trabalho do Log Analytics que o OMS usou.
 
 ![Abrir no Azure - portal do OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 

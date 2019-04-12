@@ -1,6 +1,6 @@
 ---
-title: Script de exemplo do Azure PowerShell – criar um workspace do Log Analytics | Microsoft Docs
-description: Script de exemplo do Azure PowerShell – criar um workspace do Log Analytics
+title: Script de exemplo do Azure PowerShell – criar um espaço de trabalho do Log Analytics | Microsoft Docs
+description: Script de exemplo do Azure PowerShell – criar um espaço de trabalho do Log Analytics
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -21,9 +21,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2019
 ms.locfileid: "57306962"
 ---
-# <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar um workspace do Log Analytics com o PowerShell
+# <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar um espaço de trabalho do Log Analytics com o PowerShell
 
-Esse script coloca rapidamente em funcionamento um workspace do Azure Log Analytics, o que é necessário se você deseja começar a coletar, analisar e executar ações nos dados.  
+Esse script coloca rapidamente em funcionamento um espaço de trabalho do Azure Log Analytics, o que é necessário se você deseja começar a coletar, analisar e executar ações nos dados.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -37,7 +37,7 @@ Esse script coloca rapidamente em funcionamento um workspace do Azure Log Analyt
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os comandos a seguir para criar um novo workspace do Log Analytics em sua assinatura. Cada comando da tabela é vinculado à documentação específica do comando.
+Esse script usa os comandos a seguir para criar um novo espaço de trabalho do Log Analytics em sua assinatura. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

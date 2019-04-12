@@ -108,7 +108,7 @@ A solução consiste nos recursos a seguir. Os recursos são adicionados à sua 
 
 ### <a name="hybrid-worker-groups"></a>Grupos de Hybrid Worker
 
-Depois que você habilita essa solução, qualquer computador com Windows conectado diretamente a seu workspace do Log Analytics é automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks incluídos nessa solução.
+Depois que você habilita essa solução, qualquer computador com Windows conectado diretamente a seu espaço de trabalho do Log Analytics é automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks incluídos nessa solução.
 
 Cada computador Windows que é gerenciado pela solução é listado no painel de **grupos de trabalho Hybrid** como um **grupo de trabalho híbrido do Sistema** para a conta de Automação. As soluções usam a convenção de nomenclatura *Hostname FQDN_GUID*. Não é possível direcionar esses grupos com runbooks em sua conta. Elas falham se você tentar. Esses grupos devem dar suporte somente à solução de gerenciamento.
 
@@ -116,7 +116,7 @@ Você pode adicionar os computadores com Windows a um grupo de Hybrid Runbook Wo
 
 ### <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um workspace do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager. Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente depois que você adicionar a solução. Você não precisa configurar ou gerenciar esses pacotes de gerenciamento.
+Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager. Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente depois que você adicionar a solução. Você não precisa configurar ou gerenciar esses pacotes de gerenciamento.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -160,7 +160,7 @@ Heartbeat
 Em um computador Windows, você pode examinar as informações a seguir para verificar a conectividade do agente com os logs do Azure Monitor:
 
 1. No painel de controle, abra o **Microsoft Monitoring Agent**. Na guia **Azure Log Analytics**, o agente exibirá a seguinte mensagem: **O Microsoft Monitoring Agent conectou-se com êxito ao Log Analytics**.
-2. Abra o Log de Eventos do Windows. Navegue até **Logs de Aplicativos e Serviços\Operations Manager** e procure as IDs de Evento 3000 e 5002 do **Conector de Serviço** de origem. Esses eventos indicam que o computador foi registrado com o workspace do Log Analytics e está recebendo a configuração.
+2. Abra o Log de Eventos do Windows. Navegue até **Logs de Aplicativos e Serviços\Operations Manager** e procure as IDs de Evento 3000 e 5002 do **Conector de Serviço** de origem. Esses eventos indicam que o computador foi registrado com o espaço de trabalho do Log Analytics e está recebendo a configuração.
 
 Se o agente não pode se comunicar com o Azure Monitor registra em log e o agente está configurado para se comunicar com a internet através de um servidor proxy ou firewall, confirme se o firewall ou servidor proxy está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, veja [Configuração de rede para agente do Windows](../azure-monitor/platform/agent-windows.md) ou [Configuração de rede para agente do Linux](../log-analytics/log-analytics-agent-linux.md).
 
@@ -184,7 +184,7 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/>Uma conexão direta do agente do Operations Manager para os logs do Azure Monitor não é necessária. Os dados são encaminhados do grupo de gerenciamento para o workspace do Log Analytics. |
+| Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/>Uma conexão direta do agente do Operations Manager para os logs do Azure Monitor não é necessária. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 

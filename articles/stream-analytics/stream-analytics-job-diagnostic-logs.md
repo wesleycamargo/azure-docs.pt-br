@@ -63,11 +63,11 @@ Ativar os logs de diagnóstico e enviá-los aos logs do Azure Monitor é altamen
 
     ![Navegação na folha para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Crie um **Nome** em **Configurações de diagnóstico** e marque a caixa ao lado de **Enviar para o Log Analytics**. Em seguida, adicione um **workspace do Log Analytics** existente ou crie um. Marque as caixas de **Execução** e **Criação** em **LOG**, e **AllMetrics** em **MÉTRICA**. Clique em **Salvar**.
+2.  Crie um **Nome** em **Configurações de diagnóstico** e marque a caixa ao lado de **Enviar para o Log Analytics**. Em seguida, adicione um **espaço de trabalho do Log Analytics** existente ou crie um. Marque as caixas de **Execução** e **Criação** em **LOG**, e **AllMetrics** em **MÉTRICA**. Clique em **Salvar**.
 
     ![Configurações para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Quando o trabalho do Stream Analytics é iniciado, os logs de diagnóstico são roteados para o seu workspace do Log Analytics. Navegue até o workspace do Log Analytics e escolha **Logs** na seção **Geral**.
+3. Quando o trabalho do Stream Analytics é iniciado, os logs de diagnóstico são roteados para o seu espaço de trabalho do Log Analytics. Navegue até o espaço de trabalho do Log Analytics e escolha **Logs** na seção **Geral**.
 
    ![Logs de Monitor do Azure, na seção geral](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
@@ -75,11 +75,11 @@ Ativar os logs de diagnóstico e enviá-los aos logs do Azure Monitor é altamen
 
    ![Resultados e consulta de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-5. Quando você tiver uma consulta que está procurando os registros certos, salve-a selecionando **Salvar** e forneça um Nome e uma Categoria. Você pode criar um alerta selecionando **Nova regra de alerta**. Em seguida, especifique a condição de alerta. Selecione **Condição** e insira o valor de limite e a frequência em que essa pesquisa de log personalizada é avaliada.  
+5. Quando você tiver uma consulta que está procurando os logs certos, salve-a selecionando **Salvar** e forneça um Nome e uma Categoria. Você pode criar um alerta selecionando **Nova regra de alerta**. Em seguida, especifique a condição de alerta. Selecione **Condição** e insira o valor de limite e a frequência em que essa pesquisa de log personalizada é avaliada.  
 
    ![Consulta de pesquisa de log de diagnóstico](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-6. Escolha o grupo de ações e especifique detalhes do alerta, como nome e descrição, antes de criar a regra de alerta. Você pode rotear os logs de diagnóstico de vários trabalhos para o mesmo workspace do Log Analytics. Isso permite que você configure alertas uma vez para funcionarem em todos os trabalhos.  
+6. Escolha o grupo de ações e especifique detalhes do alerta, como nome e descrição, antes de criar a regra de alerta. Você pode rotear os logs de diagnóstico de vários trabalhos para o mesmo espaço de trabalho do Log Analytics. Isso permite que você configure alertas uma vez para funcionarem em todos os trabalhos.  
 
 ## <a name="diagnostics-log-categories"></a>Categorias de logs de diagnóstico
 

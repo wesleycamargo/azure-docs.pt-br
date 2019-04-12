@@ -14,7 +14,7 @@ ms.date: 10/12/2018
 ms.author: bwren
 ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55994006"
@@ -79,11 +79,11 @@ Uma das principais vantagens do monitoramento é que os administradores podem se
 ## <a name="prepare-dashboards-and-workbooks"></a>Prepare pastas de trabalho e painéis
 Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetria e ferramentas permite que eles visualizem padrões em todo o ambiente e minimizem o tempo médio de detecção (MTTD) e o tempo médio de restauração (MTTR).
 
-- Prepare [painéis personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e registros comuns para diferentes funções na sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
+- Prepare [painéis personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e logs comuns para diferentes funções na sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
 - Prepare [Pastas de trabalho ](../azure-monitor/app/usage-workbooks.md) para garantir o compartilhamento de conhecimento entre o desenvolvimento e as operações. Eles podem ser preparados como relatórios dinâmicos, com gráficos de métricas e consultas de log ou até mesmo como guias de solução de problemas preparados por desenvolvedores para oferecer suporte ao cliente ou às operações para lidar com problemas básicos.
 
 ## <a name="continuously-optimize"></a>Otimize de forma contínua
- O monitoramento é um dos principais aspectos da popular filosofia Build-Measure-Learn (Construir, Medir, Aprender), que recomenda acompanhar continuamente os KPIs e as métricas de comportamento do usuário e depois se esforçar para otimizá-los por meio de iterações de planejamento. O Azure Monitor ajuda a coletar métricas e registros relevantes para sua empresa e adicionar novos pontos de dados na próxima implantação, conforme necessário.
+ O monitoramento é um dos principais aspectos da popular filosofia Build-Measure-Learn (Construir, Medir, Aprender), que recomenda acompanhar continuamente os KPIs e as métricas de comportamento do usuário e depois se esforçar para otimizá-los por meio de iterações de planejamento. O Azure Monitor ajuda a coletar métricas e logs relevantes para sua empresa e adicionar novos pontos de dados na próxima implantação, conforme necessário.
 
 - Use as ferramentas do Application Insights para [acompanhar o comportamento e o envolvimento do usuário final](../azure-monitor/learn/tutorial-users.md).
 - Use a [Análise de impacto](../azure-monitor/app/usage-impact.md) para ajudar você a priorizar em quais áreas se concentrar para gerar importantes KPIs.

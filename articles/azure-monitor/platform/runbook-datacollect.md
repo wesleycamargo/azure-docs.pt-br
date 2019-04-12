@@ -55,7 +55,7 @@ No entanto, a Galeria do PowerShell oferece uma opção rápida para implantar u
 4. Selecione sua conta de automação e clique em **OK** para instalar o módulo.
 
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de Automação
-As [variáveis de Automação](../../automation/automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação. Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do workspace do Log Analytics e os ativos de variável são ideais para armazenar essas informações.
+As [variáveis de Automação](../../automation/automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação. Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do espaço de trabalho do Log Analytics e os ativos de variável são ideais para armazenar essas informações.
 
 ![variáveis](media/runbook-datacollect/variables.png)
 
@@ -67,7 +67,7 @@ As [variáveis de Automação](../../automation/automation-variables.md) contêm
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
 | Type | Cadeia de caracteres | Cadeia de caracteres |
-| Valor | Cole a ID do workspace do seu workspace do Log Analytics. | Cole com a chave primária ou secundária do seu workspace do Log Analytics. |
+| Valor | Cole a ID do espaço de trabalho do seu espaço de trabalho do Log Analytics. | Cole com a chave primária ou secundária do seu espaço de trabalho do Log Analytics. |
 | Criptografado | Não  | Sim |
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
@@ -146,7 +146,7 @@ Após o runbook ter sido concluído no teste e você ter verificado que a saída
 
 ![Saída de log](media/runbook-datacollect/log-output.png)
 
-1. No Portal do Azure, selecione o workspace do Log Analytics.
+1. No Portal do Azure, selecione o espaço de trabalho do Log Analytics.
 2. Clique em **Pesquisa de Logs**.
 3. Digite o seguinte comando `Type=AutomationJob_CL` e clique no botão de pesquisa. Observe que o tipo de registro inclui _CL, que não foi especificado no script. Esse sufixo é acrescentado automaticamente para o tipo de registro para indicar que ele é um tipo de registro personalizado.
 4. Você deve ver um ou mais registros retornados indicando que o runbook está funcionando conforme o esperado.

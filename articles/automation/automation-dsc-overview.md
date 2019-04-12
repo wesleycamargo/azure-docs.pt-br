@@ -39,7 +39,7 @@ No portal do Azure ou do PowerShell, você pode gerenciar todas as suas configur
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar dados de relatórios para logs do Azure Monitor
 
-Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao workspace do Log Analytics. Para saber como enviar dados de status de configuração de estado para seu espaço de trabalho do Log Analytics, consulte [encaminhar configuração automação do Azure estado dados de relatórios para logs do Azure Monitor](automation-dsc-diagnostics.md).
+Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao espaço de trabalho do Log Analytics. Para saber como enviar dados de status de configuração de estado para seu espaço de trabalho do Log Analytics, consulte [encaminhar configuração automação do Azure estado dados de relatórios para logs do Azure Monitor](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

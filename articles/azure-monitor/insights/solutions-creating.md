@@ -1,6 +1,6 @@
 ---
 title: Criar uma solução de gerenciamento no Azure | Microsoft Docs
-description: As soluções de gerenciamento incluem cenários de gerenciamento de empacotados no Azure que os clientes podem adicionar ao workspace do Log Analytics.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
+description: As soluções de gerenciamento incluem cenários de gerenciamento de empacotados no Azure que os clientes podem adicionar ao espaço de trabalho do Log Analytics.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
 services: monitoring
 documentationcenter: ''
 author: bwren

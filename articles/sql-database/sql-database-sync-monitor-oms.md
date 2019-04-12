@@ -68,7 +68,7 @@ Verifique se você configurou o seguinte:
 
 -   Uma conta da Automação do Azure
 
--   Workspace do Log Analytics
+-   Espaço de trabalho do Log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o Log da Sincronização de Dados SQL 
 

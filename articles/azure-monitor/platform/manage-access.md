@@ -21,7 +21,7 @@ ms.lasthandoff: 04/08/2019
 ms.locfileid: "59276398"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar dados de log e espaços de trabalho no Azure Monitor
-O Azure Monitor armazena dados de log em um workspace do Log Analytics, que é essencialmente um contêiner que inclui informações de configuração e dados. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas aos workspaces. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
+O Azure Monitor armazena dados de log em um espaço de trabalho do Log Analytics, que é essencialmente um contêiner que inclui informações de configuração e dados. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas aos workspaces. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
 
 Este artigo explica como gerenciar o acesso aos logs e para administrar os espaços de trabalho que os contêm. 
 
@@ -35,14 +35,14 @@ Para criar um espaço de trabalho do Log Analytics, você precisa:
 
 Consulte os seguintes artigos para obter detalhes sobre como criar um espaço de trabalho:
 
-- [Criar um workspace do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md)
-- [Criar um workspace do Log Analytics com a CLI do Azure 2.0](../learn/quick-create-workspace-cli.md)
-- [Criar um workspace do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Criar um espaço de trabalho do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md)
+- [Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Criar um espaço de trabalho do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de workspaces que você precisa
-Um workspace do Log Analytics é um recurso do Azure e é um contêiner no qual os dados são coletados, agregados, analisados e apresentados no Azure Monitor. Você pode ter vários workspaces por assinatura do Azure e ter acesso a mais de um workspace, com a capacidade de realizar uma consulta facilmente. Esta seção descreve quando pode ser útil criar mais de um workspace.
+Um espaço de trabalho do Log Analytics é um recurso do Azure e é um contêiner no qual os dados são coletados, agregados, analisados e apresentados no Azure Monitor. Você pode ter vários workspaces por assinatura do Azure e ter acesso a mais de um workspace, com a capacidade de realizar uma consulta facilmente. Esta seção descreve quando pode ser útil criar mais de um workspace.
 
-Um workspace do Log Analytics fornece:
+Um espaço de trabalho do Log Analytics fornece:
 
 * Uma localização geográfica para armazenamento de dados.
 * Isolamento de dados para definir direitos de acesso de usuário diferente no modo centrado no espaço de trabalho. Não é relevante ao trabalhar no modo centrado no recurso.
@@ -58,7 +58,7 @@ Do ponto de vista do consumo, recomendamos que você crie o menor número de wor
 
 Ao usar agentes do Windows para coletar dados, você pode [configurar cada agente para relatar para um ou mais workspaces](../../azure-monitor/platform/agent-windows.md).
 
-Se você estiver usando o System Center Operations Manager, cada grupo de gerenciamento do Operations Manager poderá ser conectado a apenas um workspace. Você pode instalar o Microsoft Monitoring Agent em computadores gerenciados pelo Operations Manager e fazer o agente relatar ao Operations Manager e a um workspace do Log Analytics diferente.
+Se você estiver usando o System Center Operations Manager, cada grupo de gerenciamento do Operations Manager poderá ser conectado a apenas um workspace. Você pode instalar o Microsoft Monitoring Agent em computadores gerenciados pelo Operations Manager e fazer o agente relatar ao Operations Manager e a um espaço de trabalho do Log Analytics diferente.
 
 Depois que a arquitetura do espaço de trabalho é definida, você deve aplicar essa política em recursos do Azure com [política do Azure](../../governance/policy/overview.md). Isso pode fornecer uma definição interna que automaticamente se aplica a todos os recursos do Azure. Por exemplo, você pode definir uma política para garantir que todos os seus recursos do Azure em uma região específica enviada a todos os seus logs de diagnóstico para um determinado espaço de trabalho.
 
@@ -201,7 +201,7 @@ As atividades a seguir também exigem permissões do Azure:
 
 
 #### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Gerenciar o acesso ao espaço de trabalho de análise de Log usando permissões do Azure 
-Para conceder acesso ao workspace do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para conceder acesso ao espaço de trabalho do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 O Azure tem duas funções de usuário predefinidas para workspaces do Log Analytics:
 - Leitor do Log Analytics

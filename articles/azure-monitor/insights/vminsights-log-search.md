@@ -15,7 +15,7 @@ ms.date: 03/15/2019
 ms.author: magoedte
 ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
 ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58188961"
@@ -28,8 +28,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um workspace do Log Analytics.
-- Processo: use *ResourceId* para identificar exclusivamente um processo em um workspace do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho do Log Analytics.
+- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 

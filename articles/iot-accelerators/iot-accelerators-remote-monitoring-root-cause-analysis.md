@@ -98,7 +98,7 @@ Para aprender a criar e editar regras, confira o tutorial anterior sobre [Detec�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial mostrou como usar o explorador do Time Series Insights com o acelerador de solução do Monitoramento Remoto para diagnosticar a causa raiz de um alerta. Para saber como usar o acelerador de solução para identificar e corrigir problemas com seus dispositivos conectados, continue para o próximo tutorial.
+Este tutorial mostrou como usar o explorador do Time Series Insights com o acelerador de solução de Monitoramento Remoto para diagnosticar a causa raiz de um alerta. Para saber como usar o acelerador de solução para identificar e corrigir problemas com seus dispositivos conectados, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Usar alertas do dispositivo para identificar e corrigir problemas em dispositivos conectados à solução de monitoramento](iot-accelerators-remote-monitoring-maintain.md)

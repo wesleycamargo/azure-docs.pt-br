@@ -191,7 +191,7 @@ A [Análise de Armazenamento do Azure](storage-analytics.md) é composta das [M�
 
 As **Métricas da Análise de Armazenamento** são usadas para coletar métricas para contas de armazenamento do Azure que podem ser usadas para monitorar a integridade de uma conta de armazenamento. As métricas podem ser habilitadas para blobs, arquivos, tabelas e filas.
 
-O **Registro em Log da Análise de Armazenamento** ocorre no lado do servidor e permite registrar detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses registros permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha. O registro em log não está disponível para os Arquivos do Azure.
+O **Registro em Log da Análise de Armazenamento** ocorre no lado do servidor e permite registrar detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses logs permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha. O registro em log não está disponível para os Arquivos do Azure.
 
 É possível configurar o monitoramento usando o [Portal do Azure](https://portal.azure.com), o Windows PowerShell ou de forma programática usando a biblioteca de clientes de armazenamento.
 

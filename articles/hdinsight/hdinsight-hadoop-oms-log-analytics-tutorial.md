@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um workspace do Log Analytics**. Você pode pensar neste espaço de trabalho como um ambiente de logs do Azure Monitor exclusivo com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Um workspace do Log Analytics**. Você pode pensar neste espaço de trabalho como um ambiente de logs do Azure Monitor exclusivo com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **Um cluster Azure HDInsight**. No momento, você pode usar os logs do Azure Monitor com os seguintes tipos de cluster do HDInsight:
 
@@ -44,11 +44,11 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 * **Módulo do Azure PowerShell Az**.  Ver [apresentando o novo módulo do PowerShell do Azure Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
-> É recomendável colocar o cluster HDInsight e o workspace do Log Analytics na mesma região para melhorar o desempenho. Os logs do Azure Monitor não está disponível em todas as regiões do Azure.
+> É recomendável colocar o cluster HDInsight e o espaço de trabalho do Log Analytics na mesma região para melhorar o desempenho. Os logs do Azure Monitor não está disponível em todas as regiões do Azure.
 
 ## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Habilitar os logs do Azure Monitor por meio do portal
 
-Nesta seção, você configurará um cluster HDInsight Hadoop existente para usar um workspace do Azure Log Analytics para monitorar trabalhos, logs de depuração, etc.
+Nesta seção, você configurará um cluster HDInsight Hadoop existente para usar um espaço de trabalho do Azure Log Analytics para monitorar trabalhos, logs de depuração, etc.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 

@@ -1,6 +1,6 @@
 ---
 title: Kit de Desenvolvimento de IoT para nuvem -- Conectar Kit de Desenvolvimento MXChip de IoT para Hub IoT | Microsoft Docs
-description: Neste tutorial, saiba como enviar status de sensores em IoT DevKit AZ3166 para o acelerador de monitoramento remoto do Azure IoT.
+description: Neste tutorial, saiba como enviar status de sensores em IoT DevKit AZ3166 para o acelerador de solução de monitoramento remoto do Azure IoT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub

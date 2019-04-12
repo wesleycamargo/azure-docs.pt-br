@@ -89,13 +89,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalar o agente do Log Analytics usando um Segredo do Kubernetes
-Para proteger a ID e a chave de workspace do Log Analytics, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
+Para proteger a ID e a chave de espaço de trabalho do Log Analytics, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
 
 - Copie o script, o arquivo de modelo de segredo e o arquivo de YAML do DaemonSet (do [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e verifique se eles estão no mesmo diretório.
   - script de geração de segredo – secret-gen.sh
   - modelo de segredo – secret-template.yaml
     - Arquivo YAML do DaemonSet – omsagent-ds-secrets.yaml
-- Execute o script. O script solicitará a ID e a chave primária do workspace do Log Analytics. Insira isso e o script criará um arquivo yaml secreto para que você possa executá-lo.
+- Execute o script. O script solicitará a ID e a chave primária do espaço de trabalho do Log Analytics. Insira isso e o script criará um arquivo yaml secreto para que você possa executá-lo.
   ```
   #> sudo bash ./secret-gen.sh
   ```

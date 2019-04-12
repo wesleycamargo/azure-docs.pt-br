@@ -1,6 +1,6 @@
 ---
 title: Personalizar a interface do usuário da solução de monitoramento remoto - Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como acessar o código-fonte para a interface do usuário do acelerador da solução Monitoramento Remoto e fazer algumas personalizações.
+description: Este artigo fornece informações sobre como acessar o código-fonte para a interface do usuário do acelerador da solução de Monitoramento Remoto e fazer algumas personalizações.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,15 +15,15 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58317588"
 ---
-# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução Monitoramento Remoto
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução de Monitoramento Remoto
 
-Este artigo fornece informações sobre como acessar o código-fonte e personalizar a interface do usuário do acelerador da solução Monitoramento Remoto.
+Este artigo fornece informações sobre como acessar o código-fonte e personalizar a interface do usuário do acelerador da solução de Monitoramento Remoto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a interface do usuário
 
-O código da interface do usuário do acelerador de solução Monitoramento Remoto é implementado usando a estrutura React.js. Você pode encontrar o código-fonte no repositório [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) do GitHub.
+O código da interface do usuário do acelerador de solução de Monitoramento Remoto é implementado usando a estrutura React.js. Você pode encontrar o código-fonte no repositório [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) do GitHub.
 
 Para fazer alterações na interface do usuário, você pode executar uma cópia dela localmente. Para concluir ações, como recuperar a telemetria, a cópia local se conecta a uma instância implantada da solução.
 
@@ -77,7 +77,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
 
 ## <a name="customize-the-layout"></a>Personalizar o layout
 
-Cada página na solução Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **Painel** é composta por cinco painéis: Visão Geral, Mapa, Alertas, Telemetria e Análise. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Cada página na solução de Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **Painel** é composta por cinco painéis: Visão Geral, Mapa, Alertas, Telemetria e Análise. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Como os painéis gerenciam seus próprios layout e dimensionamento, você pode modificar facilmente o layout de uma página. Faça as seguintes alterações no elemento **PageContent** no arquivo `src/components/pages/dashboard/dashboard.js` para:
 
@@ -486,7 +486,7 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## <a name="other-customization-options"></a>Outras opções de personalização
 
-Para modificar ainda mais a camada de apresentação e de visualizações na solução Monitoramento Remoto, você pode editar o código. Os repositórios do GitHub relevantes são:
+Para modificar ainda mais a camada de apresentação e de visualizações na solução de Monitoramento Remoto, você pode editar o código. Os repositórios do GitHub relevantes são:
 
 * [O microsserviço de configuração para soluções do Azure IoT (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
 * [O microsserviço de configuração para soluções do Azure IoT (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
@@ -494,7 +494,7 @@ Para modificar ainda mais a camada de apresentação e de visualizações na sol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução Monitoramento Remoto. Para saber mais sobre como personalizar a interface do usuário, consulte os seguintes artigos:
+Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução de Monitoramento Remoto. Para saber mais sobre como personalizar a interface do usuário, consulte os seguintes artigos:
 
 * [Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md)
 * [Adicione um serviço personalizado à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-service.md)
@@ -502,7 +502,7 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a per
 * [Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Adicionar um painel personalizado na interface do usuário web do acelerador de solução do Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para obter mais informações sobre como personalizar os microsserviços de solução de monitoramento remoto, consulte [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

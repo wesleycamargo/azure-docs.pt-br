@@ -31,11 +31,11 @@ Para habilitar o registro em log nas instâncias de contêiner, serão necessár
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
 
-As Instâncias de Contêiner do Azure precisam de permissão para enviar dados ao workspace do Log Analytics. Para conceder essa permissão e habilitar o registro em log, será necessário fornecer a ID do workspace do Log Analytics e uma de suas chaves (primária ou secundária) ao criar o grupo de contêineres.
+As Instâncias de Contêiner do Azure precisam de permissão para enviar dados ao espaço de trabalho do Log Analytics. Para conceder essa permissão e habilitar o registro em log, será necessário fornecer a ID do espaço de trabalho do Log Analytics e uma de suas chaves (primária ou secundária) ao criar o grupo de contêineres.
 
-Para obter a ID do workspace do Log Analytics e a chave primária:
+Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
-1. Navegue até o workspace do Log Analytics no portal do Azure
+1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
 1. Em **CONFIGURAÇÕES**, selecione **Configurações avançadas**
 1. Selecione **Fontes Conectadas** > **Servidores Windows** (ou **Servidores Linux**--a ID e as chaves são as mesmas para ambos)
 1. Anote:
@@ -44,9 +44,9 @@ Para obter a ID do workspace do Log Analytics e a chave primária:
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
-Agora que você tem a ID e do workspace do Log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para log.
+Agora que você tem a ID e do espaço de trabalho do Log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para log.
 
-Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o workspace do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
 ### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 
@@ -100,7 +100,7 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Exibir logs nos logs do Azure Monitor
 
-Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o workspace do Log Analytics e:
+Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o espaço de trabalho do Log Analytics e:
 
 1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
 1. Em **Mais algumas consultas para tentar**, selecione o link **Todos os dados coletados**
@@ -113,7 +113,7 @@ Você deverá ver vários resultados exibidos pela consulta `search *`. Caso nã
 
 Os logs do Azure Monitor incluem uma [linguagem de consulta][query_lang] extensa para efetuar pull das informações de potencialmente milhares de linhas de saída de log.
 
-O agente de log das Instâncias de Contêiner do Azure envia entradas para a tabela `ContainerInstanceLog_CL` no workspace do Log Analytics. A estrutura básica de uma consulta é a tabela de origem (`ContainerInstanceLog_CL`) seguida por uma série de operadores separados pelo caractere de pipe (`|`). É possível encadear vários operadores para refinar os resultados e executar funções avançadas.
+O agente de log das Instâncias de Contêiner do Azure envia entradas para a tabela `ContainerInstanceLog_CL` no espaço de trabalho do Log Analytics. A estrutura básica de uma consulta é a tabela de origem (`ContainerInstanceLog_CL`) seguida por uma série de operadores separados pelo caractere de pipe (`|`). É possível encadear vários operadores para refinar os resultados e executar funções avançadas.
 
 Para ver os resultados da consulta de exemplo, cole a consulta a seguir na caixa de texto da consulta (em "Mostrar conversor da linguagem herdada") e selecione o botão **EXECUTAR** para executar a consulta. Esta consulta exibe todas as entradas de log cujo campo de "Mensagem" contém a palavra "warn":
 

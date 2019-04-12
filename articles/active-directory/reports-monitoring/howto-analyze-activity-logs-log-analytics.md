@@ -28,7 +28,7 @@ ms.locfileid: "58436794"
 
 Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar as [exibições do Log Analytics para logs de atividade do Azure AD](howto-install-use-log-analytics-views.md) para obter acesso a relatórios pré-criados em torno de eventos de auditoria e entrada em seu ambiente.
 
-Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no seu workspace do Log Analytics. 
+Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no seu espaço de trabalho do Log Analytics. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -37,13 +37,13 @@ Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no
 Para acompanhar, você precisa:
 
 * Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
-* Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu workspace do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+* Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 
-## <a name="navigate-to-the-log-analytics-workspace"></a>Navegar para seu workspace do Log Analytics
+## <a name="navigate-to-the-log-analytics-workspace"></a>Navegar para seu espaço de trabalho do Log Analytics
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory** e, em seguida, selecione **Logs** na seção **Monitoramento** para abrir o workspace do Log Analytics. O workspace será aberto com uma consulta padrão.
+2. Selecione **Azure Active Directory** e, em seguida, selecione **Logs** na seção **Monitoramento** para abrir o espaço de trabalho do Log Analytics. O workspace será aberto com uma consulta padrão.
 
     ![Consulta padrão](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 

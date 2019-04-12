@@ -33,7 +33,7 @@ Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados 
-A extensão de Diagnóstico do Azure usa um recurso chamado **coletores de dados** para encaminhar métricas e registros para locais diferentes. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados do Monitor do Azure. 
+A extensão de Diagnóstico do Azure usa um recurso chamado **coletores de dados** para encaminhar métricas e logs para locais diferentes. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados do Monitor do Azure. 
 
 ## <a name="author-a-resource-manager-template"></a>Autor de um modelo do Resource Manager 
 Para este exemplo, você pode usar um modelo de amostra [publicamente disponível](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
@@ -57,7 +57,7 @@ Abra o **azuredeploy.parameters.json** arquivo:
 ###  <a name="modify-azuredeployjson"></a>Modificar azuredeploy.json
 Abra o **azuredeploy. JSON** arquivo. 
 
-Adicione uma variável para conter as informações da conta de armazenamento no modelo do Resource Manager. Todos os registros ou contadores de desempenho especificados no arquivo de configuração de diagnósticos são gravados no repositório de métricas do Monitor do Azure e na conta de armazenamento que você especifica aqui: 
+Adicione uma variável para conter as informações da conta de armazenamento no modelo do Resource Manager. Todos os logs ou contadores de desempenho especificados no arquivo de configuração de diagnósticos são gravados no repositório de métricas do Azure Monitor e na conta de armazenamento que você especifica aqui: 
 
 ```json
 "variables": { 

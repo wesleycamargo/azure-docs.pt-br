@@ -106,7 +106,7 @@ No Azure Monitor, o recurso Mapa fornece uma exibição global das máquinas vir
 
 ![Visão geral do mapa de várias VMs do Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-No seletor da **Área de Trabalho**, na parte superior da página, se você tiver mais de uma área de trabalho do Log Analytics, escolha a área de trabalho que está habilitada com a solução e tem as máquinas virtuais relatando a ela. O **grupo** seletor irá retornar assinaturas, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e os conjuntos de dimensionamento VM de computadores relacionados ao espaço de trabalho selecionado. Sua seleção só se aplica o recurso de mapa e não se transfere para o desempenho ou um mapa.
+No seletor do **Espaço de Trabalho**, na parte superior da página, se você tiver mais de um espaço de trabalho do Log Analytics, escolha o espaço de trabalho que está habilitado com a solução e tem as máquinas virtuais relatando a ela. O **grupo** seletor irá retornar assinaturas, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e os conjuntos de dimensionamento VM de computadores relacionados ao espaço de trabalho selecionado. Sua seleção só se aplica o recurso de mapa e não se transfere para o desempenho ou um mapa.
 
 Por padrão, o mapa mostra os últimos 30 minutos. Usando o seletor **TimeRange**, você pode consultar intervalos de tempo históricos de até uma hora para mostrar como as dependências eram no passado (por exemplo, durante um incidente ou antes de uma alteração).   
 

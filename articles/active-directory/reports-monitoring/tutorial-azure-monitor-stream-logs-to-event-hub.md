@@ -41,7 +41,7 @@ Para usar esse recurso, você precisa de:
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory** > **Atividade** > **Trilhas de auditoria**. 
+2. Selecione **Azure Active Directory** > **Atividade** > **Logs de auditoria**. 
 
 3. Selecione **Exportar Configurações**.  
     
@@ -60,7 +60,7 @@ Para usar esse recurso, você precisa de:
 7. Selecione **OK** para sair da configuração do hub de eventos.
 
 8. Siga um destes procedimentos, ou ambos:
-    * Para enviar as trilhas de auditoria para a conta de armazenamento, marque a caixa de seleção **AuditLogs**. 
+    * Para enviar os logs de auditoria para a conta de armazenamento, marque a caixa de seleção **AuditLogs**. 
     * Para enviar os logs de entrada para a conta de armazenamento, marque a caixa de seleção **SignInLogs**.
 
 9. Clique em **Salvar** para salvar a configuração.

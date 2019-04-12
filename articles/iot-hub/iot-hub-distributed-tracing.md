@@ -10,7 +10,7 @@ ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
 ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58439289"
@@ -60,7 +60,7 @@ Nesta seção, você configurará um Hub IoT para registrar atributos de rastrea
 
     - **Arquivar em uma conta de armazenamento**: Configure uma conta de armazenamento para conter as informações do registro em log.
     - **Transmitir por streaming para um hub de eventos**: Configure um hub de eventos para conter as informações do registro em log.
-    - **Enviar para o Log Analytics**: Configure um workspace do Log Analytics para conter as informações do registro em log.
+    - **Enviar para o Log Analytics**: Configure um espaço de trabalho do Log Analytics para conter as informações do registro em log.
 
 1. Na seção **Log**, escolha as operações para as quais você deseja registrar informações do registro em log.
 
@@ -306,7 +306,7 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 1. O Hub IoT procura o `tracestate` nas propriedades do aplicativo de mensagens e verifica se ele tem o formato correto.
 1. Em caso afirmativo, o Hub IoT gera e registra `trace-id` e `span-id` nos logs de diagnóstico do Azure Monitor na categoria `DiagnosticIoTHubD2C`.
 1. Quando o processamento da mensagem for concluído, o Hub IoT gerará outro `span-id` e o registrará juntamente com o `trace-id` existente na categoria `DiagnosticIoTHubIngress`.
-1. Se o roteamento estiver habilitado para a mensagem, o Hub IoT o gravará no ponto de extremidade personalizado e registrará outro `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.
+1. Se o roteamento estiver habilitado para a mensagem, o Hub IoT o registrará no ponto de extremidade personalizado e registrará outro `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.
 1. As etapas acima são repetidas para cada mensagem gerada.
 
 ## <a name="public-preview-limits-and-considerations"></a>Considerações e limites sobre a visualização pública

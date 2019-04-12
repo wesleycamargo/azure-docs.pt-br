@@ -1,6 +1,6 @@
 ---
 title: Integrar Insights do Time Series com o Monitoramento Remoto - Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução existente de monitoramento remoto que ainda não inclui Insights de Séries Temporais.
+description: Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução de monitoramento remoto existente que ainda não inclui Insights de Séries Temporais.
 author: aditidugar
 manager: timlt
 ms.author: adugar
@@ -19,7 +19,7 @@ ms.locfileid: "58085143"
 
 O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização para o gerenciamento de dados de série temporal em escala IoT na nuvem. Você pode usar os Insights de Séries Temporais para armazenar e gerenciar dados de séries temporais, explorar e visualizar eventos simultaneamente, conduzir análises de causa raiz e comparar vários sites e ativos.
 
-O acelerador de solução de monitoramento remoto agora fornece implantação e integração automáticas com o recurso Time Series Insights. Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução existente de monitoramento remoto que ainda não inclui Insights de Séries Temporais.
+O acelerador de solução de monitoramento remoto agora fornece implantação e integração automáticas com o recurso Time Series Insights. Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução de monitoramento remoto existente que ainda não inclui Insights de Séries Temporais.
 
 > [!NOTE]
 > Os Insights de Séries Temporais não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.

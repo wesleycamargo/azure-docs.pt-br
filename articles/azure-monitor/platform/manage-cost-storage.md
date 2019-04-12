@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o uso e os custos do Log Analytics do Azure| Microsoft Docs
-description: Saiba como alterar o plano de preços e gerenciar o volume de dados e a política de retenção para o workspace do Log Analytics no Azure.
+description: Saiba como alterar o plano de preços e gerenciar o volume de dados e a política de retenção para o espaço de trabalho do Log Analytics no Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -28,7 +28,7 @@ ms.locfileid: "58878138"
 > - [Analisar o uso de dados no Log Analytics](manage-cost-storage.md) descreve como analisar e alertar sobre o uso de dados.
 > - [Monitorando o uso e os custos estimados](usage-estimated-costs.md) descreve como visualizar o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços. Também descreve como alterar seu modelo de preços.
 
-Log Analytics no Azure Monitor é projetado para escala e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para esse fim, é importante entender que o custo de um workspace do Log Analytics não se baseia apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados por suas fontes conectadas.  
+Log Analytics no Azure Monitor é projetado para escala e fornecer suporte à coleta, indexação e armazenamento de grandes quantidades de dados por dia, de qualquer fonte em sua empresa ou implantado no Azure.  Embora isso possa ser um driver primário para a organização, a eficiência de custo é, em última instância, o driver subjacente. Para esse fim, é importante entender que o custo de um espaço de trabalho do Log Analytics não se baseia apenas no volume de dados coletados, mas também depende do plano selecionado e de quanto tempo você escolheu armazenar os dados gerados por suas fontes conectadas.  
 
 Neste artigo, analisamos como você pode monitorar proativamente o volume de dados e o aumento do armazenamento e definir limites para controlar esses custos associados. 
 
@@ -49,14 +49,14 @@ Para explorar seus dados com mais detalhes, clique no ícone no canto superior d
 
 ![Exibir logs](media/manage-cost-storage/logs.png)
 
-Da página**uso e custos estimados**, pode-se examinar o seu volume de dados para o mês. Isso inclui todos os dados recebidos e retidos no workspace do Log Analytics.  Clique em **Detalhes de uso** na parte superior da página para exibir o painel de uso com informações sobre tendências de volume de dados por fonte, computadores e oferta. Para exibir e definir um limite diário ou modificar o período de retenção, clique em **Gerenciamento de volume de dados**.
+Da página**uso e custos estimados**, pode-se examinar o seu volume de dados para o mês. Isso inclui todos os dados recebidos e retidos no espaço de trabalho do Log Analytics.  Clique em **Detalhes de uso** na parte superior da página para exibir o painel de uso com informações sobre tendências de volume de dados por fonte, computadores e oferta. Para exibir e definir um limite diário ou modificar o período de retenção, clique em **Gerenciamento de volume de dados**.
  
 Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possível ver os detalhes da fatura do Azure na seção Cobrança do Portal do Azure ou no [Portal de Cobrança do Azure](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Limite diário
 É possível configurar um limite diário e limitar a ingestão diária para o workspace, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no workspace.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados dos recursos gerenciados e permanecer dentro do limite, ou quando você quiser simplesmente limitar encargos não planejados para o workspace.  
 
-Quando o limite diário é alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia. Uma faixa de aviso aparece na parte superior da página do workspace do Log Analytics selecionado e um evento de operação é enviado para a tabela *Operação* na categoria **LogManagement**. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
+Quando o limite diário é alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho do Log Analytics selecionado e um evento de operação é enviado para a tabela *Operação* na categoria **LogManagement**. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados a definir 
 Analise [Uso do Log Analytics e custos estimados](usage-estimated-costs.md) para reconhecer a tendência de ingestão de dados e qual é o limite diário de volume a ser definido. Considere-o com cuidado, pois não será possível monitorar os recursos depois que o limite for alcançado. 
@@ -96,14 +96,14 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
-Clientes com um Enterprise Agreement assinados antes de 1º de julho de 2018 ou que já criaram um workspace do Log Analytics em uma assinatura, você ainda terá acesso ao plano *Gratuito*. Se sua assinatura não está vinculada a um registro de EA existente, a camada *Gratuita* não estará disponível quando você criar um workspace em uma nova assinatura após 2 de abril de 2018.  Os dados estarão limitados a 7 dias de retenção para a camada *Gratuita*.  Para o camadas herdadas *autônomo* ou *por nó* , bem como o tipo único de preço atual de 2018, os dados coletados estão disponível para os últimos 31 dias. A camada *Gratuita* tem um limite diário de ingestão de 500 MB e, se perceber que excede consistentemente o volume permitido, poderá alterar o workspace para um outro plano para coletar dados além desse limite. 
+Clientes com um Enterprise Agreement assinados antes de 1º de julho de 2018 ou que já criaram um espaço de trabalho do Log Analytics em uma assinatura, você ainda terá acesso ao plano *Gratuito*. Se sua assinatura não está vinculada a um registro de EA existente, a camada *Gratuita* não estará disponível quando você criar um workspace em uma nova assinatura após 2 de abril de 2018.  Os dados estarão limitados a 7 dias de retenção para a camada *Gratuita*.  Para o camadas herdadas *autônomo* ou *por nó* , bem como o tipo único de preço atual de 2018, os dados coletados estão disponível para os últimos 31 dias. A camada *Gratuita* tem um limite diário de ingestão de 500 MB e, se perceber que excede consistentemente o volume permitido, poderá alterar o workspace para um outro plano para coletar dados além desse limite. 
 
 > [!NOTE]
 > Para usar os direitos provenientes da aquisição de OMS E1 Suite, OMS E2 Suite OMS ou Complemento do OMS para System Center, escolha o tipo de preço *Por Nó* do Log Analytics.
 
 ## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
 
-Se o workspace do Log Analytics tem acesso aos tipos de preço herdados, para alternar entre os tipos de preço herdados:
+Se o espaço de trabalho do Log Analytics tem acesso aos tipos de preço herdados, para alternar entre os tipos de preço herdados:
 
 1. No portal do Azure, no painel de inscrições do Log Analytics, selecione um workspace.
 

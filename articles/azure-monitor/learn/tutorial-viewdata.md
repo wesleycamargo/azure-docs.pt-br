@@ -28,7 +28,7 @@ No Log Analytics, você pode aproveitar as pesquisas de logs construindo consult
 > * Realizar uma pesquisa simples de dados de eventos e usar recursos para modificar e filtrar os resultados 
 > * Trabalhar com os dados de desempenho
 
-Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao workspace do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 Criar e editar consultas, além de trabalhar interativamente com dados retornados, pode ser realizado de duas maneiras.  Para consultas básicas, use a página de pesquisa de logs no portal do Azure, ou para consultas avançadas, você pode usar o portal de análise avançada. Para saber mais sobre as diferenças na funcionalidade entre os dois portais, consulte [Portais para criar e editar consultas de log no Log Analytics do Azure](../../azure-monitor/log-query/portals.md)
 
@@ -112,7 +112,7 @@ Agrupe uma coluna, arrastando o cabeçalho da coluna para o topo dos resultados.
 
 
 ## <a name="work-with-performance-data"></a>Trabalhe com dados de desempenho
-Os dados de desempenho para agentes do Windows e Linux são armazenados no workspace do Log Analytics na tabela **Perf**.  Os registros de desempenho são semelhante a qualquer outro registro e vamos escrever uma consulta simples que retorna todos os registros de desempenho, assim como ocorre com os eventos.
+Os dados de desempenho para agentes do Windows e Linux são armazenados no espaço de trabalho do Log Analytics na tabela **Perf**.  Os registros de desempenho são semelhante a qualquer outro registro e vamos escrever uma consulta simples que retorna todos os registros de desempenho, assim como ocorre com os eventos.
 
 ```
 Perf

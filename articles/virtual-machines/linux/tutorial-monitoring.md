@@ -169,7 +169,7 @@ Habilite o Gerenciamento de Atualizações para sua VM:
 3. Na tela da VM, na seção **Operações**, selecione **Gerenciamento de atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
-A validação inclui verificar se há um workspace do Log Analytics e uma conta de automação vinculada e se a solução está no workspace.
+A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
 
 Um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
@@ -292,9 +292,9 @@ O gráfico mostra as alterações que ocorreram ao longo do tempo. Depois de adi
 
 Você pode realizar monitoramento mais avançado da sua VM usando uma solução como o [Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), que monitora suas VMs (máquinas virtuais) do Azure em escala analisando o desempenho e a integridade das VMs do Windows e do Linux, incluindo seus diferentes processos e dependências interconectados a outros recursos e processos externos. O gerenciamento de configuração de suas VMs do Azure é fornecido com a solução de Inventário e Controle de Alterações da [Automação do Azure](../../automation/automation-intro.md) para identificar facilmente as alterações em seu ambiente. O gerenciamento da conformidade de atualizações é fornecido com a solução de Gerenciamento de Atualizações de Automação do Azure.   
 
-No workspace do Log Analytics ao qual a VM está conectada, você também pode recuperar, consolidar e analisar os dados coletados com a [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
+No espaço de trabalho do Log Analytics ao qual a VM está conectada, você também pode recuperar, consolidar e analisar os dados coletados com a [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Workspace do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Espaço de trabalho do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

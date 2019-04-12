@@ -53,7 +53,7 @@ Primeiro, é necessário habilitar o Controle de alterações e Inventário para
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione uma VM na lista
 1. No menu à esquerda, na seção **OPERAÇÕES**, clique em **Inventário**. A página **Controle de alterações** será aberta.
 
-A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
+A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
 Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
@@ -179,7 +179,7 @@ Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado
 
 Para adicionar um alerta para um serviço parado, no portal do Azure, vá para **Monitor**. E então, em **Serviços Compartilhados**, selecione **Alertas** e clique em **+ Nova regra de alerta**
 
-Clique em **Selecionar** para escolher um recurso. Na página **Selecionar um recurso**, selecione **Log Analytics** na lista suspensa **Filtrar por tipo de recurso**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
+Clique em **Selecionar** para escolher um recurso. Na página **Selecionar um recurso**, selecione **Log Analytics** na lista suspensa **Filtrar por tipo de recurso**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 

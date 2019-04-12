@@ -67,12 +67,12 @@ Os scripts e o código-fonte do aplicativo SaaS de banco de dados multilocatári
 
 ## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Instalar e configurar o espaço de trabalho do Log Analytics e a solução de análise de SQL do Azure
 
-O Azure Monitor é um serviço separado que deve ser configurado. O Azure Monitor registra coleta dados de log, telemetria e métrica no espaço de trabalho do Log Analytics. Assim como outros recursos no Azure, o workspace do Log Analytics deve ser criado. O workspace não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o workspace seja excluído com o aplicativo.
+O Azure Monitor é um serviço separado que deve ser configurado. O Azure Monitor registra coleta dados de log, telemetria e métrica no espaço de trabalho do Log Analytics. Assim como outros recursos no Azure, o espaço de trabalho do Log Analytics deve ser criado. O workspace não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o workspace seja excluído com o aplicativo.
 
 1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do Desempenho\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Para executar o script, pressione F5.
 
-Agora você pode abrir o Azure Monitor registra em log no portal do Azure. Leva alguns minutos para coletar a telemetria no workspace do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 
+Agora você pode abrir o Azure Monitor registra em log no portal do Azure. Leva alguns minutos para coletar a telemetria no espaço de trabalho do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 
 
 ## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Use o espaço de trabalho do Log Analytics e a solução de análise de SQL para monitorar pools e bancos de dados
 
@@ -127,9 +127,9 @@ Neste exercício, abra o espaço de trabalho do Log Analytics no portal do Azure
     ![Métricas do pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Voltando para o workspace do Log Analytics, selecione **Portal do OMS** para abrir o workspace nele.
+1. Voltando para o espaço de trabalho do Log Analytics, selecione **Portal do OMS** para abrir o espaço de trabalho nele.
 
-    ![Workspace do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Espaço de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
 No espaço de trabalho do Log Analytics, você poderá explorar ainda mais os dados de métrica e log. 
 

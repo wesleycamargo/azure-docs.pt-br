@@ -1,6 +1,6 @@
 ---
-title: Excluir um workspace do Azure Log Analytics | Microsoft Docs
-description: Saiba como excluir seu workspace do Log Analytics se tiver criado um em uma assinatura pessoal ou para reestruturar seu modelo de workspace.
+title: Excluir um espaço de trabalho do Azure Log Analytics | Microsoft Docs
+description: Saiba como excluir seu espaço de trabalho do Log Analytics se tiver criado um em uma assinatura pessoal ou para reestruturar seu modelo de espaço de trabalho.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -15,16 +15,16 @@ ms.date: 05/07/2018
 ms.author: magoedte
 ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55989127"
 ---
-# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Excluir um workspace do Azure Log Analytics com o Portal do Azure
-Este artigo mostra como usar o Portal do Azure para excluir um workspace do Log Analytics que você não precisa mais. 
+# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Excluir um espaço de trabalho do Azure Log Analytics com o Portal do Azure
+Este artigo mostra como usar o Portal do Azure para excluir um espaço de trabalho do Log Analytics que você não precisa mais. 
 
 ## <a name="to-delete-a-workspace"></a>Para excluir um workspace 
-Quando você exclui um workspace do Log Analytics, todos os dados relacionados ao workspace são excluídos do serviço dentro de 30 dias.  Tenha cuidado ao excluir um workspace, pois pode haver dados e configurações importantes que podem afetar negativamente as operações do serviço. Considere os outros serviços e fontes do Azure que armazenam seus dados no Log Analytics, como:
+Quando você exclui um espaço de trabalho do Log Analytics, todos os dados relacionados ao espaço de trabalho são excluídos do serviço dentro de 30 dias.  Tenha cuidado ao excluir um workspace, pois pode haver dados e configurações importantes que podem afetar negativamente as operações do serviço. Considere os outros serviços e fontes do Azure que armazenam seus dados no Log Analytics, como:
 
 * Application Insights
 * Central de Segurança do Azure

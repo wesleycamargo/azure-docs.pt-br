@@ -1268,7 +1268,7 @@ predict2  <- predict(milk.lm2, cadairydata)
 }
 ```
 
-Assim como na função `log.transform()` , discutida na seção "Transformações de valor", há muitas verificações de erros e exceções de código de recuperação nessa função. Os princípios empregados são os mesmos. O trabalho é feito em dois lugares ajustados em `tryCatch()`. Em primeiro lugar, a série de tempo é de exponenciação, pois temos trabalhado com os valores dos logarítmos. Em segundo lugar, o erro real do RMS é computado.  
+Assim como na função `log.transform()` , discutida na seção "Transformações de valor", há muitas verificações de erros e exceções de código de recuperação nessa função. Os princípios empregados são os mesmos. O trabalho é feito em dois lugares ajustados em `tryCatch()`. Em primeiro lugar, a série de tempo é de exponenciação, pois temos trabalhado com os valores dos logaritmos. Em segundo lugar, o erro real do RMS é computado.  
 
 Equipado com uma função para medir o erro RMS, vamos criar e exibir um dataframe que contenha os erros de RMS. Incluiremos termos para o modelo de tendência sozinho e o modelo completo com fatores sazonais. O código a seguir faz o trabalho usando os dois modelos lineares que construímos.
 

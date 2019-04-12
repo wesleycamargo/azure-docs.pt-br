@@ -1,6 +1,6 @@
 ---
 title: Adicionar um painel à interface do usuário da solução de Monitoramento Remoto – Azure | Microsoft Docs
-description: Este artigo mostra como adicionar um novo painel ao dashboard na interface do usuário da Web do acelerador de solução do Monitoramento Remoto.
+description: Este artigo mostra como adicionar um novo painel ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
 ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49165871"
 ---
-# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução do Monitoramento Remoto
+# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto
 
-Este artigo mostra como adicionar um novo painel a uma página de dashboard na interface do usuário da Web do acelerador de solução do Monitoramento Remoto. O artigo descreve:
+Este artigo mostra como adicionar um novo painel a uma página de dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar um novo painel para uma página de dashboard na interface do usuário da Web.
@@ -96,4 +96,4 @@ O comando anterior é executado localmente na interface do usuário [ http://loc
 
 Neste artigo, você aprendeu sobre os recursos disponíveis para ajudar você a adicionar ou personalizar dashboards na interface do usuário da Web no acelerador de solução de monitoramento remoto.
 
-Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

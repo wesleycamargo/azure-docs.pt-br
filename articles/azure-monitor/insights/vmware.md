@@ -78,7 +78,7 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
     Se seus resultados da pesquisa de log de exibição forem semelhantes àqueles da imagem acima, você estará pronto para usar o painel de solução de Monitoramento do VMWare.  
 
 ## <a name="vmware-data-collection-details"></a>Detalhes da coleta de dados do VMware
-A solução Monitoramento do VMware coleta vários dados de log e métricas de desempenho de hosts ESXi usando os Agentes do Log Analytics para Linux que você tenha habilitado.
+A solução de Monitoramento do VMware coleta vários dados de log e métricas de desempenho de hosts ESXi usando os Agentes do Log Analytics para Linux que você tenha habilitado.
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados.
 
@@ -110,7 +110,7 @@ A tabela a seguir mostram exemplos de campos de dados coletados pela solução d
 | StorageLatency_s |latência de armazenamento (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>Visão geral da solução de Monitoramento de VMware
-O bloco de VMware aparece no workspace do Log Analytics. Ele fornece uma visão ampla de eventuais falhas. Quando você clica no bloco, você entra em um modo de exibição de painel.
+O bloco de VMware aparece no espaço de trabalho do Log Analytics. Ele fornece uma visão ampla de eventuais falhas. Quando você clica no bloco, você entra em um modo de exibição de painel.
 
 ![bloco](./media/vmware/tile.png)
 

@@ -62,11 +62,11 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 Execute o seguinte procedimento para adicionar a solução de Capacidade e Desempenho ao seu workspace.
 
-- Adicione a solução Capacidade e Desempenho para seu workspace do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
+- Adicione a solução Capacidade e Desempenho para seu espaço de trabalho do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se o grupo de gerenciamento do SCOM estiver conectado ao seu workspace do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
+Se o grupo de gerenciamento do SCOM estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

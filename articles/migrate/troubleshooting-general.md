@@ -29,11 +29,11 @@ O dispositivo de descoberta contínua apenas coleta dados de desempenho continua
 
 - Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
-### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos de Migrações para Azure e workspace associado do Log Analytics
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos de Migrações para Azure e espaço de trabalho do Log Analytics associado
 
-Quando você exclui um projeto de Migrações para Azure, o projeto de migração é excluído juntamente com todos os grupos e avaliações. No entanto, se você anexou um workspace do Log Analytics ao projeto, ele não exclui automaticamente o workspace do Log Analytics. Isso ocorre porque o mesmo workspace do Log Analytics pode ser usado para vários casos de uso. Se você desejar excluir o workspace do Log Analytics, precisará fazer isso manualmente.
+Quando você exclui um projeto de Migrações para Azure, o projeto de migração é excluído juntamente com todos os grupos e avaliações. No entanto, se você anexou um espaço de trabalho do Log Analytics ao projeto, ele não exclui automaticamente o espaço de trabalho do Log Analytics. Isso ocorre porque o mesmo espaço de trabalho do Log Analytics pode ser usado para vários casos de uso. Se você desejar excluir o espaço de trabalho do Log Analytics, precisará fazer isso manualmente.
 
-1. Navegue até o workspace do Log Analytics associado ao projeto.
+1. Navegue até o espaço de trabalho do Log Analytics associado ao projeto.
     a. Se você ainda não excluiu o projeto de migração, poderá encontrar o link para o workspace na página de visão geral do projeto, na seção Essenciais.
 
    ![Workspace do LA](./media/troubleshooting-general/LA-workspace.png)
@@ -129,7 +129,7 @@ Confira se você copiou e colou as informações corretas. Para solucionar o pro
 3. Na instalação, na página **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 4. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 5. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-6. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do projeto e a chave que você copiou. Em seguida, clique em **Próximo**.
+6. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do projeto e a chave que você copiou. Em seguida, clique em **Próximo**.
 7. Verifique se o agente pode se conectar ao projeto. Se não for possível, verifique as configurações. Se o agente pode se conectar, mas não o coletor, contate o suporte.
 
 

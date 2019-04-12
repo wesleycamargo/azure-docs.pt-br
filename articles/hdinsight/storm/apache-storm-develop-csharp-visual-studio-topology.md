@@ -719,7 +719,7 @@ Para exibir erros ocorridos em uma topologia em execução, use as etapas a segu
 
 ### <a name="errors-submitting-topologies"></a>Erros durante o envio de topologias
 
-Se você encontrar erros ao enviar uma topologia ao HDInsight, poderá encontrar registros para os componentes do lado do servidor que lidam com o envio de topologia em seu cluster HDInsight. Para recuperar esses logs, use o seguinte comando em uma linha de comando:
+Se você encontrar erros ao enviar uma topologia ao HDInsight, poderá encontrar logs para os componentes do lado do servidor que lidam com o envio de topologia em seu cluster HDInsight. Para recuperar esses logs, use o seguinte comando em uma linha de comando:
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 

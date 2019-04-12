@@ -39,7 +39,7 @@ Você pode:
 
 Agentes de monitoramento são instalados em vários servidores, locais e no Azure. Os agentes se comunicam entre si, mas não enviam dados, enviam pacotes de handshake de TCP. A comunicação entre os agentes permite que o Azure mapeie a topologia de rede e o caminho que o tráfego pode levar.
 
-1. Crie um workspace NPM. Isso é igual a um workspace do Log Analytics.
+1. Crie um workspace NPM. Isso é igual a um espaço de trabalho do Log Analytics.
 2. Instale e configure agentes de software. (Caso deseje monitorar somente o Emparelhamento da Microsoft, você não precisará instalar e configurar agentes de software): 
     * Instale agentes de monitoramento nos servidores locais e nas VMs do Azure (para emparelhamento privado).
     * Defina as configurações nos servidores de agente de monitoramento para permitir que os agentes de monitoramentos se comuniquem. (Abra as portas do firewall etc.)
@@ -59,10 +59,10 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
-2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Workspace do Log Analytics – selecionar um workspace** para abrir a página Workspaces. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
+2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Espaço de Trabalho do Log Analytics – selecionar um espaço de trabalho** para abrir a página Espaços de Trabalho. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
 3. Sobre o **espaço de trabalho do Log Analytics** página, selecione **criar novo**, em seguida, defina as seguintes configurações:
 
-   * Workspace do Log Analytics - digite um nome para o workspace.
+   * Espaço de Trabalho do Log Analytics - digite um nome para o espaço de trabalho.
    * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Workspace.
    * Grupo de recursos: crie um grupo de recursos ou use um existente.
    * Local - esse local é usado para especificar o local da conta de armazenamento que é usada para os logs de conexão do agente.

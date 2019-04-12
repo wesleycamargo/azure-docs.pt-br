@@ -133,7 +133,7 @@ Habilite o Gerenciamento de Atualizações para sua VM:
 3. Na tela da VM, na seção **Operações**, clique em **Gerenciamento de Atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
-A validação inclui verificar se há um workspace do Log Analytics e uma conta de automação vinculada e se a solução está no workspace.
+A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
 
 Um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
@@ -263,7 +263,7 @@ O gráfico mostra as alterações que ocorreram ao longo do tempo. Depois de adi
 
 Você pode fazer monitoramento mais avançado da sua VM usando soluções como o Gerenciamento de Atualizações e Alterações e Inventário fornecidos pela [Automação do Azure](../../automation/automation-intro.md).
 
-Quando você tem acesso ao workspace do Log Analytics, você pode encontrar a chave do workspace e o identificador de workspace selecionando **Configurações avançadas** em **CONFIGURAÇÕES**. Use o comando [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para adicionar a extensão do Microsoft Monitoring Agent à VM. Atualize os valores das variáveis na amostra abaixo para a chave do workspace do Log Analytics e a ID do workspace.
+Quando você tem acesso ao espaço de trabalho do Log Analytics, você pode encontrar a chave do espaço de trabalho e o identificador de espaço de trabalho selecionando **Configurações avançadas** em **CONFIGURAÇÕES**. Use o comando [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para adicionar a extensão do Microsoft Monitoring Agent à VM. Atualize os valores das variáveis na amostra abaixo para a chave do espaço de trabalho do Log Analytics e a ID do espaço de trabalho.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
@@ -280,7 +280,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -Location "East US"
 ```
 
-Depois de alguns minutos, você deverá ver a nova VM no workspace do Log Analytics.
+Depois de alguns minutos, você deverá ver a nova VM no espaço de trabalho do Log Analytics.
 
 ![Folha do espaço de trabalho do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

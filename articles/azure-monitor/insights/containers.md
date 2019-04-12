@@ -122,7 +122,7 @@ Examine o artigo [Mecanismo do Docker no Windows](https://docs.microsoft.com/vir
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar hosts de contêiner do Linux
 
-Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu workspace do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu workspace, clique em **Início Rápido** > **Computadores** para exibir sua **ID de Workspace** e **Chave Primária**.  Copie e cole os dois em seu editor favorito.
+Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu workspace, clique em **Início Rápido** > **Computadores** para exibir sua **ID de Workspace** e **Chave Primária**.  Copie e cole os dois em seu editor favorito.
 
 **Para todos os hosts de contêiner do Linux, exceto CoreOS:**
 
@@ -150,7 +150,7 @@ Se anteriormente você utilizou o agente instalado diretamente e, em vez disso, 
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Configurar um Agente do Log Analytics para o Docker Swarm
 
-Execute o Agente do Log Analytics como um serviço global no Docker Swarm. Use as informações a seguir para criar um serviço do Agente do Log Analytics. Será necessário fornecer a ID e a chave primária do workspace do Log Analytics.
+Execute o Agente do Log Analytics como um serviço global no Docker Swarm. Use as informações a seguir para criar um serviço do Agente do Log Analytics. Será necessário fornecer a ID e a chave primária do espaço de trabalho do Log Analytics.
 
 - Execute o seguinte no nó mestre.
 
@@ -196,7 +196,7 @@ Há três maneiras de adicionar o Agente do Log Analytics para Red Hat OpenShift
 
 Nesta seção, abordaremos as etapas necessárias para instalar o Agente do Log Analytics como um daemon-set do OpenShift.  
 
-1. Faça logon no nó principal do OpenShift e copie o arquivo yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) do GitHub para o nó principal e modifique o valor com sua ID de Workspace do Log Analytics e sua Chave Primária.
+1. Faça logon no nó principal do OpenShift e copie o arquivo yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) do GitHub para o nó principal e modifique o valor com sua ID de Espaço de Trabalho do Log Analytics e sua Chave Primária.
 2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de usuário.
 
     ```
@@ -233,10 +233,10 @@ Nesta seção, abordaremos as etapas necessárias para instalar o Agente do Log 
     No events.  
     ```
 
-Se você quiser usar segredos para proteger sua ID de Workspace do Log Analytics e Chave Primária ao usar o arquivo yaml do daemon-set do Agente do Log Analytics, execute as seguintes etapas.
+Se você quiser usar segredos para proteger sua ID de Espaço de Trabalho do Log Analytics e Chave Primária ao usar o arquivo yaml do daemon-set do Agente do Log Analytics, execute as seguintes etapas.
 
-1. Faça logon no nó principal do OpenShift e copie o arquivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o script de geração de segredo [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) do GitHub.  Esse script gerará o arquivo yaml de segredos para a ID de Workspace do Log Analytics e a Chave Primária a fim de proteger suas informações secretas.  
-2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de usuário. O script de geração de segredo solicita sua ID de Workspace do Log Analytics <WSID> e a Chave Primária <KEY> e, após a conclusão, cria o arquivo ocp-secret.yaml.  
+1. Faça logon no nó principal do OpenShift e copie o arquivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o script de geração de segredo [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) do GitHub.  Esse script gerará o arquivo yaml de segredos para a ID de Espaço de Trabalho do Log Analytics e a Chave Primária a fim de proteger suas informações secretas.  
+2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de usuário. O script de geração de segredo solicita sua ID de Espaço de Trabalho do Log Analytics <WSID> e a Chave Primária <KEY> e, após a conclusão, cria o arquivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -320,7 +320,7 @@ Você pode optar por criar DaemonSets do omsagent com ou sem segredos.
     1. Copie o script e o arquivo de modelo de segredo e verifique se eles estão no mesmo diretório.
         - Script de geração de segredo – secret-gen.sh
         - modelo de segredo – secret-template.yaml
-    2. Execute o script, como no exemplo a seguir. O script solicitará a ID do Workspace do Log Analytics e a Chave Primária e, depois que você inseri-los, o script criará um arquivo .yaml secreto para que você possa executá-lo.   
+    2. Execute o script, como no exemplo a seguir. O script solicitará a ID do Espaço de Trabalho do Log Analytics e a Chave Primária e, depois que você inseri-los, o script criará um arquivo .yaml secreto para que você possa executá-lo.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -404,7 +404,7 @@ Para o Windows Kubernetes, use um script para gerar o arquivo .yaml de segredos 
         - Script de geração de segredo – secret-gen.sh
         - modelo de segredo – secret-template.yaml
 
-    2. Execute o script, como no exemplo a seguir. O script solicitará a ID do Workspace do Log Analytics e a Chave Primária e, depois que você inseri-los, o script criará um arquivo .yaml secreto para que você possa executá-lo.   
+    2. Execute o script, como no exemplo a seguir. O script solicitará a ID do Espaço de Trabalho do Log Analytics e a Chave Primária e, depois que você inseri-los, o script criará um arquivo .yaml secreto para que você possa executá-lo.   
 
         ```
         #> sudo bash ./secret-gen.sh

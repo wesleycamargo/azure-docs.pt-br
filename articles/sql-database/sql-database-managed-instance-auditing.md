@@ -170,7 +170,7 @@ Registros de auditoria de uma instância gerenciada podem ser enviados para até
 
 4. Selecione **SQLSecurityAuditEvents** na lista de logs.
 
-5. Selecione um destino para os eventos de auditoria - Hub de eventos, logs do Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, workspace do Log Analytics) para cada destino.
+5. Selecione um destino para os eventos de auditoria - Hub de eventos, logs do Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, espaço de trabalho do Log Analytics) para cada destino.
 
 6. Clique em **Salvar**.
 

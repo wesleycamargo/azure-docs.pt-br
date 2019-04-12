@@ -25,7 +25,7 @@ ms.locfileid: "57541512"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar um VM do Azure Monitor com o PowerShell 
 
-Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um workspace do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Azure Monitor. Além disso, você precisa atualizar a ID e a chave de workspace do Log Analytics.
+Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um espaço de trabalho do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Azure Monitor. Além disso, você precisa atualizar a ID e a chave de espaço de trabalho do Log Analytics.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

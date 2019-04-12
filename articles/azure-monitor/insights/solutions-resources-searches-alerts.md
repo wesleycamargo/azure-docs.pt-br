@@ -37,8 +37,8 @@ As [Soluções de gerenciamento](solutions.md) geralmente incluirão [pesquisas 
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
-## <a name="log-analytics-workspace"></a>Workspace do Log Analytics
-Todos os recursos de Log Analytics estão contidos em um [workspace](../../azure-monitor/platform/manage-access.md). Como descrito no [workspace do Log Analytics e conta de Automação](solutions.md#log-analytics-workspace-and-automation-account), o workspace não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada. Se ela não estiver disponível, a instalação da solução falhará.
+## <a name="log-analytics-workspace"></a>Espaço de Trabalho do Log Analytics
+Todos os recursos de Log Analytics estão contidos em um [workspace](../../azure-monitor/platform/manage-access.md). Como descrito no [espaço de trabalho do Log Analytics e conta de Automação](solutions.md#log-analytics-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada. Se ela não estiver disponível, a instalação da solução falhará.
 
 O nome do workspace é no nome de cada recurso de Log Analytics. Isso é feito na solução com o parâmetro **workspace**, conforme descrito no exemplo a seguir de um recurso SavedSearch.
 

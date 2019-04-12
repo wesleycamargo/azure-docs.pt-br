@@ -32,7 +32,7 @@ Do Azure Monitor, o recurso de desempenho fornece uma exibição de todas as VMs
 
 ![Exibição de desempenho superior N lista de insights VM](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Na guia **Top N Charts**, se você tiver mais de uma área de trabalho do Log Analytics, escolha a área de trabalho habilitada com a solução do seletor **Workspace** na parte superior da página. O seletor **Grupo** retornará assinaturas, grupos de recursos, [grupos de computadores](../platform/computer-groups.md) e conjuntos de computadores em escala virtual relacionados à área de trabalho selecionada que você pode usar para filtrar ainda mais os resultados apresentados nos gráficos esta página e nas outras páginas. Sua seleção só se aplica ao recurso Performance e não é transferida para Health ou Map.  
+Na guia **Top N Charts**, se você tiver mais de um espaço de trabalho do Log Analytics, escolha a área de trabalho habilitada com a solução do seletor **Workspace** na parte superior da página. O seletor **Grupo** retornará assinaturas, grupos de recursos, [grupos de computadores](../platform/computer-groups.md) e conjuntos de computadores em escala virtual relacionados à área de trabalho selecionada que você pode usar para filtrar ainda mais os resultados apresentados nos gráficos esta página e nas outras páginas. Sua seleção só se aplica ao recurso Performance e não é transferida para Health ou Map.  
 
 Por padrão, os gráficos mostram as últimas 24 horas. Usando o seletor **TimeRange**, você pode consultar intervalos de tempo históricos de até 30 dias para mostrar como o desempenho parecia no passado.   
 

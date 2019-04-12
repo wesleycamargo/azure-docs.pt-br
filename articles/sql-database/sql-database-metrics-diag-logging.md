@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
 ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/09/2019
 ms.locfileid: "59426471"
@@ -233,13 +233,13 @@ Você pode habilitar o log de diagnóstico e métricas usando o PowerShell.
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics, use este comando:
+- Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- É possível obter a ID de recurso do workspace do Log Analytics usando o seguinte comando:
+- É possível obter a ID de recurso do espaço de trabalho do Log Analytics usando o seguinte comando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -288,7 +288,7 @@ Você pode habilitar o log de diagnóstico e métricas usando a CLI do Azure.
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Para habilitar envio dos logs de diagnóstico para um workspace do Log Analytics, use este comando:
+- Para habilitar envio dos logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true

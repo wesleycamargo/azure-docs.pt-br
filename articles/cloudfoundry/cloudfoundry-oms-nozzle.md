@@ -53,9 +53,9 @@ O Bocal também precisa de permissão de acesso para o firehose do agregador de 
 
 Antes de configurar o cliente de linha de comando do UAA, certifique-se de que o RubyGems está instalada.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um workspace do Log Analytics
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um espaço de trabalho do Log Analytics
 
-É possível criar o workspace do Log Analytics manualmente ou usando um modelo. O modelo implantará uma configuração de alertas para o console de logs do Azure Monitor e as exibições pré-configurados do KPI. 
+É possível criar o espaço de trabalho do Log Analytics manualmente ou usando um modelo. O modelo implantará uma configuração de alertas para o console de logs do Azure Monitor e as exibições pré-configurados do KPI. 
 
 #### <a name="to-create-the-workspace-manually"></a>Para criar o workspace manualmente:
 
@@ -70,19 +70,19 @@ Antes de configurar o cliente de linha de comando do UAA, certifique-se de que o
 
 Para obter mais informações, consulte [começar com os logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o workspace do Log Analytics por meio do modelo de monitoramento do Azure Marketplace:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho do Log Analytics por meio do modelo de monitoramento do Azure Marketplace:
 
 1. Abra o portal do Azure.
 1. Clique no sinal "+" ou em "Criar um recurso" no canto superior esquerdo.
 1. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry".
 1. A página inicial do modelo da solução de monitoramento Cloud Foundry é carregada, clique em “Criar” para iniciar a folha do modelo.
 1. Insira os parâmetros necessários:
-    * **Assinatura**: selecione uma assinatura do Azure para o workspace do Log Analytics, normalmente a mesma da implantação do Cloud Foundry.
-    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o workspace do Log Analytics.
+    * **Assinatura**: selecione uma assinatura do Azure para o espaço de trabalho do Log Analytics, normalmente a mesma da implantação do Cloud Foundry.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho do Log Analytics.
     * **Localização do grupo de recursos**: Selecione o local do grupo de recursos.
     * **OMS_Workspace_Name**: insira um nome de workspace. Se o workspace não existir, o modelo criará um novo.
     * **OMS_Workspace_Region**: selecione o local para o workspace.
-    * **OMS_Workspace_Pricing_Tier**: selecione a SKU do workspace do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **OMS_Workspace_Pricing_Tier**: selecione a SKU do espaço de trabalho do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
     * **Termos legais**: clique em Termos legais e clique em “Criar” para aceitar o termo legal.
 1. Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
 
@@ -133,7 +133,7 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Configurar variáveis de ambiente
 
-Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de workspace do Log Analytics.
+Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de espaço de trabalho do Log Analytics.
 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
@@ -180,7 +180,7 @@ Verifique se o aplicativo do Bocal do OMS está em execução.
 
 Se você tiver implantado a solução de monitoramento por meio do modelo do Marketplace, acesse o Portal do Azure e encontre a solução. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue para o "console de análise de log," as exibições pré-configurados são listadas, com superior KPIs de sistema do Cloud Foundry, dados de aplicativos, alertas e métricas de integridade da VM. 
 
-Se você tiver criado o workspace do Log Analytics manualmente, siga as etapas abaixo para criar exibições e alertas:
+Se você tiver criado o espaço de trabalho do Log Analytics manualmente, siga as etapas abaixo para criar exibições e alertas:
 
 ### <a name="1-import-the-oms-view"></a>1. Importar o modo de exibição do OMS
 

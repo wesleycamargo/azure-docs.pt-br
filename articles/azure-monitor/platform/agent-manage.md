@@ -34,7 +34,7 @@ Após a implantação inicial do Windows do Log Analytics ou o agente do Linux n
 2. Abra o **Painel de controle**.
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Azure Log Analytics**.
 4. Se remover um workspace, selecione-o e, em seguida, clique em **remover**. Repita essa etapa para qualquer outro workspace que você deseja que o agente interrompa a emissão de relatórios.
-5. Se estiver adicionando um workspace, clique em **Adicionar** e na caixa de diálogo **Adicionar um workspace de Log Analytics**, cole a ID do workspace e chave do workspace (chave primária). Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione Azure US Government na lista suspensa do Azure Cloud.
+5. Se estiver adicionando um espaço de trabalho, clique em **Adicionar** e na caixa de diálogo **Adicionar um espaço de trabalho do Log Analytics**, cole a ID do espaço de trabalho e chave do espaço de trabalho (chave primária). Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione Azure US Government na lista suspensa do Azure Cloud.
 6. Clique em **OK** para salvar as alterações.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Remova um workspace usando o PowerShell

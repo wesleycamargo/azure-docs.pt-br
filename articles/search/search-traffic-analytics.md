@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
 ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/26/2019
 ms.locfileid: "55079657"
@@ -37,7 +37,7 @@ Ao vincular eventos de pesquisa e de clique a uma ID de correlação, é possív
 
 ## <a name="add-search-traffic-analytics"></a>Adicionar análise de tráfego de pesquisa
 
-Os sinais mencionados na seção anterior devem ser coletados do aplicativo de pesquisa à medida que o usuário interage com ele. O Application Insights é uma solução monitoramento extensível, disponível para várias plataformas e com opções flexíveis de instrumentação. O uso do Application Insights permite que você aproveite os relatórios de pesquisa do Power BI criados pelo Azure Search para facilitar a análise de dados.
+Os sinais mencionados na seção anterior devem ser coletados do aplicativo de pesquisa à medida que o usuário interage com ele. O Application Insights é uma solução de monitoramento extensível, disponível para várias plataformas e com opções flexíveis de instrumentação. O uso do Application Insights permite que você aproveite os relatórios de pesquisa do Power BI criados pelo Azure Search para facilitar a análise de dados.
 
 Na página do [Portal](https://portal.azure.com) de seu serviço Azure Search, a folha Análise de Tráfego de Pesquisa contém uma folha de consulta para seguir este padrão de telemetria. Também é possível selecionar ou criar um recurso do Application Insights e ver os dados necessários, tudo em um só lugar.
 

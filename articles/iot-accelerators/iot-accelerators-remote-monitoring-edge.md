@@ -68,7 +68,7 @@ No painel **Novo dispositivo**, escolha **Dispositivo do IoT Edge** e insira **o
 
 Anote a cadeia de conexão do dispositivo. Você precisará dela na próxima seção deste tutorial.
 
-Quando você registrar um dispositivo no hub IoT no acelerador de solução do Monitoramento Remoto, ele será listado na página **Device Explorer** da interface do usuário Web:
+Quando você registrar um dispositivo no hub IoT no acelerador de solução de Monitoramento Remoto, ele será listado na página **Device Explorer** da interface do usuário Web:
 
 [![Novo dispositivo do IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 

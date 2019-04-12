@@ -185,7 +185,7 @@ A figura abaixo mostra uma sessão de exemplo configurada com o servidor, client
 
 Observe que o Analisador de Mensagem carrega arquivos de log na memória. Se você tiver um grande conjunto de dados de log, é recomendável filtrá-los para obter o melhor desempenho do Analisador de Mensagem.
 
-Primeiro, determine o intervalo de tempo que você está interessado em analisar e mantenha esse período o mais breve possível. Em muitos casos, é recomendável examinar um período de minutos ou horas, no máximo. Importe o menor conjunto de registros que pode atender às suas necessidades.
+Primeiro, determine o intervalo de tempo que você está interessado em analisar e mantenha esse período o mais breve possível. Em muitos casos, é recomendável examinar um período de minutos ou horas, no máximo. Importe o menor conjunto de logs que pode atender às suas necessidades.
 
 Se você ainda tiver uma grande quantidade de dados de log, convém especificar uma sessão de filtro para filtrar os dados do log antes de carregá-los. Na caixa **Filtro da Sessão**, selecione o botão **Biblioteca** para escolher um filtro predefinido. Por exemplo, escolha **Filtro de Hora Global I** nos filtros do Armazenamento do Azure para filtrar em um intervalo de tempo. Você pode editar os critérios de filtro para especificar os carimbos de data/hora inicial e final para o intervalo que você deseja ver. Você também pode filtrar um código de status específico. Por exemplo, você pode optar por carregar apenas entradas de log em que o código de status é 404.
 

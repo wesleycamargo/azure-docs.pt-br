@@ -10,7 +10,7 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
 ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52496437"
@@ -22,7 +22,7 @@ Este artigo mostra como adicionar uma nova grade a uma página na interface da W
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar uma nova grade a uma página na interface do usuário da web.
 
-A grade de exemplo deste artigo exibe os dados do serviço que o artigo explicativo [Adicionar um serviço personalizado ao objeto de instruções da Web da aceleração de solução do Remote Monitoring](iot-accelerators-remote-monitoring-customize-service.md) mostra como adicionar.
+A grade de exemplo deste artigo exibe os dados do serviço que o artigo explicativo [Adicionar um serviço personalizado ao objeto de instruções da Web da aceleração de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md) mostra como adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -281,6 +281,6 @@ Se o usuário só precisa agir em uma única linha, configurar um link de soft-s
 
 Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na interface do usuário da Web no acelerador de solução de monitoramento remoto.
 
-Agora você definiu uma grade, a próxima etapa é [Adicionar um flyout personalizado à interface da Web da Web do acelerador de solução do Remote Monitoring](iot-accelerators-remote-monitoring-customize-flyout.md) exibida na página de exemplo.
+Agora você definiu uma grade, a próxima etapa é [Adicionar um flyout personalizado à interface da Web da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-flyout.md) exibida na página de exemplo.
 
 Para obter informações mais conceituais sobre o acelerador de solução de monitoramento remoto, consulte [Arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

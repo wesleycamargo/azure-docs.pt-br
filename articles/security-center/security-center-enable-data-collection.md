@@ -26,7 +26,7 @@ A Central de segurança coleta dados de suas máquinas virtuais (VMs), os conjun
 
 A coleta de dados é necessária para fornecer visibilidade sobre atualizações ausentes, definições de segurança do sistema operacional configuradas incorretamente, habilitação da proteção de ponto de extremidade e detecções de ameaças e da integridade. 
 
-Este artigo fornece diretrizes sobre como instalar um Microsoft Monitoring Agent e definir um workspace do Log Analytics no qual armazenar os dados coletados. As duas operações são necessárias para habilitar a coleta de dados. 
+Este artigo fornece diretrizes sobre como instalar um Microsoft Monitoring Agent e definir um espaço de trabalho do Log Analytics no qual armazenar os dados coletados. As duas operações são necessárias para habilitar a coleta de dados. 
 
 > [!NOTE]
 > - Coleta de dados é necessário apenas para recursos de computação (máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure). Você pode aproveitar a Central de Segurança do Azure mesmo se não provisionar agentes, no entanto, a segurança será limitada e as funcionalidades listadas acima não terão suporte.  
@@ -66,7 +66,7 @@ Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 >
 
 ## <a name="workspace-configuration"></a>Configuração do workspace
-Os dados coletados pela Central de Segurança são armazenados nos workspaces do Log Analytics.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em workspaces criados pela Central de Segurança ou em um workspace existente que você criou. 
+Os dados coletados pela Central de Segurança são armazenados nos espaços de trabalho do Log Analytics existentes.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em workspaces criados pela Central de Segurança ou em um workspace existente que você criou. 
 
 A configuração do workspace é definida por assinatura, e várias assinaturas podem usar o mesmo workspace.
 
@@ -96,15 +96,15 @@ Para obter mais informações sobre as contas existentes do log analytics, consu
 
 ### <a name="using-an-existing-workspace"></a>Usar um workspace existente
 
-Se você já tiver um workspace existente do Log Analytics, convém usar esse mesmo workspace.
+Se você já tiver um espaço de trabalho do Log Analytics existente, convém usar esse mesmo espaço de trabalho.
 
-Para usar o workspace existente do Log Analytics, você precisará ter permissões de leitura e gravação no workspace.
+Para usar o espaço de trabalho do Log Analytics existente, você precisará ter permissões de leitura e gravação no espaço de trabalho.
 
 > [!NOTE]
 > Soluções habilitadas no workspace existente serão aplicadas às VMs do Azure que estão conectados a ele. Para soluções pagas, isso pode resultar em cobranças adicionais. Por questões de considerações de privacidade de dados, verifique se seu workspace selecionado está na região geográfica correta.
 > Armazenamento de dados no log analytics pode incorrer em encargos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 
-Para selecionar um workspace existente do Log Analytics:
+Para selecionar um espaço de trabalho do Log Analytics existente:
 
 1. Em **Configuração do workspace padrão**, selecione **Usar outro workspace**.
 
@@ -148,7 +148,7 @@ Ao selecionar um workspace para armazenar os dados, todos os workspaces em todas
 
 
 ## <a name="data-collection-tier"></a>Camada de coleta de dados
-A seleção de uma camada de coleta de dados na Central de Segurança do Azure afetará apenas o armazenamento de eventos de segurança na área de trabalho do Log Analytics. O agente do Log Analytics ainda será colete e analise os eventos de segurança necessários para detecções de ameaças da Central de segurança do Azure, independentemente de qual camada de eventos de segurança que você optar por armazenar em seu espaço de trabalho do Log Analytics (se houver). A escolha de armazenar eventos de segurança na área de trabalho permitirá investigar, pesquisar e auditar esses eventos na área de trabalho. 
+A seleção de uma camada de coleta de dados na Central de Segurança do Azure afetará apenas o armazenamento de eventos de segurança no espaço de trabalho do Log Analytics. O agente do Log Analytics ainda será colete e analise os eventos de segurança necessários para detecções de ameaças da Central de segurança do Azure, independentemente de qual camada de eventos de segurança que você optar por armazenar em seu espaço de trabalho do Log Analytics (se houver). A escolha de armazenar eventos de segurança na área de trabalho permitirá investigar, pesquisar e auditar esses eventos na área de trabalho. 
 > [!NOTE]
 > Armazenamento de dados no log analytics pode incorrer em encargos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 > 

@@ -1,6 +1,6 @@
 ---
 title: Exibir logs de atividades do Azure para monitorar recursos | Microsoft Docs
-description: Use o log de atividade para examinar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST.
+description: Use os logs de atividade para examinar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac

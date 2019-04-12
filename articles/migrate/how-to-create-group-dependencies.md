@@ -29,12 +29,12 @@ As migrações para Azure aproveita a solução Mapa do serviço nos logs do Azu
 > [!NOTE]
 > A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
-### <a name="associate-a-log-analytics-workspace"></a>Associar um workspace do Log Analytics
-Para aproveitar a visualização de dependência, você precisa associar um workspace novo ou existente do Log Analytics a um projeto das Migrações para Azure. Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
+### <a name="associate-a-log-analytics-workspace"></a>Associar um espaço de trabalho do Log Analytics
+Para aproveitar a visualização de dependência, você precisa associar um espaço de trabalho do Log Analytics novo ou existente a um projeto das Migrações para Azure. Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
 
-- Para anexar um workspace do Log Analytics a um projeto, em **Visão geral**, acesse a seção **Essenciais** do projeto e clique em **Requer configuração**
+- Para anexar um espaço de trabalho do Log Analytics a um projeto, em **Visão geral**, acesse a seção **Essenciais** do projeto e clique em **Requer configuração**
 
-    ![Associar o workspace do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+    ![Associar o espaço de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Durante a associação de um workspace, haverá a opção de criar um workspace ou anexar um existente:
     - Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
@@ -61,7 +61,7 @@ Para instalar o agente em uma máquina com Windows:
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Avançar**.
+5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Avançar**.
 
 Você pode instalar o agente na linha de comando ou usando um método automatizado como o System Center Configuration Manager. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
 
@@ -126,7 +126,7 @@ Para executar as consultas do Kusto:
 
 1. Depois de instalar os agentes, acesse o portal e clique em **Visão geral**.
 2. Em **visão geral**, acesse a seção **Essentials** do projeto e clique no nome do workspace fornecido, ao lado de **Workspace do OMS**.
-3. Na página do workspace do Log Analytics, clique em **Geral** > **Logs**.
+3. Na página do espaço de trabalho do Log Analytics, clique em **Geral** > **Logs**.
 4. Escreva sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Encontre consultas de exemplo na próxima seção.
 5. Execute a consulta clicando em Executar. 
 

@@ -33,7 +33,7 @@ Este artigo pressupõe que você configurou um DC/OS e implantou aplicativos de 
 
 ### <a name="pre-requisite"></a>Pré-requisito
 - [Assinatura do Microsoft Azure](https://azure.microsoft.com/free/) - você pode obter uma assinatura gratuitamente.  
-- Configuração do workspace do Log Analytics - consulte a "Etapa 3" abaixo
+- Configuração do espaço de trabalho do Log Analytics - consulte a "Etapa 3" abaixo
 - [CLI do DC/OS](https://docs.mesosphere.com/1.12/cli) instalada.
 
 1. No painel do DC/OS, clique no Universo e procure por ‘OMS’ conforme mostrado abaixo.
@@ -49,7 +49,7 @@ Este artigo pressupõe que você configurou um DC/OS e implantou aplicativos de 
 
    ![](media/container-service-monitoring-oms/image4.png)
 
-3. Aqui, você receberá uma solicitação para inserir a `wsid` (a ID do workspace do Log Analytics) e `wskey` (a chave primária para a ID do workspace). Para obter `wsid` e `wskey`, você precisa criar uma conta em <https://mms.microsoft.com>.
+3. Aqui, você receberá uma solicitação para inserir a `wsid` (a ID do espaço de trabalho do Log Analytics) e `wskey` (a chave primária para a ID do espaço de trabalho). Para obter `wsid` e `wskey`, você precisa criar uma conta em <https://mms.microsoft.com>.
    Siga as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter o `wsid` e o `wskey` clicando em **Configurações**, em seguida, **Fontes Conectadas** e, em seguida, em **Servidores Linux**, conforme mostrado abaixo.
 
    ![](media/container-service-monitoring-oms/image5.png)

@@ -35,7 +35,7 @@ Este artigo fornece uma explicação de como habilitar o serviço de versão pr�
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Pré-requisitos para habilitar o serviço
 
-- Workspace do Log Analytics
+- Espaço de trabalho do Log Analytics
   - Dois tipos de informação são armazenados por padrão no espaço de trabalho do Log Analytics pela ASC para IoT; **alertas de segurança** e **recomendações**. 
   - Você pode optar por adicionar armazenamento de um tipo de informações adicionais **eventos brutos**. Observe que armazenar **eventos brutos** no Log Analytics transporta os custos de armazenamento adicionais. 
 - Hub IoT (camada standard ou superior)

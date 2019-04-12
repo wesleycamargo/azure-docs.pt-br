@@ -1,5 +1,5 @@
 ---
-title: Integre os registros de recursos do Azure aos seus sistemas SIEM | Microsoft Docs
+title: Integre os logs de recursos do Azure aos seus sistemas SIEM | Microsoft Docs
 description: Saiba mais sobre a Integração de Logs do Azure, seus principais recursos e como ela funciona.
 services: security
 documentationcenter: na

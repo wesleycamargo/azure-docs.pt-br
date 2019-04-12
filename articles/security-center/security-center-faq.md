@@ -85,14 +85,14 @@ As VMs Windows ou Linux IaaS se qualificam se:
 
 Para recuperar, remova o Microsoft Monitoring Agent nas VMs conectadas ao workspace excluído. A Central de Segurança reinstala o agente e cria novos workspaces padrão.
 
-### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Como posso usar meu workspace existente do Log Analytics?
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Como posso usar meu espaço de trabalho do Log Analytics existente?
 
-Você pode selecionar um workspace existente do Log Analytics para armazenar dados coletados pela Central de Segurança. Para usar o workspace existente do Log Analytics:
+Você pode selecionar um espaço de trabalho do Log Analytics existente para armazenar dados coletados pela Central de Segurança. Para usar o espaço de trabalho do Log Analytics existente:
 
 - O workspace deve ser associado à sua assinatura do Azure selecionada.
 - No mínimo, você deve ter permissões de leitura para acessar o workspace.
 
-Para selecionar um workspace existente do Log Analytics:
+Para selecionar um espaço de trabalho do Log Analytics existente:
 
 1. Em **Política de segurança – Coleta de dados**, selecione **Usar outro workspace**.
 
@@ -163,8 +163,8 @@ Talvez seja ideal recusar o provisionamento automático nos seguintes casos:
 - Se você tiver um workspace personalizado fora da assinatura (um workspace centralizado), recuse o provisionamento automático. Você pode instalar a extensão do Microsoft Monitoring Agent manualmente e conectá-la ao workspace sem que a Central de Segurança substitua a conexão.
 - Se você quiser evitar a criação de vários workspaces por assinatura e tiver seu próprio workspace personalizado na assinatura, terá duas opções:
 
-   1. Você pode recusar o provisionamento automático. Após a migração, defina as configurações de workspace padrão conforme descrito em [Como fazer para usar meu workspace do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
-   2. Ou você pode permitir que a migração seja concluída, que o Microsoft Monitoring Agent seja instalado nas VMs e que as VMs sejam conectadas ao workspace criado. Em seguida, selecione o seu próprio workspace personalizado definindo a configuração do workspace padrão com a opção de aceitar para reconfigurar os agentes já instalados. Para saber mais, confira [Como fazer para usar meu workspace do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. Você pode recusar o provisionamento automático. Após a migração, defina as configurações de espaço de trabalho padrão conforme descrito em [Como fazer para usar meu espaço de trabalho do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
+   2. Ou você pode permitir que a migração seja concluída, que o Microsoft Monitoring Agent seja instalado nas VMs e que as VMs sejam conectadas ao workspace criado. Em seguida, selecione o seu próprio workspace personalizado definindo a configuração do workspace padrão com a opção de aceitar para reconfigurar os agentes já instalados. Para saber mais, confira [Como fazer para usar meu espaço de trabalho do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 ### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Quais são as implicações de se recusar o provisionamento automático?
 Quando a migração for concluída, a Central de Segurança não será capaz de coletar dados de segurança da VM e algumas recomendações de segurança e alertas não estarão disponíveis. Se você recusá-lo, deverá instalar o Microsoft Monitoring Agent manualmente. Confira as [etapas recomendadas para a recusa](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
@@ -222,14 +222,14 @@ Quando a Central de Segurança detecta atividade suspeita na VM, o cliente é no
 O agente consome uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho. Para obter mais informações sobre o impacto no desempenho, bem como o agente e a extensão, consulte o [guia de planejamento e operações](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### <a name="where-is-my-data-stored"></a>Onde meus dados são armazenados?
-Os dados coletados desse agente são armazenados no análise de Log workspace do Log Analytics existente associado à sua assinatura do Azure ou a novos workspaces. Para obter mais informações, consulte [Segurança de Dados](security-center-data-security.md).
+Os dados coletados desse agente são armazenados no espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho. Para obter mais informações, consulte [Segurança de Dados](security-center-data-security.md).
 
 ## Os clientes de logs existente do Azure Monitor<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>A Central de Segurança substitui todas as conexões existentes entre as VMs e os workspaces?
 Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, a Central de Segurança não substituirá a conexão do workspace existente. Em vez disso, a Central de Segurança usará o workspace existente. A VM estarão protegida desde que a solução "Segurança" ou "SecurityCenterFree" tiver sido instalada no espaço de trabalho que ele está se comunicando. 
 
-Uma solução da Central de segurança está instalado no espaço de trabalho selecionado na tela de coleta de dados se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes. Quando você adiciona uma solução, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu workspace do Log Analytics. [Direcionamento de Solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite a aplicação de um escopo às suas soluções.
+Uma solução da Central de segurança está instalado no espaço de trabalho selecionado na tela de coleta de dados se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes. Quando você adiciona uma solução, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics. [Direcionamento de Solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite a aplicação de um escopo às suas soluções.
 
 Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), a Central de Segurança não instalará o Microsoft Monitoring Agent e o monitoramento de segurança será limitado.
 

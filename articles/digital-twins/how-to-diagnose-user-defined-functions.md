@@ -27,7 +27,7 @@ Este artigo resume como diagnosticar e depurar funções definidas pelo usuário
 
 Saber como diagnosticar problemas que surgem em sua instância de Gêmeos Digitais do Azure ajuda você a identificar com eficiência o problema, a causa do problema e uma solução.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Habilitar o log analytics para sua instância
+### <a name="enable-log-analytics-for-your-instance"></a>Habilitar a análise de logs para sua instância
 
 Os logs e métricas para sua instância de Gêmeos Digitais do Azure são exibidos no Azure Monitor. Esta documentação pressupõe que você criou um [registra em log do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) espaço de trabalho por meio de [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), por meio [CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou por meio das [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 

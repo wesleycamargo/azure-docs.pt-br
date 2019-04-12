@@ -664,7 +664,7 @@ Sim, você pode, instalando a extensão do Azure Monitor na escala de VMs do con
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-Você pode encontrar o workspaceId e o workspaceKey necessários no espaço de trabalho Log Analytics do portal do Azure. Na página Visão Geral, clique no bloco Configurações. Clique na guia Fontes Conectadas na parte superior.
+Você pode encontrar o workspaceId e o workspaceKey necessários no espaço de trabalho d oLog Analytics do portal do Azure. Na página Visão Geral, clique no bloco Configurações. Clique na guia Fontes Conectadas na parte superior.
 
 > [!NOTE]
 > Se o conjunto de dimensionamento _upgradePolicy_ é definido como Manual, você precisa aplicar a extensão a todas as VMs no conjunto ao chamar o upgrade nelas. Na CLI, isso seria _az vmss update-instances_.

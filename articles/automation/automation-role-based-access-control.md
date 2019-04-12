@@ -183,7 +183,7 @@ Uma função Colaborador de Monitoramento pode ler todos os dados de monitoramen
 |Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gerencie pacotes de solução de logs do Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/savedSearches/*|Gerencie pesquisas de logs salvos do Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquise workspaces do Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para um workspace do Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para um espaço de trabalho do Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gerencie configurações de Insights de armazenamento de logs do Azure Monitor.|
 |Microsoft.Support/*|Crie e gerencie tíquetes de suporte.|
 |Microsoft.WorkloadMonitor/workloads/*|Gerencie cargas de trabalho.|
@@ -264,8 +264,8 @@ Gerenciamento de atualizações atinge vários serviços para fornecer seu servi
 |---------|---------|---------|
 |Conta de automação     | Colaborador do Log Analytics       | Conta de automação        |
 |Conta de automação    | Colaborador de Máquina Virtual        | Grupo de recursos para a conta        |
-|Workspace do Log Analytics     | Colaborador do Log Analytics| Workspace do Log Analytics        |
-|Workspace do Log Analytics |Leitor do Log Analytics| Assinatura|
+|Espaço de trabalho do Log Analytics     | Colaborador do Log Analytics| Espaço de trabalho do Log Analytics        |
+|Espaço de trabalho do Log Analytics |Leitor do Log Analytics| Assinatura|
 |Solução     |Colaborador do Log Analytics         | Solução|
 |Máquina Virtual     | Colaborador de Máquina Virtual        | Máquina Virtual        |
 

@@ -6,7 +6,7 @@ ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55985366"
@@ -66,7 +66,7 @@ Algumas coisas que você pode fazer com os logs de diagnóstico incluem:
 
 - O [Azure Monitor](../articles/azure-monitor/overview.md) é um serviço que monitora os ambientes locais e na nuvem para manter a disponibilidade e o desempenho deles. Ele fornece uma solução abrangente para coleta, análise e ação com base na telemetria em seus ambientes de nuvem e locais. Ele ajuda a entender o desempenho de seus aplicativos, além de identificar de maneira proativa os problemas que os estão afetando e os recursos dos quais eles dependem. Você pode instalar uma extensão em uma [VM Linux](../articles/virtual-machines/linux/extensions-oms.md) ou [VM Windows](../articles/virtual-machines/windows/extensions-oms.md) que instale o agente do Log Analytics para coletar dados de log e armazenar em um espaço de trabalho do Log Analytics.
 
-    Para VMs Windows e Linux, o método recomendado para coletar logs é a instalação do agente do Log Analytics. A maneira mais fácil de instalar o agente do Log Analytics em uma VM é por meio da [Extensão de VM do Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o workspace do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
+    Para VMs Windows e Linux, o método recomendado para coletar logs é a instalação do agente do Log Analytics. A maneira mais fácil de instalar o agente do Log Analytics em uma VM é por meio da [Extensão de VM do Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o espaço de trabalho do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
 
 - O [Observador de Rede](../articles/network-watcher/network-watcher-monitoring-overview.md) permite que você monitore sua VM e seus recursos associados de acordo com o relacionamento deles com a rede em que estão. Você pode instalar a extensão Agente do Observador de rede em uma [VM Linux](../articles/virtual-machines/linux/extensions-nwa.md) ou [VM Windows](../articles/virtual-machines/windows/extensions-nwa.md).
 

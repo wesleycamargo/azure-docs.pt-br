@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
 ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54382944"
@@ -36,13 +36,13 @@ A solução funcionará com quaisquer registros no repositório do Log Analytics
 
 - Para alertas do Log Analytics, [crie regras de alerta](../../azure-monitor/platform/alerts-overview.md) para criar registros de alerta diretamente no repositório.
 - Para alertas do Nagios e Zabbix, [configure esses servidores](../../azure-monitor/learn/quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
-- Para alertas do System Center Operations Manager, [conecte seu grupo de gerenciamento do Operations Manager para seu workspace do Log Analytics](../../azure-monitor/platform/om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
+- Para alertas do System Center Operations Manager, [conecte seu grupo de gerenciamento do Operations Manager para seu espaço de trabalho do Log Analytics](../../azure-monitor/platform/om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicione a solução de Gerenciamento de Alertas ao seu workspace do Log Analytics usando o processo descrito em [Adicionar soluções](../../azure-monitor/insights/solutions.md). Não é necessária nenhuma configuração.
+Adicione a solução de Gerenciamento de Alertas ao seu espaço de trabalho do Log Analytics usando o processo descrito em [Adicionar soluções](../../azure-monitor/insights/solutions.md). Não é necessária nenhuma configuração.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado ao seu workspace do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no System Center Operations Manager quando você adicionar essa solução.  Não é necessária nenhuma configuração nem a manutenção dos pacotes de gerenciamento.
+Se o grupo de gerenciamento do System Center Operations Manager estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no System Center Operations Manager quando você adicionar essa solução.  Não é necessária nenhuma configuração nem a manutenção dos pacotes de gerenciamento.
 
 * Gerenciamento de Alertas do Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -64,7 +64,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 - Os dados de alerta são enviados do grupo de gerenciamento do System Center Operations Manager para o Log Analytics a cada três minutos.  
 
 ## <a name="using-the-solution"></a>Usando a solução
-Ao adicionar a solução de Gerenciamento de Alertas ao seu workspace do Log Analytics, o bloco **Gerenciamento de Alertas** será adicionado ao painel.  Esse bloco exibe uma contagem e representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar esse intervalo de tempo.
+Ao adicionar a solução de Gerenciamento de Alertas ao seu espaço de trabalho do Log Analytics, o bloco **Gerenciamento de Alertas** será adicionado ao painel.  Esse bloco exibe uma contagem e representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar esse intervalo de tempo.
 
 ![Bloco do Gerenciamento de Alertas](media/alert-management-solution/tile.png)
 

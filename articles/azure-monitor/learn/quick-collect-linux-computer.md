@@ -38,7 +38,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
-   * Forneça um nome para o novo **Workspace do Log Analytics**, como *DefaultLAWorkspace*. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.   
+   * Forneça um nome para o novo **Espaço de Trabalho do Log Analytics**, como *DefaultLAWorkspace*. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.   
    * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
    * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contém uma ou mais máquinas virtuais do Azure.  
    * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).  
@@ -46,12 +46,12 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
         ![Criar folha de recursos do Log Analytics](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. Depois de fornecer as informações necessárias no painel **Workspace do Log Analytics**, clique em **OK**.  
+3. Depois de fornecer as informações necessárias no painel **Espaço de Trabalho do Log Analytics**, clique em **OK**.  
 
 Enquanto as informações são verificadas e o workspace é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
-Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do workspace e da chave para o workspace do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Log Analytics com êxito.
+Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Log Analytics com êxito.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -68,7 +68,7 @@ Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do w
 As etapas a seguir configuram a instalação do agente para Log Analytics no Azure e na nuvem do Azure Governamental.  
 
 >[!NOTE]
->O agente do Log Analytics para Linux não pode ser configurado para se reportar a mais de um workspace do Log Analytics.  
+>O agente do Log Analytics para Linux não pode ser configurado para se reportar a mais de um espaço de trabalho do Log Analytics.  
 
 Se seu computador Linux precisa se comunicar através de um servidor proxy para o Log Analytics, a configuração de proxy pode ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]`.  A propriedade *proxyhost* aceita um nome de domínio totalmente qualificado ou o endereço IP do servidor proxy. 
 
@@ -111,7 +111,7 @@ O Log Analytics pode coletar eventos do Syslog do Linux e de contadores de desem
 3. Na tabela, desmarque as severidades **Informações**, **Aviso** e **Depuração**. 
 4. Clique em **Salvar** na parte superior da página para salvar a configuração.
 5. Selecione **Dados de Desempenho do Linux** para habilitar a coleta de contadores de desempenho em um computador Linux. 
-6. Quando você configura os contadores de desempenho do Linux para um novo workspace do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um. 
+6. Quando você configura os contadores de desempenho do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um. 
 
     ![Contadores de desempenho padrão do Windows selecionados](media/quick-collect-linux-computer/linux-perfcounters-default.png)
     
@@ -132,13 +132,13 @@ Agora que você habilitou a coleta de dados, vamos executar um exemplo simples d
     ![Resultado da pesquisa de logs do Log Analytics](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, você poderá remover o agente do computador Linux e excluir o workspace do Log Analytics.  
+Quando não for mais necessário, você poderá remover o agente do computador Linux e excluir o espaço de trabalho do Log Analytics.  
 
 Para remover o agente, execute o comando a seguir no computador Linux. O argumento *--purge* remove completamente o agente e sua configuração.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-Para excluir o workspace, selecione o workspace do Log Analytics criado anteriormente e, na página de recursos, clique em **Excluir**.
+Para excluir o espaço de trabalho, selecione o espaço de trabalho do Log Analytics criado anteriormente e, na página de recursos, clique em **Excluir**.
 
 ![Excluir um recurso do Log Analytics](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 

@@ -45,13 +45,13 @@ A lista de máquinas virtuais é filtrada para mostrar somente as máquinas virt
 
 ### <a name="resource-group-limit"></a> Limitações de integração
 
-O número de grupos de recursos que você pode usar para a integração é limitado pelos [limites de implantação do Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). As implantações do Resource Manager, que não devem ser confundidas com implantações de atualização, estão limitadas a cinco grupos de recursos por implantação. Para garantir a integridade da integração, dois desses grupos de recursos são reservados para configurar o workspace do Log Analytics, a conta de Automação e os recursos relacionados. Isso deixa você com três grupos de recursos para selecionar para a implantação.
+O número de grupos de recursos que você pode usar para a integração é limitado pelos [limites de implantação do Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). As implantações do Resource Manager, que não devem ser confundidas com implantações de atualização, estão limitadas a cinco grupos de recursos por implantação. Para garantir a integridade da integração, dois desses grupos de recursos são reservados para configurar o espaço de trabalho do Log Analytics, a conta de Automação e os recursos relacionados. Isso deixa você com três grupos de recursos para selecionar para a implantação.
 
 Use os controles de filtro para selecionar máquinas virtuais em assinaturas diferentes, locais e grupos de recursos.
 
 ![Solução integrada de gerenciamento de atualização](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise as opções para o espaço de trabalho do Log Analytics e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
+Revise as opções para o espaço de trabalho do Log Analytics e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um espaço de trabalho do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um espaço de trabalho do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
 
 ![Selecione workspace e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -88,7 +88,7 @@ Clique em **Ativar** para ativar a solução. A solução demora até 15 minutos
 
 ## <a name="unlink-workspace"></a>Desvincular o workspace
 
-As seguintes soluções são dependentes de um workspace do Log Analytics:
+As seguintes soluções são dependentes de um espaço de trabalho do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
 * [Controle de alterações](automation-change-tracking.md)
@@ -109,7 +109,7 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-3. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+3. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

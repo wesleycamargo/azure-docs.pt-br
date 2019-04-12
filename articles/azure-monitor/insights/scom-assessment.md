@@ -228,7 +228,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que é usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
-1. No portal do Azure na página do workspace Log Analytics de seu workspace selecionado, clique no item de menu **Pesquisa de Logs**.
+1. No portal do Azure na página do espaço de trabalho do Log Analytics de seu espaço de trabalho selecionado, clique no item de menu **Pesquisa de Logs**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```

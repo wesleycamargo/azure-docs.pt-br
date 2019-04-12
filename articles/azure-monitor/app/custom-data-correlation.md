@@ -38,7 +38,7 @@ Como o Application Insights tem suporte da avançada plataforma de logs do Azure
 
 Nesta seção, veremos como inserir seus dados nos logs do Azure Monitor.
 
-Caso não tenha um, provisione um novo workspace do Log Analytics seguindo [estas instruções](../learn/quick-collect-azurevm.md) e incluindo a etapa “criar um workspace”.
+Caso não tenha um, provisione um novo espaço de trabalho do Log Analytics seguindo [estas instruções](../learn/quick-collect-azurevm.md) e incluindo a etapa “criar um espaço de trabalho”.
 
 Para começar a enviar dados de log para o Azure Monitor. Existem várias opções:
 
@@ -52,7 +52,7 @@ Para começar a enviar dados de log para o Azure Monitor. Existem várias opçõ
 
 O Application Insights se baseia na plataforma de logs do Azure Monitor. Portanto, podemos usar [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar os dados ingeridos no Azure Monitor com nossos dados do Application Insights.
 
-Por exemplo, podemos ingerir nosso inventário de laboratório e os locais em uma tabela chamada “LabLocations_CL” em um workspace do Log Analytics chamado “myLA”. Se, depois, quisermos examinar nossas solicitações rastreadas no aplicativo do Application Insights chamado “myAI” e correlacionar os nomes dos computadores que atenderam às solicitações aos locais desses computadores armazenados na tabela personalizada mencionada anteriormente, poderemos executar a seguinte consulta no contexto do Application Insights ou do Azure Monitor:
+Por exemplo, podemos ingerir nosso inventário de laboratório e os locais em uma tabela chamada “LabLocations_CL” em um espaço de trabalho do Log Analytics chamado “myLA”. Se, depois, quisermos examinar nossas solicitações rastreadas no aplicativo do Application Insights chamado “myAI” e correlacionar os nomes dos computadores que atenderam às solicitações aos locais desses computadores armazenados na tabela personalizada mencionada anteriormente, poderemos executar a seguinte consulta no contexto do Application Insights ou do Azure Monitor:
 
 ```
 app('myAI').requests

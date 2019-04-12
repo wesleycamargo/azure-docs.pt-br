@@ -42,7 +42,7 @@ Agora é possível rotear logs de atividades do Azure AD (Azure Active Directory
 É possível rotear logs de auditoria e logs de entrada do Azure AD para sua conta de armazenamento do Azure, hub de eventos, logs do Azure Monitor ou solução personalizada usando esse recurso. 
 
 * **Logs de auditoria**: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
-* **Logs de entrada**: Com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
+* **Logs de entrada**: Com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório dos logs de auditoria.
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
@@ -62,7 +62,7 @@ Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você 
 
 * Uma conta de armazenamento do Azure para a qual você tem permissões *ListKeys*. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para obter informações sobre preços de armazenamento, confira a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Um namespace dos Hubs de Eventos do Azure para integração com soluções de terceiros.
-* Um workspace do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
+* Um espaço de trabalho do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
 ## <a name="cost-considerations"></a>Considerações de custo
 

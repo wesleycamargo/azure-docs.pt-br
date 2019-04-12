@@ -11,14 +11,14 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
 ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58521662"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Encaminhar status do trabalho e fluxos de trabalho de automação para logs do Azure Monitor
 
-A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o workspace do Log Analytics. Esse processo não envolve a vinculação de workspace e é completamente independente. Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Agora, com os logs do Azure Monitor você pode:
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Esse processo não envolve a vinculação de workspace e é completamente independente. Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Agora, com os logs do Azure Monitor você pode:
 
 * Obter informações sobre os Trabalhos de automação.
 * Disparar um email ou um alerta com base no status de trabalho de runbook (por exemplo, com falha ou suspenso).
@@ -33,7 +33,7 @@ A Automação pode enviar status de trabalho do runbook e fluxos de trabalho par
 Para começar a enviar seus logs de automação para logs do Azure Monitor, você precisa:
 
 * Versão de novembro 2016 ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) ( versão 2.3.0).
-* Um workspace do Log Analytics. Para obter mais informações, consulte [começar com os logs do Azure Monitor](../log-analytics/log-analytics-get-started.md). 
+* Um espaço de trabalho do Log Analytics. Para obter mais informações, consulte [começar com os logs do Azure Monitor](../log-analytics/log-analytics-get-started.md). 
 * O ResourceId para sua Conta de automação do Azure.
 
 Para encontrar o ResourceId da sua Conta de automação do Azure:
@@ -43,7 +43,7 @@ Para encontrar o ResourceId da sua Conta de automação do Azure:
 Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
-Para localizar o ResourceId do seu workspace do Log Analytics, execute o seguinte PowerShell:
+Para localizar o ResourceId do seu espaço de trabalho do Log Analytics, execute o seguinte PowerShell:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
@@ -72,7 +72,7 @@ Para ver os logs, execute a seguinte consulta na pesquisa de logs do log analyti
 
 ### <a name="verify-configuration"></a>Verificar a configuração
 
-Para confirmar que sua Conta de automação está enviando logs para o seu workspace do Log Analytics, verifique se os diagnósticos estão configurados corretamente na Conta de automação usando o seguinte PowerShell:
+Para confirmar que sua Conta de automação está enviando logs para o seu espaço de trabalho do Log Analytics, verifique se os diagnósticos estão configurados corretamente na Conta de automação usando o seguinte PowerShell:
 
 ```powershell-interactive
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
@@ -81,7 +81,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 Na saída, verifique se:
 
 * Em *Logs*, o valor de *Habilitado* é *True*.
-* O valor de *WorkspaceId* é definido como o ResourceId do seu workspace do Log Analytics.
+* O valor de *WorkspaceId* é definido como o ResourceId do seu espaço de trabalho do Log Analytics.
 
 ## <a name="azure-monitor-log-records"></a>Registros de log do Azure Monitor
 

@@ -1,6 +1,6 @@
 ---
 title: Adicione uma página para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
-description: Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução do Monitoramento Remoto.
+description: Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094456"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
 
-Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução do Monitoramento Remoto. O artigo descreve:
+Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução de Monitoramento Remoto. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar uma nova página para o interface do usuário da web.
@@ -33,7 +33,7 @@ Para concluir as etapas neste guia de instruções, você precisa ter o seguinte
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a interface do usuário
 
-O código da interface do usuário do acelerador de solução do Monitoramento Remoto é implementado usando a estrutura JavaScript [Reagir](https://reactjs.org/). Você pode encontrar o código-fonte na [WebUI de Monitoramento Remoto](https://github.com/Azure/pcs-remote-monitoring-webui) repositório do GitHub.
+O código da interface do usuário do acelerador de solução de Monitoramento Remoto é implementado usando a estrutura JavaScript [Reagir](https://reactjs.org/). Você pode encontrar o código-fonte na [WebUI de Monitoramento Remoto](https://github.com/Azure/pcs-remote-monitoring-webui) repositório do GitHub.
 
 Para fazer e testar as alterações na interface do usuário, você pode executá-la em seu computador de desenvolvimento local. Opcionalmente, a cópia local pode se conectar a uma instância implantada do acelerador de solução para habilitá-lo para interagir com os dispositivos simulados ou reais.
 
@@ -189,8 +189,8 @@ Opcionalmente, você pode conectar sua cópia local de execução da web da inte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução Monitoramento Remoto.
+Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução de Monitoramento Remoto.
 
-Agora que definiu uma página, a próxima etapa é [Adicionar um serviço personalizado para a interface do usuário web do acelerador de solução do Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md) que recupera dados a serem exibidos na interface do usuário.
+Agora que definiu uma página, a próxima etapa é [Adicionar um serviço personalizado para a interface do usuário web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md) que recupera dados a serem exibidos na interface do usuário.
 
-Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

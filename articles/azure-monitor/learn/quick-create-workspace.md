@@ -1,6 +1,6 @@
 ---
-title: Criar um workspace do Log Analytics no portal do Azure | Microsoft Docs
-description: Saiba como criar um workspace do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais no portal do Azure.
+title: Criar um espaço de trabalho do Log Analytics no portal do Azure | Microsoft Docs
+description: Saiba como criar um espaço de trabalho do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais no portal do Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -20,7 +20,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57834465"
 ---
-# <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um workspace do Log Analytics no Portal do Azure
+# <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho do Log Analytics no Portal do Azure
 Use o menu **Espaços de trabalho do Log Analytics** para criar um espaço de trabalho do Log Analytics usando o portal do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo para os dados de log do Azure Monitor. Cada espaço de trabalho tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado espaço de trabalho. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
 
 * Recursos do Azure em sua assinatura
@@ -46,7 +46,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
   
 2. Clique em **Adicionar**e selecione opções para os seguintes itens:
 
-   * Forneça um nome para o novo **Workspace do Log Analytics**, como *DefaultLAWorkspace*. 
+   * Forneça um nome para o novo **Espaço de Trabalho do Log Analytics**, como *DefaultLAWorkspace*. 
    * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
    * Para o **Grupo de Recursos**, escolha entre usar um grupo de recursos existente já configurado ou criar um novo.  
    * Selecione um **local** disponível.  Para obter mais informações, veja quais [regiões do Log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e pesquise o Azure Monitor da **procurar um produto** campo.  
@@ -54,7 +54,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
         ![Criar folha de recursos do Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
-3. Depois de fornecer as informações necessárias no painel **Workspace do Log Analytics**, clique em **OK**.  
+3. Depois de fornecer as informações necessárias no painel **Espaço de Trabalho do Log Analytics**, clique em **OK**.  
 
 Enquanto as informações são verificadas e o workspace é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 

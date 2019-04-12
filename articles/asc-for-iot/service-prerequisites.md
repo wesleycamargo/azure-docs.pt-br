@@ -33,7 +33,7 @@ Este artigo fornece uma explicação sobre os diferentes blocos de construção 
 
 - Camada Standard de Hub IoT
     - Função RBAC **proprietário** privilégios de nível 
-- [Workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [Espaço de Trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Central de segurança do Azure (recomendado)
     - Embora o uso da Central de segurança do Azure é apenas uma recomendação e não um requisito, sem ele, não será capaz de exibir os recursos do Azure dentro do IoT Hub. 
  

@@ -11,7 +11,7 @@ ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
 ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53164374"
@@ -38,7 +38,7 @@ Quando um trabalho do Stream Analytics recebe uma mensagem malformada de uma ent
 
 ![Bloco entradas do Stream Analytics do Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Ative os registros de diagnósticos para visualizar os detalhes do aviso. Para eventos de entrada malformados, os logs de execução contêm uma entrada com a mensagem que se parece com: 
+Ative os logs de diagnósticos para visualizar os detalhes do aviso. Para eventos de entrada malformados, os logs de execução contêm uma entrada com a mensagem que se parece com: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
 
 ### <a name="what-caused-the-deserialization-error"></a>O que causou o erro de desserialização

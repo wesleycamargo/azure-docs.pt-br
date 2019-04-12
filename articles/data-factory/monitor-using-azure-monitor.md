@@ -43,7 +43,7 @@ Os Logs de Diagnóstico para os recursos de não computação são configurados 
 * Onde os logs de diagnóstico são enviados (conta de armazenamento, Hubs de eventos ou logs do Azure Monitor).
 * Quais categorias de log são enviadas.
 * Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento.
-* Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
+* Uma retenção de zero dias significa que os logs serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
 * Se as políticas de retenção são definidas, mas armazenamento dos logs em uma conta de armazenamento está desabilitado (por exemplo, somente Hubs de eventos ou o Azure Monitor logs forem selecionadas), as políticas de retenção não terão efeito.
 * As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 

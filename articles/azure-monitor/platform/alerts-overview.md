@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56003305"
@@ -39,7 +39,7 @@ As regras de alerta são separadas dos alertas e das ações executadas quando u
 
 Os principais atributos de uma regra de alerta são:
 
-**Recurso de Destino** - Define o escopo e os sinais disponíveis para o alerta. Um destino pode ser um recurso do Azure. Destinos de exemplo: uma máquina virtual, uma conta de armazenamento, um conjunto de dimensionamento de máquinas virtuais, um workspace do Log Analytics ou um recurso do Application Insights. Para determinados recursos (por exemplo, Máquinas Virtuais), é possível especificar vários recursos como o destino da regra de alerta.
+**Recurso de Destino** - Define o escopo e os sinais disponíveis para o alerta. Um destino pode ser um recurso do Azure. Destinos de exemplo: uma máquina virtual, uma conta de armazenamento, um conjunto de dimensionamento de máquinas virtuais, um espaço de trabalho do Log Analytics ou um recurso do Application Insights. Para determinados recursos (por exemplo, Máquinas Virtuais), é possível especificar vários recursos como o destino da regra de alerta.
 
 **Sinal**: os sinais são emitidos pelo recurso de destino e podem ser de vários tipos. Métrica, Log de atividades, Application Insights e Log.
 

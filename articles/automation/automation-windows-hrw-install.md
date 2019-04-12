@@ -39,7 +39,7 @@ Os requisitos mínimos para um Windows Hybrid Runbook Worker são:
 Para obter mais requisitos de rede para o Hybrid Runbook Worker, consulte [ Configurando sua rede ](automation-hybrid-runbook-worker.md#network-planning).
 
 Para obter mais informações sobre servidores de integração para gerenciamento com o DSC, consulte [Máquinas de integração para gerenciamento pelo DSC de automação do Azure](automation-dsc-onboarding.md).
-Se você ativar a [ solução de Gerenciamento de Atualizações ](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado ao seu workspace do Log Analytics do Azure será automaticamente configurado como um Trabalhador de Runbook Híbrido para oferecer suporte a runbooks incluídos nessa solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. 
+Se você ativar a [ solução de Gerenciamento de Atualizações ](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado ao seu espaço de trabalho do Log Analytics do Azure será automaticamente configurado como um Trabalhador de Runbook Híbrido para oferecer suporte a runbooks incluídos nessa solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. 
 
 O computador pode ser adicionado a um grupo de executável de manual híbrido em sua conta de automação para oferecer suporte a registros de execução de automação, desde que você esteja usando a mesma conta para a solução e a associação de grupo de trabalhador de executável híbrido. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
@@ -55,13 +55,13 @@ Execute as etapas a seguir para automatizar a instalação e configuração da f
 
    * *AutomationAccountName* (obrigatório): O nome da sua conta de automação.
    * *AAResourceGroupName* (obrigatório): O nome do grupo de recursos associado à sua conta de automação.
-   * *OMSResourceGroupName* (opcional): O nome do grupo de recursos do workspace do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
+   * *OMSResourceGroupName* (opcional): O nome do grupo de recursos do espaço de trabalho do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
    * *HybridGroupName* (obrigatório): O nome de um grupo do Hybrid Runbook Worker que você especifica como um destino para os runbooks que dão suporte a esse cenário.
    * *SubscriptionID* (obrigatório): A ID de assinatura do Azure em que sua conta de automação está.
-   * *WorkspaceName* (opcional): O nome do workspace do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
+   * *WorkspaceName* (opcional): O nome do espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, o script cria e configura um.
 
      > [!NOTE]
-     > Atualmente, são as únicas regiões de automação com suporte para integração com os logs do Azure Monitor **Sudeste da Austrália**, **Leste dos EUA 2**, **Sudeste Asiático**e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um workspace do Log Analytics, mas avisará que não é possível vinculá-los.
+     > Atualmente, são as únicas regiões de automação com suporte para integração com os logs do Azure Monitor **Sudeste da Austrália**, **Leste dos EUA 2**, **Sudeste Asiático**e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um espaço de trabalho do Log Analytics, mas avisará que não é possível vinculá-los.
 
 2. No computador, abra o **Windows PowerShell** na tela **Iniciar** no modo Administrador.
 3. No shell de linha de comando do PowerShell, navegue até a pasta que contém o script que você baixou. Altere os valores para os parâmetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-ScriptioncriptionId* e *-WorkspaceName*. Em seguida, execute o script.
@@ -85,15 +85,15 @@ Execute as duas primeiras etapas uma vez para o seu ambiente de automação e re
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Criar um workspace do Log Analytics
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Criar um espaço de trabalho do Log Analytics
 
-Se você ainda não possui um workspace do Log Analytics, crie uma usando as instruções em [Gerenciar seu workspace](../azure-monitor/platform/manage-access.md). Você pode usar um workspace existente se já tiver um.
+Se você ainda não possui um espaço de trabalho do Log Analytics, crie uma usando as instruções em [Gerenciar seu espaço de trabalho](../azure-monitor/platform/manage-access.md). Você pode usar um workspace existente se já tiver um.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao workspace Log Analytics
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao espaço de trabalho do Log Analytics
 
 As soluções adicionam funcionalidade aos logs do Azure Monitor. A solução de automação adiciona funcionalidade para automação do Azure, incluindo suporte para Hybrid Runbook Worker. Quando você adiciona a solução ao seu workspace, ele envia automaticamente os componentes do trabalhador para o computador do agente que você instalará na próxima etapa.
 
-Para adicionar a solução **Automation** ao seuworkspace do Log Analytics, siga as instruções em [Para adicionar uma solução usando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
+Para adicionar a solução **Automation** ao seuespaço de trabalho do Log Analytics, siga as instruções em [Para adicionar uma solução usando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
 

@@ -46,7 +46,7 @@ A integração com os logs do Azure Monitor oferece uma agregação e uma filtra
 Você pode exibir esses dados em uma VM individual na máquina virtual diretamente ou pode usar o Azure Monitor para fornecer uma exibição agregada das VMs. Essa exibição baseia-se na perspectiva de cada recurso:
 
 * **Integridade**: As VMs estão relacionadas a um grupo de recursos.
-* **Mapa** e **Desempenho**: As VMs são configuradas para serem subordinadas a um workspace específico do Log Analytics.
+* **Mapa** e **Desempenho**: As VMs são configuradas para serem subordinadas a um espaço de trabalho do Log Analytics específico.
 
 ![Perspectiva de insights de máquina virtual no portal do Azure](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

@@ -57,7 +57,7 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 6. Clique em **Enviar para o Log Analytics** para configurar seu workspace. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
 7. Em **Log Analytics**, clique em **Configurar**.
 8. Na página Workspaces do Log Analytics, clique em **Criar Novo Workspace**.
-9. Na página **Workspace do Log analytics**, digite **firewall-oms** como o novo nome do **Workspace do Log Analytics**.
+9. Na página **Espaço de Trablho do Log Analytics**, digite **firewall-oms** como o novo nome do **Espaço de Trablho do Log Analytics**.
 10. Selecione sua assinatura, use o grupo de recursos de firewall existente (**Test-FW-RG**), selecione **Leste dos EUA** para o local e selecione o tipo de preço **gratuito**.
 11. Clique em **OK**.
    ![Iniciando o processo de configuração][1] Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  

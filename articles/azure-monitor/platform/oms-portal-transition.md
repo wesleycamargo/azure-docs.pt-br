@@ -70,7 +70,7 @@ Em ambos os casos, o administrador precisa atribuir manualmente a função aprop
  
 
 ## <a name="new-workspaces"></a>Novos workspaces
-Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orientações [criar um workspace do Log Analytics no portal do Azure](../learn/quick-create-workspace.md) para criar um novo workspace no portal do Azure.
+Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orientações [criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md) para criar um novo espaço de trabalho no portal do Azure.
 
 ## <a name="changes-to-alerts"></a>Alterações a alertas
 

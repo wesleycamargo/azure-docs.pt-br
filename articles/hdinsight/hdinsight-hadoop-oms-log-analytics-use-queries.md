@@ -34,7 +34,7 @@ Saiba mais alguns cenários básicos de como usar os logs do Azure Monitor para 
 
 Saiba como procurar métricas específicas para seu cluster HDInsight.
 
-1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a seguinte consulta na caixa de pesquisa para procurar todas as métricas para todas as métricas disponíveis para todos os clusters HDInsight configurados para usar os logs do Azure Monitor e, em seguida, selecione **executar**.
 
@@ -67,7 +67,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 Saiba como procurar mensagens de erro durante uma janela de tempo específica. Estas etapas são apenas um exemplo de como você pode chegar à mensagem de erro na qual você está interessado. É possível usar qualquer propriedade disponível para procurar os erros que você está tentando localizar.
 
-1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a seguinte consulta para pesquisar todas as mensagens de erro para todos os clusters HDInsight configurados para usar os logs do Azure Monitor e, em seguida, selecione **executar**. 
 
@@ -96,7 +96,7 @@ Saiba como procurar mensagens de erro durante uma janela de tempo específica. E
 
 A primeira etapa para criar um alerta é chegar a uma consulta com base na qual o alerta é disparado. É possível usar qualquer consulta que você desejar para criar um alerta.
 
-1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Execute a consulta a seguir na qual você deseja criar um alerta e, em seguida, pressione **RUN**.
 
@@ -114,7 +114,7 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 Para editar ou excluir um alerta existente:
 
-1. Abra o workspace de Log Analytics no portal do Azure.
+1. Abra o espaço de trabalho do Log Analytics no portal do Azure.
 2. No menu esquerdo, selecione **Alerta**.
 3. Selecione o alerta que você deseja editar ou excluir.
 4. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar** e **Excluir**.

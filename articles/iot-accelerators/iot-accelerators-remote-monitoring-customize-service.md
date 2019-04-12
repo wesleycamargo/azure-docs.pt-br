@@ -1,6 +1,6 @@
 ---
 title: Adicione um serviço à solução de monitoramento remoto da interface do usuário – Azure | Microsoft Docs
-description: Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução do Monitoramento Remoto.
+description: Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094465"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto
 
-Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução do Monitoramento Remoto. O artigo descreve:
+Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução de Monitoramento Remoto. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
 - Como adicionar um novo serviço à interface do usuário Web.
@@ -118,4 +118,4 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a adi
 
 Agora que você definiu um serviço, a próxima etapa é [Adicionar uma grade personalizada para a interface do usuário Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-grid.md) que exibe dados retornados pelo serviço.
 
-Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

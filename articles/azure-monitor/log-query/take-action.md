@@ -15,7 +15,7 @@ ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56005345"
@@ -37,11 +37,11 @@ De um resultado de pesquisa do Azure Log Analytics, você pode agora selecionar 
 Para executar a ação em um evento e iniciar um runbook de seus resultados da pesquisa de logs, você começa criando uma pesquisa de logs e, dos resultados, você pode invocar um runbook sob demanda. Isso pode ser alcançado a partir do recurso de pesquisa de logs clássico no [Portal do Azure](../../azure-monitor/log-query/log-query-overview.md). Neste exemplo, podemos realizar uma pesquisa de logs no Portal do Azure com uma demonstração básica desse recurso.
 
 1. No Portal do Azure, clique em **Todos os serviços** e selecione **Log Analytics**.  
-2. Selecione seu workspace de Log Analytics.
+2. Selecione seu espaço de trabalho do Log Analytics.
 3. No workspace, selecione **Logs (clássico)**.  
 4. Na página Pesquisa de Logs, execute uma pesquisa de logs.  
 5. Dos resultados da pesquisa de logs, clique na elipse à esquerda de um dos campos e, do popup, selecione **Agir a respeito**.<br><br> ![Selecione a opção Agir do resultado da pesquisa](./media/take-action/log-search-takeaction-menuoption.png) 
-6. Selecione **Executar um runbook** e selecione um runbook para ser executado.  Você pode selecionar qualquer runbook na conta de Automação que está vinculada ao workspace do Log Analytics.  Observe o seguinte:
+6. Selecione **Executar um runbook** e selecione um runbook para ser executado.  Você pode selecionar qualquer runbook na conta de Automação que está vinculada ao espaço de trabalho do Log Analytics.  Observe o seguinte:
 
     * Os runbooks são organizados por marcas
     * Valores de parâmetro de entrada de runbook podem ser selecionados diretamente dos campos do resultado de pesquisa.  Aparecerá uma lista suspensa exibindo todos os campos disponíveis do resultado dentre os quais se poderá selecionar.  

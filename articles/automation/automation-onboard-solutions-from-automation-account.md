@@ -128,7 +128,7 @@ Para habilitar a solução em um ou mais computadores, selecione **Habilitar nos
 
 ## <a name="unlink-workspace"></a>Desvincular o workspace
 
-As seguintes soluções são dependentes de um workspace do Log Analytics:
+As seguintes soluções são dependentes de um espaço de trabalho do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
 * [Controle de alterações](automation-change-tracking.md)
@@ -149,7 +149,7 @@ Depois de remover essas soluções, você pode concluir as etapas a seguir para 
 
    Você receberá um aviso confirmando que deseja continuar.
 
-3. Enquanto a Automação do Azure tenta desvincular a conta da sua área de trabalho do Log Analytics, você pode acompanhar o progresso em **Notificações** no menu.
+3. Enquanto a Automação do Azure tenta desvincular a conta de seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso em **Notificações** no menu.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

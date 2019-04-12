@@ -168,5 +168,5 @@ Todos os eventos de replicação do Hyper-V são registrados no log do Hyper-V-V
 Estas ferramentas podem ajudar na solução de problemas avançada:
 
 -   Para o VMM, execute a coleção de log do Site Recovery usando a [ferramenta da Plataforma de diagnóstico de suporte (SDP)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
--   Para Hyper-V sem VMM, [faça o download desta ferramenta](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) e execute-a no host Hyper-V para coletar de dados.
+-   Para Hyper-V sem VMM, [faça o download desta ferramenta](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) e execute-a no host Hyper-V para coletar os logs.
 

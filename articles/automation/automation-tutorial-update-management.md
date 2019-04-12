@@ -50,7 +50,7 @@ Primeiro, habilite o Gerenciamento de Atualizações da VM para este tutorial:
 1. No Portal do Azure, no menu esquerdo, selecione **Máquinas virtuais**. Selecione uma VM na lista.
 2. Na página da VM, em **OPERAÇÕES**, selecione **Gerenciamento de atualização**. O painel **Habilitar Gerenciamento de Atualizações** é aberto.
 
-Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um workspace do Azure Log Analytics e uma conta de automação vinculada e se a solução Gerenciamento de Atualizações está no workspace.
+Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um espaço de trabalho do Azure Log Analytics e uma conta de automação vinculada e se a solução Gerenciamento de Atualizações está no espaço de trabalho.
 
 Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
@@ -62,7 +62,7 @@ Se algum dos seguintes pré-requisitos estiver ausente durante a integração, e
 * Uma [conta da Automação](./automation-offering-get-started.md)
 * Um [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (habilitado na VM)
 
-Em **Gerenciamento de Atualizações**, defina o local, o workspace do Log Analytics e a conta da Automação do Azure a serem usados. Em seguida, selecione **Habilitar**. Se essas opções não estão disponíveis, isso significa que outra solução de automação está habilitada para a VM. Nesse caso, o mesmo workspace e conta da Automação devem ser usados.
+Em **Gerenciamento de Atualizações**, defina o local, o espaço de trabalho do Log Analytics e a conta da Automação do Azure a serem usados. Em seguida, selecione **Habilitar**. Se essas opções não estão disponíveis, isso significa que outra solução de automação está habilitada para a VM. Nesse caso, o mesmo workspace e conta da Automação devem ser usados.
 
 ![Habilitar a janela da solução Gerenciamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 

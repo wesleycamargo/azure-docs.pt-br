@@ -45,7 +45,7 @@ A solução de Controle de Alterações e Inventário fornece a capacidade de [a
 
 1. No menu à esquerda, selecione **Contas de Automação** e, em seguida, selecione sua conta de automação na lista.
 1. Selecione **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
-1. Selecione um workspace existente do Log Analytics ou crie um novo. Clique no botão **Habilitar**.
+1. Selecione um espaço de trabalho do Log Analytics existente ou crie um novo. Clique no botão **Habilitar**.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions/inventory-onboard.png)
 
@@ -56,7 +56,7 @@ Quando a notificação da integração da solução de inventário e controle de
 A solução de Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure. Você pode avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM. Nesta etapa, você deve habilitar a solução para a VM.
 
 1. Na sua conta de automação, selecione **Gerenciamento de Atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
-1. O workspace do Log Analytics selecionado é o mesmo workspace usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações.
+1. O espaço de trabalho do Log Analytics selecionado é o mesmo espaço de trabalho usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions/update-onboard.png)
 

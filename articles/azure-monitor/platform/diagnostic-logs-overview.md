@@ -25,7 +25,7 @@ ms.locfileid: "58519384"
 
     ![Logs de diagnóstico do recurso versus outros tipos de logs](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
-O conteúdo desses registros varia de acordo com o tipo de recurso e serviço do Azure. Por exemplo, os contadores de regras do Network Security Group e as auditorias do Key Vault são dois tipos de logs de diagnóstico.
+O conteúdo desses logs varia de acordo com o tipo de recurso e serviço do Azure. Por exemplo, os contadores de regras do Network Security Group e as auditorias do Key Vault são dois tipos de logs de diagnóstico.
 
 Esses logs diferem de [Log de atividades](activity-logs-overview.md). O Log de Atividades fornece informações sobre as operações executadas em recursos em sua assinatura usando o Gerenciador de Recursos, por exemplo, criar uma máquina virtual ou excluir um aplicativo lógico. O Log de Atividades é um log no nível da assinatura. Os logs de diagnóstico no nível do recurso fornecem informações sobre as operações executadas dentro do próprio recurso, por exemplo, obtenção de um segredo de um Key Vault.
 
@@ -53,10 +53,10 @@ Você pode usar uma conta de armazenamento ou um namespace de Hubs de Evento que
 
 Logs de diagnóstico de recursos são configurados usando configurações de diagnóstico de recursos. Os logs de diagnóstico do inquilino são configurados usando uma configuração de diagnóstico de locatário. **Configurações de Diagnóstico** para um controle de recursos:
 
-* Para onde os registros e métricas de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Azure Monitor).
+* Para onde os logs e métricas de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Azure Monitor).
 * Quais categorias de log são enviadas e se os dados de métrica também são enviados.
 * Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento
-    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
+    - Uma retenção de zero dias significa que os logs serão mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
     - Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma Conta de Armazenamento estiver desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
     - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. A exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da conta de armazenamento.
 
@@ -128,13 +128,13 @@ Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your S
 
 A ID da regra do barramento de serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Para habilitar o envio dos logs de diagnóstico para um workspace do Log Analytics, use este comando:
+Para habilitar o envio dos logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-É possível obter a ID de recurso do seu workspace do Log Analytics usando o seguinte comando:
+É possível obter a ID de recurso do seu espaço de trabalho do Log Analytics usando o seguinte comando:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -185,7 +185,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 A ID da regra é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics:
+Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -220,7 +220,7 @@ Verifique se todos os seus recursos estão definidos com as configurações de d
 
 Você talvez tenha que clicar em "Todos os serviços" para localizar a seção Monitoramento.
 
-Ali, você pode exibir e filtrar todos os recursos que dão suporte a configurações de diagnóstico para ver se eles têm o diagnóstico habilitado. Você também pode fazer uma busca detalhada para ver se várias configurações estão definidas em um recurso e verificar para qual conta de armazenamento, namespace de Hubs de Eventos e/ou workspace do Log Analytics os dados estão fluindo.
+Ali, você pode exibir e filtrar todos os recursos que dão suporte a configurações de diagnóstico para ver se eles têm o diagnóstico habilitado. Você também pode fazer uma busca detalhada para ver se várias configurações estão definidas em um recurso e verificar para qual conta de armazenamento, namespace de Hubs de Eventos e/ou espaço de trabalho do Log Analytics os dados estão fluindo.
 
 ![Resultados da folha Logs de Diagnóstico no portal](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

@@ -114,7 +114,7 @@ Com a criação de perfil contínua de dados de desempenho, não é necessário 
 
 Os dados coletados pelo dispositivo coletor são armazenados no local do Azure que você especificar durante a criação do projeto de migração. Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando o usuário exclui o projeto do Migrações para Azure.
 
-Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA em uma área de trabalho do Log Analytics criada na assinatura do usuário. Esses dados são excluídos quando você exclui o espaço de trabalho do Log Analytics na sua assinatura. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA em um espaço de trabalho do Log Analytics criado na assinatura do usuário. Esses dados são excluídos quando você exclui o espaço de trabalho do Log Analytics na sua assinatura. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Qual é o volume de dados carregado pelo Migrações para Azure no caso de criação de perfil contínua?
 
@@ -124,7 +124,7 @@ O volume de dados que é enviado para o Migrações para Azure varia de acordo c
 
 Sim, os dados coletados são criptografados em repouso e em trânsito. Os metadados coletados pelo dispositivo são enviados para o serviço do Migrações para Azure pela internet por meio de https. Os metadados coletados são armazenados no [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e no [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) em uma assinatura Microsoft e são criptografados em repouso.
 
-Os dados coletados pelos agentes de dependência também são criptografados em trânsito (canal https seguro) e são armazenados em um workspace do Log Analytics na assinatura do usuário. Eles também são criptografados em repouso.
+Os dados coletados pelos agentes de dependência também são criptografados em trânsito (canal https seguro) e são armazenados em um espaço de trabalho do Log Analytics na assinatura do usuário. Eles também são criptografados em repouso.
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o coletor se comunica com o vCenter Server e o serviço do Migrações para Azure?
 

@@ -28,7 +28,7 @@ ms.locfileid: "58629282"
 
 Você pode usar a solução de Azure Key Vault no Azure Monitor para examinar logs AuditEvent do Cofre de chave do Azure.
 
-Para usar a solução, você precisa habilitar o registro em log de diagnóstico do Azure Key Vault e direcionar tal diagnóstico para um workspace do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
+Para usar a solução, você precisa habilitar o registro em log de diagnóstico do Azure Key Vault e direcionar tal diagnóstico para um espaço de trabalho do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
 
 > [!NOTE]
 > Em janeiro de 2017, ocorreu uma mudança na maneira correta de envio de logs do Key Vault para o Log Analytics. Se a solução de Key Vault que você está usando mostrar *(preterido)* no título, consulte [Migrar da solução antiga de Key Vault](#migrating-from-the-old-key-vault-solution) para conhecer as etapas que você deve executar.
@@ -52,7 +52,7 @@ Use as instruções a seguir para instalar e configurar a solução de Cofre de 
    ![imagem do bloco Cofre de Chaves do Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Dê um nome para a configuração de diagnóstico.
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
-6. Selecione um workspace existente do Log Analytics ou crie um workspace
+6. Selecione um espaço de trabalho do Log Analytics existente ou crie um espaço de trabalho
 7. Para habilitar logs do *AuditEvent*, clique na caixa de seleção sob o Log
 8. Clique em *salvar* para habilitar o registro em log de diagnóstico para o espaço de trabalho do Log Analytics.
 
@@ -138,7 +138,7 @@ Para usar a solução atualizada:
 1. [Configurar o diagnóstico sejam enviadas diretamente para um espaço de trabalho do Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Habilite a solução do Azure Key Vault usando o processo descrito em [soluções de adicionar o Azure Monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar todas as consultas salvas, painéis ou alertas para usar o novo tipo de dados
-   + O tipo é uma alteração de: KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os registros do Key Vault.
+   + O tipo é uma alteração de: KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os logs do Key Vault.
    + Em vez de: `KeyVaults`, use`AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Campos: (Os nomes de campo diferenciam maiúsculas de minúsculas)
    + Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúsculo

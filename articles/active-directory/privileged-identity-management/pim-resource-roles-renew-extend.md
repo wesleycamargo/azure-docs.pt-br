@@ -78,7 +78,7 @@ Além de usar o seguinte link do email, os administradores podem aprovar ou nega
 
 ![Captura de tela do erro](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-Quando um Administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são exibidos, junto com um campo para fornecer justificativa para os registros de auditoria.
+Quando um Administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são exibidos, junto com um campo para fornecer justificativa para os logs de auditoria.
 
 ![Aprovar solicitação de atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
@@ -116,7 +116,7 @@ Os administradores de recursos podem acessar a solicitação de renovação a pa
 
 ![Aprovar solicitações](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-Quando um administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são mostrados junto com um campo para fornecer justificativa para os registros de auditoria.
+Quando um administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são mostrados junto com um campo para fornecer justificativa para os logs de auditoria.
 
 ![Aprovar atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 

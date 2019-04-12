@@ -107,7 +107,7 @@ O token do aplicativo completo é algo parecido com isto:
 
 ![Exemplo de Token Web JSON](media/row-level-security/app-token-string-12.png)
 
-Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo para exibir esse relatório, verá os dados que tiver permissão para ver, conforme definido pela nossa segurança em nível de linha.
+Agora, com todas as partes juntas, quando alguém fizer logon em nosso aplicativo para exibir esse relatório, verá os dados que tiver permissão para ver, conforme definido pela nossa segurança em nível de linha.
 
 ![Relatório exibido no aplicativo](media/row-level-security/dashboard-13.png)
 

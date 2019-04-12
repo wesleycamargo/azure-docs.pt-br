@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar logs do Azure Monitor para seu cluster do Service Fabric
-> * Usar um workspace do Log Analytics para exibir e consultar logs dos seus contêineres e nós
+> * Usar um espaço de trabalho do Log Analytics para exibir e consultar logs dos seus contêineres e nós
 > * Configurar o agente do Log Analytics para selecionar métricas de contêiner e de nó
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -53,7 +53,7 @@ Caso você tenha usado o [modelo fornecido](https://github.com/Azure-Samples/ser
 
 Faça as seguintes alterações no seu *template.json*:
 
-1. Adicione o local do workspace do Log Analytics e um nome à sua seção *parâmetros*:
+1. Adicione o local do espaço de trabalho do Log Analytics e um nome à sua seção *parâmetros*:
 
     ```json
     "omsWorkspacename": {
@@ -106,7 +106,7 @@ Faça as seguintes alterações no seu *template.json*:
     },
     ```
 
-4. Adicione o workspace do Log Analytics como um recurso individual. Em *recursos*, depois do recurso dos conjuntos de dimensionamento de máquinas virtuais, adicione o seguinte:
+4. Adicione o espaço de trabalho do Log Analytics como um recurso individual. Em *recursos*, depois do recurso dos conjuntos de dimensionamento de máquinas virtuais, adicione o seguinte:
 
     ```json
     {
@@ -186,11 +186,11 @@ Faça as seguintes alterações no seu *template.json*:
     },
     ```
 
-[Veja](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) um modelo de exemplo (usado na parte um deste tutorial) que tem todas essas alterações que você pode referenciar conforme necessário. Essas alterações adicionarão um workspace do Log Analytics ao grupo de recursos. O workspace será configurado para selecionar eventos de plataforma do Service Fabric das tabelas de armazenamento configurados com o agente [Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). O agente do Log Analytics (Microsoft Monitoring Agent) também foi adicionado a cada nó no cluster como uma extensão de máquina virtual – isso significa que, enquanto você dimensiona seu cluster, o agente é configurado automaticamente em cada computador e conectado ao mesmo workspace.
+[Veja](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) um modelo de exemplo (usado na parte um deste tutorial) que tem todas essas alterações que você pode referenciar conforme necessário. Essas alterações adicionarão um espaço de trabalho do Log Analytics ao grupo de recursos. O workspace será configurado para selecionar eventos de plataforma do Service Fabric das tabelas de armazenamento configurados com o agente [Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). O agente do Log Analytics (Microsoft Monitoring Agent) também foi adicionado a cada nó no cluster como uma extensão de máquina virtual – isso significa que, enquanto você dimensiona seu cluster, o agente é configurado automaticamente em cada computador e conectado ao mesmo workspace.
 
 Implante o modelo com suas novas alterações para atualizar seu cluster atual. Você poderá ver os recursos do Log Analytics no seu grupo de recursos quando tiver terminado. Quando o cluster estiver pronto, implante seu aplicativo em contêiner nele. Na próxima etapa, configuraremos o monitoramento dos contêineres.
 
-## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Adicione a Solução de monitoramento de contêiner ao seu workspace do Log Analytics
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Adicione a Solução de monitoramento de contêiner ao seu espaço de trabalho do Log Analytics
 
 Para configurar a solução de contêiner no workspace, pesquise *Solução de monitoramento de contêiner* e crie um recurso de contêineres (na categoria Monitoramento + gerenciamento).
 
@@ -220,7 +220,7 @@ Clicar em qualquer um desses painéis direcionará você à consulta do Kusto qu
 
 Outro benefício de usar o agente do Log Analytics é a capacidade de alterar os contadores de desempenho que você deseja selecionar por meio da experiência de interface do usuário do Log Analytics em vez de ter que configurar o agente de diagnóstico do Azure e fazer uma atualização baseada no modelo do Resource Manager todas as vezes. Para fazer isso, clique em **Workspace do OMS** na página de aterrissagem de sua solução de Monitoramento de Contêiner (ou do Service Fabric).
 
-Isso direcionará você ao seu Workspace do Log Analytics, em que será possível exibir suas soluções, criar painéis personalizados, além de configurar o agente do Log Analytics. 
+Isso direcionará você ao seu Espaço de Trabalho do Log Analytics, em que será possível exibir suas soluções, criar painéis personalizados, além de configurar o agente do Log Analytics. 
 * Clique em **Configurações Avançadas** para abrir o menu Configurações Avançadas.
 * Clique em **Fontes conectadas** > **Servidores Windows** para verificar se você tem *5 Computadores Windows conectados*.
 * Clique em **Dados** > **Contadores de desempenho do Windows** para pesquisar e adicionar novos contadores de desempenho. Aqui você verá uma lista de recomendações dos logs do Azure Monitor para contadores de desempenho que você pode coletar, bem como a opção de pesquisar outros contadores. Verifique se os contadores **Processor(_Total)\% Tempo de Processador** e **Memory(*)\Available MBytes** estão sendo coletados.
@@ -237,7 +237,7 @@ Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Configurar logs do Azure Monitor para seu cluster do Service Fabric
-> * Usar um workspace do Log Analytics para exibir e consultar logs dos seus contêineres e nós
+> * Usar um espaço de trabalho do Log Analytics para exibir e consultar logs dos seus contêineres e nós
 > * Configurar o agente do Log Analytics para selecionar métricas de contêiner e de nó
 
 Agora que você configurou o monitoramento para seu aplicativo em contêiner, experimente o seguinte:

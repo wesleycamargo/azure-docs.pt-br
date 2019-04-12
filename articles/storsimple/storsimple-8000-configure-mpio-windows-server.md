@@ -48,7 +48,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 
 #### <a name="to-install-mpio-on-the-host"></a>Para instalar o MPIO no host
 
-1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**.
+1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador do Servidor começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**.
    
    ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 

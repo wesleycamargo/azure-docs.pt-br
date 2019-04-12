@@ -75,7 +75,7 @@ Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Appli
 
 Outros pontos a serem considerados:
 
-- Você pode vincular aplicativos do Application Insights somente a um único workspace do Log Analytics.
+- Você pode vincular aplicativos do Application Insights somente a um único espaço de trabalho do Log Analytics.
 - Só é possível vincular os [recursos do Application Insights Básico ou Enterprise](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, você pode usar a camada Gratuita do Log Analytics.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento

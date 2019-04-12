@@ -45,13 +45,13 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../../virt
 ### <a name="discover-expressroute-peering-connections"></a>Descobrir conexões de emparelhamento do ExpressRoute 
  
 1. Selecione a exibição **Emparelhamentos do ExpressRoute**.
-2. Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este workspace do Log Analytics.
+2. Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este espaço de trabalho do Log Analytics.
 
     >[!NOTE]
     > A solução atualmente descobre apenas emparelhamentos privados do ExpressRoute. 
 
     >[!NOTE]
-    > Somente os emparelhamentos privados conectados às redes associadas à assinatura vinculada a este workspace do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este workspace, crie um workspace do Log Analytics nessas assinaturas. Em seguida, use o Monitor de Desempenho de Rede para monitorar os emparelhamentos. 
+    > Somente os emparelhamentos privados conectados às redes associadas à assinatura vinculada a este espaço de trabalho do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este espaço de trabalho, crie um espaço de trabalho do Log Analytics nessas assinaturas. Em seguida, use o Monitor de Desempenho de Rede para monitorar os emparelhamentos. 
 
     ![Configuração do Monitor do ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  

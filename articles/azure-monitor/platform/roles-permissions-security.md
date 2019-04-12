@@ -36,7 +36,7 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
-* Pesquisar dados do workspace do Log Analytics, incluindo dados de uso do workspace.
+* Pesquisar dados do espaço de trabalho do Log Analytics, incluindo dados de uso do espaço de trabalho.
 * Exibir grupos de gerenciamento do Log Analytics.
 * Recupere o esquema de pesquisa no espaço de trabalho do Log Analytics.
 * Liste os pacotes de monitoramento no espaço de trabalho do Log Analytics.
@@ -56,7 +56,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 * Defina as [perfil de log](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para uma assinatura.\*
 * Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Criar testes Web e componentes do Application Insights.
-* Listar as chaves compartilhadas do workspace do Log Analytics.
+* Listar as chaves compartilhadas do espaço de trabalho do Log Analytics.
 * Habilitar ou desabilitar os pacotes de monitoramento no espaço de trabalho do Log Analytics.
 * Criar e excluir e executar pesquisas salvas no espaço de trabalho do Log Analytics.
 * Criar e excluir a configuração de armazenamento do espaço de trabalho do Log Analytics.

@@ -106,14 +106,14 @@ Para usar o Azure Monitor para armazenar os logs, siga estas etapas:
 
 3. Clique em **Criar Novo Workspace**.
 
-    A página **Workspace do Log Analytics** é exibida.
+    A página **Espaço de Trabalho do Log Analytics** é exibida.
 
     >[!NOTE] 
     >Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Para **workspace do Log Analytics**, insira um nome de workspace do Log Analytics. O nome do workspace do Log Analytics deve ser exclusivo e conter apenas letras, números e hifens; espaços e sublinhados não são permitidos. 
+4. Para **espaço de trabalho do Log Analytics**, insira um nome de espaço de trabalho do Log Analytics. O nome do espaço de trabalho do Log Analytics deve ser exclusivo e conter apenas letras, números e hifens; espaços e sublinhados não são permitidos. 
 
 5. Para **Assinatura**, selecione uma assinatura existente na lista suspensa. 
 
@@ -125,17 +125,17 @@ Para usar o Azure Monitor para armazenar os logs, siga estas etapas:
 
 9. Selecione **OK** para concluir a configuração.
 
-10. Depois que seu workspace é criado, você é retornado à página **Logs de diagnóstico**. Confirme o nome do seu novo workspace de Log Analytics.
+10. Depois que seu workspace é criado, você é retornado à página **Logs de diagnóstico**. Confirme o nome do seu novo espaço de trabalho do Log Analytics.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
 11. Selecione **CoreAnalytics**, em seguida, selecione **salvar**.
 
-12. Para exibir o novo workspace do Log Analytics, selecione **Análise principal** na página do ponto de extremidade da CDN.
+12. Para exibir o novo espaço de trabalho do Log Analytics, selecione **Análise principal** na página do ponto de extremidade da CDN.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    O workspace do Log Analytics agora está pronta para registrar dados. Para consumir esses dados, você deve usar um [solução de logs do Azure Monitor](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abordada posteriormente neste artigo.
+    O espaço de trabalho do Log Analytics agora está pronta para registrar dados. Para consumir esses dados, você deve usar um [solução de logs do Azure Monitor](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abordada posteriormente neste artigo.
 
 Para obter mais informações sobre atrasos em dados de log, consulte [Log data delays](#log-data-delays) (Atrasos nos dados de log).
 
@@ -159,7 +159,7 @@ O exemplo a seguir mostra como habilitar os Logs de Diagnóstico por meio dos Cm
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Para ativar os logs de diagnósticos em um workspace do Log Analytics, insira este comando:
+3. Para ativar os logs de diagnósticos em um espaço de trabalho do Log Analytics, insira este comando:
 
     ```powershell
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -212,16 +212,16 @@ Aqui está como você pode usar a ferramenta:
 4.  Execute a ferramenta.
 5.  O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir logs de diagnóstico de um workspace do Log Analytics
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir logs de diagnóstico de um espaço de trabalho do Log Analytics
 O Azure Monitor é um serviço do Azure que monitora a sua nuvem e ambientes para manter a disponibilidade e desempenho no local. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
 
 Para usar o Azure Monitor, você deve [habilitar registro em log](#enable-logging-with-azure-storage) no espaço de trabalho do Log Analytics do Azure, que é discutido neste artigo.
 
-### <a name="using-the-log-analytics-workspace"></a>Usar o workspace do Log Analytics
+### <a name="using-the-log-analytics-workspace"></a>Usar o espaço de trabalho do Log Analytics
 
  O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
 
-![Workspace do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Espaço de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – Repositório do Log Analytics*
 
@@ -252,7 +252,7 @@ Siga estas etapas para adicionar uma solução de monitoramento do Azure Monitor
 
     ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. Depois de selecionar **Criar**, será solicitado que você crie um novo workspace do Log Analytics ou use uma existente. 
+6. Depois de selecionar **Criar**, será solicitado que você crie um novo espaço de trabalho do Log Analytics ou use uma existente. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -272,7 +272,7 @@ Siga estas etapas para adicionar uma solução de monitoramento do Azure Monitor
 
     ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Selecione o workspace do Log Analytics que você criou para ir para o seu workspace. 
+    Selecione o espaço de trabalho do Log Analytics que você criou para ir para o seu espaço de trabalho. 
 
 11. Selecione o bloco **OMS Portal** para ver sua nova solução.
 
@@ -298,7 +298,7 @@ Siga estas etapas para adicionar uma solução de monitoramento do Azure Monitor
 
 ### <a name="customizing-views"></a>Personalizando exibições
 
-Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a projetar, vá para o workspace do Log Analytics e selecione o bloco **View Designer**.
+Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a projetar, vá para o espaço de trabalho do Log Analytics e selecione o bloco **View Designer**.
 
 ![Criador de Modos de Exibição](./media/cdn-diagnostics-log/27_Designer.png)
 

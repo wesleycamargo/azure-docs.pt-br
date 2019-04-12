@@ -10,7 +10,7 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: ecc3cb32a4bbacb92c875133bf72fc0374bc24df
 ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/19/2018
 ms.locfileid: "46369797"
@@ -27,7 +27,7 @@ As políticas de acesso a dados concedem permissões para emitir consultas de da
 
 Neste artigo, você aprendeu como os controles de acesso são concedidos para o explorador de Insights do Time Series no acelerador de solução de monitoramento remoto.
 
-Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Para saber mais sobre como personalizar a solução Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
+Para saber mais sobre como personalizar a solução de Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

@@ -32,7 +32,7 @@ Essa solução fornece uma opção de automação de baixo custo descentralizada
 A seguir, são limitações para a solução atual:
 
 - Essa solução gerencia VMs em qualquer região, mas só pode ser usada na mesma assinatura que sua conta do Azure Automation.
-- Esta solução está disponível no Azure e no AzureGov para qualquer região que ofereça suporte a um workspace do Log Analytics, uma conta do Azure Automation e Alertas. As regiões do AzureGov atualmente não suportam a funcionalidade de e-mail.
+- Esta solução está disponível no Azure e no AzureGov para qualquer região que ofereça suporte a um espaço de trabalho do Log Analytics, uma conta do Azure Automation e Alertas. As regiões do AzureGov atualmente não suportam a funcionalidade de e-mail.
 
 > [!NOTE]
 > Se você estiver usando a solução para VMs clássicas, todas as VMs serão processadas sequencialmente pelo serviço de nuvem. Máquinas virtuais ainda são processadas em paralelo entre diferentes serviços de nuvem.
@@ -65,18 +65,18 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
    ![Página Adicionar Solução de Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. Na página **Adicionar Solução**, selecione **Workspace**. Selecione um workspace do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um workspace, selecione **Criar Novo Workspace**. Sobre o **espaço de trabalho do Log Analytics** , execute as seguintes etapas:
+4. Na página **Adicionar Solução**, selecione **Workspace**. Selecione um espaço de trabalho do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um workspace, selecione **Criar Novo Workspace**. Sobre o **espaço de trabalho do Log Analytics** , execute as seguintes etapas:
    - Especifique um nome para o novo **espaço de trabalho do Log Analytics**, como "ContosoLAWorkspace".
    - Selecione uma **Assinatura** à qual se vincular, escolhendo na lista suspensa, caso a assinatura selecionada por padrão não seja adequada.
    - Em **Grupo de Recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
    - Selecione um **Local**. No momento, os únicos locais disponíveis são: **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **Leste dos EUA**, **Leste do Japão**, **Sudeste da Ásia**, **Sul do Reino Unido**, **Europa Ocidental** e **Oeste dos EUA 2**.
    - Selecione um **tipo de preço**. Escolha a opção **Por GB (autônomo)**. Os logs do Azure Monitor atualizou [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e a camada por GB é a única opção.
 
-5. Depois de fornecer as informações necessárias na página **Workspace do Log Analytics**, clique em **Criar**. Você pode acompanhar o progresso em **Notificações** no menu, que retornará a página **Adicionar Solução** ao terminar.
-6. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo workspace do Log Analytics, poderá criar uma nova Conta de automação para associá-la ou selecionar uma conta de automação existente que ainda não esteja vinculada a um workspace do Log Analytics. Selecione uma conta de automação existente ou clique em **Criar uma conta de automação** e, na página **Adicionar automação da conta**, forneça as seguintes informações:
+5. Depois de fornecer as informações necessárias na página **Espaço de Trabalho do Log Analytics**, clique em **Criar**. Você pode acompanhar o progresso em **Notificações** no menu, que retornará a página **Adicionar Solução** ao terminar.
+6. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo espaço de trabalho do Log Analytics, poderá criar uma nova Conta de automação para associá-la ou selecionar uma conta de automação existente que ainda não esteja vinculada a um espaço de trabalho do Log Analytics. Selecione uma conta de automação existente ou clique em **Criar uma conta de automação** e, na página **Adicionar automação da conta**, forneça as seguintes informações:
    - No campo **Nome**, digite o nome da conta de Automação.
 
-     Todas as outras opções são preenchidas automaticamente com base no workspace do Log Analytics selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
+     Todas as outras opções são preenchidas automaticamente com base no espaço de trabalho do Log Analytics selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
 
 7. Por fim, na página **Adicionar Solução**, selecione **Configuração**. A página **Parâmetros** é exibida.
 
@@ -242,7 +242,7 @@ Você não deve habilitar todas os agendamentos, porque isso poderá criar açõ
 
 ## <a name="azure-monitor-logs-records"></a>Registros de logs do Azure Monitor
 
-A Automação cria dois tipos de registros no workspace do Log Analytics: logs de trabalho e fluxos de trabalho.
+A Automação cria dois tipos de registros no espaço de trabalho do Log Analytics: logs de trabalho e fluxos de trabalho.
 
 ### <a name="job-logs"></a>Logs de trabalho
 
@@ -299,7 +299,7 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 
 Para acessar a solução, navegue até sua conta de automação, selecione **Workspace** em **RECURSOS RELACIONADOS**. Na página do log analytics, selecione **soluções** sob **geral**. Na página **Soluções**, selecione a solução **Start-Stop-VM[workspace]** na lista.
 
-A seleção da solução exibe a página de soluções **Start-Stop-VM [workspace]**. Aqui você pode analisar detalhes importantes, como o bloco **StartStopVM**. Como no seu workspace do Log Analytics, esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbook da solução que foi iniciada e encerrada com êxito.
+A seleção da solução exibe a página de soluções **Start-Stop-VM [workspace]**. Aqui você pode analisar detalhes importantes, como o bloco **StartStopVM**. Como no seu espaço de trabalho do Log Analytics, esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbook da solução que foi iniciada e encerrada com êxito.
 
 ![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -369,7 +369,7 @@ Para excluir a solução, execute as etapas a seguir:
 1. Na janela **Excluir Solução**, confirme que deseja excluir a solução.
 1. Enquanto as informações são verificadas e a solução é excluída, você pode acompanhar seu progresso no menu **Notificações**. Você é levado de volta à página **Soluções** após o início do processo de remoção da solução.
 
-A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se você não deseja manter o workspace do Log Analytics, é necessário excluí-lo manualmente. Isso pode ser feito no portal do Azure:
+A conta de Automação e o espaço de trabalho do Log Analytics não serão excluídos como parte desse processo. Se você não deseja manter o espaço de trabalho do Log Analytics, é necessário excluí-lo manualmente. Isso pode ser feito no portal do Azure:
 
 1. Na tela inicial portal do Azure, selecione **espaços de trabalho do Log Analytics**.
 1. Sobre o **espaços de trabalho do Log Analytics** , selecione o espaço de trabalho.

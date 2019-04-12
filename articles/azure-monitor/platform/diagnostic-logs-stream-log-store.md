@@ -29,9 +29,9 @@ O Azure Monitor fornece uma ferramenta de consulta e análise de log flexível q
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Habilitar o streaming de logs de diagnóstico ao espaço de trabalho do Log Analytics
 
-Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um workspace do Log Analytics e as categorias de log e as métricas que deseja enviar para esse workspace. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
+Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um espaço de trabalho do Log Analytics e as categorias de log e as métricas que deseja enviar para esse espaço de trabalho. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
 
-O workspace do Log Analytics não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+O espaço de trabalho do Log Analytics não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 > [!NOTE]
 > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
@@ -54,7 +54,7 @@ O workspace do Log Analytics não precisa estar na mesma assinatura que o recurs
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/diagnostic-logs-stream-log-store/diagnostic-settings-multiple.png)
 
-3. Dê um nome à sua configuração e marque a caixa **Enviar para o Log Analytics**, em seguida, selecione um workspace do Log Analytics.
+3. Dê um nome à sua configuração e marque a caixa **Enviar para o Log Analytics**, em seguida, selecione um espaço de trabalho do Log Analytics.
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 

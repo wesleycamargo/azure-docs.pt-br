@@ -29,7 +29,7 @@ Para ativar os logs do Azure Monitor para aplicativos lógicos existentes, siga 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
+Antes de começar, é necessário ter um espaço de trabalho do Log Analytics. Saiba [como criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registro em log de diagnóstico durante a criação de aplicativos lógicos
 
@@ -49,7 +49,7 @@ Antes de começar, é necessário ter um workspace do Log Analytics. Saiba [como
 
       ![Criar aplicativo lógico](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      Após a conclusão dessa etapa, o Azure criará o aplicativo lógico, que agora está associado ao workspace do Log Analytics. 
+      Após a conclusão dessa etapa, o Azure criará o aplicativo lógico, que agora está associado ao espaço de trabalho do Log Analytics. 
       Além disso, essa etapa também instala automaticamente a solução de Gerenciamento de Aplicativos Lógicos no workspace.
 
    1. Quando terminar, escolha **Criar**.
@@ -64,9 +64,9 @@ Se você já ativou o Azure Monitor registra quando criou seu aplicativo lógico
 
    ![Selecione “Log Analytics”](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-1. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
+1. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Selecionar o workspace do Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
+   ![Selecionar o espaço de trabalho do Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
 1. Em **Introdução ao Log Analytics** > **Configurar soluções de monitoramento**, escolha **Exibir soluções**.
 
@@ -78,7 +78,7 @@ Se você já ativou o Azure Monitor registra quando criou seu aplicativo lógico
 
    Se você não encontrar a solução, na parte inferior da lista, escolha **Carregar mais** até que a solução seja exibida.
 
-1. Escolha **Criar**, confirme o workspace do Log Analytics onde deseja instalar a solução e, em seguida, escolha **Criar** novamente.   
+1. Escolha **Criar**, confirme o espaço de trabalho do Log Analytics onde deseja instalar a solução e, em seguida, escolha **Criar** novamente.   
 
    ![Escolha "Criar" para “Gerenciamento de Aplicativos Lógicos"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
@@ -92,7 +92,7 @@ Se você já ativou o Azure Monitor registra quando criou seu aplicativo lógico
 
 Após o aplicativo lógico ser executado, você pode exibir o status e a contagem dessas execuções no bloco **Gerenciamento de Aplicativos Lógicos**. 
 
-1. Vá para seu workspace do Log Analytics e abra a página de visão geral. Escolha **Gerenciamento de Aplicativos Lógicos**. 
+1. Vá para seu espaço de trabalho do Log Analytics e abra a página de visão geral. Escolha **Gerenciamento de Aplicativos Lógicos**. 
 
    ![Status e contagem de execuções do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 

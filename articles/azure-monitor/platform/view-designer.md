@@ -42,7 +42,7 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 |:--- |:--- |
 | Blocos | São exibidas no Azure Monitor **visão geral** página. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
-| Partes de visualização | Apresenta uma visualização de dados no espaço de trabalho do Log Analytics com base em um ou mais [registrar consultas](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você pode selecionar elementos na parte para executar uma consulta de log que fornece registros detalhados. |
+| Partes de visualização | Apresenta uma visualização de dados no espaço de trabalho do Log Analytics com base em um ou mais [registrar consultas](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você pode selecionar elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
 ## <a name="required-permissions"></a>Permissões necessárias
 Você precisa de pelo menos [permissões em nível de Colaborador](manage-access.md#manage-accounts-and-users) no espaço de trabalho do Log Analytics para criar ou modificar os modos de exibição. Se você não tiver essa permissão, a opção de Designer de exibição não será exibida no menu.
@@ -66,7 +66,7 @@ As opções estão descritas na tabela a seguir:
 
 
 ## <a name="create-a-new-view"></a>Criar um novo modo de exibição
-É possível criar uma nova exibição no Designer de Exibição, selecionando **Designer de Exibição** no menu do seu workspace do Log Analytics.
+É possível criar uma nova exibição no Designer de Exibição, selecionando **Designer de Exibição** no menu do seu espaço de trabalho do Log Analytics.
 
 ![Bloco Designer de modo de exibição](media/view-designer/view-designer-tile.png)
 

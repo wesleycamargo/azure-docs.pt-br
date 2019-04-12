@@ -1,5 +1,5 @@
 ---
-title: Usar o PowerShell para criar e configurar um workspace do Log Analytics | Microsoft Docs
+title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
 description: Espaços de trabalho do log Analytics no Azure Monitor armazenam dados de servidores em seu local ou infraestrutura de nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
 author: richrundmsft
@@ -28,8 +28,8 @@ Você pode usar o [cmdlets do PowerShell do Log Analytics](https://docs.microsof
 * Coletar eventos de syslog em computadores Linux
 * Coletar eventos dos logs de eventos do Windows
 * Coletar logs de eventos personalizados
-* Adicionar o agente de análise de log a uma máquina virtual do Azure
-* Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
+* Adicionar o agente de análise de logs a uma máquina virtual do Azure
+* Configurar a análise de logs para indexar os dados coletados usando o diagnóstico do Azure
 
 Este artigo fornece dois exemplos de código que ilustram algumas das funções que podem ser executadas do PowerShell.  Você pode consultar a [referência do cmdlet do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para outras funções.
 
@@ -42,7 +42,7 @@ Este artigo fornece dois exemplos de código que ilustram algumas das funções 
 Esses exemplos funcionam com a versão 1.0.0 ou posterior do módulo Az.OperationalInsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um workspace do Log Analytics
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
 O exemplo de script a seguir ilustra como:
 
 1. Criar um workspace
@@ -195,7 +195,7 @@ No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O deli
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurando o Log Analytics para enviar o diagnóstico do Azure
-Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um workspace do Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
+Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um espaço de trabalho do Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |

@@ -36,12 +36,12 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 1. No portal do Azure, clique em **Criar um recurso**.
 2. Na barra de pesquisa, digite **Mapa do Serviço** e pressione **Enter**.
 3. Na página de resultados de pesquisa do marketplace, selecione **Mapa de Serviço** da lista.<br><br> ![Selecione a solução Mapa de Serviço nos resultados de pesquisa do Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
-4. No painel de visão geral **Mapa do Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu workspace do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/service-map/service-map-onboard.png)
-5. No painel **Configurar uma solução**, selecione um existente ou crie um novo workspace do Log Analytics.  Para obter mais informações sobre como criar um novo workspace, consulte [Criar um workspace do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
+4. No painel de visão geral **Mapa do Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu espaço de trabalho do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/service-map/service-map-onboard.png)
+5. No painel **Configurar uma solução**, selecione um existente ou crie um novo espaço de trabalho do Log Analytics.  Para obter mais informações sobre como criar um novo espaço de trabalho, consulte [Criar um espaço de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
 
 Enquanto as informações são verificadas e a solução é implantada, você pode acompanhar seu progresso no menu **Notificações**. 
 
-Acesse o Mapa do Serviço no portal do Azure do seu workspace do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no workspace](./media/service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/service-map/service-map-summary-tile.png).
+Acesse o Mapa do Serviço no portal do Azure do seu espaço de trabalho do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no workspace](./media/service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: fazer com que seus processos de TI reconheçam a dependência
 
@@ -218,7 +218,7 @@ O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de t
 ![Painel Eventos de Log do Computador](media/service-map/log-events.png)
 
 ## <a name="service-desk-integration"></a>Integração da Central de Serviços
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no workspace do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
 
@@ -230,7 +230,7 @@ Para exibir os detalhes do item na Pesquisa de Logs, clique em **Mostrar na Pesq
 As métricas de conexão são gravadas em duas novas tabelas no Log Analytics 
 
 ## <a name="change-tracking-integration"></a>Integração de Controle de Alterações
-A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
+A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
 O painel **Controle de Alterações do Computador** lista todas as alterações, as mais recentes primeiro, juntamente com um link para fazer busca detalhada da Pesquisa de Logs para obter detalhes adicionais.
 
@@ -262,14 +262,14 @@ Linux:
 Para obter os dados de desempenho da rede, você deve habilitar também a solução Wire Data 2.0 no workspace.
  
 ## <a name="security-integration"></a>Integração de segurança
-A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
+A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
 O painel **Segurança do Computador** mostra dados da solução de Segurança e Auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
 
 ![Painel Segurança do Computador](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integração de atualizações
-A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
+A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
 
 O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
 
@@ -285,8 +285,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um workspace do Log Analytics.
-- Processo: use *ResourceId* para identificar exclusivamente um processo em um workspace do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho do Log Analytics.
+- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 

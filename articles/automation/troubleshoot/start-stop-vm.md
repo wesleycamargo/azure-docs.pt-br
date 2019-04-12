@@ -51,7 +51,7 @@ As implantações podem falhar devido a um dos seguintes motivos:
 1. Já existe uma Conta de Automação com o mesmo nome na região selecionada.
 2. Uma política está em vigor, que não permite a implantação da solução Iniciar/Parar VMs.
 3. Os tipos de recurso `Microsoft.OperationsManagement`, `Microsoft.Insights`, ou `Microsoft.Automation` não estão registrados.
-4. O seu workspace do Log Analytics tem um bloqueio.
+4. O seu espaço de trabalho do Log Analytics tem um bloqueio.
 
 ### <a name="resolution"></a>Resolução
 
@@ -65,7 +65,7 @@ Revise a lista a seguir para obter possíveis soluções para seu problema ou lo
     * `Microsoft.Automation`
 
    Confira [Resolver erros de registro do provedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para saber mais sobre os erros ao registrar provedores.
-4. Se você tiver um bloqueio em seu workspace do Log Analytics, vá até o seu workspace no portal do Azure e remova quaisquer bloqueios no recurso.
+4. Se você tiver um bloqueio em seu espaço de trabalho do Log Analytics, vá até o seu espaço de trabalho no portal do Azure e remova quaisquer bloqueios no recurso.
 
 ## <a name="all-vms-fail-to-startstop"></a>Cenário: Todas as VMs não conseguem iniciar/parar
 

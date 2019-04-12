@@ -59,7 +59,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
    | Grupo de recursos | Sim | test-integration-account-rg | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome especificado. | 
    | Camada de preços | Sim | Grátis | O tipo de preço que deseja usar. Para este exemplo, selecione **Gratuito**, mas para obter mais informações, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Local padrão | Sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. | 
-   | Workspace do Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
+   | Espaço de trabalho do Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    ||||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel** e, em seguida, **Criar**.

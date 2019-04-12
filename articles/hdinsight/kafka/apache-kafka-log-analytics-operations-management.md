@@ -28,7 +28,7 @@ Saiba como usar os logs do Azure Monitor para analisar logs gerados pelo Apache 
 
 As etapas para habilitar os logs do Azure Monitor para HDInsight são as mesmas para todos os clusters do HDInsight. Use os links a seguir para entender como criar e configurar os serviços necessários:
 
-1. Criar um workspace do Log Analytics. Para obter mais informações, consulte o documento [Introdução ao workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics).
+1. Criar um espaço de trabalho do Log Analytics. Para obter mais informações, consulte o documento [Introdução ao espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics).
 
 2. Criar um Kafka no cluster HDInsight. Para obter mais informações, consulte o documento [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -38,7 +38,7 @@ As etapas para habilitar os logs do Azure Monitor para HDInsight são as mesmas 
     > Você também pode configurar o cluster para usar os logs do Azure Monitor, usando o `Enable-AzHDInsightOperationsManagementSuite` cmdlet. Esse cmdlet requer as seguintes informações:
     >
     > * O nome do cluster HDInsight.
-    > * A ID do espaço de trabalho para os logs do Azure Monitor. Você pode encontrar a ID do workspace no seu workspace do Log Analytics.
+    > * A ID do espaço de trabalho para os logs do Azure Monitor. Você pode encontrar a ID do espaço de trabalho no seu espaço de trabalho do Log Analytics.
     > * A chave primária para a conexão de análise de log. Para localizar a chave primária, abra o workspace no portal do Azure, selecione __Configurações Avançadas__ no menu à esquerda. Em configurações Avançadas, selecione __Fontes Conectadas__>__Servidores Linux__.
 
 
@@ -47,7 +47,7 @@ As etapas para habilitar os logs do Azure Monitor para HDInsight são as mesmas 
 
 ## <a name="query-logs"></a>Logs de consulta
 
-1. No [Portal do Azure](https://portal.azure.com), selecione o workspace do Log Analytics.
+1. No [Portal do Azure](https://portal.azure.com), selecione o espaço de trabalho do Log Analytics.
 
 2. Selecione __Pesquisa de Logs__. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Veja a seguir alguns exemplos de pesquisas:
 

@@ -14,7 +14,7 @@ ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
 ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/10/2019
 ms.locfileid: "59471521"
@@ -127,7 +127,7 @@ Esses parâmetros excluem a pasta usada pelo Application Insights Profiler e des
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Como fazer para determinar se o Application Insights Profiler está em execução?
 
-O Profiler é executado como um trabalho Web contínuo no aplicativo Web. É possível abrir o recurso do aplicativo Web no [Portal do Azure](https://portal.azure.com). Se o painel **WebJobs**, verifique o status de **ApplicationInsightsProfiler**. Se ele não estiver em execução, abra **Registros** para obter mais informações.
+O Profiler é executado como um trabalho Web contínuo no aplicativo Web. É possível abrir o recurso do aplicativo Web no [Portal do Azure](https://portal.azure.com). Se o painel **WebJobs**, verifique o status de **ApplicationInsightsProfiler**. Se ele não estiver em execução, abra **Logs** para obter mais informações.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Solucionar problemas com o Profiler e o Diagnóstico do Azure
 

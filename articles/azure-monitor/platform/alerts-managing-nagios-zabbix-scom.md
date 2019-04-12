@@ -10,7 +10,7 @@ ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54421208"
@@ -22,7 +22,7 @@ Agora você pode exibir os alertas do Nagios, do Zabbix e do System Center Opera
 ## <a name="prerequisites"></a>Pré-requisitos
 Os registros do repositório do Log Analytics com um tipo de Alerta serão importados para o Azure Monitor e, portanto, você precisará executar a configuração necessária para coletar esses registros.
 1. Para alertas do **Nagios** e do **Zabbix**, [configure esses servidores](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) para [enviar alertas](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) para o Log Analytics.
-1. Para alertas do **System Center Operations Manager**, [conecte seu grupo de gerenciamento do Operations Manager para seu workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Depois disso, implante a solução [Gerenciamento de Alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) por meio do marketplace de soluções do Azure. Quando você terminar, todos os alertas criados no System Center Operations Manager serão importados para o Log Analytics.
+1. Para alertas do **System Center Operations Manager**, [conecte seu grupo de gerenciamento do Operations Manager para seu espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Depois disso, implante a solução [Gerenciamento de Alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) por meio do marketplace de soluções do Azure. Quando você terminar, todos os alertas criados no System Center Operations Manager serão importados para o Log Analytics.
 
 ## <a name="view-your-alert-instances"></a>Exibir suas instâncias de alerta
 Depois de configurar a importação para o Log Analytics, comece a exibir instâncias de alerta desses serviços de monitoramento no [Azure Monitor](https://aka.ms/azure-alerts-overview). Quando eles estiverem presentes no Azure Monitor, você poderá [gerenciar suas instâncias de alerta](https://aka.ms/managing-alert-instances), [gerenciar grupos inteligentes criados nesses alertas](https://aka.ms/managing-smart-groups) e [alterar o estado dos alertas e dos grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).

@@ -33,7 +33,7 @@ A telemetria relacionada ao seu locatário do Azure é coletada de serviços de 
 
 ![Coleção de locatário do Azure](media/data-sources/tenant-collection.png)
 
-### <a name="azure-active-directory-audit-logs"></a>Log de Auditoria do Azure Active Directory
+### <a name="azure-active-directory-audit-logs"></a>Logs de Auditoria do Azure Active Directory
 Os [relatórios do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) contêm o histórico de atividade de entrada e a trilha de auditoria das alterações feitas em um locatário específico. Esses logs de auditoria podem ser gravados nos logs do Azure Monitor para analisá-los com outros dados de log.
 
 

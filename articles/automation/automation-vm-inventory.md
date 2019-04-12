@@ -99,7 +99,7 @@ Para exibir seus grupos de computadores, selecione a guia **Grupos de computador
 
 ![Exibir grupos de computadores na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Selecionar um grupo de computadores na lista abre a página de grupos de Computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta da análise de log que é usada para definir o grupo. Na parte inferior da página, há uma lista paginada dos computadores que fazem parte do grupo.
+Selecionar um grupo de computadores na lista abre a página de grupos de Computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta da análise de logs que é usada para definir o grupo. Na parte inferior da página, há uma lista paginada dos computadores que fazem parte do grupo.
 
 ![Página Exibir grupo de computadores](./media/automation-vm-inventory/machine-group-page.png)
 

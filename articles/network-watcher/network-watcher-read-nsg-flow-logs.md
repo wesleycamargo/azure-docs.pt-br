@@ -188,6 +188,6 @@ Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem preci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem da Função do Azure de Software Livre para consumir os blobs diretamente e emiti-los a vários consumidores de análise de log pode ser encontrada aqui: [Conector de logs de fluxo NSG do Observador de Rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem da Função do Azure de Software Livre para consumir os blobs diretamente e emiti-los a vários consumidores de análise de logs pode ser encontrada aqui: [Conector de logs de fluxo NSG do Observador de Rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Para saber mais sobre blobs de armazenamento, visite: [Associações de armazenamento de Blobs do Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

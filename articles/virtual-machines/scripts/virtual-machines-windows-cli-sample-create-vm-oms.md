@@ -25,7 +25,7 @@ ms.locfileid: "57543314"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorar uma VM com logs do Azure Monitor
 
-Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um workspace do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Monitoramento do Azure.
+Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um espaço de trabalho do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Monitoramento do Azure.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

@@ -34,7 +34,7 @@ A Análise de Tráfego exige os seguintes pré-requisitos:
 - Uma assinatura ativada do Watcher de Rede.
 - Os logs de fluxo do Network Security Group (NSG) habilitados para os NSGs que você deseja monitorar.
 - Uma conta de Armazenamento do Microsoft Azure, para armazenar logs de fluxo brutos.
-- Um workspace do Azure Log Analytics, com acesso de leitura e gravação.
+- Um espaço de trabalho do Azure Log Analytics, com acesso de leitura e gravação.
 
 Sua conta deve atender a uma das seguintes opções para ativar a análise de tráfego:
 
@@ -109,7 +109,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
 
-Sim, esses NSGs podem estar em regiões diferentes do seu workspace do Log Analytics.
+Sim, esses NSGs podem estar em regiões diferentes do seu espaço de trabalho do Log Analytics.
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único workspace?
 
@@ -154,7 +154,7 @@ O painel pode levar até 30 minutos para aparecer pela primeira vez. A solução
 
 Experimente as opções a seguir:
 - Altere o intervalo de tempo na barra superior.
-- Selecione um workspace do Log Analytics diferente na barra superior.
+- Selecione um espaço de trabalho do Log Analytics diferente na barra superior.
 - Tente acessar a análise de tráfego após 30 minutos, se ela foi ativada recentemente.
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -242,9 +242,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>Como a Análise de Tráfego é precificada?
 
-A Análise de Tráfego é limitada. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um workspace do Log Analytics. 
+A Análise de Tráfego é limitada. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um espaço de trabalho do Log Analytics. 
 
-Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Centro-oeste dos EUA, se os dados dos logs de fluxo armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiverem 10 GB e os logs aprimorados ingeridos no workspace do Log Analytics tiverem 1 GB, os encargos aplicáveis serão: 10 x US$ 2,3 + 1 x US$ 2,76 = US$ 25,76
+Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Centro-oeste dos EUA, se os dados dos logs de fluxo armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiverem 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiverem 1 GB, os encargos aplicáveis serão: 10 x US$ 2,3 + 1 x US$ 2,76 = US$ 25,76
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
 

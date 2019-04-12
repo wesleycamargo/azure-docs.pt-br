@@ -38,7 +38,7 @@ O ITSMC é compatível com conexões com as seguintes ferramentas de ITSM:
 Com o ITSMC, você pode
 
 -  Criar itens de trabalho na ferramenta de ITSM, com base nos alertas do Azure (alertas de métricas, alertas do Log de Atividades e alertas do Log Analytics).
--  Opcionalmente, você pode sincronizar seu incidente e alterar os dados de solicitação na ferramenta de ITSM para um workspace do Azure Log Analytics.
+-  Opcionalmente, você pode sincronizar seu incidente e alterar os dados de solicitação na ferramenta de ITSM para um espaço de trabalho do Azure Log Analytics.
 
 
 Comece usando o Conector ITSM usando as seguintes etapas:
@@ -60,7 +60,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
 
    ![Adicionar solução de ITSMC](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Na seção **Workspace do OMS**, selecione o workspace do Azure Log Analytics no qual deseja instalar a solução.
+3. Na seção **Workspace do OMS**, selecione o espaço de trabalho do Azure Log Analytics no qual deseja instalar a solução.
    >[!NOTE]
    >Como parte da transição do Microsoft Operations Management Suite (OMS) em andamento para o Azure Monitor, os Workspaces do OMS agora são conhecidos como workspaces do Log Analytics.
 4. Na seção **Configurações de Workspace do OMS**, selecione o ResourceGroup em que deseja criar o recurso de solução.
@@ -128,7 +128,7 @@ Use este procedimento:
     ![Detalhes dos grupos de ações](media/itsmc-overview/action-groups-details.png)
 
 4. Na lista Ações, selecione **ITSM** no menu suspenso para **Tipo de Ação**. Forneça um **Nome** para a ação e clique em **Editar detalhes**.
-5. Selecione a **Assinatura** em que o workspace do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)."
+5. Selecione a **Assinatura** em que o espaço de trabalho do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)."
 
     ![Detalhes da ação de ITSM](media/itsmc-overview/itsm-action-details.png)
 
@@ -167,7 +167,7 @@ Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.
 ## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
-Os incidentes e as solicitações de alteração são sincronizados do produto de ITSM para o workspace do Log Analytics, de acordo com a configuração da conexão.
+Os incidentes e as solicitações de alteração são sincronizados do produto de ITSM para o espaço de trabalho do Log Analytics, de acordo com a configuração da conexão.
 
 As informações a seguir mostram exemplos dos dados coletados pelo ITSMC:
 

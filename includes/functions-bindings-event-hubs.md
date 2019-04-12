@@ -101,7 +101,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
 
-O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função C# script](../articles/azure-functions/functions-reference-csharp.md) que usa a associação. A função registra o corpo da mensagem do gatilho de hub de eventos.
+O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função C# script](../articles/azure-functions/functions-reference-csharp.md) que usa a associação. A função registra em log o corpo da mensagem do gatilho de hub de eventos.
 
 Os exemplos a seguir mostram dados de associação de Hubs de eventos no *function.json* arquivo.
 
@@ -182,7 +182,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 ### <a name="trigger---f-example"></a>Gatilho - exemplo F#
 
-O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função F#](../articles/azure-functions/functions-reference-fsharp.md) que usa a associação. A função registra o corpo da mensagem do gatilho de hub de eventos.
+O exemplo a seguir mostra uma associação de gatilho de hub de eventos em um arquivo *function.json* e uma [função F#](../articles/azure-functions/functions-reference-fsharp.md) que usa a associação. A função registra em log o corpo da mensagem do gatilho de hub de eventos.
 
 Os exemplos a seguir mostram dados de associação de Hubs de eventos no *function.json* arquivo. 
 

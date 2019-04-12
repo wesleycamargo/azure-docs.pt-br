@@ -52,4 +52,4 @@ Antes de implantar módulos no seu dispositivo Edge, você deve instalar o tempo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você preparou seu dispositivo IoT Edge, a próxima etapa é implantar módulos nele. Consulte [importar um pacote do IoT Edge para o solution accelerator de monitoramento remoto](iot-accelerators-remote-monitoring-import-edge-package.md)
+Agora que você preparou seu dispositivo IoT Edge, a próxima etapa é implantar módulos nele. Consulte [importar um pacote do IoT Edge para o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-import-edge-package.md)

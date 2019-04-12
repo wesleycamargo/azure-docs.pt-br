@@ -70,7 +70,7 @@ Os relatórios de atividade ajudam você a compreender o comportamento de usuár
 
 ### <a name="audit-logs-report"></a>Relatório de logs de auditoria 
 
-O [relatório das trilhas de auditoria](concept-audit-logs.md) fornece registros de atividades de sistema para fins de conformidade. Esses dados permitem abordar cenários comuns, como:
+O [relatório dos logs de auditoria](concept-audit-logs.md) fornece logs de atividades de sistema para fins de conformidade. Esses dados permitem abordar cenários comuns, como:
 
 - Alguém em meu locatário tem acesso a um grupo de administração. Quem deu o acesso? 
 
@@ -79,9 +79,9 @@ O [relatório das trilhas de auditoria](concept-audit-logs.md) fornece registros
 - Quero saber quantas redefinições de senha estão ocorrendo em meu locatário
 
 
-#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Qual é a licença do Azure AD necessária para acessar o relatório das trilhas de auditoria?  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Qual é a licença do Azure AD necessária para acessar o relatório dos logs de auditoria?  
 
-O relatório das trilhas de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+O relatório dos logs de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
 ### <a name="sign-ins-report"></a>Relatório de entradas
 

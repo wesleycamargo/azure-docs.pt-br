@@ -15,7 +15,7 @@ ms.date: 03/26/2018
 ms.author: magoedte
 ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
 ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58905980"
@@ -66,7 +66,7 @@ Ao contrário da maioria das outras soluções do Azure Monitor, os dados não s
 Execute as seguintes etapas para configurar a solução Análise do Log de Atividades para seus workspaces.
 
 1. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](../../azure-monitor/insights/solutions.md).
-2. Configure os logs da atividade para ir para o workspace do Log Analytics.
+2. Configure os logs da atividade para ir para o espaço de trabalho do Log Analytics.
     1. No portal do Azure, selecione seu workspace e clique em **Log de Atividades do Azure**.
     2. Para cada assinatura, clique no nome da assinatura.  
         ![adicionar assinatura](./media/collect-activity-logs/add-subscription.png)

@@ -46,7 +46,7 @@ Se não quiser conectar nenhum de seus controladores de domínio diretamente ao 
    > [!NOTE]
    > Essas alterações não entram em vigor até que você reinicie o serviço Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Instalar a solução
-   > Siga o processo descrito em [Instalar uma solução de monitoramento](solutions.md#install-a-monitoring-solution) para adicionar o **Status de Replicação do Active Directory** ao workspace do Log Analytics. Não é necessária nenhuma configuração.
+   > Siga o processo descrito em [Instalar uma solução de monitoramento](solutions.md#install-a-monitoring-solution) para adicionar o **Status de Replicação do Active Directory** ao espaço de trabalho do Log Analytics. Não é necessária nenhuma configuração.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
@@ -126,9 +126,9 @@ R: As informações são atualizadas a cada cinco dias.
 R: Não no momento.
 
 **P: É necessário adicionar todos os meus controladores de domínio ao meu espaço de trabalho do Log Analytics para ver o status de replicação?**
-R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu workspace do Log Analytics, dados de todos eles serão enviados ao Azure Monitor.
+R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu espaço de trabalho do Log Analytics, dados de todos eles serão enviados ao Azure Monitor.
 
-**P: Não quero adicionar qualquer controlador de domínio ao meu workspace do Log Analytics. Ainda posso usar a solução de Status de replicação do AD?**
+**P: Não quero adicionar qualquer controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução de Status de replicação do AD?**
 
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Confira [Habilitar o controlador fora do domínio](#enable-non-domain-controller).
 
@@ -148,7 +148,7 @@ R: Não no momento.
 R: As permissões de usuário normais para o Active Directory são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Solucionar problemas de coleta de dados
-Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu workspace do Log Analytics. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
+Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu espaço de trabalho do Log Analytics. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
 
 Se precisar de assistência para conectar um de seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Azure Monitor](../../azure-monitor/platform/om-agents.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Azure Monitor](../../azure-monitor/platform/om-agents.md).
 

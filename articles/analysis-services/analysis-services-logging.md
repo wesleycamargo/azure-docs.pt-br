@@ -83,7 +83,7 @@ A categoria Métricas registra as mesmas [Métricas de servidor](analysis-servic
 
     * **Arquivar em uma conta de armazenamento**. Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de Recursos, uma conta de finalidade geral, em seguida, selecione sua conta de armazenamento retornando para esta página no portal. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
     * **Transmitir para um hub de eventos**. Para usar essa opção, é necessário ter um namespace existente do Hub de Eventos e um hub de evento ao qual se conectar. Para saber mais, consulte [Criar um namespace de Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política do Hub de Eventos.
-    * **Enviar para o Azure Monitor (workspace do Log Analytics)**. Para usar essa opção, use um workspace existente ou [crie um novo recurso de workspace](../azure-monitor/learn/quick-create-workspace.md) no portal. Para obter mais informações sobre como exibir os logs, confira [Exibir logs no Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
+    * **Enviar para o Azure Monitor (workspace do Log Analytics)**. Para usar essa opção, use um workspace existente ou [crie um novo recurso de workspace](../azure-monitor/learn/quick-create-workspace.md) no portal. Para obter mais informações sobre como exibir os logs, confira [Exibir logs no espaço de trabalho do Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
 
     * **Mecanismo**. Selecione esta opção para registrar xEvents. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Serviço**. Selecione esta opção para registrar eventos de nível de serviço. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
@@ -121,13 +121,13 @@ Para habilitar as métricas e o log de diagnósticos usando o PowerShell, use os
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics, use este comando:
+- Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- É possível obter a ID de recurso do workspace do Log Analytics usando o seguinte comando:
+- É possível obter a ID de recurso do espaço de trabalho do Log Analytics usando o seguinte comando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -151,15 +151,15 @@ Os logs estão geralmente disponíveis em algumas horas após a configuração d
 * Exclua os logs que você não deseja manter em sua conta de armazenamento.
 * Certifique-se de definir um período de retenção para que logs antigos sejam excluídos da sua conta de armazenamento.
 
-## <a name="view-logs-in-log-analytics-workspace"></a>Exibir logs no workspace do Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Exibir logs no espaço de trabalho do Log Analytics
 
-Os eventos de métricas e de servidor são integrados com o xEvents no recurso de workspace do Log Analytics para uma análise lado a lado. O workspace do Log Analytics também pode ser configurado para receber eventos de outros serviços do Azure, fornecendo uma exibição holística dos dados de log de diagnósticos em sua arquitetura.
+Os eventos de métricas e de servidor são integrados com o xEvents no recurso de espaço de trabalho do Log Analytics para uma análise lado a lado. O espaço de trabalho do Log Analytics também pode ser configurado para receber eventos de outros serviços do Azure, fornecendo uma exibição holística dos dados de log de diagnósticos em sua arquitetura.
 
-Para exibir seus dados de diagnóstico, no workspace do Log Analytics, abra **Logs** no menu à esquerda.
+Para exibir seus dados de diagnóstico, no espaço de trabalho do Log Analytics, abra **Logs** no menu à esquerda.
 
 ![Opções de pesquisa de logs no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O AzureDiagnostics inclui eventos de Mecanismo e Serviço. Veja que uma consulta é imediatamente criada. O campo EventClass\_s contém nomes de xEvents, que podem parecer familiares se você já usou xEvents para registro em log local. Clique em **EventClass\_s** ou em um dos nomes de eventos e o workspace Log Analytics continuará a criar uma consulta. Certifique-se de salvar as consultas para reutilizar posteriormente.
+No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O AzureDiagnostics inclui eventos de Mecanismo e Serviço. Veja que uma consulta é imediatamente criada. O campo EventClass\_s contém nomes de xEvents, que podem parecer familiares se você já usou xEvents para registro em log local. Clique em **EventClass\_s** ou em um dos nomes de eventos e o espaço de trabalho do Log Analytics continuará a criar uma consulta. Certifique-se de salvar as consultas para reutilizar posteriormente.
 
 ### <a name="example-query"></a>Consulta de exemplo
 Esta consulta calcula e retorna a CPU para cada evento de fim de consulta/fim de atualização para um modelo de banco de dados modelo e de servidor:

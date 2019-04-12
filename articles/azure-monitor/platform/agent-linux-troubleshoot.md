@@ -186,7 +186,7 @@ Abaixo do plug-in de saída, remova o comentário da seção a seguir removendo 
 3. Reintegração usando a ID do espaço de trabalho correto e a chave de espaço de trabalho seguindo as instruções de instalação no início deste artigo.
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você recebe os erros 404 e 500 no arquivo de log imediatamente após a integração
-Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um workspace do Log Analytics. Isso não afeta os dados sendo enviados ou a experiência do serviço.
+Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um espaço de trabalho do Log Analytics. Isso não afeta os dados sendo enviados ou a experiência do serviço.
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problema: Você não vê os dados no portal do Azure
 
@@ -214,7 +214,7 @@ Esse é um problema conhecido que ocorre durante o primeiro upload de dados do L
 * O número de mensagens que estão sendo encaminhadas por segundo é muito grande para a configuração básica do agente do Log Analytics para o Linux manipular
 
 ### <a name="resolution"></a>Resolução
-* Verifique se a configuração no espaço de trabalho Log Analytics para o Syslog tem todos os recursos e os níveis de log corretos. Revise [configurar a coleção do Syslog no portal do Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Verifique se a configuração no espaço de trabalho do Log Analytics para o Syslog tem todos os recursos e os níveis de log corretos. Revise [configurar a coleção do Syslog no portal do Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
 * Verifique se os daemons do sistema de mensagens syslog nativos (`rsyslog`, `syslog-ng`) podem receber as mensagens encaminhadas
 * Verifique as configurações de firewall no servidor Syslog para garantir que as mensagens não estejam sendo bloqueadas
 * Simule uma mensagem do Syslog para o Log Analytics usando o comando `logger`
@@ -284,7 +284,7 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 * O pacote OMI foi atualizado manualmente para uma versão mais recente em comparação com o que foi instalado pelo agente Log Analytics para o pacote Linux
 * DSC resource logs *classe não encontrada* erro no `omsconfig.log` arquivo de log
 * O agente do Log Analytics para dados é submetido a backup
-* Registros DSC *A configuração atual não existe. Execute o comando Start-DscConfiguration com o parâmetro -Path para especificar um arquivo de configuração e criar uma configuração atual primeiro.* no arquivo de log `omsconfig.log`, mas nenhuma mensagem de log existe sobre `PerformRequiredConfigurationChecks` operações.
+* Logs DSC *A configuração atual não existe. Execute o comando Start-DscConfiguration com o parâmetro -Path para especificar um arquivo de configuração e criar uma configuração atual primeiro.* no arquivo de log `omsconfig.log`, mas nenhuma mensagem de log existe sobre `PerformRequiredConfigurationChecks` operações.
 
 ### <a name="resolution"></a>Resolução
 1. Instale todas as dependências como o pacote auditd.

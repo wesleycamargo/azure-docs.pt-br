@@ -29,7 +29,7 @@ Após você configurar a comunicação B2B entre parceiros comerciais em sua con
 
 * Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md) e [como configurar o log para esse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Após atender aos requisitos anteriores, você também precisa de um espaço de trabalho do Log Analytics, que você pode usar para monitoramento e rastreamento de comunicação B2B por meio de logs do Azure Monitor. Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Após atender aos requisitos anteriores, você também precisa de um espaço de trabalho do Log Analytics, que você pode usar para monitoramento e rastreamento de comunicação B2B por meio de logs do Azure Monitor. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 * Uma conta de integração vinculada ao aplicativo lógico. Saiba [como criar uma conta de integração com um vínculo ao aplicativo lógico](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -58,13 +58,13 @@ Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
    ![Configurar o diagnóstico para sua conta de integração](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-1. Forneça um nome para sua nova configuração de diagnóstico e selecione o workspace do Log Analytics e os dados que deseja registrar em log.
+1. Forneça um nome para sua nova configuração de diagnóstico e selecione o espaço de trabalho do Log Analytics e os dados que deseja registrar em log.
 
    1. Selecione **Enviar para o Log Analytics**. 
 
    1. Em **Log Analytics**, selecione **Configurar**. 
 
-   1. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registro em log. 
+   1. Em **Espaços de Trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registro em log. 
 
       > [!NOTE]
       > Os workspaces do OMS estão sendo substituídos por workspaces do Log Analytics. 
@@ -100,13 +100,13 @@ Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
    ![Configurar o diagnóstico para sua conta de integração](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-1. Forneça um nome para sua nova configuração de diagnóstico e selecione o workspace do Log Analytics e os dados que deseja registrar em log.
+1. Forneça um nome para sua nova configuração de diagnóstico e selecione o espaço de trabalho do Log Analytics e os dados que deseja registrar em log.
 
    1. Selecione **Enviar para o Log Analytics**. 
 
    1. Em **Log Analytics**, selecione **Configurar**. 
 
-   1. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registro em log. 
+   1. Em **Espaços de Trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registro em log. 
 
       > [!NOTE]
       > Os workspaces do OMS estão sendo substituídos por workspaces do Log Analytics. 

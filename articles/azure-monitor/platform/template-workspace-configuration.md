@@ -1,5 +1,5 @@
 ---
-title: Usar modelos do Azure Resource Manager para criar e configurar um workspace do Log Analytics | Microsoft Docs
+title: Usar modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
 description: Você pode usar os modelos do Azure Resource Manager para criar e configurar workspaces do Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -34,8 +34,8 @@ Você pode usar [modelos do Azure Resource Manager](../../azure-resource-manager
 * Coletar contadores de desempenho de computadores Linux e Windows
 * Coletar eventos de syslog em computadores Linux 
 * Coletar eventos dos logs de eventos do Windows
-* Adicionar o agente de análise de log a uma máquina virtual do Azure
-* Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
+* Adicionar o agente de análise de logs a uma máquina virtual do Azure
+* Configurar a análise de logs para indexar os dados coletados usando o diagnóstico do Azure
 
 Este artigo fornece exemplos de código que ilustram algumas das configurações que podem ser executadas com os modelos.
 
@@ -49,7 +49,7 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 O exemplo a seguir cria um workspace usando um modelo da sua máquina local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente.  
 
 Os parâmetros a seguir definem um valor padrão:
@@ -58,7 +58,7 @@ Os parâmetros a seguir definem um valor padrão:
 * SKU - padrão para o novo tipo de preços por GB lançado no modelo de preço de abril de 2018
 
 > [!NOTE]
->Se criar ou configurar um workspace do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.  
+>Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.  
 >Se existe a chance de você ter algumas assinaturas no [modelo de preços anterior a abril de 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), é possível especificar o tipo de preço **Autônomo** e isso funcionará para assinaturas do modelo de preços anterior a abril de 2018 e para assinaturas com os novos preços. Para workspaces em assinaturas que já adotaram o novo modelo de preços, o tipo de preço será definido como **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implantar modelo
@@ -137,7 +137,7 @@ Os parâmetros a seguir definem um valor padrão:
 
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:<br><br> ![Resultados de exemplo, quando a implantação for concluída](./media/template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
+## <a name="configure-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 O exemplo de modelo a seguir ilustra como:
 
 1. Adicionar soluções ao workspace

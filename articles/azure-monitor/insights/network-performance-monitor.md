@@ -15,7 +15,7 @@ ms.date: 02/20/2018
 ms.author: abshamsft
 ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
 ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/04/2019
 ms.locfileid: "59006758"
@@ -102,7 +102,7 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
 ### <a name="configure-the-solution"></a>Configurar a solução 
 
 1. Adicionar a solução de Monitor de Desempenho de Rede ao workspace [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Você também pode usar o processo descrito em [soluções de adicionar o Azure Monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md). 
-2. Abra seu workspace do Log Analytics e selecione o bloco **Visão geral**. 
+2. Abra seu espaço de trabalho do Log Analytics e selecione o bloco **Visão geral**. 
 3. Selecione o bloco **Monitor de Desempenho de Rede** com a mensagem *A solução requer configuração adicional*.
 
    ![Bloco do Monitor de Desempenho de Rede](media/network-performance-monitor/npm-config.png)
@@ -117,7 +117,7 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
 
    ![Exibição Monitor de Ponto de Extremidade de Serviço](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Monitor do ExpressRoute**: Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este workspace do Log Analytics. 
+   **Monitor do ExpressRoute**: Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este espaço de trabalho do Log Analytics. 
 
    ![Exibição do Monitor ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 

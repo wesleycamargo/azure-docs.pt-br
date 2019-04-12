@@ -51,13 +51,13 @@ Para iniciar a implantação, clique em **Criar**. Esse processo leva pelo menos
 
 ## <a name="sign-in-to-the-solution"></a>Entrar na solução
 
-Quando a implantação para sua assinatura do Azure for concluída, você verá uma marca de seleção verde e **Pronto** no bloco da solução. Agora você pode entrar em seu painel de acelerador de solução Monitoramento Remoto.
+Quando a implantação para sua assinatura do Azure for concluída, você verá uma marca de seleção verde e **Pronto** no bloco da solução. Agora você pode entrar em seu painel de acelerador de solução de Monitoramento Remoto.
 
 Na página **Soluções provisionadas**, clique em seu novo acelerador de solução de Monitoramento Remoto:
 
 ![Escolher a nova solução](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Você pode exibir informações sobre o acelerador de solução de Monitoramento Remoto no painel exibido. Escolha **Ir para o acelerador de solução** para exibir o acelerador de solução do Monitoramento Remoto:
+Você pode exibir informações sobre o acelerador de solução de Monitoramento Remoto no painel exibido. Escolha **Ir para o acelerador de solução** para exibir o acelerador de solução de Monitoramento Remoto:
 
 ![Painel de solução](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 

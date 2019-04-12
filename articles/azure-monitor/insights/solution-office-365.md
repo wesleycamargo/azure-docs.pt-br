@@ -55,7 +55,7 @@ Comece adicionando a [solução do Office 365 à sua assinatura](solutions.md#in
 
 Antes de iniciar este procedimento, reúna as informações a seguir.
 
-Do seu workspace do Log Analytics:
+Do seu espaço de trabalho do Log Analytics:
 
 - Nome do workspace: O workspace de onde os dados do Office 365 serão coletados.
 - Nome do grupo de recursos: O grupo de recursos que contém os workspace.
@@ -167,7 +167,7 @@ Para habilitar a conta administrativa pela primeira vez, forneça consentimento 
     AdminConsent -ErrorAction Stop
     ```
 
-2. Execute o script com o comando a seguir. Você deverá inserir suas credenciais duas vezes. Forneça as credenciais do workspace do Log Analytics primeiro e, em seguida, as credenciais de administrador global do locatário do Office 365.
+2. Execute o script com o comando a seguir. Você deverá inserir suas credenciais duas vezes. Forneça as credenciais do espaço de trabalho do Log Analytics primeiro e, em seguida, as credenciais de administrador global do locatário do Office 365.
 
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
@@ -183,9 +183,9 @@ Para habilitar a conta administrativa pela primeira vez, forneça consentimento 
     
     ![Consentimento do administrador](media/solution-office-365/admin-consent.png)
 
-### <a name="subscribe-to-log-analytics-workspace"></a>Assinar o workspace do Log Analytics
+### <a name="subscribe-to-log-analytics-workspace"></a>Assinar o espaço de trabalho do Log Analytics
 
-A última etapa é assinar o aplicativo em seu workspace do Log Analytics. Faça isso também com um script do PowerShell.
+A última etapa é assinar o aplicativo em seu espaço de trabalho do Log Analytics. Faça isso também com um script do PowerShell.
 
 1. Salve o script a seguir como *office365_subscription.ps1*.
 
@@ -503,7 +503,7 @@ Talvez demore algumas horas para coletar os dados pela primeira vez. Após o in�
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Quando você adicionar a solução Office 365 ao workspace do Log Analytics, o bloco **Office 365** será adicionado ao seu painel do OMS. Esse bloco exibe uma contagem e representação gráfica do número de computadores em seu ambiente e sua conformidade de atualização.<br><br>
+Quando você adicionar a solução Office 365 ao espaço de trabalho do Log Analytics, o bloco **Office 365** será adicionado ao seu painel do OMS. Esse bloco exibe uma contagem e representação gráfica do número de computadores em seu ambiente e sua conformidade de atualização.<br><br>
 ![Bloco de Resumo do Office 365](media/solution-office-365/tile.png)  
 
 Clique no bloco **Office 365** para abrir o painel **Office 365**.
@@ -524,7 +524,7 @@ O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principa
 
 ## <a name="azure-monitor-log-records"></a>Registros de log do Azure Monitor
 
-Todos os registros criados no workspace do Log Analytics no Azure Monitor pela solução do Office 365 têm um **Tipo** de **OfficeActivity**.  A propriedade **OfficeWorkload** determina a qual serviço Office 365 o registro se refere: Exchange, AzureActiveDirectory, SharePoint ou OneDrive.  A propriedade **RecordType** especifica o tipo de operação.  As propriedades variam para cada tipo de operação e são mostradas nas tabelas a seguir.
+Todos os registros criados no espaço de trabalho do Log Analytics no Azure Monitor pela solução do Office 365 têm um **Tipo** de **OfficeActivity**.  A propriedade **OfficeWorkload** determina a qual serviço Office 365 o registro se refere: Exchange, AzureActiveDirectory, SharePoint ou OneDrive.  A propriedade **RecordType** especifica o tipo de operação.  As propriedades variam para cada tipo de operação e são mostradas nas tabelas a seguir.
 
 ### <a name="common-properties"></a>Propriedades comuns
 

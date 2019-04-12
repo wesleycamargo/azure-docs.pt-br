@@ -81,7 +81,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 - **Armazenamento de metadados**
 
-  O serviço de divisão/mesclagem usa um banco de dados para manter seu status e registros durante o processamento da solicitação. O usuário cria este banco de dados na sua assinatura e fornece a cadeia de conexão para ele no arquivo de configuração para a implantação do serviço. Os administradores da organização do usuário também podem se conectar a este banco de dados para examinar o andamento da solicitação e para investigar informações detalhadas sobre falhas potenciais.
+  O serviço de divisão/mesclagem usa um banco de dados para manter seu status e logs durante o processamento da solicitação. O usuário cria este banco de dados na sua assinatura e fornece a cadeia de conexão para ele no arquivo de configuração para a implantação do serviço. Os administradores da organização do usuário também podem se conectar a este banco de dados para examinar o andamento da solicitação e para investigar informações detalhadas sobre falhas potenciais.
 
 - **Reconhecimento de fragmentação**
 

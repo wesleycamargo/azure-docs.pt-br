@@ -94,7 +94,7 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Habilitar diagnósticos com modelos do Resource Manager
 
-Você pode usar um modelo semelhante ao mostrado abaixo para habilitar diagnósticos em um recurso quando ele é criado e fazer com que ele seja enviado para seu workspace do Log Analytics. Este exemplo destina-se a uma conta de automação, mas funciona em todos os tipos de recursos com suporte.
+Você pode usar um modelo semelhante ao mostrado abaixo para habilitar diagnósticos em um recurso quando ele é criado e fazer com que ele seja enviado para seu espaço de trabalho do Log Analytics. Este exemplo destina-se a uma conta de automação, mas funciona em todos os tipos de recursos com suporte.
 
 ```json
         {

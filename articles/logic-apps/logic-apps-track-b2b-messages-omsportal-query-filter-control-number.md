@@ -41,16 +41,16 @@ Para encontrar mensagens com base em propriedades ou valores específicos, você
 
    ![Selecione Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
+1. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Área de Trabalho Selecionar Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Selecione o Espaço de Trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. No menu da sua área de trabalho, em **Geral**, selecione **Registros (clássico)** ou **Registros**. 
+1. No menu da sua área de trabalho, em **Geral**, selecione **Logs (clássico)** ou **Logs**. 
 
    Este exemplo mostra como usar a exibição clássica de logs. 
-   Se você escolher **Exibir registros** na seção **Maximizar sua experiência do Log Analytics**, em **Pesquisar e analisar registros**, você receberá os **Registros (visualização clássica)**. 
+   Se você escolher **Exibir logs** na seção **Maximizar sua experiência do Log Analytics**, em **Pesquisar e analisar logs**, você receberá os **logs (visualização clássica)**. 
 
-   ![Visualizar registros clássicos](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
+   ![Visualizar logs clássicos](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
 1. Na caixa de edição da consulta, comece a digitar o nome do campo que você deseja encontrar. Quando você começa a digitar, o editor de consultas mostra as possíveis correspondências e operações que você pode usar. Depois de criar sua consulta, escolha **Executar** ou pressione a tecla Enter.
 
@@ -114,11 +114,11 @@ Para salvar sua consulta no modo de exibição **Logs (clássico)**, siga estas 
 
    ![Selecione Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
+1. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Área de Trabalho Selecionar Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Selecione o Espaço de Trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. No menu da sua área de trabalho, em **Geral**, selecione **Registros (clássico)** ou **Registros**. 
+1. No menu da sua área de trabalho, em **Geral**, selecione **Logs (clássico)** ou **Logs**. 
 
    Este exemplo mostra como usar a exibição clássica de logs. 
 

@@ -431,7 +431,7 @@ Selecionar **Estatísticas de rede** direcionará você para exibir estatística
 
 #### <a name="sample-kusto-queries"></a>Exemplos de consulta Kusto
 
-Por trás desses painéis está um conjunto de registros brutos que podem ser consultados. Você pode usar esses logs brutos para personalizar os painéis, investigar falhas ou limitar o alerta de configuração. Abaixo você encontrará um conjunto de consultas de exemplo que pode ser executado na ferramenta de pesquisa de Log:
+Por trás desses painéis está um conjunto de logs brutos que podem ser consultados. Você pode usar esses logs brutos para personalizar os painéis, investigar falhas ou limitar o alerta de configuração. Abaixo você encontrará um conjunto de consultas de exemplo que pode ser executado na ferramenta de pesquisa de Log:
 
 ##### <a name="lists-blocks-that-have-been-reported-by-more-than-one-validator-useful-to-help-find-chain-forks"></a>Lista de blocos que foram relatados por mais de um validador. É útil para ajudar a localizar as bifurcações de cadeia.
 
