@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234783"
@@ -43,7 +43,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 >
 
 >[!NOTE]
-> Um workspace do Log Analytics suporta os seguintes limites:
+> Um espaço de trabalho do Log Analytics suporta os seguintes limites:
 > 
 > * Apenas 500 logs personalizados podem ser criados.
 > * Uma tabela só dá suporte a até 500 colunas. 

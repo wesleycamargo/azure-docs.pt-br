@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma regra de alerta
 > * Configurar um Grupo de Ações para enviar uma notificação por email
 
-Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao workspace do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -42,7 +42,7 @@ No exemplo a seguir, você criará uma regra de alerta de medição métrica com
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. No painel esquerdo, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
-3. Para a primeira etapa, na seção **Criar Alerta** você selecionará o workspace do Log Analytics como o recurso, pois esse é um sinal de alerta baseado em log.  Filtre os resultados, escolhendo a **Assinatura** específica na lista suspensa, se houver mais de uma, a qual contém a VM e o workspace do Log Analytics criado anteriormente.  Filtre o **Tipo de Recurso**, selecionando o **Log Analytics** na lista suspensa.  Por fim, selecione **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar tarefa 1 da etapa de alerta](./media/tutorial-response/alert-rule-03.png)<br>
+3. Para a primeira etapa, na seção **Criar Alerta** você selecionará o espaço de trabalho do Log Analytics como o recurso, pois esse é um sinal de alerta baseado em log.  Filtre os resultados, escolhendo a **Assinatura** específica na lista suspensa, se houver mais de uma, a qual contém a VM e o espaço de trabalho do Log Analytics criado anteriormente.  Filtre o **Tipo de Recurso**, selecionando o **Log Analytics** na lista suspensa.  Por fim, selecione **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar tarefa 1 da etapa de alerta](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na seção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a consulta salva e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar sinal lógico**, selecione *VMs do Azure - Utilização do processador* na lista.  O painel é atualizado para apresentar as configurações do alerta.  Na parte superior, mostra o conjunto de resultados dos últimos 30 minutos do sinal selecionado e a própria consulta de pesquisa.  
 5. Configure o alerta com as informações a seguir:  
     a. Na lista suspensa **Com base em**, selecione **Medição métrica**.  Uma medição métrica criará um alerta para cada objeto na consulta com um valor que exceda o limite especificado.  

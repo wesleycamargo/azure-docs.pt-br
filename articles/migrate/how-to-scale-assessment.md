@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265242"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490629"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -39,20 +39,11 @@ As Migrações para Azure precisam de acesso aos servidores VMware para descobri
 - Detalhes: Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.
 - Para restringir o acesso, atribua aos objetos filho a função Nenhum acesso com o objeto filho Propagar para (hosts vSphere, datastores, VMs e redes).
 
-Se você estiver implantando em um ambiente de locatário, está é uma maneira de configurar isso:
+Se você estiver implantando em um ambiente de multilocatário e gostaria de escopo por pasta de VMs para um único locatário, não é possível selecionar a pasta VM diretamente ao definir o escopo de coleção nas migrações para Azure. A seguir está as instruções sobre como a descoberta de escopo por pasta de VMs:
 
-1. Crie um usuário por locatário e, usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribua permissões somente leitura a todas as VMs que pertencem a um locatário específico. Em seguida, use essas credenciais para a descoberta. O RBAC garante que o usuário correspondente do vCenter tenha acesso apenas às VMs específicas ao locatário.
-2. Você pode configurar o RBAC para usuários de locatários diferentes, conforme descrito no exemplo a seguir para o Usuário 1 e o Usuário 2:
-
-    - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o coletor usará para descobrir VMs
-    - Datacenter1 – dê permissões somente leitura para o Usuário 1 e o Usuário 2. Não propague as permissões para todos os objetos filho, pois você definirá permissões nas VMs individuais.
-
-      - VM1 (Locatário 1) (permissão somente leitura para o Usuário 1)
-      - VM2 (Locatário 1) (permissão somente leitura para o Usuário 1)
-      - VM3 (Locatário 2) (permissão somente leitura para o Usuário 2)
-      - VM4 (Locatário 2) (permissão somente leitura para o Usuário 2)
-
-   - Se você executar a descoberta usando as credenciais do Usuário 1, apenas a VM1 e a VM2 serão descobertas.
+1. Criar um usuário por locatário e atribuir permissões de somente leitura para todas as VMs que pertencem a um locatário específico. 
+2. Conceda esse acesso de usuário somente leitura a todos os objetos pai onde as VMs estão hospedadas. Todos os objetos pai - host, a pasta de hosts, cluster, pasta de clusters - na hierarquia até o Centro de dados devem ser incluídas. Não é preciso propagar as permissões para todos os objetos filho.
+3. Use as credenciais para o data center como a seleção de descoberta *escopo da coleção*. O RBAC configurar garante que o usuário correspondente do vCenter terá acesso às VMs somente específico do locatário.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planejar descobertas e projetos de migração
 
@@ -97,7 +88,7 @@ Se você tiver vários vCenter Servers com menos de 1500 máquinas virtuais por 
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mais de 1500 computadores em um único vCenter Server
 
-Se tiver mais de 1500 máquinas virtuais em um único vCenter Server, será necessário dividir a descoberta em vários projetos de migração. Para dividir as descobertas, é possível aproveitar o campo Escopo no dispositivo e especificar o host, o cluster, a pasta ou o datacenter que deseja descobrir. Por exemplo, se você tiver duas pastas no vCenter Server, uma com 1.000 VMs (Pasta1) e outra com 800 VMs (Pasta2), você poderá usar o campo de escopo para dividir as descobertas entre essas pastas.
+Se tiver mais de 1500 máquinas virtuais em um único vCenter Server, será necessário dividir a descoberta em vários projetos de migração. Para dividir as descobertas, você pode aproveitar o campo de escopo no dispositivo e especifique o host, cluster, pasta de hosts, a pasta de clusters ou data center que você deseja descobrir. Por exemplo, se você tiver duas pastas no vCenter Server, uma com 1.000 VMs (Pasta1) e outra com 800 VMs (Pasta2), você poderá usar o campo de escopo para dividir as descobertas entre essas pastas.
 
 **Descoberta contínua:** este caso, você precisa criar dois dispositivos coletores; para o primeiro coletor, especifique o escopo como Pasta1 e conecte-o ao primeiro projeto de migração. Você pode, em paralelo, iniciar a descoberta da Pasta2 usando o segundo dispositivo coletor e conectá-lo ao segundo projeto de migração.
 
@@ -301,7 +292,7 @@ net.transmitted.average | Calcula o tamanho da VM
 > [!WARNING]
 > O método de descoberta única que contavam com as configurações de estatísticas do vCenter Server para coleta de dados de desempenho agora foi preterido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um grupo](how-to-create-a-group.md) para avaliação.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações são calculadas.

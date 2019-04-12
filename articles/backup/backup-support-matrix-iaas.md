@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361466"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496088"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e máquinas virtuais (VMs). Este artigo resume as configurações de suporte e limitações quando você faz backup de VMs do Azure com o Backup do Azure.
@@ -41,8 +41,8 @@ Saiba mais sobre o backup [usando um servidor de backup](backup-architecture.md#
 **Ação** | **Suporte**
 --- | ---
 Habilitar o backup ao criar uma VM do Windows Azure | Com suporte para:  Windows Server de 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Core Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
-Habilitar backup ao criar uma VM do Linux | Com suporte para:<br/><br/> - Servidor Ubuntu: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> – Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-Fazer backup de uma VM que esteja desligada/offline/buscando VM |  Com suporte.<br/><br/> O instantâneo só é consistente com a falha e não com o aplicativo.
+Habilitar backup ao criar uma VM do Linux | Com suporte para:<br/><br/> - Servidor Ubuntu: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> – Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Fazer backup de uma VM que é um desligamento/offline VM |  Com suporte.<br/><br/> O instantâneo só é consistente com a falha e não com o aplicativo.
 Fazer backup de discos após a migração para discos gerenciados |  Com suporte.<br/><br/> O backup continuará a funcionar. Nenhuma ação é necessária.
 Backup de discos gerenciados depois de habilitar o bloqueio de grupo de recursos | Sem suporte.<br/><br/> O Backup do Azure não é possível excluir os pontos de recursos mais antigos e os backups serão começam a falhar quando é atingido o limite máximo de pontos de restauração.
 Modificar a política de backup de uma VM |  Com suporte.<br/><br/> A VM será feita backup, usando as configurações de retenção e agendamento na nova política. Se as configurações de retenção forem estendidas, os pontos de recuperação existentes serão marcados e mantidos. Se eles são reduzidos, pontos de recuperação existentes serão removidos no próximo trabalho de limpeza e, eventualmente, excluídos.
@@ -109,7 +109,7 @@ Restaurar arquivos | É possível recuperar arquivos de um ponto de recuperaçã
 
 ## <a name="support-for-file-level-restore"></a>Suporte para restauração no nível de arquivos
 
-**Restaurar** | **Com suporte**
+**Restaurar** | **Suportado**
 --- | ---
 Restaurar arquivos entre sistemas operacionais | Você pode restaurar os arquivos de qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela de sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar arquivos em VMs clássicas | Sem suporte.
@@ -123,7 +123,7 @@ Restaurar arquivos com configurações de rede especiais | Não há suporte para
 
 A tabela a seguir resume o suporte para o backup durante as tarefas de gerenciamento de VM, como adicionar ou substituir os discos VM.
 
-**Restaurar** | **Com suporte**
+**Restaurar** | **Suportado**
 --- | ---
 Restaure em região/assinatura/zona. | Sem suporte.
 Restaurar uma VM existente | Use a opção para substituir disco.
@@ -149,8 +149,7 @@ Fazer backup de VMs que são implantadas em um [conjunto de dimensionamento](htt
 Fazer backup de VMs implantadas por meio do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, por terceiros) |   Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs que são implantadas de uma imagem personalizada (terceiros) |    Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs que são migradas para o Azure  |  Com suporte.<br/><br/> Para fazer backup da VM, o agente da VM deve estar instalado no computador migrado.
-Fazer backup de consistência de VMs | Sem suporte. <br/><br/>O Backup do Azure não dá suporte à consistência de várias VMs.
-
+Fazer backup de consistência de várias VMs | O Backup do Azure não oferece consistência de dados e aplicativos em várias VMs.
 
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
@@ -166,7 +165,7 @@ Discos com o Acelerador de Gravação habilitado | Sem suporte.<br/><br/> Se voc
 Fazer backup de discos com eliminação de duplicação | Sem suporte.
 Adicionar o disco à VM protegida |  Com suporte.
 Redimensionar o disco em uma VM protegida |  Com suporte.
-Armazenamento compartilhado| Não é recomendável fazer backup de VMs usando CSV ou servidor de arquivos de escalabilidade horizontal. Os gravadores de CSV provavelmente falharão.
+Armazenamento compartilhado| Não é recomendável fazer backup de VMs usando o Cluster CSV (Volume compartilhado) ou servidor de arquivos de escalabilidade horizontal. Os gravadores CSV falhem têm probabilidade de falhar durante o backup. Na restauração, os discos que contém os volumes CSV podem não vêm-up.
 
 > [!NOTE]
 > O Backup do Azure não oferece suporte a discos distribuídos. O redimensionamento de disco não é recomendado pelo Backup do Azure.

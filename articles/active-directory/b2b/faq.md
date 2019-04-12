@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260384"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496294"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -54,7 +54,7 @@ Sim. Objetos de convidado não são visíveis na lista de endereços global (GAL
 Com certeza. Para obter mais informações, consulte [Adicionando usuários convidados a uma função](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>A colaboração do Azure AD B2B permite que os usuários B2B tenham acesso ao portal do Azure?
-A menos que um usuário seja atribuído a função de administrador limitado ou global, os usuários de colaboração B2B não precisarão de acesso ao Portal do Azure. No entanto, os usuários de colaboração B2B que são atribuídos à função de administrador limitado ou global podem acessar o portal. Além disso, se um usuário convidado que não tenha uma dessas funções administrativas acessa o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
+A menos que um usuário é atribuído a função de administrador limitado, os usuários de colaboração B2B não precisarão de acesso ao portal do Azure. No entanto, os usuários de colaboração de B2B que recebem a função de administrador limitado podem acessar o portal. Além disso, se um usuário convidado que não tenha uma dessas funções administrativas acessa o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Posso bloquear o acesso ao Portal do Azure para usuários convidados?
  Sim! Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.

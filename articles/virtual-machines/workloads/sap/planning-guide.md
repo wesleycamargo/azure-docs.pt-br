@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886124"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501324"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -779,8 +779,6 @@ O Portal do Azure é uma das três interfaces para gerenciar implantações de V
 
 ![Portal do Microsoft Azure - Visão geral sobre máquina virtual][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Tarefas de administração e configuração para a instância de Máquina Virtual são possíveis de dentro do Portal do Azure.
 
@@ -791,9 +789,6 @@ O Portal do Azure oferece as funcionalidades básicas para implantar e configura
 * Carregar VHDs no Azure
 * Copiar VMs
 
-[comment]: <> (MShermannd TODO: e o serviço de automação para as VMs SAP? )
-[comment]: <> (MSSedusch: implantação de vários SOs de VMs ao mesmo tempo possível)
-[comment]: <> (MSSedusch: além disso, não é possível nenhum tipo de automação relacionada à implantação com o Portal do Azure. Tarefas, como a implantação com script de várias VMs, não são possíveis por meio do Portal do Azure.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Gerenciamento via cmdlets do Microsoft Azure PowerShell
 
@@ -808,9 +803,8 @@ A experiência do cliente até agora tem sido que o PS (PowerShell) é certament
 Confira o exemplo aqui:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO: descrever o novo comando da CLI quando testado )
-A implantação da Extensão de Monitoramento do Azure para o SAP (confira o capítulo [Solução de monitoramento do Azure para o SAP][planning-guide-9.1] neste documento) só é possível por meio do PowerShell ou da CLI. Portanto, é obrigatório instalar e configurar o PowerShell ou CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.
-  
+
+A implantação da Extensão de Monitoramento do Azure para o SAP (confira o capítulo [Solução de monitoramento do Azure para o SAP][planning-guide-9.1] neste documento) só é possível por meio do PowerShell ou da CLI. Portanto, é obrigatório instalar e configurar o PowerShell ou CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.  
 
 Conforme o Azure fornece mais funcionalidade, serão adicionados novos cmdlets do PS que exigirão uma atualização dos cmdlets. Portanto, faz sentido visitar o site de Download do Azure pelo menos uma vez por mês <https://azure.microsoft.com/downloads/> para obter uma nova versão dos cmdlets. A nova versão é instalada substituindo a versão antiga.
 
@@ -1587,7 +1581,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Modelo
 
-Você pode usar os modelos de exemplo no repositório azure-quickstart-templates no github.
+Você pode usar os modelos de exemplo no repositório de azure-quickstart-templates do GitHub.
 
 * [VM simples do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [VM do Windows Simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1632,13 +1626,13 @@ O cenário híbrido ou entre instalações pode ser descrito como nos gráficos 
 
 ![Conexão site a site entre ativos locais e no Azure][planning-guide-figure-2100]
 
-O cenário mostrado acima descreve um cenário no qual o AD/OpenLDAP e DNS locais são estendidos para o Azure. No lado local, um determinado intervalo de endereços IP é reservado para cada assinatura do Azure. O intervalo de endereços IP será atribuído a uma Rede Virtual do Azure no lado do Azure.
-
-#### <a name="security-considerations"></a>Considerações de segurança
+O cenário mostrado acima descreve um cenário em que local
 
 O requisito mínimo é o uso de protocolos de comunicação segura, como SSL/TLS, para acesso via navegador ou conexões VPN para acesso ao sistema para os serviços do Azure. A suposição é que as empresas administram a conexão VPN entre sua rede corporativa e o Azure de modo diferente. Algumas empresas podem, cegamente, abrir todas as portas. Outras empresas podem querer ser precisas em relação às portas que precisam abrir, etc.
 
 As portas de comunicação SAP típicas estão listadas na tabela a seguir. Basicamente, é suficiente abrir a porta do gateway da SAP.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Serviço | Número da Porta | Exemplo `<nn`> = 01 | Intervalo Padrão (Mín-Máx) | Comentário |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1828,7 @@ A configuração de um Portal SAP em uma Máquina Virtual do Azure não será di
 
 Um cenário de implantação especial por alguns clientes é a exposição direta do SAP Enterprise Portal à Internet enquanto o host de máquina virtual está conectado à rede da empresa por meio de túnel VPN site a site ou ExpressRoute. Para esse cenário, você precisa certificar-se de que portas específicas estejam abertas e não estejam bloqueadas por um grupo de segurança de rede ou firewall. 
 
-O URI inicial do portal é http(s):`<Portalserver`>:5XX00/irj em que a porta é formada por mais de 50000 (número do sistema ?? 100). O URI padrão do portal do sistema SAP 00 é `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. Para obter mais detalhes, confira <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+O URI inicial do portal é http (s):`<Portalserver`>: 5XX00/irj em que a porta é formada conforme documentado pela SAP em <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Configuração de ponto de extremidade][planning-guide-figure-2800]
 
