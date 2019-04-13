@@ -1,7 +1,7 @@
 ---
 title: Extração de dados
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Saiba quais tipos de dados podem ser extraídos do LUIS (Reconhecimento vocal)
+description: Extrai dados de texto de expressão com as intenções e entidades. Saiba que tipo de dados pode ser extraído da linguagem Luis (reconhecimento vocal).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893972"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526282"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de intenções e entidades
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com as intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
 
 Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados.
@@ -170,9 +170,11 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
-|Entidade simples|"Cliente"|"bob jones"|
+|Entidade simples|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Dados de entidade hierárquica
+
+**Entidades hierárquicas eventualmente serão preteridas. Use [funções de entidade](luis-concept-roles.md) para determinar os subtipos de entidade, em vez de entidades hierárquicas.**
 
 Entidades [hierárquicas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Filhos são identificados pelo contexto. Se estiver procurando uma relação pai-filho com correspondência exata do texto, use uma entidade [Lista](#list-entity-data).
 
@@ -432,13 +434,18 @@ Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualq
 As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) estão disponíveis em algumas [culturas de linguagem](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Usar qualquer um **[personName](luis-reference-prebuilt-person.md)** entidade ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) da primeira e Sobrenome. 
+
+Se você usar a entidade simple, certifique-se dar exemplos que usam o primeiro e último nome em diferentes partes da expressão, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a nenhum intencionais. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de locais
-Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+
+Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Usar a entidade predefinida **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extrair informações de localização.
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são os tipos mais difíceis de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endpoint-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são o tipo mais difícil de extração de dados. Começar com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione um [lista de frases](luis-concept-feature.md). [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
 Funções são diferenças contextuais de entidades.

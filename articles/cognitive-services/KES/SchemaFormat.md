@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860704"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549671"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -43,14 +43,14 @@ Abaixo está uma lista de tipos de dados de atributo com suporte:
 
 | Type | DESCRIÇÃO | Operações | Exemplo |
 |------|-------------|------------|---------|
-| Cadeia de caracteres | Cadeia de caracteres (1 a 1024 caracteres) | equals, starts_with | “Olá Mundo” |
-| Int32 | Inteiro assinado de 32 bits | equals, starts_with, is_between | 2016 |
-| Int64 | Inteiro assinado de 64 bits | equals, starts_with, is_between | 9876543210 |
-| Double | Valor de ponto flutuante de precisão dupla | equals, starts_with, is_between | 1.602e-19 |
-| Data | Data (1400-01-01 a 9999-12-31) | equals, is_between | ‘2016-03-14’ |
-| Guid | Identificador Global Exclusivo | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Dados não indexados internamente compactados | *Nenhum* | "Capacitar cada pessoa e cada organização do planeta para atingir mais" |
-| Composição | Composição de vários sub-atributos| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | Cadeia de caracteres (1 a 1024 caracteres) | equals, starts_with | “Olá Mundo” |
+| `Int32` | Inteiro assinado de 32 bits | equals, starts_with, is_between | 2016 |
+| `Int64` | Inteiro assinado de 64 bits | equals, starts_with, is_between | 9876543210 |
+| `Double` | Valor de ponto flutuante de precisão dupla | equals, starts_with, is_between | 1.602e-19 |
+| `Date` | Data (1400-01-01 a 9999-12-31) | equals, is_between | ‘2016-03-14’ |
+| `Guid` | Identificador Global Exclusivo | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Dados não indexados internamente compactados | *Nenhum* | "Capacitar cada pessoa e cada organização do planeta para atingir mais" |
+| `Composite` | Composição de vários sub-atributos| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Atributos de cadeia de caracteres são usados para representar valores de cadeia de caracteres que podem aparecer como parte da consulta do usuário.  Eles oferecem suporte a correspondência exata da operação *equals*, bem como da operação *starts_with* para cenários de conclusão de consulta, como a correspondência de "micros" com "microsoft".  Sem distinção entre maiúsculas e minúsculas e correspondência difusa para lidar com erros de ortografia terão suporte em uma versão futura.
 

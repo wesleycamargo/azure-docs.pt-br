@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370545"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526265"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault gerenciados a conta de armazenamento – CLI
 
@@ -109,7 +109,7 @@ Também é possível solicitar que o Key Vault gere tokens SAS (Assinatura de Ac
 Após concluir as etapas listadas acima, execute os seguintes comandos para solicitar ao Key Vault a geração de tokens SAS. 
 
 A lista de itens que seriam obtidos nas etapas a seguir são
-- Configura uma definição de SAS de conta chamada '<YourSASDefinitionName>' em uma conta de armazenamento gerenciada pelo KeyVault '<YourStorageAccountName>' no seu cofre '<VaultName>'. 
+- Define uma chamada de definição de SAS de conta `<YourSASDefinitionName>` em uma conta de armazenamento gerenciado pelo KeyVault `<YourStorageAccountName>` em seu cofre `<VaultName>`. 
 - Cria um token SAS de conta para serviços de Blob, Arquivo, Tabela e Fila, para tipos de recursos de Serviço, Contêiner e Objeto, com todas as permissões, via https e com as datas de início e término especificadas
 - Configura uma define de SAS de armazenamento gerenciado pelo KeyVault no cofre, com o URI do modelo como o token SAS criado acima, de tipo SAS "conta" e válido por N dias
 - Recupera o token de acesso real do segredo do KeyVault correspondente à definição de SAS

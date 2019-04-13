@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: d49a6f88f3475359a74be74bf528fb5699dce632
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860645"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546619"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -106,7 +106,7 @@ Caminho para o compilador usado para TypeScript. Permite substituir o padrão se
 
 ## <a name="functionappeditmode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Os valores válidos são "readwrite" e "readonly".
+Determina se a edição no portal do Azure está habilitado. Os valores válidos são "readwrite" e "readonly".
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -215,7 +215,7 @@ Aqui, está um exemplo de proxy.json em um aplicativo de funções no myfunction
 |falso|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como atualizar as configurações do aplicativo](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 

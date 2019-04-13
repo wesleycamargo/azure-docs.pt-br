@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229468"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526445"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 
@@ -28,7 +28,7 @@ O vídeo a seguir demonstra a Falha na Depuração de Vértice nas Ferramentas d
 >
 
 > [!IMPORTANT]
-> O Visual Studio precisa destas duas atualizações para utilizar esse recurso: [Microsoft Visual C++ 2015 Redistributable Atualização 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) e o [Tempo de Execução C Universal do Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> O Visual Studio requer as seguintes duas atualizações para usar esse recurso: [Microsoft Visual C++ 2015 redistribuível atualização 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) e o [tempo de execução C Universal para Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Baixar o vértice com falha no computador local
@@ -80,7 +80,7 @@ Se o código do usuário não está incluído no arquivo code-behind ou se você
 
 2. Obter o caminho da pasta do projeto **FailedVertexDebugHost**. 
 
-3. Clique com o botão direito do mouse no **projeto de código-fonte do assembly adicionado > Propriedades**, selecione a guia **Compilar** à esquerda e cole o final do caminho copiado com \bin\debug como **Saída > Caminho de saída**. O caminho de saída final é parecido com "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Clique com o botão direito do mouse no **projeto de código-fonte do assembly adicionado > Propriedades**, selecione a guia **Compilar** à esquerda e cole o final do caminho copiado com \bin\debug como **Saída > Caminho de saída**. O caminho de saída final é como `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Definir caminho pdb da depuração do U-SQL do Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -105,7 +105,7 @@ Para reenviar o trabalho com falha:
 
 3. Envie novamente o trabalho do U-SQL.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Guia de programação do U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)

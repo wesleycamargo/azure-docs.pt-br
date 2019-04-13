@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630621"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522721"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -445,7 +445,7 @@ Quando você executar esse comando, substitua *contosokey* pelo mesmo valor espe
 
 Você é solicitado a conectar seus cartões de admin do Universo de segurança.
 
-Após a conclusão do comando, você verá **Resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estará no arquivo chamado key_xferacId_<contosokey>.
+Após a conclusão do comando, você verá **Resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estão no arquivo nomeado key_xferacid _\<contosokey >.
 
 Inspecione as ACLs usando os seguintes comandos e os utilitários da Thales:
 

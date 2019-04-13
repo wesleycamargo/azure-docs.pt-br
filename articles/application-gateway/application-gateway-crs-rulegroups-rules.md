@@ -4,22 +4,24 @@ description: Esta página fornece informações sobre regras e grupos de regras 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279688"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523912"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de regras e grupos de regras CRS de firewall do aplicativo Web oferecidos
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall de aplicativo web
 
-O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base nos conjuntos de regra do núcleo OWASP 2.2.9 ou 3.0. Essas regras podem ser desabilitadas com base em cada regra. Este artigo contém as regras e os conjuntos de regras oferecidos atualmente.
+O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base nos conjuntos de regra do núcleo OWASP 3.0 ou 2.2.9. Essas regras podem ser desabilitadas com base em cada regra. Este artigo contém as regras e os conjuntos de regras oferecidos atualmente.
 
-As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao usar o Gateway de Aplicativo com o firewall do aplicativo Web.  Cada tabela representa as regras encontradas em um grupo de regras para uma versão específica do CRS.
+Os seguintes grupos de regras e regras estão disponíveis ao usar o Gateway de aplicativo com o firewall do aplicativo web.
 
-## <a name="owasp30"></a>OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Conjuntos de regras
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Geral</p>
 
@@ -50,7 +52,7 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |---|---|
 |920100|Linha de solicitação de HTTP inválida|
 |920130|Falha ao analisar o corpo da solicitação.|
-|920140|Falha na validação estrita do corpo de solicitação com várias partes = %@{REQBODY_PROCESSOR_ERROR PE} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} %@{MULTIPART_DATA_BEFORE DB} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF %@{MULTIPART_LF_LINE} SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Falha na validação estrita do corpo da solicitação de várias partes|
 |920160|O cabeçalho Content-Length HTTP não é numérico.|
 |920170|Solicitação GET ou HEAD com conteúdo no corpo.|
 |920180|Solicitação POST com cabeçalho Content-Length ausente.|
@@ -216,7 +218,9 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |943110|Possível ataque de fixação da sessão = nome do parâmetro de SessionID com referenciador fora do domínio|
 |943120|Possível ataque de fixação da sessão = nome do parâmetro de SessionID sem referenciador|
 
-## <a name="owasp229"></a>OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Conjuntos de regras
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |960911|Linha de solicitação de HTTP inválida|
 |981227|Erro do Apache = URI inválido na solicitação.|
 |960912|Falha ao analisar o corpo da solicitação.|
-|960914|Falha na validação estrita do corpo de solicitação com várias partes = %@{REQBODY_PROCESSOR_ERROR PE} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} %@{MULTIPART_DATA_BEFORE DB} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF %@{MULTIPART_LF_LINE} SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Falha na validação estrita do corpo da solicitação de várias partes|
 |960915|O analisador de várias partes detectou um limite possivelmente incomparável.|
 |960016|O cabeçalho Content-Length HTTP não é numérico.|
 |960011|Solicitação GET ou HEAD com conteúdo no corpo.|
@@ -472,6 +476,8 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |950921|Acesso ao backdoor|
 |950922|Acesso ao backdoor|
 
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como desabilitar as regras de WAF visitando: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)
+Saiba como desabilitar as regras de WAF: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)

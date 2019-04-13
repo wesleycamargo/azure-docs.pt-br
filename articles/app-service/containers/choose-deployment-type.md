@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 079bfae19a4960ef5ab95c9d48d5603423407a9e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772867"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549313"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Imagem personalizada, vários contêineres ou imagem da plataforma interna?
 
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) oferece três caminhos diferentes para publicar aplicativos na Web:
 
 - **Implantação de imagem personalizada**: transforme seu aplicativo em Docker em uma imagem do Docker que contém todos os arquivos e as dependências em um pacote pronto para execução.
-- **Implantação de vários contêineres**: transforme seu aplicativo em Docker entre vários contêineres usando um arquivo de configuração Kubernetes ou Docker Compose. Para obter mais informações, consulte [Aplicativo de vários contêineres](#multi-container-apps-supportability).
+- **Implantação de vários contêineres**: transforme seu aplicativo em Docker entre vários contêineres usando um arquivo de configuração Kubernetes ou Docker Compose.
 - **Implantação de aplicativo com uma imagem de plataforma interna**: nossas imagens de plataforma interna contêm tempos de execução de aplicativo Web comuns e dependências, como Node e PHP. Use qualquer um dos [métodos de implantação do Serviço de Aplicativo do Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implantar seu aplicativo no armazenamento de seu aplicativo Web e, em seguida, use uma imagem de plataforma interna para executá-lo.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual método é adequado para seu aplicativo? 
@@ -43,38 +43,3 @@ Os principais fatores a considerar são:
 - **Requisitos de leitura/gravação em disco**: todos os aplicativos Web têm alocado um volume de armazenamento para conteúdo da Web. Este volume, com o apoio do Armazenamento do Azure, está montado no sistema de arquivos do aplicativo `/home`. Ao contrário dos arquivos no sistema de arquivos do contêiner, os arquivos no volume de conteúdo estão acessíveis em todas as instâncias de escala de um aplicativo e as modificações persistirão entre as reinicializações de aplicativo. No entanto, a latência de disco do volume de conteúdo é maior e mais variável do que a latência do sistema de arquivos local do contêiner e o acesso pode ser afetado por atualizações de plataforma, tempo de inatividade não planejado e problemas de conectividade de rede. Aplicativos que exigem grande acesso somente leitura a arquivos de conteúdo podem se beneficiar da implantação de imagem personalizada, o que coloca arquivos no sistema de arquivos de imagem em vez de no volume de conteúdo.
 - **Uso de recursos de build**: quando um aplicativo é implantado da origem, os scripts de implantação executados com o Kudu usam os mesmos recursos de armazenamento e computação do Plano do Serviço de Aplicativo que o aplicativo em execução. Implantações de aplicativo grande podem consumir mais recursos ou tempo que o desejado. Em particular, muitos fluxos de trabalho de implantação geram muita atividade de disco no volume de conteúdo do aplicativo, que não é otimizado para essa atividade. Uma imagem personalizada fornece todos os arquivos e as dependências do aplicativo ao Azure em um único pacote sem a necessidade de transferências de arquivos adicionais ou ações de implantação.
 - **Necessidade de iteração rápida**: transformar um aplicativo em Docker requer etapas de build adicionais. Para que as alterações entrem em vigor, você deve enviar por push a nova imagem a um repositório com cada atualização. Essas atualizações são acionadas para o ambiente do Azure. Se um dos contêineres internos atende às necessidades do seu aplicativo, a implantação da origem pode oferecer um fluxo de trabalho de desenvolvimento mais rápido.
-
-## <a name="multi-container-apps-supportability"></a>Capacidade de suporte a aplicativos de vários contêineres
-
-### <a name="supported-docker-compose-configuration-options"></a>Opções de configuração do Docker Compose compatíveis
-- command
-- entrypoint
-- environment
-- image
-- ports
-- restart
-- services
-- volumes
-
-### <a name="unsupported-docker-compose-configuration-options"></a>Opções de configuração do Docker Compose não compatíveis
-- build (não permitido)
-- depends_on (ignorado)
-- networks (ignorada)
-- segredos (ignorados)
-- portas diferentes de 80 e 8080 (ignoradas)
-
-> [!NOTE]
-> Outras opções não explicitamente chamadas também são ignoradas na Versão prévia pública.
-
-### <a name="supported-kubernetes-configuration-options"></a>Opções de configuração de Kubernetes compatíveis
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
->Outras opções de Kubernetes não explicitamente chamadas não são compatíveis com a Versão prévia pública.
->

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/21/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338545"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548347"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Treinar modelos de TensorFlow e o Keras com o serviço Azure Machine Learning
 
@@ -48,7 +48,7 @@ Agora, especificamos os seguintes parâmetros para o construtor do TensorFlow:
 Parâmetro | DESCRIÇÃO
 --|--
 `source_directory` | O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada em seu computador local para a computação remota
-`script_params` | Especificando os argumentos de linha de comando para o seu script de treinamento de dicionário `entry_script`, na forma de < argumento de linha de comando, valor > pares
+`script_params` | Especificando os argumentos de linha de comando para o seu script de treinamento de dicionário `entry_script`, na forma de < argumento de linha de comando, valor > pares.  Para especificar um sinalizador detalhado no `script_params`, use `<command-line argument, "">`.
 `compute_target` | Destino de computação remota no qual seu script de treinamento será executado, neste caso, um cluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) da Computação do Machine Learning
 `entry_script` | FilePath (relativo ao `source_directory`) do script de treinamento para ser executado na computação remota. Esse arquivo e quaisquer arquivos adicionais que ele depende devem ser localizados nesta pasta
 `conda_packages` | A lista de pacotes do Python a serem instalados via conda, necessária ao seu script de treinamento. Nesse caso, o script de treinamento usa `sklearn` para carregar os dados, então, especifique esse pacote para ser instalado.  O construtor tem outro parâmetro chamado `pip_packages` que você pode usar para qualquer pacote pip necessário

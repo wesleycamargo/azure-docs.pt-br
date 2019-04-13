@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895725"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521201"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
 
@@ -96,11 +96,13 @@ As duas seções do gráfico em vermelho indicam declarações que não correspo
 
 As duas seções do gráfico em verde corresponderam à previsão esperada.
 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar o desempenho do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
-* [Rotular sugeridas declarações com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 
-* [Entender o lote de teste com este tutorial](luis-tutorial-batch-testing.md)
+* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Noções básicas sobre o teste de lote com esse tutorial](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de lote](luis-concept-batch-test.md).

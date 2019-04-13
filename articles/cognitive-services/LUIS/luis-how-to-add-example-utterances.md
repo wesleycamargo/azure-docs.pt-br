@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096683"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524252"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a enunciados de exemplo 
 
@@ -91,6 +91,8 @@ Supondo que a declaração `Does John Smith work in Seattle?`, uma declaração 
 
 ## <a name="add-hierarchical-entity"></a>Adicionar entidade hierárquica
 
+**Entidades hierárquicas eventualmente serão preteridas. Use [funções de entidade](luis-concept-roles.md) para determinar os subtipos de entidade, em vez de entidades hierárquicas.**
+
 Uma entidade hierárquica é uma categoria de entidades contextualmente aprendidas e conceitualmente relacionadas. No exemplo a seguir, a entidade contém locais de origem e de destino. 
 
 No enunciado `Move John Smith from Seattle to Cairo`, Seattle é o local de origem e Cairo é o local de destino. Cada local é contextualmente diferente e aprendido pela escolha de palavras e pela ordem de palavras no enunciado.
@@ -105,6 +107,12 @@ No enunciado `Move John Smith from Seattle to Cairo`, Seattle é o local de orig
 
     >[!CAUTION]
     >Nomes de entidade filho devem ser exclusivos em todas as entidades em um único aplicativo. Duas entidades hierárquicas diferentes não podem conter entidades filho com o mesmo nome. 
+
+## <a name="add-entitys-role-to-utterance"></a>Adicionar a função da entidade a expressão
+
+Uma função é um subtipo nomeado de uma entidade, determinado pelo contexto de declaração. Você pode marcar uma entidade dentro de uma expressão como a entidade ou selecionar uma função nessa entidade. Qualquer entidade pode ter funções, incluindo entidades personalizadas que são aprendidos por máquina (entidades simples e compostas entidades), não são aprendidos por máquina (as entidades predefinidas, entidades de expressão regular, listar entidades). 
+
+Saiba mais [como marcar uma expressão com funções de entidade](tutorial-entity-roles.md) de um tutorial prático. 
 
 ## <a name="entity-status-predictions"></a>Previsões do status da entidade
 
@@ -151,11 +159,11 @@ Para remover um rótulo de entidade de aprendizado de máquina de um enunciado, 
 
 ### <a name="add-prebuilt-entity-label"></a>Adicionar um rótulo de entidade predefinida
 
-Quando adicionar as entidades predefinidas ao seu aplicativo de LUIS, você não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades predefinidas e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-prebuilt-entity).
+Quando adicionar as entidades predefinidas ao seu aplicativo de LUIS, você não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades predefinidas e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Adicionar rótulo de entidade de expressão regular
 
-Se você adicionar as entidades de expressão regular ao seu aplicativo de LUIS, não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities).
+Se você adicionar as entidades de expressão regular ao seu aplicativo de LUIS, não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão de um enunciado
@@ -171,6 +179,6 @@ Se você adicionar entidades pattern.any ao seu aplicativo de LUIS, não será p
 
 Depois de adicionar, editar ou remover enunciados, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de rotular enunciados em suas intenções, você pode criar uma [entidade composta](luis-how-to-add-entities.md).

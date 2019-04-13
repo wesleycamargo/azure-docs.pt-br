@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805701"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551590"
 ---
 O Azure atualiza a plataforma periodicamente para aprimorar a confiabilidade, desempenho e segurança da infraestrutura de host para máquinas virtuais. Essas atualizações vão desde a aplicação de patch de componentes de software no ambiente de hospedagem, a atualização de componentes de rede até o encerramento de hardware. A maioria dessas atualizações não têm impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto e o Azure escolhe o método menos impacto de atualizações:
 
@@ -27,9 +27,9 @@ Você pode obter notificação na VM sobre manutenção futura usando os Eventos
 
 Para obter instruções sobre como gerenciar a manutenção planejada, consulte “Administrando notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Preservação da manutenção da memória
+## <a name="maintenance-not-requiring-a-reboot"></a>Manutenção não exigir uma reinicialização
 
-A meta para a maioria das atualizações não inicializáveis é fazer uma pausa de menos de 10 segundos para a VM. Em determinados casos de preservação de memória, os mecanismos de manutenção são usados, o que para a máquina virtual por até 30 segundos e preserva a memória em RAM. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente. Cada vez mais, o Azure está usando tecnologias de migração ao vivo e melhorando o mecanismo de manutenção de preservação de memória para reduzir a duração da pausa.
+A meta para a maioria dos manutenção que não requer uma reinicialização é pausar de menos de 10 segundos para a VM. Em determinados casos de preservação de memória, os mecanismos de manutenção são usados, o que para a máquina virtual por até 30 segundos e preserva a memória em RAM. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente. Cada vez mais, o Azure está usando tecnologias de migração ao vivo e melhorando o mecanismo de manutenção de preservação de memória para reduzir a duração da pausa.
 
 Essas operações de manutenção não reiniciáveis são o domínio de falha aplicado pelo domínio de falha e o andamento é interrompido quando algum sinal de aviso de integridade é recebido. 
 

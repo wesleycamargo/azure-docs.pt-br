@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314443"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525520"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 A folha **Alertas** do serviço StorSimple Device Manager fornece uma maneira de examinar e limpar os alertas relacionados ao dispositivo StorSimple em tempo real. Nessa folha, você pode monitorar de forma centralizada os problemas de integridade dos dispositivos StorSimple e a solução geral Microsoft Azure StorSimple.
 
@@ -160,7 +160,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | O dispositivo realizou failover para <*nome do dispositivo*>. |Outro/causa desconhecida. |Se você vir um grande número desses alertas, contate o Suporte da Microsoft. Depois que o problema for resolvido, exclua este alerta da página de alertas. |
 | O serviço de um dispositivo crítico informa o status de falha. |Falha no serviço de caminho de dados. |Contate o Suporte da Microsoft para obter assistência. |
 | O endereço IP virtual da interface de rede <*DATA #*> informa o status de falha. |Outro/causa desconhecida. |Condições temporárias, às vezes, podem causar esses alertas. Se esse for o caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft. |
-| O endereço IP virtual da interface de rede <*DATA #*> informa o status de falha. |Nome da interface: endereço IP <*DATA #*> <IP address> não pode ser colocado online porque um endereço IP duplicado foi detectado na rede. |Verifique se o endereço IP duplicado foi removido da rede ou reconfigure a interface com um endereço IP diferente. |
+| O endereço IP virtual da interface de rede <*DATA #*> informa o status de falha. |Nome da interface: endereço IP <*DATA #*> `<IP address>` não pode ser colocado online porque um endereço IP duplicado foi detectado na rede. |Verifique se o endereço IP duplicado foi removido da rede ou reconfigure a interface com um endereço IP diferente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertas de recuperação de desastres
 
@@ -199,9 +199,9 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, entre em contato com o Suporte da Microsoft. |
-| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' no dispositivo *<device1>* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
-| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o comprimento de prefixo '22' no dispositivo *<device1>* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
+| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' no dispositivo  *\<device1 >* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
+| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o prefixo '22' no dispositivo  *\<device1 >* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre os padrões de URL no portal do Azure, vá para https:\//aka.ms/ss-8000-network-reqs. Se usando a nuvem do Azure governamental, acesse os padrões de URL em https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
@@ -209,7 +209,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | Texto de alerta | Evento | Mais informações / ações recomendadas | |
 |:--- |:--- |:--- | --- |
 | A carga do dispositivo excedeu o <*limite*>. |Mais lento do que os tempos de resposta esperados. |O dispositivo está relatando a utilização sob uma pesada carga de entrada/saída. Isso pode fazer com que o dispositivo não funcione tão bem quanto deveria. Examine as cargas de trabalho que você atribuiu ao dispositivo e determine se há alguma que possa ser movida para outro dispositivo ou que não são mais necessárias.|
-| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, entre em contato com o Suporte da Microsoft. |
+| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 

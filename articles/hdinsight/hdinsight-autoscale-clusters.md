@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 6642f80a40343546285770531ac42423bee779b8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501001"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526479"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters de HDInsight do Azure (visualização)
 
@@ -62,8 +62,10 @@ Para criar um cluster HDInsight com um modelo do Azure Resource Manager, adicion
     "name": "workernode",
     "targetInstanceCount": 4,
     "autoscale": {
-        "minInstanceCount": 2,
-        "maxInstanceCount": 10
+        "capacity": {
+            "minInstanceCount": 2,
+            "maxInstanceCount": 10
+        }        
     },
     "hardwareProfile": {
         "vmSize": "Standard_D13_V2"
@@ -122,6 +124,6 @@ Quando as condições a seguir são detectadas, o dimensionamento automático em
 
 Com base no número de contêineres de AM por nó e os requisitos de memória e CPU atual, a AutoEscala emitirá uma solicitação para remover um determinado número de nós, especifica quais nós são candidatos em potencial para remoção. A escala para baixo irá disparar o encerramento de nós e depois que os nós forem encerrados completamente, eles serão removidos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Leia sobre as práticas recomendadas para dimensionar os clusters manualmente em [Práticas recomendadas de dimensionamento](hdinsight-scaling-best-practices.md)

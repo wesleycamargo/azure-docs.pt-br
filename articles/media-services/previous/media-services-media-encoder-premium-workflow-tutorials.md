@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189777"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523827"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
 ## <a name="overview"></a>Visão geral
@@ -760,7 +760,7 @@ Isso foi feito por meio de operações de manipulação de cadeia de caracteres 
 
 *Registrando em log a lista de clipes resultante*
 
-Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do tempo de execução do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que apenas a primeira vez em que você definir os pontos de entrada e saída causará uma transformação do xml. Em todas as outras vezes, nossa cláusula de proteção (if(clipListXML.indexOf("<trim>") == -1)) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já houver um presente.
+Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do tempo de execução do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que apenas na primeira vez que você definir de entrada e saída pontos, fará com que o xml transformar, todas as outras vezes, nossa cláusula de proteção (se (`clipListXML.indexOf("<trim>") == -1`)) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já houver um presente.
 
 Para tornar o teste local do fluxo de trabalho mais conveniente, é melhor adicionarmos algum código de manutenção que verifica se um elemento de corte já está presente. Em caso positivo, podemos removê-lo antes de continuar por meio da modificação do xml com os novos valores. Em vez de usar manipulações de cadeia de caracteres simples, provavelmente será mais seguro fazer isso por meio da análise do modelo de objeto xml real.
 

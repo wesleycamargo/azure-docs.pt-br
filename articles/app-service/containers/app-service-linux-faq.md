@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339527"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525119"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -65,7 +65,7 @@ Sim, você pode fazer isso por meio do site de gerenciamento do controle de orig
 
 Você deve definir o campo **reservado** do serviço de aplicativo para *true*.
 
-## <a name="continuous-integration-and-deployment"></a>Integração contínua e implantação
+## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
 
 **Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?**
 
@@ -93,7 +93,7 @@ Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das op�
 
    Se você receber uma mensagem de erro informando que o comando `curl` não foi encontrado, instale a ondulação usando `apt-get install curl` antes de executar o comando `curl` anterior.
 
-## <a name="language-support"></a>Suporte de idioma
+## <a name="language-support"></a>Suporte ao idioma
 
 **Eu quero usar websockets no aplicativo Node.js, há definições ou configurações especiais a serem definidas?**
 
@@ -163,7 +163,7 @@ Para usar o ACR com vários contêineres, **todas as imagens de contêiner** pre
 Crie as seguintes configurações de aplicativo:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completa, por exemplo: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (total de URL, por exemplo: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (habilite o acesso de administrador nas configurações do ACR)
 
 No arquivo de configuração, referencie a imagem do ACR como o seguinte exemplo:
@@ -202,5 +202,5 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
-- [Configurar ambientes de preparo no serviço de aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Implantação Contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)

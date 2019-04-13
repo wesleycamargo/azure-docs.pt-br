@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879277"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547941"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar um espaço de trabalho do serviço de Azure Machine Learning
 
@@ -37,7 +37,7 @@ Quando você cria um espaço de trabalho os seguintes recursos do Azure são adi
 - [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Assim como ocorre em outros serviços do Azure, há limites e cotas associados ao Machine Learning. [Saiba mais sobre cotas e como solicitar muito mais.](how-to-manage-quotas.md)
+>Assim como ocorre em outros serviços do Azure, há limites e cotas associados ao Machine Learning. [Saiba mais sobre cotas e como solicitar mais.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -160,7 +160,7 @@ Crie seu workspace em um Jupyter Notebook usando o SDK do Python.
 
 ### <a name="write-a-configuration-file"></a>Escrever um arquivo de configuração
 
-Salve os detalhes do workspace em um arquivo de configuração no diretório atual. Esse arquivo é denominado *aml_config/config.json*.  
+Salve os detalhes do workspace em um arquivo de configuração no diretório atual. Esse arquivo é denominado *.azureml/config.json*.  
 
 Esse arquivo de configuração do workspace facilita o carregamento do mesmo workspace mais tarde. Você pode carregá-lo com outros blocos de anotações e scripts no mesmo diretório ou subdiretório usando o código `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ Esta chamada à API `write_config()` cria o arquivo de configuração no diretó
 ```
 
 > [!TIP]
-> Para usar seu espaço de trabalho em scripts Python ou blocos de anotações do Jupyter localizado em outros diretórios, copie esse arquivo para esse diretório. O arquivo pode estar no mesmo diretório, um subdiretório chamado *aml_config*, ou em um diretório pai.
+> Para usar seu espaço de trabalho em scripts Python ou blocos de anotações do Jupyter localizado em outros diretórios, copie esse arquivo para esse diretório. O arquivo pode estar no mesmo diretório, um subdiretório chamado *.azureml*, ou em um diretório pai.
 
 ## <a name="resource-manager-template"></a>Modelo do Resource manager
 
 Para criar um espaço de trabalho com um modelo, consulte [criar um espaço de trabalho do serviço de Azure Machine Learning usando um modelo](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Interface de linha de comando
 
 Para criar um espaço de trabalho com a CLI, consulte [Use a extensão CLI do serviço Azure Machine Learning](reference-azure-machine-learning-cli.md).
 

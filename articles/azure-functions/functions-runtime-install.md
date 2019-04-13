@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093661"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547531"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a versão prévia 2 do Azure Functions Runtime
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Se você quiser instalar a versão prévia 2 do Azure Functions Runtime, execute estas etapas:
 
@@ -49,7 +51,7 @@ O instalador da versão prévia do Azure Functions Runtime orienta você durante
 
     ![Instalador da versão prévia do Azure Functions Runtime][1]
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
 1. Selecione as funções que você deseja instalar no computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e clique em **Avançar**.
 
@@ -102,36 +104,37 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
 Para criar sua primeira função na versão prévia do Azure Functions Runtime
 
-1. Por fim, navegue até o **Portal do Azure Functions Runtime** como https://<machinename>.<domain> por exemplo, https://mycomputer.mydomain.com
+1. Navegue até a **Portal do Azure Functions Runtime** como `https://<machinename>.<domain>` por exemplo `https://mycomputer.mydomain.com`.
+
 1. Você será solicitado a **Entrar**; se implantado em um domínio, use seu nome de usuário da conta do domínio e a senha. Caso contrário, use seu nome de usuário de conta local e a senha para fazer logon no portal.
 
-![Logon do portal da versão prévia do Azure Functions Runtime][14]
+    ![Logon do portal da versão prévia do Azure Functions Runtime][14]
 
-1. Para criar aplicativos de funções, você deve criar uma assinatura.  No canto superior esquerdo do portal, clique na opção **+** ao lado das assinaturas
+1. Para criar aplicativos de funções, você deve criar uma assinatura.  No canto superior esquerdo do portal, clique no **+** opção ao lado das assinaturas.
 
-![Assinaturas do portal de versão prévia do Azure Functions Runtime][15]
+    ![Assinaturas do portal de versão prévia do Azure Functions Runtime][15]
 
 1. Escolha **DefaultPlan**, insira um nome para sua assinatura e clique em **Criar**.
 
-![Nome e plano da assinatura do portal da versão prévia do Azure Functions Runtime][16]
+    ![Nome e plano da assinatura do portal da versão prévia do Azure Functions Runtime][16]
 
 1. Todos os seus aplicativos de funções estão listados no painel esquerdo do portal.  Para criar um novo aplicativo de funções, selecione o título **Aplicativo de Funções** e clique na opção **+**.
 
 1. Insira um nome para seu aplicativo de funções, selecione a assinatura correta, escolha a versão do Azure Functions Runtime que deseja programar e clique em **Criar**
 
-![Novo aplicativo de funções no portal da versão prévia do Azure Functions Runtime][17]
+    ![Novo aplicativo de funções no portal da versão prévia do Azure Functions Runtime][17]
 
 1. Seu novo aplicativo de funções está listado no painel esquerdo do portal.  Selecione Functions e clique em **Nova Função** na parte superior do painel central no portal.
 
-![Modelos do portal de versão prévia do Azure Functions Runtime][18]
+    ![Modelos do portal de versão prévia do Azure Functions Runtime][18]
 
 1. Selecione a função Gatilho de Temporizador, no submenu direito, nomeie sua função e altere o Agendamento para `*/5 * * * * *` (essa expressão cron faz com que a função de temporizador seja executada a cada cinco segundos) e clique em **Criar**
 
-![Configuração de nova função de temporizador na versão prévia do Azure Functions Runtime][19]
+    ![Configuração de nova função de temporizador na versão prévia do Azure Functions Runtime][19]
 
 1. A função foi criada.  Você pode exibir o log de execução do seu aplicativo de funções expandindo o painel **log** na parte inferior do portal.
 
-![Execução de função da versão prévia do Azure Functions Runtime][20]
+    ![Execução de função da versão prévia do Azure Functions Runtime][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

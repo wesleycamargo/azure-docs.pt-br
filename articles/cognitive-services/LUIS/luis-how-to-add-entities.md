@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106926"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522343"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem declarações
 
-A entidade representa uma palavra ou frase dentro da declaração que você deseja que seja extraída. Uma entidade representa uma classe que inclui uma coleção de objetos semelhantes (locais, coisas, pessoas, eventos ou conceitos). As entidades descrevem informações relevantes para a intenção e, às vezes, elas são essenciais para seu aplicativo realizar sua tarefa. Você pode criar entidades quando você adiciona uma declaração para um propósito ou diferença de (antes ou depois) adicionando uma expressão a uma intenção.
+A entidade representa uma palavra ou frase dentro da declaração que você deseja que seja extraída. Uma entidade representa uma classe, incluindo uma coleção de objetos semelhantes (lugares, coisas, pessoas, eventos ou conceitos). As entidades descrevem informações relevantes para a intenção e, às vezes, elas são essenciais para seu aplicativo realizar sua tarefa. Você pode criar entidades quando você adiciona uma declaração para um propósito ou diferença de (antes ou depois) adicionando uma expressão a uma intenção.
 
 Você pode adicionar, editar ou excluir entidades em seu aplicativo LUIS por meio da lista **Entities** na página **Entities**. O LUIS oferece dois tipos principais de entidades: [entidades pré-construídas](luis-reference-prebuilt-entities.md) e suas próprias [entidades customizadas](luis-concept-entity-types.md#types-of-entities).
 
@@ -135,7 +135,7 @@ No enunciado `Where is Request relocation from employee new to the company on th
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Adiciona uma função para distinguir diferentes contextos
 
-Uma função é um subtipo nomeado de uma entidade com base no contexto. É comparável a uma entidade [hierárquica](#add-hierarchical-entities), mas as funções são usadas apenas em [padrões](luis-how-to-model-intent-pattern.md). 
+Uma função é um subtipo nomeado com base no contexto. Ele está disponível em todas as entidades, incluindo as entidades predefinidas e não computador aprendeu. 
 
 Usando o mesmo exemplo que a entidade hierárquica de cidades de origem e de destino, a diferença é que uma função é denominada origem em vez de um filho hierárquico. 
 

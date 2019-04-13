@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787896"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523963"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight 
 
@@ -45,7 +45,7 @@ O Servidor de Histórico do Spark é a interface do usuário da Web para aplicat
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Substitua <ClusterName> pelo nome do cluster Spark.
+    Substitua `<ClusterName>` pelo nome do cluster Spark.
 
 A interface do usuário da Web do Servidor de Histórico do Spark tem esta aparência:
 

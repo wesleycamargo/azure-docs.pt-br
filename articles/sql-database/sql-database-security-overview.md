@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359042"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523682"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -47,7 +47,7 @@ As [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)
 > [!IMPORTANT]
 > O gerenciamento de bancos de dados e de servidores de banco de dados no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O Banco de Dados SQL do Azure dá suporte a dois tipos de autenticação:
 
@@ -107,7 +107,7 @@ Como prática recomendada, é recomendável que, na conexão do seu aplicativo, 
 Por exemplo, ao usar o driver do ADO.NET, isso é feito por meio **Encrypt = True** e **TrustServerCertificate = False**. Se você obtiver sua cadeia de caracteres de conexão do portal do Azure, ele terá as configurações corretas.
 
 > [!IMPORTANT]
-> Observe que alguns drivers não sejam da Microsoft não podem usar o TLS por padrão ou contam com uma versão mais antiga do TLS (< 2.0) para funcionar. Nesse caso, o SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir tais drivers e aplicativos para se conectar ao banco de dados SQL, especialmente se você armazenar dados confidenciais. 
+> Observe que alguns drivers não sejam da Microsoft não podem usar o TLS por padrão ou contam com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso, o SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir tais drivers e aplicativos para se conectar ao banco de dados SQL, especialmente se você armazenar dados confidenciais. 
 >
 > Para obter mais informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

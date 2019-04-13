@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010088"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524303"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
@@ -26,7 +26,7 @@ O método de roteamento de tráfego geográfico permite direcionar tráfego para
 1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/).
 2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 4. Em **Criar perfil do Gerenciador de Tráfego**:
-    1. Forneça um nome para seu perfil. Esse nome deve ser exclusivo dentro da zona trafficmanager.net. Para acessar o perfil do Gerenciador de Tráfego, você deve usar o nome DNS <profilename>.trafficmanager.net.
+    1. Forneça um nome para seu perfil. Esse nome deve ser exclusivo dentro da zona trafficmanager.net. Para acessar seu perfil do Gerenciador de tráfego, você pode usar o nome DNS `<profilename>.trafficmanager.net`.
     2. Selecione o método de roteamento **Geográfico**.
     3. Selecione a assinatura na qual deseja criar esse perfil.
     4. Use um grupo de recursos existente ou crie um no qual colocar esse perfil. Se você optar por criar um novo grupo de recursos, use a lista suspensa **Localização do Grupo de Recursos** para especificar a localização do grupo de recursos. Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que é implantado globalmente.

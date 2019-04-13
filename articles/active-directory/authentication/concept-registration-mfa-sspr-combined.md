@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280002"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521418"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinada (visualização)
 
@@ -25,6 +25,8 @@ Antes do registro combinado, os usuários registraram separadamente os métodos 
 ![Mostrando meu perfil registrado informações de segurança para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Antes de habilitar a nova experiência, examine esta documentação voltada para administrador e a documentação e focada no usuário para que entender a funcionalidade e o efeito desse recurso. Base seu treinamento na documentação do usuário para preparar seus usuários para a nova experiência e ajudar a garantir uma distribuição bem-sucedida.
+
+Azure AD combinados registro não está disponível atualmente para nuvens nacionais, como Azure US Government, Azure Alemanha ou Azure China 21Vianet de informações de segurança.
 
 |     |
 | --- |
@@ -139,4 +141,4 @@ Um usuário que tenha configurado anteriormente pelo menos um método que pode s
 
 [Configurar a redefinição de senha de autoatendimento](howto-sspr-deployment.md)
 
-[Configurar a Autenticação Multifator do Azure](howto-mfa-getstarted.md)
+[Configurar a autenticação multifator do Azure](howto-mfa-getstarted.md)

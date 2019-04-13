@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd026c9be2b1519d473ba02811d9e1ee90fe7a3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839518"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526207"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerenciar um perfil de Gerenciador de tráfego do Azure
 
@@ -32,7 +32,7 @@ Você pode criar um perfil do Gerenciador de Tráfego usando o portal do Azure. 
 1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
 2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 4. Em **Criar perfil do Gerenciador de Tráfego**, preencha os seguintes campos:
-    1. Em **Nome**, forneça um nome para seu perfil. Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS <name>, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.
+    1. Em **Nome**, forneça um nome para seu perfil. Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS `<name>`, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.
     2. Em **Método de roteamento**, selecione o método de roteamento **Prioridade**.
     3. Em **Assinatura**, selecione a assinatura sob a qual deseja criar esse perfil
     4. Em **Grupo de Recursos**, crie um novo grupo de recursos no qual colocar esse perfil.

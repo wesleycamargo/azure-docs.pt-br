@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370067"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546998"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurar o Servidor de Autenticação Multifator do Azure para alta disponibilidade
 
@@ -36,7 +36,7 @@ Os Servidores mestre e subordinado do MFA se comunicam com o Serviço do MFA qua
 
 Após a autenticação bem-sucedida no AD, o Servidor do MFA se comunicará com o Serviço do MFA. O Servidor do MFA aguarda a notificação do Serviço do MFA para permitir ou negar o acesso do usuário ao aplicativo.
 
-Se o servidor mestre do MFA ficar offline, as autenticações ainda poderão ser processadas, mas as operações que exigem alterações no banco de dados do MFA não poderão ser processadas. (Os exemplos incluem: a adição de usuários, alterações do PIN de autoatendimento e a alteração das informações do usuário)
+Se o servidor mestre do MFA ficar offline, as autenticações ainda poderão ser processadas, mas as operações que exigem alterações no banco de dados do MFA não poderão ser processadas. (Os exemplos incluem: a adição de usuários, autoatendimento PIN alterações, alterar informações do usuário ou acesso ao portal do usuário)
 
 ## <a name="deployment"></a>Implantação
 

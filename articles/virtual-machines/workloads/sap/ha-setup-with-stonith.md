@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011856"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525459"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
@@ -258,7 +258,7 @@ Execute o comando *crm_mon* para fazer com que **ambos** os nós fiquem online. 
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) Você também pode entrar no Hawk para verificar o status do cluster *https://<node IP>:7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
+![CRM-MON](media/HowToHLI/HASetupWithStonith/crm-mon.png) você também pode fazer logon HAWK para verificar o status do cluster *https://\<nó IP >: 7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurar Propriedades do Cluster e Recursos 
 Esta seção descreve as etapas para configurar os recursos do cluster.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 Quando você executa o comando *crm_mon*, pode ver os dois recursos.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Além disso, você pode ver o status em *https://<node IP address>:7630/cib/live/state*
+Além disso, você pode ver o status em *https://\<endereço IP do nó >: 7630/cib/live/estado*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

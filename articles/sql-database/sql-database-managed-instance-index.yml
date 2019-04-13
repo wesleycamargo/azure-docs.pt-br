@@ -115,7 +115,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/'
+              - href: null
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment'
           - title: Recuperação pontual
             values:
@@ -127,7 +127,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/'
+              - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
               - href: null
   - title: Siga os tutoriais passo a passo e materiais de aprendizado
     items:
@@ -140,11 +140,11 @@ sections:
           - html: 'Saiba mais sobre <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">limitações e características de hardware</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferenças de linguagem Transact-SQL</a>, e <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, API de CLI do Azure para configurar a instânciagerenciada<a/>.'
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurar</a> VNet do Azure onde a instância gerenciada será implantada.'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validar</a> que sua VNet do Azure existente pode ser usado para implantar instâncias gerenciadas.'
-          - html: 'Conectar-se à sua instância usando <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Conexão ponto a site</a> ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Aplicativos</a>.'
+          - html: 'Conectar-se à sua instância usando <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Conexão ponto a site</a> ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Aplicativos</a>.'
           - html: 'Verificar se seu banco de dados pode ser migrado usando o <a href="https://www.microsoft.com/download/details.aspx?id=53595">Assistente de Migração de Dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Assistente para Experimentos de Banco de Dados</a>.'
           - html: Traga seus bancos de dados para a instância gerenciada usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauração nativa</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">serviço de migração de dados</a>.
           - html: 'Mova seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a> e os relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.'
-          - html: 'Saiba mais sobre a camada de armazenamento na <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">Camada de Uso Geral</a> e aplicar as <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">práticas recomendadas de desempenho de armazenamento e considerações para a camada de serviço de Uso Geral</a>.'
+          - html: 'Saiba mais sobre a camada de armazenamento na <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">Camada de Uso Geral</a> e aplicar as <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">práticas recomendadas de desempenho de armazenamento e considerações para a camada de serviço de Uso Geral</a>.'
           - html: 'Encontre as melhores práticas e recomendações para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger sua instância</a>.'
           - html: Encontrar mais informações <a href="sql-database-howto-managed-instance.md">guias de instruções</a> que pode ajudá-lo a configurar sua instância gerenciada.
   - title: Referência
@@ -154,8 +154,10 @@ sections:
         className: cardsD
         items:
           - title: Blogs
-            html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Média</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Médio</a></p>'
           - title: Perguntas frequentes
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
+          - title: Canal de comunidade
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Comunidade do SQL (instância gerenciada)</a></p>'
           - title: Materiais de treinamento
-            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Laboratórios práticos</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instrução levou laboratórios</a></p>'
+            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Laboratórios práticos</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instrução de laboratórios liderados</a></p>'

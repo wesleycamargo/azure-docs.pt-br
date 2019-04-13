@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621491"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523759"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usar o T-SQL (Transact-SQL) para criar e gerenciar trabalhos de Banco de Dados Elástico
 
@@ -193,7 +193,7 @@ O exemplo a seguir cria um novo trabalho para coletar dados de desempenho de vá
 Por padrão, o agente de trabalho procurará criar a tabela para armazenar os resultados retornados. Como resultado, o login associado à credencial usada para a credencial de saída precisará ter permissões suficientes para executar isso. Se você quiser criar manualmente a tabela com antecedência, ela precisará ter as seguintes propriedades:
 1. Colunas com o nome correto e tipos de dados para o conjunto de resultados.
 2. Coluna adicional para internal_execution_id com o tipo de dados de uniqueidentifier.
-3. Um índice não clusterizado chamado "IX_ <TableName> _Internal_Execution_ID" na coluna internal_execution_id.
+3. Um índice não clusterizado chamado `IX_<TableName>_Internal_Execution_ID` na coluna internal_execution_id.
 
 Conecte-se ao [*banco de dados de trabalhos*](sql-database-job-automation-overview.md#job-database) e execute os seguintes comandos:
 

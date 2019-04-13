@@ -1,7 +1,7 @@
 ---
 title: Indexar blobs JSON no indexador de Blobs do Azure para pesquisa de texto completo – Azure Search
 description: Rastrear o conteúdo de texto em blobs JSON do Azure usando o indexador de Blobs do Azure Search. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o armazenamento de blobs do Azure.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518730"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527346"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Como indexar blobs JSON usando o indexador de BLOBs do Azure Search
 Este artigo mostra como configurar um blob de Azure Search [indexador](search-indexer-overview.md) para extrair o conteúdo estruturado de documentos JSON no armazenamento de BLOBs do Azure e torná-los pesquisáveis no Azure Search. Esse fluxo de trabalho cria um índice de Azure Search e carrega-os com existente texto extraído dos blobs do JSON. 
@@ -40,14 +40,15 @@ O método mais fácil para indexação de documentos JSON é usar um assistente 
 
 ### <a name="1---prepare-source-data"></a>1- Preparar dados de origem
 
-É necessário uma conta de armazenamento do Azure com armazenamento de blobs e um contêiner de documentos JSON. Se você estiver familiarizado com qualquer um desses requisitos, revise "Configurar dados de exemplo de serviço e o carregamento de BLOBs do Azure" na [pesquisa cognitiva-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Entrar no portal do Azure](https://portal.azure.com/).
 
-> [!Important]
-> No contêiner, certifique-se de que **nível de acesso público** é definido como "Contêiner (acesso de leitura anônimo para contêineres e blobs)". O armazenamento do Azure e o Azure Search devem ser a mesma assinatura e, se possível, na mesma região. 
+1. [Criar um contêiner de Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter seus dados. O nível de acesso público pode ser definido para qualquer um dos seus valores válidos.
+
+Será necessário o nome da conta de armazenamento, nome do contêiner e para recuperar os dados em uma chave de acesso a **importar dados** assistente.
 
 ### <a name="2---start-import-data-wizard"></a>2 - Iniciar o Assistente para Importação de Dados 
 
-Pode-se [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço Azure Search, ou clicando em **adicionar Azure Search** na seção **serviço Blob** da sua conta de armazenamento no painel esquerdo de navegação.
+Na página de visão geral do serviço Azure Search, você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos ou clicando em **adicionar Azure Search** no **serviço Blob** seção do seu Painel de navegação esquerdo da conta de armazenamento.
 
    ![Comando Importação de dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o Assistente de Importação de Dados")
 

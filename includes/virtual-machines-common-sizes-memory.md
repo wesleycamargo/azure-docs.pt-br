@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333765"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551479"
 ---
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
 * A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a memória maior (até 3,8 TiB) de qualquer máquina virtual na nuvem.  Ele é ideal para bancos de dados muito grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória.
 
-* As séries Dv2 e G, bem como as equivalentes DSv2/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de armazenamento temporário ou que têm maior demanda de memória.  Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
+* Série Dv2, G-series e as equivalentes DSv2/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de armazenamento temporário, ou que têm maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 
-
-* A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração dos processadores Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5-2673 v4 2.3 GHz (Broadwell) e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+* A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ele se baseia na última geração 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5 2673 v4 2.3 GHz (Broadwell) processadores e com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 * A série Ev3 inclui o processador E5-2673 v4 2.3 GHz (Broadwell) em uma configuração hyper-threading, fornecendo uma melhor proposta de valor para cargas de trabalho de uso mais geral e levando a Ev3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de rede e disco foram ajustados em uma base por núcleo para alinhar com a mudança para o hyperthreading.  A série Ev3 é o acompanhamento até os tamanhos de VM de memória alta das famílias D/Dv2.
 
@@ -32,9 +31,9 @@ Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta pa
 
 ACU: 160-190 <sup>1</sup>
 
-Armazenamento Premium:  Com suporte
+Armazenamento Premium:  Suportado
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de Armazenamento Premium:  Suportado
 
 As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. As instâncias Ev3-series são ideais para aplicativos empresariais com uso intensivo de memória.
 
@@ -93,9 +92,9 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 
 ACU: 160-180 <sup>1</sup>
 
-Armazenamento Premium:  Com suporte
+Armazenamento Premium:  Suportado
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de Armazenamento Premium:  Suportado
 
 Acelerador de Gravação:  [Com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -131,9 +130,9 @@ Acelerador de Gravação:  [Com suporte](https://docs.microsoft.com/azure/virtua
 
 ACU: 180 - 240 <sup>1</sup>
 
-Armazenamento Premium:  Com suporte
+Armazenamento Premium:  Suportado
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de Armazenamento Premium:  Suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -170,14 +169,13 @@ Cache de Armazenamento Premium:  Sem suporte
 <sup>1</sup> A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>Série DSv2 11-15
 
 ACU: 210 - 250 <sup>1</sup>
 
-Armazenamento Premium:  Com suporte
+Armazenamento Premium:  Suportado
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de Armazenamento Premium:  Suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -187,14 +185,10 @@ Cache de Armazenamento Premium:  Com suporte
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000 / 640 (720) |64.000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para ver os detalhes, confira [Projetar para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
-
-<sup>3</sup> Tamanhos limitados de núcleos disponíveis.
-
-<sup>4</sup> 25000 Mbps com Rede Acelerada.
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para ver os detalhes, confira [Projetar para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.  
+<sup>3</sup> Tamanhos limitados de núcleos disponíveis.  
+<sup>4</sup> 25000 Mbps com Rede Acelerada. 
 
 <br>
 
@@ -214,13 +208,5 @@ Cache de Armazenamento Premium:  Sem suporte
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> A instância é isolada em hardware dedicado a um único cliente. 
-
-<sup>2</sup> 25000 Mbps com Rede Acelerada.
-
-
-
-<br>
-
-
-
+<sup>1</sup> A instância é isolada em hardware dedicado a um único cliente.  
+<sup>2</sup> 25000 Mbps com Rede Acelerada. 

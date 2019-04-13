@@ -11,21 +11,21 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867245"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545989"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
 Machine learning automatizado é o processo de pegar os dados de treinamento com um recurso de destino definida e iterar por combinações de algoritmos e seleções de recurso para selecionar automaticamente o melhor modelo para seus dados com base nas pontuações de treinamento. O processo de desenvolvimento do modelo de machine learning tradicional é altamente intensivo de recursos e requer conhecimento de domínio significativo e investimento de tempo para executar e comparar os resultados de dezenas de modelos. O machine learning automatizado simplifica esse processo gerando modelos ajustados os objetivos e restrições que você definiu para o seu experimento, como o tempo para o experimento a ser executado.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 1. Você configura o tipo de problema de aprendizado de máquina que está tentando resolver. Categorias de aprendizado supervisionado são compatíveis:
-   + Classificação
+   + classificação
    + Regressão
    + Previsão
 
@@ -51,27 +51,14 @@ Durante o treinamento, o serviço Azure Machine Learning cria um número de pipe
 
 Você pode inspecionar as informações de execução registradas, que contêm as métricas coletadas durante a execução. A execução de treinamento também produz um objeto serializado do Python (`.pkl` arquivo) que contém o pré-processamento de modelo e de dados.
 
-## <a name="model-explainability"></a>Explicabilidade do modelo
 
-Uma armadilha comum do aprendizado de máquina automatizado é uma incapacidade de ver o processo de ponta a ponta. O Azure Machine Learning permite que você visualize informações detalhadas sobre os modelos para aumentar a transparência sobre o que está sendo executado no back-end. Alguns modelos, como a regressão linear, são considerados bastante simples e, portanto, fácil de entender. Mas como podemos adicionar mais recursos e usar modelos de machine learning, entendê-los se torna cada vez mais difícil. Há dois aspectos importantes para transparência no machine learning:
-
-1. Reconhecimento do pipeline do machine learning e todas as etapas envolvidas incluindo pré-processamento/peronsalização de dados e valores de hiperparâmetro.
-1. Noções básicas sobre a relação entre variáveis de entrada (também conhecido como "recursos") de entrada e saída do modelo.  Saber a magnitude e a direção do impacto de cada recurso no valor previsto ajuda a entender melhor e explicar o modelo. Isso é conhecido como a importância do recurso.
-
-Você pode habilitar o treinamento de postagem sob demanda de importância de recurso global para o pipeline de sua escolha, ou habilitá-la para todos os pipelines como parte do treinamento de aprendizado de máquina automatizado. Em setores altamente regulamentados, como serviços de saúde e serviços bancários, isso é essencial para estar em conformidade com normas e práticas recomendadas.  Aqui estão alguns cenários do mundo real para ilustrar:
-
-1. Uma empresa de fabricação usando o aprendizado de máquina para prever falhas futuras instrumento, portanto, eles podem proativamente executar atividades de manutenção. Quando você souber que um instrumento está prestes a falhar, o que é a causa mais provável estará assim manutenção preventiva pode ser executada rapidamente?
-1. Uma instituição financeira usando o machine learning para aplicativos de cartão de crédito ou empréstimos de processo. Como saber se o modelo está fazendo a coisa certa, e se um cliente solicita para obter mais detalhes sobre por que seu aplicativo foi rejeitado, como você responde a eles?
-1. Uma loja online ou um provedor de software independente usando o aprendizado de máquina para prever a rotatividade de clientes. Quais são os principais colaboradores para o cliente de variação e como pode você impedir que os clientes reconfortante?
-
-Esse é um recurso de visualização e continuaremos a investir no fornecimento de informações mais detalhadas para ajudá-lo a entender melhor os seu modelos de aprendizado de máquina. Siga esse [exemplo de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) para fazer experiências com explicações de modelo no Azure Machine Learning.
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Veja exemplos e saiba como criar modelos usando o aprendizado de máquina automatizado:
-+ [Exemplos: Usar Jupyter notebooks para explorar o serviço do Azure Machine Learning](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Treinar automaticamente um modelo de classificação com o Machine Learning Automatizado do Azure](tutorial-auto-train-models.md)
+
++ [Exemplos de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [Usar o treinamento automático em um recurso remoto](how-to-auto-train-remote.md)
 

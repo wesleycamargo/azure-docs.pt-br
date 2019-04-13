@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802823"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526819"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Pode usar o [Azure Media Services Player](https://amsplayer.azurewebsites.net/az
 Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto. O cliente precisa extrair as informações necessárias dos arquivos de manifesto de streaming para fazer uma solicitação para o serviço de distribuição de chaves.
 
 ### <a name="manifest-files"></a>Arquivos de manifesto
-O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O snippet de código a seguir mostra o elemento <Protection> do manifesto Smooth Streaming:
+O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O snippet de código a seguir mostra o elemento `<Protection>` do manifesto Smooth Streaming:
 
 ```xml
     <Protection>

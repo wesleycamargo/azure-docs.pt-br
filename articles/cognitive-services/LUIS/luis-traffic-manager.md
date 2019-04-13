@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736542"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523402"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
 O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**. 
@@ -86,7 +86,7 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     |-RelativeDnsName|luis-dns-eastus|Esse é o subdomínio do serviço: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Intervalo de sondagem, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|A porta e o protocolo do LUIS é HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Substitua <appIdLuis> e <subscriptionKeyLuis> pelos seus próprios valores.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Substitua `<appIdLuis>` e `<subscriptionKeyLuis>` pelos seus próprios valores.|
     
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
@@ -154,7 +154,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     |-RelativeDnsName|luis-dns-westus|Esse é o subdomínio do serviço: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Intervalo de sondagem, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|A porta e o protocolo do LUIS é HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Substitua <appId> e <subscriptionKey> pelos seus próprios valores. Lembre-se de que essa chave de ponto de extremidade é diferente da chave de ponto de extremidade leste|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Substitua `<appId>` e `<subscriptionKey>` pelos seus próprios valores. Lembre-se de que essa chave de ponto de extremidade é diferente da chave de ponto de extremidade leste|
     
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 

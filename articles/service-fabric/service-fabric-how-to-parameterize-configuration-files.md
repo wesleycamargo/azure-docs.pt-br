@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102662"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524507"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar os arquivos de configuração no Service Fabric
 
@@ -27,7 +27,7 @@ Este artigo mostra como parametrizar os arquivos de configuração no Service Fa
 
 Neste exemplo, você deve substituir um valor de configuração usando os parâmetros na implantação do aplicativo.
 
-1. Abra o arquivo *<MyService>\PackageRoot\Config\Settings.xml* em seu projeto de serviço.
+1. Abra o  *\<MyService > \PackageRoot\Config\Settings.xml* arquivo em seu projeto de serviço.
 1. Defina um nome de parâmetro de configuração e valor, por exemplo, tamanho do cache igual a 25, ao adicionar o seguinte XML:
 
    ```xml
@@ -37,7 +37,7 @@ Neste exemplo, você deve substituir um valor de configuração usando os parâm
    ```
 
 1. Salve e feche o arquivo.
-1. Abra o arquivo *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
+1. Abra o  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* arquivo.
 1. No arquivo ApplicationManifest.xml, declare um parâmetro e um valor padrão no elemento `Parameters`.  É recomendado que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
 
    ```xml

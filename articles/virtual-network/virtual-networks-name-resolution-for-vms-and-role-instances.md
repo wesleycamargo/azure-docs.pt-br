@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426419"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527176"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -147,7 +147,7 @@ O encaminhamento do DNS também possibilita a resolução do DNS entre redes vir
 
 > [!NOTE]
 > Uma instância de função pode executar a resolução de nomes de máquinas virtuais na mesma rede virtual. Isso é feito usando o FQDN, que consiste no nome do host da VM e o sufixo DNS **internal.cloudapp.net**. No entanto, nesse caso, a resolução de nomes só será bem-sucedida se a instância de função tiver o nome da VM definido no [Esquema de Função (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > As instâncias de função que precisam executar a resolução de nomes de VMs em outra rede virtual (FQDN usando o sufixo **internal.cloudapp.net**) precisam fazer isso usando o método descrito nesta seção (servidores DNS de encaminhamento personalizados entre as duas redes virtuais).
 >
@@ -210,7 +210,7 @@ Ao usar o modelo de implantação clássica, você pode especificar os servidore
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Modelo de implantação do Azure Resource Manager:
 
@@ -220,5 +220,5 @@ Modelo de implantação do Azure Resource Manager:
 Modelo de implantação clássico:
 
 * [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Esquema de configuração de rede virtual](https://msdn.microsoft.com/library/azure/jj157100)
-* [Configurar uma rede Virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
+* [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
+* [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)

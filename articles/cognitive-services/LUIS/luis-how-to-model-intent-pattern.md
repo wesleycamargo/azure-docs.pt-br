@@ -1,7 +1,7 @@
 ---
 title: Padrões aumentam a precisão
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Saiba como adicionar modelos padrão em aplicativos LUIS (Reconhecimento Vocal) para aumentar a precisão da previsão.
+description: Adicione modelos padrão para aumentar a precisão de previsão em aplicativos Luis (reconhecimento vocal a linguagem).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195040"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521247"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para aumentar a precisão de previsão
-Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use uma [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revelam um padrão na ordem das palavras e a escolha do word. Padrões usam specific [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar o local de: [entidades](luis-concept-entity-types.md), funções de entidade e um texto opcional.
+Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use uma [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revelam um padrão na ordem das palavras e a escolha do word. Padrões usam specific [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar a localização de: [entidades](luis-concept-entity-types.md), entidade [funções](luis-concept-roles.md)e texto opcional.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Adicionar declaração modelo para criar o padrão
 1. Abra o aplicativo selecionando seu nome na página **Meus Aplicativos** e, em seguida, selecione **Padrões** no painel esquerdo, sob **Melhorar o desempenho do aplicativo**.
@@ -34,7 +34,7 @@ Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use 
 
     ![Captura de tela de entidade do padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se a entidade incluir uma função, indique a função com um único dois-pontos, `:`, após o nome da entidade, como `{Location:Origin}`. A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter. 
+    Se sua entidade inclui um [função](luis-concept-roles.md), indicam a função com um único dois pontos `:`, depois que o nome de entidade, como `{Location:Origin}`. A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter. 
 
     ![Captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -71,7 +71,7 @@ A barra de ferramentas contextual acima da lista de padrões permite que você:
 * Remover o filtro de entidade ou intenção
 * Adicionar padrão de declaração existente na página de intenção ou de entidade
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [criar um padrão](luis-tutorial-pattern.md) com um pattern.any e funções com um tutorial.
 * Saiba como [treinar](luis-how-to-train.md) seu aplicativo.

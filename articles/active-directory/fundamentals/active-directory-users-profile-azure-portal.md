@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11c71f7f5a329a836d379a16afe66c08572ccde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177981"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548026"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Como adicionar ou atualizar as informações do perfil de um usuário usando o Azure Active Directory
 Adicione informações de perfil de usuário, incluindo uma imagem do perfil, informações específicas do trabalho e algumas configurações usando o Azure AD (Azure Active Directory). Para obter mais informações sobre como adicionar novos usuários, consulte [Como adicionar ou excluir usuários no Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,7 +26,7 @@ Adicione informações de perfil de usuário, incluindo uma imagem do perfil, in
 Como você verá, há mais informações disponíveis no perfil de um usuário do que você pode adicionar durante a criação do usuário. Todas essas informações adicionais são opcionais e podem ser adicionadas conforme a necessidade da sua organização.
 
 ## <a name="to-add-or-change-profile-information"></a>Para adicionar ou as alterar informações do perfil
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global ou administrador de usuários para o diretório.
+1. Entrar para o [portal do Azure](https://portal.azure.com/) como um administrador de usuário para a organização.
 
 2. Selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione um usuário. Por exemplo, _Alain Charon_.
 
@@ -40,7 +40,7 @@ Como você verá, há mais informações disponíveis no perfil de um usuário d
 
     - **Imagem do perfil.** Selecione uma imagem em miniatura para a conta do usuário. Esta imagem aparece no Azure Active Directory e nas páginas pessoais do usuário, como a página myapps.microsoft.com.
 
-    - **Identidade.** Adicione qualquer informação relacionada à conta, como um sobrenome ou um nome de usuário alterado. 
+    - **Identidade.** Adicionar ou atualizar um valor de identidade adicional para o usuário, como um sobrenome casado. Você pode definir esse nome independentemente dos valores de nome e sobrenome. Por exemplo, você pode usá-lo para incluir iniciais, um nome de empresa, ou para alterar a sequência de nomes mostrados. Em outro exemplo, para dois usuários cujos nomes são 'Chris Green' você pode usar a cadeia de caracteres de identidade para definir seus nomes para 'Chris B. Green' 'Chris r. verde (Contoso).'
 
     - **Informações do trabalho.** Adicione qualquer informação relacionada ao trabalho como cargo, departamento ou gerente do usuário.
 

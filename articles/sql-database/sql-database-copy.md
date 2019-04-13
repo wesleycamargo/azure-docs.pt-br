@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486811"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549674"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Fazer uma cópia consistente transicionalmente de um banco de dados SQL do Azure
 
@@ -90,10 +90,16 @@ Esse comando copia o Database1 no servidor 1- para um novo banco de dados chamad
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Firewalls de ambos os servidores devem ser configurados para permitir a conexão de entrada do IP do cliente emitir o comando de cópia de T-SQL.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Para mover um banco de dados entre assinaturas
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar um banco de dados SQL para uma assinatura diferente
 
-No [Portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que hospeda seu banco de dados da lista. Clique em **Mover**, então selecione os recursos a mover e a assinatura para a qual movê-los.
+Você pode usar o descrbed etapas na seção anterior para copiar seu banco de dados para um servidor de banco de dados SQL em uma assinatura diferente. Verifique se você usar um logon que tem o mesmo nome e senha como o proprietário do banco de dados do banco de dados de origem e é um membro da função dbmanager ou é o logon principal no nível do servidor. 
+
+> [!NOTE]
+> O [portal do Azure](https://portal.azure.com) não oferece suporte de cópia para uma assinatura diferente, pois o Portal chama a API do ARM e usa os certificados de assinatura para ambos os servidores envolvidos na replicação geográfica de acesso.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 
@@ -113,7 +119,7 @@ Todos os usuários no novo banco de dados mantêm as permissões que tinham no b
 
 Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor do Banco de Dados SQL diferente, confira [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) (Como gerenciar a segurança do Banco de Dados SQL do Azure após a recuperação de desastre).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre logons, consulte [Gerenciar logons](sql-database-manage-logins.md) e [Como gerenciar a segurança de Banco de Dados SQL do Azure após a recuperação de desastres](sql-database-geo-replication-security-config.md).
 * Para exportar um banco de dados, consulte [Exportar o banco de dados para um BACPAC](sql-database-export.md).

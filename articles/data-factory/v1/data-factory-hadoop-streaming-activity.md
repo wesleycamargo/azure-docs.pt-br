@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025166"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523215"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ Observe os seguintes pontos:
 2. Defina o tipo da atividade como **HDInsightStreaming**.
 3. Para a propriedade **mapper** , especifique o nome do executável do mapeador. No exemplo, cat.exe é o executável do mapeador.
 4. Para a propriedade **reducer** , especifique o nome do executável do redutor. No exemplo, wc.exe é o executável do redutor.
-5. Para a propriedade de tipo **input** , especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
+5. Para a propriedade de tipo **input** , especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
 6. Para a propriedade de tipo **output** , especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade.
 7. Na seção **filePaths** , especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
 8. Para a propriedade **fileLinkedService** , especifique o serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.

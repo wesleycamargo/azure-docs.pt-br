@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491280"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524031"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -50,7 +50,7 @@ Antes de criar um emparelhamento, familiarize-se com os requisitos e restriçõe
 5. <a name="add-peering"></a>Insira ou selecione valores para as seguintes configurações:
     - **Nome:** o nome para o emparelhamento deve ser exclusivo na rede virtual.
     - **Modelo de implantação de rede virtual**: selecione com qual modelo a rede virtual que você deseja emparelhar foi implantada.
-    - **Sei minha ID do recurso**: se você tem acesso de leitura à rede virtual com a qual deseja emparelhar, deixe essa caixa de seleção desmarcada. Se você não tiver acesso de leitura para a rede virtual ou a assinatura que você deseja emparelhar, marque essa caixa de seleção. Insira a ID de recurso completo da rede virtual que você deseja emparelhar na caixa **ID de Recurso** exibida quando você tiver marcado a caixa. A ID de recurso que você digitar deverá ser para uma rede virtual existente na mesma [região](https://azure.microsoft.com/regions) ou região [diferente com suporte](#requirements-and-constraints) do Azure que essa rede virtual. A ID de recurso completo é semelhante a /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>. Você pode obter a ID de recurso para uma rede virtual ao exibir as propriedades de uma rede virtual. Para saber como exibir as propriedades de uma rede virtual, confira [Gerenciar as redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a assinatura estiver associada a um locatário do Azure Active Directory diferente da assinatura com a rede virtual da qual você está criando o emparelhamento, primeiro adicione um usuário de cada locatário como um [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto.
+    - **Sei minha ID do recurso**: se você tem acesso de leitura à rede virtual com a qual deseja emparelhar, deixe essa caixa de seleção desmarcada. Se você não tiver acesso de leitura para a rede virtual ou a assinatura que você deseja emparelhar, marque essa caixa de seleção. Insira a ID de recurso completo da rede virtual que você deseja emparelhar na caixa **ID de Recurso** exibida quando você tiver marcado a caixa. A ID de recurso que você digitar deverá ser para uma rede virtual existente na mesma [região](https://azure.microsoft.com/regions) ou região [diferente com suporte](#requirements-and-constraints) do Azure que essa rede virtual. O recurso completo ID é semelhante ao `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. Você pode obter a ID de recurso para uma rede virtual ao exibir as propriedades de uma rede virtual. Para saber como exibir as propriedades de uma rede virtual, confira [Gerenciar as redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a assinatura estiver associada a um locatário do Azure Active Directory diferente da assinatura com a rede virtual da qual você está criando o emparelhamento, primeiro adicione um usuário de cada locatário como um [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto.
     - **Assinatura:** Selecione a [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) da rede virtual que você deseja emparelhar. Uma ou mais assinaturas estão listadas, dependendo de quantas assinaturas sua conta tem acesso de leitura. Se você tiver marcado a caixa de seleção **ID de Recurso**, essa configuração não estará disponível.
     - **Rede virtual:** Selecione a rede virtual com a qual deseja emparelhar. Você pode selecionar uma rede virtual criada por meio de qualquer um dos modelos de implantação do Azure. Se você deseja selecionar uma rede virtual em uma região diferente, deve selecionar uma rede virtual em um [região com suporte](#cross-region). Você deve ter acesso de leitura para a rede virtual para que ela fique visível na lista. Se uma rede virtual estiver listada, mas esmaecida, pode ser porque o espaço de endereço para a rede virtual se sobrepõe ao espaço de endereço para essa rede virtual. Se os espaços de endereço de rede virtual se sobrepõem, eles não podem ser emparelhados. Se você tiver marcado a caixa de seleção **ID de Recurso**, essa configuração não estará disponível.
     - **Permitir acesso à rede virtual:** Selecione **Habilitado** (padrão), se quiser habilitar a comunicação entre as duas redes virtuais. Habilitar a comunicação entre redes virtuais permite que os recursos conectados a qualquer rede virtual se comuniquem entre si com a mesma largura de banda e latência como se estivessem conectados à mesma rede virtual. Todas as comunicações entre os recursos nas duas redes virtuais estão na rede privada do Azure. A marcação de serviço **VirtualNetwork** para grupos de segurança de rede abrange a rede virtual e a rede virtual emparelhada. Para saber mais sobre as marcas de serviço dos grupos de segurança de rede, confira [Visão geral dos grupos de segurança de rede](security-overview.md#service-tags). Selecione **Desabilitado** se não quiser que o tráfego flua para a rede virtual emparelhada. Você pode selecionar **Desabilitado** se você tiver emparelhadas uma rede virtual com outra rede virtual, mas, ocasionalmente, deseja desabilitar o fluxo do tráfego entre as duas redes virtuais. Você pode achar que a habilitação e desabilitação é mais conveniente que excluir e recriar emparelhamentos. Quando essa configuração estiver desabilitada, o tráfego não flui entre as redes virtuais emparelhadas.
@@ -156,9 +156,9 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
 
   |Modelo de implantação do Azure             | Assinatura  |
   |---------                          |---------|
-  |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
+  |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|
-  |Um Resource Manager, um clássico  |[Idêntico](create-peering-different-deployment-models.md)|
+  |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
   |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 - Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)

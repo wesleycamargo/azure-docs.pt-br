@@ -1,19 +1,18 @@
 ---
-title: Autenticar trabalho do Azure Stream Analytics para saída do Azure Data Lake Storage Gen1
+title: Autenticar o Azure Data Lake armazenamento Gen1 saída do trabalho do Azure Stream Analytics
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257970"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522054"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar o Stream Analytics para o Azure Data Lake armazenamento Gen1 usando identidades gerenciadas
 
@@ -100,36 +99,40 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
    Essa propriedade instrui o Azure Resource Manager a criar e gerenciar a identidade para seu trabalho do Azure Stream Analytics.
 
    **Trabalho de exemplo**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
-   **Exemplo de resposta de trabalho**
+   **Resposta do trabalho de exemplo**
 
    ```json
    {
@@ -145,7 +148,8 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Tome nota da ID da Entidade de Segurança da resposta de trabalho para permitir acesso ao recurso ADLS exigido.
@@ -169,18 +173,17 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Para saber mais sobre o comando do PowerShell acima, consulte a [AzDataLakeStoreItemAclEntry conjunto](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
+   Para saber mais sobre o comando do PowerShell acima, consulte a [AzDataLakeStoreItemAclEntry conjunto](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
 
 ## <a name="limitations"></a>Limitações
 Esse recurso não oferece suporte a seguir:
 
-1.  **Acesso de vários locatário**: A entidade de serviço criada para um determinado trabalho de Stream Analytics reside no locatário do Azure Active Directory no qual o trabalho foi criado e não pode ser usado em um recurso que reside em um locatário do Azure Active Directory diferente. Portanto, somente você pode usar o MSI em recursos do ADLS Gen 1 que estão no mesmo locatário do Azure Active Directory que o trabalho do Azure Stream Analytics. 
+1. **Acesso de vários locatário**: A entidade de serviço criada para um determinado trabalho de Stream Analytics reside no locatário do Azure Active Directory no qual o trabalho foi criado e não pode ser usado em um recurso que reside em um locatário do Azure Active Directory diferente. Portanto, somente você pode usar o MSI em recursos do ADLS Gen 1 que estão no mesmo locatário do Azure Active Directory que o trabalho do Azure Stream Analytics. 
 
-2.  **[Identidade atribuída pelo usuário](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: não há suporte para isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usado por seu trabalho de Stream Analytics. A entidade de serviço é gerada pelo Azure Stream Analytics. 
-
+2. **[Identidade atribuída pelo usuário](../active-directory/managed-identities-azure-resources/overview.md)**: não há suporte. Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usado por seu trabalho de Stream Analytics. A entidade de serviço é gerada pelo Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar uma saída do Data lake Store com o stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Dados dinâmicos do teste localmente usando o Azure Stream Analytics tools para Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 

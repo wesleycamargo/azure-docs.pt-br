@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267694"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521709"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure metas de desempenho e escalabilidade do armazenamento para contas de armazenamento
 
@@ -58,13 +58,13 @@ Por exemplo:  Um único compartilhamento pode alcançar a 100.000 IOPS e um úni
 
 |Área  |Destino  |
 |---------|---------|
-|Tamanho mínimo                        |100 GiB      |
-|Tamanho máx.                        |100 TiB      |
+|Tamanho mínimo provisionado                        |100 GiB      |
+|Max provisionado tamanho                        |100 TiB      |
 |Aumentar/diminuir de tamanho mínimo    |1 GiB      |
 |IOPS de linha de base    |1 IOPS por GiB até 100.000|
 |IOPS de intermitência    |3 x IOPS por GiB até 100.000|
-|Largura de banda mínima                     |100        |
-|Largura de banda |0,1 MB/s de por GiB até 5 GiB/s     |
+|Taxa de saída         |60 MiB/s + 0,06 * provisionado GiB        |
+|Taxa de entrada| 40 MiB/s + 0,04 * provisionado GiB |
 |Número máximo de instantâneos        |200       |
 
 #### <a name="premium-file-limits"></a>Limites de arquivo do Premium
@@ -89,9 +89,9 @@ A sincronização de Arquivos do Azure foi projetado com o objetivo de uso ilimi
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
-- [Assinatura do Azure e limites de serviço, cotas e restrições](../../azure-subscription-service-limits.md)
+- [Assinatura do Azure e limites de serviços, cotas e restrições](../../azure-subscription-service-limits.md)
 - [Replicação de armazenamento do Azure](../storage-redundancy.md)
-- [Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure](../storage-performance-checklist.md)
+- [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../storage-performance-checklist.md)

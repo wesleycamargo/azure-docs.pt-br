@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875179"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549722"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de IP do SQL Data Warehouse e do Banco de Dados SQL do Azure
 
@@ -249,6 +249,7 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Confirme se o que seu ambiente de rede corporativa permite a comunicação de entrada os intervalos de endereços IP de computação (inclusive intervalos SQL) usada pelos Datacenters do Microsoft Azure. Talvez seja necessário colocar esses endereços IP, consulte [intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Para um início rápido sobre como criar uma regra de firewall de IP no nível do servidor, veja [Criar um Banco de Dados SQL do Azure](sql-database-single-database-get-started.md).
 - Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para obter informações sobre as portas adicionais que talvez você precise abrir, consulte a seção **Banco de Dados SQL: Fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338219"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549077"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
 
@@ -140,9 +140,9 @@ Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de 
 É recomendável implantar a nova versão do aplicativo de funções em um novo [Slot de implantação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Os slots de implantação permitem que você execute várias cópias de seu aplicativo de funções lado a lado, com apenas uma delas como o slot de *produção* ativo. Quando você estiver pronto para expor a nova lógica de orquestração para sua infraestrutura existente, isso pode ser tão simples quanto colocar a nova versão no slot de produção.
 
 > [!NOTE]
-> Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para gatilhos não HTTP, como filas ou Hubs de Eventos, a definição do gatilho deve derivar de uma configuração de aplicativo que seja atualizada como parte da operação de troca.
+> Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para os gatilhos não HTTP, como filas ou Hubs de eventos, a definição do gatilho deve [derivam de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que seja atualizada como parte da operação de troca.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com problemas de desempenho e escala](durable-functions-perf-and-scale.md)

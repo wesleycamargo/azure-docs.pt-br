@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776641"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526360"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -213,7 +213,7 @@ O recurso da solução tem as propriedades na tabela a seguir.  Isso inclui os r
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| workspaceResourceId |ID do espaço de trabalho do Log Analytics no formato *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Nome do Espaço de Trabalho\>*. |
+| workspaceResourceId |ID do espaço de trabalho do Log Analytics no formulário  *\<ID do grupo de recursos > /providers/Microsoft.OperationalInsights/workspaces/\<nome do espaço de trabalho\>*. |
 | referencedResources |Lista de recursos na solução que não deverão ser removidos quando a solução for removida. |
 | containedResources |Lista de recursos na solução que deverão ser removidos quando a solução for removida. |
 

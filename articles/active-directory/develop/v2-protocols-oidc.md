@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501171"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523453"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e o protocolo OpenID Connect
 
@@ -57,7 +57,7 @@ O `{tenant}` pode ter um de quatro valores:
 | `common` |Os usuários com uma conta pessoal da Microsoft e uma conta corporativa ou de estudante do Azure AD podem entrar aplicativo. |
 | `organizations` |Somente os usuários com contas corporativas ou de estudante do Azure AD podem se conectar ao aplicativo. |
 | `consumers` |Somente os usuários com uma conta pessoal da Microsoft podem entrar no aplicativo. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou o `contoso.onmicrosoft.com` | Somente os usuários com uma conta corporativa ou de estudante de um locatário específico do Azure AD podem entrar no aplicativo. É possível usar o nome de domínio amigável do locatário do Azure AD ou o identificador GUID de locatário. Você também pode usar o locatário do consumidor `9188040d-6c67-4c5b-b112-36a304b66dad`, em vez do `consumers` locatário.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Somente os usuários com uma conta corporativa ou de estudante de um locatário específico do Azure AD podem entrar no aplicativo. É possível usar o nome de domínio amigável do locatário do Azure AD ou o identificador GUID de locatário. Você também pode usar o locatário do consumidor `9188040d-6c67-4c5b-b112-36a304b66dad`, em vez do `consumers` locatário.  |
 
 Os metadados são um documento JSON (JavaScript Object Notation) simples. Veja o snippet a seguir para obter um exemplo. O conteúdo do snippet é totalmente descrito na [especificação do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -215,7 +215,7 @@ Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um 
 
 O fluxo total de entrada e de aquisição de token do OpenID Connect é similar ao próximo diagrama. Descrevemos cada etapa detalhadamente nas próximas seções do artigo.
 
-![Protocolo OpenID Connect: aquisição de token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocolo OpenID Connect: aquisição de token](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>Obter tokens de acesso
 Para obter tokens de acesso, modifique a solicitação de entrada:

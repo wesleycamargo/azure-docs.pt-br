@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915984"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549330"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>As opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
 
@@ -49,7 +49,7 @@ Azure AD dá suporte a dois algoritmos de assinatura ou algoritmos de hash segur
 
 * **SHA-1**. Esse algoritmo é mais antigo, e ele é tratado como menos segura do que o SHA-256. Se o aplicativo der suporte somente a esse algoritmo de assinatura, você poderá selecionar essa opção na lista suspensa de **Algorítimo de Assinatura**. O Azure AD assina a resposta SAML com o algoritmo SHA-1.
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>Alterar as opções de assinatura de certificado e o algoritmo de assinatura de certificado
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Alterar opções de assinatura e o algoritmo de assinatura de certificado
 
 Para alterar as opções de assinatura de certificado de SAML do aplicativo e o algoritmo de assinatura de certificado, selecione o aplicativo em questão:
 
@@ -79,7 +79,7 @@ Em seguida, altere o opções no token SAML para o aplicativo de assinatura de c
 
 8. Se você estiver satisfeito com suas escolhas, selecione **salvar** aplicar de nova configurações de certificado de assinatura de SAML. Caso contrário, selecione a **X** para descartar as alterações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Configurar o logon único para aplicativos que não estão na Galeria de aplicativo do Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solucionar problemas com base em SAML SSO](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Solução de problemas de logon único baseado em SAML](../develop/howto-v1-debug-saml-sso-issues.md)

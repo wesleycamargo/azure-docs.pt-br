@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049751"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526581"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Assinaturas no Gerenciamento de API do Azure
 
@@ -51,9 +51,6 @@ Tradicionalmente, as assinaturas no Gerenciamento de API sempre foram associadas
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Assinaturas para todas as APIs ou uma API individual
 
-> [!NOTE]
-> Atualmente, esse recurso está disponível apenas na camada de Consumo de Gerenciamento de API.
-
 Quando introduzimos o nível de [Consumo](https://aka.ms/apimconsumptionblog) do Gerenciamento de API, fizemos algumas alterações para aperfeiçoar o gerenciamento de chaves:
 - Primeiro, adicionamos mais dois escopos de assinatura: todas as APIs e uma única API. O escopo das assinaturas não está mais limitado a um produto da API. Agora é possível criar chaves que concedem acesso a uma API ou a todas as APIs em uma instância do Gerenciamento de API, sem que seja necessário criar um produto e adicionar as APIs a ele primeiro. Além disso, cada instância de Gerenciamento de API agora vem com uma assinatura imutável para todas as APIs. Essa assinatura torna mais fácil e mais simples testar e depurar APIs dentro do console de teste.
 
@@ -63,9 +60,9 @@ Quando introduzimos o nível de [Consumo](https://aka.ms/apimconsumptionblog) do
 
     ![Assinaturas flexíveis](./media/api-management-subscriptions/flexible-subscription.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o Gerenciamento de API:
 
 + Conheça outros [conceitos](api-management-terminology.md) no Gerenciamento de API.
 + Siga nossos [tutoriais](import-and-publish.md) para saber mais sobre o Gerenciamento de API.
-+ Verifique nossa [página de Perguntas Frequentes](api-management-faq.md) para obter respostas a perguntas costumeiras.
++ Verifique nossa [página de perguntas Frequentes](api-management-faq.md) para perguntas comuns.

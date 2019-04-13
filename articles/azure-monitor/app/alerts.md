@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491535"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548689"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
@@ -45,7 +45,7 @@ Abra a guia regras de alerta e, em seguida, use o botão Adicionar.
 * Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * Você pode desabilitar ou habilitar o alerta: Veja os botões na parte superior.
 
-*Não vejo o botão Adicionar alerta.*
+*Não vejo o botão Adicionar Alerta.*
 
 * Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Examine a guia de controle de acesso. [Saiba mais sobre o controle de acesso][roles].
 
@@ -147,7 +147,7 @@ Nesta seção, veremos como definir um alerta de exceção baseado em consulta. 
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como cancelar a assinatura de notificações por email de alerta clássico
 
-Esta seção aplica-se a **alertas de disponibilidade clássico**, **alertas de métrica do Application Insights**e, ao **alertas de anomalias de falha clássico**.
+Esta seção aplica-se a **alertas de disponibilidade clássico**, **alertas de métrica clássicos do Application Insights**e, ao **alertas de anomalias de falha clássico**.
 
 Você está recebendo notificações de email para esses alertas clássicos se qualquer um dos seguintes for aplicável:
 

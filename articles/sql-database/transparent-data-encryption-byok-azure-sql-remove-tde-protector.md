@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847816"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528250"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de TDE (Transparent Data Encryption) usando PowerShell
 
@@ -40,6 +40,12 @@ Os procedimentos a seguir devem ser feitos apenas em casos extremos ou em ambien
 Se houver a suspeita de que uma chave está comprometida, de modo que um serviço ou usuário tenha acesso não autorizado à chave, é melhor excluir a chave.
 
 Lembre-se de que, depois que o protetor de TDE for excluído no Key Vault, **todas as conexões com os bancos de dados criptografados no servidor serão bloqueadas e esses bancos de dados ficarão offline e serão removidos em 24 horas**. Backups antigos criptografados com a chave comprometida não serão mais acessíveis.
+
+As etapas a seguir descrevem como verificar as impressões digitais do protetor de TDE ainda em uso pelo Virtual Log arquivos VLF () de um determinado banco de dados. A impressão digital do protetor de TDE do banco de dados e a ID de banco de dados pode ser encontrada executando: Selecione database_id,       [encryption_state], [encryptor_type] /*AKV significa que a chave assimétrica, certificado significa chaves gerenciadas pelo serviço*/ [encryptor_thumbprint] de [sys]. [ dm_database_encryption_keys] 
+ 
+A consulta a seguir retorna os VLFs e o Criptografador impressões digitais do respectivas em uso. Cada impressão digital diferente se refere à chave diferente no AKV Azure Key Vault (): SELECT * FROM sys.dm_db_log_info (database_id) 
+
+O comando do PowerShell Get-AzureRmSqlServerKeyVaultKey fornece a impressão digital do protetor de TDE usado na consulta, para que você possa ver quais teclas para manter e quais teclas para exclusão no AKV. Somente as chaves não é mais usadas pelo banco de dados podem ser excluídas com segurança do Azure Key Vault.
 
 Este guia de instruções abrange duas abordagens, dependendo do resultado desejado após a resposta ao incidente:
 

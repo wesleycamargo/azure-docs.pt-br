@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268493"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544748"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -46,7 +46,7 @@ Os runbooks na Automação do Azure podem ser executados em uma área restrita n
 |Instalação do módulo que requer o instalador|Hybrid Runbook Worker|Módulos para a área restrita devem ser pode ser copiados|
 |Uso de runbooks ou módulos que exigem o .NET Framework diferente da versão 4.7.2|Hybrid Runbook Worker|Áreas restritas da Automação têm o .NET Framework 4.7.2 e não há maneira de atualizá-lo|
 |Scripts que exigem elevação|Hybrid Runbook Worker|As áreas restritas não permitir a elevação. Para resolver isso, use um Hybrid Runbook Worker e você pode desativar o UAC e usar `Invoke-Command` quando executar o comando que exige elevação|
-|Scripts que exigem acesso ao WMI|Hybrid Runbook Worker|Trabalhos em execução em áreas restritas em nuvem [não têm acesso a WMI](#device-and-application-characteristics)|
+|Scripts que exigem acesso ao WMI|Hybrid Runbook Worker|Trabalhos executados em áreas de segurança na nuvem [não tem acesso ao WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento do runbook
 
@@ -192,7 +192,7 @@ Runbooks executados em áreas restritas do Azure não dão suporte a processos d
 
 ### <a name="device-and-application-characteristics"></a>Características de dispositivo e aplicativo
 
-Trabalhos de runbook executados em áreas restritas do Azure não tem acesso a quaisquer características de dispositivo ou aplicativo. A API mais comuns usada para métricas de desempenho de consulta no Windows é o WMI. Algumas dessas métricas comuns são o uso da memória e CPU. No entanto, não importa qual API é usada. Trabalhos em execução na nuvem não tem acesso a implementação da Microsoft do Web baseado em Enterprise Management (WBEM), que é construído sobre o Common informações de CIM (modelo), que são os padrões do setor para definir as características de dispositivo e aplicativo.
+Trabalhos de runbook executados em áreas restritas do Azure não tem acesso a quaisquer características de dispositivo ou aplicativo. A API mais comuns usada para métricas de desempenho de consulta no Windows é o WMI. Algumas dessas métricas comuns são o uso da memória e CPU. No entanto, não importa qual API é usada. Trabalhos em execução na nuvem não tem acesso à implementação Microsoft da Web com base em WBEM (Enterprise Management), que é criado sobre o Common informações de CIM (modelo), que são os padrões do setor para definir as características de dispositivo e aplicativo.
 
 ## <a name="job-statuses"></a>Status de trabalho
 

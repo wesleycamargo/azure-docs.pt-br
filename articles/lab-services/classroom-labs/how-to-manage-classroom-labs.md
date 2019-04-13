@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651116"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544017"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -28,7 +28,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). 
+1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). Observe que o Internet Explorer 11 ainda não é suportado. 
 2. Selecione **Entrar**. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
 3. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório. 
@@ -37,9 +37,9 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, siga estas etapas:
-    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. No momento, **pequena**, **médio**, **grande**, e **GPU** tamanhos são permitidos.
+    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. No momento, os tamanhos **pequeno**, **médio**, **grande** e **GPU** são permitidos.
     2. Selecione a **região** na qual você deseja criar as VMs. 
-    3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. Se você selecionar uma imagem do Linux, você verá uma opção para habilitar a conexão de área de trabalho remota para ele. Para obter detalhes, consulte [habilitar a conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
+    3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Avançar**.
 
         ![Definir as especificações da VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. As seguintes etapas do tutorial são opcionais: 
     1. Inicie a VM modelo selecionando **Iniciar**.
-    2. Conecte-se à VM modelo selecionando **Conectar**. Se for um modelo de VM do Linux, você escolha se deseja se conectar usando SSH ou RDP (se o RDP está habilitado).
+    2. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
     3. Instale e configure software em sua VM modelo. 
     4. **Pare** a VM.  
     5. Insira uma **descrição** do modelo

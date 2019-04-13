@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477447"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545307"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>O estágio de entendimento empresarial do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -46,7 +46,7 @@ Há duas tarefas principais abordadas neste estágio:
 ### <a name="define-objectives"></a>Definir os objetivos
 1. Um objetivo central desta etapa é identificar as principais variáveis de negócios que a análise precisa prever. Chamamos tais variáveis de *metas modelo* e usamos as métricas associadas a elas para determinar o sucesso do projeto. Dois exemplos dessas metas são a previsão de vendas ou a probabilidade de que um pedido seja fraudulento.
 
-2. Defina as metas do projeto, fazendo perguntas e refinando perguntas “inteligentes” que são relevantes, específicas e inequívocas. A ciência de dados é o processo de usar nomes e números para responder a essas perguntas. Para saber mais sobre como fazer perguntas inteligentes, veja o blog [Como usar a Ciência de Dados](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). A ciência de dados e o aprendizado de máquina são normalmente usados para responder a cinco tipos de perguntas:
+2. Defina as metas do projeto, fazendo perguntas e refinando perguntas “inteligentes” que são relevantes, específicas e inequívocas. A ciência de dados é o processo de usar nomes e números para responder a essas perguntas. A ciência de dados e o aprendizado de máquina são normalmente usados para responder a cinco tipos de perguntas:
  
    * Quanto custa ou quantos? (regressão)
    * Qual categoria? (classificação)

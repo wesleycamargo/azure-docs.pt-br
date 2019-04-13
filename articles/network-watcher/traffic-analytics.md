@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490989"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545392"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -369,3 +369,8 @@ Você tem o tráfego mal-intencionado no seu ambiente? Onde ele é originado? Pa
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Para obter respostas para perguntas frequentes, confira [Perguntas Frequentes sobre Análise de Tráfego](traffic-analytics-faq.md).
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para compreender o esquema e os detalhes da análise de tráfego de processamento, consulte [esquema de análise de tráfego](traffic-analytics-schema.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670113"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543661"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -120,7 +120,7 @@ O **do Service Fabric: Remover aplicativo** comando remove um aplicativo do Serv
 2.  Exiba o cluster local com o Service Fabric Explorer para confirmar que o aplicativo foi removido. Isso pode levar algum tempo, portanto seja paciente.
 
 ### <a name="service-fabric-build-application"></a>O Service Fabric: Criar aplicativo
-O **do Service Fabric: Remover aplicativo** comando pode compilar o Java ou C# aplicativos do Service Fabric. 
+O **do Service Fabric: Criar aplicativo** comando pode compilar o Java ou C# aplicativos do Service Fabric. 
 
 1.  Verifique se que você está na pasta raiz do aplicativo antes de executar esse comando. O comando identifica o tipo de aplicativo (C# ou Java) e compila seu aplicativo adequadamente.
 2.  Selecione o **do Service Fabric: Compilar Aplicativo**.
@@ -133,7 +133,7 @@ O **do Service Fabric: Limpar aplicativo** comando exclui todos os arquivos jar 
 2.  Selecione o **do Service Fabric: Limpar aplicativo** comando.
 3.  A saída do processo de compilação é enviada para o terminal integrado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).

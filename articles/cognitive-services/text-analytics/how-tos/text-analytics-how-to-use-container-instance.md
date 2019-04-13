@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868337"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526480"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma no Serviço de Kubernetes do Azure
 
@@ -206,7 +206,7 @@ As etapas a seguir são necessárias para obter as informações necessárias pa
 
     Salve o valor total para a etapa 3 nesta seção. 
 
-1. Para conceder o acesso correto para que o cluster do AKS use as imagens armazenadas no registro de contêiner, crie uma atribuição de função. Substitua <appId> e <acrId> pelos valores coletados nas duas etapas anteriores.
+1. Para conceder o acesso correto para que o cluster do AKS use as imagens armazenadas no registro de contêiner, crie uma atribuição de função. Substitua `<appId>` e `<acrId>` pelos valores coletados nas duas etapas anteriores.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
@@ -405,7 +405,7 @@ az group delete --name cogserv-container-rg
 
 * [kubectl para usuários do Docker](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 
 * Use mais [Contêineres de Serviços Cognitivos](../../cognitive-services-container-support.md)
 * Usar o Serviço Conectado da Análise de Texto](../vs-text-connected-service.md)

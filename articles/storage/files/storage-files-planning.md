@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283011"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525918"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -109,9 +109,9 @@ Todos os compartilhamentos podem chegar até pelo menos 100 IOPS e destino taxa 
 >
 > Limite de intermitência = 3 * IOPS de linha de base. (Até um máximo de 100.000 IOPS).
 >
-> taxa de saída = 60 MiB/s + 0.06 GiB provisionada (até 6 GiB/s)
+> taxa de saída = 60 MiB/s + 0,06 * provisionado GiB
 >
-> taxa de entrada = 40 MiB/s + 0,04 GiB provisionada (até 4 GiB)
+> taxa de entrada = 40 MiB/s + 0,04 * provisionado GiB
 
 Tamanho do compartilhamento pode ser aumentado a qualquer momento e reduzido a qualquer momento, mas pode ser reduzido uma vez a cada 24 horas desde o último aumento. As alterações de escala IOPS/taxa de transferência entrarão em vigor dentro de 24 horas após a alteração de tamanho.
 
@@ -128,9 +128,9 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos do c
 |10,240 *     | 10,240  | Até 30.720  | 675 | 450   |
 |33,792 *     | 33,792  | Até 100.000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Até 100.000 | 3.132 | 2,088   |
-|100,000 *    | 100.000 | Até 100.000 | 6,204 | 4,136   |
+|102,400 *    | 100.000 | Até 100.000 | 6,204 | 4,136   |
 
-Atualmente, tamanhos de compartilhamento de arquivo até 5 TiB estão em visualização pública, enquanto os tamanhos de até 102 TiB estão em visualização pública limitada, para solicitar acesso a visualização pública limitada completa [desta pesquisa.](https://aka.ms/azurefilesatscalesurvey)
+Atualmente, tamanhos de compartilhamento de arquivo até 5 TiB estão em visualização pública, enquanto os tamanhos de até 100 TiB estão em visualização pública limitada, para solicitar acesso a visualização pública limitada completa [desta pesquisa.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Intermitência
 
@@ -203,7 +203,7 @@ Há muitas opções fáceis para transferência de dados em massa de um arquivo 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. Robocopy pode ser usado para transferir dados para arquivos do Azure montando o compartilhamento de arquivos localmente e, em seguida, usando a localização montada como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: O AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal. O AzCopy está disponível para Windows, Mac e Linux.
 
-## <a name="next-steps"></a>Próximas etapas
-* [Planejando uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md)
-* [Implantando arquivos do Azure](storage-files-deployment-guide.md)
-* [Implantar a sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md)
+## <a name="next-steps"></a>Próximos passos
+* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

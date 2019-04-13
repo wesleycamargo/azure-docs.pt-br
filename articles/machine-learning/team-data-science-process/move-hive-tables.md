@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840640"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522496"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -112,7 +112,7 @@ Se abrir o contêiner padrão do cluster do Hadoop usando o Gerenciador de Armaz
 ![Gerenciador de Armazenamento do Azure mostrando a saída da consulta do Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Enviar consultas de Hive com o Editor de Hive
-Você também pode usar o Console de Consulta (Editor de Hive) inserindo uma URL do formulário *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* em um navegador da Web. Você precisa estar conectado ao console, de forma que precisa de suas credenciais do cluster do Hadoop aqui.
+Você também pode usar o Console de consulta (Editor de Hive) inserindo uma URL do formulário *https:\//\<nome do cluster Hadoop >.azurehdinsight.net/Home/HiveEditor* em um navegador da web. Você precisa estar conectado ao console, de forma que precisa de suas credenciais do cluster do Hadoop aqui.
 
 ### <a name="ps"></a> 3. Enviar consultas de Hive com comandos do PowerShell do Azure
 Você também pode usar o PowerShell para enviar consultas de Hive. Para obter instruções, confira [Enviar trabalhos do Hive usando o PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Veja aqui a consulta Hive que carrega dados em uma tabela Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<caminho para os dados de blob\>**: Se o arquivo de blob a ser carregado na tabela do Hive estiver no contêiner padrão do cluster HDInsight Hadoop, o *\<caminho para os dados de blob\>* deverá estar no formato *'wasb:///<directory in this container>/<blob file name>'*. O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Nesse caso, o *\<caminho para os dados de blob\>* deverá estar no formato *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<caminho para os dados de blob\>**: Se o arquivo de blob a serem carregados na tabela Hive estiver no contêiner padrão do cluster Hadoop do HDInsight, o *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / /\< diretório neste contêiner > /\<nome do arquivo de blob >'*. O arquivo de blob também pode estar em um contêiner adicional do cluster do Hadoop do HDInsight. Nesse caso, *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / /\<nome do contêiner >\<nome da conta de armazenamento >.blob.core.windows.net/\<nome do arquivo de blob >'*.
 
   > [!NOTE]
   > Os dados blob a serem carregados na tabela Hive deve estar no contêiner padrão ou adicional da conta de armazenamento para o cluster do Hadoop. Caso contrário, a consulta *LOAD DATA* falhará reclamando que não pode acessar os dados.

@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918698"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543723"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plano Premium de funções do Azure (visualização)
 
@@ -42,7 +42,7 @@ Os seguintes recursos estão disponíveis para aplicativos de funções implanta
 
 Se nenhum eventos e execuções de hoje ocorrem no plano de consumo, seu aplicativo pode reduzir verticalmente para instâncias de zero. Quando novos eventos chegam, uma nova instância precisa ser especializado com seu aplicativo em execução nele.  Novas instâncias de especialização podem levar algum tempo dependendo do aplicativo.  Essa latência adicional na primeira chamada é frequentemente chamada de inicialização a frio aplicativo.
 
-No plano Premium, você pode ter seu aplicativo previamente começando em um número especificado de instâncias.  Pré-começando instâncias também permitem que você previamente escalar um aplicativo antes de alta carga. Conforme o aplicativo for escalado horizontalmente, ele é dimensionado primeiro nas instâncias da warmed previamente. Continuam instâncias adicionais para armazenar em buffer out e passiva imediatamente em preparação para a próxima operação de escala. Por ter um buffer de instâncias previamente prontas, você pode evitar efetivamente latências de inicialização a frio.  Instâncias previamente prontas é um recurso do plano Premium e você precisa manter pelo menos uma instância em execução e disponíveis em todos os momentos em que o plano está ativo.
+No plano Premium, você pode ter seu aplicativo previamente começando em um número especificado de instâncias, até o tamanho mínimo de plano.  Pré-começando instâncias também permitem que você previamente escalar um aplicativo antes de alta carga. Conforme o aplicativo for escalado horizontalmente, ele é dimensionado primeiro nas instâncias da warmed previamente. Continuam instâncias adicionais para armazenar em buffer out e passiva imediatamente em preparação para a próxima operação de escala. Por ter um buffer de instâncias previamente prontas, você pode evitar efetivamente latências de inicialização a frio.  Instâncias previamente prontas é um recurso do plano Premium e você precisa manter pelo menos uma instância em execução e disponíveis em todos os momentos em que o plano está ativo.
 
 Você pode configurar o número de instâncias prontas previamente no portal do Azure, selecionando **Scale Out** na **recursos de plataforma** guia.
 
@@ -69,6 +69,8 @@ Instâncias de computação adicionais são adicionadas automaticamente para seu
 ### <a name="unbounded-run-duration"></a>Unbounded a duração da execução
 
 Azure Functions em um plano de consumo são limitado a 10 minutos para que uma única execução.  No plano Premium, a duração da execução padrão é 30 minutos para impedir que as execuções de fuga. No entanto, você pode [modificar a configuração do host. JSON](./functions-host-json.md#functiontimeout) para tornar isso unbounded para aplicativos de plano Premium.
+
+Na visualização, sua duração não é garantida após 12 minutos e terá a melhor chance de executar além de 30 minutos, se seu aplicativo não for dimensionado além da sua contagem mínima de trabalho.
 
 ## <a name="plan-and-sku-settings"></a>Configurações de plano e SKU
 
@@ -106,7 +108,6 @@ Abaixo estão as regiões com suporte no momento para a visualização pública.
 |Leste da Austrália|
 |Sudeste da Austrália|
 |Canadá Central|
-|Índia Central|
 |Centro dos EUA|
 |Ásia Oriental|
 |Leste dos EUA 2|

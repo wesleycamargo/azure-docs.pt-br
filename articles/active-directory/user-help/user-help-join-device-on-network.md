@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369132"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524355"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos.
@@ -62,7 +62,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **Acessar trabalho ou escola** e verifique se há algo como: **Conectado a *<sua_organização>* AD do Azure**.
+2. Selecione **acessar trabalho ou escola**e certifique-se de ver o texto que diz algo como **conectado à  *\<your_organization >* do Azure AD**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **Acessar trabalho ou escola** e verifique se há algo como: **Conectado a *<sua_organização>* AD do Azure**.
+2. Selecione **acessar trabalho ou escola**e certifique-se de ver o texto que diz algo como **conectado à  *\<your_organization >* do Azure AD**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

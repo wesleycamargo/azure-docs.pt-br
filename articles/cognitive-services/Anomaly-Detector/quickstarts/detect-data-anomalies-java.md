@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619503"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547032"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início Rápido: Detectar anomalias em seus dados de série temporal usando a API de REST do Detector de anomalias e Java
 
@@ -82,7 +82,7 @@ Use este guia de início rápido para começar a usar os dois modos de detecçã
 3. Ler no arquivo de dados JSON
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
@@ -93,9 +93,9 @@ Use este guia de início rápido para começar a usar os dois modos de detecçã
 
 3. Use a solicitação `setHeader()` função para definir o `Content-Type` cabeçalho `application/json`e adicione sua chave de assinatura para o `Ocp-Apim-Subscription-Key` cabeçalho.
 
-4. Use a solicitação `setEntity()` função aos dados a serem enviados.   
+4. Use a solicitação `setEntity()` função aos dados a serem enviados.
 
-5. Usar o cliente `execute()` função para enviar a solicitação e salve-o em um `CloseableHttpResponse` objeto. 
+5. Usar o cliente `execute()` função para enviar a solicitação e salve-o em um `CloseableHttpResponse` objeto.
 
 6. Criar um `HttpEntity` objeto para armazenar o conteúdo da resposta. Obter o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorná-lo.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. Criar um método chamado `detectAnomaliesBatch()` para detectar anomalias em todo os dados como um lote. Chamar o `sendRequest()` método criado acima com seu ponto de extremidade, url, a chave de assinatura e dados json. Obter o resultado e imprimi-lo no console.
 
-2. Encontre as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém um valor booliano relacionadas ao se um ponto de dados fornecido é uma anomalia. Obter a matriz JSON e iterar por meio dele, o índice de qualquer de impressão `true` valores. Esses valores correspondem ao índice de pontos de dados anormais, caso seja encontrado.
+2. Se a resposta contém `code` campo, o código de erro e a mensagem de erro de impressão.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. Caso contrário, localize as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém um valor booliano relacionadas ao se um ponto de dados fornecido é uma anomalia. Obter a matriz JSON e iterar por meio dele, o índice de qualquer de impressão `true` valores. Esses valores correspondem ao índice de pontos de dados anormais, caso seja encontrado.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do último ponto de dados
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. No método principal do seu aplicativo, no arquivo JSON que contém os dados que serão adicionados às solicitações de leitura.
 
 2. Chame as funções de detecção de dois anomalias criadas acima.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>Exemplo de resposta
 
@@ -180,7 +185,7 @@ Uma resposta bem-sucedida é retornada no formato JSON. Clique nos links abaixo 
 * [Exemplo de resposta de detecção de lote](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Resposta a detecção do ponto mais recente de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

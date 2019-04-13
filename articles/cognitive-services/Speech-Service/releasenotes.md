@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359747"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549398"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -30,7 +30,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 
 **Novos recursos** 
 
-* O SDK agora suporta o serviço de texto em fala como uma versão beta. Ele tem suporte no Windows e Linux da área de trabalho do C++, C#e Java. Para obter mais informações, consulte o [visão geral sobre TTS](text-to-speech.md#get-started-with-text-to-speech).
+* O SDK agora suporta o serviço de texto em fala como uma versão beta. Ele tem suporte no Windows e Linux da área de trabalho do C++ e C#. Para obter mais informações, consulte o [visão geral sobre TTS](text-to-speech.md#get-started-with-text-to-speech).
 * O SDK agora dá suporte a arquivos de áudio MP3 e Opus/Ogg como arquivos de fluxo de entrada. Esse recurso está disponível somente no Linux do C++ e C# e está atualmente em versão beta (mais detalhes [aqui](how-to-use-compressed-audio-input-streams.md)).
 * O Speech SDK para Java, .NET core, Objective-C e C++ tido suporte do macOS. O suporte de Objective-C para macOS está atualmente em versão beta.
 * iOS: O Speech SDK para iOS (Objective-C) agora também é publicado como um CocoaPod.
@@ -42,7 +42,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 * Exemplos de uso do SDK de fala com C++ e Objective-C no macOS foram adicionados.
 * Exemplos demonstram o uso do serviço de texto em fala foram adicionados.
 
-**Melhorias de alterações**
+**Melhorias/Alterações**
 
 * Python: Propriedades adicionais dos resultados do reconhecimento são agora expostas por meio de `properties` propriedade.
 * Para obter suporte adicional de desenvolvimento e depuração, você pode redirecionar informações de registro em log e diagnóstico do SDK em um arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
@@ -81,7 +81,7 @@ O novo conteúdo a seguir está disponível no nosso [repositório de exemplo](h
 * Exemplos adicionais de Java para tradução com saída de áudio.
 * Novo exemplo para usar a [API REST de Transcrição de Lote](batch-transcription.md).
 
-**Melhorias de alterações**
+**Melhorias/Alterações**
 
 * Python
   * Mensagens de erro e verificação de parâmetro aprimoradas em SpeechConfig.
@@ -211,7 +211,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 * Suporte para Objective-C no iOS. Confira nosso [Início Rápido do Objective-C para iOS](quickstart-objectivec-ios.md).
 * Suporte para JavaScript no navegador. Confira nosso [Início Rápido do JavaScript](quickstart-js-browser.md).
 
-**Alterações de última hora**
+**Alterações da falha**
 
 * Com esta versão, um número de alterações significativas é introduzido.
   Confira [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
@@ -226,11 +226,11 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 * Experimental: dê suporte Java 8 no Windows (64 bits) e no Linux (Ubuntu 16.04 x64).
   Confira o [Início Rápido do Java Runtime Environment](quickstart-java-jre.md).
 
-**Alterações funcionais**
+**Alteração funcional**
 
 * Expor informações de detalhe de erro adicionais sobre erros de conexão.
 
-**Alterações de última hora**
+**Alterações da falha**
 
 * No Java (Android), a função `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` não requer mais um parâmetro de caminho. Agora, o caminho é detectado automaticamente em todas as plataformas com suporte.
 * O get-accessor da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -255,11 +255,11 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 **Alterações funcionais**
 
-* `StartContinuousRecognitionAsync()` oferece suporte ao reconhecimento de longa execução.
+* O `StartContinuousRecognitionAsync()` dá suporte ao reconhecimento de execução longa.
 * O resultado do reconhecimento contém mais campos. Eles são deslocados do início do áudio e da duração (ambos em tiques) do texto reconhecido e dos valores adicionais que representam o status de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * Suporte para AuthorizationToken para criar instâncias de fábrica.
 
-**Alterações de última hora**
+**Alterações da falha**
 
 * Eventos de reconhecimento: o tipo de evento NoMatch foi mesclado ao evento Erro.
 * SpeechOutputFormat em C# foi renomeado para OutputFormat para permanecer alinhado com o C++.
@@ -291,7 +291,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
   Ao criar um `SpeechRecognizer`, você pode solicitar o formato de saída `Detailed` ou `Simple`. O `DetailedSpeechRecognitionResult` contém uma pontuação de confiança, texto reconhecido, forma léxica bruta, forma normalizada e forma normalizada com obscenidades mascaradas.
 
-**Alteração significativa**
+**Alterações da falha**
 
 - Alterado para `SpeechRecognitionResult.Text` de `SpeechRecognitionResult.RecognizedText` em C#.
 

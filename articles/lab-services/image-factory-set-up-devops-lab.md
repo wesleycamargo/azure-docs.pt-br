@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439755"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523011"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagem de DevOps do Azure
+# <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagem do Azure DevOps
 Este artigo aborda todas as preparações necessárias para executar a fábrica de imagem de DevOps do Azure (anteriormente conhecido como Visual Studio Team Services).
 
 > [!NOTE]
@@ -44,12 +44,12 @@ DevOps do Azure permitem que você armazene o código-fonte, execute o PowerShel
 
 Se você tiver uma conta de DevOps existente ou um projeto que você deseja usar em vez disso, ignore esta etapa.
 
-Para começar, crie uma conta gratuita no DevOps do Azure. Visite https://www.visualstudio.com/ e selecione **comece de graça** imediatamente sob **DevOps do Azure** (anteriormente conhecido como VSTS). Você precisará escolher um nome de conta exclusivo e certifique-se optar por gerenciar código usando o Git. Depois de criar, salve a URL para seu projeto de equipe. Aqui está um exemplo de URL: https://<accountname>.visualstudio.com/MyFirstProject.
+Para começar, crie uma conta gratuita no DevOps do Azure. Visite https://www.visualstudio.com/ e selecione **comece de graça** imediatamente sob **DevOps do Azure** (anteriormente conhecido como VSTS). Você precisará escolher um nome de conta exclusivo e certifique-se optar por gerenciar código usando o Git. Depois de criar, salve a URL para seu projeto de equipe. Aqui está um exemplo de URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Fazer check-in a fábrica de imagem para o Git
 Todos os o PowerShell, modelos e configuração para a fábrica de imagem estão localizados na [repositório público do GitHub do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). É a maneira mais rápida para obter o código em seu novo projeto de equipe importar um repositório. Isso extrairá o repositório inteiro do DevTest Labs (de modo que você obterá docs extras e exemplos). 
 
-1. Visite o projeto de DevOps do Azure que você criou na etapa anterior (URL se parece com **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Visite o projeto de DevOps do Azure que você criou na etapa anterior (URL se parece com **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Selecione **importar um repositório**.
 3. Insira o **URL de clone** para o repositório de laboratórios de desenvolvimento/teste: `https://github.com/Azure/azure-devtestlab`.
 4. Selecione **Importar**.
@@ -126,5 +126,5 @@ Vamos verificar se você tem tudo configurado corretamente, bastando enfileirar 
 
 ![VMs do laboratório](./media/set-up-devops-lab/vms-in-lab.png)
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 A primeira etapa na configuração de fábrica de imagem com base no Azure DevTest Labs é concluída. No próximo artigo na série, você os receba VMs generalizada e salvos em imagens personalizadas. Em seguida, você os tiver distribuído para todos os seus laboratórios. Consulte o próximo artigo na série: [Salvar imagens personalizadas e distribuir a vários laboratórios da](image-factory-save-distribute-custom-images.md).

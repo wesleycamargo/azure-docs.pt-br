@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478824"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551650"
 ---
 > [!IMPORTANT]
 > **Habilite a sincronização de hash de senha para Azure Active Directory Domain Services, antes de concluir as tarefas neste artigo.**
 >
-> Siga as instruções a seguir, dependendo do tipo de usuários em seu diretório do Microsoft Azure Active Directory. Se você tiver uma combinação de contas de usuário somente em nuvem e sincronizadas em seu diretório do Microsoft Azure Active Directory conclua ambos os conjuntos de instruções.
+> Siga as instruções a seguir, dependendo do tipo de usuários em seu diretório do Microsoft Azure Active Directory. Se você tiver uma combinação de contas de usuário somente em nuvem e sincronizadas em seu diretório do Microsoft Azure Active Directory conclua ambos os conjuntos de instruções. Você não poderá realizar as seguintes operações no caso de você está tentando usar uma conta de convidado de B2B (exemplo, o gmail ou MSA de um provedor de identidade diferente que podemos permitir) porque não temos a senha para esses usuários sincronizados com o domínio gerenciado, pois essas são contas de convidado no diretório. As informações completas sobre essas contas, incluindo suas senhas seria fora do Azure AD e como essas informações não estão no Azure AD, portanto, ele não até mesmo obter sincronizado com o domínio gerenciado. 
 > - [Instruções para contas de usuário somente na nuvem](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instruções para as contas de usuário sincronizadas de um diretório local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

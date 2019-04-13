@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189539"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546889"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
 Este artigo descreve como usar DMVs (Exibições de Gerenciamento Dinâmico) para monitorar a carga de trabalho. Isso inclui a investigação de execução da consulta no SQL Data Warehouse do Azure.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta estiver ativamente aguardando recursos de outra consulta, o estado será **AcquireResources**.  Se a consulta tiver todos os recursos necessários, o estado será **Concedido**.
 
 ## <a name="monitor-tempdb"></a>Monitorar o tempdb
-A alta utilização do tempdb pode ser a causa raiz de problemas de desempenho lento e memória insuficiente. Considere a possibilidade de dimensionar o data warehouse se descobrir que o tempdb está atingindo seus limites durante a execução de consulta. As informações a seguir descrevem como identificar o uso de tempdb por consulta em cada nó. 
+Tempdb é usado para armazenar resultados intermediários durante a execução da consulta. Alta utilização do banco de dados tempdb pode levar à redução de desempenho da consulta. Cada nó no Azure SQL Data Warehouse tem cerca de 1 TB de espaço bruto para tempdb. Abaixo estão as dicas para monitorar o uso de tempdb e para diminuir o uso de tempdb em suas consultas. 
 
-Crie a exibição a seguir para associar a ID do nó apropriado a sys.dm_pdw_sql_requests. Tendo a ID do nó permitirá que você utilize outras DMVs de passagem e una essas tabelas a sys.dm_pdw_sql_requests.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-Para monitorar tempdb, execute a consulta a seguir:
+### <a name="monitoring-tempdb-with-views"></a>Monitoramento de tempdb com modos de exibição
+Para monitorar o uso de tempdb, primeiro instale o [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) exibir da [Microsoft Toolkit para SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Em seguida, você pode executar a consulta a seguir para ver o uso de tempdb por nó para todas as consultas executadas:
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+Se você tiver uma consulta que está consumindo uma grande quantidade de memória ou ter recebido uma mensagem de erro relacionada à alocação de tempdb, ele costuma ocorrer devido a um grande [CTAS CREATE TABLE AS SELECT ()](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instrução em execução que está falhando na operação de movimentação de dados final. Isso geralmente pode ser identificado como uma operação de ShuffleMove no plano de consulta distribuída logo antes do final INSERT SELECT.
+
+A mitigação mais comum é dividir a instrução CTAS ou INSERT SELECT em várias instruções de carga para que o volume de dados não excederá 1TB por limite de tempdb do nó. Você também pode dimensionar o cluster para um tamanho maior que difundirá o tamanho de tempdb em mais nós, reduzindo o tempdb em cada nó individual. 
+
 ## <a name="monitor-memory"></a>Monitorar a memória
 
 A memória pode ser a causa raiz de problemas de desempenho lento e memória insuficiente. Considere a possibilidade de dimensionar o data warehouse se descobrir que o uso de memória do SQL Server está atingindo seus limites durante a execução de consulta.

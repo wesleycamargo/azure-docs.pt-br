@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090968"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521468"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comuns no Stream Analytics e etapas para solucionar problemas
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090968"
 
 ![Bloco de Entradas no painel do Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Para ver mais informações, habilite os logs de diagnóstico para visualizar os detalhes do aviso. Para eventos de entrada malformados, os logs de execução contêm uma entrada com a mensagem que se parece com: "Mensagem: não foi possível desserializar os eventos de entrada do recurso <blob URI> como json ". 
+Para ver mais informações, habilite os logs de diagnóstico para visualizar os detalhes do aviso. Para eventos de entrada malformados, os logs de execução contêm uma entrada com a mensagem que se parece com: "Mensagem: Não foi possível desserializar os eventos de entrada do recurso \<URI do blob > como json ". 
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 

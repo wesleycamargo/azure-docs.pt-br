@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b2eee0bfd32b58cd751f8bf70aff1d4f460a353
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340133"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546570"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importar máquinas virtuais do laboratório outro no Azure DevTest Labs
 Este artigo fornece informações sobre como importar as máquinas virtuais do laboratório de outro para seu laboratório. 
@@ -47,7 +47,7 @@ Há duas restrições de chave a serem consideradas ao planejar importar VMs de 
 - Atualmente, esse recurso tem suporte apenas por meio do Powershell e a API REST.
 
 ## <a name="use-powershell"></a>Usar o PowerShell
-Baixar arquivo ImportVirtualMachines.ps1 do [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1). Você pode usar o script para importar uma única VM ou todas as VMs no laboratório de origem para o laboratório de destino. 
+Baixar arquivo ImportVirtualMachines.ps1 do [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Você pode usar o script para importar uma única VM ou todas as VMs no laboratório de origem para o laboratório de destino. 
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Usar o PowerShell para importar uma única VM
 Executar este script do powershell requer a identificação a VM de origem e o laboratório de destino e, opcionalmente, fornecendo um novo nome a ser usado para a máquina de destino:
@@ -62,7 +62,7 @@ Executar este script do powershell requer a identificação a VM de origem e o l
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Usar o PowerShell para importar todas as VMs no laboratório de origem
-Se a máquina Virtual de origem não for especificado, o script importa automaticamente todas as VMs em DevTest Labs.  Por exemplo:
+Se a máquina Virtual de origem não for especificado, o script importa automaticamente todas as VMs em DevTest Labs.  Por exemplo: 
  
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
