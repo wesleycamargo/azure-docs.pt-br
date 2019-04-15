@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905742"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524269"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -128,7 +128,7 @@ Depois de instalar o Docker, use as seguintes definições para o host do contê
 
 - Para obter mais informações e etapas sobre como instalar o agente do Log Analytics para Linux, consulte [Visão geral do agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 
-**Para todos os hosts de contêiner do Linux incluindo CoreOS:**
+**Para todos os hosts de contêiner do Linux, incluindo o CoreOS:**
 
 Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a seguir:
 
@@ -136,7 +136,7 @@ Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a segu
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**Para todos os hosts de contêiner do Linux no Azure governamental incluindo CoreOS:**
+**Para todos os hosts de contêiner do Linux no Azure Governamental, incluindo CoreOS:**
 
 Inicie o contêiner que você deseja monitorar. Modifique e use o exemplo a seguir:
 
@@ -236,7 +236,7 @@ Nesta seção, abordaremos as etapas necessárias para instalar o Agente do Log 
 Se você quiser usar segredos para proteger sua ID de Espaço de Trabalho do Log Analytics e Chave Primária ao usar o arquivo yaml do daemon-set do Agente do Log Analytics, execute as seguintes etapas.
 
 1. Faça logon no nó principal do OpenShift e copie o arquivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o script de geração de segredo [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) do GitHub.  Esse script gerará o arquivo yaml de segredos para a ID de Espaço de Trabalho do Log Analytics e a Chave Primária a fim de proteger suas informações secretas.  
-2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de usuário. O script de geração de segredo solicita sua ID de Espaço de Trabalho do Log Analytics <WSID> e a Chave Primária <KEY> e, após a conclusão, cria o arquivo ocp-secret.yaml.  
+2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de usuário. O script de geração de segredo solicita sua ID de Espaço de Trabalho do Log Analytics `<WSID>` e a Chave Primária `<KEY>` e, após a conclusão, cria o arquivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -532,7 +532,7 @@ Os dados são coletados a cada três minutos pelos tipos de agente a seguir.
 
 - [Agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Agente do Windows](../../azure-monitor/platform/agent-windows.md)
-- [Extensão de VM de análise de log](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Extensão de VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Registros de contêiner
@@ -600,14 +600,14 @@ O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerra
 
 ### <a name="to-find-failed-containers"></a>Para localizar contêineres com falha
 1. Clique na área **Status do Contêiner**.  
-   ![Status dos contêineres](./media/containers/containers-status.png)
+   ![status dos contêineres](./media/containers/containers-status.png)
 2. Log Analytics é aberta e exibe o estado de seus contêineres, semelhantes ao seguinte.  
    ![estado dos contêineres](./media/containers/containers-log-search.png)
 3. Expanda a linha com falha e clique em + para adicionar seus critérios para a consulta. Comente, em seguida, a linha de resumo na consulta.
    ![contêineres com falha](./media/containers/containers-state-failed-select.png)  
 1. Execute a consulta e, em seguida, expanda uma linha nos resultados para exibir a ID da imagem.  
    ![contêineres com falha](./media/containers/containers-state-failed.png)  
-1. Digite o comando a seguir a consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` Para ver detalhes sobre a imagem como o tamanho da imagem e o número de imagens paradas e com falha.  
+1. Digite o comando a seguir a consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e com falha.  
    ![contêineres com falha](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Logs de consulta para dados de contêiner
@@ -625,7 +625,7 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 
 
 ### <a name="to-query-logs-for-container-data"></a>Logs de consulta para dados do contêiner
-* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Pesquisar por contêineres do Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda qualquer linha nos resultados para exibir os detalhes para o contêiner.

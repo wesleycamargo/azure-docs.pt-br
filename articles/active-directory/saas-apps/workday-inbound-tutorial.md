@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897615"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524626"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -50,7 +50,7 @@ Os fluxos de trabalho de provisionamento de usuário do Workday com suporte do s
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é mais recomendada essa solução de provisionamento de usuário?
 
-Essa solução de provisionamento de usuário do Workday está atualmente em versão prévia e é ideal para:
+Essa solução de provisionamento de usuário do Workday é ideal para:
 
 * Organizações que desejam uma solução predefinida, baseados em nuvem para o provisionamento de usuário do Workday
 
@@ -460,7 +460,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 2. No campo **Escopo do objeto de origem** é possível selecionar quais conjuntos de usuários no Workday devem estar no escopo de provisionamento para AD, definindo um conjunto de filtros baseados em atributo. O escopo padrão é "todos os usuários no Workday". Filtros de exemplo:
 
-   * Exemplo: Escopo para usuários com IDs do Trabalhador entre 1000000 e 2000000
+   * Exemplo: Escopo para usuários com IDs de trabalho entre 1000000 e 2000000 (exceto 2000000)
 
       * Atributo: WorkerID
 

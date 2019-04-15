@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2bc4d4034d63ed190f6964caa2bccf1ad8590a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833808"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549229"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Meu primeiro runbook de Fluxo de Trabalho do PowerShell
 
@@ -103,21 +103,21 @@ O runbook criado ainda está em modo de Rascunho. Você deve publicá-lo antes d
 1. Um painel de trabalho é aberto para o trabalho de runbook criado. Você pode fechar esse painel, mas neste caso, deixe-o aberto para acompanhar o progresso do trabalho.
 1. O status do trabalho é mostrado em **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
 
-   ![Resumo do Trabalho](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+   ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
 1. Assim que o status do runbook mostrar *Concluído*, clique em **Saída**. O painel Saída é aberto e você pode ver seu *Olá, Mundo*.
 
-   ![Resumo do Trabalho](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
+   ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. Feche o painel Saída.
 1. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você só verá *Olá, mundo* na saída do fluxo, mas este modo de exibição pode mostrar outros fluxos de um trabalho de runbook como detalhado e erro se o runbook grava neles.
 
-   ![Resumo do Trabalho](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+   ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
 1. Feche a página fluxos e a página trabalho para retornar à página MyFirstRunbook.
 1. Clique em **trabalhos** para abrir a página de trabalhos para este runbook. Esta página lista todos os trabalhos criados por esse runbook. Você deve ver apenas um trabalho listado, já que executou o trabalho apenas uma vez.
 
-   ![Tarefas (Jobs)](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+   ![Trabalhos](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
 1. Você pode clicar neste trabalho para abrir a mesma página do trabalho exibido ao iniciar o runbook. Esta ação permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
 
@@ -138,7 +138,7 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
@@ -167,7 +167,7 @@ Agora que o seu runbook está se autenticando na sua assinatura do Azure, você 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
 
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
    }
@@ -208,7 +208,7 @@ No momento, o seu runbook inicia a máquina virtual que você codificou no runbo
 
 7. Quando o runbook for concluído, verifique se a máquina virtual foi iniciada.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)

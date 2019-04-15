@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495678"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565948"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -99,10 +99,10 @@ As seguintes áreas do Application Insights podem ser útil ao avaliar o comport
 
 | Tab | DESCRIÇÃO |
 | ---- | ----------- |
-| **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implementa a telemetria personalizada para dependências. |
+| **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implementa a telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise problemas de desempenho. |
 | **Servidores** | Exibir a utilização de recursos e a taxa de transferência por servidor. Esses dados podem ser úteis para cenários de depuração em que as funções estão travando seus recursos subjacentes. Servidores são chamados de **Instâncias de função de nuvem**. |
-| **[Métricas](../azure-monitor/app/metrics-explorer.md)** | Crie gráficos e alertas que são baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e as taxas de sucesso. |
+| **[Métrica](../azure-monitor/app/metrics-explorer.md)** | Crie gráficos e alertas que são baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e as taxas de sucesso. |
 | **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Exibir dados de métricas conforme eles são criados em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
@@ -127,8 +127,8 @@ As tabelas que estão disponíveis são mostradas na **esquema** guia à esquerd
 | Tabela | DESCRIÇÃO |
 | ----- | ----------- |
 | **traces** | Logs criados pelo tempo de execução e por código de função. |
-| **solicitações** | Uma solicitação para cada invocação de função. |
-| **exceções** | As exceções geradas pelo tempo de execução. |
+| **requests** | Uma solicitação para cada invocação de função. |
+| **exceptions** | As exceções geradas pelo tempo de execução. |
 | **customMetrics** | A contagem de invocações bem-sucedidas e falhas, taxa de sucesso e duração. |
 | **customEvents** | Eventos rastreados pelo tempo de execução, por exemplo: Solicitações HTTP que disparam uma função. |
 | **performanceCounters** | Informações sobre o desempenho dos servidores que as funções estão sendo executadas. |
@@ -174,7 +174,7 @@ Nível de log `None` é explicado na próxima seção.
 
 ### <a name="log-configuration-in-hostjson"></a>Configuração de logs no host. JSON
 
-O arquivo [host.json] configura quanto registro em log um aplicativo de função envia ao Application Insights. Para cada categoria, você deve indicar o nível de log mínimo para enviar. Há dois exemplos: o primeiro exemplo tem como alvo o [tempo de execução do Functions versão 2.x](functions-versions.md#version-2x) (.NET Core) e o segundo exemplo é para o tempo de execução versão 1.x.
+O arquivo [host. JSON] configura quanto registro em log um aplicativo de função envia ao Application Insights. Para cada categoria, você deve indicar o nível de log mínimo para enviar. Há dois exemplos: o primeiro exemplo tem como alvo o [tempo de execução do Functions versão 2.x](functions-versions.md#version-2x) (.NET Core) e o segundo exemplo é para o tempo de execução versão 1.x.
 
 ### <a name="version-2x"></a>Versão 2.x
 
@@ -217,9 +217,9 @@ Este exemplo configura as seguintes regras:
 * Para logs com a categoria `Host.Aggregator`, enviar todos os logs para o Application Insights. O `Trace` nível de log é o mesmo que o que chamo de alguns agentes `Verbose`, mas usar `Trace` no [host. JSON] arquivo.
 * Para todos os outros logs, envie somente o nível `Information` e acima ao Application Insights.
 
-O valor de categoria em [host.json] controla o registro em log para todas as categorias que começam com o mesmo valor. `Host` na [host. JSON] controles de registro em log para `Host.General`, `Host.Executor`, `Host.Results`e assim por diante.
+O valor de categoria em [host. JSON] controla o registro em log para todas as categorias que começam com o mesmo valor. `Host` na [host. JSON] controles de registro em log para `Host.General`, `Host.Executor`, `Host.Results`e assim por diante.
 
-Se [host.json] incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Suponha que você deseja que tudo, desde o tempo de execução, exceto `Host.Aggregator` para fazer logon no `Error` nível, mas você deseja `Host.Aggregator` para efetuar o `Information` nível:
+Se [host. JSON] incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Suponha que você deseja que tudo, desde o tempo de execução, exceto `Host.Aggregator` para fazer logon no `Error` nível, mas você deseja `Host.Aggregator` para efetuar o `Information` nível:
 
 ### <a name="version-2x"></a>Versão 2.x 
 
@@ -288,7 +288,7 @@ Logs gravados pelo seu código de função têm a categoria `Function` e pode se
 
 ## <a name="configure-the-aggregator"></a>Configurar o agregador
 
-Conforme observado na seção anterior, o tempo de execução agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host.json].  Aqui está um exemplo:
+Conforme observado na seção anterior, o tempo de execução agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host. JSON].  Aqui está um exemplo:
 
 ```json
 {
@@ -301,7 +301,7 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um [amostragem](../azure-monitor/app/sampling.md) concluída de recurso que pode proteger você contra produzir muitos dados de telemetria em execuções em momentos de pico de carga. Quando a taxa de execuções de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente algumas das execuções de entrada. A configuração padrão para o número máximo de execuções por segundo é 20 (cinco na versão 1. x). Você pode configurar a amostragem em [host.json].  Aqui está um exemplo:
+O Application Insights tem um [amostragem](../azure-monitor/app/sampling.md) concluída de recurso que pode proteger você contra produzir muitos dados de telemetria em execuções em momentos de pico de carga. Quando a taxa de execuções de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente algumas das execuções de entrada. A configuração padrão para o número máximo de execuções por segundo é 20 (cinco na versão 1. x). Você pode configurar a amostragem em [host. JSON].  Aqui está um exemplo:
 
 ### <a name="version-2x"></a>Versão 2.x 
 
@@ -595,7 +595,9 @@ O `tagOverrides` conjuntos de parâmetros a `operation_Id` para ID de invocaçã
 
 ## <a name="dependencies"></a>Dependências
 
-As dependências que a função tem a outros serviços não são exibidas automaticamente. Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo a [ C# seção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta em uma *mapa de aplicativo* no Application Insights que se parece com a imagem a seguir:
+Funções v2 coleta automaticamente as dependências para o SQL, barramento de serviço e solicitações HTTP.
+
+Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo a [ C# seção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta em uma *mapa de aplicativo* no Application Insights que se parece com a imagem a seguir:
 
 ![Mapa do aplicativo](./media/functions-monitoring/app-map.png)
 
@@ -657,4 +659,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Application Insights](/azure/application-insights/)
 * [Registro em log de ASP.NET Core](/aspnet/core/fundamentals/logging/)
 
-[host.json]: functions-host-json.md
+[host. JSON]: functions-host-json.md

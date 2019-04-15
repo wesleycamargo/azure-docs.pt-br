@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261030"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565491"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -255,7 +255,7 @@ Se o ambiente de rede corporativo usar um servidor proxy para acessar a Internet
 
 ![Especificar o proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-O tempo de execução da integração auto-hospedada usa o servidor proxy para se conectar ao serviço de nuvem. Selecione **Alterar link** durante a configuração inicial. Você verá a caixa de diálogo de configuração de proxy.
+Quando configurado, o tempo de execução de integração auto-hospedado usa o servidor proxy para se conectar ao serviço de nuvem, de origem / destino (aqueles que usam HTTP / protocolo HTTPS). Isso é selecionar **alterar link** durante a instalação inicial. Você verá a caixa de diálogo de configuração de proxy.
 
 ![Configurar proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
@@ -346,5 +346,5 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 Se optar por não abrir a porta 8060 no computador do tempo de execução da integração auto-hospedada, use mecanismos diferentes do aplicativo Definindo Credenciais para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte o tutorial a seguir para obter instruções passo a passo: [Tutorial: Copiar dados locais na nuvem](tutorial-hybrid-copy-powershell.md).

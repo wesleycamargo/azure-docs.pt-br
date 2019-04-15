@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877968"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549177"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para Azure NetApp Files
 
@@ -49,7 +49,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
     * **Pool de capacidade**  
         Especifica o pool de capacidade, onde você deseja que o volume a ser criado.
 
-    * **Quota**  
+    * **Cota**  
         Especifique a quantidade de armazenamento lógico que é alocada para o volume.  
 
         O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.  
@@ -144,7 +144,7 @@ Os arquivos NetApp do Azure dá suporte a volumes SMBv3. Você precisa criar as 
     * **Pool de capacidade**  
         Especifica o pool de capacidade, onde você deseja que o volume a ser criado.
 
-    * **Quota**  
+    * **Cota**  
         Especifique a quantidade de armazenamento lógico que é alocada para o volume.  
 
         O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.  
@@ -179,6 +179,6 @@ Os arquivos NetApp do Azure dá suporte a volumes SMBv3. Você precisa criar as 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-* [Montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume do NFS](azure-netapp-files-configure-export-policy.md)
-* [Saiba mais sobre a integração de rede virtual para serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Saiba mais sobre a integração de rede virtual para os serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: 'Saiba como codificar e empacotar conteúdo, transmitir vídeos sob demanda por streaming, difundir ao vivo e analisar seus vídeos com os Serviços de Mídia v3. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários. <br/> Os SDKs são baseados na <a href="https://aka.ms/ams-v3-rest-sdk">Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)</a>.'
@@ -26,7 +26,7 @@ sections:
           - title: Aprender os conceitos
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Upload e armazenamento na nuvem</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Codificação</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Monitoramento</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Análise de mídia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empacotamento</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Proteção</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Transmissão ao Vivo</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clientes de player</a></p>'
           - title: Desenvolver com a API v3
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Comece a desenvolver com SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desenvolver com o REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Conectar-se com Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Conectar-se com .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Conectar-se com Node.js</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desenvolver com o REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Desenvolver com SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Conectar-se com Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Conectar-se com .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Conectar-se com Node.js</a></p>'
   - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph

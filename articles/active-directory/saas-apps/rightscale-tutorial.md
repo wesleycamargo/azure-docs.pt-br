@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109824"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Azure Active Directory com o Rightscale
 
@@ -131,8 +131,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na seção **Configuração do Rightscale**, clique em **Configurar o Rightscale** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
-    ![Configurar Logon Único](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
+
 1. Para configurar o SSO para o aplicativo, você precisa entrar no locatário do RightScale como administrador.
 
      a. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único**.
@@ -164,7 +164,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Clique em **Salvar**.
-   <CE>
+
    > [!TIP]
    > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
    > 

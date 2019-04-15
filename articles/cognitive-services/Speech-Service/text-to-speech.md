@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263104"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549498"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
@@ -56,7 +56,7 @@ Esta tabela lista os principais recursos de texto em fala:
 \* *Esses serviços estão disponíveis usando o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> O ponto de extremidade de texto em fala implementa a limitação que limita as solicitações para 25 por 5 segundos. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.
+> Os pontos de extremidade de voz personalizadas implementam a limitação que limita as solicitações para 25 por 5 segundos. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.
 
 ## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em fala
 
@@ -66,34 +66,34 @@ Nós oferecemos guias de início rápido foi projetados para ter está executand
 
 | Guia de início rápido (SDK) | Plataforma | Referência de API |
 |------------|----------|---------------|
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Procurar](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>Guias de início rápido REST
 
 | Guia de início rápido (REST) | Plataforma | Referência de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Exemplo de código
 
 Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
 
 * [Exemplos de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK de fala](speech-sdk-reference.md)
+* [SDK da fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
-* [API REST: Conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: Conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Obter uma assinatura de serviços de fala disponíveis](get-started.md)
+* [Obter uma assinatura gratuita dos Serviços de Fala](get-started.md)
 * [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)

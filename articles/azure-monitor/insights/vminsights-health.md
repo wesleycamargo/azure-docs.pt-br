@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490026"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549858"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -235,7 +235,9 @@ Para ver o estado de integridade atualizado, você pode atualizar a página de D
 
 ## <a name="alerts"></a>Alertas
 
-O recurso Azure Monitor for VMs Health se integra ao [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e gera um alerta quando os critérios de integridade predefinidos mudam de um estado íntegro para um estado não íntegro quando a condição é detectada. Os alertas são categorizados por gravidade - Sev 0 a 4, com Sev 0 representando o nível de severidade mais alto.  
+O recurso Azure Monitor for VMs Health se integra ao [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e gera um alerta quando os critérios de integridade predefinidos mudam de um estado íntegro para um estado não íntegro quando a condição é detectada. Os alertas são categorizados por gravidade - Sev 0 a 4, com Sev 0 representando o nível de severidade mais alto. 
+
+Alertas não estão associados um grupo de ações para notificá-lo quando o alerta foi disparado. O proprietário da assinatura precisa configurar notificações seguindo as etapas [mais adiante nesta seção](#configure-alerts).   
 
 O número total de alertas de integridade da VM categorizados por gravidade está disponível no painel **Integridade** na seção **Alertas**. Quando você seleciona o número total de alertas ou o número correspondente a um nível de gravidade, a página **Alertas** é aberta e lista todos os alertas correspondentes à sua seleção.  Por exemplo, se você tiver selecionado a linha correspondente à **nível de gravidade 1**, em seguida, você vê a seguinte exibição:
 
@@ -379,6 +381,6 @@ O Azure Monitor de integridade de VMs dá suporte a notificações de SMS e emai
     }
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para identificar gargalos e a utilização geral com o desempenho de VMs, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md), ou para exibir dependências de aplicativos descobertos, consulte [Exibir o Azure Monitor para mapa de VMs](vminsights-maps.md). 

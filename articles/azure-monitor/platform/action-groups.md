@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/26/2019
+ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 695a2ff827fc5514c3a32364026bc9d47c8a2121
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500297"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549654"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -103,11 +103,12 @@ Intervalos de endereços IP de fonte
  - 52.244.68.117
  - 51.4.138.199
  - 51.5.148.86
+ - 51.5.149.19
 
 Para receber atualizações sobre as alterações para esses endereços IP, recomendamos que você configure um [serviço Alerta de integridade, que monitora para notificações informativas sobre o serviço de grupos de ação.
 
 
-## <a name="next-steps"></a>Próximas etapas ##
+## <a name="next-steps"></a>Próximos passos ##
 
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  

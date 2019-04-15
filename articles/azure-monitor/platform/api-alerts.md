@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895882"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549705"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST
 A API REST de alerta do Log Analytics permite criar e gerenciar alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
@@ -94,9 +94,9 @@ Todas as ações têm as propriedades indicadas na tabela a seguir.  Diferentes 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Type |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
-| NOME |Nome de exibição para o alerta. |
-| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+| `Type` |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
+| `Name` |Nome de exibição para o alerta. |
+| `Version` |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 ### <a name="retrieving-actions"></a>Recuperando ações
 
@@ -154,8 +154,8 @@ Os limites têm as propriedades indicadas na tabela a seguir.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Operador |Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
-| Valor |Valor para o limite. |
+| `Operator` |Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
+| `Value` |Valor para o limite. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos, Timespan (Período) de 30 minutos e Threshold (Limite) maior que 10. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se ela retornar 10 eventos criados dentro de um período de 30 minutos.
 
@@ -187,9 +187,9 @@ O Log Analytics permite classificar alertas em categorias, para facilitar a tria
 
 |Nível de gravidade do Log Analytics  |Nível de gravidade dos Alertas do Azure  |
 |---------|---------|
-|Crítico |Sev 0|
-|Aviso |Sev 1|
-|informativo | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 Veja a seguir um exemplo de resposta para uma ação com apenas um limite e gravidade. 
 
@@ -284,7 +284,7 @@ Use o método Put com uma ID de ação existente para modificar um Grupo de Aç�
 Por padrão, as ações seguem o modelo e o formato padrão para notificações. Mas o usuário pode personalizar algumas ações, mesmo se elas são controladas por Grupos de Ações. Atualmente, a personalização é possível para o Assunto do Email e o Conteúdo de Webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar o Assunto do Email para o Grupo de Ações
-Por padrão, o assunto do email para alertas é: Notificação de alerta <AlertName> para <WorkspaceName>. Mas isso pode ser personalizado, para que você possa especificar palavras ou marcações - para permitir que você facilmente empregue regras de filtro na Caixa de entrada. Os detalhes de cabeçalho de email personalizado precisam ser enviados juntamente com os detalhes de ActionGroup, como no exemplo a seguir.
+Por padrão, o assunto do email para alertas é: Notificação de alerta `<AlertName>` para `<WorkspaceName>`. Mas isso pode ser personalizado, para que você possa especificar palavras ou marcações - para permitir que você facilmente empregue regras de filtro na Caixa de entrada. Os detalhes de cabeçalho de email personalizado precisam ser enviados juntamente com os detalhes de ActionGroup, como no exemplo a seguir.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256083"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549211"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Use o controle de mapa de mapas do Azure
 
@@ -166,11 +166,10 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
 
 8. Abra o arquivo no seu navegador da Web e exiba o mapa renderizado. Deve se parecer com o código a seguir:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Confira a Caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>Como usar o controle de mapeamento</a> do Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> por mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como criar e interagir com um mapa:
 

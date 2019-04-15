@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6648aec8741a748dd4150406831035a68b97af7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268444"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545028"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -58,7 +58,7 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 
 * Verifique se você [atende aos requisitos](how-to-connect-health-agent-install.md#requirements) para o Azure AD Connect Health.
 * Introdução ao uso do Azure AD Connect Health do AD FS
-    * [Baixar o Azure AD Connect Health Agent para AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Baixe o Agente do Azure AD Connect Health para AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Veja as instruções de instalação](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Introdução ao uso do Azure AD Connect Health para sincronização
     * [Baixe e instale a versão mais recente do Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). O Agente de Integridade para sincronização será instalado como parte da instalação do Azure AD Connect (versão 1.0.9125.0 ou superior).
@@ -127,7 +127,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Política de Segurança Local**.
 2. Navegue até a pasta **Configurações de Segurança\Políticas Locais\Atribuição de Direitos de Usuário** e clique duas vezes em **Gerar auditorias de segurança**.
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS 2.0 está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
-4. Para habilitar a auditoria, abra um Prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
+4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Feche a **Política de Segurança Local**.
 <br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS**. Para abrir o snap-in Gerenciamento do AD FS, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Gerenciamento do AD FS 2.0**.
@@ -264,7 +264,7 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
 
 ```
 
