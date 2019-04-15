@@ -71,7 +71,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **AzureSqlDW** |Sim |
+| type |A propriedade type deve ser definida como: **AzureSqlDW** |Sim |
 | connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |Sim |
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ Quando a fonte é do tipo **SqlDWSource**, as seguintes propriedades estão disp
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não  |
+| sqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não  |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não  |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
 
@@ -279,7 +279,7 @@ A tabela a seguir fornece exemplos de como especificar a propriedade **tableName
 | dbo |MyTable |MyTable ou dbo.MyTable ou [dbo].[MyTable] |
 | dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se você vir o erro a seguir, pode ser um problema com o valor especificado para a propriedade tableName. Consulte a tabela para ver a maneira correta de especificar os valores para a propriedade JSON tableName.
 
@@ -308,28 +308,28 @@ O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabe
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| Numérico | Decimal |
+| Numeric | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binário | Binário |
+| Binary | Binary |
 | Varbinary | Varbinary (até 8.000) |
-| Data | Data |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Hora | Hora |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Texto | Varchar (até 8.000) |
+| Text | Varchar (até 8.000) |
 | NText | NVarChar (até 4.000) |
-| Imagem | VarBinary (até 8.000) |
+| Image | VarBinary (até 8.000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (até 8.000) |
 | NVarChar | NVarChar (até 4.000) |
-| xml | Varchar (até 8.000) |
+| Xml | Varchar (até 8.000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -346,37 +346,37 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | Tipo de mecanismo do Banco de Dados do SQL Server | Tipo .NET Framework |
 | --- | --- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |BOOLEAN |
+| binary |Byte[] |
+| bit |Boolean |
 | char |String, Char[] |
-| data |DateTime |
-| DateTime |DateTime |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérico |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objeto * |
+| sql_variant |Object * |
 | text |String, Char[] |
-| tempo real |TimeSpan |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 Você também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de coletor na definição da atividade de cópia. Para obter detalhes, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapear colunas de conjunto de dados no Azure Data Factory).
 
