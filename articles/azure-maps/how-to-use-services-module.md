@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278591"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521192"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Usando o módulo de serviços de mapas do Azure
 
@@ -24,7 +24,7 @@ SDK da Web de mapas do Azure fornece um módulo de serviços é uma biblioteca a
 1. Criar um novo arquivo HTML.
 2. Carregar o módulo de serviços de mapas do Azure. Isso pode ser feito usando uma de duas opções:
 
-     a. Usar a versão CDN globalmente hospedada do módulo de serviços de mapas do Azure, adicionando uma referência de script para o <head> elemento do arquivo:
+     a. Usar a versão CDN globalmente hospedada do módulo de serviços de mapas do Azure, adicionando uma referência de script para o `<head>` elemento do arquivo:
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
@@ -189,4 +189,4 @@ Consulte os seguintes artigos para obter mais exemplos de código que usam o mó
 > [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Mostrar direções de A para B](./map-route.md)
+> [Mostrar trajetos de A para B](./map-route.md)

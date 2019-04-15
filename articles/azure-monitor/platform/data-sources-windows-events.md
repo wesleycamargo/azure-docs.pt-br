@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001112"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522703"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados do log de eventos do Windows no Azure Monitor
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](agent-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -54,7 +54,7 @@ Os registros de eventos do Windows têm um tipo de **Evento** e têm as propried
 | EventLevelName |Severidade do evento em formato de texto. |
 | EventLog |Nome do log de eventos do qual o evento foi coletado. |
 | ParameterXml |Valores de parâmetro de evento em formato XML. |
-| ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, esse valor é AOI-<workspace ID> |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, esse valor é `AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetro |
 | Fonte |Fonte do evento. |
 | SourceSystem |Tipo de agente do qual o evento foi coletado. <br> OpsManager - agente do Windows: conexão direta ou Operations Manager gerenciado <br>  Linux: todos os agentes do Linux  <br>  AzureStorage: Diagnóstico do Azure |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541206"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523708"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada no Azure Search
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
@@ -321,7 +321,7 @@ Em determinadas circunstâncias, você pode achar que as contagens de faceta nã
 
 As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentação. Cada índice de pesquisa tem vários fragmentos, e cada um deles relata as N facetas com maior classificação por contagem de documento, que em seguida são combinadas em um único resultado. Se alguns fragmentos têm muitos valores correspondentes enquanto outros têm menos, você poderá descobrir que alguns valores de faceta estão faltando ou com contagem reduzida nos resultados.
 
-Embora esse comportamento possa mudar a qualquer momento, se você encontrar esse problema hoje, você pode contorná-lo artificialmente aumentando a contagem:<number> para um número grande para impor a emissão de relatórios completos de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
+Embora esse comportamento possa mudar a qualquer momento, se você encontrar esse problema hoje, você pode contorná-lo artificialmente aumentando count:\<número > para um número grande para impor a emissão de relatórios completos de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
 
 ### <a name="user-interface-tips"></a>Dicas da interface do usuário
 **Adicionar rótulos para cada campo na navegação facetada**
