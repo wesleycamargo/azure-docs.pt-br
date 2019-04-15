@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure NetApp Files
+metadata:
+  title: Documentação do Azure NetApp Files
+  description: 'Saiba como configurar, acessar e gerenciar volumes usando o serviço Azure NetApp Files.'
+  author: b-juche
+  ms.author: b-juche
+  ms.service: azure-netapp-files
+  ms.topic: landing-page
+  ms.date: 04/10/2019
+abstract:
+  description: 'Saiba como usar o Azure NetApp Files para criar e gerenciar contas, pools de capacidade e volumes do NetApp; configurar a política de exportação; montar um volume para uma máquina virtual e gerenciar instantâneos. <p>O uso do Azure NetApp Files requer que você ingresse no programa de versão prévia pública. Você também precisa estar na lista de permissões para acessar o provedor de recursos do Azure Microsoft.NetApp. Para solicitar participar do programa de visualização pública, confira <a href="azure-netapp-files-register">Registro no Azure NetApp Files</a>.</p>'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Saiba como configurar o Azure NetApp Files e criar um volume usando:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
+            text: Portal do Azure
+            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">API REST</a></p>'
+          - title: Azure Resource Manager
+            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Modelos do Gerenciador de Recursos</a></p>'
