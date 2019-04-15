@@ -11,38 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074277"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565692"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
-É fácil impedir que um usuário ou grupo receba acesso a um de seus aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
+É fácil remover um usuário ou um grupo de acesso atribuído a um dos seus aplicativos empresariais no Azure Active Directory (Azure AD). Você precisará das permissões apropriadas para gerenciar o aplicativo empresarial. E, então, você deve ser um administrador global do diretório.
 
 > [!NOTE]
 > Para aplicativos da Microsoft (como aplicativos do Office 365), use o PowerShell para remover usuários em um aplicativo empresarial.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para remover uma atribuição de usuário ou grupo em um aplicativo empresarial no Portal do Azure?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Escolha **Mais serviços**, insira **Azure Active Directory** na caixa de texto e selecione **Enter**.
-3. Na página **Azure Active Directory - *nomedodiretório*** (ou seja, a página do Azure Active Directory para o diretório que você está gerenciando), selecione **Aplicativos empresariais**.
-
-    ![Abrir aplicativos empresariais](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
-4. Na página **Aplicativos empresariais**, selecione **Todos os aplicativos**. Você verá uma lista dos aplicativos que pode gerenciar.
-5. Na página **Aplicativos empresariais – Todos os aplicativos**, selecione um aplicativo.
-6. Na página ***nomedoaplicativo*** (ou seja, a página com o nome do aplicativo selecionado no título), selecione **Usuários e Grupos**.
-
-    ![Seleção de usuários ou de grupos](./media/remove-user-or-group-access-portal/remove-app-users.png)
-7. Na página ***nomedoaplicativo*** **- Atribuição de Usuário e Grupo**, selecione um dos usuários ou grupos e, em seguida, selecione o comando **Remover**. Confirme sua decisão na solicitação.
-
-    ![Seleção do comando Remover](./media/remove-user-or-group-access-portal/remove-users.png)
+1. Selecione **Todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
+1. Sobre o **Azure Active Directory - *directoryname***  page (ou seja, página do Azure AD para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
+1. Sobre o **aplicativos empresariais – todos os aplicativos** página, você verá uma lista de aplicativos você pode gerenciar. Selecione um aplicativo.
+1. Sobre o ***appname*** página de visão geral (ou seja, a página com o nome do aplicativo selecionado no título), selecione **usuários e grupos**.
+1. Na página ***nomedoaplicativo*** **- Atribuição de Usuário e Grupo**, selecione um dos usuários ou grupos e, em seguida, selecione o comando **Remover**. Confirme sua decisão na solicitação.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Como fazer para remover uma atribuição de usuário ou grupo em um aplicativo empresarial usando o PowerShell?
 1. Abra um prompt elevado do Windows PowerShell.
@@ -50,8 +43,8 @@ ms.locfileid: "58074277"
     >[!NOTE] 
     > Você precisa instalar o módulo do Azure AD (use o comando `Install-Module -Name AzureAD`). Se solicitado a instalar um módulo do NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite Y e pressione ENTER.
 
-2. Execute `Connect-AzureAD` e entre com uma conta de usuário de Administrador Global.
-3. Use o script a seguir para remover um usuário e a função de um aplicativo:
+1. Execute `Connect-AzureAD` e entre com uma conta de usuário de Administrador Global.
+1. Use o script a seguir para remover um usuário e a função de um aplicativo:
 
     ```powershell
     # Store the proper parameters

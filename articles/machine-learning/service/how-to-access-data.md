@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85910e2f422ea45b2468f20b4ff9425f64ca3cbe
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793400"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563511"
 ---
 # <a name="access-data-from-your-datastores"></a>Acessar dados de seus repositórios de dados
 
@@ -78,7 +78,7 @@ Os exemplos a seguir mostram a você registrar um contêiner de Blob do Azure ou
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
-                                           container_name='your file share name',
+                                           file_share_name='your file share name',
                                            account_name='your storage account name', 
                                            account_key='your storage account key',
                                            create_if_not_exists=True)
@@ -227,7 +227,7 @@ est = Estimator(source_directory='your code directory',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Treinar um modelo](how-to-train-ml-models.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502122"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565794"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -136,7 +136,7 @@ Percorra o planejamento da antes de executar a implantação. Ele está criando 
     
 Para obter mais detalhes sobre o uso do Linux Pacemaker no Azure podem ser encontradas nesses artigos:
 
-- [Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+- [Configurar Pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 
 
 
@@ -538,7 +538,7 @@ O status original em um sistema SAP está documentado no DBACOCKPIT de transaç�
 
 
 > [!IMPORTANT] 
-> Antes de iniciar o teste, certifique-se de que Pacemaker não tem quaisquer ações com falha (status do crm) e não há nenhuma restrição de local (sobras do teste de migração) e a sincronização do IBM Db2 HADR está funcionando. Verifique com usuário db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Antes de iniciar o teste, certifique-se de que Pacemaker não tem quaisquer ações com falha (status do crm) e não há nenhuma restrição de local (sobras do teste de migração) e a sincronização do IBM Db2 HADR está funcionando. Entre em contato com o usuário db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre o nó que executa o banco de dados primário do Db2, executando o seguinte comando:

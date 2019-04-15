@@ -1,25 +1,25 @@
 ---
 title: Execute o Planejamento de Implantação de Recuperação do Site do Azure para recuperação de desastre do VMware no Azure | Microsoft Docs
 description: Este artigo descreve como executar a recuperação de desastres do Azure Site Recovery Deployment Planner para VMware no Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527672"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565420"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Execute o Azure Site Recovery Deployment Planner para recuperação de desastre do VMware no Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modos do Planejador de Implantações em execução
-Você pode executar a ferramenta de linha de comando (ASRDeploymentPlanner.exe) em qualquer um dos quatro seguintes modos:
+Você pode executar a ferramenta de linha de comando (ASRDeploymentPlanner.exe) em qualquer um dos três seguintes modos:
 
 1.  [Criação de perfil](#profile-vmware-vms)
 2.  [Geração de relatórios](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 A ferramenta gera um arquivo do Microsoft Excel com macros habilitadas (arquivo XLSM) como a saída de relatório, que resume todas as recomendações de implantação. O relatório é denominado `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e colocado no diretório especificado.
 
 >[!NOTE]
->O relatório requer o símbolo decimal configurado como "." para produzir estimativas de custo no servidor em que você executa o planejador de implantações. Caso você tenha configurado "," como o símbolo decimal em um computador Windows, vá para "Alterar formatos de data, hora ou número" no Painel de Controle e, então, vá para "Configurações adicionais" para alterar o símbolo decimal para ".".
+>Geração de relatórios exige um PC Windows ou o Windows Server com o Excel 2013 ou posterior. O símbolo decimal nesta máquina deve ser configurado como "." para produzir as estimativas de custo. Caso você tenha o programa de instalação "," como o símbolo decimal, vá para "Data alteração, hora ou formatos de número" no painel de controle e vá para "Configurações adicionais" para alterar o símbolo decimal para".".
 
 Após a conclusão da criação de perfil, você poderá executar a ferramenta no modo de geração de relatório. A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da ferramenta para execução no modo de geração de relatórios.
 

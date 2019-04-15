@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e0a0bd0e630281d2218c74050e810fe73361c6be
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578536"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565896"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -212,12 +212,12 @@ Use a camada gratuita somente para cenários exploratórios, não cenários de p
 | Artefato | Limite | Observações |
 |----------|-------|-------|
 | Assemblies | 50 | |
-| Configurações de lote | 5 |
-| Certificados | 50 | |
+| Configurações de lote | 50 |
+| Certificados | 500 | |
 | Contratos comerciais de EDI | 500 | |
 | Parceiros comerciais de EDI | 500 | |
-| Mapas | 500 | |
-| Esquemas | 500 |
+| Mapas | 1.000 | |
+| Esquemas | 1.000 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -344,7 +344,7 @@ Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazena
 | Oeste do Reino Unido | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 * Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

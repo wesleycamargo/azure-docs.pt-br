@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491484"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564524"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -60,7 +60,7 @@ Windows Server 2008 R2 SP1 ou superior.
 Essas bibliotecas são instaladas automaticamente com a extensão.
 
 - [Pacotes redistribuíveis do Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure Active Directory Module para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Módulo Microsoft Azure Active Directory para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 O Módulo Microsoft Azure Active Directory para Windows PowerShell é instalado, se ainda não estiver presente, por meio de um script de configuração que é executado como parte do processo de instalação. Não é necessário instalar este módulo antecipadamente, se ele ainda não estiver instalado.
 
@@ -78,6 +78,12 @@ O servidor NPS precisa ser capaz de se comunicar com as seguintes URLs por porta
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Além disso, a conectividade com as URLs a seguir é necessário para concluir o [a instalação do adaptador usando o script do PowerShell fornecido](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
@@ -142,6 +148,14 @@ Os usuários também precisam seguir estas etapas para se autenticar com a exten
 1. [Baixe a extensão NPS](https://aka.ms/npsmfa) do Centro de Download da Microsoft.
 2. Copie o binário para o Servidor de Políticas de Rede que você deseja configurar.
 3. Execute o arquivo *setup.exe* e siga as instruções de instalação. Se você encontrar erros, verifique se as duas bibliotecas, da seção de pré-requisitos, foram instaladas com êxito.
+
+#### <a name="upgrade-the-nps-extension"></a>Atualizar a extensão do NPS
+
+Quando instala o upgrade de uma extensão do NPS existente, para evitar uma reinicialização do servidor subjacente conclua as seguintes etapas:
+
+1. Desinstale a versão existente
+1. Execute o novo instalador
+1. Reinicie o serviço do servidor de diretiva de rede (IAS)
 
 ### <a name="run-the-powershell-script"></a>Executar o script do PowerShell
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-Depois de executar este comando, vá para a unidade C, localize o arquivo e clique duas vezes nele. Vá para detalhes e role para baixo até "impressão digital", compare a impressão digital do certificado instalado no servidor com este. As impressões digitais do certificado devem corresponder.
+Depois de executar esse comando, vá para a unidade C, localize o arquivo e clique duas vezes nele. Vá para detalhes e role para baixo até "impressão digital", compare a impressão digital do certificado instalado no servidor com este. As impressões digitais do certificado devem corresponder.
 
 Os carimbos de data/hora Válido-de e Válido-até, que estão em formato legível, poderão ser usados para filtrar desvios óbvios se o comando retornar mais de um certificado.
 
@@ -239,7 +253,7 @@ Os carimbos de data/hora Válido-de e Válido-até, que estão em formato legív
 
 ### <a name="why-cant-i-sign-in"></a>Por que não consigo entrar?
 
-Verifique se sua senha não expirou. A extensão NPS não oferece suporte à alteração de senhas como parte do fluxo de trabalho de entrada. Entre em contato com a equipe de TI da sua organização para obter mais assistência.
+Verifique se sua senha não expirou. A extensão NPS não oferece suporte à alteração de senhas como parte do fluxo de trabalho de entrada. Para obter mais assistência, entre em contato com a equipe de TI da sua organização.
 
 -------------------------------------------------------------
 

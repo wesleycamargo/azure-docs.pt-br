@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361303"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565675"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar o endereçamento IP para se conectar a VMs do Azure após failover
 
@@ -62,7 +62,7 @@ Para que o Woodgrove consiga replicar suas VMs para o Azure, ao mesmo tempo que 
 
 1. Crie rede virtual do Azure, na qual as VMs do Azure serão criadas depois do failover de máquinas locais. Ela deve ser uma extensão da rede local, de forma que os aplicativos possam fazer failover de forma ininterrupta.
 2. Antes do failover, no Site Recovery, eles atribuem o mesmo endereço IP nas propriedades do computador. Após o failover, o Site Recovery atribui esse endereço à VM do Azure.
-3. Após o failover ser executado e as VMs do Azure serem criadas com o mesmo endereço IP, eles se conectarão à rede usando uma [conexão de VNet para VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Essa ação pode ser inserida em um script.
+3. Após o failover ser executado e as VMs do Azure serem criadas com o mesmo endereço IP, eles se conectarão à rede usando uma [conexão de VNet para VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Essa ação pode ser inserida em um script.
 4. Eles precisam modificar rotas de modo a refletir que 192.168.1.0/24 agora foi movido para o Azure.
 
 

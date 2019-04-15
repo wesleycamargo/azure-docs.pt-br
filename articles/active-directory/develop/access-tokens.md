@@ -1,6 +1,6 @@
 ---
-title: Referência de tokens de acesso do Azure Active Directory | Microsoft Docs
-description: Saiba mais sobre tokens de acesso emitidos pelos pontos de extremidade v1.0 e v2.0 do Azure AD.
+title: Referência de tokens de acesso da plataforma Microsoft identity | Azure
+description: Saiba mais sobre tokens de acesso emitidos pelo AD do Azure v1.0 e pontos de extremidade do Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,31 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501137"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563749"
 ---
-# <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
+# <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso do Microsoft identity platform
 
-Os tokens de acesso permitem que os clientes chamem APIs protegidas pelo Azure com segurança. Os tokens de acesso do Azure AD (Azure Active Directory) são objetos JSON [JWTs](https://tools.ietf.org/html/rfc7519) codificados em Base64 assinados pelo Azure. Os clientes devem tratar os tokens de acesso como cadeias de caracteres opacas, pois o conteúdo do token se destina apenas ao recurso. Para fins de validação e depuração, os desenvolvedores podem decodificar JWTs usando um site como [jwt.ms](https://jwt.ms). Seu cliente pode obter um token de acesso em qualquer ponto de extremidade (v1.0 ou v2.0) usando uma variedade de protocolos.
+Os tokens de acesso permitem que os clientes chamem APIs protegidas pelo Azure com segurança. Tokens de acesso do Microsoft identity platform [JWTs](https://tools.ietf.org/html/rfc7519), objetos JSON assinados pelo Azure codificada em Base64. Os clientes devem tratar os tokens de acesso como cadeias de caracteres opacas, pois o conteúdo do token se destina apenas ao recurso. Para fins de validação e depuração, os desenvolvedores podem decodificar JWTs usando um site como [jwt.ms](https://jwt.ms). Seu cliente pode obter um token de acesso do ponto de extremidade v 1.0 ou o ponto de extremidade v 2.0 usando uma variedade de protocolos.
 
-Quando a solicitação do cliente um token de acesso, Azure AD também retorna alguns metadados sobre o token de acesso para consumo do aplicativo. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. Esses dados permitem ao aplicativo realizar o cache inteligente dos tokens de acesso sem precisar analisar o token de acesso em si.
+Quando o cliente solicita um token de acesso, o Azure AD também retorna alguns metadados sobre o token de acesso para consumo do aplicativo. Essas informações incluem a hora de expiração do token de acesso e os escopos para os quais ele é válido. Esses dados permitem que seu aplicativo faça cache inteligente de tokens de acesso sem precisar analisar o token de acesso.
 
-Se o aplicativo é um recurso (API Web) ao qual os clientes podem solicitar acesso, os tokens de acesso fornecem informações úteis para uso em autenticação e autorização, como o usuário, o cliente, o emissor, as permissões e muito mais. 
+Se o aplicativo é um recurso (API Web) ao qual os clientes podem solicitar acesso, os tokens de acesso fornecem informações úteis para uso em autenticação e autorização, como o usuário, o cliente, o emissor, as permissões e muito mais.
 
 Confira as seções a seguir para saber como um recurso pode validar e usar as declarações dentro de um token de acesso.
 
-> [!Important]
+> [!IMPORTANT]
 > Tokens de acesso são criados com base nas *público* do token, que significa que o aplicativo que possui os escopos no token.  Isso é como uma configuração de recurso `accessTokenAcceptedVersion` no [manifesto de aplicativo](reference-app-manifest.md#manifest-reference) para `2` permite que um cliente chamar o ponto de extremidade v1.0 receber um token de acesso de v 2.0.  Da mesma forma, é por isso alterando o token de acesso [declarações opcionais](active-directory-optional-claims.md) para seu cliente não não alterar o token de acesso recebido quando um token é solicitado para `user.read`, que é propriedade do recurso do MS Graph.  
-> Pela mesma razão, ao testar o aplicativo cliente com uma conta pessoal (como hotmail.com ou outlook.com), você pode achar que o token de acesso recebido pelo cliente é uma cadeia de caracteres opaca. Isso ocorre porque o recurso que está sendo acessado solicitou tíquetes MSA (conta Microsoft) herdados que são criptografados e não podem ser reconhecidos pelo cliente.
+> Pela mesma razão, ao testar o aplicativo cliente com uma conta pessoal (como hotmail.com ou outlook.com), você pode achar que o token de acesso recebido pelo cliente é uma cadeia de caracteres opaca. Isso ocorre porque o recurso que está sendo acessado solicitou herdados MSA (conta da Microsoft) tíquetes são criptografadas e não podem ser compreendidos pelo cliente.
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
@@ -68,7 +68,7 @@ Os JWTs são divididos em três partes:
 
 Cada parte é separada por um ponto (`.`) e codificada em Base64 separadamente.
 
-As declarações estão presentes somente se existe um valor para preenchê-lo. Portanto, seu aplicativo não deve usar uma dependência em uma declaração que esteja presente. Os exemplos incluem `pwd_exp` (nem todo locatário exige a expiração das senhas) ou `family_name` (a [credencial do cliente](v1-oauth2-client-creds-grant-flow.md) flui são em nome dos aplicativos, que não têm nomes). As declarações usadas para validação do token de acesso sempre estarão presentes.
+As declarações estão presentes somente se existe um valor para preenchê-lo. Dessa forma, seu aplicativo não deve usar uma dependência em uma declaração esteja presente. Os exemplos incluem `pwd_exp` (nem todo locatário exige a expiração das senhas) ou `family_name` (a [credencial do cliente](v1-oauth2-client-creds-grant-flow.md) flui são em nome dos aplicativos, que não têm nomes). As declarações usadas para validação do token de acesso sempre estarão presentes.
 
 > [!NOTE]
 > Algumas declarações são usadas para ajudar o Azure AD a proteger tokens no caso de reutilização. Elas são marcadas como não sendo para consumo público na descrição como "Opacas". Essas declarações podem ou não aparecer em um token, e novas declarações podem ser adicionadas sem aviso prévio.
@@ -81,7 +81,7 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 | `nonce` | Cadeia de caracteres | Um identificador exclusivo usado para proteger contra ataques de reprodução de token. O recurso pode registrar esse valor para proteger contra reproduções. |
 | `alg` | Cadeia de caracteres | Indica o algoritmo que foi usado para assinar o token, por exemplo, "RS256" |
 | `kid` | Cadeia de caracteres | Especifica a impressão digital da chave pública que é usada para assinar esse token. Emitido nos tokens de acesso v1.0 e v2.0. |
-| `x5t` | Cadeia de caracteres | Funciona da mesma forma (em uso e valor) que `kid`. `x5t` uma declaração herdada é emitida somente em tokens de acesso de v 1.0 para fins de compatibilidade. |
+| `x5t` | Cadeia de caracteres | Funciona da mesma forma (em uso e valor) que `kid`. `x5t` é uma declaração herdada emitida somente em tokens de acesso da v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Declarações de conteúdo
 
@@ -89,35 +89,35 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 |-----|--------|-------------|
 | `aud` | Cadeia de caracteres, um URI da ID do Aplicativo | Identifica o destinatário pretendido do token. Em tokens de acesso, o público-alvo é a ID de Aplicativo do aplicativo atribuída a ele no portal do Azure. O aplicativo deve validar esse valor e rejeitar o token, caso o valor não seja correspondente. |
 | `iss` | Cadeia de caracteres, um URI STS | Identifica o STS (Serviço de Token de Segurança) que constrói e retorna o token e o locatário do Azure AD no qual o usuário foi autenticado. Se o token emitido for um token v2.0 (consulte a declaração `ver`), o URI será finalizado em `/v2.0`. O GUID que indica que o usuário é um consumidor da conta da Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. O aplicativo deve usar a parte do GUID da declaração para restringir o conjunto de locatários que podem entrar no aplicativo, se aplicável. |
-|`idp`| Cadeia de caracteres, normalmente um URI de STS | Registra o provedor de identidade que autenticou a entidade do token. Esse valor é idêntico ao valor da declaração Emissor, a menos que a conta de usuário não esteja no mesmo locatário que o emissor – convidados, por exemplo. Se a declaração não estiver presente, isso significará que o valor de `iss` poderá ser usado.  Para as contas pessoais usadas em um contexto organizacional (por exemplo, uma conta pessoal convidada para um locatário do Azure AD), a declaração `idp`pode ser 'live.com' ou um URI de STS que contém o locatário da conta Microsoft`9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| Cadeia de caracteres, normalmente um URI de STS | Registra o provedor de identidade que autenticou a entidade do token. Esse valor é idêntico ao valor da declaração Emissor, a menos que a conta de usuário não esteja no mesmo locatário que o emissor – convidados, por exemplo. Se a declaração não estiver presente, isso significa que o valor de `iss` pode ser usado em vez disso.  Para as contas pessoais usadas em um contexto organizacional (por exemplo, uma conta pessoal convidada para um locatário do Azure AD), a declaração `idp`pode ser 'live.com' ou um URI de STS que contém o locatário da conta Microsoft`9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, um carimbo de data/hora UNIX | "Emitido em" indica quando ocorreu a autenticação desse token. |
 | `nbf` | int, um carimbo de data/hora UNIX | A declaração "nbf" (não antes) identifica a hora antes da qual o JWT não deve ser aceito para processamento. |
 | `exp` | int, um carimbo de data/hora UNIX | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT não deve ser aceito para processamento. É importante observar que um recurso pode rejeitar o token antes dessa hora também, como quando uma alteração na autenticação é necessária ou se uma revogação de token foi detectada. |
 | `acr` | Cadeia de caracteres, um "0" ou "1" | A declaração da "Classe de contexto de autenticação". Um valor "0" indica que a autenticação do usuário final não atendeu aos requisitos da ISO/IEC 29115. |
-| `aio` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure AD para registrar os dados para reutilização de token. Os recursos não devem usar essa declaração. |
-| `amr` | Matriz de cadeias de caracteres JSON | Presente apenas em tokens da v1.0. Identifica como o assunto do token foi autenticado. Confira [a seção de declarações de amr](#the-amr-claim) para obter mais detalhes. |
+| `aio` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure AD para registrar os dados para reutilização de token. Recursos não devem usar essa declaração. |
+| `amr` | Matriz de cadeias de caracteres JSON | Presente apenas em tokens da v1.0. Identifica como o assunto do token foi autenticado. Para obter mais informações, consulte [seção de declaração a amr](#the-amr-claim). |
 | `appid` | Cadeia de caracteres, um GUID | Presente apenas em tokens da v1.0. A ID do aplicativo do cliente que usa o token. O aplicativo pode agir como ele próprio ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no AD do Azure. |
 | `appidacr` | "0", "1" ou "2" | Presente apenas em tokens da v1.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se a ID do cliente e o segredo do cliente são usados, o valor é "1". Se um certificado do cliente foi usado para autenticação, o valor é "2". |
 | `azp` | Cadeia de caracteres, um GUID | Presente apenas em tokens v2.0. A ID do aplicativo do cliente que usa o token. O aplicativo pode agir como ele próprio ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no AD do Azure. |
 | `azpacr` | "0", "1" ou "2" | Presente apenas em tokens v2.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se a ID do cliente e o segredo do cliente são usados, o valor é "1". Se um certificado do cliente foi usado para autenticação, o valor é "2". |
-| `groups` | Matriz JSON de GUIDs | Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração dos grupos são configurados por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br>Consulte a declaração `hasgroups` abaixo para obter detalhes de como usar a declaração `groups` com a concessão implícita. <br>Para outros fluxos, se o número de grupos a que o usuário pertence ultrapassar determinado limite (150 para SAML, 200 para JWT), uma declaração excedente será adicionada às fontes de declaração que apontam para o ponto de extremidade do Grafo que contém a lista de grupos do usuário. |
+| `groups` | Matriz JSON de GUIDs | Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração dos grupos são configurados por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br>Consulte a declaração `hasgroups` abaixo para obter detalhes de como usar a declaração `groups` com a concessão implícita. <br>Para outros fluxos, se o número de grupos que o usuário está no ultrapassar um limite (150 para SAML, 200 para JWT), é adicionada uma declaração excedente às fontes de declaração que apontam para o ponto de extremidade do Graph que contém a lista de grupos para o usuário. |
 | `hasgroups` | BOOLEAN | Se houver algum, sempre `true`, indicando que o usuário pertence a pelo menos um grupo. Usado no lugar da declaração `groups` de JWTs em fluxos de concessão implícitos se a declaração completa de grupos ultrapassar o fragmento de URI para além dos limites de extensão da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar o Graph para determinar os grupos do usuário (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Objeto JSON | Para solicitações de token sem limite de tamanho (consulte `hasgroups` acima), mas ainda muito grandes para o token, será incluído um link para a lista completa de grupos do usuário. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
-| `preferred_username` | Cadeia de caracteres | O nome de usuário principal que representa o usuário. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. Uma vez que é mutável, esse valor não deve ser usado para tomar decisões de autorização.  Ele pode ser usado para obter dicas de nome de usuário. O escopo `profile` é necessário para receber essa declaração. |
-| `name` | Cadeia de caracteres | Fornece um valor legível por humanos que identifica a entidade do token. Não há garantia de que o valor seja exclusivo. Ele é mutável e foi projetado para ser usado apenas para fins de exibição. O escopo `profile` é necessário para receber essa declaração. |
-| `oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, nesse caso, uma conta de usuário. Também pode ser usada para realizar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário entre os aplicativos - dois aplicativos diferentes autenticando o mesmo usuário receberão o mesmo valor na declaração `oid`. Portanto, `oid` pode ser usada ao fazer consultas nos serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário. Como o `oid` permite que vários aplicativos correlacionem usuários, o escopo `profile` é necessário a fim de receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferentes em cada locatário - são consideradas contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
-| `rh` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
+| `groups:src1` | Objeto JSON | Para solicitações de token que não são o limite de tamanho (consulte `hasgroups` acima), mas ainda muito grande para o token, um link para a lista completa de grupos para o usuário está incluído. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `preferred_username` | Cadeia de caracteres | O nome de usuário principal que representa o usuário. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. Uma vez que ele é mutável, esse valor não deve ser usado para tomar decisões de autorização.  Ele pode ser usado para obter dicas de nome de usuário. O `profile` escopo é necessário para receber essa declaração. |
+| `name` | Cadeia de caracteres | Fornece um valor legível por humanos que identifica a entidade do token. O valor não é garantido que seja exclusivo, ele é mutável e foi projetada para ser usado apenas para fins de exibição. O `profile` escopo é necessário para receber essa declaração. |
+| `oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, nesse caso, uma conta de usuário. Você também pode usar isso para realizar verificações de autorização com segurança e como uma chave nas tabelas de banco de dados. Essa ID identifica exclusivamente o usuário entre os aplicativos - dois aplicativos diferentes autenticando o mesmo usuário receberão o mesmo valor na declaração `oid`. Portanto, `oid` pode ser usada ao fazer consultas nos serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário. Porque o `oid` permite que vários aplicativos correlacionem usuários, o `profile` escopo é necessário para receber essa declaração. Se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário - são consideradas contas diferentes, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
+| `rh` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Recursos não devem usar essa declaração. |
 | `scp` | Cadeia de caracteres, uma lista de escopos separados por espaços | O conjunto de escopos expostos pelo aplicativo para o qual o aplicativo cliente solicitou (e recebeu) o consentimento. O aplicativo deve verificar se os escopos são escopos válidos expostos pelo aplicativo e tomar decisões de autorização de acordo com o valor desses escopos. Incluído apenas para [tokens de usuário](#user-and-application-tokens). |
 | `roles` | Matriz de cadeias de caracteres, uma lista de permissões | O conjunto de permissões expostos pelo aplicativo para o qual o aplicativo solicitante recebeu permissão de chamar. Para [tokens de aplicativo](#user-and-application-tokens), isso é usado durante a [credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) fluxo no lugar de escopos de usuário.  Para [tokens de usuário](#user-and-application-tokens) esse campo é preenchido com as funções que o usuário foi atribuído no aplicativo de destino. |
-| `sub` | Cadeia de caracteres, um GUID | O item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Pode ser usado para executar verificações de autorização de forma segura, por exemplo, quando o token é usado para acessar um recurso, e pode ser usado como uma chave nas tabelas de banco de dados. Como a entidade está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador de paridade - é exclusivo a uma ID de aplicativo específica. Portanto, se um único usuário entra em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração do assunto. Isso pode ou não ser desejável, dependendo dos requisitos de arquitetura e de privacidade. |
-| `tid` | Cadeia de caracteres, um GUID | Representa o locatário do Azure AD do qual o usuário é proveniente. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O escopo `profile` é necessário para receber essa declaração. |
-| `unique_name` | Cadeia de caracteres | Presente apenas em tokens da v1.0. Fornece um valor legível que identifica a entidade do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e ele deve ser usado apenas para fins de exibição. |
-| `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
+| `sub` | Cadeia de caracteres, um GUID | O item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. Você também pode usar isso para realizar verificações de autorização com segurança, como quando o token é usado para acessar um recurso e pode ser usado como uma chave nas tabelas de banco de dados. Como a entidade está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador de paridade - é exclusivo para uma ID de aplicativo específico. Portanto, se um único usuário entra em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração do assunto. Isso pode ou não ser desejável, dependendo dos requisitos de arquitetura e de privacidade. |
+| `tid` | Cadeia de caracteres, um GUID | Representa o locatário do Azure AD do qual o usuário é proveniente. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` escopo é necessário para receber essa declaração. |
+| `unique_name` | Cadeia de caracteres | Presente apenas em tokens da v1.0. Fornece um valor legível que identifica a entidade do token. Esse valor não é garantido que seja exclusivo dentro de um locatário e deve ser usado apenas para fins de exibição. |
+| `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Recursos não devem usar essa declaração. |
 | `ver` | Cadeia de caracteres, ou `1.0` ou `2.0` | Indica a versão do token de acesso. |
 
 #### <a name="v10-basic-claims"></a>Declarações básicas v1.0
 
-As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas não são incluídas nos tokens v2.0 por padrão. Caso esteja usando a v2.0 e precise de uma dessas declarações, solicite-as usando [declarações opcionais](active-directory-optional-claims.md).
+As seguintes declarações serão incluídas nos tokens de v 1.0, se aplicável, mas não estão incluídas nos tokens v2.0 por padrão. Se você estiver usando a versão 2.0 e a necessidade dessas declarações, solicitá-los usando [declarações opcionais](active-directory-optional-claims.md).
 
 | Declaração | Formatar | DESCRIÇÃO |
 |-----|--------|-------------|
@@ -125,7 +125,7 @@ As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas 
 | `onprem_sid`| Cadeia de caracteres, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de data/hora UNIX | Indica quando a senha do usuário expira. |
 | `pwd_url`| Cadeia de caracteres | Uma URL para a qual os usuários podem ser enviados para redefinir suas senhas. |
-| `in_corp`|booleano | Indica se o cliente está se conectando da rede corporativa. Caso não esteja, a declaração não será incluída. |
+| `in_corp`| booleano | Indica se o cliente está se conectando da rede corporativa. Se não estiverem, a declaração não está incluída. |
 | `nickname`| Cadeia de caracteres | Um nome adicional para o usuário, separado do nome ou sobrenome.|
 | `family_name` | Cadeia de caracteres | Fornece o sobrenome ou o nome da família do usuário, conforme definido no objeto de usuário. |
 | `given_name` | Cadeia de caracteres | Fornece o nome ou nome especificado do usuário, conforme definido no objeto de usuário. |
@@ -133,27 +133,27 @@ As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas 
 
 #### <a name="the-amr-claim"></a>A declaração `amr`
 
-As identidades da Microsoft podem se autenticadas em uma variedade de maneiras, que podem ser relevantes ao seu aplicativo. A declaração `amr` é uma matriz que pode conter vários itens, como `["mfa", "rsa", "pwd"]`, para uma autenticação que usou uma senha e o aplicativo Authenticator.
+As identidades da Microsoft podem autenticar de maneiras diferentes, que podem ser relevantes ao seu aplicativo. A declaração `amr` é uma matriz que pode conter vários itens, como `["mfa", "rsa", "pwd"]`, para uma autenticação que usou uma senha e o aplicativo Authenticator.
 
 | Valor | DESCRIÇÃO |
 |-----|-------------|
 | `pwd` | Autenticação de senha, uma senha da Microsoft do usuário ou um segredo do cliente do aplicativo. |
-| `rsa` | A autenticação se baseava na prova de uma chave RSA, por exemplo, com o [aplicativo Microsoft Authenticator](https://aka.ms/AA2kvvu). Isso inclui se a autenticação foi realizada por um JWT autoassinado com um certificado X509 de propriedade do serviço. |
+| `rsa` | A autenticação se baseava na prova de uma chave RSA, por exemplo, com o [aplicativo Microsoft Authenticator](https://aka.ms/AA2kvvu). Isso inclui se a autenticação foi feita por um JWT auto-assinado com um serviço de propriedade X509 certificado. |
 | `otp` | Uma senha única usando um email ou uma mensagem de texto. |
 | `fed` | Uma declaração de autenticação federada (por exemplo, JWT ou SAML) foi usada. |
 | `wia` | Autenticação Integrada do Windows |
 | `mfa` | A autenticação multifator for usada. Quando isso estiver presente, os outros métodos de autenticação também serão incluídos. |
 | `ngcmfa` | Equivalente a `mfa`, usado para o provisionamento de alguns tipos de credenciais avançadas. |
 | `wiaormfa`| O usuário utilizou o Windows ou uma credencial MFA para se autenticar. |
-| `none` | Nenhuma autenticação foi executada. |
+| `none` | Nenhuma autenticação foi feita. |
 
 ## <a name="validating-tokens"></a>Validando tokens
 
-Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-O middleware do Azure AD tem funcionalidades internas para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar uma na linguagem de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, confira a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
+O middleware do Azure AD tem funcionalidades internas para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar uma na linguagem de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, confira a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token com facilidade. As informações abaixo são fornecidas para aqueles que desejam entender o processo subjacente. Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT – há, pelo menos, uma opção para quase todas as linguagens e plataformas. Para obter mais informações sobre bibliotecas de autenticação do Azure AD e exemplos de código, confira [bibliotecas de autenticação v1.0](active-directory-authentication-libraries.md) e [bibliotecas de autenticação v2.0](reference-v2-libraries.md).
+Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token com facilidade. As informações abaixo são fornecidas para aqueles que desejam entender o processo subjacente. Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT; há pelo menos uma opção para quase todas as plataformas e idiomas. Para obter mais informações sobre bibliotecas de autenticação do Azure AD e exemplos de código, confira [bibliotecas de autenticação v1.0](active-directory-authentication-libraries.md) e [bibliotecas de autenticação v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Validação da assinatura
 
@@ -185,27 +185,27 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 Esses metadados documentam:
 
-* É um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade necessários para a execução da autenticação do OpenID Connect. 
-* Inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Assim, ele pode executar a validação da assinatura usando a chave pública correta e o algoritmo indicado.
+* Um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade necessários para fazer a autenticação do OpenID Connect.
+* Inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Em seguida, ele pode fazer a validação de assinatura usando a chave pública correta e o algoritmo indicado.
 
 > [!NOTE]
 > O ponto de extremidade v1.0 retorna as declarações `x5t` e `kid`, enquanto o ponto de extremidade v 2.0 responde apenas com a declaração `kid`. No futuro, é recomendável usar a declaração `kid` para validar o token.
 
-Executar a validação da assinatura está fora do escopo deste documento — há muitas bibliotecas de software livre disponíveis para ajudar você a fazer isso, caso seja necessário.  No entanto, a plataforma Microsoft Identity tem uma extensão para os padrões - personalizados de chaves de autenticação de assinatura de token.  
+Fazer a validação da assinatura está fora do escopo deste documento – há muitas bibliotecas de software livre disponíveis para ajudá-lo a fazê-lo se necessário.  No entanto, a plataforma Microsoft Identity tem uma extensão para os padrões - personalizados de chaves de autenticação de assinatura de token.  
 
-Se seu aplicativo tem as chaves de autenticação personalizadas como resultado do uso de [mapeamento de declarações](active-directory-claims-mapping.md) recurso, você deve acrescentar um `appid` consultar um parâmetro que contém a ID do aplicativo para obter um `jwks_uri` apontando para seu aplicativo de autenticação de chave informações, que devem ser usadas para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém uma `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Se seu aplicativo tem as chaves de autenticação personalizadas como resultado do uso de [mapeamento de declarações](active-directory-claims-mapping.md) recurso, você deve acrescentar uma `appid` consultar um parâmetro que contém a ID do aplicativo para obter um `jwks_uri` apontando para seu aplicativo de assinatura de informações de chave, que deve ser usado para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém uma `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorização baseada em declarações
 
 A lógica de negócios do aplicativo determinará esta etapa; alguns métodos comuns de autorização são apresentados abaixo.
 
-* Verifique a declaração `scp` ou `roles` para verificar se todos os escopos presentes correspondem àqueles expostos pela API e permitem que o cliente execute a ação solicitada.
+* Verifique as `scp` ou `roles` de declaração para verificar que todos os escopos presentes correspondam às informações expostas pela sua API e permitir que o cliente fazer a ação solicitada.
 * Verifique se o cliente de chamada pode chamar sua API usando a declaração `appid`.
-* Valide o status de autenticação do cliente de chamada usando `appidacr` – ele não deve ser 0 se os clientes públicos não têm permissão para chamar a API.
-* Verifique em uma lista das últimas declarações `nonce` para verificar se o token não está sendo reproduzido.
+* Validar o status de autenticação do cliente da chamada usando `appidacr` -ele não deve ser 0 se os clientes públicos não têm permissão para chamar sua API.
+* Verificar em relação uma lista de últimos `nonce` declarações para verificar se o token não está sendo repetido.
 * Verifique se o `tid` corresponde a um locatário que tem permissão para chamar sua API.
 * Use a declaração `acr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
-* Se você solicitou as declarações `roles` ou `groups` no token de acesso, verifique se o usuário está no grupo com permissão para executar essa ação.
+* Se você solicitou a `roles` ou `groups` declarações no token de acesso, verifique se o usuário está no grupo de permissão para realizar essa ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente, você precisará conferir o [Microsoft Graph](https://developer.microsoft.com/graph/) para esses dados, pois eles costumam ser muito grandes para se ajustarem ao token.
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuário e aplicativo
@@ -217,15 +217,15 @@ Seu aplicativo pode receber tokens em nome de um usuário (o fluxo normal) ou di
 
 ## <a name="token-revocation"></a>Revogação de token
 
-Os tokens de atualização podem ser invalidados ou revogados a qualquer momento por vários motivos. Eles se encaixam em duas categorias principais: tempos limite e revogações.
+Atualizar tokens podem ser invalidados ou revogados a qualquer momento, por motivos diferentes. Eles se encaixam em duas categorias principais: tempos limite e revogações.
 
 ### <a name="token-timeouts"></a>Tempos limite de token
 
-* MaxInactiveTime: se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
-* MaxSessionAge: se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor tiver sido definido como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession*. 
+* MaxInactiveTime: Se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido.
+* MaxSessionAge: se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor tiver sido definido como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession*.
 * Exemplos:
-  * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente.
-  * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de 1 dia. Se um usuário fizer logon na segunda-feira e na terça-feira (após decorridas 25 horas), ele deverá se autenticar novamente.
+  * O locatário tem uma MaxInactiveTime de cinco dias e o usuário entrou em férias por uma semana e, então, o Azure AD ainda não viu uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicita um novo token, ele encontrará seu Token de atualização foi revogado, e eles devem digitar as credenciais novamente.
+  * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de um dia. Se um usuário fizer logon na segunda-feira e na terça-feira (após 25 horas), ele serão solicitados a autenticar novamente.
 
 ### <a name="revocation"></a>Revogação
 
@@ -240,11 +240,11 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 | [Logoff único](v1-protocols-openid-connect-code.md#single-sign-out) na Web | Revogado | Permanece ativo | Revogado | Permanece ativo | Permanece ativo |
 
 > [!NOTE]
-> Um logon "não baseado em senha" é um logon em que o usuário não digita uma senha para entrar. Por exemplo, usando seu rosto no Windows Hello, uma chave FIDO ou um PIN. 
+> Um logon "não baseado em senha" é um logon em que o usuário não digita uma senha para entrar. Por exemplo, usando seu rosto no Windows Hello, uma chave FIDO ou um PIN.
 >
 > Existe um problema conhecido com o Token de atualização primário do Windows. Se o PRT for obtido por meio de uma senha e, em seguida, o usuário fizer logon usando o Hello, isso não alterará a origem do PRT e será revogado se o usuário alterar sua senha.
 >
-> Tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e token de atualização.  
+> Tokens de atualização não são invalidados ou revogados quando usado para buscar um novo token de acesso e token de atualização.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
