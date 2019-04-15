@@ -34,9 +34,9 @@ Os agendamentos têm as propriedades indicadas na tabela a seguir.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Intervalo |A frequência com que a pesquisa é executada. Medida em minutos. |
+| Interval |A frequência com que a pesquisa é executada. Medida em minutos. |
 | QueryTimeSpan |O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
-| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+| Version |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos e Timespan (Período) de 30 minutos. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se os critérios continuarem a ser resolvidos como verdadeiro por um período de 30 minutos.
 
@@ -359,9 +359,9 @@ Notificações por Email enviam email para um ou mais destinatários.  Elas incl
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Destinatários |Lista de endereços de email. |
-| Assunto |O assunto do email. |
-| Anexo |Atualmente, não há suporte para nexos, por isso este item sempre terá um valor de "None" (Nenhum). |
+| Recipients |Lista de endereços de email. |
+| Subject |O assunto do email. |
+| Attachment |Atualmente, não há suporte para nexos, por isso este item sempre terá um valor de "None" (Nenhum). |
 
 Veja a seguir uma resposta de exemplo para uma ação de notificação por email com um limite.  
 
