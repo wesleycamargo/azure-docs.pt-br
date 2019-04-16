@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578638"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578910"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -60,6 +60,10 @@ Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como o site local se conecta a Migrações para Azure?
 
 A conexão pode ser pela Internet ou usar o ExpressRoute com emparelhamento público.
+
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Quais requisitos de conectividade de rede são necessárias para migrações para Azure?
+
+Para as URLs e portas necessárias para migrar do Azure para se comunicar com o Azure, consulte [URLs para conectividade](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Posso proteger a VM configurada com o modelo OVA?
 

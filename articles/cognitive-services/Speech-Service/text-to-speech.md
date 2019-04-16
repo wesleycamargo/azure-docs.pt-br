@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549498"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578774"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
@@ -53,10 +53,7 @@ Esta tabela lista os principais recursos de texto em fala:
 | Criar e gerenciar testes de fonte de voz. | Não  | Sim\* |
 | Gerencie assinaturas. | Não  | Sim\* |
 
-\* *Esses serviços estão disponíveis usando o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Os pontos de extremidade de voz personalizadas implementam a limitação que limita as solicitações para 25 por 5 segundos. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.
+\* *Esses serviços estão disponíveis usando o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index). Esses treinamento de voz personalizadas e as APIs de gerenciamento de implementam a limitação que limitar as solicitações a 25 por 5 segundos, enquanto a síntese de fala, API em si implementa a limitação que permite a 200 solicitações por segundo, o mais alto. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.*
 
 ## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em fala
 
@@ -93,7 +90,7 @@ Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos 
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 * [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter uma assinatura gratuita dos Serviços de Fala](get-started.md)
 * [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
