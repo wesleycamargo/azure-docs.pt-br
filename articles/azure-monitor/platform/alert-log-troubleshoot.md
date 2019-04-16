@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de alertas do log no Azure Monitor | Microsoft Docs
-description: Problemas comuns, erros e resoluções para as regras de alerta de log no Azure.
+description: Comum problemas, erros e resolução para regras de alerta de log no Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005297"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578706"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
@@ -25,7 +25,6 @@ O termo **alertas de Log** descreve os alertas que incêndio com base em uma con
 
 > [!NOTE]
 > Este artigo não considera os casos em que o portal do Azure é exibido, a regra de alerta é disparada e uma notificação é executada por Grupos de Ações associados. Para esses casos, consulte os detalhes no artigo sobre [Grupos de Ação](../platform/action-groups.md).
-
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de log não acionado
 
@@ -57,7 +56,7 @@ Conforme descrito na etapa 8 do artigo sobre a [criação de uma regra de alerta
 
 Por exemplo, suponha que uma regra de alerta de log de medição métrica foi configurada como:
 
-- consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- a consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - período de 6 horas
 - limite de 50
 - lógica de alerta de três violações consecutivas
@@ -92,9 +91,94 @@ Por exemplo, se a regra de alerta do log estiver configurada para disparar quand
 
 ### <a name="alert-query-output-misunderstood"></a>Saída de consulta do alerta incompreendida
 
-Você fornece a lógica para alertas de log em uma consulta de análise. A consulta de análise pode usar várias funções matemáticas e de Big Data.  O serviço de alerta executa sua consulta em intervalos especificados com os dados para o período especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Isso pode ser visto na seção "Consulta a ser executada" na tela *Configurar lógica de sinal*, conforme mostrado abaixo: ![Consulta a ser executada](media/alert-log-troubleshoot/LogAlertPreview.png)
+Você fornece a lógica para alertas de log em uma consulta de análise. A consulta de análise pode usar várias funções matemáticas e de Big Data.  O serviço de alerta executa sua consulta em intervalos especificados com os dados para o período especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Essa alteração pode ser exibida na seção "Consulta a ser executada" em *lógica de sinal configurar* tela, conforme mostrado abaixo: ![Consulta a ser executada](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 O que é mostrado na caixa da **consulta a ser executada** é o que o serviço de alerta de log é executa. Você poderá executar a consulta indicada, bem como o intervalo por meio do [portal do Analytics](../log-query/portals.md) ou da [API de Análise](https://docs.microsoft.com/rest/api/loganalytics/) se quiser entender o que pode ser a saída da consulta de alerta antes de realmente criar o alerta.
+
+## <a name="log-alert-was-disabled"></a>Alerta de log foi desabilitado
+
+Abaixo estão algumas razões devido à qual [regra de alerta de log no Azure Monitor](../platform/alerts-log.md) pode ser desabilitado pelo Azure Monitor.
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>Recurso em que alerta foi criado não existe
+
+Regras de alerta do log criadas no Azure Monitor um recurso específico, como um espaço de trabalho do Log Analytics do Azure, o aplicativo do Azure Application Insights e o recurso do Azure de destino. E o serviço de alerta de log, em seguida, executará a consulta do analytics fornecida na regra para o destino especificado. Mas, após a criação de regra, muitas vezes os usuários vá para excluir do Azure ou mover dentro do Azure - o destino da regra de alerta. Como o destino da regra de alerta de log não é mais válido, a execução da regra falhará.
+
+Nesses casos, o Azure Monitor desabilitará o alerta do log e garantir que os clientes não são cobrados desnecessariamente, quando a regra em si não é capaz de executar continuamente para o período de considerável, como uma semana. Os usuários podem encontrar na hora exata em que a regra de alerta de log foi desabilitada pelo Azure Monitor por meio [Log de atividades do Azure](../../azure-resource-manager/resource-group-audit.md). No Log de atividades do Azure quando a regra de alerta do log é desabilitada pelo Azure, um evento for adicionado no Log de atividades do Azure.
+
+Exemplo de evento no Log de atividades do Azure para desabilitar a regra de alerta devido a sua falha contínua; é mostrado abaixo.
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>Consulta usada no Log de alerta não é válida
+
+Cada regra de alerta do log criada no Azure Monitor como parte de sua configuração deve especificar uma consulta do analytics a ser executado periodicamente, o serviço de alerta. Enquanto a consulta do analytics pode ter a sintaxe correta no momento da criação da regra ou atualização. A consulta de algumas vezes em um período de tempo, fornecer no log de regra de alerta pode desenvolver problemas de sintaxe e fazer com que a execução da regra começar a falhar. Algumas razões comuns por que o fornecido em uma regra de alerta do log de consulta do analytics pode desenvolver erros são:
+
+- Consulta é gravada [executado em vários recursos](../log-query/cross-workspace-query.md) e um ou mais dos recursos especificados, agora não existem.
+- Não houve nenhum fluxo de dados para a plataforma de análise, devido à qual o [gera um erro de execução da consulta](https://dev.loganalytics.io/documentation/Using-the-API/Errors) pois não há nenhum dado para a consulta fornecida.
+- As alterações no [linguagem de consulta](https://docs.microsoft.com/azure/kusto/query/) ocorreram nas quais comandos e funções têm um formato revisado. Portanto, a consulta fornecida anteriormente na regra de alerta não é válida.
+
+O usuário deverá ser avisado desse comportamento por meio [Azure Advisor](../../advisor/advisor-overview.md). Uma recomendação seria adicionada para a regra de alerta de log específico no Assistente do Azure, na categoria de alta disponibilidade com impacto médio e a descrição como "Reparar sua regra de alerta de log para garantir que o monitoramento". Se após sete dias de recomendação no Assistente do Azure fornecendo a consulta do alerta na regra de alerta de log especificado não for corrigida. Em seguida, do Azure Monitor desabilitará o alerta do log e garantir que os clientes não são cobrados desnecessariamente, quando a regra em si não é capaz de executar continuamente para o período de considerável, como uma semana.
+
+Os usuários podem encontrar na hora exata em que a regra de alerta de log foi desabilitada pelo Azure Monitor por meio [Log de atividades do Azure](../../azure-resource-manager/resource-group-audit.md). No Log de atividades do Azure, quando a regra de alerta do log é desabilitada por Azure - um evento for adicionado no Log de atividades do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

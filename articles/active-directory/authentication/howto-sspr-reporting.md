@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493052"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577960"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -50,15 +50,14 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** no painel esquerdo.
 3. Procure **Azure Active Directory** na lista de serviços e selecione-o.
-4. Selecione **Usuários e grupos**.
-5. Selecione **Logs de auditoria** no menu **Usuários e grupos**. Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os usuários no diretório. Você pode filtrar essa exibição para ver todos os eventos relacionados a senhas.
-6. Para filtrar essa exibição somente para os eventos relacionados à redefinição de senha, selecione o botão **Filtrar** na parte superior do painel.
-7. No menu **Filtro**, selecione a lista suspensa **Categoria** e altere-a para o tipo de categoria **Gerenciamento de Senha de Autoatendimento**.
-8. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado.
+4. Selecione **usuários** da seção gerenciar.
+5. Selecione **Logs de auditoria** da **usuários** folha. Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os usuários no diretório. Você pode filtrar essa exibição para ver todos os eventos relacionados a senhas.
+6. Do **filtro** menu na parte superior do painel, selecione o **Service** lista suspensa lista e altere-a para o **gerenciamento de senha de autoatendimento** tipo de serviço.
+7. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado.
 
 ### <a name="converged-registration-preview"></a>Registro convergente (versão prévia)
 
-Se você estiver participando da visualização pública do registro convergente, informações sobre a atividade de usuário nos logs de auditoria serão encontradas na categoria **Métodos de Autenticação**.
+Se você está participando de visualização pública do registro convergido, informações sobre a atividade de usuário nos logs de auditoria serão encontradas sob o serviço **métodos de autenticação**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
@@ -176,16 +175,16 @@ A seguinte lista explica essa atividade em detalhes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como posso concluir uma implementação bem-sucedida do SSPR?](howto-sspr-deployment.md)
+* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registro para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md).
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [Qual é o write-back de senha e por que me preocupar sobre isso?](howto-sspr-writeback.md)
-* [Quais são todas as opções no SSPR e o que eles significam?](concept-sspr-howitworks.md)
-* [Eu acho que algo não está funcionando. Como solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que não foi respondida em algum lugar else](active-directory-passwords-faq.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemplo de logs de auditoria da atividade de SSPR no Azure AD"

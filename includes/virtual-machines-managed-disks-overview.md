@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291779"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566558"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -31,7 +31,7 @@ Usando discos gerenciados, é possível criar até 50 mil **discos** de VM de um
 
 Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
-## <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
+### <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
 
 Gerenciado dá suporte a discos [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de alta disponibilidade que protege seus aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
 
@@ -69,8 +69,8 @@ Um instantâneo de disco gerenciado é uma cópia completa somente leitura de um
 
 Para saber mais sobre como criar instantâneos com discos gerenciados, confira os seguintes recursos:
 
-* [Criar cópia de VHD armazenado como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenado como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imagens
 
@@ -79,7 +79,7 @@ Os discos gerenciados também dão suporte à criação de uma imagem personaliz
 Para saber mais sobre a criação de imagens, confira os artigos a seguir:
 
 * [Como capturar uma imagem gerenciada de uma VM generalizada no Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
+* [Como generalizar e capturar uma máquina virtual Linux usando a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Imagens versus instantâneos
 

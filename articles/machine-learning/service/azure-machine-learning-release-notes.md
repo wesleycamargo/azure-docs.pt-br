@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528128"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579148"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
 Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
 + O [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + O [**SDK de Preparação de Dados do Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Portal do Azure
+  + Agora você pode reenviar um Script existente que execute em um cluster de computação remota existente. 
+  + Agora você pode executar um pipeline publicado com novos parâmetros na guia Pipelines. 
+  + Detalhes de execução agora dá suporte a um novo Visualizador de arquivo de instantâneo. Quando você tiver enviado uma execução específica, você pode exibir um instantâneo do diretório. Você também pode baixar o notebook que foi enviado para iniciar a execução.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina d
   + Detecção de tipo de coluna agora dá suporte a colunas do tipo Long.
   + Corrigido um bug em que alguns valores de data foram sendo exibidos como carimbos de hora em vez de objetos de data e hora do Python.
   + Corrigido um bug em que as contagens de algum tipo foram sendo exibidas como duplas, em vez de números inteiros.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 
@@ -448,6 +456,6 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre essa versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia a visão geral do [Serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md).

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489804"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571147"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -62,13 +62,15 @@ O processo de upload implica o carregamento de um arquivo que contém o certific
 
 A etapa de prova de posse envolve um processo de desafio criptográfico e processo de resposta entre você e o Hub IoT.  Considerando que o conteúdo de certificados digitais é público e, portanto, suscetível a espionagem, o Hub IoT verifica se você realmente tem o certificado de autoridade de certificação.  Ele faz isso gerando um desafio aleatório que você deve assinar com a chave privada correspondente do certificado de autoridade de certificação.  Se você manteve a chave privada protegida e secreta como recomendado anteriormente, então, somente você terá o conhecimento para concluir esta etapa. A confidencialidade de chaves privadas é a fonte de confiança nesse método.  Depois de assinar o desafio, conclua esta etapa carregando um arquivo que contém os resultados.
 
-Saiba aqui como [registrar seu certificado de autoridade de certificação](iot-hub-security-x509-get-started.md#registercerts).
+Saiba aqui como [registrar seu certificado de autoridade de certificação](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Como criar um dispositivo no Hub IoT
 
 Para impedir a representação do dispositivo, o Hub IoT exige que você o informe quais dispositivos esperar.  Você pode fazer isso criando uma entrada de dispositivo no registro de dispositivos do Hub IoT.  Este processo é automatizado ao usar o [Serviço de provisionamento do dispositivo](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) do Hub IoT. 
 
-Saiba mais aqui como [criar manualmente um dispositivo no Hub IoT](iot-hub-security-x509-get-started.md#createdevice).
+Saiba mais aqui como [criar manualmente um dispositivo no Hub IoT](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Criar um dispositivo X.509 para o Hub IoT
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Autenticação de dispositivos assinados com certificados de AC X.509
 
@@ -76,7 +78,7 @@ Com o certificado de autoridade de certificação X.509 registrado e os disposit
 
 Uma conexão bem-sucedida do dispositivo com o Hub IoT conclui o processo de autenticação e também é uma indicação de uma configuração apropriada.
 
-Saiba mais aqui como [concluir essa etapa de conexão do dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
+Saiba mais aqui como [concluir essa etapa de conexão do dispositivo](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Próximas etapas
 

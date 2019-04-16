@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767032"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579267"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à Configuração de Estado da Automação do Azure
 
@@ -27,7 +27,7 @@ Este artigo fornece um guia passo a passo sobre o uso da Configuração de Estad
 Para concluir os exemplos neste artigo, são necessários:
 
 - Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
-- Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Uma VM do Azure Resource Manager (não clássico) executando uma [sistema operacional com suporte](automation-dsc-overview.md#operating-system-requirements). Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Criando uma configuração de DSC
 
@@ -149,9 +149,9 @@ A conclusão com êxito de um trabalho de compilação cria uma ou mais novas co
 1. Na página de detalhes da **Máquina virtual**, clique em **+ Conectar**.
 
    > [!IMPORTANT]
-   > Ela deve ser uma VM do Azure Resource Manager executando o Windows Server 2008 R2 ou posterior.
+   > Isso deve ser uma VM do Azure Resource Manager executando uma [sistema operacional com suporte](automation-dsc-overview.md#operating-system-requirements).
 
-1. Na página **Registro**, selecione o nome da configuração do nó que você quer aplicar à VM na caixa **Nome da configuração de nó**. Fornecer um nome neste ponto é opcional. Você pode alterar a configuração de nó atribuída após integrar o nó.
+2. Na página **Registro**, selecione o nome da configuração do nó que você quer aplicar à VM na caixa **Nome da configuração de nó**. Fornecer um nome neste ponto é opcional. Você pode alterar a configuração de nó atribuída após integrar o nó.
    Marque **Reinicialize o nó, se necessário** e clique em **OK**.
 
    ![Captura de tela da folha Registro](./media/automation-dsc-getting-started/RegisterVM.png)

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: b45d64f56653ad6d0baabef4a63351ef14f24c42
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58861948"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577822"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar uma central de segurança do Azure para IoT C#-com base em agente de segurança para Windows
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este guia explica como instalar o Centro de segurança do Azure (ASC) para IoT C#-com base em agente de segurança no Windows.
@@ -34,7 +34,7 @@ Neste guia, você aprenderá a:
 > * Instalar
 > * Verificar implantação
 > * Desinstalar o agente
-> * Solucionar problemas 
+> * Solução de problemas 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -86,7 +86,7 @@ Para obter ajuda adicional, use o comando Get-Help no PowerShell <br>Exemplo de 
 ### <a name="verify-deployment-status"></a>Verificar o status da implantação
 
 - Verifique o status da implantação do agente executando:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### <a name="uninstall-the-agent"></a>Desinstalar o agente
 
@@ -135,7 +135,7 @@ Para ativar o log:
 
 1. Examine o arquivo de log para obter mais informações sobre a falha.
 
-   Local do arquivo de log: `%WinDir%/System32/IoTAgentLog.log`
+   Localização do arquivo de log: `%WinDir%/System32/IoTAgentLog.log`
 
 
 ## <a name="next-steps"></a>Próximas etapas

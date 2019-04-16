@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288090"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579488"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientado a dados (SDK da Web)
 
@@ -43,7 +43,7 @@ SDK da Web de mapas do Azure dá suporte a muitos tipos de expressões que podem
 
 | Tipo de expressões | DESCRIÇÃO |
 |---------------------|-------------|
-| [Expressões boolianas](#boolean-expressions) | Expressões Boolianas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações booleanas. |
+| [Expressões Boolianas](#boolean-expressions) | Expressões Boolianas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações booleanas. |
 | [Expressões de cores](#color-expressions) | Expressões de cores facilitam criar e manipular valores de cor. |
 | [Expressões condicionais](#conditional-expressions) | Expressões condicionais fornecem operações de lógica que são como instruções if. |
 | [Expressões de dados](#data-expressions) | Fornece acesso aos dados de propriedade em um recurso. |
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Um `coalesce` expressão as etapas por meio de um conjunto de expressões até que o primeiro valor não nulo é obtido e retorna esse valor. 
 
-O pseudocódigo a seguir define a estrutura do ` coalesce` expressão. 
+O pseudocódigo a seguir define a estrutura do `coalesce` expressão. 
 
 ```javascript
 [
@@ -792,7 +792,7 @@ Consulte os seguintes artigos para obter mais exemplos de código que implementa
 > [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Adicionar formas](map-add-shape.md)

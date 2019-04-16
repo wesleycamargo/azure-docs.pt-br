@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916641"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578650"
 ---
 # <a name="translator-text-api-30-detect"></a>API de Tradução de Texto 3.0: Detect
 
@@ -48,8 +48,8 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">Cabeçalhos</th>
   <th>DESCRIÇÃO</th>
   <tr>
-    <td>_Uma autorização_<br/>_cabeçalho_</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>Veja [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>Cabeçalhos de autenticação</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
@@ -176,7 +176,7 @@ Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON
 
 O exemplo a seguir mostra como recuperar os idiomas compatíveis para a tradução de texto.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

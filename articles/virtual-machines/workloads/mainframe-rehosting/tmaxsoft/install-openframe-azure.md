@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896224"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578468"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -945,7 +945,7 @@ ProSort é um utilitário usado em transações em lotes para classificar os dad
      export PATH
      ```
 
-6. Para executar o perfil de bash, no prompt de comando, digite: ` . .bash_profile`
+6. Para executar o perfil de bash, no prompt de comando, digite: `. .bash_profile`
 
 7. Crie o arquivo de configuração. Por exemplo: 
 
@@ -1055,7 +1055,7 @@ OFCOBOL é o compilador OpenFrame que interpreta os programas de COBOL do mainfr
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Use o `ofcob --version ` de comando e examine o número de versão para verificar a instalação. Por exemplo: 
+10. Use o `ofcob --version` de comando e examine o número de versão para verificar a instalação. Por exemplo: 
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1342,7 +1342,7 @@ Antes de instalar JEUS, instale o pacote de Apache Ant, que fornece as bibliotec
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. Alteração `jeus.password=jeusadmin nodename=Tmaxsoft` para `jeus.password=tmax1234 nodename=ofdemo`
+7. Altere `jeus.password=jeusadmin nodename=Tmaxsoft` para `jeus.password=tmax1234 nodename=ofdemo`
 
 8. Execute o `ant install` para compilar JEUS.
 9.  Atualizar o .bash\_arquivo de perfil com as variáveis JEUS, conforme mostrado:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501957"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571164"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -68,7 +68,7 @@ Comece criando os testes para monitorar a conectividade de rede aos pontos de ex
 5. Em **Destino**, insira o endereço IP/FQDN/URL para o qual você deseja monitorar a conectividade de rede.
 6. Em **Número da porta**, insira o número da porta do serviço de destino. 
 7. Em **Frequência de Teste**, insira um valor para a frequência com a qual você deseja que o teste execute. 
-8. Selecione os nós do qual você deseja monitorar a conectividade de rede para o serviço. 
+8. Selecione os nós do qual você deseja monitorar a conectividade de rede para o serviço. Certifique-se de que o número de agentes adicionados por teste é menos de 150. Qualquer agente pode testar máximo 150 pontos de extremidade/agentes.
 
     >[!NOTE]
     > Para nós de servidor Windows, o recurso usa solicitações com base em TCP para executar as medidas de rede. Para nós de clientes Windows, o recurso usa solicitações com base em ICMP para executar as medidas de rede. Em alguns casos, o aplicativo de destino bloqueia solicitações ICMP quando os nós forem baseados em cliente Windows. A solução não pode realizar medidas de rede. É recomendável usar nós de servidores Windows nesses casos. 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263036"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579200"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -484,15 +484,15 @@ Você também pode usar referências de propriedade em consultas. Por exemplo, `
 
 A tabela a seguir mostra o resultado de comparações de igualdade na API do SQL entre dois tipos JSON quaisquer.
 
-| **Op** | **Indefinido** | **Nulo** | **BOOLEAN** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
+| **Op** | **Indefinido** | **Nulo** | **Booliano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
 |---|---|---|---|---|---|---|---|
 | **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
-| **Nulo** | Indefinido | **OK** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
-| **BOOLEAN** | Indefinido | Indefinido | **OK** | Indefinido | Indefinido | Indefinido | Indefinido |
-| **Número** | Indefinido | Indefinido | Indefinido | **OK** | Indefinido | Indefinido | Indefinido |
-| **Cadeia de caracteres** | Indefinido | Indefinido | Indefinido | Indefinido | **OK** | Indefinido | Indefinido |
-| **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **OK** | Indefinido |
-| **Matriz** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **OK** |
+| **Nulo** | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Booliano** | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Número** | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido |
+| **Cadeia de caracteres** | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido |
+| **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido |
+| **Matriz** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** |
 
 Para operadores de comparação, como `>`, `>=`, `!=`, `<`, e `<=`, comparação em todos os tipos ou entre dois objetos ou matrizes produz `Undefined`.  
 
@@ -502,7 +502,7 @@ Se o resultado da expressão escalar `Undefined`, o item não está incluído no
 
 Operadores lógicos funcionam em valores boolianos. As tabelas a seguir mostram as tabelas de verdade lógicas desses operadores:
 
-**Operador OR**
+**Operador OU**
 
 | OU | True | Falso | Indefinido |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Operadores lógicos funcionam em valores boolianos. As tabelas a seguir mostram 
 | Falso |Falso |Falso |Falso |
 | Indefinido |Indefinido |Falso |Indefinido |
 
-**Operador não**
+**NÃO operador**
 
 | NÃO |  |
 | --- | --- |
@@ -1238,7 +1238,7 @@ O resultado é:
 
 As funções de verificação de tipo permitem que você verifique o tipo de uma expressão dentro de uma consulta SQL. Você pode usar funções de verificação de tipo para determinar os tipos de propriedades dentro dos itens em um piscar de olhos, quando eles são desconhecido ou variável. Aqui está uma tabela de funções de verificação do tipo de internas com suporte:
 
-| **Uso** | **DESCRIÇÃO** |
+| **Uso** | **Descrição** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Retorna um booliano indicando se o tipo do valor é uma matriz. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Retorna um booliano indicando se o tipo do valor é um booliano. |
@@ -1714,7 +1714,7 @@ O exemplo seguinte mostra junções, expressadas por meio de LINQ `SelectMany`.
 
 O cliente .NET itera automaticamente em todas as páginas de resultados da consulta no `foreach` bloqueia, conforme mostrado no exemplo anterior. As opções de consulta introduzidas na [API REST](#RestAPI) seção também estão disponíveis no SDK do .NET, usando o `FeedOptions` e `FeedResponse` classes no `CreateDocumentQuery` método. Você pode controlar o número de páginas usando o `MaxItemCount` configuração.
 
-Você também pode controlar explicitamente paginação criando `IDocumentQueryable` usando o objeto `IQueryable`, lendo os valores` ResponseContinuationToken` e passando-os de volta como `RequestContinuationToken` em `FeedOptions`. Você pode definir `EnableScanInQuery` para permitir verificações quando a consulta não é compatível com a política de indexação configurada. Para contêineres particionados, você pode usar `PartitionKey` para executar a consulta em relação a uma única partição, embora o Azure Cosmos DB pode extraí-la do texto da consulta. Você pode usar `EnableCrossPartitionQuery` para executar consultas em várias partições.
+Você também pode controlar explicitamente paginação criando `IDocumentQueryable` usando o `IQueryable` objeto, em seguida, lendo os `ResponseContinuationToken` valores e transmiti-los de volta como `RequestContinuationToken` em `FeedOptions`. Você pode definir `EnableScanInQuery` para permitir verificações quando a consulta não é compatível com a política de indexação configurada. Para contêineres particionados, você pode usar `PartitionKey` para executar a consulta em relação a uma única partição, embora o Azure Cosmos DB pode extraí-la do texto da consulta. Você pode usar `EnableCrossPartitionQuery` para executar consultas em várias partições.
 
 Para obter mais exemplos de .NET com consultas, consulte o [amostras do .NET do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) no GitHub.
 
@@ -1915,7 +1915,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 **Selecione o operador de exemplo 1:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -1930,7 +1930,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
   
 **Selecione o operador de exemplo 2:** 
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1945,7 +1945,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
   
 **Selecione o operador de exemplo 3:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
     input.Select(family => new
@@ -1967,7 +1967,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar que retorna um tipo de contêiner.
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -1986,7 +1986,7 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 **Em que operador, exemplo 1:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -2002,7 +2002,7 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
   
 **Em que operador, o exemplo 2:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Where(
@@ -2029,7 +2029,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 1:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Select(family=>family.parents[0])
@@ -2046,7 +2046,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 2:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -2063,7 +2063,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 3:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -2080,7 +2080,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, o exemplo 4:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -2103,7 +2103,7 @@ Uma consulta aninhada aplica-se a consulta interna para cada elemento do contêi
 
 **Aninhamento, exemplo 1:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.SelectMany(family=>
@@ -2120,7 +2120,7 @@ Uma consulta aninhada aplica-se a consulta interna para cada elemento do contêi
 
 **Aninhamento, o exemplo 2:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.SelectMany(family =>
@@ -2138,7 +2138,7 @@ Uma consulta aninhada aplica-se a consulta interna para cada elemento do contêi
 
 **Aninhamento, o exemplo 3:**
 
-- **LINQ lambda expression**
+- **Expressão lambda do LINQ**
   
   ```csharp
       input.SelectMany(family => family.children.Where(
@@ -2156,20 +2156,20 @@ Uma consulta aninhada aplica-se a consulta interna para cada elemento do contêi
 
 ## <a id="References"></a>Referências
 
-- [Especificação de SQL do Cosmos DB do Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Especificação do SQL no Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Especificação de JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Técnicas de avaliação para grandes bancos de dados de consulta](https://dl.acm.org/citation.cfm?id=152611). *ACM computação pesquisas* 25, nenhum. 2 (1993).
-- Graefe, G. "A estrutura em cascata para otimização da consulta." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
+- Graefe, G. "A estrutura em cascata para otimização da consulta." *Eng IEEE dados. Bull.* 18, no. 3 (1995).
 - Lu, Ooi, Tan. "Processamento de consultas em sistemas de banco de dados relacional paralelo." *IEEE Computer sociedade pressione* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: Uma linguagem não-para-externo para processamento de dados." *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Cosmos DB][introduction]
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Níveis de consistência do Azure Cosmos DB][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

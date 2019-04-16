@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a29c15be6cfb73bb768e74cd9141e660b598f06
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565658"
+ms.locfileid: "59578236"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure
 Este artigo descreve como alterar o modelo de licenciamento de uma máquina virtual do SQL Server no Azure usando o novo provedor de recursos da VM do SQL – **Microsoft.SqlVirtualMachine**. Há dois modelos para uma máquina virtual (VM) que hospeda o SQL Server - pago conforme o uso, de licenciamento e Traga sua própria licença (BYOL). E agora, usando o portal do Azure, CLI do Azure ou PowerShell você pode modificar sua VM do SQL Server usa qual modelo de licenciamento. 
@@ -44,7 +44,7 @@ Alternar entre os dois modelos de licença não resulta em **nenhum tempo de ina
  - A capacidade de converter o modelo de licenciamento está disponível atualmente somente na inicialização com uma imagem de VM do SQL Server pré-paga. Se você iniciar com uma imagem Traga sua própria licença no portal, não poderá converter essa imagem para pré-paga.
  - Somente há suporte para alterar o modelo de licenciamento para máquinas virtuais implantadas usando o modelo do Resource Manager. Não há suporte para VMs implantadas usando o modelo clássico. 
  - Alterar o modelo de licenciamento é habilitado apenas para instalações de nuvem pública.
- - Alterar o modelo de licenciamento tem suporte apenas em máquinas virtuais que têm uma única NIC (interface de rede). Em máquinas virtuais que têm mais de uma NIC, você deve primeiro remover uma das NICs (usando o portal do Azure) antes de tentar o procedimento. Caso contrário, você enfrentará um erro semelhante ao seguinte: ` The virtual machine '\<vmname\>' has more than one NIC associated.` Embora você possa ser capaz de adicionar o NIC para a VM depois de alterar o modo de licenciamento, operações realizadas por meio da folha de configuração do SQL, como aplicação de patch automática e de backup, não serão consideradas com suporte.
+ - Alterar o modelo de licenciamento tem suporte apenas em máquinas virtuais que têm uma única NIC (interface de rede). Em máquinas virtuais que têm mais de uma NIC, você deve primeiro remover uma das NICs (usando o portal do Azure) antes de tentar o procedimento. Caso contrário, você enfrentará um erro semelhante ao seguinte: `The virtual machine '\<vmname\>' has more than one NIC associated.` Embora você possa ser capaz de adicionar o NIC para a VM depois de alterar o modo de licenciamento, operações realizadas por meio da folha de configuração do SQL, como aplicação de patch automática e de backup, não serão consideradas com suporte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

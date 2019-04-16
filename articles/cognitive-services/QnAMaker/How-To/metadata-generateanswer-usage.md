@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958041"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579403"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API GenerateAnswer e metadados
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: '|
 |Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo do POST|Objeto JSON|JSON|A pergunta com configurações|
-|Parâmetro de cadeia de caracteres de consulta (opcional)|`isTest`|booleano|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
+
 
 O corpo JSON tem várias configurações:
 
@@ -83,6 +83,7 @@ O corpo JSON tem várias configurações:
 |`question`|obrigatório|cadeia de caracteres|Uma pergunta do usuário a serem enviados para sua base de dados de Conhecimento.|
 |`top`|opcional|inteiro|o número de resultados classificados para incluir na saída. O valor padrão é 1.|
 |`userId`|opcional|cadeia de caracteres|ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.|
+|`isTest`|opcional|booleano|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
 |`strictFilters`|opcional|cadeia de caracteres|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados.|
 
 Um exemplo de corpo JSON é semelhante a:
@@ -91,6 +92,7 @@ Um exemplo de corpo JSON é semelhante a:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",
@@ -200,7 +202,7 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A página de publicação também fornece informações para gerar uma resposta com [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 

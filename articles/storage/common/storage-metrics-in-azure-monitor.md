@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505763"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579335"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -393,7 +393,7 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 | Nome da dimensão | DESCRIÇÃO |
 | ------------------- | ----------------- |
 | BlobType | O tipo de blob somente para métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
-| ResponseType | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li> ServerBusyError: Solicitação autenticada que retornou um código de status HTTP 503. </li> <li> ServerTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li> AuthorizationError: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li> NetworkError: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li> Sucesso: Solicitação bem-sucedida. </li> <li> SuccessWithThrottling: Solicitação bem-sucedida quando um cliente SMB é limitado em que a primeira tentativa de (s), mas terá êxito após várias tentativas.|
+| ResponseType | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li> ServerBusyError: Solicitação autenticada que retornou um código de status HTTP 503. </li> <li> ServerTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li> AuthorizationError: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li> NetworkError: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li> Sucesso: Solicitação bem-sucedida.|
 | GeoType | Transação de cluster primário ou secundário. Os valores disponíveis incluem Primário e Secundário. Aplica-se ao acesso de leitura ao armazenamento com redundância geográfica (RA-GRS) ao ler objetos de um locatário secundário. |
 | ApiName | O nome da operação. Por exemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Autenticação | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso compartilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso OAuth.</li> <li>Anônima: A transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |
@@ -406,11 +406,11 @@ As métricas herdadas estão disponíveis paralelamente às métricas gerenciada
 
 ## <a name="faq"></a>Perguntas frequentes
 
-**Novas métricas dá suporte à conta de armazenamento clássica?**
+**As novas métricas dão suporte à conta de armazenamento clássica?**
 
 Não, as novas métricas do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. Se você quiser usar as métricas nas contas de armazenamento, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**O armazenamento do Azure oferece suporte a métricas para o Managed Disks ou discos não gerenciados?**
+**Armazenamento do Azure dá suporte a métricas para gerenciados discos ou discos não gerenciado?**
 
 Não, a computação do Azure suporta as métricas em discos. Consulte [artigo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para obter mais detalhes.
 
