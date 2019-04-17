@@ -1,25 +1,25 @@
 ---
 title: Compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL
-description: Neste guia de início rápido, use a API de SQL do Azure Cosmos DB e o Portal do Azure para criar um aplicativo Web do .NET
+description: Neste início rápido, use o portal do Azure e um aplicativo Web .NET para criar e gerenciar recursos da conta de API do SQL no Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/15/2019
-ms.openlocfilehash: 1ef414b2de2acbf5b92661c8b5f1e249549b14df
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/05/2019
+ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259135"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280835"
 ---
-# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar um aplicativo Web do .NET usando a conta de API de SQL do Azure Cosmos DB
+# <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo Web do .NET usando a conta da API do SQL no Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (versão prévia)](create-sql-api-dotnet-preview.md)
+> * [.NET (Versão Prévia)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -27,60 +27,62 @@ ms.locfileid: "58259135"
 >  
 > 
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível usar o Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, bancos de dados de documentos e bancos de dados de grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta de [API de SQL](sql-api-introduction.md) do Azure Cosmos DB, um banco de dados de documentos, uma coleção e como adicionar dados de exemplo à coleção usando o portal do Azure. Em seguida, você criará e implantará um aplicativo Web de lista de tarefas pendentes criado com o [SDK do .NET do SQL](sql-api-sdk-dotnet.md) para adicionar mais dados de gerenciamento à coleção. 
+Este início rápido demonstra como usar o portal do Azure para criar uma conta de [API de SQL](sql-api-introduction.md) do Azure Cosmos DB, criar uma coleção e um banco de dados de documentos e adicionar dados à coleção. Você então usa um aplicativo Web de [SDK do .NET SQL](sql-api-sdk-dotnet.md) para adicionar mais dados à coleção. 
+
+Neste início rápido, você usa o Data Explorer no portal do Azure para criar o banco de dados e a coleção. Você também pode criar o banco de dados e a coleção usando o código de exemplo do .NET. Para obter mais informações, veja [Examinar o código .NET](#review-the-net-code). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+Visual Studio 2017 com o fluxo de trabalho de desenvolvimento do Azure instalado
+- Você pode baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+Uma assinatura do Azure ou uma conta de avaliação gratuita do Azure Cosmos DB
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-an-account"></a>Criar uma conta
+## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection-database"></a>
-## <a name="add-a-database-and-a-collection"></a>Adicionar um banco de dados e uma coleção
+## <a name="add-a-database-and-a-collection"></a>Adicionar um banco de dados e uma coleção 
 
-Agora, você pode usar a ferramenta Data Explorer no Portal do Azure para criar um banco de dados e uma coleção. 
+Você pode usar o Data Explorer no portal do Azure para criar um banco de dados e uma coleção. 
 
-1. Clique em **Data Explorer** > **Nova Coleção**. 
+1.  Selecione a página **Data Explorer** na navegação esquerda em sua página da conta do Azure Cosmos DB e selecione **Nova Coleção**. 
     
-    A área **Adicionar Coleção** é exibida à direita, talvez seja necessário rolar para a direita para vê-la.
-
+    Talvez seja necessário rolar para a direita para ver a área **Adicionar Coleção**.
+    
     ![O Data Explorer do portal do Azure, painel Adicionar Coleção](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
-
-2. Na página **Adicionar coleção**, insira as configurações da nova coleção.
-
-    Configuração|Valor sugerido|DESCRIÇÃO
-    ---|---|---
-    **Id do banco de dados**|ToDoList|Insira *ToDoList* como o nome para o novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita.
-    **Id da coleção**|Itens|Insira *Itens* como o nome da nova coleção. As IDs da coleção possuem os mesmos requisitos de caractere que os nomes de bancos de dados.
-    **Chave de partição**| `<your_partition_key>`| Insira uma chave de partição. O exemplo descrito neste artigo usa */category* como a chave de partição.
-    **Taxa de transferência**|400 RU|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. 
     
-    Além das configurações anteriores, você pode opcionalmente adicionar **Chaves exclusivas** à coleção. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva durante a criação de uma coleção, você garante a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+1.  Na página **Adicionar coleção**, insira as configurações da nova coleção.
     
-    Clique em **OK**.
-
+    |Configuração|Valor sugerido|DESCRIÇÃO
+    |---|---|---|
+    |**ID do banco de dados**|ToDoList|Insira *ToDoList* como o nome para o novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita.|
+    |**ID da coleção**|Itens|Insira *Itens* como o nome da nova coleção. As IDs da coleção possuem os mesmos requisitos de caractere que os nomes de bancos de dados.|
+    |**Chave de partição**| /category| O exemplo descrito neste artigo usa */category* como a chave de partição.|
+    |**Produtividade**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.| 
+    
+    Não adicione **Chaves exclusivas** para este exemplo. Chaves exclusivas permitem que você adicione uma camada de integridade de dados ao banco de dados garantindo a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, veja [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+    
+1.  Selecione **OK**. 
     O Data Explorer exibe o novo banco de dados e a coleção.
-
+    
     ![O Data Explorer do Portal do Azure, mostrando o novo banco de dados e a coleção](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
-<a id="add-sample-data"></a>
-## <a name="add-sample-data"></a>Adicionar dados de exemplo
+## <a name="add-data-to-your-database"></a>Adicionar dados a seu banco de dados
 
-Agora você pode adicionar dados à sua nova coleção usando o Data Explorer.
+Adicione dados a seu novo banco de dados usando o Data Explorer.
 
-1. No Data Explorer, o novo banco de dados aparece no painel Coleções. Expanda o banco de dados **Tarefas**, expanda a coleção **Itens**, clique em **Documentos** e clique em **Novos Documentos**. 
-
+1. No **Data Explorer**, o novo banco de dados aparece no painel **Coleções**. Expanda o banco de dados **ToDoList**, expanda a coleção **Itens**, selecione **Documentos** e, em seguida, selecione **Novo Documento**. 
+   
    ![Criar novos documentos no Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
-  
-2. Agora, adicione um documento à coleção com a seguinte estrutura.
+   
+1. Adicione a seguinte estrutura ao documento no lado direito do painel **Documentos**:
 
      ```json
      {
@@ -92,59 +94,104 @@ Agora você pode adicionar dados à sua nova coleção usando o Data Explorer.
      }
      ```
 
-3. Depois de ter adicionado o json à guia **Documentos**, clique em **Salvar**.
-
-    ![Copie nos dados json e clique em Salvar no Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
-
-4. Crie e salve mais um documento onde você insere um valor exclusivo para a propriedade `id` e altere as outras propriedades quando achar adequado. Os novos documentos podem ter qualquer estrutura que você deseje, pois o Azure Cosmos DB não impõe nenhum esquema para seus dados.
+1. Clique em **Salvar**.
+   
+   ![Copie nos dados json e selecione em Salvar no Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   
+1. Selecione **Novo Documento** novamente e crie e salve um outro documento com uma única `id` e quaisquer outras propriedades e valores desejados. Os documentos podem ter qualquer estrutura, pois o Azure Cosmos DB não impõe nenhum esquema a seus dados.
 
 ## <a name="query-your-data"></a>Consultar seus dados
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
+## <a name="use-the-net-web-app-to-manage-data"></a>Use o aplicativo Web do .NET para gerenciar dados
 
-Agora, vamos trabalhar com o código. Vamos clonar um [aplicativo de API do SQL do GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app), definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
+Para ver como é fácil trabalhar com seus dados do Azure Cosmos DB de modo programático, clone o aplicativo Web do .NET da API SQL de exemplo do GitHub, atualize a cadeia de conexão e execute o aplicativo para atualizar seus dados. 
 
-1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
+Você também poderia criar o banco de dados e a coleção usando o código de exemplo do .NET. Para obter mais informações, veja [Examinar o código .NET](#review-the-net-code).
 
-    ```bash
-    md "C:\git-samples"
-    ```
+### <a name="clone-the-sample-app"></a>Clonar o aplicativo de exemplo
 
-2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo.
+Primeiro, clone um [aplicativo de API do SQL](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) em C# do GitHub. 
 
-    ```bash
-    cd "C:\git-samples"
-    ```
+1. Abra uma janela do terminal do git, como Git Bash, crie um diretório chamado *git-samples* e altere-o para: 
+   
+   ```bash
+   mkdir /c/git-samples/
+   cd /c/git-samples/
+   ```
+   
+1. Execute o seguinte comando para clonar o repositório de exemplo e criar uma cópia do aplicativo de exemplo em seu computador:
+   
+   ```bash
+   git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
+   ```
 
-3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
+### <a name="update-the-connection-string"></a>Atualizar a cadeia de conexão 
 
-    ```bash
-    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
-    ```
+1. Navegue até o arquivo *todo.sln* e abra-o de seu aplicativo clonado no Visual Studio. 
 
-4. Em seguida, abra o arquivo da solução todo no Visual Studio. 
+1. No **Gerenciador de Soluções** do Visual Studio, abra o arquivo *web.config*. 
 
-## <a name="review-the-code"></a>Examine o código
+1. Volte para o portal do Azure para copiar as informações de sua cadeia de conexão para colar em *web.config*.
+   
+   1. Na navegação esquerda de sua conta do Azure Cosmos DB, selecione **Chaves**.
+      
+      ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-dotnet/keys.png)
+      
+   1. Em **Chaves de Leitura/Gravação**, copie o valor do **URI** usando o botão de copiar à direita e, em seguida, cole-o na chave `endpoint` em *web.config*. Por exemplo:  
+      
+      `<add key="endpoint" value="https://mysqlapicosmosdb.documents.azure.com:443/" />`
+      
+   1. Copie o valor em 	**CHAVE PRIMÁRIA** e cole-o na chave `authKey` em *web.config*. Por exemplo: 
+      
+      `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). Neste início rápido, você cria um banco de dados e uma coleção usando o portal do Azure e adiciona dados de amostra usando o exemplo .NET. No entanto, você também pode criar o banco de dados e a coleção usando o exemplo .NET. 
+       
+1. Verifique se os valores de banco de dados e coleção em *web.config* correspondem aos nomes que você criou anteriormente. 
 
-Todos os snippets de código a seguir são retirados do arquivo DocumentDBRepository.cs.
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
+1. Salve o *web.config.* Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB.
 
-* DocumentClient é inicializado conforme mostrado no código a seguir:
+### <a name="run-the-web-app"></a>Executar o aplicativo Web
+
+1. No Visual Studio, clique com o botão direito do mouse no projeto **todo** no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes do NuGet**. 
+
+1. Na caixa **Procurar** do NuGet, digite *DocumentDB*.
+
+1. Nos resultados, instale a biblioteca **Microsoft.Azure.DocumentDB** se ainda não estiver instalada. Isso instala o pacote [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) e todas as dependências.
+   
+   Se o NuGet Package Manager exibir uma mensagem de que alguns pacotes estão ausentes da solução, selecione **Restaurar** para instalá-los de fontes internas. 
+
+1. Selecione **Ctrl**+**F5** para executar o aplicativo em seu navegador. 
+
+1. Selecione **Criar Novo** no aplicativo de tarefas pendentes e crie algumas tarefas.
+
+   ![Aplicativo de tarefas pendentes com os dados de exemplo](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+
+Agora é possível voltar ao Data Explorer no portal do Azure para ver, consultar, modificar e trabalhar com seus novos dados. 
+
+## <a name="review-the-net-code"></a>Examinar o código do .NET
+
+Esta etapa é opcional. Neste início rápido, você criou um banco de dados e uma coleção no portal do Azure e adicionou dados de amostra usando a amostra do .NET. No entanto, você também pode criar o banco de dados e a coleção usando o exemplo .NET. Examine os snippets de código a seguir se você estiver interessado em como os recursos de banco de dados são criados no código. Os snippets de código são todos obtidos do arquivo *DocumentDBRepository.cs* no projeto **todo**.
+
+* Esse código inicializa o `DocumentClient`: 
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* Um novo banco de dados é criado usando o método `CreateDatabaseAsync`, conforme mostrado no código a seguir:
+* Esse código cria o novo banco de dados usando o método `CreateDatabaseAsync`:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Uma nova coleção é criada usando o `CreateDocumentCollectionAsync`, conforme mostrado no código a seguir:
+* O código a seguir cria a nova coleção usando o método `CreateDocumentCollectionAsync`:
 
     ```csharp
     private static async Task CreateCollectionIfNotExistsAsync()
@@ -173,59 +220,14 @@ Todos os snippets de código a seguir são retirados do arquivo DocumentDBReposi
     }
     ```
 
-## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
-
-Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
-
-1. No [portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, selecione **Chaves** e, em seguida, selecione **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo web.config na próxima etapa.
-
-    ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-dotnet/keys.png)
-
-2. No Visual Studio 2017, abra o arquivo web.config. 
-
-3. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor da chave do ponto de extremidade em web.config. 
-
-    `<add key="endpoint" value="FILLME" />`
-
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de authKey em web.config. 
-
-    `<add key="authKey" value="FILLME" />`
-    
-5. Em seguida, atualize os valores do banco de dados e da coleção para corresponder ao nome do banco de dados que você criou anteriormente. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
-
-   ```csharp
-   <add key="database" value="ToDoList"/>
-   <add key="collection" value="Items"/>
-   ```
- 
-## <a name="run-the-web-app"></a>Executar o aplicativo Web
-1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes NuGet**. 
-
-2. Na caixa **Procurar** do NuGet, digite *DocumentDB*.
-
-3. Com base nos resultados, instale a biblioteca **Microsoft.Azure.DocumentDB**. Isso instala o pacote Microsoft.Azure.DocumentDB, bem como todas as dependências.
-
-4. Selecione CTRL + F5 para executar o aplicativo. Seu aplicativo é exibido no navegador. 
-
-5. Selecione **Criar Novo** no navegador e crie algumas novas tarefas em seu aplicativo de tarefas pendentes.
-
-   ![Aplicativo de tarefas pendentes com os dados de exemplo](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
-
-Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
-
-## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
-
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo Web. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, criar uma coleção usando o Data Explorer e o banco de dados e executar um aplicativo Web do .NET para atualizar seus dados. Agora, é possível importar outros dados para sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no Azure Cosmos DB](import-data.md)
-
+> [Importar dados para o Azure Cosmos DB](import-data.md)
 

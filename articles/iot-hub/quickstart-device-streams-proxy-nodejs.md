@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085568"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005440"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Início Rápido: SSH/RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy Node.js (versão prévia)
 
@@ -27,11 +27,9 @@ Os [fluxos de dispositivos do Hub IoT](./iot-hub-device-streams-overview.md) per
 
 Primeiro, descreveremos a configuração para SSH (com a porta 22). Em seguida, descreveremos como modificar a configuração para RDP (que usa a porta 3389). Como os fluxos de dispositivos são independentes de protocolo e de aplicativo, a mesma amostra pode ser modificada para acomodar outros tipos de tráfego do aplicativo para clientes/servidores (normalmente, alterando a porta de comunicação).
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,8 +48,13 @@ Você pode verificar a versão atual do Node.js no computador de desenvolvimento
 node --version
 ```
 
-Caso ainda não tenha feito isso, faça o download do projeto de exemplo do Node.js do https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip e extraia o arquivo ZIP.
+Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) no IoT à CLI do Azure.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Caso ainda não tenha feito isso, faça o download do projeto de exemplo do Node.js do https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip e extraia o arquivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -59,21 +62,19 @@ Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
-
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
 Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar esta etapa.
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo. 
+1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
    **MyDevice**: Esse é o nome fornecido para o dispositivo registrado. Use MyDevice, conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -89,13 +90,11 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH para um dispositivo por fluxos de dispositivos
 
 ### <a name="run-the-device-local-proxy"></a>Executar o proxy no local do dispositivo
 
 Como mencionado anteriormente, o SDK do Node.js do Hub IoT dá suporte somente a fluxos de dispositivos no lado do serviço. Para aplicativo local do dispositivo, use os programas de proxy de dispositivo que acompanham, disponíveis nos guias de [início rápido do C](./quickstart-device-streams-proxy-c.md) ou [início rápido do C#](./quickstart-device-streams-proxy-csharp.md). Verifique se o proxy local do dispositivo está em execução antes de prosseguir para a próxima etapa.
-
 
 ### <a name="run-the-service-local-proxy"></a>Executar o proxy local do serviço
 
@@ -128,13 +127,12 @@ Supondo que o [proxy de local do dispositivo](#run-the-device-local-proxy) está
   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH para o dispositivo por fluxos de dispositivos
+
 No Linux, execute o SSH usando `ssh $USER@localhost -p 2222` em um terminal. No Windows, use seu cliente SSH favorito (por exemplo, PuTTY).
 
 Saída do console no local do serviço após o estabelecimento da sessão SSH (o proxy do local de serviço escuta na porta 2222): ![Texto Alt](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "Saída do terminal SSH")
 
-
 Saída do console do programa do cliente SSH (o cliente SSH se comunica com o daemon SSH conectando-se à porta 22 na qual o proxy do local de serviço está escutando): ![Texto Alt](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Saída do cliente SSH")
-
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>RDP para o dispositivo por fluxos de dispositivos
 
@@ -144,7 +142,6 @@ Agora, utilize o programa do cliente RDP e se conecte ao proxy de serviço na po
 > Certifique-se de que o proxy do dispositivo foi configurado corretamente para RDP e configurado com a porta RDP 3389.
 
 ![Texto Alt](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG "O cliente RDP se conecta ao proxy do local de serviço.")
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

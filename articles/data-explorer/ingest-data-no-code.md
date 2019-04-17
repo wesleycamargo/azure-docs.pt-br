@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Ingerir dados de diagnóstico e de log de atividades no Azure Data Explorer sem uma linha de código'
 description: Neste tutorial, você aprenderá a ingerir dados no Azure Data Explorer sem uma linha de código e a consultar esses dados.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
-ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 04/07/2019
+ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756838"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262900"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingerir dados no Azure Data Explorer sem uma linha de código
 
@@ -210,12 +209,12 @@ Para mapear os dados dos logs de atividades para a tabela, use a seguinte consul
 
 #### <a name="activity-log-data-update-policy"></a>Política de atualização dos dados de log de atividade
 
-1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção de registros de log de atividades de forma que cada valor na coleção receba uma linha separada. Use o operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção de registros de log de atividades de forma que cada valor na coleção receba uma linha separada. Use o operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -239,11 +238,11 @@ Para mapear os dados dos logs de atividades para a tabela, use a seguinte consul
 
 #### <a name="diagnostic-log-data-update-policy"></a>Política de atualização de dados de log de diagnóstico
 
-1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção dos registros do log de diagnóstico de forma que cada valor na coleção receba uma linha separada. Use o operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+1. Crie uma [função](/azure/kusto/management/functions) que expande a coleção dos registros do log de diagnóstico de forma que cada valor na coleção receba uma linha separada. Use o operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -269,7 +268,7 @@ Os logs de diagnóstico do Azure permitem a exportação de métricas para uma c
 
 1. Crie um hub de eventos usando um modelo do Azure Resource Manager no portal do Azure. Para seguir o restante das etapas deste artigo, clique com o botão direito do mouse no botão **Implantar no Azure** e, em seguida, selecione **Abrir em uma nova janela**. O botão **Implantar no Azure** leva você ao portal do Azure.
 
-    [![Botão Implantar no Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![DBotão Implantar no Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Crie um namespace dos Hubs de Eventos e um hub de eventos para os logs de diagnóstico.
 
@@ -277,12 +276,12 @@ Os logs de diagnóstico do Azure permitem a exportação de métricas para uma c
 
 1. Preencha o formulário com as seguintes informações. Para as configurações não listadas na tabela a seguir, use os valores padrão.
 
-    **Configuração** | **Valor sugerido** | **Descrição**
+    **Configuração** | **Valor sugerido** | **DESCRIÇÃO**
     |---|---|---|
     | **Assinatura** | *Sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o seu hub de eventos.|
     | **Grupo de recursos** | *test-resource-group* | Crie um novo grupo de recursos. |
-    | **Localidade** | Selecione a região que melhor atende às suas necessidades. | Crie o namespace dos Hubs de Eventos na mesma localização dos outros recursos.
-    | **Nome do namespace** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique seu namespace.
+    | **Local padrão** | Selecione a região que melhor atende às suas necessidades. | Crie o namespace dos Hubs de Eventos na mesma localização dos outros recursos.
+    | **Nome do Namespace** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique seu namespace.
     | **Nome do Hub de Eventos** | *DiagnosticLogsData* | O hub de eventos fica sob o namespace, que fornece um contêiner de determinação de escopo exclusivo. |
     | **Nome do grupo de consumidor** | *adxpipeline* | Crie um nome de grupo de consumidores. Grupos de consumidores permitem que vários aplicativos de consumo tenham uma visão separada do fluxo de eventos. |
     | | |
@@ -368,8 +367,8 @@ Agora, você precisa criar as conexões de dados para os logs de diagnóstico e 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da conexão de dados** | *DiagnosticsLogsConnection* | O nome da conexão que você deseja criar no Azure Data Explorer.|
-    | **Namespace do hub de eventos** | *AzureMonitoringData* | O nome escolhido anteriormente que identifica seu namespace. |
-    | **Hub de eventos** | *diagnosticlogsdata* | O hub de eventos que você criou. |
+    | **Namespace do Hub de Eventos** | *AzureMonitoringData* | O nome escolhido anteriormente que identifica seu namespace. |
+    | **Hub de Eventos** | *diagnosticlogsdata* | O hub de eventos que você criou. |
     | **Grupo de consumidores** | *adxpipeline* | O grupo de consumidores definido no hub de eventos que você criou. |
     | | |
 
@@ -380,7 +379,7 @@ Agora, você precisa criar as conexões de dados para os logs de diagnóstico e 
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Tabela** | *DiagnosticLogsRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
-    | **Formato dos dados** | *JSON* | O formato usado na tabela. |
+    | **Formato de dados** | *JSON* | O formato usado na tabela. |
     | **Mapeamento de coluna** | *DiagnosticLogsRecordsMapping* | O mapeamento criado no banco de dados *TestDatabase*, que mapeia os dados JSON de entrada para os nomes de coluna e os tipos de dados da tabela *DiagnosticLogsRecords*.|
     | | |
 
@@ -397,8 +396,8 @@ Repita as etapas da seção Criar a conexão de dados para os logs de diagnósti
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da conexão de dados** | *ActivityLogsConnection* | O nome da conexão que você deseja criar no Azure Data Explorer.|
-    | **Namespace do hub de eventos** | *AzureMonitoringData* | O nome escolhido anteriormente que identifica seu namespace. |
-    | **Hub de eventos** | *insights-operational-logs* | O hub de eventos que você criou. |
+    | **Namespace do Hub de Eventos** | *AzureMonitoringData* | O nome escolhido anteriormente que identifica seu namespace. |
+    | **Hub de Eventos** | *insights-operational-logs* | O hub de eventos que você criou. |
     | **Grupo de consumidores** | *$Default* | O grupo de consumidor padrão. Se necessário, é possível criar um grupo de consumidor diferente. |
     | | |
 
@@ -409,7 +408,7 @@ Repita as etapas da seção Criar a conexão de dados para os logs de diagnósti
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Tabela** | *ActivityLogsRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
-    | **Formato dos dados** | *JSON* | O formato usado na tabela. |
+    | **Formato de dados** | *JSON* | O formato usado na tabela. |
     | **Mapeamento de coluna** | *ActivityLogsRawRecordsMapping* | O mapeamento criado no banco de dados *TestDatabase*, que mapeia os dados JSON de entrada para os nomes de coluna e os tipos de dados da tabela *ActivityLogsRawRecords*.|
     | | |
 
@@ -461,4 +460,4 @@ Resultados da consulta:
 Saiba como escrever muito mais consultas nos dados extraídos do Azure Data Explorer usando o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Gravar consultas para Azure Data Explorer](write-queries.md)
+> [Escrever consultas para o Azure Data Explorer](write-queries.md)

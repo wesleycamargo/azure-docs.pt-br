@@ -3,17 +3,17 @@ title: Visão geral do Serviço de Provisionamento de Dispositivos no Hub IoT do
 description: Descreve o provisionamento do dispositivos no Azure com o Serviço de Provisionamento de Dispositivos e o Hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316407"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051454"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisionando dispositivos com o Serviço de provisionamento de dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrados para todas as suas necessidades de soluções de IoT. O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o provisionamento de toque zero, Just-In-Time no Hub IoT correto sem necessidade de intervenção humana, permitindo que os clientes provisionem milhões de dispositivos de modo seguro e escalonável.
@@ -110,7 +110,7 @@ Cada assinatura do Azure tem limites de cota em vigor que podem afetar o escopo 
 
 Para obter mais detalhes sobre os limites de cota:
 
-* [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md)
+* [Limites de serviço da assinatura do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes relacionados do Azure
 O Serviço de Provisionamento de Dispositivos automatiza o provisionamento de dispositivos com o Hub IoT do Azure. Saiba mais sobre o [Hub IoT](https://docs.microsoft.com/azure/iot-hub/).

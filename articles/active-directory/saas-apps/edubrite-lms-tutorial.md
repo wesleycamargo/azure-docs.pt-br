@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Wrike | Microsoft Docs'
-description: Aprenda como configurar o logon único entre o Azure Active Directory e o Wrike.
+title: 'Tutorial: Integração do Azure Active Directory com o EduBrite LMS | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o EduBrite LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
+ms.assetid: f071670e-a1bd-45d6-bd71-b3ea6eb92bf9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12970e2df1d54212682ebb79f2354c4c9e712a34
+ms.openlocfilehash: 262daaa46db66545dfe44a5b433a2a2995c6a3b2
 ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259483"
+ms.locfileid: "59283847"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Azure Active Directory ao Wrike
+# <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Tutorial: Integração do Azure Active Directory com o EduBrite LMS
 
-Neste tutorial, você aprenderá como integrar o Wrike ao Azure AD (Azure Active Directory).
-A integração do Wrike ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o EduBrite LMS ao Azure AD (Azure Active Directory).
+A integração do EduBrite LMS ao Azure AD oferece os seguintes benefícios:
 
-* Você pode controlar no Azure AD quem tem acesso ao Wrike.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Wrike (logon único) com suas contas do Azure AD.
+* Você pode controlar no Azure AD quem tem acesso ao EduBrite LMS.
+* Você pode permitir que os usuários entrem automaticamente no EduBrite LMS (logon único) com a conta do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,24 +37,24 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Microsoft Azure ao Wrike, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD ao EduBrite LMS, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do Wrike
+* Uma assinatura do EduBrite LMS habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Wrike dá suporte ao SSO iniciado por **SP** e **IDP**
+* O EduBrite LMS é compatível com o SSO iniciado por **SP e IDP**
 
-* O Wrike dá suporte ao provisionamento de usuário **just-in-time**
+* O EduBrite LMS é compatível com o provisionamento de usuário **Just-In-Time**
 
-## <a name="adding-wrike-from-the-gallery"></a>Adicionando o Wrike da galeria
+## <a name="adding-edubrite-lms-from-the-gallery"></a>Adicionando o EduBrite LMS da galeria
 
-Para configurar a integração do Wrike ao Azure Active Directory, você precisa adicionar o Wrike da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do EduBrite LMS ao Azure AD, você precisa adicionar o EduBrite LMS da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Wrike por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o EduBrite LMS da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -68,31 +68,31 @@ Para configurar a integração do Wrike ao Azure Active Directory, você precisa
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Wrike**, selecione **Wrike** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **EduBrite LMS**, selecione **EduBrite LMS** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Wrike na lista de resultados](common/search-new-app.png)
+    ![EduBrite LMS na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Wrike, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Wrike.
+Nesta seção, você configurará e testará o logon único do Azure AD com o EduBrite LMS usando um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do EduBrite LMS.
 
-Para configurar e testar o logon único do Microsoft Azure Active Directory com o Wrike, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o EduBrite LMS, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Wrike](#configure-wrike-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o logon único do EduBrite LMS](#configure-edubrite-lms-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Wrike](#create-wrike-test-user)** – para ter um equivalente de Brenda Fernandes no Wrike que esteja vinculado à representação de usuário do Azure AD.
+5. **[Criar um usuário de teste do EduBrite LMS](#create-edubrite-lms-test-user)** – para que haja um equivalente de Brenda Fernandes no EduBrite LMS que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do Azure AD com o Wrike, execute as seguintes etapas:
+Para configurar o logon único do Azure AD com o EduBrite, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Wrike**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **EduBrite LMS** clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -104,21 +104,28 @@ Para configurar o logon único do Azure AD com o Wrike, execute as seguintes eta
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica de SAML**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP** , o usuário não precisará executar nenhuma etapa, pois o aplicativo já estará pré-integrado ao Azure.
+4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Domínio do Wrike e informações de logon único de URLs](common/preintegrated.png)
+    ![Informações de logon único de Domínio e URLs do EduBrite LMS](common/idp-intiated.png)
+
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<customer-specific>.edubrite.com`
+
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Domínio do Wrike e informações de logon único de URLs](common/metadata-upload-additional-signon.png)
+    ![Informações de logon único de Domínio e URLs do EduBrite LMS](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://www.wrike.com/login/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
-6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente EduBrite LMS](mailto:support@edubrite.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    ![O link de download do Certificado](common/metadataxml.png)
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-7. Na seção **Configurar o Wrike**, copie as URLs apropriadas de acordo com suas necessidades.
+    ![O link de download do Certificado](common/certificatebase64.png)
+
+7. Na seção **Configurar o EduBrite LMS**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -128,9 +135,9 @@ Para configurar o logon único do Azure AD com o Wrike, execute as seguintes eta
 
     c. URL de logoff
 
-### <a name="configure-wrike-single-sign-on"></a>Configurar o logon único do Wrike
+### <a name="configure-edubrite-lms-single-sign-on"></a>Configurar o logon único do EduBrite LMS
 
-Para configurar o logon único no lado do **Wrike**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wrike](mailto:support@team.wrike.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **EduBrite LSM**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do EduBrite LSM](mailto:support@edubrite.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -158,15 +165,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Wrike.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao EduBrite LMS.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Wrike**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, escolha **EduBrite LSM**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Wrike**.
+2. Na lista de aplicativos, selecione **EduBrite LMS**.
 
-    ![O link do Wrike na lista Aplicativos](common/all-applications.png)
+    ![O link EduBrite LMS na lista de Aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
 
@@ -182,18 +189,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-wrike-test-user"></a>Criar um usuário de teste do Wrike
+### <a name="create-edubrite-lms-test-user"></a>Criar um usuário de teste EduBrite LMS
 
-Nesta seção, um usuário chamado Brenda Fernandes será criado no Wrike. O Wrike dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Wrike, um novo será criado quando você tentar acessar o Wrike.
-
->[!Note]
->Caso precise criar um usuário manualmente, contate a [equipe de suporte do Wrike](mailto:support@team.wrike.com).
+Nesta seção, um usuário chamado Brenda Fernandes é criado no EduBrite LMS. O EduBrite LMS é compatível com o provisionamento de usuário Just-In-Time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Se ainda não existir um usuário no EduBrite LMS, ele será criado após a autenticação.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Wrike no Painel de Acesso, você deverá ser conectado automaticamente ao Wrike, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do EduBrite LMS no Painel de Acesso, você deverá ser conectado automaticamente ao EduBrite LMS no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

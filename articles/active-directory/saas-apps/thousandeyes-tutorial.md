@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 605ab73a11874c85f20728f5524eb770a7a1b259
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 587d6f8ecdc447672c14ce400ebc64609e4d472d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com o ThousandEyes
 
@@ -207,7 +207,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-thousandeyes-test-user"></a>Criar usuário de teste do ThousandEyes
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ThousandEyes. O ThousandEyes dá suporte ao provisionamento automático do usuário, que está habilitado por padrão. Você pode encontrar [aqui](thousandeyes-provisioning-tutorial.md) mais detalhes de como configurar o provisionamento automático de usuário.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ThousandEyes. O ThousandEyes dá suporte ao provisionamento automático do usuário, que está habilitado por padrão. Você pode encontrar mais detalhes [ aqui ](thousandeyes-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
@@ -249,9 +249,9 @@ Ao clicar no bloco do ThousandEyes no Painel de Acesso, você deverá ser conect
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

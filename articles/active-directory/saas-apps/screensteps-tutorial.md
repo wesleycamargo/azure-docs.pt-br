@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a67bb2b258d5376c997d4858bea4d094e850127
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997136"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: integração do Azure Active Directory com o ScreenSteps
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do ScreenSteps](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<tenantname>.ScreenSteps.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<tenantname>.ScreenSteps.com`
 
     > [!NOTE]
     > Esse valor não é real. Atualize esse valor com a URL de logon real, o que é explicado posteriormente neste tutorial.
@@ -237,8 +237,8 @@ Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conecta
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

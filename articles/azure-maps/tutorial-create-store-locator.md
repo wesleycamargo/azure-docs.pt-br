@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540849"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270796"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de lojas usando o Azure Mapas
 
@@ -44,14 +44,14 @@ Antes de mergulhar no código, é uma boa ideia começar com um design. O locali
 <br/>
 <center>
 
-![Localizador de lojas delineado para lojas da Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Layout de um localizador de lojas para localizações de cafeterias Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para maximizar a utilidade do localizador de lojas, incluímos um layout dinâmico que se ajusta à largura da tela do usuário quando ela tem menos de 700 pixels de largura. Um layout dinâmico facilita o uso do localizador de lojas em uma tela pequena, como em um dispositivo móvel. Aqui está um layout delineado para tela pequena:  
 
 <br/>
 <center>
 
-![Localizador de lojas delineado para a Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Layout de um localizador de lojas Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 O localizador delineado mostra um aplicativo bastante simples. O aplicativo tem uma caixa de pesquisa, uma lista de lojas próximas, um mapa com alguns marcadores (símbolos) e uma janela pop-up que exibe informações adicionais quando o usuário seleciona um marcador. Mais detalhadamente, aqui estão os recursos que criamos para esse localizador de lojas neste tutorial:
 
@@ -115,7 +115,7 @@ Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.mic
 <br/>
 <center>
 
-![Captura de tela da pasta do projeto do Localizador de Lojas Simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Captura de tela da pasta do projeto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Criar a interface do usuário
 
@@ -132,14 +132,14 @@ Para criar a interface do usuário, adicione código ao *index.html*:
 1. Adicione referências para os arquivos CSS e JavaScript do controle Web do Azure Mapas:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Adicione uma referência para o módulo dos serviços do Azure Mapas. O módulo é uma biblioteca JavaScript que encapsula os serviços REST do Azure Mapas e os torna fáceis de usar em JavaScript. O módulo é útil para viabilizar a funcionalidade de pesquisa.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Adicione referências para *index.js* e *index.css*:
@@ -454,7 +454,7 @@ Até aqui, tudo está configurado na interface do usuário. Agora, precisamos ad
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Até aqui, tudo está configurado na interface do usuário. Agora, precisamos ad
     window.onload = initialize;
     ```
 
-1. No ouvinte de evento `load` do mapa, adicione um controle de zoom e um marcador de HTML para exibir o centro de uma área de pesquisa.
+1. No ouvinte de evento `ready` do mapa, adicione um controle de zoom e um marcador de HTML para exibir o centro de uma área de pesquisa.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Até aqui, tudo está configurado na interface do usuário. Agora, precisamos ad
     map.markers.add(centerMarker);
     ```
 
-1. No ouvinte de evento `load` do mapa, adicione uma fonte de dados. Em seguida, faça uma chamada de carregamento e analise o conjunto de dados. Habilite o clustering na fonte de dados. Clustering dos pontos sobrepostos dos grupos da fonte de dados em um cluster. Os clusters se dividem em pontos individuais quando o usuário amplia o mapa. Isso torna a experiência do usuário mais fluida e melhora o desempenho.
+1. No ouvinte de evento `ready` do mapa, adicione uma fonte de dados. Em seguida, faça uma chamada de carregamento e analise o conjunto de dados. Habilite o clustering na fonte de dados. Clustering dos pontos sobrepostos dos grupos da fonte de dados em um cluster. Os clusters se dividem em pontos individuais quando o usuário amplia o mapa. Isso torna a experiência do usuário mais fluida e melhora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Até aqui, tudo está configurado na interface do usuário. Agora, precisamos ad
     loadStoreData();
     ```
 
-1. Depois de carregar o conjunto de dados no ouvinte de evento `load` do mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para renderizar os pontos de dados em cluster. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo renderiza um ícone personalizado de lugares individuais no mapa.
+1. Depois de carregar o conjunto de dados no ouvinte de evento `ready` do mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para renderizar os pontos de dados em cluster. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo renderiza um ícone personalizado de lugares individuais no mapa.
 
    Adicione os eventos `mouseover` e `mouseout` às camadas de bolha e de ícone para alterar o cursor do mouse quando o usuário passa o mouse sobre um ícone ou cluster no mapa. Adicione um evento `click` à camada de bolha do cluster. Esse evento `click` amplia o mapa em dois níveis e centraliza o mapa em um cluster quando o usuário seleciona um cluster. Adicione um evento `click` à camada de ícone. Esse evento `click` exibe uma janela pop-up que mostra os detalhes de uma cafeteria quando um usuário seleciona um ícone de localização individual. Adicione um evento ao mapa para monitorar quando o mapa para de se movimentar. Quando esse evento é acionado, atualize os itens no painel de listas.  
 
@@ -959,7 +959,7 @@ Você pode acessar o exemplo de código para este tutorial aqui:
 
 > [Criar um localizador de lojas usando o Azure Mapas](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-[Confira o exemplo dinâmico aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+[Confira a amostra dinâmica aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as funcionalidades do Azure Mapas:
 
@@ -969,4 +969,7 @@ Para saber mais sobre a cobertura e as funcionalidades do Azure Mapas:
 Para ver mais exemplos de código e uma experiência interativa de codificação:
 
 > [!div class="nextstepaction"]
-> [Como usar o Controle de Mapeamento](how-to-use-map-control.md)
+> [Como usar o controle de mapeamento](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Usar expressões de estilo orientadas por dados](data-driven-style-expressions-web-sdk.md)

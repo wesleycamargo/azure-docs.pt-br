@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273696"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C em seu dispositivo simulado
 
@@ -36,8 +36,10 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 Um dispositivo do Azure IoT Edge:
 
-* Você pode usar seu computador de desenvolvimento ou uma máquina virtual como um dispositivo do Edge seguindo as etapas no início rápido para os [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md). 
-* Os módulos do C para o Azure IoT Edge não dão suporte a contêineres do Windows. Se seu dispositivo IoT Edge for um computador Windows, verifique se que ele está configurado para usar contêineres do Linux. Para obter informações sobre as diferenças de instalação entre contêineres do Windows e Linux, veja [Instalar o tempo de execução do IoT Edge no Windows](how-to-install-iot-edge-windows.md).
+* Você pode usar uma máquina virtual do Azure como um dispositivo do IoT Edge seguindo as etapas no início rápido para dispositivos do [Linux](quickstart-linux.md) ou do [Windows](quickstart.md). 
+
+   >[!TIP]
+   >Este tutorial usa o Visual Studio Code para desenvolver um módulo em C usando contêineres do Linux. Se você quiser desenvolver em contêineres de C para Windows, precisará usar o Visual Studio 2017. Para obter mais informações, veja [Usar Visual Studio 2017 para desenvolver e depurar módulos do Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 Recursos de nuvem:
 
@@ -100,7 +102,7 @@ Crie um modelo de solução de C que possa ser personalizado com seu próprio c�
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-c-module/repository.png)
 
-A janela do VS Code carregará seu workspace da solução IoT Edge. O workspace da solução contém cinco componentes de nível superior. A pasta **módulos** contém o código C para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. E o arquivo **deployment.debug.template.json** contém a versão de depuração de módulos. Você não editará a pasta **\.vscode** ou o arquivo **\.gitignore** neste tutorial.
+A janela do VS Code carrega seu workspace da solução IoT Edge com cinco componentes de nível superior. A pasta **módulos** contém o código C para o seu módulo e Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. E o arquivo **deployment.debug.template.json** contém a versão de depuração de módulos. Você não editará a pasta **\.vscode** ou o arquivo **\.gitignore** neste tutorial.
 
 Se você não especifica um registro de contêiner durante a criação de sua solução, mas aceita o valor de localhost:5000, você não terá um arquivo \.env.
 
@@ -118,7 +120,7 @@ O arquivo do ambiente armazena as credenciais para o registro de contêiner e as
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com código personalizado
 
-Adicione código ao módulo C que permita ler dados do sensor, verifique se a temperatura da máquina relatada excedeu um limite de segurança e passe essas informações para o Hub IoT.
+Adicione código a seu módulo de C que permite que ele verifique se a temperatura relatada do computador excedeu um limite de seguro. Se a temperatura estiver muito alta, o módulo adicionará um parâmetro de alerta para a mensagem antes de enviar os dados para o Hub IoT. 
 
 1. Os dados do sensor nesse cenário são fornecidos no formato JSON. Para filtrar as mensagens no formato JSON, importe uma biblioteca JSON para C. Este tutorial utiliza Parson.
 
@@ -319,9 +321,9 @@ Adicione código ao módulo C que permita ler dados do sensor, verifique se a te
 
 ## <a name="build-and-push-your-solution"></a>Compilar e enviar por push sua solução
 
-Na seção anterior, você criou uma solução IoT Edge e adicionou um código a CModule que filtrará mensagens em que a temperatura relatada da máquina estiver dentro dos limites aceitáveis. Agora você precisa compilar a solução como uma imagem de contêiner e enviá-la por push para seu registro de contêiner.
+Na seção anterior, você criou uma solução IoT Edge e adicionou um código a CModule que filtrará mensagens em que a temperatura relatada do computador estiver dentro dos limites aceitáveis. Agora você precisa compilar a solução como uma imagem de contêiner e enviá-la por push para seu registro de contêiner.
 
-1. Abra o terminal integrado do VS Code selecionando **Exibir** > **Terminal integrado**.
+1. Abra o terminal integrado do VS Code selecionando **Exibir** > **Terminal**.
 
 1. Entre no Docker inserindo o comando a seguir no terminal integrado do Visual Studio Code. Você precisa entrar com suas credenciais de Registro de Contêiner do Azure para que você possa enviar sua imagem de módulo para o registro.
      
@@ -368,7 +370,7 @@ Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge
 
 Você pode ver o status do seu dispositivo IoT Edge usando a seção **Dispositivos de Hub IoT do Azure** do explorer do Visual Studio Code. Expanda os detalhes do seu dispositivo para ver uma lista de módulos implantados e em execução.
 
-No próprio dispositivo IoT Edge você pode ver o status dos seus módulos de implantação usando o comando `iotedge list`. Você deverá ver quatro módulos: os dois módulos de tempo de execução do IoT Edge, tempSensor e o módulo personalizado que você criou neste tutorial. Pode levar alguns minutos para que todos os módulos iniciem, portanto, se você não vir todos inicialmente, execute novamente o comando.
+No próprio dispositivo IoT Edge, você pode ver o status dos seus módulos de implantação usando o comando `iotedge list`. Você deverá ver quatro módulos: os dois módulos de tempo de execução do IoT Edge, tempSensor e o módulo personalizado que você criou neste tutorial. Pode levar alguns minutos para que todos os módulos iniciem, portanto, se você não vir todos inicialmente, execute novamente o comando.
 
 Para exibir as mensagens que estão sendo geradas por qualquer módulo, use o comando `iotedge logs <module name>`.
 

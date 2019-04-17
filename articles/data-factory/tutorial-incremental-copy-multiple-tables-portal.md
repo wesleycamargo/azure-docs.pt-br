@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d8d96d929e55bd4423bdb0cd0dd064e275462ce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445351"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257426"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -175,6 +175,11 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais no banco de dados SQL do Azure
 Execute a consulta a seguir para criar dois tipos de dados e dois procedimentos armazenados no banco de dados SQL. Eles são usados para mesclar os dados das tabelas de origem nas tabelas de destino.
 
+Para facilitar a jornada de introdução, usamos diretamente esses procedimentos armazenados passando os dados delta por meio de uma variável de tabela e, em seguida, mesclamos esses dados no repositório de destino. Tenha cuidado, pois ele não espera um "grande" número de linhas delta (mais de 100) a ser armazenado na variável de tabela.  
+
+Caso precise mesclar um grande número de linhas delta no repositório de destino, sugerimos que você use a atividade de cópia para copiar todos os dados delta para uma tabela temporária de "preparo" no repositório de destino primeiro e, em seguida, criar seu próprio procedimento armazenado sem o uso da variável de tabela para mesclá-los da tabela de “preparo” para a tabela “final”. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -226,10 +231,9 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
+1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
-   ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   ![Novo -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 1. Na página **Novo data factory**, insira **ADFMultiIncCopyTutorialDF** como o **nome**. 
       
      ![Página de novo data factory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
@@ -271,7 +275,7 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
 1. Na janela **Instalação do Integration Runtime**, selecione **Executar atividades de movimentação e distribuição de dados para cálculos externos** e clique em **Avançar**. 
 
    ![Selecionar tipo de tempo de execução de integração](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selecione **Rede Privada** e clique em **Avançar**. 
+1. Selecione ** Rede Privada** e clique em **Avançar**. 
 
    ![Selecionar rede privada](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Insira **MySelfHostedIR** como **Nome** e clique em **Avançar**. 
@@ -383,7 +387,7 @@ Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o 
    ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
-   1. Depois de clicar em **Concluir**, você verá **\@dataset().SinkTableName** como o nome da tabela.
+ 1. Depois de clicar em **Concluir**, você verá **@dataset().SinkTableName** como o nome da tabela.
    
    ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -425,11 +429,11 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
     ![Nome do pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Na janela **Propriedades**, siga estas etapas: 
 
-   1. Clique em **+ Novo**. 
-   1. Digite **tableList** para o parâmetro **nome**. 
-   1. Selecione **Objeto** como o parâmetro **Tipo**.
+    1. Clique em **+ Novo**. 
+    1. Digite **tableList** para o parâmetro **nome**. 
+    1. Selecione **Objeto** como o parâmetro **Tipo**.
 
-      ![Parâmetros de pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+    ![Parâmetros de pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. Na caixa de ferramentas **Atividades**, expanda **Iteração e condicionais** e arraste e solte a atividade **ForEach** para a superfície de designer do pipeline. Na guia **Geral** da janela **Propriedades**, insira **IterateSQLTables**. 
 
     ![Atividade ForEach - nome](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -458,69 +462,69 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
     ![Segunda Atividade de Pesquisa - nome](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Alterne para a guia **Configurações** .
 
-     1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
-     1. Selecione **Consulta** para **Usar consulta**.
-     1. Insira a seguinte consulta SQL para **Consulta**.
+    1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
+    1. Selecione **Consulta** para **Usar consulta**.
+    1. Insira a seguinte consulta SQL para **Consulta**.
 
-         ```sql    
-         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-         ```
+        ```sql    
+        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+        ```
     
-         ![Segunda Atividade de Pesquisa - configurações](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        ![Segunda Atividade de Pesquisa - configurações](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Arraste e solte a atividade de **Cópia** da caixa de ferramentas **Atividades** e digite **IncrementalCopyActivity** como **Nome**. 
 
-     ![Atividade de cópia - nome](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+    ![Atividade de cópia - nome](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Conecte as atividades de **Pesquisa** à atividade de **Cópia**, uma por uma. Para se conectar, comece arrastando a caixa **verde** anexada à atividade de **Pesquisa** e solte-a na atividade de **Cópia**. Solte o botão do mouse quando visualizar a cor da borda da atividade de Cópia ficar **azul**.
 
-     ![Conetar atividades de Pesquisa à atividade de Cópia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    ![Conetar atividades de Pesquisa à atividade de Cópia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Selecione a atividade de **Cópia** no pipeline. Alterne para a guia **Origem** na janela **Propriedades**. 
 
-     1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
-     1. Selecione **Consulta** para **Usar consulta**. 
-     1. Insira a seguinte consulta SQL para **Consulta**.
+    1. Selecione **SourceDataset** para o **Conjunto de dados de origem**. 
+    1. Selecione **Consulta** para **Usar consulta**. 
+    1. Insira a seguinte consulta SQL para **Consulta**.
 
-         ```sql
-         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-         ```
+        ```sql
+        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+        ```
 
-         ![Atividade de cópia - configurações da fonte](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        ![Atividade de cópia - configurações da fonte](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Alterne para a guia **Coletor** e selecione **SinkDataset** para o campo **Conjunto de Dados do Coletor**. 
         
-     ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+    ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Alterne para a guia **Parâmetros** e execute as seguintes etapas:
 
-     1. Na propriedade **Nome do Procedimento Armazenado no Coletor**, digite `@{item().StoredProcedureNameForMergeOperation}`.
-     1. Na propriedade **do Tipo de Tabela do Coletor**, digite `@{item().TableType}`.
-     1. Na seção **Conjunto de Dados do Coletor**, no parâmetro **SinkTableName**, digite `@{item().TABLE_NAME}`.
+    1. Na propriedade **Nome do Procedimento Armazenado no Coletor**, digite `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Na propriedade **do Tipo de Tabela do Coletor**, digite `@{item().TableType}`.
+    1. Na seção **Conjunto de Dados do Coletor**, no parâmetro **SinkTableName**, digite `@{item().TABLE_NAME}`.
 
-         ![Atividade de cópia - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Atividade de cópia - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície do designer de pipeline. Conecte a atividade de **Cópia** à atividade de **Procedimento Armazenado**. 
 
-     ![Atividade de cópia - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+    ![Atividade de cópia - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Selecione a atividade **Procedimento Armazenado** no pipeline e digite **StoredProceduretoWriteWatermarkActivity** como **Nome** na guia **Geral** da janela **Propriedades**. 
 
-     ![Atividade de procedimento armazenado - nome](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+    ![Atividade de procedimento armazenado - nome](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Alterne para a guia **Conta SQL** e selecione **AzureSqlDatabaseLinkedService** para o **Serviço Vinculado**.
 
-     ![Atividade de procedimento armazenado - Conta SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    ![Atividade de procedimento armazenado - Conta SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Alterne para a guia **Procedimento armazenado** e execute as etapas a seguir:
 
-     1. Para o **Nome do procedimento armazenado**, selecione `usp_write_watermark`. 
-     1. Selecione **Parâmetro de importação**. 
-     1. Especifique os seguintes valores para os parâmetros: 
+    1. Para o **Nome do procedimento armazenado**, selecione `usp_write_watermark`. 
+    1. Selecione **Parâmetro de importação**. 
+    1. Especifique os seguintes valores para os parâmetros: 
 
-         | NOME | Tipo | Valor | 
-         | ---- | ---- | ----- |
-         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-         | TableName | Cadeia de caracteres | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | NOME | Tipo | Valor | 
+        | ---- | ---- | ----- |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | Cadeia de caracteres | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-         ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. No painel esquerdo, clique em **Publicar**. Essa ação publica as entidades que você criou para o serviço Data Factory. 
 
-     ![Botão Publicar](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+    ![Botão Publicar](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Aguarde até que você veja a mensagem **Publicado com êxito**. Para ver as notificações, clique no link **Mostrar Notificações**. Feche a janela de notificações clicando em **X**.
 
-     ![Mostrar notificações](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+    ![Mostrar notificações](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>Executar o pipeline
@@ -561,7 +565,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
 ## <a name="review-the-results"></a>Revise os resultados
 No SQL Server Management Studio, execute as seguintes consultas no banco de dados SQL de destino para verificar se os dados foram copiados das tabelas de origem para as tabelas de destino: 
 
-**Consulta** 
+**Consultar** 
 ```sql
 select * from customer_table
 ```
@@ -578,7 +582,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Consulta**
+**Consultar**
 
 ```sql
 select * from project_table
@@ -595,7 +599,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Consulta**
+**Consultar**
 
 ```sql
 select * from watermarktable
@@ -663,7 +667,7 @@ VALUES
 ## <a name="review-the-final-results"></a>Examine os resultados finais
 No SQL Server Management Studio, execute as seguintes consultas no banco de dados de destino para verificar se os dados atualizados/novos foram copiados das tabelas de origem para as tabelas de destino. 
 
-**Consulta** 
+**Consultar** 
 ```sql
 select * from customer_table
 ```
@@ -682,7 +686,7 @@ PersonID    Name    LastModifytime
 
 Observe os novos valores de **Name** e **LastModifytime** para **PersonID** para o número 3. 
 
-**Consulta**
+**Consultar**
 
 ```sql
 select * from project_table
@@ -702,7 +706,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Observe que a entrada **NewProject** foi adicionada a project_table. 
 
-**Consulta**
+**Consultar**
 
 ```sql
 select * from watermarktable
@@ -739,6 +743,6 @@ Neste tutorial, você realizará os seguintes procedimentos:
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Carregar dados de forma incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

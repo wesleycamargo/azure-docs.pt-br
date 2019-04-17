@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 614d56cba4a95b7f9364bc9c044e78d291caf3ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998593"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: integração do Active Directory do Azure ao SciQuest Spend Director
 
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o SciQuest Spend Director, execut
 
     ![Informações de logon único em Domínio e URLs do SciQuest Spend Director](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do SciQuest Spend Director](https://www.jaggaer.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -203,8 +203,8 @@ Ao clicar no bloco do SciQuest Spend Director no Painel de Acesso, você deverá
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

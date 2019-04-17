@@ -1,19 +1,18 @@
 ---
 title: Exemplo – Aplicar tag e seu valor padrão
 description: Esta definição de política de exemplo acrescenta um nome e um valor de marca especificados se a marca não é fornecida.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 36947eae2c134761f61459dac37b324c03bd85dd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266640"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exemplo – Aplicar tag e seu valor padrão
 
@@ -22,7 +21,7 @@ Essa política acrescenta um nome e valor de marca especificados, se a marca nã
 Você pode implantar essa política de exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [PowerShell do Azure](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 

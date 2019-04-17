@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cf646deb90bc086263b7bc3047a9da34865e798
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136627"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Azure Active Directory com o Nimblex
 
@@ -107,11 +107,11 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
     ![Informações de Domínio e URLs do Nimblex para logon único](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<path-to-application>/SamlReply.aspx`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<path-to-application>/SamlReply.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Nimblex](mailto:support@ebms.com.au) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
     c. Na caixa de texto **URL de destino do SSO do provedor de identidade**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -224,9 +224,9 @@ Ao clicar no bloco do Nimblex no Painel de Acesso, você deverá entrar automati
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449787"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357014"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Use o PowerShell para criar uma instância gerenciada no Banco de Dados SQL do Azure
 
-Este exemplo de script do PowerShell cria uma instância gerenciada do Banco de Dados SQL do Azure em uma sub-rede dedicada dentro de uma nova rede virtual. Ele também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Depois que o script tiver sido executado com êxito, a instância gerenciada poderá ser acessada de dentro da rede virtual ou de um ambiente local. Para guias de início rápido que mostram como fazer isso, veja [Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database-managed-instance-configure-vm.md) e [Configurar uma conexão ponto a site para uma Instância Gerenciada do Banco de Dados SQL do Azure de local](../sql-database-managed-instance-configure-p2s.md).
+Este exemplo de script do PowerShell cria uma instância gerenciada do Banco de Dados SQL do Azure em uma sub-rede dedicada dentro de uma nova rede virtual. Ele também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Depois que o script tiver sido executado com êxito, a instância gerenciada poderá ser acessada de dentro da rede virtual ou de um ambiente local. Veja [Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database-managed-instance-configure-vm.md) e [Configurar uma conexão ponto a site para uma Instância Gerenciada do Banco de Dados SQL do Azure de local](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > Para limitações, consulte [regiões com suporte](../sql-database-managed-instance-resource-limits.md#supported-regions) e [tipos de assinatura compatíveis](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -36,7 +36,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Cria uma configuração de sub-rede da rede virtual |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Obtém uma rede virtual em um grupo de recursos |

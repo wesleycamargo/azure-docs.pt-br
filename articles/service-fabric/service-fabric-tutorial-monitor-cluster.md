@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662441"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045638"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
 
@@ -42,12 +42,15 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
+* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
 * Crie um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro 
 * Configure a [coleção de diagnóstico](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) para o cluster
 * Habilite o [EventStore serviço](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) no cluster
@@ -72,8 +75,8 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Essa h
  Se você habilitou o diagnóstico após a criação do cluster, você pode ver eventos para 
 
 * [Eventos de cluster do Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
-* [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-* [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
+* [Eventos do modelo de programação dos Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Eventos do modelo de programação dos Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
 >Além dos eventos do Service Fabric prontos para uso, é possível coletar eventos do sistema mais detalhados ao [atualizar a configuração da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).

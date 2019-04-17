@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cb6ddbab2fd4cb21ef547d116652f7ea9e63607f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258140"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606762"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introdução ao módulo gêmeo e à identidade do módulo do Hub IoT usando back-end Python e dispositivo Python
 
@@ -87,11 +87,13 @@ Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e 
 
 Nesta seção, você criará um aplicativo Python no dispositivo simulado que atualiza as propriedades relatadas do módulo gêmeo.
 
-1. **Obter a cadeia de conexão do módulo** – agora se fizer logon no [portal do Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
+1. **Obter a cadeia de conexão do módulo** – agora, se você entrar a [portal do Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **Criar aplicativo UpdateModuleTwinReportedProperties** Adicione as instruções `using` a seguir na parte superior do arquivo **Program.cs**:
+2. **Criar aplicativo UpdateModuleTwinReportedProperties**
+
+   Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
     ```python
     import sys

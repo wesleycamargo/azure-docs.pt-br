@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445551"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279781"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -215,7 +215,7 @@ O pipeline **GetTableListAndTriggerCopyData** pipeline executa duas etapas:
 * Pesquisa a tabela do sistema do Banco de Dados SQL do Azure para obter a lista de tabelas a serem copiadas.
 * Dispara o pipeline **IterateAndCopySQLTables** para fazer a cópia de dados propriamente dita.
 
-O **GetTableListAndTriggerCopyData** usa uma lista de tabelas, como um parâmetro. Para cada tabela na lista, ele copia dados da tabela no Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure usando cópia preparada e o PolyBase.
+O **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmetro. Para cada tabela na lista, ele copia dados da tabela no Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure usando cópia preparada e o PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Criar o pipeline IterateAndCopySQLTables
 

@@ -1,26 +1,26 @@
 ---
-title: Criar um pipeline de pesquisa cognitiva para indexação ativada por IA no portal do Azure – Azure Search
-description: Extração de dados, idioma natural e exemplo de habilidades de processamento de imagem no portal do Azure usando dados de exemplo.
+title: 'Início Rápido: Criar um índice ativado por IA no portal do Azure – Azure Search'
+description: Habilidades de extração de dados, idioma natural e de processamento de imagens em um portal de indexação do Azure Search, usando o portal do Azure e dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200614"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265008"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de Pesquisa Cognitiva usando habilidades e dados de exemplo
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de indexação de IA usando habilidades cognitivas e dados de exemplo
 
-Pesquisa cognitiva (visualização) adiciona a extração de dados, processamento de linguagem natural (NLP) e imagem, processamento de habilidades para um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
+O Azure Search é integrado aos [Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/), adicionando habilidades de extração de conteúdo, NLP (processamento em idioma natural) e processamento de imagem a um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
 
-Um pipeline de pesquisa cognitiva integra [Recursos dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/) – como [OCR](cognitive-search-skill-ocr.md), [detecção de idioma](cognitive-search-skill-language-detection.md), [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) – a um processo de indexação. Os algoritmos de IA dos Serviços Cognitivos são usados para encontrar padrões, recursos e características em dados de origem, retornando estruturas e conteúdo textual que podem ser usados em soluções de pesquisa de texto completo baseadas no Azure Search.
+Muitos recursos dos Serviços Cognitivos – como [OCR](cognitive-search-skill-ocr.md), [detecção de idioma](cognitive-search-skill-language-detection.md) e [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), para mencionar alguns – podem ser anexados a um processo de indexação. Os algoritmos de IA dos Serviços Cognitivos são usados para encontrar padrões, recursos e características em dados de origem, retornando estruturas e conteúdo textual que podem ser usados em soluções de pesquisa de texto completo baseadas no Azure Search.
 
 Neste início rápido, crie seu primeiro pipeline de enriquecimento no [portal do Azure](https://portal.azure.com) antes de escrever uma única linha de código:
 
@@ -30,63 +30,28 @@ Neste início rápido, crie seu primeiro pipeline de enriquecimento no [portal d
 > * Execute o Assistente (uma habilidade de entidade detecta pessoas, local e organizações)
 > * Usar o [**Gerenciador de pesquisa**](search-explorer.md) para consultar os dados enriquecidos
 
-## <a name="supported-regions"></a> Regiões com suporte
+Este Início Rápido é executado no serviço Gratuito, mas o número de transações gratuitas é limitado a 20 documentos por dia. Caso deseje executar este Início Rápido mais de uma vez no mesmo dia, use um arquivo menor definido para que você pode encaixar mais execuções.
 
-A indexação enriquecida por IA através dos Serviços Cognitivos está disponível em todas as regiões do Azure Search.
+> [!NOTE]
+> Conforme você expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
+>
+> A execução das habilidades internas é cobrada com base no [preço de pagamento conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/). A extração de imagem é cobrada com base no preço da versão prévia, conforme descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-> [!NOTE]
-> Iniciando em 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos com um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também passaremos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
->
-> A execução do conjunto de qualificações será cobrada com o [Preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagem será cobrado com o preço da versão prévia, o que está descrito na [página de preço do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[“O que é pesquisa cognitiva?”](cognitive-search-concept-intro.md) apresenta a arquitetura de enriquecimento e componentes. 
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido.
 
-Os serviços do Azure são usados exclusivamente nesse cenário. A criação de serviços que você precisa é parte da preparação.
+Os [Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/) fornecem a IA. Este Início Rápido inclui etapas para adicionar esses recursos em linha, durante a especificação do pipeline. Não é necessário configurar contas com antecedência.
 
-+ O [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) fornece os dados de origem
-+ Os [Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/) fornecem a IA (você pode criar esses recursos em linha, ao especificar o pipeline)
-+ O [Azure Search](https://azure.microsoft.com/services/search/) fornece o pipeline de indexação enriquecido e uma experiência sofisticada de pesquisa de texto de forma livre para uso em aplicativos personalizados
-
-### <a name="set-up-azure-search"></a>Configurar o Azure Search
-
-Primeiro, inscreva-se no serviço do Azure Search. 
-
-1. Entre no [portal do Azure](https://portal.azure.com) usando a conta do Azure.
-
-1. Clique em **Criar um recurso**, pesquise por Azure Search e clique em **Criar**. Consulte [Criar um serviço do Azure Search no portal de](search-create-service-portal.md) se você estiver configurando um serviço de pesquisa pela primeira vez e precisar de mais ajuda.
-
-   ![Portal Dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar um serviço de Azure Search no portal")
-
-1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos criados neste início rápido. Isso torna mais fácil limpar os recursos, depois de concluir o guia de início rápido.
-
-1. Para Localização, escolha uma das [regiões com suporte](#supported-regions) para pesquisa cognitiva.
-
-1. Para a camada de preços, você pode criar um serviço **Livre** para completar tutoriais e guias de início rápido. Para uma investigação mais detalhada usando seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** ou **Standard**. 
-
-   Um serviço gratuito está limitado a 3 índices, tamanho máximo do blob de 16 MB e 2 minutos de indexação, o que não é suficiente para exercer todos os recursos de pesquisa cognitiva. Para examinar os limites para as diferentes camadas, consulte [Limites de Serviço](search-limits-quotas-capacity.md).
-
-   ![Página de definição de Serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definição de Serviço no portal")
-
-   > [!NOTE]
-   > A pesquisa cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Você poderá realizar um número limitado de aprimoramentos sem associar um recurso de Serviços Cognitivos pago. Saiba [mais](cognitive-search-attach-cognitive-services.md).
-
-1. Fixe o serviço no painel de controle para acesso rápido a informações de serviço.
-
-   ![Página de definição de Serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definição de Serviço no portal")
+Os serviços do Azure são necessários para fornecer as entradas para o pipeline de indexação. Use qualquer fonte de dados compatível com os [indexadores do Azure Search](search-indexer-overview.md), exceto o Armazenamento de Tabelas do Azure, que não é compatível com a indexação de IA. Este Início Rápido usa o [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) como um contêiner para arquivos de dados de origem. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de amostra
 
-O pipeline de enriquecimento recebe de fontes de dados do Azure com suporte [indexadores do Azure Search](search-indexer-overview.md). Observe que não há suporte para o Armazenamento de Tabelas do Azure para Pesquisa Cognitiva. Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
-
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. 
 
-1. Inscreva-se no Armazenamento de Blobs do Azure, crie uma conta de armazenamento, abra as páginas de serviços Blob e crie um contêiner. 
-
-1. No contêiner, defina o nível de acesso público para **Contêiner (acesso de leitura anônimo para contêineres e blobs)**. Para obter mais informações, confira a [seção "Criar um contêiner"](../storage/blobs/storage-unstructured-search.md#create-a-container) no tutorial *Pesquisar dados não estruturados*.
+1. [Inscreva-se no Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), crie uma conta de armazenamento, abra as páginas de serviços Blob e crie um contêiner.  Crie a conta de armazenamento na mesma região do Azure Search.
 
 1. No contêiner criado, clique em **Carregar** para carregar os arquivos de exemplo baixados em uma etapa anterior.
 
@@ -218,4 +183,4 @@ Dependendo de como você provisionou o recurso de Serviços Cognitivos, você po
 Como alternativa, reutilize os dados de exemplo e serviços que você criou e saiba como executar as mesmas tarefas programaticamente no tutorial do próximo. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aprender as APIs REST de Pesquisa Cognitiva](cognitive-search-tutorial-blob.md)
+> [Tutorial: Aprender a usar as APIs REST da Pesquisa Cognitiva](cognitive-search-tutorial-blob.md)

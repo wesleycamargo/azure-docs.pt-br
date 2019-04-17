@@ -1,19 +1,18 @@
 ---
 title: Exemplo – NSG x em cada NIC
 description: Esta definição de política de exemplo exige o uso de um Grupo de Segurança de Rede específico em cada sub-rede virtual.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3260ba7ffdce8b5232bc0cc9edf37b0b85fd1527
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: b42ae790005560b403033ea5b98010792c9a3ca4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802194"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263648"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>Exemplo – Grupo de Segurança de Rede x em cada sub-rede
 
@@ -29,7 +28,7 @@ Você pode implantar este modelo usando o [portal do Azure](#deploy-with-the-por
 
 ## <a name="deploy-with-the-portal"></a>Implantar com o portal
 
-[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
+[![D[Implantar a amostra de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 

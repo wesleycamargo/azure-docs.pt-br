@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ac9d859ec76c782f762dfc6f424d70ea487665
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360221"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integração do Azure Active Directory ao Syncplicity
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Syncplicity ao Azure AD, você precisará adicionar o Syncplicity da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Syncplicity da galeria, execute as seguintes etapas:**
+**Para adicionar o Syncplicity por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Syncplicity, siga estas etapas:
 
 1. Na página do diálogo **SSO (Logon Único)** , realize as seguintes etapas:
 
-    ![Logon Único \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![SSO \(Logon Único\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
      a. Na caixa de texto **Domínio Personalizado** , digite o nome do seu domínio.
   
@@ -190,7 +190,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     ![O link do Syncplicity na lista de aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
-    ![O link "Usuários e grupos"](common/users-groups-blade.png)
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
 4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
@@ -243,8 +243,8 @@ Ao clicar no bloco do Syncplicity no Painel de Acesso, você deverá entrar auto
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

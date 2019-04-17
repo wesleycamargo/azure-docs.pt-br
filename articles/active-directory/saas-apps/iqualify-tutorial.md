@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a0d2ab4a28465e733a1441df1daec8a3f2936e79
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188111"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
 
@@ -109,14 +109,14 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
-    | Ambiente de teste: `https://<yourorg>.iqualify.io`|
+    | Ambiente de Produção: `https://<yourorg>.iqualify.com/`|
+    | Ambiente de Teste: `https://<yourorg>.iqualify.io`|
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Ambiente de teste: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | Ambiente de Produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
+    | Ambiente de Teste: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -125,8 +125,8 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de produção: `https://<yourorg>.iqualify.com/login` |
-    | Ambiente de teste: `https://<yourorg>.iqualify.io/login` |
+    | Ambiente de Produção: `https://<yourorg>.iqualify.com/login` |
+    | Ambiente de Teste: `https://<yourorg>.iqualify.io/login` |
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente iQualify LMS](https://www.iqualify.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
     > [!Note]
     > O atributo **person_id** é **opcional**
@@ -280,8 +280,8 @@ Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Ace
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

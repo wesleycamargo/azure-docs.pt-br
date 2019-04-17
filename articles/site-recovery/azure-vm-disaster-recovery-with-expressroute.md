@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272760"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618069"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -93,7 +93,7 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 - **VNet do hub**. Há uma vNet do hub **vNet do Hub de Origem**: 10.10.10.0/24.
   - Este hub vNet atua como o gatekeeper.
   - Todas as comunicações entre sub-redes passam por esse hub.
-    - Hub vNet subredes * *. O hub vNet tem duas sub-redes:
+    - **As sub-redes de vNet do hub**. O hub vNet tem duas sub-redes:
     - **Subrede NVA**: 10.10.10.0/25. Essa sub-rede contém uma NVA (10.10.10.10).
     - **Gateway de sub-rede**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
 - O datacenter local tem uma conexão de circuito de Rota Expressa por meio de uma borda de parceiro em Hong Kong.
@@ -104,7 +104,7 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 #### <a name="spoke-to-hub"></a>Do spoke para o hub
 
-**Direção** | **Configuração** | **Estado**
+**Direção** | **Configuração** | **State**
 --- | --- | ---
 Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
 Do spoke para o hub | Permitir tráfego encaminhado | habilitado
@@ -115,7 +115,7 @@ Do spoke para o hub | Use remover gateways | habilitado
 
 #### <a name="hub-to-spoke"></a>Do hub para o spoke
 
-**Direção** | **Configuração** | **Estado**
+**Direção** | **Configuração** | **State**
 --- | --- | ---
 Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
 Do hub para o spoke | Permitir tráfego encaminhado | habilitado

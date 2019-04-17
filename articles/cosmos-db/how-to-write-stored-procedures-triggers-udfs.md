@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339305"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268393"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-É importante observar a execução transacional de gatilhos no Azure Cosmos DB. Esse pós-gatilho é executado como parte da mesma transação usada pela criação do item do Azure Cosmos DB. Portanto, se você receber uma exceção durante a execução do pós-gatilho, por exemplo, se você não conseguir atualizar o item de metadados, toda a transação falhará e será revertida. Portanto, o item do Azure Cosmos DB é criado e uma exceção é retornada.
+É importante observar a execução transacional de gatilhos no Azure Cosmos DB. O pós-gatilho é executado como parte da mesma transação para o próprio item subjacente. Uma exceção durante a execução pós-gatilho falhará a transação inteira. Tudo o que estiver confirmado será revertido, e uma exceção será retornada.
 
 Para obter exemplos de como registrar e chamar um pré-gatilho, confira artigos de [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
@@ -320,8 +320,8 @@ Aprenda mais conceitos e como escrever ou usar procedimentos armazenados, gatilh
 
 * [Como registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do Javascript no Azure Cosmos DB](how-to-write-javascript-query-api.md)
+* [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript no Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Trabalhando com procedimentos armazenados, gatilhos e funções definidas pelo usuário do Azure Cosmos DB no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Como trabalhar com procedimentos armazenados, gatilhos e funções definidas pelo usuário do Azure Cosmos DB no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Trabalhando com a API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md)
+* [Como trabalhar com a API de consulta integrada à linguagem do JavaScript no Azure Cosmos DB](javascript-query-api.md)

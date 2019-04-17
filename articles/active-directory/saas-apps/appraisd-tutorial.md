@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861495"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutorial: Integração do Azure Active Directory ao Appraisd
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com Appraisd, execute as seguintes et
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -161,7 +161,7 @@ Para configurar o logon único do Azure AD com Appraisd, execute as seguintes et
 
 1. Em uma janela de navegador da web diferente, entre no Appraisd como administrador de segurança.
 
-2. No canto superior direito da página, clique no ícone **Configurações** e, em seguida, navegue para **Configuração**.
+2. No canto superior direito da página, clique no ícone **Configurações**, em seguida, navegue até **Configuração**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Para configurar o logon único do Azure AD com Appraisd, execute as seguintes et
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-     a. Copie o valor **Estado de Retransmissão Padrão** e cole-o na caixa de texto **Estado de Retransmissão** em **Configuração Básica do SAML** no portal do Azure.
+     a. Copiar o **Estado de retransmissão padrão** de valor e cole-o na caixa de texto **Estado de retransmissão** **Configuração SAML Básica** no portal do Azure.
 
-    b. Copie o valor **URL de logon iniciado pelo serviço** e cole-o na caixa de texto **URL de logon** em **Configuração Básica do SAML** no portal do Azure.
+    b. Cópia de **URL de logon iniciado pelo serviço** de valor e cole-o na caixa de texto **URL de logon** **Configuração Básica SAML** no portal do Azure.
 
 5. Role para baixo em sintonia **identificando usuários**, execute as seguintes etapas:
 
@@ -185,7 +185,7 @@ Para configurar o logon único do Azure AD com Appraisd, execute as seguintes et
 
     b. Na caixa de texto **URL do Provedor de identidade de Logon único**, cole o valor da **URL de logon**, que você copiou do portal do Azure e clique em **Salvar**.
 
-    c. No Bloco de notas, abra o certificado codificado em base 64 baixado do portal do Azure, copie o conteúdo e, em seguida, cole-o na caixa **Certificado X.509** e clique em **Salvar**.
+    c. No bloco de notas, abra o certificado codificado em base 64 que você baixou do portal do Azure, copie seu conteúdo e, em seguida, cole-o na caixa **certificado x. 509**e clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -246,11 +246,11 @@ Para habilitar o Azure Active Directory, os usuários entram no Appraisd, eles d
 
 1. Entre no Appraisd como um Administrador de Segurança.
 
-2. No canto superior direito da página, clique no ícone **Configurações** e, em seguida, navegue para **Centro de administração**.
+2. No canto superior direito da página, clique no ícone **Configurações**, em seguida, navegue até **Centro de administração**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Na barra de ferramentas na parte superior da página, clique em **Pessoas** e, em seguida, navegue para **Adicionar um novo usuário**.
+3. Na barra de ferramentas na parte superior da página, clique em **Pessoas**, em seguida, navegue até **Adicionar um novo usuário**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 

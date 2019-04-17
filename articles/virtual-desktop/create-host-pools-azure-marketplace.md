@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399879"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257443"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um pool de host com o Azure Marketplace
 
@@ -117,9 +117,12 @@ Veja os clientes com suporte atuais:
 - [Cliente da Área de Trabalho Remota para Windows 7 e Windows 10](connect-windows-7-and-10.md)
 - [Cliente Web da Área de Trabalho Virtual do Windows](connect-web.md)
 
+>[!IMPORTANT]
+>Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você criou um pool de hosts e atribuiu usuários para acessar sua área de trabalho, também poderá popular seu pool de hosts com RemoteApps. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 
 > [!div class="nextstepaction"]
-> [Tutorial Gerenciar grupos de aplicativos](./manage-app-groups.md)
+> [Tutorial: Gerenciar grupos de aplicativos](./manage-app-groups.md)

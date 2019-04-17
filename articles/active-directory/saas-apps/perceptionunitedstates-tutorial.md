@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 31528c30ac8b795a661539349c2bee31edb6973c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850995"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory ao Perception United States (não UltiPro)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
      a. Na caixa de texto **Identificador**, digite uma URL: `https://perception.kanjoya.com/sp`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     c. O aplicativo **Perception United States (não UltiPro)** exige o valor do **Identificador do Azure AD** como <entity_id>, que será obtido na seção **Configurar o Perception United States (não UltiPro)**, seja codificado no URI. Para obter o valor codificado no URI, use o seguinte link: **http://www.url-encode-decode.com/**.
 
@@ -229,9 +229,9 @@ Ao clicar no bloco Perception United States (não UltiPro) no Painel de Acesso, 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

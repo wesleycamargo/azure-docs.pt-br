@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Visualizar dados do Azure Data Explorer no Power BI'
 description: Neste tutorial, você aprenderá como se conectar ao Azure Data Explorer com o Power BI e visualizar seus dados.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757749"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049873"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualizar dados do Azure Data Explorer no Power BI
 
