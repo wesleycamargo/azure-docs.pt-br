@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542974"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609380"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Analisar uma imagem usando o SDK da Pesquisa Visual Computacional e C#
 
@@ -37,7 +37,7 @@ Para executar a amostra, siga estas etapas:
     1. No menu, clique em **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução**.
     1. Clique na guia **Procurar** e, na caixa **Pesquisar**, digite "Microsoft.Azure.CognitiveServices.Vision.ComputerVision".
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando ela for exibida, então clique na caixa de seleção ao lado do nome do seu projeto e escolha **Instalar**.
-1. Substitua os conteúdos do *Program.cs* pelo código a seguir. Os métodos `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` encapsulam a [API REST da Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para imagens remotas e locais, respectivamente. 
+1. Substitua os conteúdos do *Program.cs* pelo código a seguir. Os métodos `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` encapsulam a [API REST da Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para imagens remotas e locais, respectivamente.
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -135,7 +135,14 @@ Para executar a amostra, siga estas etapas:
             private static void DisplayResults(ImageAnalysis analysis, string imageUri)
             {
                 Console.WriteLine(imageUri);
-                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                if (analysis.Description.Captions.Count != 0)
+                {
+                    Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                }
+                else
+                {
+                    Console.WriteLine("No description generated.");
+                }
             }
         }
     }
@@ -153,7 +160,7 @@ Uma resposta bem-sucedida exibe a legenda mais relevante para cada imagem. Você
 
 Confira [Inícios Rápidos da API: Analisar uma imagem local com o C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de uma saída JSON bruta.
 
-```
+```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

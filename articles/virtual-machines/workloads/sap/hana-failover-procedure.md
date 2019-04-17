@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492798"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616145"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de failover de recuperação de desastre
 
@@ -71,7 +71,7 @@ Prossiga para a etapa 4.
 
    No lado das operações, ocorrem as seguintes etapas:
 
-   a. A replicação de instantâneos do volume de produção para volumes de recuperação de desastre é interrompida. Isso pode já ter acontecido se uma interrupção no local de produção for o motivo de você precisar realizar o procedimento de recuperação de desastre.
+    a. A replicação de instantâneos do volume de produção para volumes de recuperação de desastre é interrompida. Isso pode já ter acontecido se uma interrupção no local de produção for o motivo de você precisar realizar o procedimento de recuperação de desastre.
    
    b. O nome do instantâneo de armazenamento ou o instantâneo com a ID de backup escolhido é restaurado nos volumes de recuperação de desastre.
    
@@ -87,7 +87,7 @@ A próxima sequência de etapas envolve a recuperação da instância de produç
 1. Altere o local de backup para **hana/logbackups** usando o SAP HANA Studio.
    ![Alterar o local de backup para recuperação de desastre](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. O SAP HANA verifica os locais do arquivo de backup e sugere o backup de log de transações mais recente para o qual ser restaurado. A verificação pode levar alguns minutos até que uma tela como a seguinte seja exibida: ![Lista de backups de log de transações para a recuperação de desastre](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. O SAP HANA verifica os locais do arquivo de backup e sugere o backup de log de transações mais recente para o qual ser restaurado. A verificação pode levar alguns minutos até que uma tela como será exibido o seguinte: ![Lista de backups de log de transações para recuperação de desastres](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Ajuste algumas destas configurações padrão:
 
@@ -104,7 +104,7 @@ Uma janela de progresso, como mostrado aqui, deve aparecer. Tenha em mente que o
 
 ![Progresso da restauração](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Se a restauração parece parar de responder na tela **Concluir** e não for mostrada na tela de andamento, confirme se todas as instâncias do SAP HANA nos nós de trabalho estão em execução. Se necessário, inicie manualmente as instâncias SAP HANA.
+Se a restauração parece parar de responder na **concluir** e não mostrar a tela de progresso, confirme se todas as instâncias do SAP HANA em nós de trabalho estão em execução. Se necessário, inicie manualmente as instâncias SAP HANA.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Failback de recuperação de desastre para um site de produção

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540815"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608853"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -155,6 +155,10 @@ Sim. Cada dispositivo HSM é totalmente dedicado a um único cliente e ninguém 
 
 A Microsoft não possui nenhum controle administrativo ou criptográfico sobre o HSM. A Microsoft possui acesso em nível de monitor via conexão de porta serial para recuperar telemetria básica, como temperatura e integridade de componentes. Isso permite que a Microsoft forneça notificação proativa de problemas de integridade. Se necessário, o cliente pode desativar essa conta.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P: O que é a conta "tenantadmin" Microsoft usa, estou acostumado para o usuário de administrador que está sendo "admin" em HSMs SafeNet?
+
+O dispositivo HSM é fornecido com um usuário padrão do administrador com a sua senha normal padrão. Microsoft não queria ter senhas padrão em uso, enquanto qualquer dispositivo está em um pool aguardando para ser provisionado pelos clientes. Isso não seria atender aos nossos requisitos de segurança rígidos. Por esse motivo, definimos uma senha forte que é descartada no momento do provisionamento. Além disso, no momento do provisionamento, podemos criar um novo usuário na função de administrador chamada "tenantadmin". Este usuário tem a senha padrão e os clientes alteração-la conforme a primeira ação ao fazer logon pela primeira vez no dispositivo provisionado recentemente. Esse processo garante um alto grau de segurança e mantém a nossa promessa de controle administrativo exclusivo para nossos clientes. Deve-se observar que o usuário "tenantadmin" pode ser usado para redefinir a senha do administrador, se um cliente prefere usar a conta. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P: A Microsoft ou qualquer pessoa na Microsoft pode acessar as chaves no meu HSM Dedicado?
 
  Não. A Microsoft não tem acesso às chaves armazenadas no HSM Dedicado alocado pelo cliente.
@@ -181,7 +185,7 @@ Sim. Você pode enviar logs do dispositivo HSM para um servidor syslog
 
 ## <a name="high-availability"></a>Alta disponibilidade
 
-### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar alta disponibilidade na mesma região ou em várias regiões?
+### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar a alta disponibilidade na mesma região ou em várias regiões?
 
 Sim. A configuração e a configuração de alta disponibilidade são realizadas no software cliente HSM fornecido pela Gemalto. Os HSMs da mesma rede virtual ou outras redes virtuais na mesma região ou entre regiões ou no local HSMs conectados a uma rede virtual usando o site a site ou VPN ponto a ponto pode ser adicionado a mesma configuração de alta disponibilidade. Deve-se observar que isso sincroniza apenas material da chave e itens de configuração não específicas, como funções.
 
@@ -201,7 +205,7 @@ Sim. Eles devem atender aos requisitos de alta disponibilidade para o SafeNet Lu
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P: Qual é o SLA do serviço de HSM Dedicado?
 
-Não há nenhum guarentee específico de tempo de atividade fornecido para o serviço HSM dedicado. A Microsoft garantirá o acesso em nível de rede ao dispositivo e, portanto, os SLAs de rede padrão do Azure serão aplicados.
+Não há nenhuma garantia de tempo de atividade específica fornecida para o serviço HSM dedicado. A Microsoft garantirá o acesso em nível de rede ao dispositivo e, portanto, os SLAs de rede padrão do Azure serão aplicados.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>P: Como os HSMs usados no HSM Dedicado do Azure são protegidos?
 
@@ -217,7 +221,7 @@ Serviço do HSM Dedicado usa dispositivos SafeNet 7 de HSM de rede. Esses dispos
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P: Como obtenho suporte para o HSM Dedicado?
 
-O suporte é fornecido pela Microsoft e a Gemalto.  Se você tiver um problema com o hardware ou acesso à rede, envie uma solicitação de suporte com a Microsoft e se você tiver um problema com o desenvolvimento de configuração, o software e o aplicativo de HSM, rasie uma solicitação de suporte com Gemalto. Se você tiver um problema indeterminado, gerar uma solicitação de suporte withg Microsoft e, em seguida, Gemalto pode ser acionada como necessária. 
+O suporte é fornecido pela Microsoft e a Gemalto.  Se você tiver um problema com o acesso de hardware ou de rede, envie uma solicitação de suporte com a Microsoft e se você tiver um problema com a configuração de HSM, software e desenvolvimento de aplicativos, gere uma solicitação de suporte com a Gemalto. Se você tiver um problema indeterminado, envie uma solicitação de suporte com a Microsoft e, em seguida, Gemalto pode ser acionada como necessária. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: Como obter o cliente de software, documentação e acesso às diretrizes de integração para o HSM da SafeNet Luna 7?
 

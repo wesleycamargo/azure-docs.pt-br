@@ -1,33 +1,20 @@
 ---
-title: Criar um Gateway de Aplicativo do Azure - modelos | Microsoft Docs
-description: Esta página oferece instruções para criar um gateway de aplicativo do Azure usando o modelo do Gerenciador de Recursos do Azure
-documentationcenter: na
+title: Criar um Gateway de aplicativo do Azure - modelos
+description: Este artigo fornece instruções para criar um gateway de aplicativo do Azure usando o modelo do Azure Resource Manager
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084922"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608445"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
-
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI do Azure](application-gateway-create-gateway-cli.md)
 
 O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para conferir uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
@@ -243,4 +230,3 @@ Se deseja saber mais sobre as opções de balanceamento de carga no geral, visit
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

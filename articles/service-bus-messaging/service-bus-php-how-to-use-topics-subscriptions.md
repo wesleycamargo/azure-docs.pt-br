@@ -12,24 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857956"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607527"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Serviço. As amostras são escritas em PHP e usam o [SDK do Azure para PHP](../php-download-sdk.md). Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**.
+Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Serviço. As amostras são escritas em PHP e usam o [SDK do Azure para PHP](../php-download-sdk.md). Os cenários abordados incluem:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Criar tópicos e assinaturas 
+- Criar filtros de assinatura 
+- Enviar mensagens para um tópico 
+- Receber mensagens de uma assinatura
+- Excluir tópicos e assinaturas
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN ou Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [guia de início rápido: Use o portal do Azure para criar um tópico do barramento de serviço e assinaturas do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **namespace** e obtenha o **cadeia de caracteres de conexão**.
+
+    > [!NOTE]
+    > Você aprenderá a criar uma **tópico** e uma **assinatura** para o tópico usando **PHP** neste início rápido. 
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
 O único requisito para a criação de um aplicativo PHP que acessa o serviço Blob do Azure é a referência de classes no [SDK do Azure para PHP](../php-download-sdk.md) em seu código. Você pode usar quaisquer ferramentas de desenvolvimento para criar seu aplicativo, ou o Bloco de Notas.
@@ -131,7 +140,7 @@ catch(ServiceException $e){
 As assinaturas do tópico também são criadas com o método `ServiceBusRestProxy->createSubscription`. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
-Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** (padrão) será utilizado. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'mysubscription' e usa o filtro padrão **MatchAll**.
+Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** (padrão) será utilizado. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada `mysubscription` e usa o filtro padrão **MatchAll**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -335,7 +344,7 @@ Ao usar o método `deleteSubscription`, você poderá excluir uma assinatura de 
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, confira [Filas, tópicos e assinaturas][Queues, topics, and subscriptions].
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

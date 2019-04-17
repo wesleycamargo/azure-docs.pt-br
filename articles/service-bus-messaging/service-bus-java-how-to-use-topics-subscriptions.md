@@ -12,44 +12,30 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872612"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607867"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Neste início rápido, você segue os seguintes passos: 
-
-- Crie um tópico usando o portal do Azure
-- Crie três assinaturas para o tópico usando o portal do Azure
-- Escrever o código Java para enviar mensagens para o tópico
-- Escrever o código Java para receber mensagens de assinaturas
+Neste início rápido, você escreve código Java para enviar mensagens para um tópico do barramento de serviço e, em seguida, receber mensagens de assinaturas para esse tópico. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free), crie uma antes de começar.
-- [SDK do Azure para Java][Azure SDK for Java]. 
-
-## <a name="what-are-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as assinaturas do Barramento de Serviço?
-Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de comunicação de mensagens de *publicação/assinatura* . Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
-
-![Conceitos de tópico](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-Ao contrário do que ocorre com as filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos usando um padrão de publicação/assinatura. É possível registrar várias assinaturas para um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre ou restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
-
-As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento para processar um grande número de mensagens entre muitos usuários e aplicativos.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
-
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN ou Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou se inscreva em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [guia de início rápido: Use o portal do Azure para criar um tópico do barramento de serviço e assinaturas do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+    1. Criar um barramento de serviço **namespace**.
+    2. Obter o **cadeia de caracteres de conexão**.
+    3. Criar uma **tópico** no namespace.
+    4. Crie **três assinaturas** para o tópico no namespace.
+3. [SDK do Azure para Java][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se estiver usando o Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:

@@ -4,18 +4,18 @@ description: Lista de serviços que dão suporte a identidades gerenciadas para 
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045450"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607986"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -40,7 +40,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Vir
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos do Gerenciador de Recursos do Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquina virtual do Azure
@@ -55,7 +55,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos do Gerenciador de Recursos do Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 ### <a name="azure-app-service"></a>Serviço de aplicativo do Azure
@@ -69,7 +69,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Serviço de A
 
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [PowerShell do Azure](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
@@ -95,7 +95,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Functio
 
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [PowerShell do Azure](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Aplicativos Lógicos do Azure
@@ -122,7 +122,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 - [Portal do Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [.](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Gerenciamento de API do Azure
 
@@ -213,7 +213,7 @@ Consulte a lista a seguir para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não disponível |
 | Azure China 21Vianet |  | Não disponível |
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage-blobs-and-queues"></a>Filas e blobs de armazenamento do azure
 
 | Nuvem | ID de Recurso | Status |
 |--------|------------|--------|

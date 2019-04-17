@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979490"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59610128"
 ---
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 
@@ -37,7 +37,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto.
 
-2. No menu de contexto, selecione **Adicionar** > **Serviços Conectados**.
+1. No menu de contexto, selecione **Adicionar** > **Serviços Conectados**.
 
 1. Na caixa de diálogo **Serviços Conectados**, selecione **Armazenamento em Nuvem com o Armazenamento do Microsoft Azure**.
 
@@ -45,8 +45,9 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. Na caixa de diálogo **Armazenamento do Microsoft Azure**, selecione a conta do Armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta do Armazenamento do Azure, selecione **Criar uma Nova Conta de Armazenamento** e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instalará o pacote NuGet para o Armazenamento do Microsoft Azure e uma cadeia de conexão de armazenamento para **Web.config**.
 
+1. Na **Gerenciador de soluções**, clique duas vezes em **dependências**, escolha **Manage NuGet Packages**e adicione uma referência de pacote do NuGet para a versão mais recente do Microsoft.Azure.ConfigurationManager.
+
 > [!TIP]
 > Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 >
 > Você também pode criar uma conta de armazenamento usando o [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), a [CLI do Azure](../articles/storage/common/storage-azure-cli.md) ou o [Azure Cloud Shell](../articles/cloud-shell/overview.md).
-

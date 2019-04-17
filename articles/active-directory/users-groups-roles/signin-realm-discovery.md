@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82c1909a28de694925a12e9b801361cad1f36d2
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494688"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608768"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Descoberta de realm inicial para páginas de entrada do Azure Active Directory
 
@@ -49,7 +49,7 @@ Um benefício adicional desse trabalho é aprimorado de erro no sistema de mensa
     ![senha for digitado incorretamente com um bom nome de usuário](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Esse recurso pode ter um impacto em domínios federados no nível do domínio antigo Home Realm Discovery para forçar a federação de terceira parte confiável. Para obter atualizações sobre quando o suporte de domínio federado será adicionado, consulte [descoberta de realm inicial durante o logon para serviços do Microsoft 365](https://blogs.azure.net/updates/Admin/Blogs/29/Posts/3170). Enquanto isso, algumas organizações treinar seus funcionários a entrar com um nome de usuário que não existe no Active Directory do Azure, mas contém o nome de domínio adequado, porque os nomes de domínio encaminha os usuários no momento ao ponto de extremidade de domínio da sua organização. O novo comportamento de entrada não permite isso. O usuário é notificado para corrigir o nome de usuário, e eles não são permitidos para entrar com um nome de usuário que não existe no Azure Active Directory.
+> Esse recurso pode ter um impacto em domínios federados no nível do domínio antigo Home Realm Discovery para forçar a federação de terceira parte confiável. Para obter atualizações sobre quando o suporte de domínio federado será adicionado, consulte [descoberta de realm inicial durante o logon para serviços do Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). Enquanto isso, algumas organizações treinar seus funcionários a entrar com um nome de usuário que não existe no Active Directory do Azure, mas contém o nome de domínio adequado, porque os nomes de domínio encaminha os usuários no momento ao ponto de extremidade de domínio da sua organização. O novo comportamento de entrada não permite isso. O usuário é notificado para corrigir o nome de usuário, e eles não são permitidos para entrar com um nome de usuário que não existe no Azure Active Directory.
 >
 > Se você ou sua organização tiver práticas que dependem do comportamento antigo, é importante que os administradores da organização para atualizar a documentação de entrada e autenticação de funcionários e para treinar os funcionários usem seu nome de usuário do Active Directory do Azure para entrar.
   
