@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492304"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426402"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -43,8 +43,6 @@ Neste tutorial, você aprenderá como:
 > * Configure uma regra de aplicativo para permitir acesso a www.google.com
 > * Configurar uma regra de rede para permitir o acesso a servidores DNS externos
 > * Testar o firewall
-
-Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](deploy-ps.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

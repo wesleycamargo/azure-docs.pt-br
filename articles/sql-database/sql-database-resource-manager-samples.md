@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 58513b77315badc52acbc0c5116343461b44fa08
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232955"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356827"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos do Azure Resource Manager para o Banco de Dados SQL do Azure
 
@@ -53,4 +53,3 @@ A tabela a seguir inclui links para modelos do Azure Resource Manager para a Ins
 | [Ambiente de rede da Instância Gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Essa implantação criará uma Rede Virtual do Azure configurada com duas sub-redes – uma que será dedicada para as Instâncias Gerenciadas e a outra na qual você poderá colocar outros recursos (por exemplo, VMs, ambientes do Serviço de Aplicativo etc.). Esse modelo criará um ambiente de rede configurado de forma apropriada em que você poderá implantar as Instâncias Gerenciadas. |
 | [Instância Gerenciada com conexão P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Essa implantação criará uma Rede Virtual do Azure com duas sub-redes `ManagedInstance` e `GatewaySubnet`. A Instância Gerenciada será implantada na sub-rede da ManagedInstance. O gateway de rede virtual será criado na sub-rede `GatewaySubnet` e configurado para a conexão VPN ponto a site. |
 | [Instância Gerenciada com uma Máquina Virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Essa implantação criará uma Rede Virtual do Azure com duas sub-redes `ManagedInstance` e `Management`. A Instância Gerenciada será implantada na sub-rede `ManagedInstance`. A máquina virtual com a última versão do SSMS (SQL Server Management Studio) será implantada na sub-rede `Management`. |
-
