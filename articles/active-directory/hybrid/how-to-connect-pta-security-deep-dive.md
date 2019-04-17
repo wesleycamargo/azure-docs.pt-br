@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096853"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617200"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -136,7 +136,7 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
 4. O usuário digita seu nome de usuário na página **Login do usuário** e, em seguida, seleciona o botão **Próximo**.
 5. O usuário digita sua senha na página **Login do usuário** e, em seguida, seleciona o botão **Login**.
 6. O nome de usuário e a senha são enviados ao STS do Azure AD em uma solicitação HTTPS POST.
-7. O STS do Azure AD recupera chaves públicas para todos os Agentes de Autenticação registrados em seu locatário no banco de dados SQL do Azure e criptografa a senha usando-as. 
+7. O STS do Azure AD recupera chaves públicas para todos os Agentes de Autenticação registrados em seu locatário no banco de dados SQL do Azure e criptografa a senha usando-as.
     - Isso produz "N" valores de senha criptografados para "N" Agentes de Autenticação registrados no seu locatário.
 8. O STS do Azure AD coloca a solicitação de validação de senha, que consiste no nome de usuário e nos valores de senha criptografada, na fila do Barramento de Serviço específico ao seu locatário.
 9. Como os Agentes de Autenticação inicializados são persistentemente conectados à fila do Barramento de Serviço, um dos Agentes de Autenticação disponíveis recupera a solicitação de validação de senha.
@@ -145,6 +145,9 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
     - Essa é a mesma API usada pelos Serviços de Federação do Active Directory (AD FS) para conectar usuários em um cenário de entrada federada.
     - Essa API depende do processo de resolução padrão no Windows Server para localizar o controlador de domínio.
 12. O Agente de Autenticação recebe o resultado do Active Directory, como êxito, nome de usuário ou senha incorretos ou senha expirada.
+
+   > [!NOTE]
+   > Se o agente de autenticação falhar durante o processo de logon, a solicitação toda entrada é descartada. Não há nenhuma entrega das solicitações de entrada de um agente de autenticação para o outro agente de autenticação local. Esses agentes se comunicam somente com a nuvem e não entre si.
 13. O Agente de Autenticação encaminha o resultado de volta ao serviço de token de segurança do Azure AD através de um canal HTTPS mutuamente autenticado de saída sobre a porta 443. A autenticação mútua usa o certificado anteriormente emitido para o Agente de Autenticação durante o registro.
 14. O serviço de token de segurança do Azure AD verifica se esse resultado corresponde à solicitação de entrada específica no locatário.
 15. O serviço de token de segurança do Azure AD continua com o procedimento de entrada, conforme configurado. Por exemplo, se a validação de senha fosse bem-sucedida, o usuário poderia ser solicitado para a Multi-Factor Authentication ou redirecionado de volta ao aplicativo.
@@ -181,7 +184,7 @@ Para renovar a confiança do Agente de Autenticação com o Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Atualização automática dos Agentes de Autenticação
 
-O aplicativo do Atualizador atualizará automaticamente o Agente de Autenticação quando uma nova versão for lançada. O aplicativo não trata nenhuma solicitação de validação de senha para o locatário. 
+O aplicativo do atualizador atualiza automaticamente o agente de autenticação quando uma nova versão (com correções de bug ou melhorias de desempenho) é liberada. O aplicativo do atualizador não trata nenhuma solicitação de validação de senha para seu locatário.
 
 O Azure AD hospeda a nova versão do software como um **pacote do Windows Installer (MSI)** assinado. O MSI é assinado usando o [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) com SHA256 como o algoritmo hash. 
 
@@ -203,11 +206,11 @@ Para atualizar automaticamente um Agente de Autenticação:
     - Reinicia o serviço do Agente de Autenticação
 
 >[!NOTE]
->Se você tiver vários Agentes de Autenticação registrados no seu locatário, o Azure AD não renovará seus certificados ou os atualizará ao mesmo tempo. Em vez disso, o Azure AD realizará esse procedimento gradualmente para garantir a alta disponibilidade das solicitações de entrada.
+>Se você tiver vários Agentes de Autenticação registrados no seu locatário, o Azure AD não renovará seus certificados ou os atualizará ao mesmo tempo. Em vez disso, o AD do Azure faz uma por vez para garantir a alta disponibilidade das solicitações de entrada.
 >
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](how-to-connect-pta-quick-start.md): Instale e execute a Autenticação de Passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoptadpdownload) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.

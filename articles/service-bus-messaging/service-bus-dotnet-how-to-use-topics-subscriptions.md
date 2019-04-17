@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766930"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608887"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766930"
 
 Este tutorial cobre as seguintes etapas:
 
-1. Crie um namespace do Barramento de Serviço usando o portal do Azure.
-2. Crie um tópico do Barramento de Serviço usando o portal do Azure.
-3. Crie uma assinatura do Barramento de Serviço para esse tópico usando o portal do Azure.
-4. Escreva um aplicativo de console .NET Core para enviar um conjunto de mensagens ao tópico.
-5. Escreva um aplicativo de console .NET Core para receber essas mensagens da assinatura.
+1. Escreva um aplicativo de console .NET Core para enviar um conjunto de mensagens ao tópico.
+2. Escreva um aplicativo de console .NET Core para receber essas mensagens da assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
-2. Uma assinatura do Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar sua [benefícios de assinante do MSDN ou Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou se inscreva em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [guia de início rápido: Use o portal do Azure para criar um tópico do barramento de serviço e assinaturas do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+    1. Criar um barramento de serviço **namespace**.
+    2. Obter o **cadeia de caracteres de conexão**.
+    3. Criar uma **tópico** no namespace.
+    4. Crie **uma assinatura** para o tópico no namespace.
+3. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
+ 
 ## <a name="send-messages-to-the-topic"></a>Enviar mensagens para o tópico
 
 Para enviar mensagens para o tópico, escreva um aplicativo de console C# usando o Visual Studio.
@@ -204,7 +200,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da assinatura
 
-Para receber as mensagens recém-enviadas, crie outro aplicativo de console .NET Core e instale o pacote NuGet **Microsoft.Azure.ServiceBus**, parecido com o aplicativo do remetente anterior.
+Para receber as mensagens enviadas por você, crie outro aplicativo de console .NET Core e instale o **Microsoft.Azure.ServiceBus** pacote NuGet, parecido com o aplicativo de remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da assinatura
 

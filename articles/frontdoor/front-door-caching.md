@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001957"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528290"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Cache com o Azure Front Door Service
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado.
@@ -26,7 +26,7 @@ O Azure Front Door Service entrega arquivos grandes sem um limite no tamanho do 
 
 </br>Depois que a parte chega no ambiente do Front Door, ela é armazenada em cache e imediatamente distribuída para o usuário. Em seguida, o Front Door efetua a pré-busca da próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo é baixado (se solicitado), todos os intervalos de bytes estão disponíveis (se solicitado) ou o cliente encerra a conexão.
 
-</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 O Front Door armazena em cache todas as partes conforme são recebidas e, portanto, o arquivo inteiro não precisa ser armazenado no cache do Front Door. As solicitações subsequentes para o arquivo ou intervalos de bytes são disponibilizadas pela cache. Se nem todas as partes forem armazenadas em cache, a pré-busca será usada para solicitar as partes do back-end. Essa otimização depende da capacidade do servidor de origem para dar suporte a solicitações de intervalo de bytes; se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não será efetiva.
 
 ## <a name="file-compression"></a>Compactação de arquivos
@@ -100,9 +100,9 @@ As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além
 
 ## <a name="cache-expiration"></a>Expiração do cache
 A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um item será armazenado em nosso cache:</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: maxage=\<seconds>
+3. Expira em: \<http-date >
 
 Cabeçalhos de resposta de Cache-Control que indicam que a resposta não será ser armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store não são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta.
 
@@ -114,7 +114,7 @@ Os seguintes cabeçalhos de solicitação não serão encaminhados para um back-
 - Content-Length
 - Transfer-Encoding
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como o Front Door funciona](front-door-routing-architecture.md).

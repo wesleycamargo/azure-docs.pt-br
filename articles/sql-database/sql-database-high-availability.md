@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892823"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616842"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 
@@ -43,7 +43,7 @@ A figura a seguir mostra quatro nós no modelo de arquitetura padrão com as cam
 No modelo de disponibilidade padrão, há duas camadas:
 
 - Uma camada de computação sem estado que está executando o processo `sqlserver.exe` e contém apenas dados temporários e armazenados em cache (por exemplo - cache de plano, conjunto de buffers, conjunto de armazenamentos de colunas). Este nó do SQL Server sem estado é operado pelo Microsoft Azure Service Fabric, que inicializa o processo, controla a integridade do nó e executa o failover para outro local, se necessário.
-- Uma camada de dados com estado com arquivos de banco de dados (.mdf/.ldf) que são armazenados no Armazenamento de Blobs do Azure. O Armazenamento de Blobs do Azure garante que não haja perda de dados de nenhum registro colocados em qualquer arquivo de banco de dados. O Armazenamento de Blobs do Azure tem disponibilidade/redundância de dados interna, que garante que cada registro no arquivo de log ou página no arquivo de dados será preservado mesmo se o processo do SQL Server falhar.
+- Uma camada de dados com estado, com arquivos de banco de dados (.mdf/.ldf) que são armazenados no Armazenamento de Blobs do Azure. O Armazenamento de Blobs do Azure garante que não haja perda de dados de nenhum registro colocado em qualquer arquivo de banco de dados. O armazenamento de BLOBs do Azure tem disponibilidade/redundância de dados interno que garante que todos os registros no arquivo de log ou página no arquivo de dados será preservada mesmo se a falha do processo do SQL Server.
 
 Sempre que o mecanismo de banco de dados ou sistema operacional é atualizado, alguma parte da infraestrutura subjacente falhar ou se for detectado algum problema crítico no processo do SQL Server, o Azure Service Fabric moverá o processo do SQL Server sem estado para outro nó de computação sem estado. Há um conjunto de nós sobressalentes que está esperando a execução do novo serviço de computação no caso de failover para minimizar o tempo de failover. Os dados no Armazenamento de Blobs do Azure não são afetados, e os arquivos de dados/log são anexados ao processo do SQL Server recém-inicializado. Esse processo garante a disponibilidade de 99,99%, mas pode ter alguns impactos de desempenho na carga de trabalho pesada que está sendo executada devido ao tempo de transição e ao fato de o novo nó do SQL Server ser iniciado com cache frio.
 

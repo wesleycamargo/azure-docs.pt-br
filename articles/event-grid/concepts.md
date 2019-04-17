@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474346"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617590"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -40,7 +40,7 @@ Para obter informações sobre como implementar qualquer uma das origens de Grad
 
 O tópico da grade de eventos fornece um ponto de extremidade em que a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Você não vê tópicos do sistema na sua assinatura do Azure porque o editor é o proprietário dos tópicos, mas você pode assiná-los. Para assinar, você deve fornecer informações sobre o recurso do qual deseja receber eventos. Desde que tenha acesso ao recurso, você poderá assinar seus eventos.
+Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Você não vê tópicos do sistema na sua assinatura do Azure porque o editor é o proprietário dos tópicos, mas você pode assiná-los. Para assinar, você deve fornecer informações sobre o recurso do qual deseja receber eventos. Desde que você tem acesso ao recurso, você pode assinar seus eventos.
 
 Os tópicos personalizados são tópicos de aplicativo e de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura.
 

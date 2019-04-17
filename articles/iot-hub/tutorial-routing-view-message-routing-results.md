@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662404"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045826"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>Regras para roteamento de mensagens
 
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Usar o PowerShell para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` foi definido como **ContosoResources** novamente no início deste tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -295,7 +297,7 @@ Neste tutorial de duas partes, você aprendeu a usar o roteamento de mensagens p
 > * Crie os recursos – um hub IoT, uma conta de armazenamento, uma fila do Barramento de Serviço e um dispositivo simulado.
 > * Configure os pontos de extremidade e as rotas de mensagem no Hub IoT para a conta de armazenamento e a fila do Barramento de Serviço.
 
-**Parte II: Enviar mensagens ao hub, exibir resultados roteados**
+**Parte II: Enviar mensagens ao hub, exibir os resultados roteados**
 > [!div class="checklist"]
 > * Crie um aplicativo lógico que é disparado e envia e-mail quando uma mensagem é adicionada à fila de Barramento de Serviço.
 > * Baixe e execute um aplicativo que simula um dispositivo IoT enviando mensagens para o hub para as diferentes opções de roteamentos.

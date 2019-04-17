@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548518"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617709"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controle de acesso baseado em função (RBAC) para contas de serviços de mídia
 
-Atualmente, os serviços de mídia do Azure não definido qualquer específica de funções personalizadas para o serviço. Os clientes podem usar as funções internas do **proprietário** ou **Colaborador** para obter acesso completo a uma conta de serviços de mídia. A principal diferença entre essas funções é: o **proprietário** possível controlar quem tem acesso a um recurso e o **Colaborador** não é possível. A conta do leitor interno só tem acesso de leitura à conta de serviços de mídia. 
+Atualmente, os serviços de mídia do Azure não define as funções personalizadas específicas para o serviço. Para obter acesso total à conta de serviços de mídia, os clientes podem usar as funções internas do **proprietário** ou **Colaborador**. A principal diferença entre essas funções é: o **proprietário** possível controlar quem tem acesso a um recurso e o **Colaborador** não é possível. Interna **leitor** função também pode ser usada, mas o usuário ou aplicativo só terá acesso de leitura para as APIs de serviços de mídia. 
 
 ## <a name="design-principles"></a>Princípios de design
 
-Um dos princípios de design de chave da API v3 é tornar a API mais segura. APIs v3 não retornar segredos ou as credenciais na **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou corrigidas na resposta. O usuário precisa chamar um método de ação separada para obter as credenciais ou segredos. O **leitor** função não é possível chamar as operações para que ele não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite que você defina permissões mais granulares de segurança RBAC em uma função personalizada se desejado.
+Um dos princípios de design de chave da API v3 é tornar a API mais segura. APIs v3 não retornar segredos ou as credenciais na **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou corrigidas na resposta. O usuário precisa chamar um método de ação separada para obter as credenciais ou segredos. O **leitor** função não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite que você defina permissões mais granulares de segurança RBAC em uma função personalizada se desejado.
 
 Para listar as operações dos serviços de mídia dá suporte a, execute:
 

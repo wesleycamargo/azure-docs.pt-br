@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919140"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528520"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -45,7 +45,7 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 
 |Propriedade |Valor |DESCRIÇÃO |
 |---|---|---|
-|**NOME** |Nome completo do usuário | O nome e sobrenome do usuário.
+|**Nome** |Nome completo do usuário | O nome e sobrenome do usuário.
 |**Nome de Usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário.
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de forma exclusiva o usuário na Web.|
 |**ID do locatário** |Guid | Um **guid** que representa exclusivamente a organização do Microsoft Azure Active Directory do usuário.|
@@ -96,5 +96,3 @@ Essa opção é um cenário comum para *aplicativos de linha de negócios*: Se d
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Usar um método personalizado para validar emissores
 
 É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, leia sobre a [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

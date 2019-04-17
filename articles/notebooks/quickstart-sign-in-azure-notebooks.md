@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280852"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608148"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início Rápido: Entrar e definir uma ID de usuário
 
@@ -33,6 +33,9 @@ Embora você sempre possa exibir os blocos de anotações do Azure Notebooks sem
 1. Quando solicitado, insira o endereço de email de uma Conta da Microsoft ou uma conta corporativa ou escolar e selecione **Próximo**. Os tipos de conta são descritos em [Sua conta de usuário para o Azure Notebooks](azure-notebooks-user-account.md). Se você não tiver uma Conta da Microsoft ou deseja fazer um para ser usada com blocos de anotações do Azure, selecione **Criar uma**:
 
     ![Criar novo comando de conta da Microsoft no prompt de entrada](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Se você tentar criar uma nova conta com um endereço de email que já tenha uma conta associada a ele, você poderá ver a mensagem "você não pode se inscrever aqui com um trabalho ou endereço de email da escola. Use um email pessoal, como Gmail ou Yahoo!, ou obtenha um novo email do Outlook". Nesse caso, tente entrar com o endereço de email de trabalho sem criar uma nova conta.
 
 1. Insira a senha quando solicitado.
 
@@ -61,7 +64,7 @@ Para sair, selecione seu nome de usuário no canto superior direito da página, 
 
 ![Local do comando de entrada no Azure Notebooks](media/accounts/sign-out-command.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar e compartilhar um notebook](quickstart-create-share-jupyter-notebook.md)

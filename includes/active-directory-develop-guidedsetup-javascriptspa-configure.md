@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203280"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551521"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
 1. Faça login no [Portal do Azure](https://portal.azure.com/) para registrar um aplicativo.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço do **Azure Active Directory** e, em seguida, selecione **Registros de aplicativo (Visualizar)> Novo registro**.
+1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Na seção **Redirect URI**, selecione a plataforma **Web** e defina o valor para o URL do aplicativo com base em seu servidor da web. Veja as seções abaixo para obter instruções de como definir e obter a URL de redirecionamento no Visual Studio e no Node.
@@ -39,7 +39,7 @@ ms.locfileid: "58203280"
 > Para o Node.js, você pode definir a porta do servidor Web no arquivo *server.js*. Este tutorial usa a porta 30662 para referência, mas você pode usar qualquer outra porta disponível. Siga as instruções abaixo para configurar uma URL de redirecionamento nas informações do registro de aplicativo:<br/>
 > - Volte para o *Registro do aplicativo* e defina `http://localhost:30662/` como `Redirect URL`, ou use `http://localhost:[port]/` se estiver usando uma porta TCP personalizada (onde *[porta]* é o personalizado Número da porta TCP).
 
-<p/>
+<p>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Instruções do Visual Studio para obter a URL de redirecionamento
 > Siga estas etapas para obter a URL de redirecionamento:
@@ -54,14 +54,15 @@ ms.locfileid: "58203280"
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-Substitua <code>Enter the application Id here</code> pelo ID do aplicativo que você acabou de registrar.
-</li>
-</ol>
+    Em que:
+    - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** que você registrou.
+    - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
+       - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`

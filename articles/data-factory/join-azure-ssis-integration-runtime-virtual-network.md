@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526666"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618134"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -139,7 +139,7 @@ Veja [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcen
     -   Um público endereço IP do Azure, com o nome  *\<Guid > - azurebatch - cloudservicepublicip*.
     -   Um grupo de segurança de trabalho de rede, com o nome  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
--   Certifique-se de que você não tem nenhum bloqueio de recurso no grupo de recursos ou assinatura à qual pertence a rede virtual. Se você configurar um bloqueio de somente leitura ou um bloqueio de exclusão, iniciar e parar o IR pode falhar ou suspender. 
+-   Certifique-se de que você não tem nenhum bloqueio de recurso no grupo de recursos ou assinatura à qual pertence a rede virtual. Se você configurar um bloqueio somente leitura ou um bloqueio de exclusão, iniciar e parar o IR podem falhar ou parar de responder. 
 
 -   Certifique-se de que você não tem uma política do Azure que impede que os recursos a seguir sejam criados sob o grupo de recursos ou a assinatura à qual pertence a rede virtual: 
     -   Microsoft.Network/LoadBalancers 

@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545612"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617828"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acessar a API dos Serviços de Mídia do Azure com a CLI do Azure
  
-Use a autenticação de entidade de serviço do Azure AD para se conectar à API dos Serviços de Mídia do Microsoft Azure. Seu aplicativo precisa solicitar um token do Azure AD que tenha os seguintes parâmetros:
+Para usar a autenticação de entidade de serviço do AD do Azure para conectar-se à API de serviços de mídia do Azure, seu aplicativo precisa solicitar um token do AD do Azure que tem os seguintes parâmetros:
 
 * Ponto de extremidade de locatário do Azure AD
 * URI de recursos dos Serviços de Mídia
 * URI de recurso dos Serviços de Mídia REST
 * Valores do aplicativo do Azure AD: a ID do cliente e o segredo do cliente
 
-Para obter mais informações, consulte [desenvolver com APIs dos serviços de mídia v3](media-services-apis-overview.md).
+Para obter explicações detalhadas, consulte [acessando os serviços de mídia v3 APIs](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Este artigo mostra como usar a CLI do Azure para criar um aplicativo e uma entidade de serviço do Azure AD e obter os valores necessários para acessar os recursos dos Serviços de Mídia do Azure.
 
@@ -55,6 +55,6 @@ Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome d
 - [Publicar um ativo – CLI](./scripts/cli-publish-asset.md)
 - [Filtro – CLI](filters-dynamic-manifest-cli-howto.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

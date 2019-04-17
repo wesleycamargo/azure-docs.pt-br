@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857990"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617371"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
@@ -66,7 +66,7 @@ Configurar **Logon único baseado em senha** para um aplicativo usando **captura
 
 9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique no botão **Salvar**.
+10. Clique no botão **Salvar** .
 
 11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso.
 
@@ -96,7 +96,7 @@ Para configurar **Logon único baseado em senha** para um aplicativo usando **ca
 
 9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique no botão **Salvar**.
+10. Clique no botão **Salvar** .
 
 11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso. Em caso de falha, você poderá **alterar o modo de entrada para usar a captura de campo de entrada manual** continuando até a etapa 12.
 
@@ -142,7 +142,7 @@ Verifique se você encontra algum desses problemas:
 
 -   Tente o processo de captura manual novamente, garantindo que os marcadores vermelhos estão sobre os campos corretos.
 
--   Se o processo de captura manual parece parar de responder, ou na página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt;insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
+-   Se o processo de captura manual parece parar de responder, ou a página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt;insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
 
 Se nenhuma dessas abordagens funcionar para você, o suporte pode ajudar. Abra um caso de suporte com os detalhes de que você tentou, bem como as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se aplicável).
 

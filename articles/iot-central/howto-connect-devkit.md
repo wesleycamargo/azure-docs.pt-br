@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905929"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617811"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -246,8 +246,8 @@ Configurações de alternância
 | Nome de exibição | Nome do campo | Tipo de retorno | Nome de exibição do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo       | text        | valor a ser exibido         | displayedValue   | text             |
-| Contagem regressiva    | contagem regressiva  | número      | Contagem de               | countFrom        | número           |
+| Contagem regressiva    | Contagem regressiva  | número      | Contagem de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como conectar um dispositivo DevKit ao seu aplicativo do Azure IoT Central, a próxima etapa sugerida é [preparar e conectar um Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Agora que você aprendeu como conectar um Raspberry Pi ao seu aplicativo do Azure IoT Central, a próxima etapa sugerida é saber como [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo de IoT.

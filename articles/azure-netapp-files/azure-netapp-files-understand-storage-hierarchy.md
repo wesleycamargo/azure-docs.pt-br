@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275487"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545515"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Compreender a hierarquia de armazenamento do Azure NetApp Files
 
@@ -56,5 +56,5 @@ O exemplo a seguir mostra as relações da assinatura do Azure, contas do NetApp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Limites de recursos no Azure NetApp Files](azure-netapp-files-resource-limits.md)
+- [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)
 - [Registro no Azure NetApp Files](azure-netapp-files-register.md)

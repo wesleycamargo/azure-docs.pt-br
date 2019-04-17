@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3839a1a457af1549a82b7607310a619911c78591
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761864"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617476"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -471,7 +471,7 @@ As falhas de tarefas se enquadram nestas categorias:
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Contabilidade de interrupções ou de falhas de tarefas
 As tarefas podem falhar ou ser interrompidas ocasionalmente. O próprio aplicativo da tarefa pode falhar, o nó no qual a tarefa está em execução pode ser reinicializado ou o nó pode ser removido do pool durante uma operação de redimensionamento, caso a política de desalocação do pool seja definida para remover o nó imediatamente sem esperar que as tarefas sejam concluídas. Em todos os casos, a tarefa pode ser automaticamente recolocada na fila pelo Lote para a execução em outro nó.
 
-Também é possível que um problema intermitente faça com que uma tarefa falhe ou demore muito para ser executada. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
+Também é possível que um problema intermitente fazer com que uma tarefa pare de responder ou levar muito tempo para executar. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
 
 ### <a name="connecting-to-compute-nodes"></a>Conectar-se a nós de computação
 Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote][net_rdpfile] ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).

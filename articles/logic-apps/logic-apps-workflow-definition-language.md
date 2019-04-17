@@ -1,29 +1,28 @@
 ---
-title: Referência de esquema para linguagem de definição de fluxo de trabalho - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Escreva definições de fluxo de trabalho personalizadas para os Aplicativos Lógicos do Azure usando a Linguagem de Definição de Fluxo de Trabalho
+title: Referência de esquema para a linguagem de definição de fluxo de trabalho - aplicativos lógicos do Azure
+description: Guia de referência para o esquema de linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620829"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616791"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para linguagem de definição de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
-Quando você cria um fluxo de trabalho de aplicativo lógico com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), a definição subjacente do fluxo de trabalho descreve a lógica real executada no aplicativo lógico. Essa descrição segue uma estrutura que definiu e validado pelo esquema de linguagem de definição de fluxo de trabalho, que usa [notação JSON (JavaScript Object)](https://www.json.org/).
+Quando você cria um aplicativo lógico no [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), seu aplicativo lógico tem uma definição de fluxo de trabalho subjacente que descreve a lógica real que é executado em seu aplicativo lógico. Essa definição de fluxo de trabalho usa [JSON](https://www.json.org/) e segue uma estrutura que é validada pelo esquema de linguagem de definição de fluxo de trabalho. Esta referência fornece uma visão geral sobre essa estrutura e como o esquema define os elementos em sua definição de fluxo de trabalho.
 
 ## <a name="workflow-definition-structure"></a>Estrutura da definição de fluxo de trabalho
 
-Uma definição de fluxo de trabalho tem pelo menos um gatilho que cria uma instância do aplicativo lógico, além de uma ou mais ações executadas pelo aplicativo lógico.
+Uma definição de fluxo de trabalho sempre inclui um gatilho para criar uma instância de seu aplicativo lógico, além de uma ou mais ações que são executados após o gatilho é acionado.
 
 Esta é a estrutura de alto nível de uma definição de fluxo de trabalho:
 
@@ -51,7 +50,7 @@ Esta é a estrutura de alto nível de uma definição de fluxo de trabalho:
 
 ## <a name="parameters"></a>parâmetros
 
-Na seção `parameters`, defina todos os parâmetros de fluxo de trabalho usados por seu aplicativo lógico na implantação para aceitar entradas. Declarações de parâmetro e valores de parâmetros são necessários na implantação. Antes de usar esses parâmetros em outras seções do fluxo de trabalho, não deixe de declarar todos os parâmetros nessas seções. 
+No `parameters` seção, defina todos os parâmetros de fluxo de trabalho que sua definição de fluxo de trabalho usa na implantação para aceitar entradas. Declarações de parâmetro e valores de parâmetros são necessários na implantação. Antes de usar esses parâmetros em outras seções do fluxo de trabalho, não deixe de declarar todos os parâmetros nessas seções. 
 
 Esta é a estrutura geral de uma definição de parâmetro:
 
@@ -72,10 +71,10 @@ Esta é a estrutura geral de uma definição de parâmetro:
 
 | Elemento | Obrigatório | Type | DESCRIÇÃO |
 |---------|----------|------|-------------|
-| Tipo | Sim | int, float, string, securestring, bool, array, objeto JSON, secureobject <p><p>**Observação**: Para todas as senhas, chaves e segredos, use os tipos `securestring` e `secureobject`, porque a operação `GET` não retorna esses tipos. Para obter mais informações sobre como proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo do parâmetro |
+| tipo | Sim | int, float, string, securestring, bool, array, objeto JSON, secureobject <p><p>**Observação**: Para todas as senhas, chaves e segredos, use os tipos `securestring` e `secureobject`, porque a operação `GET` não retorna esses tipos. Para obter mais informações sobre como proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo do parâmetro |
 | defaultValue | Sim | O mesmo que `type` | O valor de parâmetro padrão quando nenhum valor é especificado ao criar uma instância do fluxo de trabalho |
 | allowedValues | Não  | O mesmo que `type` | Uma matriz com valores que o parâmetro pode aceitar |
-| metadata | Não  | Objeto JSON | Qualquer outro detalhe do parâmetro, por exemplo, o nome ou uma descrição legível do aplicativo lógico ou dados de tempo de design usados pelo Visual Studio ou por outras ferramentas |
+| metadata | Não  | Objeto JSON | Quaisquer outros detalhes de parâmetros, por exemplo, o nome ou uma descrição legível para seu aplicativo lógico, fluxo ou os dados de tempo de design usados pelo Visual Studio ou outras ferramentas |
 ||||
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
@@ -107,7 +106,7 @@ Esta é a estrutura geral de uma definição de saída:
 | value | Sim | O mesmo que `type` | O valor retornado da saída |
 |||||
 
-Para obter a saída da execução de um fluxo de trabalho, examine os detalhes e o histórico de execuções do aplicativo lógico no portal do Azure ou use a [API REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Você também pode passar a saída para sistemas externos, por exemplo, o Power BI para que você possa criar painéis.
+Para obter a saída de um fluxo de trabalho executar, examine o histórico de execução e os detalhes no portal do Azure do seu aplicativo lógico ou usar o [API REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Você também pode passar a saída para sistemas externos, por exemplo, o Power BI para que você possa criar painéis.
 
 <a name="expressions"></a>
 
@@ -216,9 +215,9 @@ No caso de [expressões](#expressions) e [funções](#functions), os operadores 
 
 ## <a name="functions"></a>Funções
 
-Algumas expressões obtêm seus valores de ações de tempo de execução que podem ainda não existir quando o aplicativo lógico começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar as [*funções*](../logic-apps/workflow-definition-language-functions-reference.md) fornecidas pela linguagem de definição de fluxo de trabalho.
+Algumas expressões obtêm seus valores de ações de tempo de execução que não podem existir ainda quando sua definição de fluxo de trabalho começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar as [*funções*](../logic-apps/workflow-definition-language-functions-reference.md) fornecidas pela linguagem de definição de fluxo de trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [Workflow Definition Language actions and triggers](../logic-apps/logic-apps-workflow-actions-triggers.md) (Ações e gatilhos da Linguagem de Definição de Fluxo de Trabalho)
 * Saiba mais sobre como criar e gerenciar Aplicativos Lógicos de forma programática com a [API REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows)

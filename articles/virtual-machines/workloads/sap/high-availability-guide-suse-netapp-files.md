@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662363"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617760"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com arquivos do Azure NetApp para aplicativos SAP
 
@@ -166,14 +166,11 @@ Ao considerar os arquivos NetApp do Azure para o SAP Netweaver em arquitetura de
 
 - O pool de capacidade mínima é de 4 TiB. O tamanho do pool de capacidade deve ser em múltiplos de 4 TiB.
 - O volume mínimo é de 100 GiB
-- Os arquivos do Azure do NetApp e todas as máquinas virtuais, em que os volumes de arquivos do NetApp do Azure serão montados devem ser na mesma rede Virtual do Azure. [Emparelhamento de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) ainda não tem suporte pelos arquivos do Azure NetApp.
+- Os arquivos do Azure do NetApp e todas as máquinas virtuais, em que os volumes de arquivos do NetApp do Azure serão montados, deve ser na mesma rede Virtual do Azure ou no [emparelhadas redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) na mesma região. Acesso de arquivos NetApp do Azure pela rede virtual emparelhamento na mesma região é suportado agora. Ainda não há suporte para acesso do Azure do NetApp por meio do emparelhamento global.
 - A rede virtual selecionada deve ter uma sub-rede, delegada aos arquivos do Azure NetApp.
 - Atualmente o NetApp os arquivos do Azure dá suporte a apenas NFS V3 
 - Arquivos do Azure do NetApp oferece [Exportar diretiva](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): você pode controlar como os clientes permitidos, o tipo de acesso (ler e gravar, somente leitura, etc.). 
 - O recurso de arquivos NetApp do Azure ainda não está ciente da zona. Atualmente, o recurso de arquivos do Azure NetApp não será implantado em todas as zonas de disponibilidade em uma região do Azure. Esteja ciente das implicações de latência potenciais em algumas regiões do Azure. 
-
-   > [!NOTE]
-   > Lembre-se de que os arquivos NetApp Azure não dá suporte a rede Virtual emparelhamento ainda. Implante as VMs e os volumes de arquivos do Azure NetApp na mesma rede virtual.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Implantar VMs do Linux manualmente por meio do portal do Azure
 
@@ -574,6 +571,8 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 9. **[1]** Criar os recursos de cluster do SAP
 
+Se usando uma arquitetura de servidor 1 enqueue (ENSA1), defina os recursos da seguinte maneira:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   Enfileirar servidor 2, incluindo a replicação, a partir do SAP NW 7.52 introduziu o suporte do SAP. Começando com o ABAP plataforma 1809, enfileirar o servidor 2 é instalado por padrão. Consulte SAP Observação [2630416](https://launchpad.support.sap.com/#/notes/2630416) para enfileirar o suporte do servidor 2.
+Se usando uma arquitetura de servidor 2 enqueue ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina os recursos da seguinte maneira:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Se você estiver atualizando de uma versão mais antiga e alternar para o servidor de enfileiramento 2, consulte a nota sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
 
@@ -1051,7 +1079,7 @@ Os testes a seguir são uma cópia de casos de teste a [práticas guias de prát
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Crie um bloqueio de enfileiramento, por exemplo, editando um usuário na transação su01. Execute os seguintes comandos como < sapsid\>adm no nó onde a instância do ASCS está em execução. Os comandos interromperão a instância do ASCS e a iniciarão novamente. Espera-se que o bloqueio de enfileiramento seja perdido nesse teste.
+   Crie um bloqueio de enfileiramento, por exemplo, editando um usuário na transação su01. Execute os seguintes comandos como < sapsid\>adm no nó onde a instância do ASCS está em execução. Os comandos interromperão a instância do ASCS e a iniciarão novamente. Se usando uma arquitetura de servidor 1 enqueue, o bloqueio de enfileiramento deve ser perdida neste teste. Se usando uma arquitetura de servidor 2 enqueue, o enfileiramento será mantido. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Os testes a seguir são uma cópia de casos de teste a [práticas guias de prát
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   O bloqueio de enfileiramento da transação su01 deve ser perdido, e o back-end deve ter sido redefinido. Estado do recurso após o teste:
+   O bloqueio de enfileiramento de transação su01 deve ser perdido, se usando a arquitetura de replicação 1 do servidor de enfileiramento e o back-end deve ter sido redefinido. Estado do recurso após o teste:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

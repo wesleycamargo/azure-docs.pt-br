@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 2a7734f729c4b1db7e8c0b4571e8792373ee11ae
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: ce95e8d0249a886e031e3ae0fe9dd8e20804f391
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203161"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498351"
 ---
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
@@ -28,7 +28,7 @@ Nesta seção, você cria um novo projeto para demonstrar como integrar um aplic
 O aplicativo que você criar com este guia exibe um botão que é usado para chamar um gráfico, uma área para mostrar os resultados na tela e um botão de saída.
 
 > [!NOTE]
-> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) e vá para a [Etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
+> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) e vá para a [Etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 >
 
 Para criar seu aplicativo, faça o seguinte:
@@ -43,7 +43,7 @@ Para criar seu aplicativo, faça o seguinte:
 2. Na janela do Console do Gerenciador de Pacotes, cole o seguinte comando do Azure PowerShell:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
@@ -66,12 +66,28 @@ Nesta etapa, você cria uma classe para lidar com a interação com a MSAL, por 
     ```csharp
     public partial class App : Application
     {
-        //Below is the clientId of your app registration. 
-        //You have to replace the below with the Application Id for your app registration
-        private static string ClientId = "your_client_id_here";
+        static App()
+        {
+            _clientApp = PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .Build();
+        }
 
-        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // You have to replace:
+        // - the content of ClientID with the Application Id for your app registration
+        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        //   - For Work or School account in your org, use your tenant ID, or domain
+        //   - for any Work or School accounts, use `organizations`
+        //   - for any Work or School accounts, or Microsoft personal account, use `common`
+        //   - for Microsoft Personal account, use consumers
+        private static string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
 
+        private static string Tenant = "common";
+
+        private static IPublicClientApplication _clientApp ;
+
+        public static IPublicClientApplication PublicClientApp { get { return _clientApp; } }
     }
     ```
 

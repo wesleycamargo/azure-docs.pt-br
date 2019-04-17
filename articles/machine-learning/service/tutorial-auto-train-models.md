@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670890"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545222"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Usar o aprendizado de máquina automatizado para compilar o modelo de regressão
 
@@ -103,7 +103,7 @@ import os
 
 Crie um objeto de workspace a partir do workspace existente. Um [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo.
 
-`Workspace.from_config()` lê o arquivo **aml_config/config.json** e carrega os detalhes em um objeto chamado `ws`.  `ws` é usado em todo o restante do código neste tutorial.
+`Workspace.from_config()` lê o arquivo **config. JSON** e carrega os detalhes em um objeto chamado `ws`.  `ws` é usado em todo o restante do código neste tutorial.
 
 Depois de ter um objeto de workspace, especifique um nome para o experimento. Crie e registre um diretório local com o workspace. O histórico de todas as execuções é registrado no experimento especificado e no [portal do Azure](https://portal.azure.com).
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 

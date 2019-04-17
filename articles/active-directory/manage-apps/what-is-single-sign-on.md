@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261608"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618168"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 
@@ -44,10 +44,10 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | somente na nuvem | Use o OpenID Connect e o OAuth ao desenvolver um novo aplicativo. Esse protocolo simplifica a configuração de aplicativo, tem SDKs fáceis de usar e permite que seu aplicativo use o MS Graph.
 | [SAML](#saml-sso) | nuvem e local | Escolha SAML sempre que possível para aplicativos existentes que não usam o OpenID Connect nem o OAuth. O SAML funciona para aplicativos que são autenticados usando um dos protocolos SAML.|
-| [Logon baseado em senha](#password-based-sso) | nuvem e local | Escolha o método baseado em senha quando o aplicativo é autenticado com o nome de usuário e senha. O logon único baseado em senha permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. Esse método utiliza o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. |
+| [Baseado em senha](#password-based-sso) | nuvem e local | Escolha o método baseado em senha quando o aplicativo é autenticado com o nome de usuário e senha. O logon único baseado em senha permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. Esse método utiliza o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. |
 | [Vinculado](#linked-sso) | nuvem e local | Escolha logon único vinculado quando o aplicativo estiver configurado para o logon único em outro serviço de provedor de identidade. Essa opção não adiciona o logon único ao aplicativo. No entanto, o aplicativo pode já ter o logon único implementado usando outro serviço, como Serviços de Federação do Active Directory (AD FS).|
 | [Desabilitado](#disabled-sso) | nuvem e local | Escolha o logon único desabilitado quando o aplicativo não estiver pronto para ser configurado para logon único. Os usuários precisam inserir seu nome de usuário e senha toda vez que iniciarem este aplicativo.|
-| [Autenticação Integrada do Windows (AIW)](#integrated-windows-authentication-iwa-sso) | apenas local | Escolha esse logon único de IWA para aplicativos que usam a [IWA (Autenticação Integrada do Windows)](/aspnet/web-api/overview/security/integrated-windows-authentication) ou aplicativos com reconhecimento de declaração. Para IWA, os conectores de Proxy de Aplicativo usam a KCD (Delegação Restrita de Kerberos) para autenticar os usuários no aplicativo. | 
+| [IWA (Autenticação Integrada do Windows)](#integrated-windows-authentication-iwa-sso) | apenas local | Escolha esse logon único de IWA para aplicativos que usam a [IWA (Autenticação Integrada do Windows)](/aspnet/web-api/overview/security/integrated-windows-authentication) ou aplicativos com reconhecimento de declaração. Para IWA, os conectores de Proxy de Aplicativo usam a KCD (Delegação Restrita de Kerberos) para autenticar os usuários no aplicativo. | 
 | [Baseado em cabeçalho](#header-based-sso) | apenas local | Use o logon único baseado em cabeçalho quando o aplicativo usar cabeçalhos para autenticação. O logon único baseado em cabeçalho requer o PingAccess para o Azure AD. O Proxy de Aplicativo usa o Azure AD para autenticar o usuário e, em seguida, passa o tráfego pelo serviço de conector.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
@@ -70,9 +70,11 @@ O logon único baseado em SAML é compatível com aplicativos que usam qualquer 
 - SAML 2.0
 - O certificado do provedor de identidade do Web Services Federation
 
-Para configurar um aplicativo para o logon único baseado em SAML, confira [Configurar o logon único baseado em SAML](configure-single-sign-on-portal.md). Além disso, muitos aplicativos SaaS (Software como Serviço) têm um [tutorial específico de aplicativo](../saas-apps/tutorial-list.md) que explica a configuração para logon único baseado em SAML.
+Para configurar um aplicativo SaaS de baseado em SAML single sign-on, consulte [baseado em SAML de configurar o logon único no](configure-single-sign-on-portal.md). Além disso, muitos aplicativos SaaS (Software como Serviço) têm um [tutorial específico de aplicativo](../saas-apps/tutorial-list.md) que explica a configuração para logon único baseado em SAML.
 
 Para configurar um aplicativo de Web Services Federation, siga as mesmas orientações para configurar um aplicativo para baseado em SAML SSO, consulte [baseado em SAML de configurar o logon único no](configure-single-sign-on-portal.md). Na etapa para configurar o aplicativo para usar o Azure AD, você precisará substituir a URL de logon do Azure AD para o ponto de extremidade do WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+
+Para configurar um aplicativo no local de baseado em SAML single sign-on, consulte [SAML single-sign-on para aplicativos locais com o Proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Para saber mais sobre o protocolo SAML, confira [Protocolo SAML de logon único](../develop/single-sign-on-saml-protocol.md).
 
@@ -188,8 +190,8 @@ Para obter mais informações, consulte [Edições do Active Directory do Azure]
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Tutorial para configurar o logon único](configure-single-sign-on-portal.md)
-* [Introdução ao gerenciamento de acesso a aplicativos](what-is-access-management.md)
+* [Tutorial para a configuração do logon único](configure-single-sign-on-portal.md)
+* [Introdução ao gerenciamento do acesso a aplicativos](what-is-access-management.md)
 * Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan).
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs'
+title: 'Início Rápido: Instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs'
 description: Guia de início rápido para a instalação manual do SAP HANA de instância única em máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001712"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618117"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: Instalação manual do SAP HANA de instância única em VMs do Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início Rápido: Instalação manual do SAP HANA de instância única em VMs do Azure
 ## <a name="introduction"></a>Introdução
 Esta guia ajuda você a configurar o SAP HANA de instância única em máquinas virtuais (VMs) do Azure, ao instalar o SAP NetWeaver 7.5 e SAP HANA 1.0 SP12 manualmente. O objetivo desta guia é tratar da implantação do SAP HANA no Azure. Ele não substitui a documentação do SAP. 
 
@@ -269,7 +269,7 @@ Antes de começar a instalar o SAP, não se esqueça de incluir os nomes de host
 
 ### <a name="the-etcfstab-file"></a>O arquivo /etc/fstab
 
-É útil adicionar o parâmetro **nofail** para o arquivo fstab. Isso garante que a VM funcionará e não travará durante o processo de inicialização mesmo se algo der errado com os discos. Mas, lembre-se de que o espaço em disco adicional pode não estar disponível e processos podem preencher o sistema de arquivos raiz. Se /hana estiver ausente, o SAP HANA não será iniciado.
+É útil adicionar o parâmetro **nofail** para o arquivo fstab. Dessa forma, se algo der errado com os discos, a VM não para de responder no processo de inicialização. Mas, lembre-se de que o espaço em disco adicional pode não estar disponível e processos podem preencher o sistema de arquivos raiz. Se /hana estiver ausente, o SAP HANA não será iniciado.
 
 ![Adicione o parâmetro nofail ao arquivo fstab](./media/hana-get-started/image000c.jpg)
 

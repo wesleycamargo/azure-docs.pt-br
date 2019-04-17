@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100999"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617794"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: Início rápido
 
@@ -111,7 +111,15 @@ Se você planeja implantar autenticação de passagem em um ambiente de produç�
 >[!IMPORTANT]
 >Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 40 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Siga estas instruções para fazer o download do software do Agente de Autenticação:
+Instalar vários agentes de autenticação de passagem garante a alta disponibilidade, mas não determinística balanceamento de carga entre os agentes de autenticação. Para determinar quantos agentes de autenticação que você precisa para seu locatário, considere a carga média de solicitações de entrada que você espera ver no seu locatário e de pico. Como um parâmetro de comparação, um único Agente de autenticação pode manipular de 300 a 400 autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM.
+
+Para estimar o tráfego de rede, use as seguintes diretrizes de tamanho:
+- Cada solicitação tem um tamanho de payload (0,5 K + 1 K * num_of_agents) bytes. Ou seja, dados do Azure AD para o Agente de autenticação. Aqui, "num_of_agents" indica o número de Agentes de autenticação registrado no seu locatário.
+- Cada resposta tem um tamanho de payload de 1 K de bytes. Ou seja, dados do Agente de autenticação do Azure AD.
+
+Para a maioria dos clientes, três agentes de autenticação no total são suficientes para alta disponibilidade e capacidade. Você deve instalar os Agentes de Autenticação perto de seus controladores de domínio para melhorar a latência de entrada.
+
+Para começar, siga estas instruções para baixar o software do agente de autenticação:
 
 1. Para fazer o download da versão mais recente do Agente de Autenticação (versões 1.5.193.0 ou posteriores), entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de administrador global do seu locatário.
 2. Selecione **Azure Active Directory** no painel esquerdo.
@@ -142,7 +150,14 @@ Segundo, você pode criar e executar um script de implantação autônomo. Isso 
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
-## <a name="next-steps"></a>Próximas etapas
+>[!IMPORTANT]
+>Se um agente de autenticação estiver instalado em uma máquina Virtual, você não pode clonar a máquina Virtual para configurar outro agente de autenticação. Esse método é **sem suporte**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>Etapa 5: Configurar a funcionalidade do bloqueio inteligente
+
+Bloqueio inteligente ajuda a bloquear atores ruins que estão tentando adivinhar as senhas dos usuários ou usando métodos de força bruta para entrar. Ao configurar as configurações de bloqueio inteligente no Azure AD e / ou as configurações de bloqueio apropriado no Active Directory no local, ataques podem ser filtradas antes que elas atinjam o Active Directory. Leia [deste artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como definir as configurações de bloqueio inteligente em seu locatário para proteger suas contas de usuário.
+
+## <a name="next-steps"></a>Próximos passos
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoptadp) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar o recurso Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte na Autenticação de passagem e quais não têm.

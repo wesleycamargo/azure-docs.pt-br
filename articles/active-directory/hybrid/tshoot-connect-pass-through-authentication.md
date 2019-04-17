@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184883"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616197"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -71,6 +71,9 @@ Navegue até **Azure Active Directory** -> **Entradas** no [Centro de administra
 | 80007 | O Agente de Autenticação não pode se conectar ao Active Directory. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
 | 80010 | O Agente de Autenticação não pode descriptografar a senha. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual. 
 | 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
+
+>[!IMPORTANT]
+>Agentes de autenticação de passagem autenticar usuários do Azure AD por meio da validação de seus nomes de usuário e senhas no Active Directory por meio da chamada a [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se você tiver definido a configuração de "Logon para" no Active Directory para limitar o acesso de logon da estação de trabalho, você precisará adicionar servidores que hospedam os agentes de autenticação de passagem para a lista de "Logon para" servidores bem. Falha ao fazer isso bloqueará os usuários inscrevam-se ao Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do Agente de Autenticação
 

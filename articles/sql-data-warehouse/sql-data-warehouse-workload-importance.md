@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: e53a6fcefb0f5370f6e24cc50fad2ad4ad4c64e3
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57876207"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616621"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>Importância de carga de trabalho do SQL Data Warehouse (visualização)
 
 Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução para solicitações de SQL Data Warehouse.
 
 > [!Note]
-> Importância da carga de trabalho está disponível no SQL Data Warehouse Gen2.
+> Classificação de carga de trabalho está disponível para visualização no SQL Data Warehouse Gen2. Visualização de classificação de gerenciamento de carga de trabalho e a importância é para compilações com uma data de lançamento do dia 9 de abril de 2019 ou posterior.  Os usuários devem evitar usando builds anteriores a essa data para gerenciamento de carga de trabalho de teste.  Para determinar se a compilação for com capacidade de gerenciamento de carga de trabalho, execute select @@version quando conectado à instância do SQL Data Warehouse.
 
 ## <a name="importance"></a>Importância
 
@@ -64,4 +64,4 @@ Como P5 é mediumrc, ele requer dois slots de simultaneidade.  P5 precisa espera
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a classificação de carga de trabalho do SQL Data Warehouse, consulte [classificação de carga de trabalho do SQL Data Warehouse](sql-data-warehouse-workload-classification.md) e [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md). Ver [DM pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.
+Para obter mais informações sobre a classificação de carga de trabalho do SQL Data Warehouse, consulte [classificação de carga de trabalho do SQL Data Warehouse](sql-data-warehouse-workload-classification.md) e [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md). Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.

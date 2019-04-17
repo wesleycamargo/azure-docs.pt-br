@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45ac09b84aca44f6739a0e29994986200424fc5c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669326"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618151"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -33,6 +33,7 @@ Este recurso está disponível para os seguintes serviços e regiões do Azure:
 - **[SQL Data Warehouse do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em todas as regiões do Azure.
 - **[Servidor do Banco de Dados do Azure para PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível ao público em geral em regiões do Azure em que o serviço de banco de dados está disponível.
 - **[Servidor do Banco de Dados do Azure para MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível ao público em geral em regiões do Azure em que o serviço de banco de dados está disponível.
+- **[Banco de Dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Disponível ao público em geral em regiões do Azure em que o serviço de banco de dados está disponível.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em todas as regiões do Azure.
 - **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Disponível em todas as regiões do Azure.
 - **[Barramento de Serviço do Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em todas as regiões do Azure.
@@ -41,7 +42,6 @@ Este recurso está disponível para os seguintes serviços e regiões do Azure:
 
 **Versão prévia pública**
 
-- **[Banco de Dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Versão prévia disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MariaDB está disponível.
 - **[Registro de contêiner do Azure](../container-registry/container-registry-vnet.md)**: Visualização disponível em todas as regiões do Azure em que o registro de contêiner do Azure está disponível.
 
 Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).

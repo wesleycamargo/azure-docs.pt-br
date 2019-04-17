@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361508"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618185"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados durante a utilização do Servidor de Backup do Azure com as informações listadas na tabela a seguir:
@@ -161,7 +161,7 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 
 | Detalhes do erro | Solução alternativa |
 | ------ | --- |
-| Código de erro: 320001<br/> Mensagem de erro: Não foi possível executar a operação, pois a VM não existe mais. <br/> <br/> Código de erro: 400094 <br/> Mensagem de erro: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**ou o**</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Código de erro: 320001<br/> Mensagem de erro: Não foi possível executar a operação, pois a VM não existe mais. <br/> <br/> Código de erro: 400094 <br/> Mensagem de erro: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**or**</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | A VM está em Estado de Provisionamento com Falha: <br>Reinicie a VM e certifique-se de que a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá até a lista de extensões e veja se há uma extensão com falha, remova essa extensão e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. |
 |Código de erro: UserErrorBCMPremiumStorageQuotaError<br/> Mensagem de erro: Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre insuficiente na conta de armazenamento | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. <br><br>É recomendável que você aloque apenas 50 por cento, 17,5 TB, do espaço de conta de armazenamento total. Então, o serviço de Backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
 | Falha ao instalar a extensão de serviços de recuperação da Microsoft como a máquina virtual não está em execução <br>O agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. |<ol> <li>Verifique se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente da VM. |
@@ -170,7 +170,7 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 | O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. |Leia mais sobre [Instalação do Agente da VM e como validar a Instalação do Agente da VM](#vm-agent). |
 | Falha do backup ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos. | Siga estas etapas: <ul><li>Verifique o estado do sistema de arquivos de todos os dispositivos montados usando o comando **'tune2fs'**. Um exemplo é **tune2fs -l/dev/sdb1 \\** .\| grep **estado do sistema de arquivos**. <li>Desmonte os dispositivos para os quais o estado do sistema de arquivos não é limpo usando o comando **'unmount'**. <li> Executar uma verificação de consistência do sistema de arquivos nesses dispositivos usando o comando **'fsck'**. <li> Montar os dispositivos novamente e tente fazer o backup.</ol> |
 | A operação de instantâneo falhou devido a falha ao criar um canal de comunicação de rede segura. | <ol><li> Abra o Editor do Registro executando **regedit.exe** no modo elevado. <li> Identificar todas as versões do .NET Framework presente no seu sistema. Eles estão presentes na hierarquia de chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| A operação de instantâneo falhou devido a falha ao instalar os Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012. | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Certifique-se de que o valor da chave do registro permite que a instalação desse serviço seja definido como o valor correto. Ou seja, o valor da chave do registro **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** é definido como **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.  |
+| A operação de instantâneo falhou devido a falha ao instalar os Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012. | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64.<br/>Certifique-se de que o valor da chave do registro que permite que a instalação do serviço é definido como o valor correto. Ou seja, defina a **inicie** valor em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.  |
 
 
 ## <a name="jobs"></a>Trabalhos
@@ -178,7 +178,7 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
 | Não há suporte para cancelamento para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
-| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**ou o**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase terminando. Aguarde até o trabalho ser concluído.|
+| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**or**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase terminando. Aguarde até o trabalho ser concluído.|
 | Backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte somente para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | Falha de backup para cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 

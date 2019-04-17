@@ -1,27 +1,29 @@
 ---
-title: Referência de funções para Linguagem de Definição de Fluxo de Trabalho - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Saiba sobre funções de Linguagem de Definição de Fluxo de Trabalho para Aplicativos Lógicos do Azure
+title: Referência para as funções na linguagem de definição de fluxo de trabalho - aplicativos lógicos do Azure e Microsoft Flow
+description: Guia de referência para funções em expressões criadas com a linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure e Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189896"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618202"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure e Microsoft Flow
 
-Algumas [expressões](../logic-apps/logic-apps-workflow-definition-language.md#expressions) nos [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) obtêm os valores de ações de tempo de execução que talvez ainda não existam quando a definição de fluxo de trabalho do aplicativo lógico iniciar a execução.
-Para referenciar ou trabalhar com esses valores em expressões, é possível usar *funções* fornecidas pela [Linguagem de Definição de Fluxo de Trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
-Por exemplo, é possível usar funções matemáticas para fazer cálculos, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que retorna a soma de números inteiros ou floats. Aqui estão mais algumas tarefas de exemplo que podem ser executadas com funções:
+Para obter definições de fluxo de trabalho no [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), algumas [expressões](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtêm seus valores de ações de tempo de execução que ainda não existir quando o fluxo de trabalho Inicia a execução. Para fazer referência a esses valores ou processar os valores nessas expressões, você pode usar *funções* fornecidas pelo [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+> [!NOTE]
+> Esta página de referência se aplica a aplicativos lógicos do Azure e Microsoft Flow, mas aparece na documentação do aplicativo lógico do Azure. Embora essa página refere-se especificamente aos aplicativos lógicos, essas funções funcionam para aplicativos lógicos e fluxos. Para obter mais informações sobre funções e expressões no Microsoft Flow, consulte [usar expressões em condições](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+
+Por exemplo, você pode calcular valores usando funções matemáticas, como o [função Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add)quando você quiser que a soma de números inteiros ou floats. Aqui estão algumas outras tarefas de exemplo que você pode executar com o functions:
 
 | Tarefa | Sintaxe da função | Result |
 | ---- | --------------- | ------ |
@@ -29,8 +31,7 @@ Por exemplo, é possível usar funções matemáticas para fazer cálculos, como
 | Retornar um GUID (identificador global exclusivo). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-Este artigo descreve as funções que podem ser usadas ao criar as definições de aplicativo lógico.
-Para localizar funções [com base no uso geral](#ordered-by-purpose), continue com as tabelas a seguir. Ou, para obter informações detalhadas sobre cada função, consulte a [lista alfabética](#alphabetical-list).
+Para localizar funções [com base em sua finalidade geral](#ordered-by-purpose), examine as tabelas a seguir. Ou, para obter informações detalhadas sobre cada função, consulte a [lista alfabética](#alphabetical-list).
 
 > [!NOTE]
 > Na sintaxe das definições de parâmetro, um ponto de interrogação (?) exibido após um parâmetro significa que ele é opcional.
@@ -142,7 +143,7 @@ Para a referência completa sobre cada função, consulte a [lista alfabética](
 
 Para alterar o tipo ou o formato de um valor, você pode usar estas funções de conversão.
 Por exemplo, é possível alterar um valor de booliano para inteiro.
-Para saber como os Aplicativos Lógicos tratam tipos de conteúdo durante a conversão, consulte [Handle content types](../logic-apps/logic-apps-content-type.md) (Tratar tipos de conteúdo).
+Para obter mais informações sobre como os aplicativos lógicos tratam os tipos de conteúdo durante a conversão, consulte [lidar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 Para a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Função de conversão | Tarefa |
@@ -229,7 +230,7 @@ Para a referência completa sobre cada função, consulte a [lista alfabética](
 Essas funções de fluxo de trabalho podem ajudar você a:
 
 * Obter detalhes sobre uma instância de fluxo de trabalho em tempo de execução.
-* Trabalhar com as entradas usadas para criar uma instância de Aplicativos Lógicos.
+* Trabalhar com as entradas usadas para criar uma instância de aplicativos lógicos ou fluxos.
 * Referenciar as saídas de gatilhos e ações.
 
 Por exemplo, você pode referenciar as saídas de uma ação e usar esses dados em uma ação posterior.
@@ -248,7 +249,7 @@ Para a referência completa sobre cada função, consulte a [lista alfabética](
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando está dentro de um for-each ou do-until-loop, retornar o item atual do loop especificado.|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Retornar a "URL de retorno de chamada" que chama um gatilho ou uma ação. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retornar o corpo de uma parte específica na saída de uma ação que tem várias partes. |
-| [parâmetros](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retornar o valor de um parâmetro descrito na definição de seu aplicativo lógico. |
+| [parâmetros](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retorne o valor para um parâmetro que é descrito em sua definição de fluxo de trabalho. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Retornar a saída de um gatilho em tempo de execução ou de outros pares de nome e valor JSON. Confira também [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Retornar a saída `body` de um gatilho em tempo de execução. Confira [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Retornar um único valor correspondente a um nome de chave nas saídas dos gatilhos *form-data* ou *form-encoded*. |
@@ -1812,7 +1813,7 @@ E retornam estes resultados:
 ### <a name="float"></a>flutuante
 
 Converter uma versão de cadeia de caracteres para um número de ponto flutuante em um número de ponto flutuante real.
-É possível usar essa função apenas ao passar parâmetros personalizadas para um aplicativo, como um aplicativo lógico.
+Você pode usar essa função somente quando passar parâmetros personalizados para um aplicativo, por exemplo, um aplicativo lógico ou fluxo.
 
 ```
 float('<value>')
@@ -2766,7 +2767,7 @@ multipartBody('<actionName>', <index>)
 Verificar se uma expressão é falsa.
 Retornará true quando a expressão for falsa ou retornará false quando for verdadeira.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2784,7 +2785,7 @@ not(<expression>)
 
 Esses exemplos verificam se as expressões especificadas são false:
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2798,7 +2799,7 @@ E retornam estes resultados:
 
 Esses exemplos verificam se as expressões especificadas são false:
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2833,7 +2834,7 @@ or(<expression1>, <expression2>, ...)
 
 Esses exemplos verificam se pelo menos uma expressão é true:
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2847,7 +2848,7 @@ E retornam estes resultados:
 
 Esses exemplos verificam se pelo menos uma expressão é true:
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2861,7 +2862,7 @@ E retornam estes resultados:
 
 ### <a name="parameters"></a>parâmetros
 
-Retornar o valor de um parâmetro descrito na definição de seu aplicativo lógico.
+Retorne o valor para um parâmetro que é descrito em sua definição de fluxo de trabalho.
 
 ```
 parameters('<parameterName>')
