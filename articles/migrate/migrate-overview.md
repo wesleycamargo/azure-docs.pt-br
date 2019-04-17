@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894962"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275432"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -32,7 +32,7 @@ As Migrações para Azure ajudam você a:
 - Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs do VMware precisam ser gerenciadas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
 - O suporte para Hyper-V atualmente está em versão prévia com suporte de produção, se você estiver interessado em testá-lo, inscreva-se [aqui.](https://aka.ms/migratefuture)
 - Para avaliação de servidores físicos, você pode aproveitar nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/).
-- Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
+- Você pode encontrar até 1500 VMs em uma única descoberta e em um único projeto. Temos uma versão de visualização disponível que permite a descoberta de até 10.000 VMs do VMware em um único projeto usando um único dispositivo. Se você estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 -  Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, isso não restringe sua capacidade de criar avaliações para outros locais do Azure de destino.

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257001"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608003"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de usuário para o Microsoft Azure Notebooks
 
@@ -41,6 +41,9 @@ As contas da Microsoft são usadas para entrar em qualquer número de produtos d
 Se você não tiver certeza, selecione o comando **Criar** no prompt de comando. Você pode criar uma nova conta da Microsoft usando qualquer endereço de email de qualquer provedor.
 
 ![Comando para criar uma nova conta Microsoft](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Se você tentar criar uma nova conta com um endereço de email que já tenha uma conta associada a ele, você poderá ver a mensagem "você não pode se inscrever aqui com um trabalho ou endereço de email da escola. Use um email pessoal, como Gmail ou Yahoo!, ou obtenha um novo email do Outlook". Nesse caso, tente entrar com o endereço de email de trabalho sem criar uma nova conta.
 
 Para contas de criança, o acesso ao Azure Notebooks é bloqueado por padrão. Entrar com uma conta de criança exibe o erro mostrado abaixo:
 
@@ -68,7 +71,7 @@ O administrador de uma conta organizacional deve fornecer o consentimento em nom
 
 Para fornecer consentimento como um administrador, use a [página de consentimento do administrador](https://notebooks.azure.com/account/adminConsent), que orienta você pelo processo.
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
 > [Editar seu perfil e ID de usuário](azure-notebooks-user-profile.md)

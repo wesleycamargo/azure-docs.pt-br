@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 20d6ccca448d53da54835aad1d6dd85702c7390f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446929"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357126"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Use o Visual Studio Code para conectar e consultar um Banco de Dados SQL do Azure
 
@@ -46,11 +46,11 @@ O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de códi
 
 Certifique-se de instalar o [Visual Studio Code](https://code.visualstudio.com/Download) mais recente e carregar a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter diretrizes sobre como instalar a extensão mssql, confira [Instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e [mssql para Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Configurar o código do Visual Studio 
+## <a name="configure-visual-studio-code"></a>Configurar o código do Visual Studio
 
-### <a name="mac-os"></a>**Mac OS**
+### **<a name="mac-os"></a>Mac OS**
 
-Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito do .NET Core que a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**. 
+Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito do .NET Core que a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
 
 Nenhuma configuração especial é necessária.
 
-### <a name="windows"></a>**Windows**
+### **<a name="windows"></a> Windows**
 
 Nenhuma configuração especial é necessária.
 
@@ -83,13 +83,13 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 No Visual Studio Code, defina o modo de linguagem como **SQL** para permitir comandos mssql e T-SQL IntelliSense.
 
-1. Abra uma nova janela do Visual Studio Code. 
+1. Abra uma nova janela do Visual Studio Code.
 
-2. Pressione **Ctrl**+**N**. Um novo arquivo de texto sem formatação é aberto. 
+2. Pressione **Ctrl**+**N**. Um novo arquivo de texto sem formatação é aberto.
 
 3. Selecione **Texto sem Formatação** no canto inferior direito da barra de status.
 
-4. No menu suspenso **Selecionar modo de linguagem** que for aberto, selecione **SQL**. 
+4. No menu suspenso **Selecionar modo de linguagem** que for aberto, selecione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
 
@@ -97,7 +97,6 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 > [!IMPORTANT]
 > Antes de continuar, verifique se o servidor e as informações de entrada estão prontos. Depois de começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil.
->
 
 1. No Visual Studio Code, pressione **CTRL+Shift+P** (ou **F1**) para abrir a Paleta de Comandos.
 
@@ -105,17 +104,17 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 3. Selecione **Criar perfil de conexão**.
 
-4. Siga os prompts para especificar as propriedades de conexão do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar. 
+4. Siga os prompts para especificar as propriedades de conexão do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar.
 
    | Propriedade       | Valor sugerido | DESCRIÇÃO |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
    | **Nome do banco de dados** | mySampleDatabase | O banco de dados ao qual se conectar. |
-   | **Autenticação** | Logon do SQL| Este tutorial usa a Autenticação do SQL. |
+   | **Authentication** | Logon do SQL| Este tutorial usa a Autenticação do SQL. |
    | **Nome de usuário** | Nome de usuário | O nome de usuário da conta do administrador de servidor usado para criar o servidor. |
    | **Senha (Logon do SQL)** | Senha | A senha de usuário da conta do administrador de servidor usada para criar o servidor. |
    | **Salvar a Senha?** | Sim ou não | Selecione **Sim** se não desejar inserir a senha toda vez. |
-   | **Insira um nome para este perfil** | Um nome do perfil, como **mySampleProfile** | Um perfil salvo acelera sua conexão nos logons subsequentes. | 
+   | **Insira um nome para este perfil** | Um nome do perfil, como **mySampleProfile** | Um perfil salvo acelera sua conexão nos logons subsequentes. |
 
    Se for bem-sucedido, uma notificação será exibida informando que seu perfil foi criado e está conectado.
 
@@ -144,22 +143,22 @@ Execute a instrução Transact-SQL [INSERT](https://msdn.microsoft.com/library/m
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-           , [StandardCost]
-           , [ListPrice]
-           , [SellStartDate]
-           )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-           ,100
-           ,100
-           ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Pressione **Ctrl**+**Shift**+**E** para inserir uma nova linha na tabela `Product`.

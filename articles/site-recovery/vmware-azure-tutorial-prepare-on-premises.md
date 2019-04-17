@@ -6,35 +6,37 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 883e4cbc33ebbef0328bb1de47025e99e670f7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311026"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359378"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
-O [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
+Este artigo descreve como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md). 
 
-- Este é o segundo tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No primeiro tutorial, [configuramos os componentes do Azure](tutorial-prepare-azure.md) necessários para a recuperação de desastres do VMware.
+Este é o segundo tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No primeiro tutorial, [configuramos os componentes do Azure](tutorial-prepare-azure.md) necessários para a recuperação de desastres do VMware.
 
 
-> [!NOTE]
-> Os tutoriais destinam-se a mostrar o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, consulte a seção **Como fazer** para o cenário correspondente.
-
-Neste artigo, mostramos como preparar seu ambiente de VMware local quando você deseja replicar máquinas virtuais do VMware no Azure usando o Azure Site Recovery. Você aprenderá como:
+Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Preparar uma conta no vCenter Server ou no host ESXi do vSphere para automatizar a descoberta de VM
-> * Preparar uma conta para a instalação automática do serviço de Mobilidade nas VMs VMware
-> * Examinar os requisitos de VM e do servidor VMware
-> * Preparar para conectar VMs do Azure após o failover
+> * Prepare uma conta no servidor vCenter ou no host vSphere ESXi para automatizar a descoberta de VMs.
+> * Preparar uma conta para a instalação automática do serviço de Mobilidade nas VMs VMware.
+> * Examinar os requisitos e o suporte para VM e servidor do VMware.
+> * Preparar para conectar VMs do Azure após o failover.
 
+> [!NOTE]
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção Instruções do Sumário do Site Recovery.
 
+## <a name="before-you-start"></a>Antes de começar
+
+Verifique se você preparou o Azure conforme descrito no [primeiro tutorial desta série](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a descoberta automática
 
@@ -53,7 +55,7 @@ Crie a conta da seguinte maneira:
 
 **Tarefa** | **Função/Permissões** | **Detalhes**
 --- | --- | ---
-**Descoberta VM** | Pelo menos um usuário somente leitura<br/><br/> Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
+**Descoberta de VM** | Pelo menos um usuário somente leitura<br/><br/> Objeto de data center –> Propagar para o objeto filho, função = somente leitura | Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
 **Replicação, failover, failback totais** |  Crie uma função (Azure_Site_Recovery) com as permissões necessárias e, em seguida, atribua a função a um usuário ou grupo do VMware<br/><br/> Objeto de Data Center –> Propagar para o Objeto Filho, função = Azure_Site_Recovery<br/><br/> Armazenamento de dados -> alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual<br/><br/> Rede -> Atribuição de rede<br/><br/> Recurso -> Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder à pergunta, conexão de dispositivo, configurar mídia de CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registrar, cancelar registro<br/><br/> Máquina virtual -> Provisionamento -> Permitir download de máquina virtual, permitir upload de arquivos de máquina virtual<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
 
 ## <a name="prepare-an-account-for-mobility-service-installation"></a>Preparar uma conta para a instalação do serviço de Mobilidade
@@ -94,7 +96,7 @@ Para se conectar a VMs do Windows usando o RDP após o failover, faça o seguint
     - Antes do failover, habilite o RDP no computador local.
     - O RDP deve ser permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para redes de **Domínio e Privadas**.
     - Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).
-- Não deve haver nenhuma atualização pendente do Windows na VM quando você dispara um failover. Se houver, não será possível fazer logon na máquina virtual até que a atualização seja concluída.
+- Não deve haver nenhuma atualização pendente do Windows na VM quando você dispara um failover. Se houver, não será possível entrar na máquina virtual até que a atualização seja concluída.
 - Na VM do Microsoft Azure após o failover, verifique o **Diagnóstico de inicialização** para exibir uma captura de tela da VM. Se você não puder se conectar, verifique se a VM está em execução e examine estas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Para conectar-se a VMs do Linux usando SSH após o failover, faça o seguinte:
@@ -107,13 +109,13 @@ Para conectar-se a VMs do Linux usando SSH após o failover, faça o seguinte:
 
 
 ## <a name="failback-requirements"></a>Requisitos de failback
-Se planeja realizar failback no seu local, também é necessário garantir que determinados [pré-requisitos sejam atendidos](vmware-azure-reprotect.md##before-you-begin). No entanto, eles **não são necessários para iniciar a habilitação da recuperação de desastre** das VMs e também podem ser feitos após o failover do Azure.
+Se você planeja realizar o failback para seu site local, há alguns [pré-requisitos para failback](vmware-azure-reprotect.md##before-you-begin). Você pode prepará-los agora, mas você não precisa fazer isso. Você pode preparar após o failover para o Azure.
 
-## <a name="useful-links"></a>Links úteis
 
-Se estiver replicando várias VMs, você deverá planejar a capacidade e a implantação antes de iniciar. [Saiba mais](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Configurar a recuperação de desastre. Se você estiver replicando várias VMs, planeje a capacidade.
 > [!div class="nextstepaction"]
-> [Configurar a recuperação de desastre de VMs VMware para o Azure](vmware-azure-tutorial.md)
+> [Configurar a recuperação de desastres para o Azure para VMs VMware](vmware-azure-tutorial.md)
+> [Realizar planejamento de capacidade](site-recovery-deployment-planner.md).

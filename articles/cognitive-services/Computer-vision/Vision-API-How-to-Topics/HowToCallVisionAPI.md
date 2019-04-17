@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350905"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563363"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API da Pesquisa Visual Computacional
 
@@ -167,13 +167,13 @@ Aqui está um exemplo:
 
 Campo | Type | Conteúdo
 ------|------|------|
-Marcas  | objeto | Objeto de nível superior para matriz de tags
-tags[].Name | string    | Palavra-chave do classificador de tags
-tags[].Score    | número    | Pontuação de confiança, entre 0 e 1.
-Descrição  | objeto   | Objeto de nível superior de uma descrição.
-description.tags[] |    string  | Lista de tags.  Se houver confiança insuficiente na capacidade de produzir uma legenda, talvez as tags sejam as únicas informações disponíveis para o chamador.
-description.captions[].text | string    | Uma frase que descreve a imagem.
-description.captions[].confidence   | número    | Confiança da frase.
+Marcas  | `object` | Objeto de nível superior para matriz de tags
+tags[].Name | `string`  | Palavra-chave do classificador de tags
+tags[].Score    | `number`  | Pontuação de confiança, entre 0 e 1.
+Descrição  | `object` | Objeto de nível superior de uma descrição.
+description.tags[] |    `string`    | Lista de tags.  Se houver confiança insuficiente na capacidade de produzir uma legenda, talvez as tags sejam as únicas informações disponíveis para o chamador.
+description.captions[].text | `string`  | Uma frase que descreve a imagem.
+description.captions[].confidence   | `number`  | Confiança da frase.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperar e compreender a saída JSON de modelos específicos de domínio
 
@@ -229,10 +229,10 @@ O campo de categorias é uma lista de uma ou mais das [86 categorias](../Categor
 
 Campo   | Type  | Conteúdo
 ------|------|------|
-Categorias | objeto | Objeto de nível superior
-categories[].name    | string   | Nome da taxonomia de 86 categorias
-categories[].score  | número    | Pontuação de confiança, entre 0 e 1
-categories[].detail  | object?      | Objeto de detalhes opcional
+Categorias | `object`   | Objeto de nível superior
+categories[].name    | `string` | Nome da taxonomia de 86 categorias
+categories[].score  | `number`  | Pontuação de confiança, entre 0 e 1
+categories[].detail  | `object?`      | Objeto de detalhes opcional
 
 Observe que, se várias categorias forem correspondentes (por exemplo, o classificador de 86 categorias retorna uma pontuação para people_ e people_young se model=celebrities), os detalhes serão anexados à correspondência de nível mais geral (people_, nesse exemplo).
 

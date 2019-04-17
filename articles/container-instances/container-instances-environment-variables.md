@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904892"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606881"
 ---
-# <a name="set-environment-variables"></a>Configurar variáveis de ambiente
+# <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
 
-A definição de variáveis de ambiente nas suas instâncias de contêiner permitem fornecer a configuração dinâmica do aplicativo ou script executado pelo contêiner. Para definir variáveis de ambiente em um contêiner, especifique-as ao criar uma instância de contêiner. É possível definir variáveis de ambiente ao iniciar um contêiner com a [CLI do Azure](#azure-cli-example), o [Azure PowerShell](#azure-powershell-example) e o [portal do Azure](#azure-portal-example).
+A definição de variáveis de ambiente nas suas instâncias de contêiner permitem fornecer a configuração dinâmica do aplicativo ou script executado pelo contêiner. Isso é semelhante ao argumento de linha de comando `--env` para `docker run`. 
+
+Para definir variáveis de ambiente em um contêiner, especifique-as ao criar uma instância de contêiner. Este artigo mostra exemplos de como definir variáveis de ambiente quando você inicia um contêiner com o [CLI do Azure](#azure-cli-example), [do Azure PowerShell](#azure-powershell-example)e o [portal do Azure](#azure-portal-example). 
 
 Por exemplo, se você executar o Microsoft [aci-wordcount] [ aci-wordcount] imagem de contêiner, você pode modificar seu comportamento especificando as seguintes variáveis de ambiente:
 
@@ -143,7 +145,7 @@ Azure:\
 
 Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure, especifique-as na página **Configuração** ao criar o contêiner.
 
-Quando você implanta com o portal, você está limitado a três variáveis no momento e você deverá inseri-los neste formato: `"variableName":"value"`
+Ao implantar usando o portal, atualmente está limitado a três variáveis e é necessário inseri-las neste formato: `"variableName":"value"`
 
 Para ver um exemplo, inicie o [aci-wordcount] [ aci-wordcount] contêiner com o *NumWords* e *MinLength* variáveis.
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Cenários baseados em tarefas, como o processamento em lote de um grande conjunto de dados com vários contêineres, podem se beneficiar de variáveis de ambiente personalizadas no tempo de execução. Para obter mais informações sobre a execução de contêineres com base em tarefas, consulte [Executar tarefas em contêineres nas Instâncias de Contêiner do Azure](container-instances-restart-policy.md).
+Cenários baseados em tarefas, como o processamento em lote de um grande conjunto de dados com vários contêineres, podem se beneficiar de variáveis de ambiente personalizadas no tempo de execução. Para obter mais informações sobre como executar contêineres baseados em tarefas, consulte [executar tarefas em contêineres com diretivas de reinicialização](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

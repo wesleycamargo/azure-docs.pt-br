@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793162"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360124"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -67,7 +67,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 > > [Fazer essa alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-uwp/green-check.png) Seu aplicativo já está configurado com esses atributos.
+> > ![Já configurado](media/quickstart-v2-uwp/green-check.png) Seu aplicativo está configurado com esses atributos.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar seu projeto do Visual Studio
 
@@ -86,11 +86,11 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
-> - `Enter_the_Tenant_Info_Here`: é uma das opções abaixo:
->   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
->   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`
+> - `Enter_the_Application_Id_here` - é a ID do aplicativo que você registrou.
+> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
+>   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.onmicrosoft.com)
+>   - Se o aplicativo der suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, substitua esse valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores de *ID do aplicativo*, *ID de diretório (locatário)* e *Tipos de conta com suporte*, vá para a página **Visão Geral**
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Experimente o tutorial de área de trabalho do Windows para ver um guia passo a passo completo sobre a criação de aplicativos e novos recursos, incluindo uma explicação completa deste início rápido.
 
 > [!div class="nextstepaction"]
-> [Tutorial UWP – Chamar a API do Graph](tutorial-v2-windows-uwp.md)
+> [Tutorial UWP – chamar API do Graph](tutorial-v2-windows-uwp.md)

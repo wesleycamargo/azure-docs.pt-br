@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311538"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470365"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unreal
 Este documento descreve o processo de envio de um bake da acústica usando a extensão do editor do Unreal.
@@ -40,6 +40,8 @@ A guia de objetos é a primeira guia a ser exibida ao abrir o Modo de Acústica.
 
 Selecione um ou mais objetos no World Outliner ou use a seção **Seleção em Massa** para ajudar a selecionar todos os objetos de uma categoria específica. Depois que os objetos forem selecionados, use a seção **Marcação** para aplicar a marca desejada aos objetos selecionados.
 
+Se um elemento não tiver a marca **AcousticsGeometry** nem **AcousticsNavigation**, ele será ignorado na simulação. Há suporte somente para malhas estáticas, malhas de navegação e paisagens. Se você marcar outro qualquer elemento, ele será ignorado.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes da guia Objetos
 
 ![Captura de tela da guia Objetos Acústicos no Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Não inclua elementos que não devem afetar a acústica, como malhas de colisão
 
 A transformação de um objeto no momento do cálculo da sonda (através da guia Sondas, abaixo) é fixada nos resultados de bake. Mover qualquer um dos objetos marcados na cena exigirá refazer o cálculo da sonda e reciclar a cena.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Criar ou marcar uma malha de navegação
+### <a name="create-or-tag-a-navigation-mesh"></a>Criar ou marcar uma malha de navegação
 
-Uma malha de navegação é usada para colocar pontos de teste para simulação. Você pode usar o [Volume de Limites de Malha de Navegação](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) ou especificar sua própria malha de navegação. É necessário marcar pelo menos um objeto como **Navegação Acústica**.
+Uma malha de navegação é usada para colocar pontos de teste para simulação. Você pode usar o [Volume de Limites de Malha de Navegação](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) ou especificar sua própria malha de navegação. É necessário marcar pelo menos um objeto como **Navegação Acústica**. Se você usar a malha de Navegação do Unreal, verifique se você a criou primeiro.
+
+### <a name="acoustics-volumes"></a>Volumes de Acústica ###
+
+Há mais personalização avançada que você pode fazer em suas áreas de navegação com **Volumes de Acústica**. **Volumes de Acústica** são atores que você pode adicionar à sua cena e que permitem selecionar áreas para incluir e ignorar na malha de navegação. O ator expõe uma propriedade que pode ser alternada entre "Incluir" e "Excluir". Volumes de "Incluir" garantem que apenas áreas da malha de navegação dentro delas sejam consideradas e volumes de "Excluir" marcam essas áreas para serem ignoradas. Volumes de "Excluir" são sempre aplicados após volumes "Incluir". Marque **Volumes de Acústica** como **Navegação Acústica** durante o processo normal na guia Objetos. Esses atores ***não*** são marcados automaticamente.
+
+![Captura de tela das propriedades de Volume de Acústica no Unreal](media/unreal-acoustics-volume-properties.png)
+
+Volumes de "Excluir" destinam-se principalmente a fornecer controle refinado quanto a em que local não colocar sondas para reforçar o uso de recursos.
+
+![Captura de tela de Excluir Volume de Acústica no Unreal](media/unreal-acoustics-volume-exclude.png)
+
+Volumes de "Incluir" são úteis para criar seções manuais de uma cena, por exemplo, quando você deseja dividir sua cena em várias zonas acústicas. Por exemplo, se você tem uma cena grande, de muitos quilômetros quadrados, e duas áreas de interesse em que deseja fazer o bake da acústica. Você pode desenhar dois grandes volumes de "Incluir" na cena e produzir arquivos ACE para cada um deles, um por vez. Em seguida, no jogo, você pode usar volumes de gatilho combinados a chamadas de blueprint para carregar o arquivo ACE apropriado quando o player se aproximar de cada bloco.
+
+**Volumes de Acústica** restringem apenas a navegação, e ***não*** a geometria. Cada sonda dentro de um **Volume de Acústica** de "Incluir" ainda receberá toda a geometria necessária fora do volume ao executar simulações de onda. Portanto, não deve haver descontinuidades na oclusão nem outras acústica resultante de o player cruzar de uma seção para outra.
 
 ## <a name="select-acoustic-materials"></a>Selecionar materiais acústicos
 
@@ -87,8 +103,9 @@ O tempo de reverberação de um determinado material em uma sala é inversamente
 4. Mostra o material acústico ao qual o material da cena foi atribuído. Clique em um menu suspenso para reatribuir um material de cena a um material acústico diferente.
 5. Mostra o coeficiente de absorção acústica do material selecionado na coluna anterior. Um valor de zero significa perfeitamente reflexivo (sem absorção), enquanto um valor de 1 significa perfeitamente absorvente (sem reflexão). A alteração desse valor atualizará o Material Acústico (etapa nº 4) para **Personalizado**.
 
+Se você fizer alterações aos materiais na sua cena, precisará alternar as guias no plug-in Projeto Acústico para que essas alterações sejam aplicadas na guia **Materiais**.
 
-## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e revisar locais de sondas de escuta
+## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e revisar os locais de investigação do ouvinte
 
 Depois de atribuir os materiais, alterne para o **investigações** guia.
 
@@ -98,7 +115,7 @@ Depois de atribuir os materiais, alterne para o **investigações** guia.
 
 1. O **investigações** botão guia usada para abrir essa página
 2. Uma breve descrição do que você precisa fazer usando essa página
-3. Utilize para escolher uma resolução de simulação grossa ou fina. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Consulte [Resolução grossa vs fina](#Coarse-vs-Fine-Resolution) abaixo para obter mais detalhes.
+3. Utilize para escolher uma resolução de simulação grossa ou fina. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Veja [Fazer o Bake da Resolução](bake-resolution.md) abaixo para obter detalhes.
 4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando este campo. Clique no botão "..." para usar um seletor de pastas. Para obter mais informações sobre arquivos de dados, consulte [Arquivo de Dados](#Data-Files), abaixo.
 5. Os arquivos de dados para esta cena serão nomeados usando o prefixo fornecido aqui. O padrão é "[Nome do Nível] _AcousticsData".
 6. Clique no botão **Calcular** para voxelizar a cena e calcular os locais dos pontos de sonda. Isso é feito localmente em sua máquina e deve ser feito antes de fazer um cozimento. Após o cálculo das sondas, os controles acima serão desabilitados e esse botão mudará para **Limpar**. Clique no botão **Limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular usando as novas configurações.
@@ -145,23 +162,9 @@ Os pontos de teste são sinônimos de possíveis locais do player (ouvinte). Ao 
 
 É importante verificar se os pontos de sonda existem em qualquer lugar onde o player deverá percorrer na cena. Os pontos de sonda são colocados na malha de navegação pelo mecanismo do Projeto Acústico e não podem ser movidos ou editados, portanto, assegure-se de que a malha de navegação cubra todos os possíveis locais do player, inspecionando os pontos de sonda.
 
-![Captura de tela da Versão prévia de investigações acústicas no Unreal](media/unreal-probes-preview.png)
+![Captura de tela da versão prévia de sondas acústicas no Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Resolução grossa vs fina
-
-A única diferença entre as configurações de resolução grossa e fina é a frequência com que a simulação é executada. A fina usa uma frequência duas vezes mais alta que a grossa.
-Embora isso possa parecer simples, tem várias implicações na simulação acústica:
-
-* O comprimento de onda para a grossa é duas vezes mais longo que a fina e, portanto, os voxels são duas vezes maiores.
-* O tempo de simulação está diretamente relacionado ao tamanho do voxel, fazendo um bake grosso aproximadamente 16 vezes mais rápido que um bake fino.
-* Portais (por exemplo, portas ou janelas) menores que o tamanho do voxel não podem ser simulados. A configuração grossa pode fazer com que alguns desses portais menores não sejam simulados, portanto, não passarão o som durante o tempo de execução. Você pode ver se isso está acontecendo, visualizando os voxels.
-* A menor frequência de simulação resulta em menos difração ao redor dos cantos e bordas.
-* Fontes de som não podem ser localizadas dentro de voxels "preenchidos", ou seja, voxels que contêm geometria - isso resulta em nenhum som. É mais difícil colocar fontes de som de modo que não estejam dentro dos voxels maiores do que quando usam a configuração fina.
-* Os voxels maiores se intrometem mais nos portais, como mostrado abaixo. A primeira imagem foi criada usando resolução grossa, enquanto a segunda é a mesma porta usando resolução fina. Como indicado pelas marcas vermelhas, há muito menos intrusão na entrada usando a configuração fina. A linha azul é a porta conforme definida pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho do voxel. Como essa intrusão ocorre em uma determinada situação depende completamente de como os voxels se alinham com a geometria do portal, que é determinada pelo tamanho e localização de seus objetos na cena.
-
-![Captura de tela de voxels grossos preenchendo uma porta de entrada no Unreal](media/unreal-coarse-bake.png)
-
-![Captura de tela de voxels finos preenchendo uma porta de entrada no Unreal](media/unreal-fine-bake.png)
+Veja [Fazer o Bake da Resolução](bake-resolution.md) para obter mais detalhes sobre resolução bruta vs. fina.
 
 ## <a name="bake-your-level-using-azure-batch"></a>Fazer o bake do nível usando Lote do Azure
 

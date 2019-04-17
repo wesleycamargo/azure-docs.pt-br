@@ -1,19 +1,18 @@
 ---
 title: Exemplo – SKUs permitidas para contas de armazenamento e máquinas virtuais
 description: Esta definição de política de exemplo exige que as contas de armazenamento e as máquinas virtuais usem SKUs aprovados.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803775"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274562"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemplo – SKUs permitidas para contas de armazenamento e máquinas virtuais
 
@@ -29,7 +28,7 @@ Essa política requer que contas de armazenamento e máquinas virtuais usem SKUs
 
 ## <a name="deploy-with-the-portal"></a>Implantar com o portal
 
-[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![D[Implantar a amostra de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 

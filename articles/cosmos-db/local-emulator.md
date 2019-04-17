@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470909"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525415"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos para desenvolvimento e teste locais
 
@@ -236,7 +236,7 @@ No local da instalação, você pode usar a linha de comando para iniciar e inte
 
 Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de comando.
 
-|**Opção** | **DESCRIÇÃO** | **Comando**| **Argumentos**|
+|**Opção** | **Descrição** | **Comando**| **Argumentos**|
 |---|---|---|---|
 |[No arguments] | Inicia o Emulador do Azure Cosmos com as configurações padrão. |CosmosDB.Emulator.exe| |
 |[Ajuda] |Exibe a lista de argumentos de linha de comando com suporte.|CosmosDB.Emulator.exe /? | |
@@ -252,7 +252,7 @@ Para exibir a lista de opções, digite `CosmosDB.Emulator.exe /?` no prompt de 
 | GremlinPort | Número da porta a ser usado para o ponto de extremidade do Gremlin. O valor padrão é: 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: número da porta único |
 |TablePort | O número da porta a ser usado para o ponto de extremidade da Tabela do Azure. O valor padrão é 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: número da porta único|
 | KeyFile | A chave de autorização de leitura do arquivo especificado. Use a opção de /GenKeyFile para gerar um keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Caminho para o compartilhamento o arquivo |
-| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: Caminho do arquivo  |
+| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: Caminho do arquivo  |
 | StartTraces  |  Iniciar os logs de rastreamento de depuração de coleta. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Parar os logs de rastreamento de depuração de coleta. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Permite a API de Tabela do Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |

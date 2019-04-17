@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855717"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280529"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer as intenções da fala usando o SDK de Fala para C#
 
@@ -131,19 +131,21 @@ Em seguida, crie um reconhecedor de intenção usando `new IntentRecognizer(conf
 
 Agora, importe o modelo do app LUIS usando `LanguageUnderstandingModel.FromAppId()` e adicione as intenções de LUIS que você deseja reconhecer por meio do método `AddIntent()` do reconhecedor. Essas duas etapas melhoram a precisão do reconhecimento de fala, indicando as palavras que o usuário provavelmente usará nas solicitações. Não é necessário adicionar todas as intenções do app se você não precisar reconhecer todas elas no seu aplicativo.
 
-Adicionar intenções requer três argumentos: o modelo de LUIS (que acabou de ser criado e denominado `model`), o nome da intenção e uma ID de intenção. A diferença entre a ID e o nome é a seguinte.
+Adicionar intenções requer três argumentos: o modelo de LUIS (que foi criado e chama-se `model`), o nome da intenção e uma ID de intenção. A diferença entre a ID e o nome é a seguinte.
 
-|Argumento `AddIntent()`|Finalidade|
+|`AddIntent()` argumento|Finalidade|
 |--------|-------|
 |intentName |O nome da intenção conforme definido no app LUIS. Precisa corresponder exatamente ao nome de intenção de LUIS.|
 |intentID    |Uma ID atribuída a uma intenção reconhecida pelo SDK de Fala. Ela pode ser o que você desejar, e não precisa corresponder ao nome da intenção definido no app LUIS. Se várias intenções forem tratadas pelo mesmo código, por exemplo, seria possível usar a mesma ID para elas.|
 
-O app LUIS de Automação Residencial tem duas intenções: uma para ligar um dispositivo e outra para desligá-lo. As linhas a seguir adicionam essas intenções ao reconhecedor. Substitua as três linhas `AddIntent` no método `RecognizeIntentAsync()` com esse código.
+O aplicativo LUIS Home Automation tem duas intenções: uma para ligar um dispositivo e outra para desligá-lo. As linhas a seguir adicionam essas intenções ao reconhecedor. Substitua as três linhas `AddIntent` no método `RecognizeIntentAsync()` com esse código.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+Em vez de adicionar as intenções individuais, você também pode usar o método `AddAllIntents` para adicionar todas as intenções em um modelo ao reconhecedor.
 
 ## <a name="start-recognition"></a>Iniciar reconhecimento
 

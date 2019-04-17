@@ -1,19 +1,18 @@
 ---
 title: Exemplo – Impor tag e seu valor em grupos de recursos
 description: Esta definição de política de exemplo exige uma marca e um valor em um grupo de recursos.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 792a5b0caa35cc69774dbfe9f3d33d532853e31f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805152"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276653"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo – Impor tag e seu valor em grupos de recursos
 
@@ -22,7 +21,7 @@ Esta política exige uma marca e valor em um grupo de recursos. Especifique o no
 Você pode implantar essa política de exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [PowerShell do Azure](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 

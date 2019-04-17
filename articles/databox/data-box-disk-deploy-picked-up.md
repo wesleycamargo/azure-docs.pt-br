@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108368"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425943"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box Disk e verificar o upload de dados para o Azure
 
@@ -32,29 +32,115 @@ Antes de começar, verifique se você concluiu o [Tutorial: copiar dados para o 
 ## <a name="ship-data-box-disk-back"></a>Devolver o Data Box Disk
 
 1. Após a conclusão da validação de dados, desconecte os discos. Remova os cabos de conexão.
-2. Encapsule todos os discos e os cabos de conexão com plástico bolha e coloque-os na caixa de remessa.
-3. Use a etiqueta de remessa de devolução localizada na capa de plástico transparente que está afixada à caixa. Se a etiqueta estiver danificada ou perdida, faça o download de uma nova etiqueta de remessa no portal do Azure e cole-a no dispositivo. Vá para **Visão geral > Faça o download da etiqueta de remessa**.
+2. Encapsule todos os discos e os cabos de conexão com plástico bolha e coloque-os na caixa de remessa. Poderá haver encargos se os acessórios estiverem ausentes.
+    - Reutilize a embalagem da remessa inicial.  
+    - É recomendável que empacotar os discos usando um plástico bolha bem ajustado.
+    - Verifique se que o ajuste é firme para reduzir qualquer movimentos dentro da caixa.
 
-    ![Faça o download da etiqueta de remessa](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+As próximas etapas são determinadas pelo local em você está devolvendo o dispositivo.
 
-    Essa ação faz o download de uma etiqueta de remessa de devolução, conforme mostrado abaixo.
+### <a name="pick-up-in-us-canada"></a>Retirada nos EUA, Canadá
 
-    ![Exemplo de etiqueta de remessa](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canadá.
 
-4. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
-5. Agende uma coleta com a UPS se devolver o dispositivo nos EUA. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo. Vá para o site da DHL Express do país e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**.
+1. Use a etiqueta de remessa de devolução localizada na capa de plástico transparente que está afixada à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
+    - Vá para **Visão geral > Baixar etiqueta de remessa**.
+
+        ![Faça o download da etiqueta de remessa](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Essa ação faz o download de uma etiqueta de remessa de devolução, conforme mostrado abaixo.
+
+        ![Etiqueta de remessa de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Afixe o rótulo ao dispositivo.
+
+2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
+3. Agende uma retirada com a UPS.
+
+
+### <a name="pick-up-in-europe"></a>Retirada na Europa
+
+Execute as seguintes etapas se estiver devolvendo o dispositivo na Europa.
+
+1. Use a etiqueta de remessa de devolução localizada na capa de plástico transparente que está afixada à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
+    - Vá para **Visão geral > Baixar etiqueta de remessa**.
+
+        ![Faça o download da etiqueta de remessa](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Essa ação faz o download de uma etiqueta de remessa de devolução, conforme mostrado abaixo.
+
+        ![Etiqueta de remessa de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Afixe o rótulo ao dispositivo.
+
+2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
+3. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo.
+4. Vá para o site da DHL Express do país e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**.
 
     ![Devolução de remessa da DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
-    Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
+3. Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
 
       ![Agendar retirada](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
-7. Depois que os discos forem recolhidos pelo serviço de correio, o status do pedido no portal de atualizações será exibido como **Recolhidos**. Uma ID de rastreamento também é exibida.
+### <a name="pick-up-in-asia-pacific-region"></a>Retirada na região do Pacífico Asiático
 
-    ![Discos escolhidos](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+Essa região inclui instruções para retirada no Japão, na Coreia do Sul e na Austrália.
+
+#### <a name="pick-up-in-australia"></a>Retirada na Austrália
+
+Datacenters do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as seguintes etapas para retirada na Austrália.
+
+1. Envie um email para `adbops@microsoft.com` para solicitar a etiqueta de remessa com a ID exclusiva de entrada ou o código TAU. Faça a solicitação com pelo menos 3 dias com antecedência à data de remessa planejada para receber a etiqueta a tempo.
+2. O assunto do email deve ser – *Solicitação de etiqueta de remessa reversa com o código TAU*. Inclua os seguintes detalhes no email: 
+
+    - Nome do pedido
+    - Endereço
+    - Nome de contato
+
+#### <a name="pick-up-in-japan"></a>Retirada no Japão
+
+1. Inclua a carta de porte de devolução do Japan Post Chakubarai.
+2. Escreva as informações de nome e endereço da sua empresa na carta de porte como suas informações de remetente.
+3. Ligue para o número de solicitação de retirada do Japan Post 0800-0800-111 (ligação gratuita). Disque o código postal de sete dígitos para o endereço de retirada e, em seguida, encaminhe para sua agência mais próxima.
+    - Os horários disponíveis para a solicitação de retirada dependem das respectivas agências de postagem.
+    - Informe que a remessa é para o Japan Post Chakubarai Yu-Pack.
+    - Use a carta de porte do Chakubarai incluída.
+4. Se a carta de porte do Japan Post Chakubarai não tiver sido incluída, envie um email para *Quantium Solutions* em `Customerservice.JP@quantiumsolutions.com`. A *Quantium Solutions* solicitará que o Japan Post retire e pedirá que leve a carta de porte na retirada.
+    - Indique o número de referência na coluna de observação da carta de porte do Chakubarai que o Japan Post trará.
+    - Insira o endereço de entrega, conforme mostrado abaixo:   
+        ```
+        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
+        Microsoft Service Center c/o Quantium Solutions Japan
+        TEL: 03-5755-0150
+        ```
+
+Se a carta de porte do Chakubarai estiver ausente, você poderá solicitar a retirada via email. Use o modelo de email a seguir para solicitar a retirada.
+
+```
+To: Customerservice.JP@quantiumsolutions.com
+Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+Body: 
+- Azure Data Box Disk job name：
+- Reference number:  
+- Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+```
+
+#### <a name="pick-up-in-korea"></a>Retirada na Coreia do Sul
+
+1. Inclua a carta de porte de devolução.
+2. Para solicitar retirada:
+    1. Ligue para a linha direta da *Quantium Solutions International* em 070-8231 1418 durante o horário de expediente (das 10h às 17h, de segunda a sexta-feira). Mencione *Retirada da Microsoft* e o número da carta de porte para providenciar uma retirada.  
+    2. Se a linha direta estiver ocupada, envie um email para `microsoft@rocketparcel.com` com o assunto *Retirada da Microsoft* e o número da carta de porte como referência.
+    3. Se a transportadora não chegar para a coleta, ligue para a linha direta da *Quantium Solutions International* para providências alternativas. 
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+Depois que os discos forem recolhidos pelo serviço de correio, o status do pedido no portal de atualizações será exibido como **Recolhidos**. Uma ID de rastreamento também é exibida.
+
+![Discos escolhidos](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
 Quando a Microsoft receber e verificar o disco, o status do trabalho será atualizado para **Recebido**. 
 
@@ -68,14 +154,14 @@ Depois que a cópia for concluída, o status do pedido será atualizado para **C
 
 Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte. Seus dados podem estar em:
 
-- Suas contas de Armazenamento do Azure. Quando você copia os dados para o Data Box, dependendo do tipo, eles são carregados em um dos caminhos a seguir em sua conta do Armazenamento do Azure.
+- Suas contas de Armazenamento do Microsoft Azure. Quando você copia os dados para o Data Box, dependendo do tipo, eles são carregados em um dos caminhos a seguir em sua conta do Armazenamento do Azure.
 
   - Para blobs de página e blobs de bloco: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Arquivos do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Como alternativa, você pode acessar sua conta de Armazenamento do Azure no portal do Azure e navegar de lá.
 
-- Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como blobs de páginas e, em seguida, convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido.
+- Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como blob de páginas e, em seguida, convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido.
 
   - Se a cópia para discos gerenciados no Azure tiver êxito, você poderá acessar os **Detalhes do pedido** no portal do Azure e anotar o grupo de recursos especificado para discos gerenciados.
 

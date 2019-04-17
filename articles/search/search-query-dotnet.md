@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287002"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264940"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Início Rápido: 3 - Consultar um índice do Azure Search em C#
 
@@ -34,7 +34,7 @@ Obtenha uma chave de consulta usada para acesso somente leitura aos documentos. 
 ## <a name="create-a-client"></a>Criar um cliente
 Crie uma instância da `SearchIndexClient` para que você possa atribuir a ela uma chave de consulta para acesso somente leitura (como oposto aos direitos de acesso de gravação concedidos mediante o `SearchServiceClient` usado na lição anterior).
 
-Essa classe tem vários construtores. A classe desejada usa o nome do serviço de pesquisa, nome do índice e um [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) objeto como parâmetros. `SearchCredentials` encapsula sua api-key.
+Essa classe tem vários construtores. A classe desejada usa o nome do serviço de pesquisa, nome do índice e um [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) objeto como parâmetros. `SearchCredentials` encapsula a api-key.
 
 O código a seguir cria um novo `SearchIndexClient` para o índice “hotéis” usando valores para o nome do serviço de pesquisa e API-Key e que são armazenados no arquivo de configuração do aplicativo (`appsettings.json` no caso do [aplicativo do exemplo](https://aka.ms/search-dotnet-howto)):
 
@@ -49,7 +49,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-`SearchIndexClient` tem uma propriedade[`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet). Essa propriedade fornece todos os métodos necessários para consultar índices de Azure Search.
+`SearchIndexClient` tem uma propriedade [`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet). Essa propriedade fornece todos os métodos necessários para consultar índices de Azure Search.
 
 ## <a name="construct-searchparameters"></a>Construir SearchParameters
 Pesquisar com o SDK do .NET é tão simples quanto chamar o método `Documents.Search` em seu `SearchIndexClient`. Este método usa alguns parâmetros, incluindo o texto de pesquisa, junto com um objeto `SearchParameters` que pode ser usado para refinar mais a consulta.
@@ -157,4 +157,4 @@ O código de exemplo acima usa o console para gerar os resultados da pesquisa. D
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, examine o código de exemplo no [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) no GitHub, junto com [Como usar o Azure Search de um aplicativo .NET ](search-howto-dotnet-sdk.md) para obter mais descrições do código de exemplo. 
+Se você ainda não fez isso, examine o código de exemplo em [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) no GitHub, junto com [Como usar o Azure Search em um aplicativo .NET](search-howto-dotnet-sdk.md) para obter descrições mais detalhadas do código de exemplo. 

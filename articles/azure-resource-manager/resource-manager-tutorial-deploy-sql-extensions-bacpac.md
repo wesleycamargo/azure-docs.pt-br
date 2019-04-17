@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085058"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282348"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager
 
@@ -53,13 +53,13 @@ Um arquivo BACPAC é compartilhado em uma [Conta de Armazenamento do Azure com a
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador de Recursos. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial tem o nome de [Implantar um Azure SQL Server com Detecção de Ameaças](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/).
+O modelo usado neste tutorial está armazenado em uma [conta de Armazenamento do Azure](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo.
 

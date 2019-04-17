@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4f061dc66829c49fba6722215dc36ed2ce6464ee
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919151"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59586963"
 ---
 No Azure Cloud Shell, configure credenciais de implantação com o comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Esse usuário de implantação é necessário para a implantação do FTP e do Git local em um aplicativo Web. O nome de usuário e senha são o nível de conta. _São diferentes das credenciais da sua assinatura do Azure._
 
@@ -23,7 +23,7 @@ No exemplo a seguir, substitua *\<nome de usuário>* e *\<senha>* (incluindo os 
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Você obterá uma saída JSON com a senha mostrada como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro ` 'Bad Request'. Details: 400`, use uma senha mais forte. O nome de usuário da implantação não deve conter o símbolo “@” para pushes locais do Git.
+Você obterá uma saída JSON com a senha mostrada como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro `'Bad Request'. Details: 400`, use uma senha mais forte. O nome de usuário da implantação não deve conter o símbolo “@” para pushes locais do Git.
 
 É necessário configurar esse usuário de implantação somente uma vez. Você pode usá-lo para todas as implantações do Azure.
 

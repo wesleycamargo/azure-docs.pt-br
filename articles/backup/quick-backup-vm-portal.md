@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535171"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275467"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 Os backups do Azure podem ser criados por meio do portal do Azure. Esse método fornece uma interface de usuário baseada em navegador para criar e configurar os backups do Azure e todos os recursos relacionados. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma máquina virtual (VM) com o portal do Azure. 
@@ -79,7 +79,7 @@ Se você pretende examinar um tutorial de Backup que explique como restaurar dad
 
 3. Selecione **Excluir Dados de Backup** no menu suspenso.
 
-4. Na caixa de diálogo **Digite o nome do item de Backup**, insira seu nome VM, como *myVM*. Selecionar **Parar Backup**
+4. Na caixa de diálogo **Digite o nome do item de Backup**, insira seu nome VM, como *myVM*. Selecionar **Parar Backup**.
 
     Depois que o backup VM tiver sido interrompido e os pontos de recuperação removidos, você pode excluir o grupo de recursos. Se você tiver uma VM existente, poderá deixar o grupo de recursos e a VM em vigor.
 

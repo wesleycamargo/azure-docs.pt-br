@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451783"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548581"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Usar notebooks Jupyter no serviço do Azure Machine Learning
 
@@ -50,50 +50,6 @@ Use estas etapas para criar um servidor de notebook local do Jupyter no seu comp
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 As instruções de início rápido instalarão os pacotes necessários para executar o início rápido e os notebooks de tutorial.  Outros notebooks de exemplo podem exigir a instalação de componentes adicionais.  Para obter mais informações sobre esses componentes, veja [Instalar o SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Configuração de aprendizado de máquina automatizado 
-
-_Estas etapas se aplicam somente a notebooks na pasta **how-to-use-azureml/automated-machine-learning**._
-
-Embora você possa usar qualquer uma das opções acima, também pode instalar o ambiente e criar um espaço de trabalho ao mesmo tempo com as instruções a seguir. 
-
-1. Instale o [Mini-conda](https://conda.io/miniconda.html). Escolha a versão 3.7 ou posterior. Siga os prompts para instalar. 
-   >[!NOTE]
-   >Você pode usar um conda existente desde que seja a versão 4.4.10 ou posterior. Use `conda -V` para exibir a versão. Você pode atualizar uma versão do conda com o comando: `conda update conda`. Não é necessário instalar o mini-conda especificamente.
-
-1. Baixe os notebooks de exemplo do [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) como um zip e extraia o conteúdo para um diretório local. Os notebooks do aprendizado de máquina automatizada estão na pasta `how-to-use-azureml/automated-machine-learning`.
-
-1. Configure um novo ambiente do Conda. 
-   1. Abra um prompt do Conda em seu computador local.
-   
-   1. Navegue até os arquivos extraídos em seu computador local.
-   
-   1. Abra a pasta **automated-machine-learning**.
-   
-   1. Execute `automl_setup.cmd` no prompt do Conda para Windows ou o arquivo `.sh` para seu sistema operacional. Pode levar cerca de 10 minutos para executá-lo.
-
-      O script de instalação:
-      + Cria um novo ambiente do Conda
-      + Instala os pacotes necessários
-      + Configura o widget
-      + Inicia um notebook do Jupyter
-      
-   >[!NOTE]
-   > O script usa o nome do ambiente Conda como um parâmetro opcional. O nome do ambiente do Conda padrão é `azure_automl`. O comando exato depende do sistema operacional. Será útil se você criar um ambiente ou atualizar para uma nova versão. Por exemplo, é possível usar 'automl_setup.cmd azure_automl_sandbox' para criar um nome de ambiente azure_automl_sandbox. 
-      
-1. Depois que o script for concluído, você verá uma home page do notebook do Jupyter no seu navegador.
-
-1. Navegue até o caminho onde você salvou os notebooks. 
-
-1. Abra a pasta automated-machine-learning e, em seguida, abra o notebook **configuration.ipynb**. 
-
-1. Execute as células no notebook para registrar o provedor de recursos de Serviços de Machine Learning e criar um espaço de trabalho.
-
-Agora você está pronto para abrir e executar os notebooks salvos em seu computador local.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

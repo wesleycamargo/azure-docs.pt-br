@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a5968710a919d96b9aee1d5acbd2366be76aa9e8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371785"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Integração do Azure Active Directory com o PlanMyLeave
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
     c. Defina "**Is Enable**" como "**Yes**".
 
-    d. Clique em **Salvar**. 
+    d. Clique em **Save** (Salvar). 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -218,9 +218,9 @@ Ao clicar no bloco do PlanMyLeave no Painel de Acesso, você deverá entrar auto
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

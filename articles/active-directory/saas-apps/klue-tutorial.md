@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be794c6d24218eccdc960219dd61a2075b5ab7ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858853"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com o Klue
 
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Klue ao Azure AD, é necessário adicionar o Klue à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o Klue por meio da galeria, realize as seguintes etapas:**
+**Para adicionar o Klue da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,15 +106,15 @@ Para configurar o logon único do Azure AD com o Klue, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Klue](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de Domínio e URLs do Klue](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Klue](mailto:support@klue.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Klue, execute as seguintes etap
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -230,9 +230,9 @@ Ao clicar no bloco do Klue no Painel de Acesso, você deverá ser conectado auto
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

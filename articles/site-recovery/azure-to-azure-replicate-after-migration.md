@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317113"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615907"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação de desastres para VMs do Azure após a migração para o Azure 
 
 
-Use este artigo se você já [migrado em máquinas locais para VMs do Azure](tutorial-migrate-on-premises-to-azure.md) usando o [Site Recovery](site-recovery-overview.md) serviço e agora deseja obter as VMs definido para recuperação de desastres em uma região secundária do Azure. O artigo descreve como garantir que o agente de VM do Azure é instalado em VMs migradas e como remover o serviço de mobilidade de recuperação de Site que tem não mais necessários após a migração.
+Siga este artigo se você já [migrado em máquinas locais para VMs do Azure](tutorial-migrate-on-premises-to-azure.md) usando o [Site Recovery](site-recovery-overview.md) serviço e agora deseja obter as VMs definido para recuperação de desastres em uma região secundária do Azure. O artigo descreve como garantir que o agente de VM do Azure é instalado em VMs migradas e como remover o serviço de mobilidade de recuperação de Site que tem não mais necessários após a migração.
 
 
 
@@ -77,7 +77,7 @@ Instalar o [VM Linux do Azure](../virtual-machines/extensions/agent-linux.md) ag
         ```
     - Para o Linux, entre como o usuário raiz. Em um terminal, vá para **/user/local/ASR** e execute o seguinte comando:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Reinicie a máquina virtual antes de configurar a replicação.
 

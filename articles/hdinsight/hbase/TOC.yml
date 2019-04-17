@@ -36,7 +36,7 @@ items:
       maintainContext: true
   - name: Desenvolver
     items:
-    - name: Usar o SDK .NET do Apache HBase
+    - name: Usar o SDK para .NET do Apache HBase
       href: apache-hbase-rest-sdk.md
     - name: Desenvolver aplicativos Java
       href: apache-hbase-build-java-maven-linux.md
@@ -89,21 +89,9 @@ items:
       maintainContext: true
   - name: Gerenciar
     items:
-    - name: Criar clusters Linux
+    - name: Criar clusters do HDInsight
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Usar PowerShell do Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Use cURL e a API REST do Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Usar o SDK .NET
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Usar a CLI clássica do Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Use o Portal do Azure
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -111,16 +99,39 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: Usar o SDK para .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Usar o SDK para Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Usar o SDK para Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Usar PowerShell do Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Use cURL e a API REST do Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Usar a CLI clássica do Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Criar clusters sob demanda
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
     - name: Criar clusters sob demanda
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Gerenciar clusters do Apache Hadoop
+    - name: Gerenciar clusters HDInsight
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Usar o SDK do .NET
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Usar o SDK para .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Usar o SDK para Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Usar o SDK para Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      - name: Usar o SDK para linguagem Go (Versão prévia)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Usar PowerShell do Azure
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -162,7 +173,7 @@ items:
         href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
       - name: Executar usando cURL
         href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-      - name: Executar usando o SDK do .NET
+      - name: Executar usando o SDK para .NET
         href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
       - name: Executar usando o Azure PowerShell
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
@@ -258,13 +269,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: SDK .NET
+  - name: SDK para .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: SDK do Python
+  - name: SDK para Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: SDK do Go
+  - name: SDK para Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK para linguagem Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -288,12 +299,15 @@ items:
 - name: Recursos
   items:
   - name: Notas de versão
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Notas sobre a versão atuais
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Notas de versão arquivadas
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Alterações no acesso à configuração de cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obtenha ajuda no fórum
@@ -307,9 +321,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 39bc984d593f9026a3f6db85da8b8d1b80038335
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 09d43f60cc42d8c6ed5a1a234bd618c0583cdf8d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847022"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615958"

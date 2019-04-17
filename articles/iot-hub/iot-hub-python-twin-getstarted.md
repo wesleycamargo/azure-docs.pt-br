@@ -9,19 +9,21 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
-ms.openlocfilehash: edf6fa98224613ba31eeed871cbb0eaf4e614600
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535290"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608394"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
+
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 Ao final deste tutorial, você terá dois aplicativos de console do Python:
 
 * **AddTagsAndQuery.py**, um aplicativo de back-end do Python, que adiciona marcações e consulta os dispositivos gêmeos.
+
 * **ReportConnectivity.py**, um aplicativo do Python, que simula um dispositivo que se conecta ao hub IoT com a identidade do dispositivo criada anteriormente e relata sua condição de conectividade.
 
 > [!NOTE]
@@ -30,12 +32,14 @@ Ao final deste tutorial, você terá dois aplicativos de console do Python:
 Para concluir este tutorial, você precisará do seguinte:
 
 * [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2.x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python](https://pip.pypa.io/en/stable/installing/).
+
 * Se você está usando o sistema operacional Windows, o [Pacote redistribuível do Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) permite o uso de DLLs nativas do Python.
+
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 > [!NOTE]
 > Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, consulte as seções do Linux e Mac OS específicas sobre o [preparar o ambiente de desenvolvimento para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) lançar.
-> 
+>
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -50,26 +54,28 @@ Para concluir este tutorial, você precisará do seguinte:
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
+
 Nesta seção, você criará um aplicativo de console Python que adiciona metadados de local para o dispositivo gêmeo associado com seu **{Device ID}**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados em Redmond e, depois, aqueles que relatam uma conexão celular.
 
 1. Abra um prompt de comando e instale o **SDK de Serviço do Azure IoT Hub para Python**. Feche o prompt de comando depois de instalar o SDK.
 
-    ```
-    pip install azure-iothub-service-client
-    ```
+   ```
+   pip install azure-iothub-service-client
+   ```
 
-1. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.py**.
+2. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.py**.
 
 3. Adicione o código a seguir para importar os módulos necessários do SDK de serviço:
 
-    ```python
-    import sys
-    import iothub_service_client
-    from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
-    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
-    ```
-2. Adicione o código a seguir, substituindo o espaço reservado para `[IoTHub Connection String]` e `[Device Id]` com a cadeia de conexão para o hub IoT e a ID do dispositivo criado nas seções anteriores.
-   
+   ```python
+   import sys
+   import iothub_service_client
+   from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
+   from iothub_service_client import IoTHubDeviceTwin, IoTHubError
+   ```
+
+4. Adicione o código a seguir, substituindo o espaço reservado para `[IoTHub Connection String]` e `[Device Id]` com a cadeia de conexão para o hub IoT e a ID do dispositivo criado nas seções anteriores.
+  
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "[Device Id]"
@@ -80,13 +86,13 @@ Nesta seção, você criará um aplicativo de console Python que adiciona metada
     UPDATE_JSON_CLIENT_SEARCH = "\"connectivity\":\"cellular\""
     ```
 
-1. Adicione o seguinte código ao arquivo **AddTagsAndQuery.py**:
-   
+5. Adicione o seguinte código ao arquivo **AddTagsAndQuery.py**:
+
      ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
-        
+
             iothub_registry_statistics = iothub_registry_manager.get_statistics()
             print ( "Total device count                       : {0}".format(iothub_registry_statistics.totalDeviceCount) )
             print ( "Enabled device count                     : {0}".format(iothub_registry_statistics.enabledDeviceCount) )
@@ -95,26 +101,26 @@ Nesta seção, você criará um aplicativo de console Python que adiciona metada
 
             number_of_devices = iothub_registry_statistics.totalDeviceCount
             dev_list = iothub_registry_manager.get_device_list(number_of_devices)
-        
+
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
 
             for device in range(0, number_of_devices):
                 if dev_list[device].deviceId == DEVICE_ID:
                     twin_info = iothub_twin_method.update_twin(dev_list[device].deviceId, UPDATE_JSON)
-        
-            print ( "Devices in Redmond: " )        
+
+            print ( "Devices in Redmond: " )
             for device in range(0, number_of_devices):
                 twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
-         
+
                 if twin_info.find(UPDATE_JSON_SEARCH) > -1:
                     print ( dev_list[device].deviceId )
-        
+
             print ( "" )
-        
+
             print ( "Devices in Redmond using cellular network: " )
             for device in range(0, number_of_devices):
                 twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
-                
+
                 if twin_info.find(UPDATE_JSON_SEARCH) > -1:
                     if twin_info.find(UPDATE_JSON_CLIENT_SEARCH) > -1:
                         print ( dev_list[device].deviceId )
@@ -125,11 +131,11 @@ Nesta seção, você criará um aplicativo de console Python que adiciona metada
         except KeyboardInterrupt:
             print ( "IoTHub sample stopped" )
     ```
-   
+
     O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. O código primeiro inicializa o objeto **Registry**, em seguida, atualiza o dispositivo gêmeo para **deviceId** e, por fim, executa duas consultas. A primeira seleciona somente os dispositivos gêmeos de dispositivos localizados na fábrica de **Redmond43**, enquanto a segunda refina a consulta para selecionar somente os dispositivos que também estão conectados por meio da rede de celular.
-   
-1. Adicione o seguinte código ao final de **AddTagsAndQuery.py** para implementar a função **iothub_service_sample_run**:
-   
+
+6. Adicione o seguinte código ao final de **AddTagsAndQuery.py** para implementar a função **iothub_service_sample_run**:
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Device Twins Python service sample..." )
@@ -137,19 +143,20 @@ Nesta seção, você criará um aplicativo de console Python que adiciona metada
         iothub_service_sample_run()
     ```
 
-1. Execute o aplicativo com:
-   
+7. Execute o aplicativo com:
+
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
-   
+
     Você deve ver um dispositivo nos resultados da consulta que pergunta sobre todos os dispositivos localizados em **Redmond43**, e nenhum para a consulta que restringe os resultados para dispositivos que usam uma rede de celular.
-   
-    ![primeira consulta][1]
+
+    ![primeira consulta mostrando todos os dispositivos em Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 Na seção seguinte, você cria um aplicativo de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na seção anterior.
 
 ## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
+
 Nesta seção, você criará um aplicativo de console Python que se conecta ao seu hub como seu **{Device ID}** e depois atualiza seu dispositivo gêmeo as propriedades reportadas para conter as informações que ele está conectado usando uma rede de celular.
 
 1. Abra um prompt de comando e instale o **SDK de Serviço do Azure IoT Hub para Python**. Feche o prompt de comando depois de instalar o SDK.
@@ -158,7 +165,7 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
     pip install azure-iothub-device-client
     ```
 
-1. Usando um editor de texto, crie um novo arquivo **ReportConnectivity.py**.
+2. Usando um editor de texto, crie um novo arquivo **ReportConnectivity.py**.
 
 3. Adicione o código a seguir para importar os módulos necessários do SDK de serviço:
 
@@ -168,8 +175,8 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-2. Adicione o código a seguir, substituindo o espaço reservado de `[IoTHub Device Connection String]` pela cadeia de conexão do dispositivo de hub IoT criado nas seções anteriores.
-   
+4. Adicione o código a seguir, substituindo o espaço reservado de `[IoTHub Device Connection String]` pela cadeia de conexão do dispositivo de hub IoT criado nas seções anteriores.
+
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
 
@@ -181,7 +188,7 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
     SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
-1. Adicione o seguinte código ao arquivo **ReportConnectivity.py** para implementar a funcionalidade de dispositivo gêmeo:
+5. Adicione o seguinte código ao arquivo **ReportConnectivity.py** para implementar a funcionalidade de dispositivo gêmeo:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -228,12 +235,12 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
             return
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-    ```   
+     ```
 
     O objeto **Client** expõe todos os métodos necessários para você interagir com dispositivos gêmeos a partir do dispositivo. O código anterior, depois de inicializar o objeto **Client**, recupera o dispositivo gêmeo para o dispositivo e atualiza suas propriedades relatadas com as informações de conectividade.
 
-1. Adicione o seguinte código ao final de **ReportConnectivity.py** para implementar a função **iothub_client_sample_run**:
-   
+6. Adicione o seguinte código ao final de **ReportConnectivity.py** para implementar a função **iothub_client_sample_run**:
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Device Twins Python client sample..." )
@@ -241,36 +248,34 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
         iothub_client_sample_run()
     ```
 
-1. Executar o aplicativo do dispositivo
-   
+7. Execute o aplicativo do dispositivo:
+
     ```cmd/sh
     python ReportConnectivity.py
     ```
-   
+
     Você deve ver a confirmação de que os dispositivos gêmeos foram atualizados.
 
-    ![atualizar gêmeos][2]
+    ![atualizar gêmeos](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
 
-6. Agora que o dispositivo divulgou suas informações de conectividade, ele deve aparecer em ambas as consultas. Volte e execute as consultas novamente:
-   
+8. Agora que o dispositivo divulgou suas informações de conectividade, ele deve aparecer em ambas as consultas. Volte e execute as consultas novamente:
+
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
-   
-    Desta vez seu **{Device ID}** deve aparecer em ambos os resultados da consulta.
-   
-    ![segunda consulta][3]
 
-## <a name="next-steps"></a>Próximas etapas
+    Desta vez seu **{Device ID}** deve aparecer em ambos os resultados da consulta.
+
+    ![segunda consulta](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+
+## <a name="next-steps"></a>Próximos passos
+
 Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT. Você adicionou os metadados do dispositivo como marcações de um aplicativo de back-end e criou um aplicativo de dispositivo simulado para relatar informações de conectividade no dispositivo gêmeo. Você também aprendeu a consultar essas informações usando o registro.
 
 Veja os recursos a seguir para saber como:
 
-* Enviar telemetria de dispositivos com o [Introdução ao IoT Hub](quickstart-send-telemetry-python.md) tutorial,
-* Configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o [usar propriedades desejadas para configurar dispositivos](tutorial-device-twins.md) tutorial,
-* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o [usar métodos diretos](quickstart-control-device-python.md) tutorial.
+* Envie telemetria de dispositivos com o tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-python.md).
 
-<!-- images -->
-[1]: media/iot-hub-python-twin-getstarted/1.png
-[2]: media/iot-hub-python-twin-getstarted/2.png
-[3]: media/iot-hub-python-twin-getstarted/3.png
+* Configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o [usar propriedades desejadas para configurar dispositivos](tutorial-device-twins.md) tutorial.
+
+* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o [usar métodos diretos](quickstart-control-device-python.md) tutorial.

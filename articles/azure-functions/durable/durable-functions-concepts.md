@@ -2,7 +2,7 @@
 title: Padrões de funções duráveis e conceitos técnicos no Azure Functions
 description: Saiba como a extensão de funções duráveis no Azure Functions oferece os benefícios da execução do código com monitoração de estado na nuvem.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892748"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608724"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de funções duráveis e conceitos técnicos (Azure Functions)
 
@@ -437,6 +437,6 @@ Para saber mais sobre as funções duráveis, consulte [tipos e recursos de fun�
 Introdução:
 
 > [!div class="nextstepaction"]
-> [Criar sua primeira função durável](durable-functions-create-first-csharp.md)
+> [Crie sua primeira função durável](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

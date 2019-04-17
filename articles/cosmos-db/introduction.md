@@ -1,17 +1,17 @@
 ---
 title: Introdução ao Azure Cosmos DB
 description: Saiba mais sobre o Azure Cosmos DB. Este banco de dados multimodelo distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência e oferece suporte nativo para dados do NoSQL.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294358"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280937"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -22,7 +22,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 Você pode [Experimentar o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso.
 
 > [!div class="nextstepaction"]
-> [Experimente o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
 
 ![O Azure Cosmos DB é serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
@@ -99,7 +99,7 @@ Comece no Azure Cosmos DB com um dos nossos guias de início rápido:
 
 * [Introdução à API de SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introdução à API do MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
-* [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Introdução à API do Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
