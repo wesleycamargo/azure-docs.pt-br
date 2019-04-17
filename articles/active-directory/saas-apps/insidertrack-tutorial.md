@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e67aa6a2e072a1f140cc725720f095f7d93b49a
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 876e9f95c5f1cdca3e0b41a16d77aee52fccb837
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189063"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Tutorial: Integração do Azure Active Directory ao Insider Track
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Insider Track ao Azure AD, você precisará adicionar o Insider Track da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Insider Track da galeria, execute as seguintes etapas:**
+**Para adicionar o Insider Track por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Insider Track, execute as segui
 
     ![Informações de logon único de Domínio e URLs do Insider Track](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Insider Track](https://cytecsolutions.com/contact/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -191,8 +191,8 @@ Ao clicar no bloco do Insider Track no Painel de Acesso, você será conectado a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
