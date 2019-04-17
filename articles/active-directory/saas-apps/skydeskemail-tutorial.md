@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 76e19a5d83b1e59aedc0e6e4d6a1f03ae10039a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c2dc6c370e697f896e24e7d56c6eb8900601a9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166990"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Active Directory ao SkyDesk Email
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do SkyDesk Email ao Azure AD, você precisará adicionar o SkyDesk Email da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SkyDesk Email a partir da galeria, execute as seguintes etapas:**
+**Para adicionar o SkyDesk Email da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SkyDesk Email, realize as segui
 
     ![Informações de logon único de domínio e de URLs do SkyDesk Email](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://mail.skydesk.jp/portal/<companyname>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do SkyDesk Email](https://www.skydesk.jp/apps/support/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -239,9 +239,9 @@ Ao clicar no bloco do SkyDesk Email no Painel de Acesso, você deverá ser conec
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

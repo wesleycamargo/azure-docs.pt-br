@@ -1,19 +1,18 @@
 ---
 title: Amostra – NSG X em cada NIC
 description: Esta definição de política de exemplo exige o uso de um Grupo de Segurança de Rede específico com cada adaptador de rede virtual.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0ffdb1a2273cd6bec361ec10dff220dc905ae27e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8880b23933b5a32c4c829d429ddc032c1c2ae057
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804472"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282076"
 ---
 # <a name="sample---network-security-group-x-on-every-nic"></a>Amostra – Grupo de Segurança de Rede X em cada NIC
 
@@ -29,7 +28,7 @@ Você pode implantar este modelo usando o [portal do Azure](#deploy-with-the-por
 
 ## <a name="deploy-with-the-portal"></a>Implantar com o portal
 
-[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-nic%2Fazurepolicy.json)
+[![D[Implantar a amostra de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-nic%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 

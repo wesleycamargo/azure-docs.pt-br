@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contêineres, microsserviços e Java no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26f82427ff06608de39381b4ecc45d318212a8a0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419006"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425739"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Início Rápido: Desenvolver com Java no Kubernetes usando o Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Neste guia, você aprenderá a:
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - [O Visual Studio Code instalado](https://code.visualstudio.com/download).
--  As extensões [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [Depurador Java para Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) para o Visual Studio Code instaladas.
+- As extensões [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [Depurador Java para Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) para o Visual Studio Code instaladas.
 - A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 - [Maven instalado e configurado](https://maven.apache.org).
 

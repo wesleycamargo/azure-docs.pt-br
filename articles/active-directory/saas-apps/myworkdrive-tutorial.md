@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: c0557ccc995e591187aae24dfd7078755fec3e9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885514"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integração do Azure Active Directory ao MyWorkDrive
 
@@ -110,14 +110,14 @@ Para configurar o logon único do Microsoft Azure AD com o MyWorkDrive, execute 
 
     ![Informações de logon único de Domínio e URLs do MyWorkDrive](common/both-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Insira o nome do host do MyWorkDrive Server da sua empresa: por exemplo,
     > 
     > URL de Resposta: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
-    > URL de logon:`https://yourserver.yourdomain.com/Account/Login-saml`
+    > URL de Logon:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
     > Entre em contato com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) se você não tiver certeza de como configurar seu próprio nome de host e certificado SSL para esses valores.
 
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -207,9 +207,9 @@ Ao clicar no bloco do MyWorkDrive no Painel de Acesso, você deverá ser conecta
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

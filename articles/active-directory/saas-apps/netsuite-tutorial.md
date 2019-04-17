@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887418"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integração do Azure Active Directory ao NetSuite
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do NetSuite com o Azure AD, é necessário adicionar o NetSuite da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o NetSuite da galeria, execute as seguintes etapas:**
+**Para adicionar o NetSuite por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
     >[!NOTE]
     >O valor do atributo de conta não é real. Você atualizará esse valor, o que é explicado posteriormente no tutorial.
@@ -173,19 +173,19 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
 1. Abra uma nova guia no navegador e entre no site do NetSuite de sua empresa como administrador.
 
-2. Na barra de ferramentas na parte superior da página, clique em **Configuração**, navegue até **Empresa** e clique em **Habilitar Recursos**.
+2. Na barra de ferramentas na parte superior da página, clique em **Configuração**, navegue até **Empresa** e clique em **Habilitar Recursos**.
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. Na barra de ferramentas no meio da página, clique em **SuiteCloud**.
+3. Na barra de ferramentas no meio da página, clique em **SuiteCloud**.
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Na seção **Gerenciar Autenticação** , selecione **LOGON ÚNICO DO SAML** para habilitar a opção de LOGON ÚNICO DO DAML no NetSuite.
+4. Na seção **Gerenciar Autenticação**, selecione **LOGON ÚNICO DO SAML** para habilitar a opção de LOGON ÚNICO DO DAML no NetSuite.
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. Na barra de ferramentas na parte superior da página, clique em **Configuração**.
+5. Na barra de ferramentas na parte superior da página, clique em **Configuração**.
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -233,7 +233,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-new-role.png)
 
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
     f. No menu na parte superior, clique em **Permissões**. Em seguida, clique em **Instalação**.
 
@@ -241,7 +241,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     g. Selecione **Logon Único do SAML** e, em seguida, clique em **Adicionar**.
 
-    h. Clique em **Salvar**.
+    h. Clique em **Save** (Salvar).
 
     i. No menu de navegação superior, clique em **Instalação** e depois em **Gerenciador de Instalação**.
 
@@ -259,7 +259,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-add-role.png)
 
-    m. Clique em **Salvar**.
+    m. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -279,7 +279,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

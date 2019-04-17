@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cd10adbc509812a360ae59fdac3f16bd2af0324c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 31bc5622c6c6c3dd00bc59b5d8f3aa349055d125
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188145"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integração do Active Directory do Azure ao Intacct
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o Intacct, execute as seguintes e
 
     e. Abra seu certificado codificado em **Base 64** no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa **Certificado**.
 
-    f. Clique em **Salvar**.
+    f. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -231,7 +231,7 @@ Para configurar os usuários do Azure AD para que possam entrar no Intacct, eles
 
     b. Selecione os **privilégios de Administrador** de uma conta do Azure AD que você deseja provisionar.
 
-    c. Clique em **Salvar**. O titular da conta do Azure AD receberá um email e um link para confirmar sua conta antes de se tornar ativo.
+    c. Clique em **Save** (Salvar). O titular da conta do Azure AD receberá um email e um link para confirmar sua conta antes de se tornar ativo.
 
 > [!NOTE]
 > Para provisionar as contas de usuário do Azure AD, é possível usar qualquer outra ferramenta de criação da conta de usuário do Intacct ou APIs fornecidas pelo Intacct.
@@ -244,9 +244,9 @@ Ao clicar no bloco do Intacct no Painel de Acesso, você será conectado automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

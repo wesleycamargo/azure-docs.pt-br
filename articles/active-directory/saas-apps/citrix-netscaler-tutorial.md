@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ca5fec00d264bb50c75338d36ec793946f495bff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58228988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integração do Azure Active Directory com Citrix Netscaler
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Citrix Netscaler com Azure AD, será necessário adicionar o Citrix Netscaler da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Citrix Netscaler da galeria, execute as seguinte etapas:**
+**Para adicionar o Citrix Netscaler da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -383,9 +383,9 @@ Ao clicar no bloco do Citrix Netscaler no Painel de Acesso, você deverá ser co
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

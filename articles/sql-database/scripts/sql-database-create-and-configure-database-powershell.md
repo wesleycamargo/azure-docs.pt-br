@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a326462a6735b5a91d1ef03de41bb4705fe452a4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e1ce1ad692f544d668ae557c85e504ffcb9d0dd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356675"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Use o PowerShell para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall do servidor de Banco de Dados SQL
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

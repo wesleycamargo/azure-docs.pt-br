@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e3b66f4cb93f0917a3c29b0f337e29dd6c94448
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844810"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Azure Active Directory ao Namely
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Namely ao AD do Azure, você precisa adicionar o do Namely da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o do Namely da galeria, execute as seguintes etapas:**
+**Para adicionar o Namely por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o Namely, execute as seguintes et
     
     c. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado do provedor de identidade** .
      
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -171,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -232,7 +232,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Namely
 
     c. Na caixa de texto **Email**, digite o endereço de **email do usuário** de Brenda Fernandes.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -242,9 +242,9 @@ Ao clicar no bloco do Namely no Painel de Acesso, você deverá ser conectado au
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

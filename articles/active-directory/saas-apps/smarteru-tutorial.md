@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: dc448a4c31320f0cb1bb1d6f2151222787aee6ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d1b2d80a1960abb37262ef7429ee5b99665986b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225164"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Azure Active Directory ao SmarterU
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do SmarterU ao Azure AD, você precisará adicionar o SmarterU da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SmarterU na galeria, execute as seguintes etapas:**
+**Para adicionar o SmarterU por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o SmarterU, execute as seguintes 
 
     f. Selecione um **Atributo/Declaração do Identificador**.
   
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -218,7 +218,7 @@ Para que os usuários do Azure AD posam entrar no SmarterU, eles precisam ser pr
 
     c. Clique em **Ativo**.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do SmarterU ou as APIs fornecidas pelo SmarterU para provisionar as contas de usuário do AAD.
@@ -231,8 +231,8 @@ Ao clicar no bloco do SmarterU no Painel de Acesso, você será conectado automa
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

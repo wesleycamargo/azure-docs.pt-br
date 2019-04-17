@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c7c016629141b978e472ba2339b9ba4ef95a876b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a247530eae2a83a65fbc1931e53dcb2366919fd7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892346"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357577"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Usar o PowerShell para copiar um Banco de Dados SQL para um novo servidor
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $sourceresourcegroupname

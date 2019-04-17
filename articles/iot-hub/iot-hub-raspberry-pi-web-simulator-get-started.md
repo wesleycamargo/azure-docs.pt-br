@@ -10,37 +10,40 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 58e05ba4fb2e362147f7ca28d83440ddabb6ef38
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 42c2c0d1a015baf4b846c86ed22e8383e21028b6
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267728"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607562"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar o simulador online Raspberry Pi ao Hub IoT do Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, você começará aprendendo as noções básicas de como trabalhar com o simulador online Raspberry Pi. Em seguida, aprenderá a conectar o simulador Pi diretamente à nuvem usando o [Hub IoT do Azure](about-iot-hub.md). 
+Neste tutorial, você começará aprendendo as noções básicas de como trabalhar com o simulador online Raspberry Pi. Em seguida, aprenderá a conectar o simulador Pi diretamente à nuvem usando o [Hub IoT do Azure](about-iot-hub.md).
 
-Se você tiver dispositivos físicos, visite [Conectar ao Raspberry Pi ao Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) para começar. 
+Se você tiver dispositivos físicos, visite [Conectar ao Raspberry Pi ao Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) para começar.
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
 <p>
 <div id="button" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
 </div>
 
 ## <a name="what-you-do"></a>O que fazer
 
 * Conheça os fundamentos do simulador online Raspberry Pi.
+
 * Crie um Hub IoT.
+
 * Registre um dispositivo para o Pi em seu Hub IoT.
+
 * Execute um aplicativo de exemplo no Pi para enviar os dados do sensor simulado para o seu Hub IoT.
 
 Conecte o Raspberry Pi simulado a um Hub IoT criado por você. Em seguida, você deve executar um aplicativo de exemplo com o simulador para gerar dados de sensor. Por fim, você envia os dados do sensor para o Hub IoT.
@@ -48,7 +51,9 @@ Conecte o Raspberry Pi simulado a um Hub IoT criado por você. Em seguida, você
 ## <a name="what-you-learn"></a>O que você aprenderá
 
 * Como criar um Hub IoT do Azure e obter sua nova cadeia de conexão do dispositivo. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+
 * Como trabalhar com o Simulador online Raspberry Pi.
+
 * Como enviar dados de sensor ao Hub IoT.
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Visão geral do simulador de web do Raspberry Pi
@@ -67,13 +72,15 @@ Há três áreas no simulador da web.
 3. Janela de console integrado - Mostra a saída do seu código. Na parte superior da janela, há três botões.
 
    * **Executar** - Executar o aplicativo na área de codificação.
+
    * **Redefinir** - Redefinir a área de codificação para o aplicativo de exemplo padrão.
+
    * **Dobrar/expandir** - No lado direito, há um botão para a dobrar/expandir a janela do console.
 
 > [!NOTE]
 > O simulador de web do Raspberry Pi agora está disponível na versão prévia. Gostaríamos de ouvir sua voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código-fonte é público no [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
-![Visão geral do simulador online de Pi](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
+![Visão geral do simulador online de Pi](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -90,11 +97,12 @@ Há três áreas no simulador da web.
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Executar um aplicativo de exemplo no simulador de web Pi
 
 1. Na área de codificação, verifique se você está trabalhando no aplicativo de exemplo padrão. Substitua o espaço reservado na Linha 15 com cadeia de conexão do dispositivo do Azure IoT hub.
-   ![Substitua a cadeia de caracteres de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+1. 
+   ![Substitua a cadeia de caracteres de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Clique em **Executar** ou digite `npm start` para executar o aplicativo.
+2. Selecione **executados** ou tipo `npm start` para executar o aplicativo.
 
-Você deve ver a saída a seguir que mostra os dados do sensor e as mensagens que são enviadas ao seu hub IoT ![saída - dados de sensor enviados do Raspberry Pi ao hub IoT](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens que são enviadas ao seu Hub IoT ![saída - dados de sensor enviados do Raspberry Pi para o seu Hub IoT](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
 

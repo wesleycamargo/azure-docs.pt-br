@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fa2796ccaccd6d840ed0ca814d124e433b26049
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 655f8555f9e7fb04d69f35048b7fdec0fb1cebce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857786"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Tutorial: Integração do Azure Active Directory ao Moxi Engage
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Moxi Engage, execute as seguint
 
     ![Informações de logon único de URLs e Domínio do Moxi Engage](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte ao cliente do Moxi Engage](mailto:support@moxiworks.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -190,9 +190,9 @@ Quando clicar no bloco do Moxi Engage no Painel de Acesso, você deverá ser con
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

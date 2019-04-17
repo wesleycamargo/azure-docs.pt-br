@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/13/2019
-ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997507"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469634"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerenciada do Banco de Dados SQL do Azure
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma instância gerenciada do Banco de Dados SQL do Azure
 
 Este Início Rápido orienta sobre como criar uma [instância gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure no portal do Azure.
 
@@ -45,11 +45,12 @@ As etapas a seguir mostram como criar uma instância gerenciada.
    | Configuração| Valor sugerido | DESCRIÇÃO |
    | ------ | --------------- | ----------- |
    | **Assinatura** | Sua assinatura | Uma assinatura na qual você tem permissão para criar novos recursos |
-   |**Nome da Instância Gerenciada**|Qualquer nome válido|Para ver os nomes válidos, consulte [regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Logon de administrador da Instância Gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "serveradmin", que é uma função de nível de servidor reservada.|
+   |**Nome da instância gerenciada**|Qualquer nome válido|Para ver os nomes válidos, consulte [regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Logon de administrador da instância gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "serveradmin", que é uma função de nível de servidor reservada.|
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 16 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Fuso horário**|O fuso horário a ser observado por sua instância gerenciada|Para obter mais informações, veja [fusos horários](sql-database-managed-instance-timezone.md)|
    |**Ordenação**|A ordenação que você deseja usar para a instância gerenciada|Se estiver migrando bancos de dados do SQL Server, verifique a ordenação de origem usando `SELECT SERVERPROPERTY(N'Collation')` e use esse valor. Para saber mais sobre ordenações, confira [ordenações de nível de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Localidade**|O local no qual você deseja criar a instância gerenciada|Para obter mais informações sobre as regiões, confira [Regiões do Azure](https://azure.microsoft.com/regions/).|
+   |**Local padrão**|O local no qual você deseja criar a instância gerenciada|Para obter mais informações sobre as regiões, confira [Regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|Selecione a **Criar nova rede virtual** ou uma rede virtual e uma sub-rede válidas.| Se uma rede/sub-rede estiver indisponível, ela deverá ser [modificada para cumprir os requisitos de rede](sql-database-managed-instance-configure-vnet-subnet.md) antes de selecioná-la como um destino para a nova instância gerenciada. Para saber mais sobre os requisitos para configurar o ambiente de rede para uma instância gerenciada, confira [configurar uma VNet para uma instância gerenciada](sql-database-managed-instance-connectivity-architecture.md). |
    |**Grupo de recursos**|Um grupo de recursos novo ou existente|Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 

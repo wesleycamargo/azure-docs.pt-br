@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Reconhecimento de fala, Java (Windows, Linux) – Serviços de Fala'
+title: 'Início Rápido: Reconhecimento de fala, Java (Windows, Linux) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a criar um aplicativo Java simples que captura e transcreve a fala do usuário por meio do microfone do computador.
+description: Neste Início Rápido, você aprenderá a criar um aplicativo Java simples que captura e transcreve a fala do usuário por meio do microfone do computador.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447575"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009392"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Início Rápido: Reconhecimento de fala com o SDK de Fala para Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala](speech-sdk.md). Você transcreve a fala em texto em tempo real por meio do microfone do computador. O aplicativo é criado com o pacote do Maven do SDK de Fala e o Java IDE do Eclipse (v4.8) no Windows de 64 bits ou no Ubuntu Linux 16.04/18.04 de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala](speech-sdk.md). Você transcreve a fala em texto em tempo real por meio do microfone do computador. O aplicativo é criado com o pacote do Maven do SDK de Fala e o Java IDE do Eclipse (v4.8) no Windows de 64 bits, no Ubuntu Linux 16.04/18.04 de 64 bits ou no macOS 10.13 ou posterior. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
 > [!NOTE]
 > Para o SDK dos Dispositivos de Fala e o dispositivo Roobo, confira [SDK dos Dispositivos de Fala](speech-devices-sdk.md).
@@ -30,7 +30,7 @@ Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala]
 
 Este início rápido requer:
 
-* Sistema operacional: Windows (64 bits) ou Ubuntu Linux 16.04/18.04 (64 bits)
+* Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior
 * [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Uma chave de assinatura do Azure para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).

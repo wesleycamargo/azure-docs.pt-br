@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a17b42458cf1512c1dd9ee38782917ca93cd2ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904585"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: Integração do Azure Active Directory com o Nuclino
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
 
     ![Informações de domínio e de URLs do Nuclino para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais da seção **Autenticação**, que será explicada mais adiante neste tutorial.
@@ -117,7 +117,7 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
 
     ![Informações de domínio e de URLs do Nuclino para logon único](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://app.nuclino.com/<UNIQUE-ID>/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.nuclino.com/<UNIQUE-ID>/login`
 
     > [!NOTE]
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Nuclino](mailto:contact@nuclino.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -217,7 +217,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -265,9 +265,9 @@ Ao clicar no bloco do Nuclino no Painel de Acesso, você deverá ser conectado a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

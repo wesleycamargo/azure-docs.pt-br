@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ced28f5bc3ca947bb4754b7de716b37062f9859a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1fce18913d6763514abb80ceba471bf73d59ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898560"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory ao Lessonly.com
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Lessonly.com ao Azure AD, você precisa adicionar o Lessonly.com da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Lessonly.com da galeria, execute as seguintes etapas:**
+**Para adicionar o Lessonly.com por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Lessonly.com, execute as seguin
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -233,9 +233,9 @@ Ao clicar no bloco do Lessonly.com no Painel de Acesso, você deverá entrar aut
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

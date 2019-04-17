@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759690"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256372"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IIoT (IoT industrial)
 
@@ -50,4 +50,4 @@ O gerenciamento de certificados da UA de OPC do Azure IoT ou OPC Vault é uma im
 Agora que você viu uma introdução à IoT industrial e seus componentes, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [O que é um OPC Twin](overview-opc-twin.md)
+> [O que é um OPC gêmeo?](overview-opc-twin.md)

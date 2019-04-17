@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215584"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362131"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Concluir uma distribuição piloto de redefinição de senha self-service do Azure AD
 
@@ -43,7 +43,7 @@ Neste tutorial, você habilitará uma distribuição piloto de SSPR (redefiniç�
    * Clique em **Salvar**
 1. Na página **Métodos de autenticação**
    * Defina o **Número de métodos necessários para a redefinição** como **1**
-   * Escolha quais **métodos disponíveis para os usuários** sua organização deseja habilitar. Para este tutorial, marque as caixas para habilitar **Email**, **Código do aplicativo móvel (visualização)**.
+   * Escolha quais **métodos disponíveis para os usuários** sua organização deseja habilitar. Para este tutorial, marque as caixas para habilitar **Email**, **Celular**, **Telefone comercial**, **Notificação de aplicativo móvel (versão prévia)** e **Código de aplicativo móvel (versão prévia)**.
    * Clique em **Salvar**
 1. Na página **Registro**
    * Selecione **Sim** em **Exigir que os usuários se registrem ao entrar**.
@@ -60,7 +60,7 @@ A redefinição de senha de autoatendimento agora está configurada para usuári
 
 ## <a name="test-sspr-as-a-user"></a>Testar SSPR como usuário
 
-Teste a redefinição de senha de autoatendimento usando um usuário de teste que não seja administrador e seja membro do grupo piloto. **Lembre-se de que se você usar uma conta que tenha função de administrador atribuída, a quantidade e os métodos de autenticação poderão ser diferentes dos selecionados, já que a Microsoft gerencia a política de administrador.**
+Teste a redefinição de senha de autoatendimento usando um usuário de teste que não seja administrador e seja membro do grupo piloto. **Lembre-se de que, se você usar uma conta que tenha função de administrador atribuída, a quantidade e os métodos de autenticação poderão ser diferentes dos selecionados, já que a Microsoft gerencia a política de administrador.**
 
 1. Abra uma nova janela do navegador no modo InPrivate ou anônimo.
 1. Usando um registro de usuário de teste para redefinição de senha de autoatendimento usando o portal de registro localizado em [ https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).

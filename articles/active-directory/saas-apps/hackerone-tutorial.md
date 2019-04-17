@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898458"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Active Directory ao HackerOne
 
@@ -145,11 +145,11 @@ Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes
 
      a. Na caixa de texto **Domínio de Email** , digite um domínio registrado.
 
-    b. Nas caixas de texto  **URL de Logon Único**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    b. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    c. Abra o **Arquivo de certificado** baixado do portal do Azure no Bloco de notas, copie o conteúdo dele para a área de transferência e, em seguida, cole-o na caixa de texto **Certificado X509**  .
+    c. Abra o **Arquivo de certificado** baixado do portal do Azure no Bloco de notas, copie o conteúdo dele para a área de transferência e, em seguida, cole-o na caixa de texto **Certificado X509**.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 5. No diálogo Configurações de Autenticação, execute as seguintes etapas:
 
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

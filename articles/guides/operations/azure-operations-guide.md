@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077149"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051163"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre as regiões do Azure disponíveis, consulte 
 ### <a name="cloud-computing-model"></a>Modelo de computação em nuvem
 
 O Azure usa um modelo de computação em nuvem com base nas categorias de serviço fornecidas aos clientes. As três categorias de serviço incluem IaaS (infraestrutura como Serviço), PaaS (Plataforma como Serviço) e SaaS (Software como Serviço). Os fornecedores compartilham uma parte da responsabilidade ou toda ela pelos componentes na pilha de computação em cada uma dessas categorias. Vamos dar uma olhada em cada uma das categorias de computação em nuvem.
-![Comparação de Pilha de Computação em Nuvem](./media/cloud-computing-comparison.png)
+![Comparação de pilha de computação em nuvem](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infraestrutura como serviço
 
@@ -169,7 +169,7 @@ Além de criar, gerenciar e excluir recursos usando o portal do Azure, você pod
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-O Azure PowerShell é um conjunto de módulo que fornece cmdlets para gerenciar o Azure. Você pode usar os cmdlets para criar, gerenciar e remover serviços do Azure. Os cmdlets podem ajudá-lo a conseguir implantações consistentes, reproduzíveis e sem intervenção. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+O Azure PowerShell é um conjunto de módulo que fornece cmdlets para gerenciar o Azure. Você pode usar os cmdlets para criar, gerenciar e remover serviços do Azure. Os cmdlets podem ajudá-lo a conseguir implantações consistentes, reproduzíveis e sem intervenção. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="azure-command-line-interface"></a>Interface de linha de comando do Azure
 
@@ -477,7 +477,7 @@ Há várias opções para a implantação de uma rede virtual.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [CLI (interface de linha de comando)](../../virtual-network/quick-create-cli.md)
+- [CLI (Interface de Linha de Comando)](../../virtual-network/quick-create-cli.md)
 
 - Modelos do Azure Resource Manager
 
@@ -492,4 +492,4 @@ Você pode ajudar a proteger redes virtuais do Azure usando um grupo de seguran�
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
-- [Criar uma VM Linux](../../virtual-machines/linux/quick-create-portal.md)
+- [Criar uma VM do Linux](../../virtual-machines/linux/quick-create-portal.md)

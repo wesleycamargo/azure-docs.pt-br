@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a3e01b7275b7d8329a9fc3bfc90e20398fdf38b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845080"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory com o Origami
 
 Neste tutorial, você aprenderá a integrar o Origami ao Azure AD (Azure Active Directory).
 A integração do Origami ao Azure AD oferece os seguintes benefícios:
 
-* Você pode controlar no Azure AD quem tem acesso ao Origami.
-* Você pode habilitar seus usuários ser automaticamente conectado no Origami (logon único) com suas contas do AD do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Origami.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Origami (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,13 +39,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para configurar a integração do Azure AD ao Origami, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único Origami
+* Assinatura habilitada para logon único do Origami
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Dá suporte ao Origami **SP** SSO iniciado
+* O Origami é compatível com o SSO iniciado por **SP**
 
 ## <a name="adding-origami-from-the-gallery"></a>Adicionando o Origami por meio da galeria
 
@@ -65,22 +65,22 @@ Para configurar a integração do Origami ao Azure AD, você precisará adiciona
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Origami**, selecione **Origami** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Origami**, selecione **Origami** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Origami na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Origami com base em um usuário de teste chamado **Britta Simon**.
-Para logon único funcione, uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Origami precisa ser estabelecida.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Origami, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Origami.
 
 Para configurar e testar o logon único do Azure AD com o Origami, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único Origami](#configure-origami-single-sign-on)**  – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o Logon Único do Origami](#configure-origami-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Origami](#create-origami-test-user)**  – para ter um equivalente de Britta Simon no Origami que esteja vinculado à representação de usuário do AD do Azure.
+5. **[Criar um usuário de teste do Origami](#create-origami-test-user)** – para ter um equivalente de Brenda Fernandes no Origami que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -89,7 +89,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Origami, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), no **Origami** página de integração de aplicativos, selecione **sign-on único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Origami**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -103,9 +103,9 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon de único de URLs e domínio do Origami](common/sp-signonurl.png)
+    ![Informações de logon único de Domínio e URLs do Origami](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://live.origamirisk.com/origami/account/login?account=<companyname>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://live.origamirisk.com/origami/account/login?account=<companyname>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Origami](https://wordpress.org/support/theme/origami) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Sobre o **configurar o Origami** seção, copie a URL (s) apropriado, de acordo com suas necessidades.
+6. Na seção **Configurar o Origami**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
 
     c. URL de logoff
 
-### <a name="configure-origami-single-sign-on"></a>Configurar o logon único Origami
+### <a name="configure-origami-single-sign-on"></a>Configurar o logon único do Origami
 
 1. Faça logon na conta do Origami com direitos de Administrador.
 
@@ -138,9 +138,9 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
 
      a. Selecione **Habilitar Logon Único**.
 
-    b. No **Sign in URL do provedor de identidade da página** caixa de texto, cole o valor da **URL de logon**, que você copiou do portal do Azure.
+    b. Na caixa de texto **URL da Página de Entrada do Provedor de Identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
 
-    c. No **URL de página de logoff do provedor de identidade** caixa de texto, cole o valor da **URL de logoff**, que você copiou do portal do Azure.
+    c. Na caixa de texto **URL da Página de Saída do Provedor de Identidade**, cole o valor de **URL de Logoff** que você copiou do portal do Azure.
 
     d. Clique em **Procurar** para carregar o certificado baixado do Portal do Azure.
 
@@ -175,13 +175,13 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Origami.
 
-1. No portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Origami**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Origami**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, selecione **Origami**.
 
-    ![O link do Origami na lista de aplicativos](common/all-applications.png)
+    ![Link do Origami na lista de Aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
 
@@ -219,7 +219,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_56.png)
 
-     a. No **nome de usuário** caixa de texto, insira o email do usuário, como **brendafernandes\@contoso.com**.
+     a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Senha** , digite uma senha.
 
@@ -229,7 +229,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
 
     e. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
-    f. Clique em **Salvar**.
+    f. Clique em **Save** (Salvar).
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_57.png)
 
@@ -241,13 +241,13 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco do Origami no painel de acesso, você deve ser conectado automaticamente ao Origami para os quais você configura o logon único. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Origami no Painel de Acesso, você deverá ser conectado automaticamente ao Origami, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

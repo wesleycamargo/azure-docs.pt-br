@@ -1,22 +1,22 @@
 ---
-title: Tutorial sobre como pesquisar o JSON no Armazenamento de Blobs do Azure – Azure Search
-description: Neste tutorial, saiba como pesquisar dados de Blobs do Azure semiestruturados usando o Azure Search.
+title: 'Tutorial: Indexação de dados semiestruturados em blobs JSON – Azure Search'
+description: Saiba como indexar e pesquisar blobs JSON do Azure semiestruturados usando o Azure Search e o Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201340"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471453"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutorial: Pesquisar dados semi-estruturados no armazenamento de nuvem do Azure
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial: Indexar e pesquisar dados semiestruturados (blobs JSON) no Azure Search
 
 O Azure Search pode indexar matrizes e documentos JSON no armazenamento de blobs do Azure usando um [indexador](search-indexer-overview.md) que faz leitura de dados semiestruturados. Dados semi-estruturados contêm marcas ou marcações que separam o conteúdo dentro dos dados. Eles dividem a diferença entre dados não estruturados, que devem ser totalmente indexados, e dados estruturados formalmente que aderem a um modelo de dados, como um esquema de banco de dados relacional, que pode ser indexado por campo.
 
@@ -33,37 +33,53 @@ Neste tutorial, use as [APIs REST do Azure Search](https://docs.microsoft.com/re
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+Os serviços, as ferramentas e os dados a seguir são usados neste início rápido. 
 
-[Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para conter dados de exemplo.
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial. 
 
-[Use Postman](https://www.getpostman.com/) ou outro cliente REST para enviar as solicitações. As instruções para configurar uma solicitação HTTP no Postman são fornecidas na próxima seção.
+[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) é usada para armazenar o conjunto de dados.
+
+[Aplicativo da área de trabalho do Postman](https://www.getpostman.com/) é usado para enviar solicitações para o Azure Search.
+
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contém os dados usados neste tutorial. Baixe e descompacte este arquivo em sua própria pasta. Para este tutorial, os dados são provenientes do [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) convertidos para JSON.
+
+## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+
+As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+
+1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
+
+1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+
+Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+
+## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
+
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de Armazenamento do Azure, clique em **Blobs** e, em seguida, clique em **+ Contêiner**.
+
+1. [Crie um contêiner de Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Como você usará um nome de conta de armazenamento e uma chave para a conexão, verifique se o Nível de Acesso Público do contêiner está definido como "Contêiner (acesso de leitura anônimo para contêiner)".
+
+   ![Configurar nível de acesso público](media/search-semi-structured-data/container-public-access-level.png "Configurar nível de acesso público")
+
+1. Depois que o contêiner for criado, abra-o e selecione **Carregar** na barra de comandos.
+
+   ![Carregar na barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
+
+1. Navegue até a pasta que contém os arquivos de exemplo. Selecione todos eles e, em seguida, clique em **Carregar**.
+
+   ![Carregar arquivos](media/search-semi-structured-data/clinicalupload.png "Upload files")
+
+Após o upload ser concluído, os arquivos devem aparecer em sua própria subpasta dentro do contêiner de dados.
 
 ## <a name="set-up-postman"></a>Configurar o Postman
 
 Inicie o Postman e configure uma solicitação HTTP. Se você não estiver familiarizado com essa ferramenta, consulte [Explorar APIs REST do Azure Search usando Postman](search-fiddler.md).
 
-O método de solicitação para cada chamada neste tutorial é "POST". As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e sua "chave de administrador" (a chave de administrador é um espaço reservado para sua chave primária de pesquisa) respectivamente. O corpo é onde você coloca o conteúdo real de sua chamada. Dependendo do cliente que você está usando, talvez haja algumas variações em como você cria sua consulta, mas essas são as noções básicas.
+O método de solicitação para cada chamada neste tutorial é **POST**. As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e sua "chave de administrador" (a chave de administrador é um espaço reservado para sua chave primária de pesquisa) respectivamente. O corpo é onde você coloca o conteúdo real de sua chamada. Dependendo do cliente que você está usando, talvez haja algumas variações em como você cria sua consulta, mas essas são as noções básicas.
 
   ![Pesquisa semi-estruturada](media/search-semi-structured-data/postmanoverview.png)
-
-Para as chamadas REST abordadas neste tutorial, sua chave de API de pesquisa é necessária. Você pode encontrar sua chave de API em **Chaves** dentro de seu serviço de pesquisa. Esta chave de API deve estar no cabeçalho de cada chamada à API (substitua “chave de administrador” na captura de tela anterior por ela) que esse tutorial orienta você a fazer. Mantenha a chave, pois você precisará dela para cada chamada.
-
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/keys.png)
-
-## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
-
-1. **Baixe [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** e descompacte-o em sua própria pasta. Para este tutorial, os dados são provenientes do [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) convertidos para JSON.
-
-2. Entre no [portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento do Azure, abra o contêiner de **dados** e clique em **Upload**.
-
-3. Clique em **Avançado**, digite "clinical-trials-json" e, em seguida, carregue todos os arquivos JSON baixados.
-
-  ![Pesquisa semi-estruturada](media/search-semi-structured-data/clinicalupload.png)
-
-Após o upload ser concluído, os arquivos devem aparecer em sua própria subpasta dentro do contêiner de dados.
-
-## <a name="connect-your-search-service-to-your-container"></a>Conecte o serviço de pesquisa ao seu contêiner
 
 Estamos usando o Postman fazer três chamadas à API para o serviço de pesquisa para criar uma fonte de dados, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
 
@@ -73,20 +89,22 @@ Execute as seguintes três chamadas à API do cliente REST.
 
 ## <a name="create-a-data-source"></a>Criar uma fonte de dados
 
-Uma fonte de dados é um objeto do Azure Search que especifica quais dados serão indexados.
+A [API de Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) cria um objeto de Azure Search que especifica quais dados indexar.
 
-O ponto de extremidade desta chamada é `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do serviço de pesquisa. Para essa chamada, você precisa do nome da sua conta de armazenamento e da chave de conta de armazenamento. A chave de conta de armazenamento pode ser encontrada no Portal do Azure dentro das **Chaves de Acesso** da sua conta de armazenamento. A localização é mostrada na imagem a seguir:
+O ponto de extremidade desta chamada é `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do serviço de pesquisa. 
+
+Para essa chamada, o corpo da solicitação deve incluir o nome da sua conta de armazenamento, a chave de conta de armazenamento e o nome do contêiner de blob. A chave de conta de armazenamento pode ser encontrada no Portal do Azure dentro das **Chaves de Acesso** da sua conta de armazenamento. A localização é mostrada na imagem a seguir:
 
   ![Pesquisa semi-estruturada](media/search-semi-structured-data/storagekeys.png)
 
-Certifique-se de substituir o `[storage account name]` e o `[storage account key]` no corpo da sua chamada antes de executar a chamada.
+Substitua `[storage account name]`, `[storage account key]` e `[blob container name]` no corpo da chamada antes de executar a chamada.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -104,8 +122,8 @@ A resposta deve ser semelhante a:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -114,7 +132,7 @@ A resposta deve ser semelhante a:
 
 ## <a name="create-an-index"></a>Crie um índice
     
-A segunda chamada à API cria um índice do Azure Search. Um índice especifica todos os parâmetros e seus atributos.
+A segunda chamada é [API de Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-data-source), criando um índice do Azure Search que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e seus atributos.
 
 A URL para esta chamada é `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
@@ -204,7 +222,7 @@ A resposta deve ser semelhante a:
 
 ## <a name="create-and-run-an-indexer"></a>Criar e executar um indexador
 
-Um indexador conecta a fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece um planejamento para automatizar a atualização de dados.
+Um indexador conecta a fonte de dados, importa dados para o índice de pesquisa de destino e, opcionalmente, fornece um planejamento para automatizar a atualização de dados. A API REST é [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 A URL para esta chamada é `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do serviço de pesquisa.
 
@@ -247,7 +265,11 @@ A resposta deve ser semelhante a:
 
 ## <a name="search-your-json-files"></a>Pesquisar os arquivos JSON
 
-Agora, você pode emitir consultas no índice. Para essa tarefa, use o [**Gerenciador de pesquisa**](search-explorer.md) no portal.
+Você poderá iniciar a pesquisa assim que o primeiro documento for carregado. Para essa tarefa, use o [**Gerenciador de pesquisa**](search-explorer.md) no portal.
+
+No portal do Azure, abra a página **Visão Geral** do o serviço de pesquisa e localize o índice criado na lista **Índices**.
+
+Escolha o índice que você acabou de criar. A versão da API pode ser versão prévia ou uma versão em disponibilidade geral. O único requisito de versão prévia era para indexação de matrizes JSON.
 
   ![Pesquisa não estruturada](media/search-semi-structured-data/indexespane.png)
 
@@ -273,7 +295,7 @@ A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o g
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode anexar algoritmos com inteligência artificial a um pipeline do indexador. Como uma próxima etapa, prossiga para o tutorial a seguir.
+Você pode anexar algoritmos de Serviços Cognitivos desenvolvidos com IA a um pipeline do indexador. Como uma próxima etapa, prossiga para o tutorial a seguir.
 
 > [!div class="nextstepaction"]
-> [Indexação de documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indexação com IA](cognitive-search-tutorial-blob.md)

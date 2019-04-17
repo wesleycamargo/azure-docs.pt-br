@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492785"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426606"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os co
 Sim. No entanto, você precisará [Parar a proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) do Cofre conectado, [Cancelar o registro](troubleshoot-azure-files.md#configuring-backup) da Conta de Armazenamento e protegê-la em um Cofre diferente.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em quais áreas geográficas posso fazer backup de compartilhamentos de Arquivos do Azure <br/>
-O backup para compartilhamentos de arquivos do Azure está atualmente em versão prévia e está disponível apenas nas áreas geográficas abaixo: 
-- Leste da Austrália (AE) 
-- Sudeste da Austrália (ASE) 
+O backup para compartilhamentos de arquivos do Azure está atualmente em versão prévia e está disponível apenas nas áreas geográficas abaixo:
+- Leste da Austrália (AE)
+- Sudeste da Austrália (ASE)
 - Sul do Brasil (BRS)
 - Canadá Central (CNC)
 - Leste do Canadá (CE)
@@ -50,17 +50,17 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 - Leste dos EUA 2 (EUS2)
 - Leste do Japão (JPE)
 - Oeste do Japão (JPW)
-- Índia Central (INC) 
+- Índia Central (INC)
 - Sul da Índia (INS)
 - Coreia Central (KRC)
 - Sul da Coreia (KRS)
-- Centro-Norte dos EUA (NCUS) 
-- Europa Setentrional (NE) 
-- Centro-Sul dos EUA (SCUS) 
+- Centro-Norte dos EUA (NCUS)
+- Europa Setentrional (NE)
+- Centro-Sul dos EUA (SCUS)
 - Sudeste Asiático (SEA)
-- Sul do Reino Unido (UKS) 
-- Oeste do Reino Unido (UKW) 
-- Europa Ocidental (WE) 
+- Sul do Reino Unido (UKS)
+- Oeste do Reino Unido (UKW)
+- Europa Ocidental (WE)
 - Oeste dos EUA (WUS)
 - Centro-Oeste dos EUA (WCUS)
 - Oeste dos EUA 2 (WUS 2)
@@ -82,7 +82,7 @@ Nº Os compartilhamentos de arquivos em uma mesma Conta de Armazenamento só pod
 Você pode ter até 200 instantâneos para um compartilhamento de arquivos a qualquer hora. O limite inclui instantâneos tirados pelo Backup do Azure conforme definido pela sua política. Se os backups começarem a falhar após atingir o limite, exclua pontos de restauração sob demanda para ter êxito nos backups futuros.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Depois de habilitar as redes virtuais na minha conta de armazenamento, o backup dos compartilhamentos de arquivo na conta começa a falhar. Por quê?
-O backup de compartilhamentos de arquivos do Azure não dá suporte a contas de armazenamento que têm redes virtuais habilitadas. Desabilite as redes virtuais nas Contas de Armazenamento para permitir backups bem-sucedidos. 
+O backup de compartilhamentos de arquivos do Azure não dá suporte a contas de armazenamento que têm redes virtuais habilitadas. Desabilite as redes virtuais nas Contas de Armazenamento para permitir backups bem-sucedidos.
 
 ## <a name="restore"></a>Restaurar
 
@@ -91,6 +91,10 @@ Quando um compartilhamento de arquivos do Azure é excluído, você vê a lista 
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Posso restaurar a partir de backups se parar a proteção em um compartilhamento de arquivos do Azure? <br/>
 Sim. Caso tenha escolhido **Reter Dados de Backup**, ao parar a proteção, você poderá restaurar a partir de todos os pontos de restauração existentes.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
+Se um trabalho de restauração em andamento for cancelado, o processo de restauração será interrompido e todos os arquivos restaurados antes do cancelamento permanecerão no destino configurado (local original ou alternativo) sem nenhuma reversão. 
+
 
 ## <a name="manage-backup"></a>Gerenciar backup
 

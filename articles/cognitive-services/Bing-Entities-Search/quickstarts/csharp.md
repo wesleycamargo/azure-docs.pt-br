@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861444"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488330"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o C#
 

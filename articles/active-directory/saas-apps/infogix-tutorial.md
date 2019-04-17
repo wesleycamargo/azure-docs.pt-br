@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cdadb8345f88c8d6f5960d1951c1368c666430b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189267"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Active Directory ao Infogix Data3Sixty Govern
 
@@ -108,13 +108,13 @@ Para configurar o logon único do Azure AD com o Infogix Data3Sixty Govern, exec
 
      a. Na caixa de texto **Identificador**, digite uma URL: `https://data3sixty.com/ui`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.data3sixty.com/sso/acs`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.data3sixty.com/sso/acs`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único em Domínio e URLs do Infogix Data3Sixty Govern](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<subdomain>.data3sixty.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.data3sixty.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do ao cliente do Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Infogix Data3Sixty Govern, exec
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Bruto)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -233,9 +233,9 @@ Ao clicar no bloco do Infogix Data3Sixty Govern no Painel de Acesso, você será
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621661"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361796"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -25,12 +25,12 @@ O serviço de Backup do Azure faz backup de dados na nuvem do Microsoft Azure. V
 
 O Backup do Azure oferece estes principais benefícios:
 
-- **Descarregue o backup local**: O Backup do Azure oferece uma solução simples para fazer backup de seus recursos locais na nuvem. Obtenha um backup de curto e longo prazo sem a necessidade de implantar soluções complexas de backup local. 
+- **Descarregue o backup local**: O Backup do Azure oferece uma solução simples para fazer backup de seus recursos locais na nuvem. Obtenha um backup de curto e longo prazo sem a necessidade de implantar soluções complexas de backup local.
 - **Faça backup de VMs IaaS do Azure**: O Backup do Azure fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e a escalabilidade são simples, os backups são otimizados e você pode fazer uma restauração com facilidade, conforme necessário.
-- **Dimensionar com facilidade** – o Backup do Azure usa o poder subjacente e a escala ilimitada da nuvem do Azure para proporcionar alta disponibilidade sem sobrecarga de manutenção ou de monitoramento. 
+- **Dimensionar com facilidade** – o Backup do Azure usa o poder subjacente e a escala ilimitada da nuvem do Azure para proporcionar alta disponibilidade sem sobrecarga de manutenção ou de monitoramento.
 - **Obter transferência de dados ilimitados**: o Backup do Azure não limita a quantidade de dados de entrada ou saída transferidos nem cobra pelos dados transferidos.
     - Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
-    - Se você fizer um backup inicial offline usando o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md). 
+    - Se você fizer um backup inicial offline usando o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
 - **Mantenha os dados seguros**:
     - Localmente, os dados em trânsito são criptografados no computador local usando AES256. Os dados transmitidos são protegidos por HTTPS entre o armazenamento e o backup. O protocolo iSCSI protege os dados transmitidos entre o backup e o computador do usuário. O túnel seguro é usado para proteger o canal iSCSI.
     - Para o backup de dados locais no Azure, os dados no Azure são criptografados em repouso usando a frase secreta que você fornece ao configurar o backup. A senha ou chave nunca é transmitida nem armazenada no Azure. Se for necessário restaurar os dados, somente você tem a senha de criptografia ou chave.
@@ -56,13 +56,13 @@ Ambos os serviços fornecem funcionalidades complementares, mas diferentes.
 - **Azure Site Recovery**: O Site Recovery fornece uma solução de recuperação de desastre para computadores locais e VMs do Azure. Você replica os computadores de um local primário para um secundário. Quando ocorre um desastre, você faz failover dos computadores para o local secundário e os acessa nele. Quando tudo voltar a funcionar normalmente, você fará failback dos computadores para recuperá-los no site primário.
 - **Backup do Azure**: O serviço de Backup do Azure faz backup dos dados de computadores locais e VMs do Azure. Os dados podem ser copiados em backup e recuperados em um nível granular, incluindo backup de arquivos, pastas, estado do sistema de computador e backup de dados com reconhecimento de aplicativo. O Backup do Azure lida com os dados em um nível mais granular do que o Site Recovery. Por exemplo, se uma apresentação em um laptop for corrompida, você usará o Backup do Azure para restaurar a apresentação. Caso deseje manter uma configuração de VM e os dados seguros e acessíveis, você poderá usar o Site Recovery.  
 
-Use os pontos da tabela para ajudar a descobrir suas necessidades de BCDR. 
+Use os pontos da tabela para ajudar a descobrir suas necessidades de BCDR.
 
 **Objetivo** | **Detalhes** | **Comparação**
---- | --- | --- 
+--- | --- | ---
 **Backup de dados/retenção** | Os dados de backup podem ser retidos e armazenados por dias, meses ou até anos, se necessário, de uma perspectiva de conformidade. | Soluções de backup, como o Backup do Azure, permitem que você escolha minuciosamente os dados que deseja copiar em backup e ajuste as políticas de backup e retenção.<br/><br/> O Site Recovery não permite o mesmo ajuste fino.
-**RPO (objetivo de ponto de recuperação)** | A quantidade de perda de dados aceitável se uma recuperação precisar ser feita. | Os backups têm um RPO mais variável.<br/><br/> Os backups de VM geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos.<br/><br/> O Site Recovery fornece um RPO baixo, pois a replicação é contínua ou frequente, de modo que o delta entre a cópia de origem e de réplica seja pequeno.
-**RTO (objetivo de tempo de recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo. 
+**RPO (Objetivo de Ponto de Recuperação)** | A quantidade de perda de dados aceitável se uma recuperação precisar ser feita. | Os backups têm um RPO mais variável.<br/><br/> Os backups de VM geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos.<br/><br/> O Site Recovery fornece um RPO baixo, pois a replicação é contínua ou frequente, de modo que o delta entre a cópia de origem e de réplica seja pequeno.
+**RTO (Objetivo de Tempo de Recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo.
 
 ## <a name="what-backup-scenarios-are-supported"></a>Há suporte para quais cenários de backup?
 
@@ -71,14 +71,10 @@ O Backup do Azure pode fazer backup de computadores locais e VMs do Azure.
 **Computador** | **Cenário de backup**
 --- | ---
 **Backup local** |  1) Execute o agente do MARS (Serviços de Recuperação do Microsoft Azure) do Backup do Azure em computadores Windows locais para fazer backup do estado do sistema e de arquivos individuais. <br/><br/>2) Faça backup de computadores locais em um servidor de backup (System Center DPM [Data Protection Manager] ou MABS [Servidor de Backup do Microsoft Azure]) e, em seguida, configure o servidor de backup para fazer backup em um cofre dos Serviços de Recuperação do Backup do Azure no Azure.
-**VMs do Azure** | 1) Habilite o backup para VMs individuais do Azure. Quando você habilita o backup, o Backup do Azure instala uma extensão no agente de VM do Azure em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) Execute o agente do MARS em uma VM do Azure. Isso é útil se você deseja fazer backup de arquivos e pastas individuais na VM.<br/><br/> 3) Faça backup de uma VM do Azure em um servidor DPM ou no MABS em execução no Azure. Em seguida, faça backup do servidor DPM/MABS em um cofre usando o Backup do Azure. 
+**VMs do Azure** | 1) Habilite o backup para VMs individuais do Azure. Quando você habilita o backup, o Backup do Azure instala uma extensão no agente de VM do Azure em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) Execute o agente do MARS em uma VM do Azure. Isso é útil se você deseja fazer backup de arquivos e pastas individuais na VM.<br/><br/> 3) Faça backup de uma VM do Azure em um servidor DPM ou no MABS em execução no Azure. Em seguida, faça backup do servidor DPM/MABS em um cofre usando o Backup do Azure.
 
 
 ## <a name="why-use-a-backup-server"></a>Por que usar um servidor de backup?
-
-
-
-
 As vantagens de fazer backup de computadores e aplicativos no armazenamento DPM/MABS e, em seguida, fazer backup do armazenamento DPM/MABS em um cofre são as seguintes:
 
 - Fazer backup no MABS/DPM fornece backups com reconhecimento de aplicativo otimizados para aplicativos comuns, como SQL Server, Exchange e SharePoint, além de backups de arquivo/pasta/volume e backups de estado do computador (bare-metal, estado do sistema).
@@ -93,28 +89,28 @@ Saiba mais sobre [como funciona o backup](backup-architecture.md#architecture-ba
 **Computador** | **Método de backup** | **Fazer backup**
 --- | --- | ---
 **VMs locais do Windows** | Executar o agente do MARS | Faça backup de arquivos, pastas e do estado do sistema.<br/><br/> Computadores Linux não compatíveis.
-**Computadores locais** | Fazer backup para o DPM/MABS | Faça backup de tudo o que é protegido pelo [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou pelo [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), incluindo arquivos/pastas/compartilhamentos/volumes e dados específicos do aplicativo. 
+**Computadores locais** | Fazer backup para o DPM/MABS | Faça backup de tudo o que é protegido pelo [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou pelo [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), incluindo arquivos/pastas/compartilhamentos/volumes e dados específicos do aplicativo.
 **VMs do Azure** | Executar a extensão do backup de agente de VM do Azure | Fazer backup de toda a VM
 **VMs do Azure** | Executar o agente do MARS | Faça backup de arquivos, pastas e do estado do sistema.<br/><br/> Computadores Linux não compatíveis.
 **VMs do Azure** | Fazer backup no MABS/DPM em execução no Azure | Faça backup de tudo o que é protegido pelo [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) ou pelo [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807), incluindo arquivos/pastas/compartilhamentos/volumes e dados específicos do aplicativo.
 
 ## <a name="what-backup-agents-do-i-need"></a>Quais agentes de backup são necessários?
 
-**Cenário** | **Agente** 
---- | --- 
+**Cenário** | **Agente**
+--- | ---
 **Fazer backup de VMs do Azure** | Nenhum agente necessário. A extensão de VM do Azure para backup é instalada na VM do Azure quando você executa o primeiro backup de VM do Azure.<br/><br/> Suporte para Windows e Linux.
-**Fazer backup de computadores Windows locais** | Baixe, instale e execute o agente do MARS diretamente no computador. 
+**Fazer backup de computadores Windows locais** | Baixe, instale e execute o agente do MARS diretamente no computador.
 **Fazer backup das VMs do Azure com o agente do MARS** | Baixe, instale e execute o agente do MARS diretamente no computador. O agente do MARS pode ser executado junto com a extensão de backup.
 **Fazer backup de computadores locais e VMs do Azure no DPM/MABS** | O agente de proteção do DPM ou do MABS é executado nos computadores que você deseja proteger. O agente do MARS é executado no servidor DPM/MABS para fazer backup no Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Qual agente de backup devo usar?
 
-**Backup** | **Solução** | **Limitação**
+**Backup** | **Solução** | **Limitações**
 --- | --- | ---
 **Desejo fazer backup de toda uma VM do Azure** | Habilite o backup para a VM. A extensão de backup será automaticamente configurada na VM do Azure no Windows ou no Linux. | Toda a VM é copiada em backup <br/><br/> Para VMs Windows, o backup é consistente com aplicativo. para o Linux, o backup é consistente com arquivo. Caso precise de reconhecimento de aplicativo para VMs do Linux, você precisará configurar isso com scripts personalizados.
 **Desejo fazer backup de pastas/arquivos específicos em uma VM do Azure** | Implante o agente do MARS na VM.
 **Desejo fazer backup diretamente de computadores Windows locais** | Instale o agente do MARS no computador. | Você pode fazer backup de arquivos, de pastas e do estado do sistema no Azure. Os backups não têm reconhecimento de aplicativo.
-**Desejo fazer backup diretamente de computadores Linux locais** | Você precisará implantar o DPM ou o MABS para fazer backup no Azure.
+**Desejo fazer backup diretamente de computadores Linux locais** | Você precisará implantar o DPM ou o MABS para fazer backup no Azure. | Não há suporte para o backup do host do Linux, você pode apenas fazer backup do computador convidado do Linux hospedado em Hyper-V ou VMWare.
 **Desejo fazer backup de aplicativos executados localmente** | Para backups com reconhecimento de aplicativo, os computadores precisam estar protegidos pelo DPM ou pelo MABS.
 **Desejo obter configurações granulares e flexíveis de backup e recuperação para VMs do Azure** | Proteja as VMs do Azure com o MABS/DPM em execução no Azure para flexibilidade adicional no agendamento de backup e flexibilidade total para proteger e restaurar arquivos, pastas, volumes, aplicativos e o estado do sistema.
 
@@ -127,4 +123,3 @@ Saiba mais sobre [como funciona o backup](backup-architecture.md#architecture-ba
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

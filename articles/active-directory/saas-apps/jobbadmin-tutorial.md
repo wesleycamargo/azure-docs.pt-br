@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895066b2ce21e75095d544de47b817866cd1a8ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855845"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutorial: Integração do Azure Active Directory com o Jobbadmin
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Jobbadmin ao Azure AD, você precisará adicionar o Jobbadmin da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Jobbadmin da galeria, execute as seguintes etapas:**
+**Para adicionar o Jobbadmin por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Jobbadmin, execute as seguintes
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<instancename>.jobnorge.no`
 
-    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Entre em contato com a [equipe de suporte do cliente do Jobbadmin](https://www.jobbnorge.no/om-oss/kontakt-oss) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -150,7 +150,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -195,8 +195,8 @@ Ao clicar no bloco do Jobbadmin no Painel de Acesso, você deverá ser conectado
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d34b40195a5f8effb794f3fbefc7949740509e27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835655"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Active Directory com OrgChart Now
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a integrar o OrgChart Now ao Azure AD (Azure Ac
 A integração do OrgChart Now ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, você poderá controlar quem tem acesso ao OrgChart Now.
-* Você pode habilitar seus usuários ser automaticamente conectado no OrgChart Now (logon único) com suas contas do AD do Azure.
+* Você pode permitir que os usuários sejam conectados automaticamente ao OrgChart Now (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,19 +39,19 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para configurar a integração do Azure AD com o OrgChart Now, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único OrgChart Now
+* Assinatura habilitada para logon único do OrgChart Now
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Dá suporte ao OrgChart Now **SP** e **IDP** SSO iniciado
+* O OrgChart Now dá suporte ao SSO iniciado por **SP** e **IDP**
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>Adicionar o OrgChart Now a partir da galeria
 
 Para configurar a integração do OrgChart Now ao AD do Azure, você precisará adicionar o OrgChart Now da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o OrgChart Now a partir da galeria, execute as seguintes etapas:**
+**Para adicionar o OrgChart Now por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -71,16 +71,16 @@ Para configurar a integração do OrgChart Now ao AD do Azure, você precisará 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o OrgChart Now, com base em um usuário de teste chamado **Britta Simon**.
-Para logon único funcione, uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no OrgChart Now precisa ser estabelecida.
+Nesta seção, você configurará e testará o logon único do Azure AD com o OrgChart Now, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do OrgChart Now.
 
 Para configurar e testar o logon único do AD do Azure com o OrgChart Now, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar OrgChart agora Single Sign-On](#configure-orgchart-now-single-sign-on)**  – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o logon único do OrgChart Now](#configure-orgchart-now-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do OrgChart Now](#create-orgchart-now-test-user)**  – para ter um equivalente de Britta Simon no OrgChart Now que esteja vinculado à representação de usuário do AD do Azure.
+5. **[Criar um usuário de teste do OrgChart Now](#create-orgchart-now-test-user)** – para ter um equivalente de Brenda Fernandes no OrgChart Now vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -89,7 +89,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o OrgChart Now, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), no **OrgChart Now** página de integração de aplicativos, selecione **sign-on único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **OrgChart Now**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -109,30 +109,30 @@ Para configurar o logon único do Azure AD com o OrgChart Now, execute as seguin
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Imagem](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` é o **identificador do Azure AD** copiados do **configurar OrgChart Now** seção, descrita posteriormente no tutorial.
+    > `<YourEntityID>` é o **Identificador do Azure AD** copiado da seção **Configurar o OrgChart Now**, descrita mais adiante no tutorial.
 
 6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Sobre o **configurar OrgChart Now** seção, copie a URL (s) apropriado, de acordo com suas necessidades.
+7. Na seção **Configurar o OrgChart Now**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de Logon
+    a. URL de logon
 
     b. Identificador do Azure AD
 
     c. URL de logoff
 
-### <a name="configure-orgchart-now-single-sign-on"></a>Configurar o logon único OrgChart Now
+### <a name="configure-orgchart-now-single-sign-on"></a>Configurar o logon único do OrgChart Now
 
-Para configurar o logon único no **OrgChart Now** , é necessário enviar o **XML de metadados de Federação** e apropriado URLs copiadas do portal do Azure para [equipe de suporte do OrgChart Now ](mailto:ocnsupport@officeworksoftware.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **OrgChart Now**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do OrgChart Now](mailto:ocnsupport@officeworksoftware.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao OrgChart Now.
 
-1. No portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **OrgChart Now**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **OrgChart Now**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -191,7 +191,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 1. O OrgChart Now dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Um novo usuário é criado durante uma tentativa de acessar o OrgChart Now, caso ele ainda não exista. O recurso de provisionamento de usuário JIT criará apenas um **usuário somente leitura** quando uma solicitação SSO vier de um IDP reconhecido e o email na asserção SAML não for encontrado na lista de usuários. Para esse recurso de provisionamento automático, é necessário criar um grupo de acesso chamado **Geral** no OrgChart Now. Execute as etapas abaixo para criar um grupo de acesso:
 
-    a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
+     a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
 
     ![Grupos OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
@@ -209,7 +209,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 2. Para criar usuários **Admin** e **usuários de leitura / gravação**, crie manualmente um usuário para obter acesso ao nível de privilégio por SSO. Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-    a. Faça logon no OrgChart Now como Administrador de Segurança.
+     a. Faça logon no OrgChart Now como Administrador de Segurança.
 
     b.  Clique em **Configurações** no canto superior direito e navegue até **Gerenciar Usuários**.
 
@@ -219,9 +219,9 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
     ![Gerenciar o OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * No **ID de usuário** caixa de texto, insira a ID de usuário, como **brendafernandes\@contoso.com**.
+    * Na caixa de texto **ID de Usuário**, insira a ID de usuário, como **brendafernandes\@contoso.com**.
 
-    * Na **endereço de Email** texto, digite o email do usuário, como **brendafernandes\@contoso.com**.
+    * Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     * Clique em **Adicionar**.
 
@@ -229,13 +229,13 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco OrgChart Now no painel de acesso, você deve ser conectado automaticamente ao OrgChart Now para o qual você configura o logon único. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do OrgChart Now no Painel de Acesso, você deverá ser conectado automaticamente ao OrgChart Now, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec694e9d0bf69ca1d9adbe1c12beedba24d9994b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 62a4495667dc7c934883bfed0a8f07d7b2d653f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852519"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutorial: Integração do Azure Active Directory com o BeeLine
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o BeeLine, execute as seguintes e
 
     ![Informações de logon único de URLs e Domínio do BeeLine](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://projects.beeline.net/<instancename>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://projects.beeline.net/<instancename>`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
     
@@ -157,7 +157,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -202,8 +202,8 @@ Ao clicar no bloco do BeeLine no Painel de Acesso, você deverá ser conectado a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

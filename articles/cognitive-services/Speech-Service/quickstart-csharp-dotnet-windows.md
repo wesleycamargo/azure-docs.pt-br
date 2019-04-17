@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838605"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008740"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Reconhecimento de fala com o SDK de Fala para .NET Framework (Windows)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início Rápido: Reconhecimento de fala com o SDK de Fala para .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,7 +25,7 @@ Use este guia para criar um aplicativo de console de conversão de fala em texto
 
 Para ver uma demonstração rápida (sem compilar o projeto do Visual Studio você mesmo, conforme mostrado abaixo):
 
-Obter a versão mais recente [SDK dos serviços Cognitivos de fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk) do Github.
+Obter a versão mais recente dos [Exemplos do SDK de Fala dos serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-speech-sdk) do Github.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

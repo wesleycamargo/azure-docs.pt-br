@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: beb84671db01020f0118502e35128387d36845d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 375b58f47454a7f5904bcdbd132b8318091e9ebd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361414"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Microsoft Azure Active Directory à Palo Alto Networks – Aperture
 
@@ -105,15 +105,15 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Aperture
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks – Aperture](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Aperture
 
     e. Analise as informações IdP na seção **Aperture Info** e baixe o certificado do campo **Aperture Key**.
 
-    f. Clique em **Salvar**.
+    f. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -223,9 +223,9 @@ Ao clicar no bloco do Palo Alto Networks – Aperture no Painel de Acesso, você
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

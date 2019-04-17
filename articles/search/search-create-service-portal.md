@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885720"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264022"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
@@ -22,7 +22,7 @@ O Azure Search é um recurso independente usado para conectar uma experiência d
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/).
 
-[![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![A[GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar a usá-lo, confira [Manage Azure Search with PowerShell](search-manage-powershell.md) (Gerenciar o Azure Search com o PowerShell).
 
@@ -71,7 +71,7 @@ Se você não estiver combinando recursos em um único grupo ou se os grupos de 
 
 Como um serviço do Azure, a Azure Search pode ser hospedado em datacenters em todo o mundo. [Os preços podem variar](https://azure.microsoft.com/pricing/details/search/) de acordo com a geografia.
 
-Se você estiver planejando usar a pesquisa cognitiva, escolha uma [região com a disponibilidade do recurso](cognitive-search-quickstart-blob.md#supported-regions).
+Se você estiver indexando o conteúdo localizado em um serviço do Azure (Armazenamento do Azure, Azure Cosmos DB, Banco de Dados SQL do Azure), crie seu serviço Azure Search na mesma região dos dados para evitar encargos de largura de banda. Não há encargos para dados de saída quando os serviços estão na mesma região.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um tipo de preço (SKU)
 

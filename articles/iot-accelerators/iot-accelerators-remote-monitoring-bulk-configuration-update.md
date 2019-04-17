@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683423"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009660"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerenciar dispositivos conectados em massa
 
@@ -57,7 +57,7 @@ Você precisa ter os seguintes softwares instalado em seu computador local:
 Antes de começar:
 
 * Verifique se o [carregador de inicialização em seu dispositivo IoT DevKit está na versão 1.4.0 ou posterior](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Verifique se o SDK do IoT DevKit possui a mesma versão do carregador de inicialização. Você pode atualizar o SDK do IoT DevKit usando o Azure IoT Workbench no VS Code. Abra a paleta de comandos e digite **Arduino: Gerenciador de painéis**. Para obter mais informações, consulte [Preparar o ambiente de desenvolvimento](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
+* Verifique se o SDK do IoT DevKit possui a mesma versão do carregador de inicialização. Você pode atualizar o SDK do IoT DevKit usando o Azure IoT Workbench no VS Code. Abra a paleta de comandos e insira **Arduino: Board Manager**. Para obter mais informações, consulte [Preparar o ambiente de desenvolvimento](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
 Você também precisará conectar pelo menos um dispositivo IoT DevKit ao seu acelerador de solução de Monitoramento Remoto. Se você ainda não conectou um dispositivo IoT DevKit, consulte [Conectar o MXChip IoT DevKit AZ3166 ao acelerador de solução de Monitoramento Remoto de IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
@@ -89,7 +89,7 @@ A extensão [Azure IoT Workbench](https://marketplace.visualstudio.com/items?ite
 
 1. Verifique se o IoT DevKit não está conectado ao computador. Inicie o VS Code e conecte o Kit de Desenvolvimento ao seu computador.
 
-1. Pressione **F1** para abrir a paleta de comandos, digite e selecione **IoT Workbench: exemplos**. Em seguida, selecione **IoT DevKit** como o painel.
+1. Pressione **F1** para abrir a paleta de comandos, digite e selecione **IoT Workbench: Exemplos**. Em seguida, selecione **IoT DevKit** como o painel.
 
 1. Encontre **Firmware OTA** e clique em **Exemplo Aberto**. Uma nova janela do VS Code é aberta e mostra a pasta do projeto **firmware_ota**:
 
@@ -103,7 +103,7 @@ A versão inicial do firmware do dispositivo é 1.0.0. O novo firmware deve ter 
 
     ![Alterar versão do firmware](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos, digite e selecione **IoT Workbench: dispositivo**. Em seguida, selecione **Compilar Dispositivo** para compilar o código:
+1. Abra a paleta de comandos e, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, selecione **Compilar Dispositivo** para compilar o código:
 
     ![Compilação de dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ A versão inicial do firmware do dispositivo é 1.0.0. O novo firmware deve ter 
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Gerar o valor de CRC e calcular o tamanho do arquivo de firmware
 
-1. Abra a paleta de comandos, digite e selecione **IoT Workbench: dispositivo**. Em seguida, selecione **Gerar CRC**:
+1. Abra a paleta de comandos e, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, selecione **Gerar CRC**:
 
     ![Gerar CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,19 +139,19 @@ Use sua conta de armazenamento do Azure para hospedar o novo arquivo de firmware
 
     ![Versão 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos, digite e selecione **IoT Workbench: dispositivo**. Em seguida, selecione **Carregar Dispositivo**:
+1. Abra a paleta de comandos e, em seguida, digite e selecione **IoT Workbench: Dispositivo**. Em seguida, selecione **Carregar Dispositivo**:
 
     ![Upload de dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. O VS Code verifica e carrega o código para seu dispositivo IoT DevKit.
 
-1. Quando o upload for concluído, o dispositivo IoT DevKit será reinicializado. Quando a reinicialização estiver concluída, a tela do IoT DevKit mostrará **Versão do firmware: 1.0.0** e que está verificando o novo firmware:
+1. Quando o upload for concluído, o dispositivo IoT DevKit será reinicializado. Quando a reinicialização for concluída, a tela do IoT DevKit mostrará **Versão do FW: 1.0.0** e indicará que ele está verificando a existência do novo firmware:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Criar uma configuração de dispositivo
 
-Uma configuração de dispositivo especifica o estado desejado de seus dispositivos. Normalmente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) na página de **configuração do dispositivo IoT** no portal do Azure. Uma configuração de dispositivo é um documento JSON que especifica o estado desejado de seus dispositivos e um conjunto de métricas.
+Uma configuração de dispositivo especifica o estado desejado de seus dispositivos. Normalmente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) na página de **configuração do dispositivo IoT** no portal do Azure. Uma configuração de dispositivo é um documento JSON que especifica o estado desejado de seus dispositivos e um conjunto de métricas.
 
 Salve a configuração a seguir como um arquivo chamado **firmware-update.json** em seu computador local. Substitua os espaços reservados `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` e `YOURPACKAGESIZE` pelos valores que você anotou anteriormente:
 

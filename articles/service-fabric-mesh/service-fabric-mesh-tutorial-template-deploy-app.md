@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336313"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527329"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -351,8 +351,8 @@ No arquivo de parâmetros, atualize os valores de parâmetros a seguir:
 |registryPassword|A senha que você obteve anteriormente em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry). Esse parâmetro no modelo é uma cadeia de caracteres segura e não será exibido no status de implantação ou comandos `az mesh service show`.|
 |registryUserName|O nome de usuário que você obteve em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry).|
 |registryServer|O nome do servidor de registro que você obteve em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry).|
-|frontEndImage|A imagem de contêiner para o serviço de front-end.  Por exemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|A imagem de contêiner para o serviço de back-end.  Por exemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|A imagem de contêiner para o serviço de front-end.  Por exemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|A imagem de contêiner para o serviço de back-end.  Por exemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Para implantar o aplicativo, faça o seguinte:
 

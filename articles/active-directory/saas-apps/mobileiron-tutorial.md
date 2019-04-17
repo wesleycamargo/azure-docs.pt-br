@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa1e9749040c61f8c6a52f3635b7b8aa13a0cdff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834771"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Active Directory com MobileIron
 
@@ -101,19 +101,19 @@ Para configurar o logon único do Azure AD com o MobileIron, execute as seguinte
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML**, execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **IDP**: 
+4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
     ![Informações de logon único em Domínio e URLs do MobileIron](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.mobileiron.com/<key>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.mobileiron.com/<key>`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único em Domínio e URLs do MobileIron](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Você obterá os valores de chave e host do portal administrativo do MobileIron, o que é explicada mais adiante no tutorial.
@@ -156,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

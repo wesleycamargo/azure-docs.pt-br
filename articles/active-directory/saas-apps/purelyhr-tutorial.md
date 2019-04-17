@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0197a18cd70a7f4305768c96b41a05adfc127df4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b6e004ea613d1a3dfd47a2798e0298f41eab2d3d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621049"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com o PurelyHR
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do PurelyHR ao Azure AD, você precisará adicionar o PurelyHR da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o PurelyHR da galeria, execute as seguintes etapas:**
+**Para adicionar o PurelyHR por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o PurelyHR, realize as seguintes 
 
     ![Informações de logon único em Domínio e URLs do PurelyHR](common/both-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<companyID>.purelyhr.com/sso-initiate`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<companyID>.purelyhr.com/sso-initiate`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente PurelyHR](https://support.purelyhr.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -214,9 +214,9 @@ Ao clicar no bloco do PurelyHR no Painel de Acesso, você deverá ser conectado 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

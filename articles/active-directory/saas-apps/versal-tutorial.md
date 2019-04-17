@@ -4,227 +4,202 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5b2e53c0-61a3-4954-ae46-8c28c6368bfd
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/22/2017
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: be4741f87e729435761b74b86655aa828ff873ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163199"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integração do Azure Active Directory ao Versal
 
 Neste tutorial, você aprende a integrar o Versal ao Azure AD (Azure Active Directory).
-
 Integrar o Versal ao Azure AD proporciona os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem terá acesso ao Versal.
-- Você pode permitir que usuários se conectem automaticamente ao Versal (Logon Único) com as respectivas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Azure AD quem terá acesso ao Versal.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Versal (Logon Único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Versal, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do Versal
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura habilitada para logon único do Versal
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o Versal da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O Versal dá suporte ao SSO iniciado por **IDP**
 
 ## <a name="adding-versal-from-the-gallery"></a>Adicionando o Versal da galeria
+
 Para configurar a integração do Versal ao Azure AD, você precisa adicionar o Versal da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Versal da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **Versal**, selecione **Versal** no painel de resultados e clique no botão **Adicionar** para incluir o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Versal na lista de resultados](./media/versal-tutorial/tutorial_versal_addfromgallery.png)
+4. Na caixa de pesquisa, digite **Versal**, selecione **Versal** no painel de resultados e clique no botão **Adicionar** para incluir o aplicativo.
+
+     ![Versal na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você vai configurar e testar o logon único do Azure AD com o Versal, com base em uma usuária de teste chamada "Brenda Fernandes".
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Versal é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Versal.
-
-No Versal, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vinculação.
+Nesta seção, você vai configurar e testar o logon único do Azure AD com o Versal, com base em uma usuária de teste chamada **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Versal.
 
 Para configurar e testar o logon único do Azure AD com o Versal, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do Versal](#create-a-versal-test-user)** – para ter um equivalente de Brenda Fernandes no Versal vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Configurar o Logon Único do Versal](#configure-versal-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Versal](#create-versal-test-user)** – para ter um equivalente de Brenda Fernandes no Versal vinculado à representação do usuário no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Versal.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o Versal, execute seguintes etapas:**
+Para configurar o logon único do Azure AD com o Versal, execute seguintes etapas:
 
-1. No portal do Azure, na página de integração de aplicativo do **Versal**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Versal**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/versal-tutorial/tutorial_versal_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-1. Na seção **Domínio e URLs do Versal**, execute as seguintes etapas:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Informações de logon único de Domínio e URLs do Versal](./media/versal-tutorial/tutorial_versal_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-     a. Na caixa de texto **Identificador**, digite o valor: `VERSAL`
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://versal.com/sso/saml/orgs/<organization_id>`
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
-    > [!NOTE] 
-    > O valor da URL de Resposta não é real. Atualize esse valor com a URL de Resposta real. Contate a [equipe de suporte do Versal](https://support.versal.com/hc/) para obter esse valor.
-    
-1. Seu aplicativo espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **Identificador de usuário** é **user.userprincipalname**, mas o **Versal** espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
-    
-    ![Menu suspenso do Identificador de Usuário](./media/versal-tutorial/tutorial_versal_attribute.png)
+    ![Informações de logon único de Domínio e URLs do Versal](common/idp-intiated.png)
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+     a. Na caixa de texto **Identificador**, digite uma URL: `VERSAL`
 
-    ![O link de download do Certificado](./media/versal-tutorial/tutorial_versal_certificate.png) 
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://versal.com/sso/saml/orgs/<organization_id>`
 
-1. Clique no botão **Salvar** .
+    > [!NOTE]
+    > O valor de URL de Resposta não é real. Atualize esse valor com a URL de Resposta real. Contate a [equipe de suporte ao Cliente do Versal](https://support.versal.com/hc/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    ![Botão Salvar em Configurar Logon Único](./media/versal-tutorial/tutorial_general_400.png)
-    
-1. Para configurar o logon único no lado do **Versal**, você precisa enviar o **XML de Metadados** e o **Certificado de Autenticação SAML** para a [equipe de suporte do Versal](https://support.versal.com/hc/). A equipe vai configurar a organização do seu Versal para que a conexão SSO do SAML seja definida corretamente em ambos os lados.
+5. O aplicativo Versal espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Versal espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![image](common/edit-attribute.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+
+    ![O link de download do Certificado](common/metadataxml.png)
+
+7. Na seção **Configurar o Versal**, copie as URLs apropriadas de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure AD
+
+    c. URL de logoff
+
+### <a name="configure-versal-single-sign-on"></a>Configurar Logon Único do Versal
+
+Para configurar o logon único no lado do **Versal**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Versal](https://support.versal.com/hc/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/versal-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/versal-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/versal-tutorial/create_aaduser_03.png)
-
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/versal-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
-  
-### <a name="create-a-versal-test-user"></a>Criar um usuário de teste do Versal
-
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Versal. Siga o guia de suporte [Creating a SAML test user](https://support.versal.com/hc/en-us/articles/115011672887-Creating-a-SAML-test-user) para criar a usuária Brenda Fernandes na sua organização. Os usuários devem ser criados e ativados no Versal para você poder usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Versal.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, escolha **Versal**.
 
-**Para atribuir Brenda Fernandes ao Versal, execute as seguintes etapas:**
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, selecione **Versal**.
 
-    ![Atribuir usuário][201] 
+    ![O link do Versal na lista Aplicativos](common/all-applications.png)
 
-1. Na lista de aplicativos, selecione **Versal**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link do Versal na lista Aplicativos](./media/versal-tutorial/tutorial_versal_app.png)  
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+### <a name="create-versal-test-user"></a>Criar um usuário de teste do Versal
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar logon único
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Versal. Siga o guia de suporte [Creating a SAML test user](https://support.versal.com/hc/articles/115011672887-Creating-a-SAML-test-user) para criar a usuária Brenda Fernandes na sua organização. Os usuários devem ser criados e ativados no Versal para você poder usar o logon único. 
+
+### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando um curso do Versal inserido em seu site.
 Confira o guia de suporte [Embedding Organizational Courses](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On** para obter instruções sobre como inserir um curso do Versal com suporte para logon único do Azure AD. 
 
-Você precisará criar um curso, compartilhá-lo com sua organização e publicá-lo para testar a inserção do curso. Confira [Criação de um curso](https://support.versal.com/hc/en-us/articles/203722528-Create-a-course), [Publicação de um curso](https://support.versal.com/hc/en-us/articles/203753398-Publishing-a-course) e [Gerenciamento de curso e de aprendiz](https://support.versal.com/hc/en-us/articles/206029467-Course-and-learner-management) para saber mais.  
-                     
+Você precisará criar um curso, compartilhá-lo com sua organização e publicá-lo para testar a inserção do curso. Confira [Criação de um curso](https://support.versal.com/hc/en-us/articles/203722528-Create-a-course), [Publicação de um curso](https://support.versal.com/hc/en-us/articles/203753398-Publishing-a-course) e [Gerenciamento de curso e de aprendiz](https://support.versal.com/hc/en-us/articles/206029467-Course-and-learner-management) para saber mais.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/versal-tutorial/tutorial_general_01.png
-[2]: ./media/versal-tutorial/tutorial_general_02.png
-[3]: ./media/versal-tutorial/tutorial_general_03.png
-[4]: ./media/versal-tutorial/tutorial_general_04.png
-
-[100]: ./media/versal-tutorial/tutorial_general_100.png
-
-[200]: ./media/versal-tutorial/tutorial_general_200.png
-[201]: ./media/versal-tutorial/tutorial_general_201.png
-[202]: ./media/versal-tutorial/tutorial_general_202.png
-[203]: ./media/versal-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

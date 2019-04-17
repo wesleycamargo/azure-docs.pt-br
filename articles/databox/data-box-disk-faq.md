@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892323"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258769"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -54,7 +54,7 @@ a. Com cinco discos, cada um com 8 TB (7 TB de capacidade utilizável), a capaci
 a.  Para ver onde os Data Box Disks estão disponíveis no momento, acesse [Disponibilidade de região](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com Discos do Data Box?
-a. O Data Box Disk tem suporte em todas as regiões nos EUA, no Canadá, na Austrália e na Europa Ocidental e na Europa Setentrional. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
+a. Há suporte para o Data Box Disk em todas as regiões dos EUA, no Canadá, na Austrália, no Oeste da Europa, na Europa Setentrional, na Coreia do Sul e no Japão. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contatar se eu encontrar problemas com Discos do Data Box?
 a. Caso tenha problemas com os Data Box Disks, [contate o Suporte da Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ O conjunto de ferramentas está disponível para Windows e Linux. Você pode bai
 - [Baixe o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
 - [Baixe o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso usar o Data Box Disk para transferir dados para os Arquivos do Azure e, em seguida, usar os dados com a Sincronização de Arquivos do Azure? 
-  a. Os arquivos do Azure são compatíveis com o Data Box Disk, mas não funcionarão bem com a Sincronização de Arquivos do Azure. Os metadados não serão mantidos se os dados de arquivo forem usados com a Sincronização de Arquivos do Azure.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso usar o Data Box Disk para transferir dados para os Arquivos do Azure e, em seguida, usar os dados com a Sincronização de Arquivos do Azure? 
+a. Os arquivos do Azure são compatíveis com o Data Box Disk, mas não funcionarão bem com a Sincronização de Arquivos do Azure. Os metadados não serão mantidos se os dados de arquivo forem usados com a Sincronização de Arquivos do Azure.
 
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
@@ -166,7 +166,7 @@ a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes 
 a. Sim. Seus dados foram transferidos por upload para o Azure. Caso não veja nenhum disco gerenciado com os grupos de recursos especificados, os dados provavelmente não eram válidos. Se os blobs de páginas, blobs de blocos, Arquivos do Azure e discos gerenciados não fossem válidos, iriam para as seguintes pastas:
  - Os blobs de páginas iriam para um contêiner de blob de blocos começando com *databoxdisk-invalid-pb-*.
  - Os Arquivos do Azure iriam para um contêiner de blob de blocos começando com *databoxdisk-invalid-af-*.
- - Os discos gerenciados iriam para um contêiner de blob de blocos começando com *databoxdisk-invalid-md-*.
+ - Os discos gerenciados irão para um contêiner de blobs de blocos que começa com *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

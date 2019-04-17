@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f65bb7506b112828a49f9410f4790932f0abbfbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177527"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software
 
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do software de gerenciamento de privacidade OneTrust no Azure AD, você precisa adicionar o software de gerenciamento de privacidade OneTrust da galeria à lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o software de gerenciamento de privacidade OneTrust da galeria, execute as seguintes etapas:**
+**Para adicionar o OneTrust Privacy Management Software por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -109,13 +109,13 @@ Para configurar o logon único do Microsoft Azure Active Directory com o softwar
 
      a. Na caixa de texto **Identificador**, digite uma URL: `https://www.onetrust.com/saml2`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de domínio e URLs do software de gerenciamento de privacidade OneTrust](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<subdomain>.onetrust.com/auth/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.onetrust.com/auth/login`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do software de gerenciamento de privacidade OneTrust](mailto:support@onetrust.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -204,9 +204,9 @@ Quando você clicar no bloco do software de gerenciamento de privacidade OneTrus
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

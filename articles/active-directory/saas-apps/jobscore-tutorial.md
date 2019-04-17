@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0dd10eef70986e20b71c7e3735091c16d11ef59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0acb07651948e923de777713020d678859a2d3b0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863144"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Tutorial: integração do Azure Active Directory com o JobScore
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o JobScore, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do JobScore](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://hire.jobscore.com/auth/adfs/<company name>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://hire.jobscore.com/auth/adfs/<company name>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do JobScore](mailto:support@jobscore.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -191,8 +191,8 @@ Ao clicar no bloco do JobScore no Painel de Acesso, você deverá entrar automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

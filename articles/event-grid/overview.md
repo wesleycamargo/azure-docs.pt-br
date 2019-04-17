@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770462"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045398"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -114,11 +114,11 @@ A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, par
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Eventos de blob de armazenamento de rota](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Encaminhar eventos do Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Responda a eventos de blob de armazenamento usando a Grade de Eventos.
 * [Criar e assinar eventos personalizados](custom-event-quickstart.md)  
   Comece imediatamente a enviar seus próprios eventos personalizados para qualquer ponto de extremidade usando o início rápido da Grade de Eventos do Azure.
-* [Usando Aplicativos Lógicos como um Manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Como usar Aplicativos Lógicos como um manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Um tutorial sobre como compilar um aplicativo usando os Aplicativos Lógicos para reagir a eventos enviados por push pela Grade de Eventos.
 * [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)  
   Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o SQL Data Warehouse.

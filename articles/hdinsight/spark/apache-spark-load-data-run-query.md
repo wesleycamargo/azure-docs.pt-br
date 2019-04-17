@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448978"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274001"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
@@ -24,8 +24,6 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Criar um dataframe usando um arquivo CSV
 > * Executar consultas no dataframe
-
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +36,11 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
 ![Instantâneo de dados para consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para consulta SQL interativa do Spark")
 
 
-1. Abra o bloco de anotações do Jupyter que você criou na seção pré-requisitos.
+1. Abra o Jupyter notebook que você criou na seção de pré-requisitos e crie um notebook com PySpark.
+
+    > [!NOTE]  
+    > Usando o kernel PySpark para criar um notebook, a sessão `spark` é criada automaticamente quando você executar a primeira célula de código. Você não precisa criar a sessão explicitamente.
+
 2. Cole o código a seguir em uma célula vazia do notebook e, em seguida, pressione **SHIFT + ENTER** para executar o código. O código importa os tipos obrigatórios necessários para este cenário:
 
     ```python
@@ -58,10 +60,6 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > Usando o kernel PySpark para criar um notebook, a sessão `spark` é criada automaticamente quando você executar a primeira célula de código. Você não precisa criar a sessão explicitamente.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Executar consultas no dataframe
 
 Depois que a tabela for criada, você poderá executar uma consulta interativa nos dados.
@@ -77,13 +75,13 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
      ![Tabela de saída do resultado da consulta interativa Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabela de saída do resultado da consulta interativa Spark")
 
-3. Você também pode ver os resultados em outras visualizações. Para ver um gráfico de área para a mesma saída, selecione **Área** e, em seguida, defina outros valores conforme mostrado.
+2. Você também pode ver os resultados em outras visualizações. Para ver um gráfico de área para a mesma saída, selecione **Área** e, em seguida, defina outros valores conforme mostrado.
 
     ![Grafo de área de resultado de consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafo de área de resultado de consulta interativa do Spark")
 
-10. No menu **Arquivo** do bloco de anotações, selecione **Salvar e Ponto de Verificação**. 
+3. Na barra de menus do notebook, navegue até **Arquivo** > **Salvar e Ponto de Verificação**.
 
-11. Se você estiver começando o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de anotações aberto. Se não estiver, desligue o notebook para liberar os recursos de cluster: no menu **Arquivo** no notebook, selecione **Fechar e Interromper**.
+4. Se você estiver começando o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de anotações aberto. Se não estiver, desligue o notebook para lançar os recursos de cluster: na barra de menus do notebook, navegue até **Arquivo** >  **Fechar e Interromper**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -98,11 +96,10 @@ Também é possível selecionar o nome do grupo de recursos para abrir a página
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
-
-* Crie um dataframe do Apache Spark.
-* Execute Spark SQL no dataframe.
+> [!div class="checklist"]
+> * Crie um dataframe do Apache Spark.
+> * Execute Spark SQL no dataframe.
 
 Avance para o próximo artigo para ver como os dados que você registrou no Apache Spark podem ser removidos em uma ferramenta de análise de BI, assim como Power BI. 
 > [!div class="nextstepaction"]
 > [Analisar dados usando ferramentas de BI](apache-spark-use-bi-tools.md)
-

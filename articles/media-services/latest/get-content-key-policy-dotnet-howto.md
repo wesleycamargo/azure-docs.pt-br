@@ -10,20 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496311"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615822"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 
-Um dos princípios de design de chave da API v3 é tornar a API mais segura. APIs v3 não retornar segredos ou as credenciais na **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou corrigidas na resposta. O usuário precisa chamar um método de ação separada para obter as credenciais ou segredos. O **leitor** função não é possível chamar as operações para que ele não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite que você defina permissões mais granulares de segurança RBAC em uma função personalizada se desejado.
-
-Para obter mais informações, consulte [contas RBAC e os serviços de mídia](rbac-overview.md)
+Um dos princípios de design de chave da API v3 é tornar a API mais segura. APIs v3 não retornar segredos ou as credenciais na **Obtenha** ou **lista** operações. Consulte a explicação detalhada aqui: Para obter mais informações, consulte [contas RBAC e os serviços de mídia](rbac-overview.md)
 
 O exemplo neste artigo mostra como usar o .NET para obter uma chave de assinatura da política existente. 
  

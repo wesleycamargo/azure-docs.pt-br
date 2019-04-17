@@ -8,29 +8,29 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 68dd71687e18243a112df0c2568af5b2b6d0d687
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340976"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048012"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Início Rápido: Obtenha insights de imagem usando a API REST da Pesquisa Visual do Bing e Go
 
-Este início rápido usa a linguagem de programação Go para chamar a pesquisa Visual do Bing e exibir os resultados. Uma solicitação Post carrega uma imagem para o ponto de extremidade de API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
+Este início rápido usa a linguagem de programação Go para chamar a pesquisa Visual do Bing e exibir os resultados. Uma solicitação POST carrega uma imagem no ponto de extremidade de API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * Instalar os [binários Go](https://golang.org/dl/).
-* A impressora go-spew é útil para exibição dos resultados.
-    * Instale esta biblioteca: `$ go get -u https://github.com/davecgh/go-spew`.
+* A impressora go-spew deep pretty é usada para exibir os resultados. Instale o go-spew com o comando `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="project-and-libraries"></a>Projeto e Bibliotecas
 
-Crie um novo projeto Go em seu IDE ou editor. Depois importe `net/http` para solicitações, `ioutil` para ler a resposta e `encoding/json` para lidar com o texto de resultados do JSON. A biblioteca `go-spew` é usada para analisar os resultados JSON. 
+Crie um projeto do Go no IDE ou no editor. Depois importe `net/http` para solicitações, `ioutil` para ler a resposta e `encoding/json` para lidar com o texto de resultados do JSON. A biblioteca `go-spew` é usada para analisar os resultados JSON.
 
 ```
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>Struct para formatar os resultados
 
-O struct `BingAnswer` formata dados retornados na resposta JSON, que é muito complexa e tem vários níveis.  A implementação a seguir aborda os conceitos básicos.
+A estrutura `BingAnswer` formata os dados retornados na resposta JSON, que é complexa e tem vários níveis. A seguinte implementação aborda alguns dos conceitos básicos:
 
 ```
 type BingAnswer struct {
@@ -109,7 +109,7 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Principais funções e variáveis  
 
-O código a seguir declara a função principal e atribui as variáveis necessárias. Confirme que o ponto de extremidade está correto e substitua o valor `token` por uma chave de assinatura válida da sua conta do Azure.  O `batchNumber` é um GUID necessário para a posição inicial ou final dos limites dos dados de postagem.  A variável `fileName` identifica o arquivo de imagem para a postagem.  As seções a seguir explicam os detalhes do código.
+O código a seguir declara a função principal e atribui as variáveis necessárias. Confirme que o ponto de extremidade está correto e substitua o valor `token` por uma chave de assinatura válida da sua conta do Azure. O `batchNumber` é um GUID necessário para os limites à esquerda e à direita dos dados POST. A variável `fileName` identifica o arquivo de imagem para o POST. As seguintes seções explicam os detalhes do código:
 
 ```
 func main() {
@@ -157,9 +157,9 @@ func main() {
 
 ```
 
-## <a name="boundaries-of-post-body"></a>Limites do corpo da postagem
+## <a name="boundaries-of-post-body"></a>Limites do corpo do POST
 
-Uma solicitação de publicação para o ponto de extremidade da pesquisa Visual requer limites de posicionamento inicial e final, colocando os dados de postagem.  O limite à esquerda inclui um número de lote, o identificador de tipo de conteúdo `Content-Disposition: form-data; name="image"; filename=`, além do nome do arquivo da imagem à postagem.  O limite de posicionamento final é simplesmente o número do lote.  Essas funções não estão incluídas no bloco `main`.
+Uma solicitação POST para o ponto de extremidade da Pesquisa Visual exige limites à esquerda e à direita que abrangem os dados POST. O limite à esquerda inclui um número de lote, o identificador de tipo de conteúdo `Content-Disposition: form-data; name="image"; filename=`, além do nome de arquivo da imagem para POST. O limite de posicionamento final é simplesmente o número do lote. Essas funções não estão incluídas no bloco `main`:
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -176,9 +176,9 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## <a name="add-image-bytes-to-post-body"></a>Adicionar bytes de imagens ao corpo da postagem
+## <a name="add-image-bytes-to-post-body"></a>Adicionar bytes de imagem ao corpo do POST
 
-Este segmento de código cria a solicitação de postagem que contém dados de imagem. 
+Este segmento de código cria a solicitação POST que contém dados de imagem:
 
 ```
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -207,7 +207,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 ## <a name="send-the-request"></a>Enviar a solicitação
 
-O código a seguir envia a solicitação e lê os resultados.
+O seguinte código envia a solicitação e lê os resultados:
 
 ```
 resp, err := client.Do(req)
@@ -226,7 +226,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>Tratar da resposta
 
-A função `Unmarshall` extrai informações do texto JSON retornado pela API de Pesquisa Visual.  A impressora `go-spew` exibe os resultados.
+A função `Unmarshall` extrai informações do texto JSON retornado pela API de Pesquisa Visual. A impressora `go-spew` pretty exibe os resultados:
 
 ```
     // Create a new answer.  
@@ -249,7 +249,7 @@ A função `Unmarshall` extrai informações do texto JSON retornado pela API de
 
 ## <a name="results"></a>Resultados
 
-Os resultados identificam imagens semelhantes à imagem contida no corpo da postagem.  Os campos úteis são `WebSearchUrl` e `Name`.
+Os resultados identificam imagens semelhantes à imagem contida no corpo do POST. Os campos úteis são `WebSearchUrl` e `Name`:
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
@@ -287,5 +287,5 @@ Os resultados identificam imagens semelhantes à imagem contida no corpo da post
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [O que é a pesquisa Visual do Bing](../overview.md)
-> [início rápido de pesquisa do Bing na Web na linguagem Go](../../Bing-Web-Search/quickstarts/go.md)
+> [O que é a API da Pesquisa Visual do Bing?](../overview.md)
+> [Início Rápido da Pesquisa na Web do Bing em Go](../../Bing-Web-Search/quickstarts/go.md)

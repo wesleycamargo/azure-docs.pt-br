@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051432"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo do Azure
 
@@ -87,7 +87,7 @@ Adicione a [ferramenta Gerenciador de Segredos](https://docs.microsoft.com/aspne
 
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
+        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     O Gerenciador de Segredos é usado apenas para testar o aplicativo Web localmente. Quando o aplicativo for implantado, por exemplo, no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web), você usará uma configuração de aplicativo, por exemplo, **Cadeias de Conexão** no Serviço de Aplicativo. Você usa essa configuração, em vez de armazenar a cadeia de conexão com Gerenciador de Segredos.
 

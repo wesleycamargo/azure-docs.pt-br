@@ -1,19 +1,18 @@
 ---
 title: O que é o Gerenciador de dados do Azure?
 description: O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3a669c547b33e5f13da43bc3ce851a2f24783f5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755996"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044167"
 ---
 # <a name="what-is-azure-data-explorer"></a>O que é o Gerenciador de dados do Azure?
 
@@ -49,7 +48,7 @@ O trabalho no Azure Data Explorer geralmente segue esse padrão:
 
 1. **Ingerir dados:** Carregue dados em tabelas de banco de dados para executar consultas nele. [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Consultar banco de dados:** Use nosso aplicativo Web para executar, examinar e compartilhar consultas e resultados. Está disponível no portal do Azure e como um aplicativo independente. Além disso, você pode enviar consultas programaticamente (usando um SDK) ou um ponto de extremidade da API REST. [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
+1. **Consultar banco de dados:** Use nosso aplicativo Web para executar, examinar e compartilhar consultas e resultados. Está disponível no portal do Azure e como um aplicativo independente. Além disso, você pode enviar consultas programaticamente (usando um SDK) ou um ponto de extremidade da API REST. [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Experiência de consulta
 
@@ -65,9 +64,9 @@ Gostaríamos de receber seus comentários sobre o Azure Data Explorer e sua ling
 
 - Faça perguntas
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
-  - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
+  - [Comunidade de Tecnologia Microsoft](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
   - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-- [Faça sugestões de produto no User Voice](https://aka.ms/AzureDataExplorer.UserVoice)
+- [Fazer sugestões de produto no UserVoice](https://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -75,4 +74,4 @@ Gostaríamos de receber seus comentários sobre o Azure Data Explorer e sua ling
 
 [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
-[Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
+[Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)

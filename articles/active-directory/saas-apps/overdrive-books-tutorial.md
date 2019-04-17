@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 210889b70b2aa563a3c02c47360ac98607c8ea61
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 91675cd8348ed9d564b3e6b01ebcb039eabf0929
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188918"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integração do Azure Active Directory ao Overdrive
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Overdrive, execute as seguintes
 
     ![Informações de domínio e de URLs do Overdrive para logon único](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `http://<subdomain>.libraryreserve.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `http://<subdomain>.libraryreserve.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Overdrive](https://help.overdrive.com/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -197,9 +197,9 @@ Ao clicar no bloco do Overdrive no Painel de Acesso, você será conectado autom
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

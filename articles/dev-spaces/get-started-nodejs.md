@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891028"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425810"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com Node.js
 
@@ -25,17 +25,10 @@ Neste guia, você aprenderá a:
 - Desenvolva e teste o código produtivamente em um ambiente de equipe.
 
 > [!Note]
-> **Caso tenha problemas** a qualquer momento, consulte a seção [Solução de problemas](troubleshooting.md) ou poste um comentário nesta página.
-
-Agora você está pronto para criar um ambiente de desenvolvimento baseado em Kubernetes no Azure.
+> **Caso tenha problemas** a qualquer momento, veja a seção [Solução de problemas](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu espaço de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Seu computador local pode executar Windows, Mac ou Linux. Para Linux, há suporte para as seguintes distribuições: Ubuntu (18.04, 16.04 e 14.04), Debian 8 e 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 e SLES 12.
-
-Comece baixando e executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Se você já tiver a CLI do Azure instalada, verifique se está usando a versão 2.0.43 ou superior.
+O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu espaço de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Comece baixando e executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Entrar na CLI do Azure
 Entre no Azure. Digite o seguinte comando em uma janela de terminal:
@@ -147,7 +140,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 Abra essa URL em uma janela do navegador e você deverá ver o aplicativo Web ser carregado. Conforme o contêiner é executado, a saída de `stdout` e `stderr` é transmitida para a janela do terminal.
 
 > [!Note]
-> Na primeira execução, pode demorar vários minutos para o DNS público estar pronto. Se a URL pública não for resolvida, use a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. Para sua conveniência e para facilitar a interação com o serviço em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure. Você poderá voltar e experimentar a URL pública quando o registro DNS estiver pronto.
+> Na primeira execução, pode demorar vários minutos para o DNS público estar pronto. Se a URL pública não resolver, você poderá usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. Para sua conveniência e para facilitar a interação com o serviço em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure. Você poderá voltar e experimentar a URL pública quando o registro DNS estiver pronto.
 
 ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
 O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.

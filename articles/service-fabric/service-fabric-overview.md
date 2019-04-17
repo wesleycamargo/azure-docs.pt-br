@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666385"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008996"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços e contêineres escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem nativos. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de camada 1 e nível corporativo.

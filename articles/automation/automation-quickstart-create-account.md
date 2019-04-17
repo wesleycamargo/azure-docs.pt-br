@@ -4,17 +4,17 @@ description: Como criar uma conta de Automação do Azure e executar um runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592444"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009505"
 ---
 # <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 
@@ -32,7 +32,7 @@ Entre no Azure em https://portal.azure.com
 
 1. Selecione **Ferramentas de Gerenciamento** e selecione **Automação**.
 
-1. Insira as informações da conta. Para **Criar conta Executar como do Azure**, escolha **Sim** para que os artefatos que simplificam a autenticação do Azure sejam habilitados automaticamente. É importante observar que, ao criar uma Conta de Automação, o nome não pode ser alterado após a escolha. *Os nomes de Conta de Automação são exclusivos por região e grupo de recursos. Os nomes de Contas da Automação que foram excluídos podem não estar disponíveis imediatamente.* Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário. Ao concluir, clique em **Criar** para iniciar a implantação da conta de Automação.
+1. Insira as informações da conta. Para **Criar conta Executar como do Azure**, escolha **Sim** para que os artefatos que simplificam a autenticação do Azure sejam habilitados automaticamente. É importante observar que, ao criar uma Conta de Automação, o nome não pode ser alterado após a escolha. *Os nomes da Conta de Automação são exclusivos por região e grupo de recursos. Os nomes das Contas de Automação que foram excluídos podem não estar disponíveis imediatamente.* Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário. Ao concluir, clique em **Criar** para iniciar a implantação da conta de Automação.
 
     ![Inserir informações sobre a conta de Automação na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -61,14 +61,10 @@ Execute um dos runbooks tutoriais.
 
 1. Após o **Status do trabalho** se tornar **Executando**, clique em **Saída** ou **Todos os Logs** para exibir a saída do trabalho de runbook. Para este runbook tutorial, a saída é uma lista dos seus recursos do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando não for mais necessário, exclua o grupo de recursos, a conta de Automação e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos da conta de Automação e clique em **Excluir**.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste guia de início rápido você implantou uma conta de Automação, iniciou um trabalho de runbook e exibiu os resultados do trabalho. Para saber mais sobre a Automação do Azure, continue para o início rápido para criar seu primeiro runbook.
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido de Automação – Criar Runbook](./automation-quickstart-create-runbook.md)
+> [Início Rápido de Automação – Criar runbook](./automation-quickstart-create-runbook.md)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886381"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Agiloft ao Azure AD, você precisará adicionar o Agiloft da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Agiloft da galeria, execute as seguintes etapas:**
+**Para adicionar o Agiloft por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -167,13 +167,13 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
     ![Configuração do Agiloft](./media/agiloft-tutorial/setup4.png)
 
-     a. Na caixa de texto **ID da Entidade de IdP** , cole o valor do  **Identificador do Azure AD** que você copiou do portal do Azure.
+     a. Na caixa de texto **ID da Entidade do IdP/Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    b. Na caixa de texto **URL de Logon de IdP** , cole o valor da **URL de logon**, que você copiou do Portal do Azure.
+    b. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    c. Na caixa de texto **URL de Logon de IdP** , cole o valor da **URL de logoff**, que você copiou do Portal do Azure.
+    c. Na caixa de texto **URL de Logoff do IdP**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
-    d. Abra o seu **certificado codificado em base 64** baixado do portal do Azure no bloco de notas, copie o conteúdo para a área de transferência e cole-o na caixa de texto  **Conteúdo do certificado X.509 fornecido pelo IdP** .
+    d. Abra seu **certificado codificado em base-64** no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Conteúdo do certificado X.509 fornecido pelo IdP**.
 
     e. Clique em **Concluir**.
 
@@ -195,7 +195,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

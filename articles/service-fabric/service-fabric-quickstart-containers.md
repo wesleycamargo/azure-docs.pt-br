@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758593"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051539"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Windows no Service Fabric
 
@@ -36,6 +36,9 @@ Neste guia de início rápido, você aprende a:
 * Configurar a comunicação
 * Compilar e empacotar o aplicativo do Service Fabric
 * Implantar o aplicativo de contêiner no Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,7 +98,7 @@ O script de exemplo a seguir cria um cluster do Service Fabric de cinco nós pro
 
 Se necessário, instale o Azure PowerShell usando as instruções no [Guia do Azure PowerShell](/powershell/azure/overview).
 
-Antes de executar o script a seguir, no PowerShell, execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Antes de executar o script a seguir, no PowerShell, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 Copie o script a seguir para a área de transferência e abra o **ISE do Windows PowerShell**.  Cole o conteúdo na janela vazia Untitled1.ps1. Em seguida, forneça valores para as variáveis no script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, etc.  O diretório especificado para `certfolder` deve existir antes da execução do script.
 

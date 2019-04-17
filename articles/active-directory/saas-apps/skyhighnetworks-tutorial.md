@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 30733a971c758fc62adf56132c88914b60c98ae5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168163"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutorial: Integração do Azure Active Directory ao Skyhigh Networks
 
@@ -105,15 +105,15 @@ Para configurar o logon único do Azure AD com o Skyhigh Networks, siga estas et
 
     ![Informações de logon único de URLs e de Domínio do Skyhigh Networks](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de URLs e de Domínio do Skyhigh Networks](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente do Skyhigh Networks](mailto:support@skyhighnetworks.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -199,8 +199,8 @@ Ao clicar no bloco do Skyhigh Networks no Painel de Acesso, você deverá ser co
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

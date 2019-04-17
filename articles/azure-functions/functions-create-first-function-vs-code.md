@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104515"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469719"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar sua primeira função usando o Visual Studio Code
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a usar a [extensão Azure Functions para Visual S
 
 ![Código do Azure Functions em um projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-No momento, a extensão é totalmente compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível na versão prévia. As etapas neste artigo podem variar dependendo de sua escolha de linguagem de programação para o seu projeto do Azure Functions. Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão Azure Functions para Visual Studio Code].
+No momento, a extensão é totalmente compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível na versão prévia. As etapas neste artigo podem variar dependendo de sua escolha de linguagem de programação para o seu projeto do Azure Functions. Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão do Azure Functions para Visual Studio Code].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,12 +115,10 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. Para saber mais sobre como desenvolver funções em uma linguagem de programação específica, consulte os guias de referência de linguagem para [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md) ou [Java](functions-reference-java.md).
-
-Em seguida, você talvez queira saber mais sobre depuração e testes locais do Terminal ou do prompt de comando usando o Azure Functions Core Tools.
+Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. Você também talvez queira saber mais sobre [depuração e testes locais do Terminal ou do prompt de comando](functions-run-local.md) usando o Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
-> [Codificar e testar localmente](functions-run-local.md)
+> [Habilitar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Extensão Azure Functions para Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

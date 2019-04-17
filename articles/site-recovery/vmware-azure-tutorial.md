@@ -6,50 +6,44 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310584"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357867"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
-O [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
+Este artigo descreve como habilitar a replicação de VMs VMware locais para recuperação de desastres para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
+Este é o terceiro tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No tutorial anterior, [preparamos o ambiente de VMware local](vmware-azure-tutorial-prepare-on-premises.md) para recuperação de desastres no Azure.
 
-Este tutorial mostra como implantar o Site Recovery com configurações básicas, sem personalização. Para obter opções mais complexas, examine os artigos em Como.
-
-    - Configure a [fonte de replicação](vmware-azure-set-up-source.md) e [servidor de configuração](vmware-azure-deploy-configuration-server.md).
-    - Configure o [destino de replicação](vmware-azure-set-up-target.md).
-    - Configure uma [política de replicação](vmware-azure-set-up-replication.md) e [habilite a replicação](vmware-azure-enable-replication.md).
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Inserir a origem e o destino da replicação.
-> * Configurar o ambiente de replicação de origem, incluindo componentes locais do Azure Site Recovery e o ambiente de replicação de destino.
+> * Defina as configurações de replicação de origem e um servidor de configuração do Site Recovery local.
+> * Defina as configurações de destino de replicação.
 > * Criar uma política de replicação.
-> * Habilitar a replicação para uma VM.
+> * Habilite a replicação para uma VM do VMware.
+
+> [!NOTE]
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção Instruções do Sumário do Site Recovery.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, é útil:
+Conclua os tutoriais anteriores:
+1. [Configure o Azure](tutorial-prepare-azure.md) para recuperação de desastres do VMware local para o Azure.
+2. Siga [estas etapas](vmware-azure-tutorial-prepare-on-premises.md) para preparar sua implantação local do VMware para recuperação de desastres para o Azure.
+3. Neste tutorial, mostramos a você como replicar uma única VM. Se você estiver implantando várias VMs do VMware, use a [Ferramenta Planejador de Implantações](https://aka.ms/asr-deployment-planner). [Saiba mais](site-recovery-deployment-planner.md) sobre essa ferramenta.
+4. Este tutorial usa várias opções que você talvez queira fazer de modo diferente:
+    - O tutorial usa um modelo OVA para criar a VM do VMware do servidor de configuração. Se você não puder fazer isso por algum motivo, siga [estas instruções](physical-manage-configuration-server.md) para configurar o servidor de configuração manualmente.
+    - Neste tutorial, o Site Recovery baixa e instala automaticamente o MySQL no servidor de configuração. Se você preferir, poderá configurá-lo manualmente em vez disso. [Saiba mais](vmware-azure-deploy-configuration-server.md#configure-settings).
 
-- [Revisar a arquitetura](vmware-azure-architecture.md) para esse cenário de recuperação de desastre.
-- Se você quiser saber mais sobre como configurar a recuperação de desastre para VMs VMware de forma mais detalhada, revise e use os recursos a seguir:
-    - [Leia as perguntas comuns](vmware-azure-common-questions.md) sobre recuperação de desastre para VMware.
-    - [Saiba](vmware-physical-azure-support-matrix.md) o que tem suporte e é exigido para VMware.
-- Neste tutorial, mostramos a você como replicar uma única VM. Se estiver implantando várias VMs, você deverá usar a [Ferramenta Planejador de Implantações](https://aka.ms/asr-deployment-planner) para ajudar a planejar sua implantação. [Saiba mais](site-recovery-deployment-planner.md) sobre essa ferramenta.
-
-Examine também estas dicas:
-- Este tutorial usa um modelo OVA para criar a VM do VMware do servidor de configuração. Se você não puder fazer isso, siga [estas instruções](physical-manage-configuration-server.md) para configurar o servidor de configuração manualmente.
-- Neste tutorial, o Site Recovery baixa e instala o MySQL no servidor de configuração. Se você preferir, poderá configurá-lo manualmente em vez disso. [Saiba mais](vmware-azure-deploy-configuration-server.md#configure-settings).
-  >É possível baixar a versão mais recente do modelo de servidor de configuração diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
-  A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. O Windows em execução na VM precisa ser ativado com a licença necessária. 
 
 
 
@@ -65,15 +59,18 @@ Examine também estas dicas:
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-Em seu ambiente de origem, é necessário um computador local único e altamente disponível para hospedar os componentes locais do Site Recovery. Os componentes incluem o servidor de configuração, o servidor de processo e o servidor de destino mestre:
+Em seu ambiente de origem, é necessário um computador local único e altamente disponível para hospedar esses componentes locais do Site Recovery:
 
-- O servidor de configuração coordena a comunicação entre o ambiente local e o Azure, além de gerenciar a replicação de dados.
-- O servidor de processo atua como um gateway de replicação. Ele recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para a conta de armazenamento em cache no Azure. O servidor de processo também instala o Serviço de Mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs VMware locais.
-- O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
-
-Para configurar o servidor de configuração como uma VM VMware altamente disponível, baixe um modelo OVA preparado e importe-o na VMware para criar a VM. Depois de configurar o servidor de configuração, registre-o no cofre. Após o registro, o Site Discovery descobre VMs locais da VMware.
+- **Servidor de configuração**: O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
+- **Servidor de processo**: O servidor de processo atua como um gateway de replicação. Ele recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para uma conta de armazenamento em cache no Azure. O servidor de processo também instala o agente do Serviço de Mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs em VMware locais.
+- **Servidor de destino mestre**: O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
 
 
+Todos esses componentes são instalados juntos nos computadores locais únicos conhecidos como *servidor de configuração*. Por padrão, para recuperação de desastre do VMware, configuramos o servidor de configuração como uma VM VMware altamente disponível. Para fazer isso, baixe um modelo de OVA (Aplicativo de Virtualização Aberto) preparado e importe o modelo para o VMware para criar a VM. 
+
+- A versão mais recente do servidor de configuração está disponível no portal. Você também pode baixá-la diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
+- Se, por alguma razão, você não puder usar um modelo OVA para configurar uma VM, siga [estas instruções](physical-manage-configuration-server.md) para definir a configuração do servidor manualmente.
+- A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. O Windows em execução na VM precisa ser ativado com a licença necessária. 
 
 
 ### <a name="download-the-vm-template"></a>Baixe o modelo de VM
@@ -105,7 +102,7 @@ Para configurar o servidor de configuração como uma VM VMware altamente dispon
 
 ## <a name="add-an-additional-adapter"></a>Adicionar mais um adaptador
 
-Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de registrar o servidor no cofre. Adicionar outros adaptadores não é suportado após o registro.
+Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o antes de registrar o servidor no cofre. Adicionar outros adaptadores não é suportado após o registro.
 
 1. No inventário vSphere Cliente, clique com o botão direito na VM e selecione **Editar configurações**.
 2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Avançar**.
@@ -114,6 +111,8 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 
 
 ## <a name="register-the-configuration-server"></a>Registrar o servidor de configuração 
+
+Depois que o servidor de configuração estiver definido, registre-o no cofre.
 
 1. No console do cliente VMWare vSphere Client, ative a VM.
 2. A VM será inicializada com uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e insira uma senha de administrador.
@@ -124,7 +123,11 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
 8. Entre novamente no computador. Em alguns segundos, o Assistente de Gerenciamento do Servidor de Configuração iniciará automaticamente.
 
+
 ### <a name="configure-settings-and-add-the-vmware-server"></a>Definir as configurações e adicionar o servidor do VMware
+
+Conclua a configuração e o registro do servidor de configuração. 
+
 
 1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas listas suspensas, primeiro selecione a NIC usada pelo servidor de processo interno para descoberta e instalação por push do serviço de mobilidade em computadores de origem e, em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
 2. Em **Selecionar cofre de Serviços de Recuperação**, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
@@ -140,7 +143,7 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 10. Após a conclusão do registro, no portal do Azure, verifique se o servidor de configuração e o VMware Server estão listados na página **Fonte** no cofre. Em seguida, selecione **OK** para definir as configurações de destino.
 
 
-O Site Recovery conecta-se a servidores VMware usando as configurações especificadas e descobre VMs.
+Depois que o servidor de configuração estiver registrado, o Site Recovery se conectará aos servidores VMware usando as configurações especificadas e descobrirá VMs.
 
 > [!NOTE]
 > Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
@@ -171,7 +174,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-A habilitação da replicação pode ser executada da seguinte maneira:
+Habilite a replicação para VMs conforme demonstrado a seguir:
 
 1. Selecione **Replicar aplicativo** > **Origem**.
 1. Em **Origem**, selecione **Local**, e selecione o servidor de configuração no **Local de origem**.
@@ -181,7 +184,7 @@ A habilitação da replicação pode ser executada da seguinte maneira:
 1. Em **Destino**, selecione a assinatura e o grupo de recursos em que deseja criar as VMs com failover. Estamos utilizando o Modelo de implantação do Azure Resource Manager. 
 1. Selecione a rede e a sub-rede do Azure às quais conectar as VMs do Azure quando elas forem criadas após o failover.
 1. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todas as VMs nas quais você habilitar a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador.
-1. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Depois, selecione **OK**. Se você não conseguir exibir/selecionar uma máquina virtual específica, clique [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
+1. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Depois, selecione **OK**. Se você não conseguir exibir/selecionar alguma máquina virtual específica, [saiba mais](https://aka.ms/doc-plugin-VM-not-showing) sobre como resolver o problema.
 1. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o Serviço de Mobilidade no computador.
 1. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada.
 1. Selecione **Habilitar Replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação é habilitada para uma VM.
@@ -190,6 +193,6 @@ A habilitação da replicação pode ser executada da seguinte maneira:
 1. Para monitorar as VMs adicionadas, verifique o horário da última descoberta de VMs em **Servidores de Configuração** > **Último Contato Às**. Para adicionar VMs sem esperar pela descoberta agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-
+Após habilitar a replicação, execute uma simulação para verificar se tudo está funcionando conforme o esperado.
 > [!div class="nextstepaction"]
-> Após habilitar a replicação, [execute uma simulação de recuperação de desastre](site-recovery-test-failover-to-azure.md) para verificar se tudo está funcionando conforme o esperado.
+> [Realizar uma simulação de recuperação de desastre](site-recovery-test-failover-to-azure.md)

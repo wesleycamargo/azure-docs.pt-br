@@ -1,19 +1,18 @@
 ---
 title: 'Início Rápido: ingerir dados do Logstash para o Azure Data Explorer'
 description: Neste início rápido, você aprenderá a ingerir (carregar) dados do Logstash no Azure Data Explorer
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754659"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046403"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início Rápido: ingerir dados do Logstash para o Azure Data Explorer
 
@@ -109,12 +108,12 @@ output {
 
 | Nome do Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| **path** | O plug-in do Logstash grava eventos em arquivos temporários antes de enviá-los para o Azure Data Explorer. Esse parâmetro inclui um caminho no qual os arquivos devem ser gravados e uma expressão de tempo para a rotação de arquivos a fim de disparar um upload para o serviço do Azure Data Explorer.|
+| **caminho** | O plug-in do Logstash grava eventos em arquivos temporários antes de enviá-los para o Azure Data Explorer. Esse parâmetro inclui um caminho no qual os arquivos devem ser gravados e uma expressão de tempo para a rotação de arquivos a fim de disparar um upload para o serviço do Azure Data Explorer.|
 | **ingest_url** | O ponto de extremidade do Kusto para comunicação relacionada à ingestão.|
 | **app_id**, **app_key** e **app_tenant**| Credenciais necessárias para se conectar ao Azure Data Explorer. Certifique-se de usar um aplicativo com privilégios de ingestão. |
-| **database**| Nome do banco de dados para colocar os eventos. |
+| **Banco de Dados**| Nome do banco de dados para colocar os eventos. |
 | **tabela** | Nome da tabela de destino para colocar os eventos. |
-| **mapeamento** | O mapeamento é usado para mapear uma cadeia de caracteres json de evento recebida no formato correto de linha (define qual propriedade entra em qual coluna). |
+| **mapping** | O mapeamento é usado para mapear uma cadeia de caracteres json de evento recebida no formato correto de linha (define qual propriedade entra em qual coluna). |
 
 ## <a name="run-logstash"></a>Executar o Logstash
 

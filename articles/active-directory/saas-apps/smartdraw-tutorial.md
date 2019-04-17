@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 910e485586eb8c43399f6f0b6791ab654003a19d
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58003730"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Tutorial: Integração do Azure Active Directory ao SmartDraw
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com o SmartDraw, siga estas etapas:
 
     ![Informações de logon único de Domínio e URLs do SmartDraw](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://cloud.smartdraw.com/sso/saml/login/<domain>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://cloud.smartdraw.com/sso/saml/login/<domain>`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Você atualizará o valor da URL de Logon com a URL de Logon real, que será explicada posteriormente no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o SmartDraw, siga estas etapas:
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 8. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -248,9 +248,9 @@ Ao clicar no bloco do SmartDraw no Painel de Acesso, você deverá entrar automa
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

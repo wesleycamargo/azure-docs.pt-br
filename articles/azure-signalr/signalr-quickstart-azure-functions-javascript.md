@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535607"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264192"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando JavaScript
 
@@ -50,7 +50,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
     ![Criar Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. No editor de código, abra a pasta *chat/src/javascript* no repositório clonado.
+1. No editor de códigos, abra a pasta *src/chat/javascript* no repositório clonado.
 
 1. Renomeie *local.settings.sample.json* como *local.settings.json*.
 
@@ -61,7 +61,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
     - **negociar** – usa a associação de entrada *SignalRConnectionInfo* para gerar e retornar informações de conexão válidas.
     - **mensagens** – recebe uma mensagem de chat no corpo da solicitação e usa a associação de saída *SignalR* para difundir a mensagem a todos os aplicativos cliente conectados.
 
-1. No terminal, certifique-se de que você está na pasta *chat/src/javascript*. Use o Azure Functions Core Tools para instalar as extensões necessárias para executar o aplicativo.
+1. No terminal, verifique se você está na pasta *src/chat/javascript*. Use o Azure Functions Core Tools para instalar as extensões necessárias para executar o aplicativo.
 
     ```bash
     func extensions install

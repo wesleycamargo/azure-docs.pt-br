@@ -12,22 +12,22 @@ manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
 ms.date: 02/08/2019
-ms.openlocfilehash: 0dcbecfa9148c30b398e9b2b10f898045e08befd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989280"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361426"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Use a CLI para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall
 
-Este exemplo de script de CLI do Azure cria um banco de dados SQL do Azure e configura uma regra de firewall no nível do servidor. Depois que o script tiver sido executado com êxito, o Banco de Dados SQL poderá ser acessado de todos os serviços do Azure e o endereço IP configurado. 
+Este exemplo de script de CLI do Azure cria um banco de dados SQL do Azure e configura uma regra de firewall no nível do servidor. Depois que o script tiver sido executado com êxito, o Banco de Dados SQL poderá ser acessado de todos os serviços do Azure e o endereço IP configurado.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -58,4 +58,3 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Os exemplos de script da CLI do Banco de Dados SQL adicionais podem ser encontrados na [documentação do Banco de Dados SQL do Azure](../sql-database-cli-samples.md).
-

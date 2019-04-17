@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359452"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281226"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar sua primeira função durável em JavaScript
 
@@ -110,7 +110,9 @@ Agora adicionamos todos os componentes necessários para iniciar uma orquestraç
 
 As Ferramentas Principais do Azure Functions permitem executar um projeto do Azure Functions no seu computador de desenvolvimento local. É solicitado que você instale essas ferramentas na primeira vez em que inicia uma função no Visual Studio Code.  
 
-1. Em um computador Windows, inicie o Emulador de Armazenamento do Azure e verifique se a propriedade **AzureWebJobsStorage** de local.settings.json está definida como `UseDevelopmentStorage=true`. Em um computador Mac ou Linux, defina a propriedade **AzureWebJobsStorage** na cadeia de conexão de uma conta de armazenamento do Azure existente. Você pode criar a conta de armazenamento mais tarde neste artigo.
+1. Em um computador Windows, inicie o Emulador de Armazenamento do Azure e verifique se a propriedade **AzureWebJobsStorage** de local.settings.json está definida como `UseDevelopmentStorage=true`. 
+
+    Para o Emulador de Armazenamento 5.8, verifique se a propriedade **AzureWebJobsSecretStorageType** de local.settings.json está definida como `files`. Em um computador Mac ou Linux, defina a propriedade **AzureWebJobsStorage** na cadeia de conexão de uma conta de armazenamento do Azure existente. Você pode criar a conta de armazenamento mais tarde neste artigo.
 
 2. Para testar sua função, defina um ponto de interrupção no código da função e pressione F5 para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**. Se essa for a primeira vez que você usa Durable Functions, a extensão Durable Functions será instalada e a compilação poderá levar alguns segundos.
 
@@ -125,7 +127,29 @@ As Ferramentas Principais do Azure Functions permitem executar um projeto do Azu
 
 5. Usando uma ferramenta como o [Postman](https://www.getpostman.com/) ou o [cURL](https://curl.haxx.se/), envie uma solicitação HTTP POST para o ponto de extremidade de URL.
 
-6. Para interromper a depuração, pressione Shift+F1 no VS Code.
+   A resposta é o resultado inicial da função HTTP informando que a orquestração durável foi iniciada com êxito. A resposta ainda não é o resultado final da orquestração. A resposta inclui algumas URLs úteis. Por enquanto, vamos consultar o status da orquestração.
+
+6. Copie o valor da URL para `statusQueryGetUri` e cole-o na barra de endereços do navegador e execute a solicitação. Como alternativa, você também pode continuar usando o Postman para emitir a solicitação GET.
+
+   A solicitação consultará a instância de orquestração do status. Você deve obter uma resposta eventual que nos mostre que a instância foi concluída e inclua as saídas ou os resultados da função durável. Ele tem esta aparência: 
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Para interromper a depuração, pressione **Shift+F5** no VS Code.
 
 Após verificar se a função foi executada corretamente no computador local, é hora de publicar o projeto no Azure.
 

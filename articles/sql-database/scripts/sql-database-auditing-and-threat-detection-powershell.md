@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5e838aa0bda0620958e679ab614cc238df607fdd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a3117f2cd75ae2d85b5241fee87f6d5940e8e116
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891524"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356847"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Use o PowerShell para configurar a detecção de ameaças e auditoria do Banco de Dados SQL
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

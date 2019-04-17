@@ -1,21 +1,21 @@
 ---
-title: Tutorial para chamar as APIs de Serviços Cognitivos em um pipeline de indexação - Azure Search
-description: Neste tutorial, percorra um exemplo de extração de dados, o idioma natural e o processamento de imagem AI na indexação do Azure Search para transformação e extração de dados.
+title: 'Tutorial: Chamar API de Serviços Cognitivos em um pipeline de indexação - Azure Search'
+description: Percorra um exemplo de extração de dados, idioma natural e processamento de imagem AI na indexação do Azure Search para transformação e extração de dados em blobs do JSON.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881607"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261914"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Chamar APIs de Serviços Cognitivos em um pipeline de indexação do Azure Search (versão prévia)
 
@@ -32,60 +32,44 @@ Neste tutorial, você deve fazer chamadas da API REST para executar as seguintes
 
 Saída é um índice de pesquisa de texto completo no Azure Search. Você pode aprimorar o índice com outros recursos padrão, como [sinônimos](search-synonyms.md), [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analisadores](search-analyzers.md), e [filtros](search-filters.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este tutorial é executado no serviço gratuito, mas o número de transações gratuitos é limitado a 20 documentos por dia. Se você quiser executar este tutorial mais de uma vez no mesmo dia, use um conjunto de arquivos menor para que você possa encaixar mais execuções.
 
 > [!NOTE]
-> Iniciando em 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos com um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também passaremos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+> À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto de documentos.
 >
-> A execução do conjunto de qualificações será cobrada com o [Preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagem será cobrado com o preço da versão prévia, o que está descrito na [página de preço do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
+> A execução das habilidades internas é cobrada com base no [preço de pagamento conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/). O preço da extração de imagem é cobrado com o preço da versão prévia, o que está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Novo na pesquisa cognitiva? Leia [“O que é pesquisa cognitiva?”](cognitive-search-concept-intro.md) para se familiarizar ou tente o [quickstart portal](cognitive-search-quickstart-blob.md) para obter uma introdução prática para conceitos importantes.
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
 
-Para fazer chamadas REST para Azure Search, use PowerShell ou uma ferramenta de teste na web como o Telerik Fiddler ou Postman para formular HTTP solicitações. Se estas ferramentas forem novas para você, veja [Explorar as APIs REST do Azure Search usando o Fiddler ou Postman](search-fiddler.md).
+O [aplicativo da área de trabalho do postman](https://www.getpostman.com/) é usado para fazer chamadas REST ao Azure Search.
 
-Use o [portal do Azure](https://portal.azure.com/) para criar serviços usados em um fluxo de trabalho de ponta a ponta. 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>Obter uma chave de API do Azure Search e o ponto de extremidade
 
-### <a name="set-up-azure-search"></a>Configurar o Azure Search
+As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-Primeiro, inscreva-se no serviço do Azure Search. 
+1. No portal do Azure, na página **Visão geral**, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://my-service-name.search.windows.net`.
 
-1. Acesse o [Portal do Azure](https://portal.azure.com) e entre usando sua conta do Azure.
+2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-1. Clique em **Criar um recurso**, pesquise por Azure Search e clique em **Criar**. Consulte [Criar um serviço do Azure Search no portal de](search-create-service-portal.md) se você estiver configurando um serviço de pesquisa pela primeira vez.
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
-   ![Portal Dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar um serviço de Azure Search no portal")
+Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para o grupo de recursos, crie um grupo de recursos para conter todos os recursos que você cria neste tutorial. Isso torna mais fácil limpar os recursos, depois de concluir o tutorial.
-
-1. Para Localização, escolha uma região perto de seus dados e outros aplicativos de nuvem.
-
-1. Para a camada de preços, você pode criar um serviço **Livre** para completar tutoriais e guias de início rápido. Para uma investigação mais detalhada usando seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** ou **Standard**. 
-
-   Um serviço gratuito está limitado a 3 índices, tamanho máximo do blob de 16 MB e 2 minutos de indexação, o que não é suficiente para exercer todos os recursos de pesquisa cognitiva. Para examinar os limites para as diferentes camadas, consulte [Limites de Serviço](search-limits-quotas-capacity.md).
-
-   ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definição de serviço no portal")
-   ![Página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definição de serviço no o portal")
-
- 
-1. Fixe o serviço no painel de controle para acesso rápido a informações de serviço.
-
-   ![Página de definição de Serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definição de Serviço no portal")
-
-1. Depois que o serviço é criado, colete as seguintes informações: **URL** na página de Visão Geral e **api-key** (primária ou secundária) na página Chaves.
-
-   ![Informações de ponto de extremidade e a chave no portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "ponto de extremidade e informações de chave no portal")
-
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço de Blob do Azure e carregar dados de amostra
+### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de amostra
 
 O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). Observe que não há suporte para o Armazenamento de Tabelas do Azure para Pesquisa Cognitiva. Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
 
-1. [Baixe os dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Dados de exemplo consistem em um conjunto de pequenos arquivos de tipos diferentes. 
+1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. 
 
-1. Inscreva-se para o armazenamento de Blobs do Azure, crie uma conta de armazenamento, entre no Gerenciador de Armazenamento e crie um contêiner nomeado `basicdemo`. Veja [Início Rápido do Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para instruções em todas as etapas.
+1. [Inscreva-se no armazenamento de blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), crie uma conta de armazenamento, abra as páginas de serviços Blob e crie um contêiner. Crie a conta de armazenamento na mesma região do Azure Search.
 
-1. Usando o Gerenciador de Armazenamento do Microsoft Azure, no contêiner `basicdemo` que você criou, clique em **Carregar** para carregar os arquivos de exemplo.
+1. No contêiner criado, clique em **Carregar** para carregar os arquivos de exemplo baixados em uma etapa anterior.
+
+   ![Arquivos de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. Depois que os arquivos de exemplo são carregados, obter o nome do contêiner e uma cadeia de caracteres de conexão para o armazenamento de Blob. Você pode fazer isso navegando até você conta de armazenamento no portal do Azure. Em **chaves de acesso**e, em seguida, copie o campo **cadeia de caracteres de Conexão**.
 

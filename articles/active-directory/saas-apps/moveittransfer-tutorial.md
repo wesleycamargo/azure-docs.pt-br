@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f6b9c85fa3462486a32cf55b10cb06bb84b0072
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Azure Active Directory ao MOVEit Transfer – Integração do Azure Active Directory
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do MOVEit Transfer - Azure AD integration ao Azure AD, você precisa adicionar o MOVEit Transfer - Azure AD integration pela galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o MOVEit Transfer - Azure AD integration pela galeria, execute as seguintes etapas:**
+**Para adicionar o MOVEit Transfer – Azure AD integration por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o MOVEit Transfer - Azure AD inte
 
     ![Informações de logon único de Domínio e URLs do MoVEit Transfer - Azure AD integration](common/sp-identifier-reply.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://contoso.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://contoso.com`
 
     > [!NOTE]
     > O valor da **URL de logon** não é real. Atualize o valor com a URL de Logon real. Entre em contato com a equipe de suporte ao cliente do [MOVEit Transfer - Azure AD integration](https://community.ipswitch.com/s/support) para obter o valor. Você pode baixar o **arquivo de metadados do provedor de serviço** da **URL de metadados do provedor de serviço** que é explicada posteriormente na seção do tutorial **Configurar logon único do MOVEit Transfer - Azure AD integration**. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -246,9 +246,9 @@ Ao clicar no bloco do MOVEit Transfer - Azure AD integration no painel de acesso
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

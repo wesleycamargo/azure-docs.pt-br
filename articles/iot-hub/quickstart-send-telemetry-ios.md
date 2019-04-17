@@ -8,21 +8,21 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/20/2019
-ms.openlocfilehash: 5def12acf3aa87c06ea7cd2f8a1102018750d36d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 04/03/2019
+ms.openlocfilehash: a3f72c2a55acfc53d7d8a07bd10250c6ed6102ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009487"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006890"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT (iOS)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de telemetria de seus dispositivos IoT pela nuvem para processamento ou armazenamento. Neste artigo, você envia telemetria de um aplicativo de dispositivo simulado para o Hub IoT. Em seguida, você exibe os dados em um aplicativo de back-end. 
+O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de telemetria de seus dispositivos IoT pela nuvem para processamento ou armazenamento. Neste artigo, você envia telemetria de um aplicativo de dispositivo simulado para o Hub IoT. Em seguida, você exibe os dados em um aplicativo de back-end.
 
-Este artigo usa um aplicativo Swift previamente codificado para enviar a telemetria e um utilitário CLI para ler a telemetria do Hub IoT. 
+Este artigo usa um aplicativo Swift previamente codificado para enviar a telemetria e um utilitário CLI para ler a telemetria do Hub IoT.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,9 +30,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Baixe o exemplo de código dos [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
-- A última versão do [XCode](https://developer.apple.com/xcode/) executando a última versão do SDK do iOS. Este início rápido foi testado com o XCode 9.3 e o iOS 11.3.
+- Baixe o exemplo de código dos [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)
+- A última versão do [XCode](https://developer.apple.com/xcode/) executando a última versão do SDK do iOS. Este início rápido foi testado com o XCode 10.2 e o iOS 12.2.
 - A última versão do [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+- Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -42,14 +47,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo. 
+1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
    **myiOSdevice** : Esse é o nome fornecido para o dispositivo registrado. Use myiOSdevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
    az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
    ```
 

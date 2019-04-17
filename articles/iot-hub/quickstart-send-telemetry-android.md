@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 63e1f6a6779cf2689a7cbffad06447d272a413d7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516919"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005379"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Início Rápido: Enviar telemetria de IoT de um dispositivo Android
 
@@ -33,11 +33,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Android Studio de https://developer.android.com/studio/. Para obter mais informações sobre a instalação do Android Studio, confira [instalação do Android](https://developer.android.com/studio/install). 
 
-* O SDK do Android 27 é usado pelo exemplo deste artigo. 
+* O SDK do Android 27 é usado pelo exemplo deste artigo.
+
+* Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) no IoT à CLI do Azure.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 * O [exemplo de aplicativo Android](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) executado neste início rápido faz parte do repositório azure-iot-samples-java no GitHub. Baixe ou clone o repositório [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
-
-
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -47,14 +51,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo. 
+1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
    **MyAndroidDevice**: MyAndroidDevice é o nome fornecido para o dispositivo registrado. Use o MyAndroidDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
 

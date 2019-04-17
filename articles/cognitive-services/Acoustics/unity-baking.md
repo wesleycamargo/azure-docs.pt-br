@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309633"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470331"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unity
 Este tutorial descreve a preparação de acústica com o Projeto Acústico no Unity.
@@ -137,7 +137,7 @@ O nome da cena é usado para conectar a cena a arquivos que armazenam o posicion
 
 1. O **investigações** botão guia usada para abrir essa página
 2. Uma breve descrição do que você precisa fazer usando essa página
-3. Usá-los para escolher uma resolução de simulação fino ou grosso. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Consulte [Escolher resolução grossa vs fina](#Coarse-vs-Fine-Resolution) abaixo para obter detalhes.
+3. Usá-los para escolher uma resolução de simulação fino ou grosso. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Veja [Fazer o Bake da Resolução](bake-resolution.md) abaixo para obter detalhes.
 4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando este campo. Clique no botão "..." para usar um seletor de pastas. O padrão é **Assets / AcousticsData**. Uma subpasta **Editor** também será criada nesse local. Para mais informações sobre arquivos de dados, consulte [Arquivos de Dados](#Data-Files) abaixo.
 5. Os arquivos de dados para esta cena serão nomeados usando o prefixo fornecido aqui. O padrão é "Acústica_ [Nome da cena]".
 6. Após as probes terem sido calculadas, os controles acima serão desativados. Clique no botão **Limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular usando as novas configurações.
@@ -145,21 +145,7 @@ O nome da cena é usado para conectar a cena a arquivos que armazenam o posicion
 
 Nesta versão do Project Acoustics, os probes não podem ser colocados manualmente e devem ser colocados através do processo automatizado fornecido na guia **Probes**.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Escolher resolução grossa vs fina
-
-A única diferença entre as configurações de resolução grossa e Fina é a frequência com que a simulação é executada. A fina usa uma frequência duas vezes mais alta que a grossa.
-Embora isso possa parecer simples, tem várias implicações na simulação acústica:
-
-* O comprimento de onda para a grossa é duas vezes mais longo que a fina e, portanto, os voxels são duas vezes maiores.
-* O tempo de simulação está diretamente relacionado ao tamanho do voxel, fazendo um bake grosso aproximadamente 16 vezes mais rápido que um bake fino.
-* Portais (por exemplo, portas ou janelas) menores que o tamanho do voxel não podem ser simulados. A configuração grossa pode fazer com que alguns desses portais menores não sejam simulados, portanto, não passarão o som durante o tempo de execução. Você pode ver se isso está acontecendo, visualizando os voxels.
-* A menor frequência de simulação resulta em menos difração ao redor dos cantos e bordas.
-* Fontes de som não podem ser localizadas dentro de voxels "preenchidos", ou seja, voxels que contêm geometria - isso resulta em nenhum som. É mais difícil localizar fontes de som de forma que elas não estejam dentro dos voxels de configuração grossa do que usando a configuração fina.
-* Os voxels maiores se intrometem mais nos portais, como mostrado abaixo. A primeira imagem foi criada usando resolução grossa, enquanto a segunda é a mesma porta usando resolução fina. Como indicado pelas marcas vermelhas, há muito menos intrusão na entrada usando a configuração fina. A linha azul é a porta conforme definida pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho do voxel. Como essa intrusão ocorre em uma determinada situação depende completamente de como os voxels se alinham com a geometria do portal, que é determinada pelo tamanho e localização de seus objetos na cena.
-
-![Captura de tela de voxels grossos na porta de entrada](media/coarse-voxel-doorway.png)
-
-![Captura de tela de voxels finos na porta de entrada](media/fine-voxel-doorway.png)
+Veja [Fazer o Bake da Resolução](bake-resolution.md) para obter mais detalhes sobre resolução bruta vs. fina.
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Fazer sua cena usando o Lote do Azure
 É possível fazer o bake da cena com um cluster de cálculo na nuvem usando o serviço do Lote do Azure. O plugin do Unity do Projeto Acústico conecta-se diretamente ao Lote do Azure para instanciar, gerenciar e desativar um cluster do Lote do Azure para cada bake. Na guia **Bake**, insira as credenciais do Azure, selecione um tipo e tamanho de computador de cluster e clique em **Bake**.

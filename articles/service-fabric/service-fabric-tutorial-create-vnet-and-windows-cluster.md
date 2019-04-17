@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 5ef143fe2021a9f705bf61b579e8251b2946b042
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668085"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049988"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -50,13 +50,16 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [SDK do Service Fabric e o módulo do PowerShell](service-fabric-get-started.md).
-* Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 * Examine os conceitos principais dos [clusters do Azure](service-fabric-azure-clusters-overview.md).
 * [Planejar e preparar](service-fabric-cluster-azure-deployment-preparation.md) para uma implantação de cluster de produção.
 
@@ -611,7 +614,7 @@ O modelo deste artigo implanta um cluster que usa a impressão digital do certif
 
 ### <a name="create-a-cluster-by-using-an-existing-certificate"></a>Criar um cluster usando um certificado existente
 
-O script a seguir usa o cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) e um modelo para implantar um novo cluster no Azure. O cmdlet cria um novo cofre de chaves no Azure e carrega o certificado.
+O script a seguir usa o cmdlet [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) e um modelo para implantar um novo cluster no Azure. O cmdlet cria um novo cofre de chaves no Azure e carrega o certificado.
 
 ```powershell
 # Variables.
@@ -626,22 +629,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-by-using-a-new-self-signed-certificate"></a>Criar um cluster usando um novo certificado autoassinado
 
-O script a seguir usa o cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) e um modelo para implantar um novo cluster no Azure. O cmdlet cria um cofre de chaves no Azure, adiciona um certificado autoassinado a ele e baixa o arquivo de certificado localmente.
+O script a seguir usa o cmdlet [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) e um modelo para implantar um novo cluster no Azure. O cmdlet cria um cofre de chaves no Azure, adiciona um certificado autoassinado a ele e baixa o arquivo de certificado localmente.
 
 ```powershell
 # Variables.
@@ -657,15 +660,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 

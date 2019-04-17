@@ -1,19 +1,18 @@
 ---
-title: 'Início Rápido: Visualizar dados usando uma consulta SQL no Power BI'
+title: 'Início Rápido: Visualizar dados no Azure Data Explorer usando uma consulta SQL no Power BI'
 description: 'Neste início rápido, você aprenderá a usar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756349"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045500"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início Rápido: Visualize dados usando o conector do Azure Data Explorer para Power BI
 
@@ -53,7 +52,7 @@ Geralmente, você usa a linguagem de consulta nativa com o Azure Data Explorer, 
     |---|---|---|
     | Servidor | *help.kusto.windows.net* | A URL para o cluster de ajuda (sem *https://*). Para outros clusters, a URL está no formato *\<NomeCluster\>.\<Região\>.kusto.windows.net*. |
     | Banco de dados | *Exemplos* | O banco de dados de exemplo está hospedado no cluster ao qual você está se conectando. |
-    | Modo de conectividade de dados | *Importaçãoação* | Determina se o Power BI importa os dados ou se conecta diretamente à fonte de dados. Você pode usar uma das opções com esse conector. |
+    | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou se conecta diretamente à fonte de dados. Você pode usar uma das opções com esse conector. |
     | Tempo limite do comando | Deixar em branco | Por quanto tempo a consulta é executada antes de gerar um erro de tempo limite. |
     | Instrução SQL | Copie a consulta abaixo desta tabela | A instrução SQL que o Azure Data Explorer se traduz em uma consulta nativa. |
     | Outras opções | Mantenha como valores padrão | As opções não se aplicam aos clusters do Azure Data Explorer. |
@@ -86,4 +85,4 @@ Caso não precise mais do relatório que você criou para este início rápido, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Visualize dados usando uma consulta importada no Power BI](power-bi-connector.md)
+> [Início Rápido: Visualizar dados usando uma consulta importada no Power BI](power-bi-connector.md)

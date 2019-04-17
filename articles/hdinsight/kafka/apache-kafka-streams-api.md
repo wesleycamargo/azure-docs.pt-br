@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112782"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273814"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
@@ -23,14 +23,13 @@ Saiba como criar um aplicativo que usa a API de Streams do Apache Kafka e execut
 O aplicativo usado neste tutorial é uma contagem de palavras de streaming. Ele lê dados de texto de um tópico Kafka, extrai palavras individuais e, em seguida, armazena a palavra e a contagem em outro tópico Kafka.
 
 > [!NOTE]  
-> O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
+> O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 1.1.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
 >
 > Para obter mais informações sobre Streams do Kafka, consulte a documentação[Introdução a Streams](https://kafka.apache.org/10/documentation/streams/) em Apache.org.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configurar seu ambiente de desenvolvimento
 > * Compreender o código
 > * Compilar e implantar o aplicativo
 > * Configurar tópicos Kafka
@@ -42,15 +41,11 @@ Neste tutorial, você aprenderá como:
 
 * Conclua as etapas no documento [API de Produtor e Consumidor do Apache Kafka](apache-kafka-producer-consumer-api.md). As etapas neste documento usam o aplicativo de exemplo e os tópicos criados neste tutorial.
 
-## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
+* [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks) ou um equivalente, como o OpenJDK.
 
-Você deve ter os seguintes componentes instalados no ambiente de desenvolvimento:
+* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 
-* [Java JDK 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
-
-* [Apache Maven](https://maven.apache.org/)
-
-* Um cliente SSH e o comando `scp`. Para saber mais, consulte o documento [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Compreender o código
 
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>Compilar e implantar o exemplo
 
 Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as seguintes etapas:
 
-1. Baixe os exemplo de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Defina o diretório atual para o local do diretório `hdinsight-kafka-java-get-started-master\Streaming` e, em seguida, use o seguinte comando para criar um pacote jar:
 
-2. Altere os diretórios para o diretório `Streaming` e utilize o seguinte comando para criar um pacote Jar:
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     Este comando cria o pacote em `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Utilize o seguinte comando para copiar o arquivo `kafka-streaming-1.0-SNAPSHOT.jar` para o Cluster HDInsight:
-   
-    ```bash
+2. Substitua `sshuser` pelo usuário do SSH do cluster e substitua `clustername` pelo nome do cluster. Use o seguinte comando para copiar o arquivo `kafka-streaming-1.0-SNAPSHOT.jar` para o Cluster HDInsight. Se solicitado, insira a senha para a conta de usuário SSH.
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    Substitua `sshuser` pelo usuário do SSH do cluster e substitua `clustername` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário SSH. Para saber mais sobre como usar o `scp` com HDInsight, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-apache-kafka-topics"></a>Criar tópicos do Apache Kafka
 
-1. Para abrir uma conexão SSH para o cluster, use o seguinte comando:
+1. Substitua `sshuser` pelo usuário do SSH do cluster e substitua `CLUSTERNAME` pelo nome do cluster. Abra uma conexão SSH para o cluster inserindo o seguinte comando. Se solicitado, insira a senha para a conta de usuário SSH.
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Substitua `sshuser` pelo usuário do SSH do cluster e substitua `clustername` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário SSH. Para saber mais sobre como usar o `scp` com HDInsight, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Para salvar o nome do cluster a uma variável e instalar um utilitário de análise de JSON (`jq`), use os seguintes comandos. Ao receber a solicitação, insira o nome do cluster Kafka:
+2. Instale [jq](https://stedolan.github.io/jq/), um processador JSON de linha de comando. Na conexão SSH aberta, digite o seguinte comando para instalar o `jq`:
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Para obter os hosts de broker Kafka e os hosts Apache Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin). Você receberá uma solicitação de senha duas vezes.
+3. Configurar variáveis de ambiente. Substitua `PASSWORD` e `CLUSTERNAME` pela senha de logon do cluster e pelo nome do cluster, respectivamente, e digite o comando:
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Para criar os tópicos usados pela operação de streaming, use os seguintes comandos:
+4. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real, a armazenará em uma variável e, em seguida, exibirá o nome com grafia correta de maiúsculas e minúsculas e o nome fornecido anteriormente. Digite o seguinte comando:
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Para obter os hosts de broker Kafka e os hosts Apache Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin). Você receberá uma solicitação de senha duas vezes.
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. Para criar os tópicos usados pela operação de streaming, use os seguintes comandos:
 
     > [!NOTE]  
     > Você pode receber um erro que o tópico `test` já existe. Não há problema nisso, pois ele pode ter sido criado no tutorial de API de produtor e consumidor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     > [!NOTE]  
     > O parâmetro `--from-beginning` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
 
-7. Use __Ctrl + C__ para sair do produtor. Continue usando __Ctrl + C__ para sair do aplicativo e do consumidor.
+4. Use __Ctrl + C__ para sair do produtor. Continue usando __Ctrl + C__ para sair do aplicativo e do consumidor.
+
+5. Para excluir os tópicos usados pela operação de streaming, use os seguintes comandos:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

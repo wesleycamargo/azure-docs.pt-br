@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116683"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008895"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização do firmware
 
-Crie uma [configuração de gerenciamento de dispositivo automática](iot-hub-auto-device-config.md#create-a-configuration) no aplicativo de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** do resfriador. Nesta seção, você verá como:
+Crie uma [configuração de gerenciamento de dispositivo automática](iot-hub-automatic-device-management.md#create-a-configuration) no aplicativo de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** do resfriador. Nesta seção, você verá como:
 
 * Crie uma configuração de um aplicativo de back-end.
 * Monitore a conclusão do trabalho.

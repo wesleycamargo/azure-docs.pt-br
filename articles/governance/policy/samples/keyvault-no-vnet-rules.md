@@ -1,19 +1,18 @@
 ---
 title: Amostra – Auditar cofres de chaves para verificar se não há nenhum ponto de extremidade de rede virtual
 description: Esta definição de política de exemplo audita cofres do Key Vault para detectar instâncias que não têm pontos de extremidade de serviço de rede virtual.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: f2f6e5c60553a55fd1a65e45cd38aef0b883020e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802246"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276364"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Amostra – Cofres do Key Vault sem pontos de extremidade de rede virtual
 
@@ -22,7 +21,7 @@ Esta política audita cofres Key Vault sem nenhum ponto de extremidade de rede v
 Você pode implantar essa política de exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [PowerShell do Azure](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 

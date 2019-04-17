@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313015"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492390"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Início Rápido do Projeto Acústico Unreal/Wwise
 Neste início rápido, você experimentará os controles de design do Projeto Acústico usando o conteúdo de amostra fornecido para o Unreal Engine e Wwise.
 
 Requisitos de software:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>Baixar o pacote de exemplo
 Baixe o [pacote de exemplo do Projeto Acústico Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). O pacote de exemplo contém um projeto do Unreal Engine, o projeto Wwise para esse projeto Unreal e o plug-in do Projeto Acústico Wwise.
@@ -50,7 +50,7 @@ O plugin do Unreal do Projeto Acústico requer que o comportamento adicional sej
 
     ![Captura de tela da janela do Windows Explorer mostrando o script para aplicar patch no projeto do Wwise](media/patch-wwise-script.png)
 
-* Se você não tiver instalado o SDK do DirectX, precisará de comentar a linha que contém DXSDK_DIR no `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se você não tiver instalado o SDK do DirectX, precisará comentar a linha que contém DXSDK_DIR no `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Captura de tela do editor de código mostrando o DXSDK comentado](media/directx-sdk-comment.png)
 

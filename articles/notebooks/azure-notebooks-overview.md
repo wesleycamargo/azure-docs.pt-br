@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777712"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280092"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
 O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
 
-[![Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![E[Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
 
@@ -58,6 +58,8 @@ Em resumo, o Azure Notebooks ajuda a realizar seu trabalho com mais eficiência 
 O Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Os usuários legítimos que excedem esses limites devem resolver um desafio Captcha para continuar a execução de notebooks.
 
 Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá conectar quaisquer instâncias da Máquina Virtual de Ciência de Dados do Azure dentro dessa assinatura. Para obter mais informações, consulte [Gerenciar e configurar projetos – nível de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
+
+Servidores de notebook com certeza existem por no máximo 8 horas. Na maioria dos casos, o contêiner não está sujeito a esse limite e continuará sendo executado após esse prazo, mas as sessões de longa duração ocasionalmente poderão ser desligadas para estabilidade do sistema.
 
 ## <a name="available-kernels-and-environments"></a>Ambientes e kernels disponíveis
 
@@ -95,7 +97,7 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Explorar notebooks de exemplo](azure-notebooks-samples.md)
+- [Explorar notebooks de amostra](azure-notebooks-samples.md)
 
 - Inícios Rápidos:
 
@@ -113,8 +115,8 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
   
   - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
   - [Configurar e gerenciar dispositivos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
+  - [Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
   - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
   - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
   - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Usar os serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

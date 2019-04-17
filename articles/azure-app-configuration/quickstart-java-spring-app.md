@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648462"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050502"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativo
 
@@ -48,17 +48,13 @@ Para realizar este início rápido, instale um [JDK (Java Development Kit)](http
     | **Nome do recurso** | Nome globalmente exclusivo | Insira um nome exclusivo do recurso a ser usado para o recurso do repositório de configurações de aplicativo. O nome deve ser uma cadeia de caracteres com 1 a 63 caracteres e deve conter somente números, letras e o caractere `-`. O nome não pode iniciar ou terminar com o caractere `-` e caracteres `-` consecutivos não são válidos.  |
     | **Assinatura** | Sua assinatura | Selecione a assinatura do Azure que deseja usar para testar a Configuração de Aplicativo. Se a conta tiver apenas uma assinatura, ela será selecionada automaticamente e a lista suspensa **Assinatura** não será exibida. |
     | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o recurso do repositório de configurações de aplicativo. Esse grupo é útil para organizar vários recursos que você pode querer excluir ao mesmo tempo, excluindo o grupo de recursos. Para saber mais, veja [Usar os grupos de recursos para gerenciar seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Localidade** | *Centro dos EUA* | Use **Local** para especificar a localização geográfica em que o recurso do SignalR está hospedado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes do aplicativo. |
+    | **Local padrão** | *Centro dos EUA* | Use **Local** para especificar a localização geográfica em que o recurso do SignalR está hospedado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes do aplicativo. |
 
     ![Criar um repositório de configurações de aplicativo](./media/quickstarts/azure-app-configuration-create.png)
 
 4. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
 
-5. Após a conclusão da implantação, selecione **Configurações** > **Chaves de acesso**. Anote a cadeia de conexão de chave de leitura/gravação primária ou somente leitura primária. Você usará essa cadeia de conexão posteriormente para configurar o aplicativo a comunicar-se com o repositório de configurações do aplicativo que você criou. A cadeia de conexão tem o seguinte formato:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Use a cadeia de caracteres inteira no aplicativo.
+5. Após a conclusão da implantação, selecione **Configurações** > **Chaves de acesso**. Anote a cadeia de conexão de chave de leitura/gravação primária ou somente leitura primária. Você usará essa cadeia de conexão posteriormente para configurar o aplicativo a comunicar-se com o repositório de configurações do aplicativo que você criou.
 
 6. Selecione **Explorador de Chave/Valor** > **+ Criar** para adicionar os pares chave-valor a seguir:
 

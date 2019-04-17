@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399992"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278472"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Azure Data Box Edge
 
@@ -90,7 +90,9 @@ O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o pr
 
 - Antes de começar, leia as instruções de segurança no livreto Informações sobre Regulamentação, Segurança e Meio-ambiente. Esse livreto foi enviado com o dispositivo.
 - Comece a instalar os trilhos no espaço alocado mais próximo à parte inferior do compartimento de rack.
-- Para a configuração de montagem do trilho com ferramentas, você precisará fornecer oito parafusos: nº 10-32, nº 12-24, nº M5 ou nº M6. O diâmetro da cabeça dos parafusos precisa ser inferior a 10 mm (0,4").
+- Para a configuração de montagem do trilho com ferramentas:
+    -  Você precisa fornecer oito parafusos: 10-32, 12-24, M5 ou M6. O diâmetro da cabeça dos parafusos precisa ser inferior a 10 mm (0,4").
+    -  Você precisa de uma chave de fenda de ponta chata.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit de trilho
 
@@ -102,6 +104,9 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instale e remova os trilhos sem ferramentas (racks de orifício quadrado ou redondo)
 
+> [!TIP]
+> Essa opção é sem ferramenta porque não exige ferramentas para instalar e remover os trilhos no quadrado não rosqueado ou furos redondos no rack.
+
 1. Posicione as extremidades esquerda e direita do trilho rotuladas **FRENTE** voltadas para dentro e vire cada extremidade até encaixá-las nos orifícios no lado dianteiro das bordas verticais do rack.
 2. Alinhe cada extremidade nos orifícios inferior e superior dos espaços em U desejados.
 3. Encaixe a extremidade traseira do trilho até que ela se ajuste totalmente na borda vertical do rack e a trava se encaixe no lugar. Repita essas etapas para posicionar e encaixar a extremidade dianteira da borda vertical do rack.
@@ -110,6 +115,9 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 ![Instalar e remover os trilhos sem ferramentas](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover os trilhos com ferramentas (racks com orifício rosqueado)
+
+> [!TIP]
+> Essa opção é com ferramentas porque requer uma ferramenta (_uma chave de fenda de ponta chata_) para instalar e remover os trilhos redondo rosqueados nos racks.
 
 1. Remova os pinos dos suportes de montagem dianteiro e traseiro usando uma chave de fenda com ponta achatada.
 2. Puxe e gire os subconjuntos de trava de trilho para removê-los dos suportes de montagem.
@@ -152,7 +160,7 @@ OBSERVAÇÃO:  Para sistemas não equipados com travas do tipo slam, fixe o sist
 
 1. Localize os suportes externos do CMA nas laterais interiores de ambas as bordas do rack.
 2. Agrupe os cabos com cuidado, afastando-os dos conectores do sistema nas laterais esquerda e direita.
-3. Passe as tiras com fixador de contato pelos slots com ferramentas nos suportes externos do CMA em cada lateral do sistema para fixar os conjuntos de cabos.
+3. Passe as tiras com fixador de contato pelos slots nos suportes externos do CMA em cada lateral do sistema para fixar os conjuntos de cabos.
 
 
 ![Rotear os cabos](./media/data-box-edge-deploy-install/routing-cables.png)

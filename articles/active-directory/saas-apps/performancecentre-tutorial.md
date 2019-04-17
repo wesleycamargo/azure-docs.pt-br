@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407565"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Azure Active Directory com o PerformanceCentre
 
@@ -224,7 +224,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Perfor
     
     b. Selecione **Administrador Cliente** como **Escolher Função**.
     
-    c. Clique em **Salvar**. 
+    c. Clique em **Save** (Salvar). 
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -234,9 +234,9 @@ Quando você clica no bloco PerformanceCentre no painel de acesso, deve entrar a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

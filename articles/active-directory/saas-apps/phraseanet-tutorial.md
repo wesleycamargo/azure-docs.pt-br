@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a43ba4a4f6a1a9d658d8f4bc8ba4ff7d07d1834
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c022dbb08146bbf8b16ccd9020fdffbc50166dd9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407361"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integração do Azure Active Directory com o Phraseanet
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Phraseanet, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do Phraseanet](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.alchemyasp.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.alchemyasp.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a equipe de suporte ao cliente do [Phraseanet](mailto:support@alchemy.fr) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -191,9 +191,9 @@ Ao clicar no bloco do Phraseanet no Painel de Acesso, você deverá ser conectad
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

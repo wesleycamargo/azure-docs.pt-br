@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094915"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009251"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você aprenderá a criar um aplicativo iOS em Objective-C usando o SDK de Fala dos Serviços Cognitivos para transcrever um arquivo de áudio com conversão de fala em texto gravada.
+Neste artigo, você aprenderá a criar um aplicativo iOS em Objective-C usando o SDK de Fala dos Serviços Cognitivos para transcrever uma fala em texto do microfone ou de um arquivo com o áudio gravado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,16 +29,16 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 
 * Uma [chave de assinatura](get-started.md) para o Serviço de Fala
 * Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
-* O destino definido para iOS versão 11.4 ou posterior
+* O destino definido para o iOS versão 9.3 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Fala para iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.3.1`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.4.0`.
 
-O SDK de Fala dos Serviços Cognitivos para Mac e iOS atualmente é distribuído como uma Cocoa Framework.
-Ele pode ser baixado de https://aka.ms/csspeech/iosbinary. Baixe o arquivo para seu diretório inicial.
+Atualmente, o SDK de Fala dos Serviços Cognitivos para iOS é distribuído como um Cocoa Framework.
+Ele pode ser baixado [aqui](https://aka.ms/csspeech/iosbinary). Baixe o arquivo para seu diretório inicial.
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
 
@@ -58,7 +58,7 @@ Nas caixas de diálogo que seguem, faça as seguintes seleções:
     1. Desabilite a criação de um repositório Git para este projeto de exemplo.
     1. Ajuste os caminhos para o SDK em *Configurações do projeto*.
         1. Na guia **Geral** no cabeçalho **Binários Inseridos**, adicione a biblioteca do SDK como uma estrutura: **Adicionar binários inseridos** > **Adicionar outro…** > Navegue até seu diretório inicial e escolha o arquivo `MicrosoftCognitiveServicesSpeech.framework`. Isso adiciona a biblioteca do SDK ao cabeçalho **Estrutura e Bibliotecas Vinculadas** automaticamente.
-        ![Estrutura Adicionada](media/sdk/qs-objectivec-framework.png)
+        ![Estrutura adicionada](media/sdk/qs-objectivec-framework.png)
         1. Vá para a guia **Configurações de Build** e ative **Todas** as configurações.
         1. Adicione o diretório `$(SRCROOT)/..` a *Caminhos de Pesquisa do Framework* no cabeçalho **Caminhos de Pesquisa**.
         ![Configuração de Caminho de Pesquisa de Estrutura](media/sdk/qs-objectivec-framework-search-paths.png)
@@ -103,3 +103,4 @@ Substitua o XML gerado automaticamente por este código:
 
 > [!div class="nextstepaction"]
 > [Explorar amostras de Objective-C no GitHub](https://aka.ms/csspeech/samples)
+

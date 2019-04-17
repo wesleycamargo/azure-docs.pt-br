@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5e7994ba5fcd3efa061f56d7ee77f796bab16708
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449316"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268663"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Criar um mapa de pesquisa interativo usando o Azure Mapas
 
@@ -49,7 +49,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Baixe ou copie o conteúdo do arquivo [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Salve o conteúdo deste arquivo localmente como **AzureMapDemo.html**. Abra-o em um editor de texto.
-3. Pesquise pela cadeia de caracteres `<insert-key>`. Substitua-o pelo valor **Chave primária** da seção anterior.
+3. Pesquise pela cadeia de caracteres `<Your Azure Maps Key>`. Substitua-o pelo valor **Chave primária** da seção anterior.
 
 ## <a name="open-the-application"></a>Abra o aplicativo
 
@@ -70,15 +70,15 @@ Os tutoriais entram em detalhes sobre como usar e configurar o Azure Mapas com s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou sua conta do Azure Mapas e criou um aplicativo de demonstração. Para aprender a criar seu próprio aplicativo usando as APIs do Azure Mapas, continue no próximo tutorial:
+Neste início rápido, você criou sua conta do Azure Mapas e criou um aplicativo de demonstração. Confira os seguintes tutoriais para saber mais sobre os Azure Mapas:
 
 > [!div class="nextstepaction"]
-> [Pesquisar pontos de interesse próximos usando o Azure Mapas](./tutorial-search-location.md)
+> [Pesquisar pontos de interesse próximos usando os Azure Mapas](tutorial-search-location.md)
 
 Para obter mais exemplos de código e uma experiência interativa de codificação, consulte estes guias:
 
 > [!div class="nextstepaction"]
-> [Encontrar um endereço usando o serviço de pesquisa do Azure Mapas](./how-to-search-for-address.md)
+> [Encontrar um endereço usando o serviço de pesquisa dos Azure Mapas](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Usar o Controle de Mapeamento do Azure Mapas](./how-to-use-map-control.md)
+> [Use o controle de mapa de mapas do Azure](how-to-use-map-control.md)

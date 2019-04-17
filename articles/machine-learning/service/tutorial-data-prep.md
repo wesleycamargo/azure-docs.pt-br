@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665008"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266266"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -58,7 +58,7 @@ Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part1
 
 Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador.  Após concluir as etapas, execute o notebook **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Conclua as etapas no [[início rápido do Python do Azure Machine Learning](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) para criar um ambiente Miniconda.  Fique à vontade ignorar a seção **Criar um workspace** se você desejar, mas você precisará dela para a [parte 2](tutorial-auto-train-models.md) desta série de tutoriais.
+1. Conclua as etapas de instalação no [[Início Rápido do Python do Azure Machine Learning](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) para criar um ambiente do Miniconda.  Fique à vontade ignorar a seção **Criar um workspace** se você desejar, mas você precisará dela para a [parte 2](tutorial-auto-train-models.md) desta série de tutoriais.
 1. Instale o SDK de Preparação de Dados em seu ambiente usando `pip install azureml-dataprep`.
 1. Clone [o repositório do GitHub](https://aka.ms/aml-notebooks).
 
@@ -157,7 +157,8 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -685,7 +686,8 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -879,7 +881,8 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -1110,4 +1113,4 @@ Na primeira parte deste tutorial, você acabou de:
 Você está pronto para usar os dados de treinamento na segunda parte do tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial (parte dois): treinar o modelo de regressão](tutorial-auto-train-models.md)
+> [Tutorial (parte dois): Treinar o modelo de regressão](tutorial-auto-train-models.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810772"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046046"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -69,7 +69,7 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
     ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*.
+    > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*. No momento, não há suporte para Aplicativos de funções do Linux.
 
 7. Alterne para a exibição **Completa** e atribua **Produto** à nova API. Se necessário, edite outros campos preenchidos previamente.
 
@@ -111,11 +111,14 @@ Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma 
 
     ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Chave de host do Aplicativo de funções do Azure gerada
+## <a name="authorization"></a> Autorização
 
 A importação de um Aplicativo de funções do Azure gera automaticamente:
-* a chave de host dentro do Aplicativo de funções com o nome apim-{*nome de sua instância do serviço Gerenciamento de API do Azure*},
-* valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome {*nome de sua instância do Aplicativo de funções do Azure*}-key, que contém a chave de host criada.
+
+* A chave de host dentro do Aplicativo de funções com o nome apim-{*nome da instância de serviço do Gerenciamento de API do Azure*};
+* Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome {*nome da instância do Aplicativo de funções do Azure*}-key, que contém a chave de host criada.
+
+Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em solicitações HTTP do Gerenciamento de API para o Aplicativo de funções em um cabeçalho. As APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio da [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) `PATCH Backend` na entidade *Back-end* associada ao Aplicativo de funções.
 
 > [!WARNING]
 > A remoção ou alteração do valor da chave de host do Aplicativo de funções do Azure ou do valor nomeado do Gerenciamento de API interromperá a comunicação entre os serviços. Os valores não são sincronizados automaticamente.

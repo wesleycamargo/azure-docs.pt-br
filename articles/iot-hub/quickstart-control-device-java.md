@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: ce451ebb6b4a9afb10b9213a3d50c24c586887aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a4b2047cea186db681f4190073cfff94bf99b1a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58164885"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005135"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (Java)
 
@@ -53,6 +53,12 @@ Você pode verificar a versão atual do Maven no computador de desenvolvimento u
 mvn --version
 ```
 
+Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, IoT Edge e Serviço de Provisionamento de Dispositivos (DPS) de IoT para a CLI do Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Caso ainda não tenha feito isso, faça o download do projeto de exemplo em Java do https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip e extraia o arquivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
@@ -67,14 +73,13 @@ Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo.
+1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
    **MyJavaDevice**: O nome do dispositivo que está sendo registrado. Use **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, será necessário usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyJavaDevice
     ```

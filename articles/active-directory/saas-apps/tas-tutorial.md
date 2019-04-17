@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dcae137db04b604d7b0450c3bec18fc23b36991
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58228989"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integração do Azure Active Directory ao TAS
 
@@ -105,15 +105,15 @@ Para configurar o logon único do Azure Active Directory com o TAS, execute as s
 
     ![Informações de logon único de Domínio do TAS e URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de Domínio do TAS e URLs](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
 
     > [!NOTE]
     > Esses valores não são reais. Você atualizará estes com o identificador real, URL de resposta, e URL de logon que é explicado no tutorial posteriormente. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -226,9 +226,9 @@ Ao clicar no bloco do TAS no Painel de Acesso, você deverá ser conectado autom
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

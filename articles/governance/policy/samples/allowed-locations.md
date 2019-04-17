@@ -1,19 +1,18 @@
 ---
 title: Exemplo – locais permitido
 description: Esta definição de política de exemplo exige a implantação de todos os recursos nas localizações aprovadas.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0dc93b171fb610d901d2f13f3521b87aa91b1fd6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804710"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264719"
 ---
 # <a name="sample---allowed-region-locations"></a>Amostra – Localizações de região permitidas
 
@@ -22,7 +21,7 @@ Esta política permite que você restrinja os locais que sua organização pode 
 Você pode implantar essa política de exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [PowerShell do Azure](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 

@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286985"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469073"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -60,7 +60,7 @@ Se você não quiser continuar usando este aplicativo, poderá excluir o locatá
 
     O locatário e suas informações associadas serão excluídos.
 
-    ![Criar página de diretório, com informações de exemplo](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Página de visão geral, com o botão de diretório Excluir realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para alterar ou adicionar nomes de domínio, confira [Como adicionar um nome de domínio personalizado ao Azure Active Directory](add-custom-domain.md)

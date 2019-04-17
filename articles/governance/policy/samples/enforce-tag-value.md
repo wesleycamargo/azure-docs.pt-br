@@ -1,19 +1,18 @@
 ---
 title: Exemplo – Impor tag e seu valor
 description: Esta definição de política de exemplo exige um nome e um valor de marca, cada um definido como um parâmetro.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f6408c40b4c4e97c98db16302078396a2abf55cb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 4ab5b47307315c4aea8d6f6dfc4968ac1dfb26cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802772"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262016"
 ---
 # <a name="sample---enforce-tag-and-its-value"></a>Exemplo – Impor tag e seu valor
 
@@ -29,7 +28,7 @@ Você pode implantar este modelo usando o [portal do Azure](#deploy-with-the-por
 
 ## <a name="deploy-with-the-portal"></a>Implantar com o portal
 
-[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
+[![DImplantar a amostra de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 

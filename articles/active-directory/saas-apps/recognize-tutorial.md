@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bd772a10cd64b4198e994fdefa671444447c8a53
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 94e0b365d159ef18d7c0e6216ac9f5babb0d6231
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849564"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory ao Recognize
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Recognize ao Azure AD, você precisará adicionar o Recognize da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Recognize da galeria, execute as seguintes etapas:**
+**Para adicionar o Recognize por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -255,9 +255,9 @@ Ao clicar no bloco do Recognize no Painel de Acesso, você deverá ser conectado
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

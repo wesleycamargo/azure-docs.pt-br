@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com o Silverback
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a integrar o Silverback ao Microsoft Azure Acti
 A integração Silverback com o Microsoft Azure Active Directory oferece os seguintes benefícios:
 
 * Você pode controlar no Microsoft Azure Active Directory quem tem acesso ao Silverback.
-* Você pode habilitar seus usuários ser automaticamente conectado no Silverback (logon único) com suas contas do AD do Azure.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Silverback (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,13 +39,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para configurar a integração do Microsoft Azure Active Directory ao Silverback, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único SilverBack
+* Assinatura habilitada para logon único do Silverback
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Dá suporte a SilverBack **SP** SSO iniciado
+* O Silverback dá suporte ao SSO iniciado por **SP**
 
 ## <a name="adding-silverback-from-the-gallery"></a>Adicionar o Silverback da galeria
 
@@ -71,25 +71,25 @@ Para configurar a integração do Silverback ao Microsoft Azure Active Directory
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Silverback com base em um usuário de teste chamado **Britta Simon**.
-Para logon único funcione, uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no Silverback precisa ser estabelecida.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Silverback, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Silverback.
 
 Para configurar e testar o logon único do Microsoft Azure Active Directory com o Silverback, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único Silverback](#configure-silverback-single-sign-on)**  – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o logon único do Silverback](#configure-silverback-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste Silverback](#create-silverback-test-user)**  – para ter um equivalente de Britta Simon no Silverback que esteja vinculado à representação de usuário do AD do Azure.
+5. **[Criar um usuário de teste do Silverback](#create-silverback-test-user)** – para ter um equivalente de Brenda Fernandes no Silverback que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do Azure AD com Silverback, execute as seguintes etapas:
+Para configurar o logon único do Azure AD com o Silverback, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), no **Silverback** página de integração de aplicativos, selecione **sign-on único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Silverback**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com Silverback, execute as seguintes 
 
     ![Informações de logon único em Domínio e URLs do Silverback](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Silverback](mailto:helpdesk@matrix42.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -118,9 +118,9 @@ Para configurar o logon único do Azure AD com Silverback, execute as seguintes 
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Configurar o logon único Silverback
+### <a name="configure-silverback-single-sign-on"></a>Configurar o logon único do Silverback
 
-1. Em um navegador da web diferente, faça logon em seu servidor Silverback como administrador.
+1. Em outro navegador da Web, faça logon no Servidor do Silverback como Administrador.
 
 2. Navegue até **Admin** > **provedor de autenticação**.
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com Silverback, execute as seguintes 
 
     h.  Selecione o plano de fundo **cor** do botão.
 
-    i.  Clique em **Salvar**.
+    i.  Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Silverback.
 
-1. No portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Silverback**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Silverback**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -197,7 +197,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-silverback-test-user"></a>Criar usuário de teste Silverback
+### <a name="create-silverback-test-user"></a>Criar um usuário de teste do Silverback
 
 Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, devem ser provisionados no Silverback. No Silverback, o provisionamento é uma tarefa manual.
 
@@ -223,7 +223,7 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
     f. Na caixa de texto **Confirmar senha**, digite sua senha novamente e confirme.
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Se você não quiser criar manualmente para cada usuário habilitar a **Criação Dinâmica de Usuário** caixa de seleção em **Admin** > **Provedor de Autenticação**.
@@ -232,13 +232,13 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco Silverback no painel de acesso, você deve ser conectado automaticamente ao Silverback para os quais você configura o logon único. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Silverback no Painel de Acesso, você deverá ser conectado automaticamente ao Silverback, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

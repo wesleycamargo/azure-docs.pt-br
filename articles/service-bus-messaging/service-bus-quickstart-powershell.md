@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104753"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045234"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início Rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade absoluta. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos e a transferência de alterações de dados ou estado. Esses cenários podem envolver agendamento de vários trabalhos em lotes em outro aplicativo ou serviços, ou cumprimento da ordem de disparo. Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse cenário, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço.
 
 ![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -25,6 +25,8 @@ O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integra�
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o PowerShell para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,20 +42,20 @@ Este início rápido requer que você esteja executando a versão mais recente d
 1. Primeiro, instale o módulo do PowerShell do Barramento de Serviço caso ainda não tenha feito isso:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Execute o comando a seguir para fazer logon no Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 3. Emita os comandos a seguir para definir o contexto da assinatura atual ou veja a assinatura ativa no momento:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Provisionar recursos
@@ -62,19 +64,19 @@ No prompt do PowerShell, emita os comandos a seguir para provisionar os recursos
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
+New-AzResourceGroup –Name my-resourcegroup –Location eastus
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Depois que o cmdlet `Get-AzureRmServiceBusKey` é executado, copie e cole a cadeia de conexão e o nome da fila selecionados em um local temporário, como o Bloco de Notas. Isso será necessário na próxima etapa.
+Depois que o cmdlet `Get-AzServiceBusKey` é executado, copie e cole a cadeia de conexão e o nome da fila selecionados em um local temporário, como o Bloco de Notas. Isso será necessário na próxima etapa.
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
@@ -90,10 +92,10 @@ Para executar o código, faça o seguinte:
 
 3. Navegue até a pasta de exemplo `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Se você ainda não fez isso, obtenha a cadeia de conexão usando o cmdlet a seguir do PowerShell. Certifique-se de substituir `my-resourcegroup` e `namespace-name` pelos valores específicos: 
+4. Se você ainda não fez isso, obtenha a cadeia de conexão usando o cmdlet a seguir do PowerShell. Substitua `my-resourcegroup` and `namespace-name` pelos valores específicos: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5. No prompt do PowerShell, digite o comando a seguir:
@@ -119,7 +121,7 @@ Para executar o código, faça o seguinte:
 Execute o comando a seguir para remover o grupo de recursos, o namespace e todos os recursos relacionados:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>Entender o código de exemplo
@@ -128,7 +130,7 @@ Esta seção contém mais detalhes sobre o que o código de exemplo faz.
 
 ### <a name="get-connection-string-and-queue"></a>Obter cadeia de conexão e fila
 
-A cadeia de conexão e o nome da fila são transmitidos para o método `Main()` como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia de caracteres para manter esses valores:
+A cadeia de conexão e o nome da fila são transmitidos para o método `Main()` como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia de caracteres para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -260,7 +262,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como gravar código para enviar e receber mensagens, continue no tutorial para Barramento de Serviço a seguir:
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário usando o portal do Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Atualizar o estoque usando o Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalar e configurar o Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Instalar e configurar o Azure PowerShell]: /powershell/azure/install-Az-ps

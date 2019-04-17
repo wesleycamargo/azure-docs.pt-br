@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b1fe34c390eecb77ff608a334eae2a8b2e9ae50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840385"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Azure Active Directory com o Moxtra
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar o Moxtra da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Moxtra a partir da galeria, realize as seguintes etapas:**
+**Para adicionar o Moxtra por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Moxtra, realize as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Moxtra](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://www.moxtra.com/service/#login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.moxtra.com/service/#login`
 
 5. Seu aplicativo do Moxtra espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Moxtra, realize as seguintes et
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -239,7 +239,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Moxtra.
 
-**Para criar um usuário chamado Brenda Fernandes no Moxtra, realize as seguintes etapas:**
+**Para criar um usuário chamado Brenda Fernandes no Moxtra, execute as seguintes etapas:**
 
 1. Faça logon em seu site de empresa do Moxtra como administrador.
 
@@ -271,9 +271,9 @@ Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado au
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

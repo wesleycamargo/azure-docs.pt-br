@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: afe54bf8d6a90f6ecaff26611f3081ca1209d248
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166025"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Azure Active Directory com o Skills Base
 
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Skills Base com o Azure AD, você precisará adicionar o Skills Base da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o Skills Base, execute as seguintes etapas:**
+**Para adicionar o Skills Base por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Skills Base](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE]
     > Você pode obter a URL de logon do aplicativo de Base de Habilidades. Faça logon como Administrador e vá para o Administrador -> Configurações -> Detalhes da instância -> Link de atalho. Copie a URL de logon e cole-a acima da caixa de texto.
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
     > [!Note]
     > Também é possível validar os metadados do IdP por meio da ferramenta **Validador de metadados**, conforme destacado na captura de tela acima.
 
-    b. Clique em **Salvar**.
+    b. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -214,8 +214,8 @@ Ao clicar no bloco do Skills Base no Painel de Acesso, você deverá ser conecta
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

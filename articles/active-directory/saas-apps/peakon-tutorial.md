@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: bf291f22f523756c868128cbe5595fa56cf7d109
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361669"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Azure Active Directory ao Peakon
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Peakon, siga estas etapas:
 
     ![Domínio do pico e informações de logon único de URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/metadata`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/assert`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/assert`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -250,9 +250,9 @@ Ao clicar no bloco do Peakon no Painel de Acesso, você deverá entrar automatic
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474812"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049128"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
 
@@ -28,6 +28,8 @@ Este artigo demonstra as etapas básicas para estender a capacidade de armazenam
 > * Criar um ponto de extremidade do servidor
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -181,7 +183,7 @@ Em seguida, na VM do Windows Server 2016 Datacenter, instale o módulo do Azure 
 1. Execute o comando a seguir:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ Em seguida, na VM do Windows Server 2016 Datacenter, instale o módulo do Azure 
 
 1. Responda **Sim** ou **Sim para Todos** para continuar com a instalação.
 
-O módulo `AzureRM` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação dele baixa todos os módulos disponíveis do Azure Resource Manager e disponibiliza seus cmdlets para uso.
+O módulo `Az` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação dele baixa todos os módulos disponíveis do Azure Resource Manager e disponibiliza seus cmdlets para uso.
 
 Nesta altura, você já configurou seu ambiente para o tutorial. Você está pronto para implantar o Serviço de Sincronização de Armazenamento.
 
@@ -218,10 +220,10 @@ Para implantar a Sincronização de Arquivos do Azure, primeiro coloque um recur
 
    | Valor | DESCRIÇÃO |
    | ----- | ----- |
-   | **Nome** | Um nome exclusivo (por assinatura) para o Serviço de Sincronização de Armazenamento.<br><br>Use _afssyncservice02_ para este tutorial. |
+   | **NOME** | Um nome exclusivo (por assinatura) para o Serviço de Sincronização de Armazenamento.<br><br>Use _afssyncservice02_ para este tutorial. |
    | **Assinatura** | A assinatura do Azure usada para este tutorial. |
    | **Grupo de recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento.<br><br>Use _afsresgroup101918_ para este tutorial. |
-   | **Localidade** | Leste dos EUA |
+   | **Local padrão** | Leste dos EUA |
 
 1. Quando terminar, selecione **Criar** para implantar o **Serviço de Sincronização de Armazenamento**.
 1. Selecione a guia **Notificações** > **Ir para o recurso**.
@@ -307,8 +309,8 @@ Um ponto de extremidade de servidor representa uma localização específica em 
    | Valor | DESCRIÇÃO |
    | **Servidor registrado** | O nome do servidor criado. Use *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade criada. Use *f:\filestosync* neste tutorial. |
-   | **Disposição em camadas de nuvem** | Deixe desabilitada para este tutorial. |
-   | **Espaço Livre do Volume** | Deixe em branco para este tutorial. |
+   | **Camada de Nuvem** | Deixe desabilitada para este tutorial. |
+   | **Espaço Livre no Volume** | Deixe em branco para este tutorial. |
 
 1. Selecione **Criar**.
 

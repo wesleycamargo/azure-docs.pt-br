@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: executar uma pesquisa de notícias – SDK de Pesquisa de Notícias do Bing para C#'
 titleSuffix: Azure Cognitive Services
-description: Use este Início Rápido para pesquisar notícias usando o SDK de Pesquisa de Notícias do Bing para Python e processe a resposta.
+description: Use este Início Rápido para pesquisar notícias usando o SDK de Pesquisa de Notícias do Bing para C# e processar a resposta.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090042"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262883"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Início Rápido: executar uma pesquisa de notícias com o SDK de Pesquisa de Notícias do Bing para C#
 
@@ -91,4 +91,4 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](tutorial-bing-news-search-single-page-app.md)
+> [criar um aplicativo Web de página única](tutorial-bing-news-search-single-page-app.md)

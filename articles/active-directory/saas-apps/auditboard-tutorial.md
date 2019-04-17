@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce100c4e8aa33a9180f5657756b11d6c6e34920
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838860"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutorial: Integração do Azure Active Directory ao AuditBoard
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para configurar a integração do Azure AD ao AuditBoard, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
 * Uma assinatura do AuditBoard habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do AuditBoard ao Azure AD, você precisará adicionar o AuditBoard da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o AuditBoard da galeria, execute as seguintes etapas:**
+**Para adicionar o AuditBoard por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -67,7 +67,7 @@ Para configurar a integração do AuditBoard ao Azure AD, você precisará adici
 
 4. Na caixa de pesquisa, digite **AuditBoard**, selecione **AuditBoard** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![AuditBoard na lista de resultados](common/search-new-app.png)
+    ![AuditBoard na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -79,8 +79,8 @@ Para configurar e testar o logon único do Azure AD com o AuditBoard, você prec
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do AuditBoard](#configure-auditboard-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do AuditBoard](#create-auditboard-test-user)** – para ter um equivalente de Brenda Fernandes no AuditBoard que esteja vinculado à representação de usuário do Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do AuditBoard](#create-auditboard-test-user)** – para ter um equivalente de Brenda Fernandes no AuditBoard que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,20 +105,20 @@ Para configurar o logon único do Azure AD com o AuditBoard, realize as seguinte
 
     ![Informações de logon único em Domínio e URLs do AuditBoard](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
     c. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo **Iniciado por SP**:
 
-    d. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/`
+    d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![Informações de logon único em Domínio e URLs do AuditBoard](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente AuditBoard](mailto:support@auditboard.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o AuditBoard, realize as seguinte
 
 Para configurar logon único no lado do **AuditBoard** é necessário enviar a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do AuditBoard](mailto:support@auditboard.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
@@ -144,8 +144,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -181,7 +180,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no AuditBoard. Trabalhe com a [equipe de suporte do AuditBoard](mailto:support@auditboard.com) para adicionar os usuários na plataforma AuditBoard. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -194,4 +193,3 @@ Ao clicar no bloco do AuditBoard no Painel de Acesso, você deverá ser conectad
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

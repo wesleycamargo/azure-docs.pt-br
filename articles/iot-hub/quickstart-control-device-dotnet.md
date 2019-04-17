@@ -3,19 +3,19 @@ title: Início rápido de controle de um dispositivo do Hub IoT do Azure (.NET) 
 description: Neste início rápido, você executa dois aplicativos C# de exemplo. Um aplicativo é um aplicativo back-end que pode controlar remotamente os dispositivos conectados ao seu hub. O outro aplicativo simula um dispositivo conectado ao seu hub que pode ser controlado remotamente.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc219d9e3e5b365f341b2997804586e67275c1b7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170812"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046505"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (.NET)
 
@@ -45,6 +45,12 @@ Verifique a versão atual do C# no computador de desenvolvimento usando o seguin
 dotnet --version
 ```
 
+Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) no IoT à CLI do Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Caso ainda não tenha feito isso, faça o download do projeto de exemplo em C# do https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip e extraia o arquivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
@@ -59,14 +65,13 @@ Se tiver concluído o [Início Rápido: enviar telemetria de um dispositivo para
 
 Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste início rápido, você usa o Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo.
+1. Execute o comando a seguir no Azure Cloud Shell para criar a identidade do dispositivo.
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
    **MyDotnetDevice**: O nome do dispositivo que está sendo registrado. Use **MyDotnetDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, será necessário usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```

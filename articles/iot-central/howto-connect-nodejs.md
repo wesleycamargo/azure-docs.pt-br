@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259959"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617930"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -333,6 +333,6 @@ Como um operador no aplicativo Azure IoT Central, para o dispositivo real, é po
 
     ![Chamar o comando de contagem regressiva](media/howto-connect-nodejs/callcountdown.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Agora que você aprendeu como se conectar a um cliente genérico do Node. js ao seu aplicativo do Azure IoT Central, a próxima etapa sugerida é saber como [preparar e conectar um Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Agora que você aprendeu como se conectar a um cliente genérico do Node. js ao seu aplicativo do Azure IoT Central, a próxima etapa sugerida é saber como [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo de IoT.

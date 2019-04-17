@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: df3799111a26afe33cee5f7b6ee1bc3fc6989758
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 06a10cab81b1253658f505b3cd3f2c520ef9cea8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439594"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integração do Azure Active Directory ao HRworks Single Sign-On
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do HRworks Single Sign-On ao Azure AD, você precisará adicionar o HRworks Single Sign-On da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o HRworks Single Sign-On da galeria, execute as seguintes etapas:**
+**Para adicionar o HRworks Single Sign-On por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o HRworks Single Sign-On, execute
 
     ![Informações de logon único em Domínio e URLs do HRworks Single Sign-On](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do HRworks Single Sign-On](mailto:nadja.sommerfeld@hrworks.de) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o HRworks Single Sign-On, execute
 
     d. No Bloco de notas, abra o arquivo XML de Metadados que você baixou do portal do Azure, copie seu conteúdo e, em seguida, cole-o na caixa de texto **Metadados** .
 
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -220,9 +220,9 @@ Ao clicar no bloco do HRworks Single Sign-On no Painel de Acesso, você deverá 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

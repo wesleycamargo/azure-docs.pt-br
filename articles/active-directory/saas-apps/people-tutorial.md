@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a22de254a2a0ddde3f6fe53a9adaed246e1754a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 14313567df69b26b000f9bddd98e009aeed2dcd7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407650"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integração do Azure Active Directory ao People
 
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com o People, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do People](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
 
     b. Na caixa **Identificador**, digite uma URL: `https://www.peoplehr.com`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do People](mailto:customerservices@peoplehr.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -207,9 +207,9 @@ Ao clicar no bloco do People no Painel de Acesso, você deverá ser conectado au
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

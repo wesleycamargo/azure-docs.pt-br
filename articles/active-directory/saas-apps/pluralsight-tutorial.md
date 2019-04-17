@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874976"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Azure Active Directory ao Pluralsight
 
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Pluralsight ao AD do Azure, você precisará adicionar o Pluralsight da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Pluralsight por meio da galeria, realize as seguintes etapas:**
+**Para adicionar o Pluralsight por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o Pluralsight, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Pluralsight](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sso/<companyname>`
+     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
     b. Na caixa **Identificador**, digite uma URL: `www.pluralsight.com`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Pluralsight](mailto:support@pluralsight.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Pluralsight, execute as seguint
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -218,7 +218,7 @@ Ao clicar no bloco do Pluralsight no Painel de Acesso, você deverá ser conecta
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

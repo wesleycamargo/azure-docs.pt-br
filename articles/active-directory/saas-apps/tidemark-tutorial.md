@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d91e2971d05a53684a6ab2586a71f8abbd9b9a0e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 8a35a71896951e42b66f5b02998867d015923d29
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848415"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: Integração do Azure Active Directory com o Tidemark
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Tidemark com o AD do Azure, você precisa adicionar o Tidemark por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Tidemark por meio da galeria, realize as seguintes etapas:**
+**Para adicionar o Tidemark da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -204,9 +204,9 @@ Ao clicar no bloco do Tidemark no Painel de Acesso, você deverá ser conectado 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

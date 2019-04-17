@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554830"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261166"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando Java
 
@@ -58,18 +58,18 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
     ![Criar Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. No editor de código, abra a pasta *chat/src/java* no repositório clonado.
+1. No editor de códigos, abra a pasta *src/chat/java* no repositório clonado.
 
 1. Renomeie *local.settings.sample.json* como *local.settings.json*.
 
 1. Em **local.settings.json**, cole a cadeia de conexão no valor da configuração **AzureSignalRConnectionString**. Salve o arquivo.
 
-1. O arquivo principal que contém as funções está em *src/main/java/com/function/Functions.java*:
+1. O arquivo principal que contém as funções está em *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negociar** – usa a associação de entrada *SignalRConnectionInfo* para gerar e retornar informações de conexão válidas.
     - **sendMessage** – recebe uma mensagem de chat no corpo da solicitação e usa a associação de saída *SignalR* para difundir a mensagem a todos os aplicativos cliente conectados.
 
-1. No terminal, certifique-se de que você está na pasta *chat/src/java*. Compile o aplicativo de funções.
+1. No terminal, verifique se você está na pasta *src/chat/java*. Compile o aplicativo de funções.
 
     ```bash
     mvn clean package

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226480"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: Integração do Azure Active Directory ao InTime
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o InTime, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do InTime](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://auth.intimesoft.com/auth/realms/master`
 
@@ -194,8 +194,8 @@ Ao clicar no bloco do InTime no Painel de Acesso, você será conectado automati
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

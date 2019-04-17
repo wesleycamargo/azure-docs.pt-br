@@ -1,5 +1,5 @@
 ---
-title: Tutorial de início rápido de indexação e consulta usando o portal do Azure – Azure Search
+title: 'Início Rápido: Criar, carregar e consultar um índice do Azure Search no portal do Azure – Azure Search'
 description: Saiba como criar e consultar seu primeiro índice no Azure Search usando dados de exemplo internos e o Assistente para Importação de Dados no portal do Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,23 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137820"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282654"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Usar ferramentas internas do portal para importação, indexação e consultas do Azure Search
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início Rápido: Usar ferramentas internas do portal para importação, indexação e consultas do Azure Search
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Para se familiarizar rapidamente com os conceitos do Azure Search, experimente as ferramentas internas no portal do Azure. Os assistentes e os editores não oferecem a paridade completa com o .NET e as APIs REST, mas você pode começar rapidamente com uma introdução sem código, escrevendo consultas interessantes em dados de exemplo em minutos.
 

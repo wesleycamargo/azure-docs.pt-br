@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316194"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470008"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unreal/Wwise
 Este tutorial descreve a configuração de design e fluxo de trabalho do Projeto Acústico no Unreal e Wwise.
@@ -62,11 +62,18 @@ Lembre-se de que a configuração necessária de actor-mixer realiza intercâmbi
 ![Captura de tela do editor do Wwise mostrando diretrizes de design de voz para Projeto Acústico](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Configurar curvas de atenuação de distância
-Assegure-se de que qualquer curva de atenuação usada pelos actor-mixers usando o Projeto Acústico tenha o envio auxiliar definido pelo usuário configurado como "volume de barramento de saída". O Wwise faz isso por padrão para curvas de atenuação recém-criadas. Se você estiver migrando um projeto existente, verifique as configurações de curva. 
+Assegure-se de que qualquer curva de atenuação usada pelos actor-mixers usando o Projeto Acústico tenha o envio auxiliar definido pelo usuário configurado como "volume de barramento de saída". O Wwise faz isso por padrão para curvas de atenuação recém-criadas. Se você estiver migrando um projeto existente, verifique as configurações de curva.
 
 Por padrão, a simulação do Projeto Acústico tem um raio de 45 metros ao redor do local do player. Em geral, é recomendável definir a curva de atenuação para -200 dB em torno dessa distância. Essa distância não é uma restrição difícil. Para alguns sons como armas, você pode querer um raio maior. Nesses casos, a ressalva é que apenas a geometria dentro de 45 m do local do player participará. Se o player estiver em uma sala e uma fonte de som estiver fora da sala e a 100 m de distância, estará adequadamente oclusa. Se a fonte estiver em uma sala e o player estiver fora e a 100 m de distância, não estará adequadamente oclusa.
 
 ![Captura de tela de curvas de atenuação do Wwise](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>Equalização pós-mixer ###
+ Outra coisa que você talvez queira fazer é adicionar um equalizador pós-mixer. Você pode tratar o barramento do Projeto Acústico como um barramento de reverberação típico (no modo de reverberação padrão) e colocar um filtro nele para realizar a equalização. Você pode ver uma amostra disso no Projeto de Amostra Wwise do Projeto Acústico.
+
+![Captura de tela da EQ pós-mixer do Wwise](media/wwise-post-mixer-eq.png)
+
+Por exemplo, um filtro passa alta pode ajudar a lidar com os graves de gravações de campo próximo que geram reverberação de graves exagerados irreal. Você também pode obter mais controle pós-bake ajustando a EQ por meio de RTPCs, permitindo que você altere a cor da reverberação no momento do jogo.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Configurar propriedades do Projeto Acústico para toda a cena
 
@@ -80,7 +87,7 @@ O ator do Projeto Acústico expõe muitos controles que modificam o comportament
 * **Dimensionar Cache:** controla o tamanho do cache usado para consultas acústicas. Um cache menor usa menos RAM, mas pode aumentar o uso da CPU para cada consulta.
 * **Acústica Habilitada:** Um controle de depuração para habilitar a alternância A/B rápida da simulação de Acústica. Esse controle é ignorado nas configurações de envio. O controle é útil para descobrir se um bug de áudio específico origina-se nos cálculos de acústica ou algum outro problema no projeto do Wwise.
 * **Atualizar Distâncias:** Utilize essa opção se você quiser usar as informações acústicas pré-preparadas para consultas de distância. Essas consultas são semelhantes a ray-casts, mas como são pré-calculadas consumem muito menos CPU. Um exemplo de uso é para reflexões discretas da superfície mais próxima do ouvinte. Para ter um aproveitamento total, você deverá usar código ou Blueprints para consultar as distâncias.
-* **Desenhar Estatísticas:** Embora o `stat Acoustics` do UE possa fornecer informações sobre a CPU, essa exibição de status mostrará o mapa atualmente carregado, o uso da RAM e outras informações de status no canto superior esquerdo da tela.
+* **Desenhar Estatísticas:** Embora o `stat Acoustics` do UE possa fornecer informações sobre a CPU, essa exibição de status mostrará o arquivo ACE atualmente carregado, o uso da RAM e outras informações de status no canto superior esquerdo da tela.
 * **Desenhar Voxels:** Sobreposição de voxels próximos ao ouvinte mostrando a grade de voxels usada durante a interpolação de tempo de execução. Se um emissor estiver dentro de um voxel de tempo de execução, ele falhará nas consultas acústicas.
 * **Desenhar Sondas:** Mostra todas as sondas dessa cena. Terão cores diferentes, dependendo do estado de carga.
 * **Desenhar Distâncias:** Se Atualizar Distâncias estiver habilitado, mostrará uma caixa na superfície mais próxima do ouvinte, em direções quantizadas ao redor do ouvinte.
@@ -96,6 +103,7 @@ Esses controles de design são definidos para um componente de áudio individual
 * **Ajuste de Outdoorness:** Controla o nível da reverberação de ambiente externo. Valores mais próximos de 0 são mais fechados, mais próximos de 1 são mais abertos. Esse ajuste é aditivo, portanto, defini-lo como -1 imporá fechado, defini-lo como +1 imporá aberto.
 * **Db de Transmissão:** Renderize um som adicional através da parede com essa intensidade combinada com atenuação da distância baseada no campo visual.
 * **Distorção de Distância de Relação Wet:** Ajusta as características de reverberação na fonte como se estivesse mais próximo/mais afastado, sem afetar o caminho direto.
+* **Tocar ao Iniciar:** ative/desative para especificar se o som deve ser reproduzido automaticamente na inicialização da cena. Habilitado por padrão.
 * **Mostrar Parâmetros Acústicos:** Exibir informações de depuração diretamente na parte superior do componente no jogo. (somente para configurações de não envio)
 
 ## <a name="blueprint-functionality"></a>Funcionalidade Blueprint

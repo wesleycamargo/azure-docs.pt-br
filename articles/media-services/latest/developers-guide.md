@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755888"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044399"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs/ferramentas
 
@@ -29,15 +29,18 @@ Como desenvolvedor, você pode usar a [API REST](https://aka.ms/ams-v3-rest-ref)
 
 Este tópico fornece links para os SDKs, as ferramentas e a documentação. Também fornece algumas informações úteis para diferentes ambientes de desenvolvimento.
 
+> [!NOTE]
+> Os SDKs dos Serviços de Mídia do Azure v3 não têm garantia de serem thread-safe. Ao desenvolver um aplicativo com multi-thread, você deverá adicionar sua própria lógica de sincronização de thread para proteger o cliente ou usar um novo objeto AzureMediaServicesClient por thread. Você também deve tomar cuidado com problemas de multi-threading introduzidos por objetos opcionais fornecidos pelo código ao cliente (como uma instância do HttpClient no .NET).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para iniciar o desenvolvimento nos Serviços de Mídia, você precisará:
 
 - Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [Saiba mais sobre conceitos fundamentais](concepts-overview.md)
+- [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)
 - [Criar uma conta dos Serviços de Mídia – CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Começar a desenvolver com SDKs
+## <a name="start-developing-with-sdks"></a>Comece a desenvolver com SDKs
 
 ### <a name="net"></a>.NET
 

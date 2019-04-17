@@ -1,20 +1,18 @@
 ---
 title: 'Início Rápido: Ingerir Blobs do Azure no Azure Data Explorer'
 description: Neste guia de início rápido, você aprende a enviar dados de conta de armazenamento para o Azure Data Explorer usando uma assinatura da Grade de Eventos.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756428"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051845"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início Rápido: Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -45,7 +43,7 @@ Neste início rápido, você aprende a configurar uma assinatura da [Grade de Ev
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso do Tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
     | Assinar todos os tipos de evento | *clear* | Não ser notificado de todos os eventos. |
-    | Tipos de Eventos Definidos | *Blob Criado* | De quais eventos específicos receber notificações. |
+    | Tipos de Eventos Definidos | *Blob criado* | De quais eventos específicos receber notificações. |
     | Tipo de Ponto de Extremidade | *Hubs de Eventos* | O tipo do ponto de extremidade ao qual você envia os eventos. |
     | Ponto de extremidade | *test-hub* | O hub de eventos que você criou. |
     | | |
@@ -101,12 +99,12 @@ Agora conecte-se à grade de eventos no Azure Data Explorer, de modo que os dado
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Nome da conexão de dados | *teste de hub de conexão* | O nome da conexão que você deseja criar no Azure Data Explorer.|
+    | Nome da conexão de dados | *test-hub-connection* | O nome da conexão que você deseja criar no Azure Data Explorer.|
     | Assinatura da conta de armazenamento | Sua ID de assinatura | A ID da assinatura em que sua conta de armazenamento reside.|
     | Conta de armazenamento | *gridteststorage* | O nome da conta de armazenamento que você criou anteriormente.|
     | Grade de Eventos | *test-grid-connection* | O nome da grade de eventos que você criou. |
     | Nome do Hub de Eventos | *test-hub* | O hub de eventos que você criou. Esse campo é preenchido automaticamente quando você escolhe uma grade de eventos. |
-    | Grupo de consumidores | *grupo de teste* | O grupo de consumidores definido no hub de eventos que você criou. |
+    | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que você criou. |
     | | |
 
     Tabela de destino:
@@ -199,4 +197,4 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
+> [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)

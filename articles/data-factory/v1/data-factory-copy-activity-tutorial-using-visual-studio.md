@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487610"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258055"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -347,7 +347,7 @@ Observe os seguintes pontos:
 * O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 
 > [!IMPORTANT]
-> Para criar instâncias do Data Factory, você precisa ser administrador/coadministrador da assinatura do Azure
+> Para criar instâncias do Data Factory, você precisa ser um administrador/coadministrador da assinatura do Azure
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
 Navegue até a home page do seu data factory:
@@ -374,7 +374,7 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor. 
 
-Para ver como usar uma Atividade do Hive no HDInsight para transformar dados usando um cluster do Azure HDInsight, confira [ Tutorial: Criar seu primeiro pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
+Para ver como usar uma Atividade do Hive no HDInsight para transformar dados usando um cluster do Azure HDInsight, confira [Tutorial: criar seu primeiro pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 

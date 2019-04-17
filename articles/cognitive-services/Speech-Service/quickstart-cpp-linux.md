@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2b63eea7b8562a6972aecef02395d734d1c2655f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883858"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010304"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Linux usando o SDK de Fala
 
@@ -31,7 +31,7 @@ Você precisa de uma chave de assinatura dos Serviços de Fala para concluir est
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.3.1`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.4.0`.
 
 O SDK de Fala para Linux pode ser usado para criar aplicativos de 64 bits e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um arquivo tar de https://aka.ms/csspeech/linuxbinary.
 

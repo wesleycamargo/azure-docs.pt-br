@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: 0c9b94cec0cd925b23942ac8619bb941ff0995fd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668324"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048462"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -32,6 +32,9 @@ Neste tutorial, você aprenderá como:
 > * Criar um banco de dados SQL do Azure
 > * Criar um registro de contêiner do Azure
 > * Implantar um aplicativo do Service Fabric no Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +70,7 @@ Recomendamos o [Banco de Dados SQL do Azure](/azure/sql-database/sql-database-ge
 $subscriptionID="<subscription ID>"
 
 # Sign in to your Azure account and select your subscription.
-Login-AzureRmAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId $subscriptionID 
 
 # The data center and resource name for your resources.
 $dbresourcegroupname = "fabrikam-fiber-db-group"
@@ -88,21 +91,21 @@ $clientIP = "<client IP>"
 $databasename = "call-center-db"
 
 # Create a new resource group for your deployment and give it a name and a location.
-New-AzureRmResourceGroup -Name $dbresourcegroupname -Location $location
+New-AzResourceGroup -Name $dbresourcegroupname -Location $location
 
 # Create the SQL server.
-New-AzureRmSqlServer -ResourceGroupName $dbresourcegroupname `
+New-AzSqlServer -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create the firewall rule to allow your development computer to access the server.
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowClient" -StartIpAddress $clientIP -EndIpAddress $clientIP
 
 # Creeate the database in the server.
-New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
+New-AzSqlDatabase  -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
     -RequestedServiceObjectiveName "S0"
@@ -136,9 +139,9 @@ $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
 $registryname="fabrikamregistry$(Get-Random)"
 
-New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
+New-AzResourceGroup -Name $acrresourcegroupname -Location $location
 
-$registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="create-a-service-fabric-cluster-on-azure"></a>Criar um cluster do Service Fabric no Azure
@@ -146,7 +149,7 @@ Aplicativos do Service Fabric são executados em um cluster, um conjunto conecta
 
 Você pode:
 - Criar um cluster de teste no Visual Studio. Essa opção permite que você crie um cluster seguro diretamente no Visual Studio com suas configurações preferenciais. 
-- [Criar um cluster seguro a partir de um modelo](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Criar um cluster seguro com base em um modelo](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 Este tutorial cria um cluster do Visual Studio, que é ideal para cenários de teste. Se você criar um cluster de alguma outra forma, ou usar um cluster existente, você pode copiar e colar o ponto de extremidade de conexão ou escolhê-lo em sua assinatura. 
 
@@ -185,20 +188,20 @@ Anteriormente, você criou uma regra de firewall do SQL para conceder acesso ao 
 ```powershell
 # Create a virtual network service endpoint
 $clusterresourcegroup = "<cluster resource group>"
-$resource = Get-AzureRmResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
+$resource = Get-AzResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
 $vnetName = $resource.Name
 
 Write-Host 'Virtual network name: ' $vnetName 
 
 # Get the virtual network by name.
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName $clusterresourcegroup `
   -Name              $vnetName
 
 Write-Host "Get the subnet in the virtual network:"
 
 # Get the subnet, assume the first subnet contains the Service Fabric cluster.
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
 
 $subnetName = $subnet.Name
 $subnetID = $subnet.Id
@@ -207,21 +210,21 @@ $addressPrefix = $subnet.AddressPrefix
 Write-Host "Subnet name: " $subnetName " Address prefix: " $addressPrefix " ID: " $subnetID
 
 # Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.
-$vnet = Set-AzureRmVirtualNetworkSubnetConfig `
+$vnet = Set-AzVirtualNetworkSubnetConfig `
   -Name            $subnetName `
   -AddressPrefix   $addressPrefix `
   -VirtualNetwork  $vnet `
-  -ServiceEndpoint Microsoft.Sql | Set-AzureRmVirtualNetwork
+  -ServiceEndpoint Microsoft.Sql | Set-AzVirtualNetwork
 
 $vnet.Subnets[0].ServiceEndpoints;  # Display the first endpoint.
 
 # Add a SQL DB firewall rule for the virtual network service endpoint
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig `
+$subnet = Get-AzVirtualNetworkSubnetConfig `
   -Name           $subnetName `
   -VirtualNetwork $vnet;
 
 $VNetRuleName="ServiceFabricClusterVNetRule"
-$vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
+$vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $dbresourcegroupname `
   -ServerName             $servername `
   -VirtualNetworkRuleName $VNetRuleName `
@@ -248,13 +251,13 @@ $acrresourcegroupname = "fabrikam-acr-group"
 $clusterresourcegroupname="fabrikamcallcentergroup"
 
 # Remove the Azure SQL DB
-Remove-AzureRmResourceGroup -Name $dbresourcegroupname
+Remove-AzResourceGroup -Name $dbresourcegroupname
 
 # Remove the container registry
-Remove-AzureRmResourceGroup -Name $acrresourcegroupname
+Remove-AzResourceGroup -Name $acrresourcegroupname
 
 # Remove the Service Fabric cluster
-Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
+Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -269,7 +272,7 @@ Neste tutorial, você aprendeu como:
 Na próxima parte do tutorial, saiba como [Implantar um aplicativo de contêiner com CI/CD para um cluster do Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
@@ -281,5 +284,8 @@ Na próxima parte do tutorial, saiba como [Implantar um aplicativo de contêiner
 [link-azure-sql]: /azure/sql-database/
 
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
+[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
+[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
+m-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
 [publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
