@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
 | StorageAccountId |Não  |A ID de Recurso da Conta de Armazenamento na qual os Logs de Diagnóstico devem ser salvos. |
-| Categorias |Não  |Lista separada por vírgulas de categorias de log para habilitar. |
-| habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
+| Categories |Não  |Lista separada por vírgulas de categorias de log para habilitar. |
+| Enabled |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
 | RetentionEnabled |Não  |Booliano indicando se há uma política de retenção habilitada nesse recurso. |
 | RetentionInDays |Não  |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
 
@@ -152,11 +152,11 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 | Nome do elemento | DESCRIÇÃO |
 | --- | --- |
-| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
-| ResourceId |ID de recurso do recurso afetado. |
+| time |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| categoria |Categoria de log do evento. |
-| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
+| category |Categoria de log do evento. |
+| properties |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
