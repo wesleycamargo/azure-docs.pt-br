@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006353"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda da caixa de dados do Azure
@@ -135,4 +135,4 @@ Por fim, certifique-se de que você valide sua solução em seu conjunto de dado
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Implantar a borda da caixa de dados do Azure](data-box-edge-deploy-prep.md)
+- [Implante seu Azure Data Box Edge](data-box-edge-deploy-prep.md)

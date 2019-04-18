@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894911"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
@@ -134,7 +134,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../azure-monitor/app/azure-web-apps.md)
 
-## <a name="streamlogs"></a> Como: Transmitir logs
+## <a name="streamlogs"></a> Como Transmitir logs
 Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. É possível transmitir informações de registro para o ambiente de desenvolvimento usando a CLI do Azure.
 
 > [!NOTE]
@@ -171,7 +171,7 @@ O diagnóstico de aplicativo armazena informações em um formato específico pa
 
 O conjunto de dados armazenados de base é o mesmo em ambos os tipos de armazenamento - a data e hora em que o evento ocorreu, a ID do processo que produziu o evento, o tipo de evento (informação, aviso ou erro) e a mensagem do evento. Usar o sistema de arquivos para armazenamento de log será útil quando você precisar de acesso imediato para solucionar um problema porque os arquivos de log são atualizados quase instantaneamente. O armazenamento de blobs é usado para fins de arquivamento porque os arquivos são armazenados em cache e, em seguida, liberados para o contêiner de armazenamento em um agendamento.
 
-**Sistema de arquivos**
+**Sistema de Arquivos**
 
 Cada linha registrada no sistema de arquivos ou recebida via streaming estará no seguinte formato:
 
@@ -183,7 +183,7 @@ Por exemplo, um evento de erro deve aparecer semelhante ao seguinte exemplo:
 
 O registro em sistema de arquivos fornece a informação mais básica dos três métodos disponíveis, fornecendo apenas a hora, o ID do processo, o nível de evento e a mensagem.
 
-**Armazenamento de blob**
+**Armazenamento de Blobs**
 
 Ao registrar o log no armazenamento de blob, os dados serão armazenados em um formato de valores separados por vírgulas (CSV). Campos adicionais são registrados para fornecer informações mais detalhadas sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
 
@@ -230,6 +230,6 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 >
 
 ## <a name="nextsteps"></a> Próximas etapas
-* [Como monitorar o serviço de aplicativo do Azure](web-sites-monitor.md)
-* [Solucionando problemas do serviço de aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analisar Logs de aplicativo no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Como monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
+* [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917389"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
@@ -72,7 +72,7 @@ Esse método obtém a contagem de traduções criadas pelo usuário. Ele fornece
 >            int? take);
 > ```
 
-**parâmetros**
+**Parâmetros**
 
 | Parâmetro | DESCRIÇÃO |
 |:---|:---|
@@ -116,7 +116,7 @@ O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada Us
 > [!NOTE]
 > A cota será ajustada para garantir a equidade entre todos os usuários do serviço.
 
-**Exibir exemplos de código em GitHib**
+**Exibir exemplos de código no GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -143,7 +143,7 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 >             int? take);
 > ```
 
-**parâmetros**
+**Parâmetros**
 
 | Parâmetro | DESCRIÇÃO |
 |:---|:---|
@@ -153,7 +153,7 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 | para| **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
-| usuário| **Opcional. Uma cadeia de caracteres que é usada para filtrar o resultado com base no originador do envio**|
+| usuário| **Opcional. Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio**|
 | categoria| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
 | minDateUtc| **Opcional** A data de quando você quer recuperar as traduções. A data deve estar no formato UTC.|
 | maxDateUtc| **Opcional** A data até quando você quer recuperar as traduções. A data deve estar no formato UTC.|
@@ -189,6 +189,6 @@ O conjunto de resultados contém a matriz do **UserTranslation**. Cada UserTrans
 > [!NOTE]
 > A cota será ajustada para garantir a equidade entre todos os usuários do serviço.
 
-**Exibir exemplos de código em GitHib**
+**Exibir exemplos de código no GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

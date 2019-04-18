@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259789"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
@@ -99,6 +99,6 @@ Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
-- [Grupos de gerenciamento de análise no módulo de recursos do Azure PowerShell](/powershell/module/az.resources#resources)
-- [Grupos de gerenciamento de análise na API REST](/rest/api/resources/managementgroups)
-- [Grupos de gerenciamento de análise na CLI do Azure](/cli/azure/account/management-group)
+- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
+- [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

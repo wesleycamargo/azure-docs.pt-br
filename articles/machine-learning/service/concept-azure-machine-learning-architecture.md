@@ -11,17 +11,17 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489940"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
 Saiba mais sobre a arquitetura, conceitos e fluxo de trabalho para o serviço Azure Machine Learning. Os principais componentes do serviço e o fluxo de trabalho geral ao usar o serviço que são mostrados no diagrama:
 
-[![Aarquitetura de serviço do Azure Machine Learning e o fluxo de trabalho](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Arquitetura e fluxo de trabalho do serviço do Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -68,7 +68,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 
 O diagrama a seguir é uma taxonomia do workspace:
 
-[![Wtaxonomia de orkspace](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomia de espaço de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experimento
 
@@ -234,7 +234,7 @@ Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em s
 
 Para a Introdução ao Serviço do Azure Machine Learning, consulte:
 
-* [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [O que é o Serviço do Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md)
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md)
 * [Criar um espaço de trabalho com um modelo do Resource Manager](how-to-create-workspace-template.md)

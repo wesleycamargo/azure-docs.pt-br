@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493137"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679271"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -45,8 +45,9 @@ Distribuições do Linux e de servidor que não são endossadas pelo Azure não 
 
 | Distribuição Linux | Versão | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
+| Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |
-| Ubuntu | 14.04.5</br>[com o Azure ajustado kernel atualizado para 4,15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
+| Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
 | RHEL | 7.6 | SO e disco de dados* |
 | RHEL | 7.5 | SO e disco de dados* |
 | RHEL | 7.4 | SO e disco de dados* |
@@ -170,6 +171,6 @@ Você pode fazer perguntas ou fornecer comentários no [Fórum do Azure Disk Enc
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativas ao Azure Disk Encryption. Para obter mais informações sobre esse serviço, veja os seguintes artigos:
 
-- [Visão geral de criptografia de disco do Azure](azure-security-disk-encryption-overview.md)
+- [Visão geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md)
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Criptografia de dados em repouso do Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

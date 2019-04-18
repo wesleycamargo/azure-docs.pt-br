@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361299"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
 Este artigo descreve como habilitar a replicação para VMs do Hyper-V locais gerenciadas pelo System Center Virtual Machine Manager (VMM), para recuperação de desastres para o Azure usando o [Azure Site Recovery](site-recovery-overview.md) service. Se você não estiver usando o VMM, em seguida, [siga este tutorial](hyper-v-azure-tutorial.md).
 
-Esse é o terceiro tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs do VMware no local. No tutorial anterior, podemos [preparou o ambiente do Hyper-V local](hyper-v-prepare-on-premises-tutorial.md) para recuperação de desastres no Azure. 
+Este é o terceiro tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No tutorial anterior, podemos [preparou o ambiente do Hyper-V local](hyper-v-prepare-on-premises-tutorial.md) para recuperação de desastres no Azure. 
 
 Neste tutorial, você aprenderá como:
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção como a do Site Recovery do sumário.
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção Instruções do Sumário do Site Recovery.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -45,11 +45,11 @@ Este é o terceiro tutorial de uma série. Este tutorial presume que você já t
 
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
-1. Em **Cofres dos Serviços de Recuperação**, selecione o cofre. Que preparamos o cofre **ContosoVMVault** no tutorial anterior.
+1. Em **Cofres dos Serviços de Recuperação**, selecione o cofre. Preparamos o cofre **ContosoVMVault** no tutorial anterior.
 2. Em **Introdução**, clique em **Site Recovery**. A seguir, clique em **Preparar Infraestrutura**
 3. Na **meta de proteção** > **onde estão suas máquinas localizadas?**, selecione **locais**.
-4. Na **onde você deseja replicar suas máquinas?**, selecione **para o Azure**.
-5. Na **os computadores são virtualizados?** selecionar **Sim, com o Hyper-V**.
+4. Em **Para qual deseja replicar os seus computadores?**, selecione **Para o Azure**.
+5. Em **Os seus computadores estão virtualizados?**, selecione **Sim, com o Hyper-V**.
 6. Em **Você está usando o System Center VMM?**, selecione **Sim**. Em seguida, clique em **OK**.
 
     ![Meta de replicação](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,8 +57,8 @@ Este é o terceiro tutorial de uma série. Este tutorial presume que você já t
 
 ## <a name="confirm-deployment-planning"></a>Confirmar planejamento de implantação
 
-1. Na **planejamento de implantação**, se você estiver planejando uma implantação grande, baixe o Planejador de implantação do Hyper-V no link na página. [Saiba mais](hyper-v-deployment-planner-overview.md) sobre o planejamento de implantação do Hyper-V.
-2. Para os fins deste tutorial, não precisamos o Planejador de implantação. Na **você concluiu o planejamento de implantação?**, selecione **farei isso mais tarde**. Em seguida, clique em **OK**.
+1. Em **Planejamento de implantação**, se você estiver planejando uma implantação grande, baixe o Planejador de Implantações do Hyper-V usando o link na página. [Saiba mais](hyper-v-deployment-planner-overview.md) sobre o planejamento de implantação do Hyper-V.
+2. Para os fins deste tutorial, não precisamos do planejador de implantação. Na **você concluiu o planejamento de implantação?**, selecione **farei isso mais tarde**. Em seguida, clique em **OK**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem

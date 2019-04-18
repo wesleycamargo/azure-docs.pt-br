@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496396"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
@@ -157,7 +157,7 @@ Se você estiver enfrentando interrupções de serviço com o componente de writ
 * [Reiniciar o serviço Sincronização do Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Desabilitar e reabilitar o recurso de write-back de senha](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalar a versão mais recente do Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [Solução de problemas de write-back de senha](#troubleshoot-password-writeback)
+* [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback)
 
 Em geral, para recuperar o serviço da maneira mais rápida, recomendamos que você execute essas etapas na ordem indicada anteriormente.
 
@@ -281,18 +281,18 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reiniciar o serviço Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O código de suporte está localizado no canto inferior direito da janela"
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
 
-* [Como posso concluir uma implementação bem-sucedida do SSPR?](howto-sspr-deployment.md)
+* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [Qual é o write-back de senha e por que me preocupar sobre isso?](howto-sspr-writeback.md)
-* [Como faço para relatar sobre a atividade no SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções no SSPR e o que eles significam?](concept-sspr-howitworks.md)
-* [Tenho uma pergunta que não foi respondida em algum lugar else](active-directory-passwords-faq.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
+* [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
+* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)

@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009862"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades gerenciadas para recursos do Azure em uma escala de máquina virtual do Azure usando um modelo
@@ -123,11 +123,11 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
 
 2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachineScaleSets` de interesse na seção `resources`. Se você tiver uma VM que tenha apenas a identidade gerenciada atribuída ao sistema, poderá desabilitá-la alterando o tipo de identidade para `None`.
 
-   **Compute/virtualmachinescalesets API versão 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-06-2018**
 
    Se apiVersion for `2018-06-01` e a VM tiver ambas as identidades gerenciadas atribuídas ao usuário e ao sistema, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` com os valores de dicionário userAssignedIdentities.
 
-   **Compute/virtualmachinescalesets API versão 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-06-2018**
 
    Se apiVersion for `2017-12-01` e o conjunto de dimensionamento de máquinas virtuais tiver ambas as identidades gerenciadas atribuídas ao usuário e ao sistema, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com a matriz `identityIds` das identidades gerenciadas atribuídas ao usuário. 
    
@@ -158,7 +158,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
 
 1. No elemento `resources`, adicione a seguinte entrada para atribuir uma identidade gerenciada atribuída ao usuário ao conjunto de dimensionamento de máquinas virtuais.  Certifique-se de substituir `<USERASSIGNEDIDENTITY>` pelo nome da identidade gerenciada atribuída ao usuário que você criou.
    
-   **Compute/virtualmachinescalesets API versão 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-06-2018**
 
    Se a apiVersion for `2018-06-01`, as identidades gerenciadas atribuídas ao usuário serão armazenadas no formato de dicionário `userAssignedIdentities` e o valor `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma variável definida na seção `variables` do modelo.
 
@@ -177,7 +177,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
    }
    ```   
 
-   **Compute/virtualmachinescalesets API versão 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-12-2017**
     
    Se `apiVersion` for `2017-12-01` ou anterior, as identidades gerenciadas atribuídas ao usuário serão armazenadas na matriz `identityIds` e o valor `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma seção de variáveis definida na seção do modelo.
 
@@ -200,7 +200,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
 
 3. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
    
-   **Compute/virtualmachinescalesets API versão 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-06-2018**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
     ]
    ```
 
-   **Compute/virtualmachines API versão 2017-12-01**
+   **Microsoft.Compute/virtualMachines API versão 2017-12-01**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
    }
    ```
    
-   **Compute/virtualmachinescalesets API versão 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-06-2018**
     
    Para remover uma única identidade gerenciada atribuída pelo usuário de um conjunto de dimensionamento de máquinas virtuais, remova-a do dicionário `userAssignedIdentities`.
 
    Se você tiver uma identidade atribuída ao sistema, mantenha-a no valor `type` no valor `identity`.
 
-   **Compute/virtualmachinescalesets API versão 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API versão 01-12-2017**
 
    Para remover uma única identidade gerenciada atribuída ao usuário de um conjunto de dimensionamento de máquinas virtuais, remova-a da matriz `identityIds`.
 

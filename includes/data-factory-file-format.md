@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919143"
 ---
 ## <a name="specifying-formats"></a>Especificando formatos
@@ -18,7 +18,7 @@ O Azure Data Factory dá suporte aos tipos de formato a seguir:
 * [Formato JSON](#specifying-jsonformat)
 * [Formato Avro](#specifying-avroformat)
 * [Formato ORC](#specifying-orcformat)
-* [Formato parquet](#specifying-parquetformat)
+* [Formato de Parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Especificando TextFormat
 Se você quiser analisar os arquivos de texto ou gravar os dados no formato de texto, defina a propriedade `format` `type` como **TextFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de TextFormat](#textformat-example) sobre a configuração.
@@ -33,7 +33,7 @@ Se você quiser analisar os arquivos de texto ou gravar os dados no formato de t
 | encodingName |Especifique o nome de codificação. |Um nomes de codificação válido. Consulte [Propriedade Encoding.EncodingName](/dotnet/api/system.text.encoding). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não  |
 | firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |True<br/>**False (padrão)** |Não  |
 | skipLineCount |Indica o número de linhas a serem ignoradas ao ler dados de arquivos de entrada. Se skipLineCount e firstRowAsHeader forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Número inteiro |Não  |
-| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>False |Não  |
+| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não  |
 
 #### <a name="textformat-example"></a>Exemplo de TextFormat
 O exemplo a seguir mostra algumas das propriedades de formato para TextFormat.
@@ -85,11 +85,11 @@ Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON,
 
 A atividade de cópia pode analisar os padrões dos arquivos JSON abaixo:
 
-- **Type I: setOfObjects**
+- **Tipo I: setOfObjects**
 
     Cada arquivo contém um único objeto ou vários objetos concatenados/delimitados por linhas. Quando essa opção é escolhida em um conjunto de dados de saída, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitados por linha).
 
-    * **exemplo de JSON de objeto único**
+    * **Exemplo de JSON de objeto único**
 
         ```json
         {
@@ -102,7 +102,7 @@ A atividade de cópia pode analisar os padrões dos arquivos JSON abaixo:
         }
         ```
 
-    * **exemplo de JSON delimitado por linha**
+    * **Exemplo de JSON delimitado por linha**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -110,7 +110,7 @@ A atividade de cópia pode analisar os padrões dos arquivos JSON abaixo:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **exemplo de JSON concatenado**
+    * **Exemplo de JSON concatenado**
 
         ```json
         {
@@ -178,7 +178,7 @@ A atividade de cópia pode analisar os padrões dos arquivos JSON abaixo:
 
 Confira abaixo dois tipos de exemplos ao copiar dados de arquivos JSON e os pontos genéricos para observar:
 
-**Exemplo 1: extrair dados de objeto e matriz**
+**Exemplo 1: extrair dados de objeto e de matriz**
 
 Neste exemplo, você espera que um objeto JSON de raiz seja mapeado para um único registro no resultado tabular. Se você tiver um arquivo JSON com o seguinte conteúdo:  
 
@@ -213,8 +213,8 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- `structure` seção define os nomes de coluna personalizado e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
-- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth ou usar **array[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, você pode usar **array[x].property** para extrair o valor da propriedade do objeto xth ou usar **array[*].property** para localizar o valor de qualquer objeto que contém essa propriedade.
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 }
 ```
 
-**Exemplo 2: cruzar aplicar vários objetos com o mesmo padrão de matriz**
+**Exemplo 2: cruzar aplicar vários objetos com o mesmo padrão da matriz**
 
 Neste exemplo, você espera transformar um objeto JSON de raiz em vários registros no resultado tabular. Se você tiver um arquivo JSON com o seguinte conteúdo:  
 
@@ -286,9 +286,9 @@ e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao ni
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- `structure` seção define os nomes de coluna personalizado e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
-- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão em **matriz** orderlines.
-- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica onde extrair os dados. Neste exemplo, "ordernumber", "orderdate" e "city" estão sob o objeto root com caminho JSON começando com"$.", enquanto "order_pd" e "order_price" são definidos com caminho derivado do elemento de matriz sem "$.".
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Veja a seção Especificar a definição de estrutura para conjuntos de dados retangulares para obter mais detalhes.
+- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão em linhas da ordem da **matriz**.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, "ordernumber", "orderdate" e "city" estão sob o objeto root com caminho JSON começando com"$.", enquanto "order_pd" e "order_price" são definidos com caminho derivado do elemento de matriz sem "$.".
 
 ```json
 "properties": {
@@ -333,7 +333,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 * Se houver nomes duplicados no mesmo nível, a atividade de cópia selecionará o último entre eles.
 * Os nomes de propriedade diferenciam maiúsculas de minúsculas. Duas propriedades com o mesmo nome, mas com maiúsculas e minúsculas diferentes são tratadas como duas propriedades separadas.
 
-**Caso 2: Gravar dados em um arquivo JSON**
+**Caso 2: Gravar dados no arquivo JSON file**
 
 Se você tiver a tabela a seguir no Banco de Dados SQL:
 

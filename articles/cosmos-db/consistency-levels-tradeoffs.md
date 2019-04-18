@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266419"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho 
@@ -20,10 +20,10 @@ Bancos de dados distribuídos que dependem de replicação para alta disponibili
 
 O Azure Cosmos DB aborda a coerência de dados como um espectro de opções. Essa abordagem inclui mais opções que os dois extremos de consistência forte e eventual. Você pode escolher entre cinco modelos bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são:
 
-- *Strong*
-- *Bounded staleness*
-- *Session*
-- *Prefixo consistente*
+- *Forte*
+- *Desatualização Limitada*
+- *Sessão*
+- *Prefixo coerente*
 - *Eventual*
 
 Cada modelo fornece disponibilidade e compensações de desempenho e é respaldo por SLAs abrangentes.
@@ -50,7 +50,7 @@ Em um ambiente de banco de dados distribuído globalmente, há uma relação dir
 
 A tabela a seguir define a relação entre a durabilidade de dados e o modelo de consistência na presença de interrupção ampla de região. É importante observar que em um sistema distribuído, mesmo com coerência forte, é impossível ter um banco de dados distribuído com um RPO e RTO de zero devido ao Teorema de CAP. Para saber mais sobre o motivo, consulte [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
-|**Regiões**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
+|**Regiões**|**Modo de replicação**|**Nível de coerência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
 |> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
@@ -67,6 +67,6 @@ A tabela a seguir define a relação entre a durabilidade de dados e o modelo de
 
 Saiba mais sobre a distribuição global e compensações de consistência geral nos sistemas distribuídos. Confira os seguintes artigos:
 
-- [Compensações de consistência no design de sistemas de banco de dados modernos distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
 - [Alta disponibilidade](high-availability.md)
-- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [SLA do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

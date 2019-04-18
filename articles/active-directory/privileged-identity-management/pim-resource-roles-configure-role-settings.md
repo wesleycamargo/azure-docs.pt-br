@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494860"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Definir configurações de função de recurso do Azure no PIM
@@ -63,14 +63,14 @@ Siga estas etapas para abrir as configurações de uma função de recursos do A
 | | |
 | --- | --- |
 | **Permitir atribuição qualificada permanente** | Administradores de recursos podem atribuir membros qualificados permanentes. |
-| **Atribuição qualificada depois de expirar** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
+| **Expirar atribuição qualificada após** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
 
 E, você pode escolher uma destas opções de duração da atribuição **ativa**:
 
 | | |
 | --- | --- |
 | **Permitir atribuição ativa permanente** | Administradores de recursos podem atribuir membros ativos permanentes. |
-| **Expirar a atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
+| **Expirar atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
 
 > [!NOTE] 
 > Todas as atribuições que têm uma data de término especificada poderão ser renovadas por administradores de recursos. Além disso, os membros podem iniciar solicitações de autoatendimento para [estender ou renovar atribuições de função](pim-resource-roles-renew-extend.md).
@@ -117,7 +117,7 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 
 1. Após especificar todas as configurações de função, clique em **Atualizar** para salvar as alterações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)
 - [Configurar alertas de segurança para funções de recurso do Azure no PIM](pim-resource-roles-configure-alerts.md)

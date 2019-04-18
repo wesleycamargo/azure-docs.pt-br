@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662900"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681515"
 ---
 # <a name="eventstore-service-overview"></a>Visão geral do serviço EventStore
 
@@ -72,7 +72,7 @@ No [fabricSettings.json em seu cluster](service-fabric-cluster-fabric-settings.m
 
 ### <a name="azure-cluster"></a>Cluster do Azure
 
-Em seu modelo do cluster do Azure Resource Manager, você pode ativar o serviço de EventStore pela execução de uma [atualização de configuração de cluster](service-fabric-cluster-config-upgrade-azure.md) e adicionando o código a seguir. A `upgradeDescription` seção configura a atualização de configuração para disparar uma reinicialização em nós. Você pode remover a seção em outra atualização.
+Em seu modelo do cluster do Azure Resource Manager, você pode ativar o serviço de EventStore pela execução de um [atualização de configuração de cluster](service-fabric-cluster-config-upgrade-azure.md) e adicionar o código a seguir, você pode usar PlacementConstraints para colocar as réplicas de EventStore serviço em um NodeType específico, por exemplo, um NodeType dedicado para os serviços do sistema. A `upgradeDescription` seção configura a atualização de configuração para disparar uma reinicialização em nós. Você pode remover a seção em outra atualização.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ Em seu modelo do cluster do Azure Resource Manager, você pode ativar o serviço
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }
@@ -114,7 +118,7 @@ Em seu modelo do cluster do Azure Resource Manager, você pode ativar o serviço
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Introdução à API de EventStore - [Usando as APIs de EventStore em clusters do Service Fabric](service-fabric-diagnostics-eventstore-query.md)
 * Saiba mais sobre a lista de eventos oferecidos pelo EventStore - [Eventos do Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
 * Visão geral do monitoramento e diagnóstico no Service Fabric - [Monitoramento e Diagnóstico para o Service Fabric](service-fabric-diagnostics-overview.md)

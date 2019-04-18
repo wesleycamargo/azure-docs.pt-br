@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191640"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681600"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -30,7 +30,9 @@ Consulte os documentos a seguir para obter detalhes sobre como manter o cluster 
 - [Atualizar a versão do Service Fabric em um cluster do Azure](service-fabric-cluster-upgrade.md)
 - [Atualizar a versão do Service Fabric em um cluster do windows server autônomo](service-fabric-cluster-upgrade-windows-server.md)
 
-Veja a seguir a lista das versões do Service Fabric com suporte e as datas de fim de suporte.
+## <a name="supported-versions"></a>Versões com suporte
+
+A tabela a seguir lista as versões do Service Fabric com suporte e suas datas de término do suporte.
 
 | **Tempo de execução do Service Fabric no cluster** | **Permite a atualização diretamente da versão do cluster** |**Compatível com SDK/versões do pacote NuGet** | **Data de fim do suporte** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Veja a seguir a lista das versões do Service Fabric com suporte e as datas de f
 | 6.2.* | 6.0.232.* |Menor ou igual à versão 3.1 |26 de outubro de 2018   |
 | 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |Março de 31,2019  |
 | 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |Versão atual e, portanto, sem data de término |
+
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+
+ A tabela a seguir lista os sistemas operacionais com suporte para as versões com suporte do Service Fabric.
+
+| **Sistema operacional** | **Versão mais antiga de malha de serviço com suporte** |
+| --- | --- |
+| Windows Server 2012 R2 | Todas as versões |
+| Windows Server 2016 | Todas as versões |
+| Windows Server 1709 | 6,0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6,0 |
+

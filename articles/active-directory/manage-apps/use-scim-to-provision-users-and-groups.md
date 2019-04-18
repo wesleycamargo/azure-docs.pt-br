@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007145"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Usar o SCIM (Sistema de Gerenciamento de Identidades entre Domínios) para provisionar automaticamente usuários e grupos do Azure Active Directory para aplicativos
@@ -61,7 +61,7 @@ Verifique com o seu provedor de aplicativo ou na documentação do seu provedor 
 ### <a name="getting-started"></a>Introdução
 Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser conectados ao Azure Active Directory usando o recurso de "aplicativo não galeria" na galeria de aplicativos do Azure AD. Uma vez conectado, o Azure AD executa um processo de sincronização a cada 40 minutos, em que ele consulta o ponto de extremidade SCIM do aplicativo para os usuários e grupos atribuídos e os cria ou modifica de acordo com os detalhes da atribuição.
 
-**Para se conectar a um aplicativo que dá suporte a SCIM:**
+**Para conectar um aplicativo que dê suporte a SCIM:**
 
 1. Entrar para o [portal do Azure Active Directory](https://aad.portal.azure.com). 
 
@@ -134,7 +134,7 @@ Siga estas diretrizes gerais ao implementar um ponto de extremidade SCIM para ga
 A ilustração a seguir mostra as mensagens que o Azure Active Directory envia a um serviço SCIM para gerenciar o ciclo de vida de um usuário no repositório de identidades do seu aplicativo.  
 
 ![][4]
-*Figura 4: Provisionamento de usuário e desprovisionamento sequência*
+*Figura 4: Sequência de provisionamento e desprovisionamento de usuário*
 
 ### <a name="group-provisioning-and-de-provisioning"></a>Provisionamento e desprovisionamento de grupo
 Provisionamento e desprovisionamento de grupo é opcional. Quando implementado e habilitada, a ilustração a seguir mostra as mensagens que o Azure AD envia para um serviço SCIM para gerenciar o ciclo de vida de um grupo no repositório de identidades do seu aplicativo.  Essas mensagens são diferentes das mensagens sobre usuários de duas maneiras: 
@@ -143,7 +143,7 @@ Provisionamento e desprovisionamento de grupo é opcional. Quando implementado e
 * As solicitações para determinar se um atributo de referência tem um determinado valor são sobre o atributo de membros.  
 
 ![][5]
-*Figura 5: Grupo de provisionamento e desprovisionamento sequência*
+*Figura 5: Sequência de provisionamento e desprovisionamento de grupo*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Solicitações do protocolo SCIM e respostas
 Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SCIM do Azure AD e exemplo respostas esperadas. Para obter melhores resultados, você deve codificar seu aplicativo para lidar com essas solicitações nesse formato e emitir as respostas esperadas.
@@ -152,49 +152,49 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 >Para entender como e quando o serviço de provisionamento de usuário do Azure AD emite as operações descritas abaixo, consulte [o que acontece durante o provisionamento de usuário?](user-provisioning.md#what-happens-during-provisioning).
 
 - [Operações de usuário](#user-operations)
-  - [Criar Usuário](#create-user)
+  - [Criar usuário](#create-user)
     - [Solicitação](#request)
-    - [Response](#response)
+    - [Resposta](#response)
   - [Obter usuário](#get-user)
     - [Solicitação](#request-1)
-    - [Response](#response-1)
+    - [Resposta](#response-1)
   - [Obter usuário por consulta](#get-user-by-query)
     - [Solicitação](#request-2)
-    - [Response](#response-2)
+    - [Resposta](#response-2)
   - [Obter usuário por consulta - Zero resultados](#get-user-by-query---zero-results)
     - [Solicitação](#request-3)
-    - [Response](#response-3)
+    - [Resposta](#response-3)
   - [Atualizar usuário [propriedades com múltiplos]](#update-user-multi-valued-properties)
     - [Solicitação](#request-4)
-    - [Response](#response-4)
+    - [Resposta](#response-4)
   - [Atualizar usuário [Propriedades de valor único]](#update-user-single-valued-properties)
     - [Solicitação](#request-5)
-    - [Response](#response-5)
+    - [Resposta](#response-5)
   - [Excluir usuário](#delete-user)
     - [Solicitação](#request-6)
-    - [Response](#response-6)
+    - [Resposta](#response-6)
 - [Operações de grupo](#group-operations)
-  - [Criar Grupo](#create-group)
+  - [Criar grupo](#create-group)
     - [Solicitação](#request-7)
-    - [Response](#response-7)
-  - [Obter Grupo](#get-group)
+    - [Resposta](#response-7)
+  - [Obter grupo](#get-group)
     - [Solicitação](#request-8)
-    - [Response](#response-8)
+    - [Resposta](#response-8)
   - [Obter grupo por displayName](#get-group-by-displayname)
     - [Solicitação](#request-9)
-    - [Response](#response-9)
+    - [Resposta](#response-9)
   - [Grupo de atualização [atributos não-membro]](#update-group-non-member-attributes)
     - [Solicitação](#request-10)
-    - [Response](#response-10)
+    - [Resposta](#response-10)
   - [Grupo de atualização [adicionar membros]](#update-group-add-members)
     - [Solicitação](#request-11)
-    - [Response](#response-11)
+    - [Resposta](#response-11)
   - [Grupo de atualização [remover membros]](#update-group-remove-members)
     - [Solicitação](#request-12)
-    - [Response](#response-12)
+    - [Resposta](#response-12)
   - [Excluir grupo](#delete-group)
     - [Solicitação](#request-13)
-    - [Response](#response-13)
+    - [Resposta](#response-13)
 
 ### <a name="user-operations"></a>Operações de usuário
 
@@ -263,7 +263,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -294,7 +294,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
@@ -333,7 +333,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 *GET /Users?filter=userName eq "non-existent user"*
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
@@ -368,7 +368,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 ```
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -410,7 +410,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 ```
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -493,7 +493,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
@@ -514,7 +514,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a>Response
-*HTTP/1.1 200 OK*
+*HTTP/1.1 200 OKEY*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
@@ -556,7 +556,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 ### <a name="update-group-add-members"></a>Grupo de atualização [adicionar membros]
 
 ##### <a name="request"></a>Solicitação
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -577,7 +577,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 #### <a name="update-group-remove-members"></a>Grupo de atualização [remover membros]
 
 ##### <a name="request"></a>Solicitação
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -598,7 +598,7 @@ Esta seção fornece a solicitações SCIM do exemplo emitida pelo cliente do SC
 #### <a name="delete-group"></a>Excluir grupo
 
 ##### <a name="request"></a>Solicitação
-*DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
+*Excluir /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
 ##### <a name="response"></a>Response
 *HTTP/1.1 204 sem conteúdo*
@@ -1260,10 +1260,10 @@ Os recursos do grupo são identificados pelo identificador de esquema, `urn:ietf
 
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Automatizar o provisionamento/desprovisionamento para aplicativos SaaS](user-provisioning.md)
-* [Personalizando os mapeamentos de atributo para o provisionamento de usuário](customize-application-attributes.md)
-* [Gravando expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
-* [Filtros de escopo para provisionamento de usuário](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
+* [Personalizando os mapeamentos de atributos para provisionamento de usuários](customize-application-attributes.md)
+* [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
+* [Filtros de escopo para provisionamento de usuários](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notificações de provisionamento de conta](user-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
 

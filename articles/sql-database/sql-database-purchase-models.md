@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360180"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
@@ -36,7 +36,7 @@ Diferentes modelos de compra estão disponíveis em modelos de implantação do 
 
 A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compra.
 
-|**Modelo de compra**|**DESCRIÇÃO**|**Mais adequado para**|
+|**Modelo de compra**|**Descrição**|**Mais adequado para**|
 |---|---|---|
 |Modelo baseado em DTU|Esse modelo é baseado em uma medida em pacote de recursos de E/S, armazenamento e computação. Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Mais adequado para clientes que desejam opções de recursos simples e pré-configuradas.|
 |Modelo baseado em vCore|Esse modelo permite escolher recursos de armazenamento e computação de maneira independente. O modelo de compra baseado em vCore também permite que você use o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para poupar custos.|Mais adequado para clientes que valorizam flexibilidade, controle e transparência.|
@@ -120,7 +120,7 @@ As novas camadas de serviço oferecem um método de conversão online simples, s
 
 Sim, você pode converter facilmente o banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Confira [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para Modelo de compra baseado em vCore, consulte [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)
 - Para o modelo de compra com base em DTU, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).

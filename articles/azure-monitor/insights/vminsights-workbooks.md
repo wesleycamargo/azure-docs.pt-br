@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288705"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
@@ -119,9 +119,9 @@ Cada seção tem suas próprias configurações avançadas, que podem ser acessa
 | ---------------- |:-----|
 | **Largura personalizada**    | Torna um item um tamanho arbitrário, portanto, você pode ajustar vários itens em uma única linha que lhe permite organizar melhor seus gráficos e tabelas em relatórios interativos avançados.  |
 | **Condicionalmente visível** | Especifique para ocultar etapas com base em um parâmetro quando no modo de leitura. |
-| **Um parâmetro de exportação**| Permitir que uma linha selecionada na grade ou gráfico para fazer com que as etapas posteriores alterar valores ou se tornar visível.  |
-| **Mostrar consulta quando não se está editando** | Exibe a consulta acima do gráfico ou uma tabela, mesma quando no modo de leitura.
-| **Mostrar o botão abrir no analytics quando não editando** | Adiciona o ícone azul de análise para o canto direito do gráfico para permitir o acesso de um clique.|
+| **Exportar um parâmetro**| Permitir que uma linha selecionada na grade ou gráfico para fazer com que as etapas posteriores alterar valores ou se tornar visível.  |
+| **Mostrar consulta quando não estiver em edição** | Exibe a consulta acima do gráfico ou uma tabela, mesma quando no modo de leitura.
+| **Mostrar abrir no botão análise ao não editar** | Adiciona o ícone azul de análise para o canto direito do gráfico para permitir o acesso de um clique.|
 
 A maioria dessas configurações é bastante intuitiva, mas para entender **um parâmetro de exportação** é melhor examinar uma pasta de trabalho que usa essa funcionalidade.
 
@@ -167,9 +167,9 @@ Há quatro tipos diferentes de parâmetros, que atualmente têm suporte:
 |                  |      |
 | ---------------- |:-----|
 | **Texto**    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
-| **Suspenso** | Permite que o usuário escolher um conjunto de valores. |
+| **Lista suspensa** | Permite que o usuário escolher um conjunto de valores. |
 | **Seletor de intervalo de tempo**| Permite ao usuário escolher um conjunto predefinido de valores de intervalo de tempo ou escolher um intervalo de tempo personalizado.|
-| **Seletor de recursos** | Permite que o usuário escolher dentre os recursos selecionados para a pasta de trabalho.|
+| **Seletor de recurso** | Permite que o usuário escolher dentre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
@@ -251,5 +251,5 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 2. Clique no botão “...” ao lado da pasta de trabalho que você deseja fixar
 3. Clique em **Fixar no painel**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber como usar o recurso de integridade, consulte [exibir integridade da VM do Azure](vminsights-health.md), ou para exibir dependências de aplicativos descobertos, consulte [modo de exibição do Azure Monitor para VMs mapa](vminsights-maps.md). 

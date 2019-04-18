@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271264"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>A vida útil (TTL) no Azure Cosmos DB 
@@ -50,4 +50,4 @@ A exclusão de itens com base na TTL é gratuita. Não haverá custos adicionais
 
 Saiba como configurar a vida útil nos seguintes artigos:
 
-* [Como configurar o tempo de vida](how-to-time-to-live.md)
+* [Como configurar a Vida Útil](how-to-time-to-live.md)

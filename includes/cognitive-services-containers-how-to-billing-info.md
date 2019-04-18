@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964055"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684643"
 ---
 Consultas para o contêiner são cobradas ao tipo de preço do recurso do Azure usado para o `<ApiKey>`.
 
@@ -23,10 +23,10 @@ O contêiner precisa os valores de argumento de cobrança para ser executado. Es
 
 Todas as três opções a seguir devem ser especificados com os valores válidos para que o `docker run` comando para iniciar o contêiner:
 
-| Opção | Descrição |
+| Opção | DESCRIÇÃO |
 |--------|-------------|
 | `ApiKey` | A chave de API do recurso de Serviço Cognitivo usada para rastrear informações de cobrança.<br/>O valor dessa opção deve ser definido como uma chave de API para o recurso provisionado especificado em `Billing`. |
-| `Billing` | O ponto de extremidade do recurso de Serviço Cognitivo usado para rastrear informações de cobrança.<br/>O valor dessa opção deve ser definido como o URI do terminal de um recurso LUIS do Azure provisionado.|
+| `Billing` | O ponto de extremidade do recurso de Serviço Cognitivo usado para rastrear informações de cobrança.<br/>O valor dessa opção deve ser definido como o ponto de extremidade do URI de um recurso do Azure provisionado.|
 | `Eula` | Indica que você aceitou a licença para o contêiner.<br/>O valor dessa opção deve ser definido como `accept`. |
 
 

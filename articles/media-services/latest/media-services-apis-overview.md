@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 5ae7563892cb4792f5c329b2850d7b88d37c0e7d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617388"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698256"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolver com os serviços de mídia APIs v3
 
@@ -38,7 +38,7 @@ Se você não tiver certeza se você tem permissões para criar um aplicativo do
 
 Na figura a seguir, os números representam o fluxo das solicitações em ordem cronológica:
 
-![Aplicativos de camada intermediária](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Aplicativos de camada intermediária](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. Um aplicativo de camada intermediária solicita um token de acesso do AD do Azure que tem os seguintes parâmetros:  
 

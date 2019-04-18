@@ -1,78 +1,28 @@
 ---
-title: Configuração de Token, sessão e logon único no Azure Active Directory B2C | Microsoft Docs
-description: Configuração de token, sessão e logon único no Azure Active Directory B2C.
+title: Sessão e a única configuração de logon - Azure Active Directory B2C | Microsoft Docs
+description: Sessão e configuração de logon única no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1acdb8b5d0054f1dffd1014a350540b6de40d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 674a20fc96cf5b86219222d746525a3559ae9d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171500"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681090"
 ---
-# <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuração de Token, sessão e logon único no Azure Active Directory B2C
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sessão e configuração de logon único no Azure Active Directory B2C
 
 Esse recurso oferece um controle refinado, [com base em cada fluxo de usuário](active-directory-b2c-reference-policies.md), de:
 
-- Vida útil dos tokens de segurança emitidos pelo Azure Active Directory (Azure AD) B2C.
 - Vida útil de sessões dos aplicativos Web gerenciados pelo Azure AD B2C.
-- Formatos de declarações importantes nos tokens de segurança emitidos pelo Azure AD B2C.
 - Comportamento de logon único (SSO) em vários aplicativos e políticas no locatário do Azure AD B2C.
-
-Você pode usar esse recurso em qualquer tipo de política, mas este exemplo mostra como usar o recurso com um fluxo de usuário de inscrição ou entrada. Para fluxos de usuário, você pode usar esse recurso no seu diretório do Azure AD B2C conforme a seguir:
-
-1. Clique em **Fluxos de usuário**.
-2. Abra um fluxo de usuário clicando nele. Por exemplo, clique em **B2C_1_SiUpIn**.
-3. Clique em **Propriedades**.
-4. Em **configurações de compatibilidade de Token**, faça as alterações desejadas. Saiba mais sobre as propriedades disponíveis nas seções seguintes.
-5. Clique em **Salvar** na parte superior do menu.
-
-## <a name="token-lifetimes-configuration"></a>Configuração da vida útil de tokens
-
-O Azure AD B2C dá suporte ao [protocolo de autorização OAuth 2.0](active-directory-b2c-reference-protocols.md) para habilitar o acesso seguro a recursos protegidos. Para implementar esse suporte, o Azure AD B2C emite vários [tokens de segurança](active-directory-b2c-reference-tokens.md). 
-
-As seguintes propriedades são usadas para gerenciar tempos de vida de tokens de segurança emitidos pelo Azure AD B2C:
-
-- **Duração dos tokens de acesso e ID (minutos)**: o tempo de vida do token portador do OAuth 2.0 usado para obter acesso a um recurso protegido.
-    - Padrão = 60 minutos.
-    - Mínimo (inclusive) = 5 minutos.
-    - Máximo (inclusive) = 1440 minutos.
-- **Atualizar tempo de vida do token (dias)** - O período máximo antes do qual um token de atualização pode ser usado para adquirir um novo token de acesso ou ID (e, opcionalmente, um novo token de atualização, se seu aplicativo tiver recebido o `offline_access` escopo).
-    - Padrão = 14 dias.
-    - Mínimo (inclusive) = 1 dia.
-    - Máximo (inclusive) = 90 dias.
-- **Atualizar vida útil da janela deslizante do token (dias)** - Após esse período de tempo, o usuário é forçado a autenticar novamente, independentemente do período de validade do token de atualização mais recente adquirido pelo aplicativo. Ele só poderá ser fornecido se a opção estiver definida como **Bounded**. Ele precisa ser maior ou igual ao valor **Vida útil do token de atualização (dias)** . Se a opção estiver definida como **Unbounded**, você não poderá fornecer um valor específico.
-    - Padrão = 90 dias.
-    - Mínimo (inclusive) = 1 dia.
-    - Máximo (inclusive) = 365 dias.
-
-Os casos de uso a seguir são ativados usando estas propriedades:
-
-- Permitir que um usuário permaneça conectado a um aplicativo móvel indefinidamente, contanto que o usuário esteja continuamente ativo no aplicativo. Você pode definir **Atualizar duração da janela deslizante do token (dias)** para **Não consolidado** em seu fluxo de usuário.
-- Atenda aos requisitos de conformidade e segurança de seu setor definindo a vida de tokens de acesso adequadamente.
-
-Essas configurações não estão disponíveis para os fluxos de usuário de redefinição de senha. 
-
-## <a name="token-compatibility-settings"></a>Configurações de compatibilidade de token
-
-As seguintes propriedades permitem que os clientes optem conforme necessário:
-
-- **Emissor (iss) reivindicação** - essa propriedade identifica o locatário do Azure AD B2C que emitiu o token.
-    - `https://<domain>/{B2C tenant GUID}/v2.0/` - este é o valor padrão.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui IDs do inquilino B2C e do fluxo de usuário usado na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
-- **Subject (sub) declaração** - Esta propriedade identifica a entidade para a qual o token afirma informações.
-    - **ObjectID** -esta propriedade é o valor padrão. Ele ocupa a ID de objeto do usuário no diretório para a declaração `sub` no token.
-    - **Não suportado** - Esta propriedade só é fornecida para compatibilidade com versões anteriores, e recomendamos que você mude para **ObjectID** assim que for possível.
-- **Reivindicação representando o ID da política**: essa propriedade identifica o tipo de reivindicação no qual o ID da política usado na solicitação de token é preenchido.
-    - **TFP** -esta propriedade é o valor padrão.
-    - **Acr** -esta propriedade é fornecida somente para compatibilidade com versões anteriores.
 
 ## <a name="session-behavior"></a>Comportamento da sessão
 
@@ -98,7 +48,7 @@ Se você tiver vários aplicativos e fluxos de usuário em seu locatário B2C, p
 - **Locatário** -essa configuração é o padrão. O uso dessa configuração permite a vários aplicativos e fluxos de usuário em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, depois que um usuário faz login em um aplicativo, o usuário também pode fazer login em outro, a Contoso Pharmacy, ao acessá-lo.
 - **Aplicação** - Esta configuração permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, se você quiser que o usuário entre na Contoso Pharmacy (com as mesmas credenciais), mesmo que o usuário já esteja conectado ao Contoso Shopping, outro aplicativo no mesmo locatário B2C. 
 - **Política** - Essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um fluxo de usuário, independentemente dos aplicativos que a usam. Por exemplo, se o usuário já tiver feito login e concluído uma etapa de autenticação de vários fatores (MFA), o usuário poderá ter acesso a partes de maior segurança de vários aplicativos, desde que a sessão vinculada ao fluxo de usuário não expire.
-- **Desabilitado** – essa configuração orces o usuário a percorrer o fluxo do usuário inteira em cada execução da política. Por exemplo, isso permite que vários usuários se inscrevam em seu aplicativo (em um cenário de área de trabalho compartilhada), mesmo quando um usuário permanecer conectado o tempo todo.
+- **Desabilitado** – essa configuração orces o usuário a percorrer o fluxo do usuário inteira em cada execução da política.
 
 Essas configurações não estão disponíveis para os fluxos de usuário de redefinição de senha. 
 

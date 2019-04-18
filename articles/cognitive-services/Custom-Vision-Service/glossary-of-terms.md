@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048929"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos para o Serviço de Visão Personalizada
@@ -29,10 +29,10 @@ Um classificador é um modelo que você cria com o Serviço de Visão Personaliz
 
 Ao criar um projeto, você escolhe um "domínio" para o projeto. O domínio otimiza um classificador para um tipo específico de objeto em suas imagens. Por exemplo, se seu caso for classificar entre imagens de torta de maçã e imagens de bolo de cenoura, escolha o domínio "Comida". Se você não tiver certeza de qual domínio escolher, escolha o domínio "Genérico".
 
-- **O domínio de alimentos.** Otimizado para pratos que você veria no cardápio de um restaurante. Não foi otimizado para reconhecer frutas ou legumes individuais. Se você quiser classificar fotografias de frutas ou legumes individuais, use o domínio Genérico para essa finalidade.
-- **O domínio de ponto de referência.** Otimizado para pontos de referência reconhecidos, tanto naturais quanto artificiais. Este domínio funciona melhor quando o ponto de referência está claramente visível na fotografia, mesmo se o ponto de referência estiver um pouco obstruído por um grupo de pessoas posando para a foto na frente dele.
-- **O domínio de varejo.** Otimizado para classificação de imagens em um catálogo de compra ou um site de compra. Se desejar alta precisão ao classificar vestidos, calças, camisas, etc., use o domínio Varejo.
-- **O domínio geral.** Adequado para uma ampla variedade de tarefas de classificação de imagens.
+- **O domínio Comida.** Otimizado para pratos que você veria no cardápio de um restaurante. Não foi otimizado para reconhecer frutas ou legumes individuais. Se você quiser classificar fotografias de frutas ou legumes individuais, use o domínio Genérico para essa finalidade.
+- **O domínio Ponto de Referência.** Otimizado para pontos de referência reconhecidos, tanto naturais quanto artificiais. Este domínio funciona melhor quando o ponto de referência está claramente visível na fotografia, mesmo se o ponto de referência estiver um pouco obstruído por um grupo de pessoas posando para a foto na frente dele.
+- **O domínio Varejo.** Otimizado para classificação de imagens em um catálogo de compra ou um site de compra. Se desejar alta precisão ao classificar vestidos, calças, camisas, etc., use o domínio Varejo.
+- **O domínio Geral.** Adequado para uma ampla variedade de tarefas de classificação de imagens.
 
 Os modelos gerados por **domínios compactos** podem ser exportados com a funcionalidade de exportação de iteração. Eles são otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores compilados com um domínio compacto podem ser ligeiramente menos precisos que um domínio padrão com a mesma quantidade de dados de treinamento. A desvantagem é que eles são pequenos o suficiente para serem executados localmente quase em tempo real. 
 

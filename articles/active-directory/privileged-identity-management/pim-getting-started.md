@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488621"
 ---
 # <a name="start-using-pim"></a>Comece a usar o PIM
@@ -107,8 +107,8 @@ Depois que o PIM é configurado, você pode executar suas tarefas de gerenciamen
 | **Minhas Funções**  | Exibe uma lista de funções qualificadas e ativas atribuídas a você. É aqui que você pode ativar as funções qualificadas atribuídas. |
 | **Minhas solicitações** | Exibe as solicitações pendentes para ativar atribuições de função qualificadas. |
 | **Aprovar solicitações** | Exibe uma lista de solicitações de usuários para ativar funções qualificadas em seu diretório, que você pode aprovar. |
-| **Examinar acesso** | Lista as revisões de acesso ativas atribuídas a você para completar, esteja você revisando o acesso para si mesmo ou para outra pessoa. |
-| **Funções do Azure AD** | Exibe um painel de controle e configurações para os administradores de função com privilégios gerenciam atribuições de função do AD do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
+| **Análise de acesso** | Lista as revisões de acesso ativas atribuídas a você para completar, esteja você revisando o acesso para si mesmo ou para outra pessoa. |
+| **Funções do Microsoft Azure Active Directory** | Exibe um painel de controle e configurações para os administradores de função com privilégios gerenciam atribuições de função do AD do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
 | **Recursos do Azure** | Exibe um painel e configurações para que administradores com função com privilégios gerenciem atribuições de função de recurso do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicionar um bloco PIM ao painel
@@ -131,7 +131,7 @@ Para que seja mais fácil abrir o PIM, adicione um bloco do PIM ao painel do por
 
     ![Bloco do Início Rápido do PIM](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Descobrir os recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md)

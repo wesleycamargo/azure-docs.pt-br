@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104043"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682374"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios Git com exemplos para os Hubs de Eventos do Azure 
 Você pode encontrar as amostras dos Hubs de Eventos no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Esses exemplos demonstram os principais recursos nos [Hubs de Eventos do Azure](/azure/event-hubs/). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
@@ -50,7 +50,7 @@ Você pode encontrar as amostras dos Hubs de Eventos no [GitHub](https://github.
 Você pode encontrar exemplos de Python para Hubs de Eventos do Azure no repositório do GitHub [azure-eventos-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples).
 
 ## <a name="nodejs-samples"></a>Exemplos do Node.js
-Você pode encontrar exemplos de Node. js do Azure para Hubs de Eventos no repositório GitHub [azure-eventos-hubs-node](https://github.com/Azure/azure-event-hubs-node).
+Você pode encontrar exemplos de Node. js para Hubs de eventos do Azure na [azure-sdk-para-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) repositório do GitHub.
 
 ## <a name="go-samples"></a>Exemplos da linguagem Go
 Você pode encontrar exemplos de Go para os Hubs de Eventos do Azure no repositório do GitHub [azure-eventos-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
@@ -64,7 +64,7 @@ Você pode encontrar exemplos do Azure PowerShell para Hubs de Eventos do Azure 
 ## <a name="apache-kafka-samples"></a>Exemplos do Apache Kafka
 Você pode encontrar exemplos para os Hubs de Eventos para o recurso Apache Kafka no repositório [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) do GitHub.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Você pode saber mais sobre os Hubs de Eventos nestes artigos:
 
 - [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269615"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
@@ -21,13 +21,13 @@ Este artigo descreve os problemas comuns no Azure Site Recovery na replicação 
 
 ## <a name="list-of-errors"></a>Lista de erros
 - **[Problemas de cota de recursos do Azure (código de erro 150097)](#azure-resource-quota-issues-error-code-150097)**
-- **[Certificados de raiz confiável (código de erro 151066)](#trusted-root-certificates-error-code-151066)**
+- **[Certificados raiz confiáveis (código de erro 151066)](#trusted-root-certificates-error-code-151066)**
 - **[Conectividade de saída para o Site Recovery (código de erro 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de cota de recursos do Azure (código de erro 150097)
 Sua assinatura deve ser habilitada para criar VMs do Azure na região de destino que você planeja usar como a região de recuperação de desastres. Além disso, sua assinatura deve ter uma cota suficiente habilitada para criar VMs de tamanho específico. Por padrão, a recuperação de Site escolhe o mesmo tamanho para a VM de destino como a VM de origem. Se o tamanho correspondente não estiver disponível, o tamanho mais próximo possível é escolhido automaticamente. Se não houver nenhum tamanho correspondente que dá suporte à configuração de VM de origem, essa mensagem de erro será exibida:
 
-**Código do erro** | **Possíveis causas** | **Recomendações**
+**Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
 150097<br></br>**Mensagem**: Não foi possível habilitar a replicação para a máquina virtual VmName. | -Sua ID de assinatura não deve estar habilitada para criar quaisquer máquinas virtuais no local de região de destino.</br></br>-Sua ID de assinatura não deve estar habilitada ou não tem uma cota suficiente para criar tamanhos específicos de VM no local de região de destino.</br></br>-Um destino adequado tamanho da VM que corresponda a contagem de NIC (2) de VM de origem não foi encontrado para a ID da assinatura no local de região de destino.| Entre em contato com [suporte à cobrança do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para habilitar a criação de VM para os tamanhos VM necessários no local de destino para a sua assinatura. Depois que ele é habilitado, repita a operação falhada.
 
@@ -40,12 +40,12 @@ Se o local de destino tiver uma restrição de capacidade, desabilite a replica�
 
 Se todos os certificados de raiz confiável mais recentes não estiverem presentes na VM, o seu trabalho "habilitar replicação" pode falhar. Sem os certificados, a autenticação e autorização de chamadas de serviço de recuperação de Site da VM falham. A mensagem de erro para o trabalho de recuperação de Site com falha em "habilitar replicação" será exibida:
 
-**Código do erro** | **Causa possível** | **Recomendações**
+**Código de erro** | **Possível causa** | **Recomendações**
 --- | --- | ---
 151066<br></br>**Mensagem**: Falha na configuração do Site Recovery. | Os certificados de raiz confiável obrigatórios usados para a autorização e autenticação não estão presentes no computador. | -Para uma VM que executa o sistema operacional Windows, certifique-se de que os certificados de raiz confiável estão presentes no computador. Para obter informações, consulte [Configurar raízes confiáveis e certificados não permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Para uma VM que executa o sistema operacional Linux, siga as orientações para certificados de raiz confiável publicadas pelo distribuidor de versão do sistema operacional Linux.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
-** Windows**
+**Windows**
 
 Instale todas as atualizações mais recentes do Windows na máquina virtual para que todos os certificados de raiz confiável estejam presentes no computador. Se você estiver em um ambiente desconectado, siga o processo de atualização padrão do Windows em sua organização para obter os certificados. Se os certificados necessários não estiverem presentes na VM, as chamadas para o serviço de recuperação de Site falharão por razões de segurança.
 
@@ -155,7 +155,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema nº 1: Falha ao registrar a máquina virtual do Azure no Site Recovery (151195) </br>
-- **Causa possível** </br>
+- **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade do local devido à falha na resolução DNS.
   - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
 
@@ -166,7 +166,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: Falha na configuração do Site Recovery (151196)
-- **Causa possível** </br>
+- **Possível causa** </br>
   - Não é possível estabelecer a Conexão para pontos de extremidade de IP4 de identidade e autenticação do Office 365.
 
 - **Resolução**
@@ -178,7 +178,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 > Se as máquinas virtuais estão por trás **Standard** balanceador de carga interno e em seguida, ele não teria acesso ao O365 IPs, ou seja, login.micorsoftonline.com por padrão. Altere-o para **básicas** interno tipo de Balanceador de carga ou criar acesso com associação de saída, conforme mencionado na [artigo](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Falha na configuração do Site Recovery (151197)
-- **Causa possível** </br>
+- **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.
 
 - **Resolução**
@@ -186,15 +186,15 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: A2A a replicação falha quando o tráfego de rede passará por meio do servidor de proxy no local (151072)
-- **Causa possível** </br>
+- **Possível causa** </br>
   - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
 
 
 - **Resolução**
   1. O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
   2. Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
-     - ``/usr/local/InMage/config/`` on ***Linux***
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` em ***Windows***
+     - ``/usr/local/InMage/config/`` no ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
   3. O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
@@ -209,7 +209,7 @@ Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound
 
 Um novo disco anexado à máquina virtual deve ser inicializado.
 
-**Código do erro** | **Possíveis causas** | **Recomendações**
+**Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
 150039<br></br>**Mensagem**: O disco de dados do Azure (DiskName) (DiskURI) com o LUN (número de unidade lógica) (LUNValue) não foi mapeado para um disco correspondente que está sendo relatado na VM que tem o mesmo valor de LUN. | - Um novo disco de dados foi anexado à VM, mas ele não foi inicializado.</br></br>- O disco de dados na máquina virtual não está relatando corretamente o valor do LUN no qual o disco foi conectado à máquina virtual.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para Windows: [Anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [Inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
@@ -224,10 +224,10 @@ Se o problema persistir, contate o Suporte.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível visualizar a VM do Azure para seleção "habilitar a replicação"
 
- **Causa 1:  Grupo de recursos e a máquina Virtual de origem estão em outro local** <br>
+ **Causa 1:  O grupo de recursos e a Máquina Virtual de origem estão em uma localização diferente** <br>
 O Azure Site Recovery atualmente determinou que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se esse não for o caso, não será possível localizar a máquina virtual durante o tempo de proteção.
 
-**Causa 2: Grupo de recursos não faz parte da assinatura selecionada** <br>
+**Causa 2: O grupo de recursos não faz parte da assinatura selecionada** <br>
 Talvez não seja possível localizar o grupo de recursos no momento da proteção, se ele não fizer parte da assinatura fornecida. Certifique-se de que o grupo de recursos pertence à assinatura que está sendo usada.
 
  **Causa 3: Configuração obsoleta** <br>
@@ -245,9 +245,9 @@ Se VM que você deseja habilitar para replicação não é exibida, pode haver u
 Você pode usar [Remover configuração de script ASR obsoleta](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração de recuperação de Site obsoleta na máquina virtual da Azure. Você deve ser capaz de ver a VM depois de remover a configuração obsoleta.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Não é possível selecionar a máquina virtual para proteção
- **Causa 1:  Máquina virtual tem alguma extensão instalado em um estado com falha ou não responde** <br>
+ **Causa 1:  A máquina virtual tem uma extensão instalada em um estado com falha ou sem resposta** <br>
  Vá para Máquinas virtuais > Configuração > Extensões e verifique se há extensões em um estado com falha. Desinstale a extensão com falha e tente proteger a máquina virtual novamente.<br>
- **Causa 2:  [Estado de provisionamento da VM não é válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Causa 2:  [O estado de provisionamento da VM não é válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>O estado de provisionamento da VM não é válido (código de erro 150019)
 
@@ -266,12 +266,12 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Não é possível selecionar a rede virtual de destino - a guia de seleção de rede está esmaecida.
 
-**Causa 1: Se sua VM está anexada a uma rede que já está mapeada para uma rede de destino' '.**
+**Causa 1: Se a VM estiver anexada a uma rede que já esteja mapeada para uma 'Rede de destino'.**
 - Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, em seguida, por padrão, o menu suspenso de seleção de rede padrão será desabilitado.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**Causa 2: Se você anteriormente protegidos a VM usando o Azure Site Recovery e desabilitado a replicação.**
+**Causa 2: Se, anteriormente, você protegeu a VM usando o Azure Site Recovery e desabilitou a replicação.**
  - Desabilitar a replicação de uma VM não exclui o Mapeamento de Rede. Ele deve ser excluído do cofre do serviço de recuperação em que a VM foi protegida. </br>
  Navegue até o cofre do serviço de recuperação > Infraestrutura do Site Recovery > Mapeamento de rede. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -282,25 +282,25 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de Cópias de Sombra de Volume/COM+ (código de erro 151025)
 
-**Código do erro** | **Possíveis causas** | **Recomendações**
+**Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
 151025<br></br>**Mensagem**: Falha ao instalar a extensão do Site Recovery | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 
 É possível abrir o console de 'Serviços' e assegurar que 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' não estejam definidos como 'Desabilitado' para 'Tipo de Inicialização'.
-  ![com-erro](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+  ![erro-com](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamanho do disco gerenciado não suportado (código de erro 150172)
 
 
-**Código do erro** | **Possíveis causas** | **Recomendações**
+**Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
 150172<br></br>**Mensagem**: Não foi possível habilitar a proteção para a máquina virtual pois ela tem (DiskName) com tamanho (DiskSize) menor do que o mínimo suportado de 1024 MB. | -O disco é menor que o tamanho suportado de 1024 MB| Certifique-se de que os tamanhos de disco estão dentro do limite de tamanho suportado e repita a operação.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>A habilitação da proteção falhou porque o nome do dispositivo foi mencionado na configuração do GRUB em vez do UUID (código de erro 151126)
 
-**Causa Possível:** </br>
+**Possível causa:** </br>
 Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" ou "/etc/default/grub") podem conter o valor dos parâmetros **root** e **resume** como os nomes de dispositivo reais em vez do UUID. O Site Recovery exige a abordagem com UUID, pois o nome dos dispositivos poderá ser alterado quando ocorrer uma reinicialização da VM, uma vez que a VM poderá não ter o mesmo nome após um failover, causando problemas. Por exemplo:  </br>
 
 

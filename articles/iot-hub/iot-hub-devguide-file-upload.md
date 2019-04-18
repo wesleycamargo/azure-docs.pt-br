@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050723"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
@@ -152,7 +152,7 @@ Agora que você aprendeu a carregar arquivos de dispositivos usando o Hub IoT, t
 
 * [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 
-* [Usar dispositivo gêmeos para sincronizar o estado e configurações](iot-hub-devguide-device-twins.md)
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md)
 
 * [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md)
 
@@ -160,4 +160,4 @@ Agora que você aprendeu a carregar arquivos de dispositivos usando o Hub IoT, t
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do Hub IoT a seguir:
 
-* [Como carregar arquivos de dispositivos para a nuvem com o IoT Hub](iot-hub-csharp-csharp-file-upload.md)
+* [Como carregar arquivos de dispositivos para a nuvem com o Hub IoT](iot-hub-csharp-csharp-file-upload.md)

@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361138"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu data warehouse para Gen2
@@ -30,7 +30,7 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 
 \* indica que um agendamento específico para a região está indisponível no momento.
 
-| **Região** | **Inferior Gen2 disponíveis** | **Começam a atualizações automáticas** |
+| **Região** | **Gen2 inferior disponível** | **Início das atualizações automáticas** |
 |:--- |:--- |:--- |
 | Leste da Austrália |Disponível |1 de junho de 2019 |
 | Sudeste da Austrália |15 de abril de 2019 |1º de maio de 2019 |
@@ -101,47 +101,47 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 ## <a name="migration-frequently-asked-questions"></a>Perguntas frequentes sobre migração
 
-**P: Gen2 custo igual Gen1?**
+**P: O custo de Gen2 é igual ao de Gen1?**
 
 - R: Sim.
 
-**P: Como as atualizações afetará meus scripts de automação?**
+**P: Como as atualizações afetarão meus scripts de automação?**
 
 - R: Qualquer script de automação que faça referência a um Objetivo de Nível de Serviço deve ser alterado para corresponder ao equivalente de Gen2.  Veja os detalhes [aqui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**P: Quanto tempo uma atualização automática normalmente demora?**
+**P: Normalmente, quanto tempo demora uma autoatualização?**
 
 - R: Você pode fazer a atualização in-loco ou usando um ponto de restauração.  
    - A atualização in-loco fará com que o data warehouse seja pausado momentaneamente e retomado.  Um processo em segundo plano continuará enquanto o data warehouse estiver online.  
    - Será mais demorado se você atualizar usando um ponto de restauração, pois a atualização passará pelo processo completo de restauração.
 
-**P: Quanto tempo levará a atualização automática?**
+**P: Quanto tempo levará a autoatualização?**
 
 - R: O tempo de inatividade real para a atualização é apenas o tempo necessário para pausar e retomar o serviço, que fica entre 5 e 10 minutos. Após esse breve tempo de inatividade, um processo em segundo plano executará uma migração de armazenamento. A duração do processo em segundo plano depende do tamanho do seu data warehouse.
 
-**P: Quando a atualização automática ocorrerá?**
+**P: Quando essa atualização automática ocorrerá?**
 
 - R: Durante o seu agendamento de manutenção. Aproveitar o agendamento de manutenção escolhido minimizará a interrupção nos seus negócios.
 
-**P: O que devo fazer se meu processo de atualização em segundo plano parece estar travados?**
+**P: O que devo fazer se o processo de atualização em segundo plano parecer travado?**
 
  - R: Inicie uma reindexação de suas tabelas Columnstore. Observe que a reindexação da tabela será offline durante essa operação.
 
-**P: E se Gen2 não tem o objetivo de nível de serviço tem no Gen1?**
+**P: E se Gen2 não tiver o Objetivo de Nível de Serviço que tenho em Gen1?**
 - R: Se você estiver executando um DW600 ou DW1200 em Gen1, é aconselhável usar DW500c ou DW1000c, respectivamente, pois Gen2 fornece mais memória e recursos, além de um desempenho mais alto do que Gen1.
 
-**P: Desabilitar backup geográfico?**
+**P: Posso desabilitar o backup geográfico?**
 - R:  Não. O backup geográfico é um recurso corporativo para preservar a disponibilidade do seu data warehouse no caso de uma região se tornar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
 
 **P: Há uma diferença na sintaxe do T-SQL entre Gen1 e Gen2?**
 
 - R: Não há nenhuma alteração na sintaxe da linguagem T-SQL de Gen1 para Gen2.
 
-**P: Gen2 dá suporte à manutenção do Windows?**
+**P: Gen2 oferece suporte às Janelas de Manutenção?**
 
 - R: Sim.
 
-**P: Será capaz de criar uma nova instância de Gen1 após atualização minha região?**
+**P: Serei capaz de criar uma nova instância de Gen1 depois que minha região for atualizada?**
 
 - R:  Não. Depois que uma região for atualizada, a criação de novas instâncias de Gen1 será desabilitada.
 
@@ -149,9 +149,9 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 - [Etapas de atualização](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)
-- [Monitor de integridade de recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Revisão antes de iniciar uma migração](upgrade-to-latest-generation.md#before-you-begin)
-- [Atualização in-loco e atualização de um ponto de restauração](upgrade-to-latest-generation.md)
-- [Crie um ponto restauração definido pelo usuário](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
+- [Monitoramento da integridade de recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Revise o artigo Antes de começar a migração](upgrade-to-latest-generation.md#before-you-begin)
+- [Atualizar in-loco e atualizar de um ponto de restauração](upgrade-to-latest-generation.md)
+- [Criar um ponto de restauração definido pelo usuário](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
 - [Saiba como restaurar para Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Abra uma solicitação de suporte do SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Abrir uma solicitação de suporte para SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

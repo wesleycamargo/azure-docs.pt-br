@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
 ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903668"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
@@ -42,7 +42,7 @@ Essas etapas usam a CLI do Azure para criar o Registro do aplicativo e a GUI (Po
 - Nome de exibição: Nome do registro do aplicativo (por ex: OCPAzureAD)
 - Home page: URL do console do OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - URI do identificador: URL do console do OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URL de resposta: URL mestra pública e o nome de registro do aplicativo (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- URL de Resposta: URL mestra pública e o nome de registro do aplicativo (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Senha: Senha de segurança (use uma senha forte)
 
 O exemplo a seguir criará um Registro de aplicativo usando as informações acima:
@@ -151,7 +151,7 @@ Certifique-se de que o texto esteja alinhado corretamente em identityProviders. 
 
 Reinicie os serviços do OpenShift Master em todos os nós mestres:
 
-**OpenShift Container Platform (OCP) com vários mestres**
+**OpenShift Container Platform com vários mestres**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
@@ -164,7 +164,7 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
-**OKD com vários mestres**
+**OLD com vários mestres**
 
 ```bash
 sudo systemctl restart origin-master-api

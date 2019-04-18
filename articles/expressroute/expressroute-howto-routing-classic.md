@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045706"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
@@ -20,9 +20,9 @@ ms.locfileid: "59045706"
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
-> * [Vídeo – emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vídeo – emparelhamento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vídeo – emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo – Emparelhamento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vídeo – Emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
@@ -90,7 +90,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute.**
 
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique se o circuito de ExpressRoute para certificar-se de que ela é provisionada.**
+2. **Verifique o circuito do ExpressRoute para garantir que ele seja provisionado.**
    
    Verifique se o circuito da Rota Expressa é Provisionado e também Ativado.
 
@@ -193,7 +193,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute**
 
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento público do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique se o circuito de ExpressRoute para verificar se ele é provisionado**
+2. **Verifique o circuito do ExpressRoute para verificar se ele está provisionado**
 
    Primeiro, verifique se o circuito do ExpressRoute está Provisionado e Habilitado.
 
@@ -220,7 +220,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Configurar o emparelhamento público do Azure para o circuito**
+4. **Configure o emparelhamento público do Azure para o circuito**
    
    Verifique se você tem as informações a seguir antes de prosseguir:
    
@@ -297,7 +297,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 1. **Criar um circuito do ExpressRoute**
   
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
-2. **Verifique se o circuito de ExpressRoute para verificar se ele é provisionado**
+2. **Verifique o circuito do ExpressRoute para verificar se ele está provisionado**
 
    Verifique se o circuito está exibido como Provisionado e Ativado. 
    
@@ -324,7 +324,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configurar emparelhamento da Microsoft para o circuito**
+3. **Configurar o emparelhamento da Microsoft para o circuito**
    
     Você precisa ter as seguintes informações antes de continuar:
    
@@ -335,7 +335,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    * Prefixos anunciados: você precisa fornecer uma lista com todos os prefixos que planeja anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
    * ASN do cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
    * Nome do registro de roteamento: é possível especificar o RIR/IRR no qual o número AS e os prefixos estão registrados.
-   * Um hash MD5, se você optar por usar um. **Opcional.**
+   * Um hash MD5, se você optar por usar um. **Opcional**
      
    Execute o seguinte cmdlet para configurar o Microsoft emparelhamento para o seu circuito:
  

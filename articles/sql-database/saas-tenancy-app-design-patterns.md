@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260537"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
@@ -71,7 +71,7 @@ A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momen
 
 Nesse modelo, todo o aplicativo é instalado várias vezes, uma vez para cada locatário.  Cada instância do aplicativo é uma instância autônoma, para que ele nunca interaja com qualquer outra instância autônoma.  Cada instância do aplicativo tem apenas um locatário e, portanto, precisa de apenas um banco de dados.  O locatário tem o banco de dados todo para si mesmo.
 
-![Design de aplicativo autônomo com exatamente um banco de dados de locatário único.][image-standalone-app-st-db-111a]
+![Design de aplicativo autônomo com exatamente um banco de dados de único locatário.][image-standalone-app-st-db-111a]
 
 Cada instância de aplicativo é instalada em um grupo de recursos do Azure separado.  O grupo de recursos pode pertencer a uma assinatura que pertence ou ao fornecedor do software ou ao locatário.  Em ambos os casos, o fornecedor pode gerenciar o software para o locatário.  Cada instância do aplicativo está configurada para se conectar ao seu banco de dados correspondente.
 
@@ -85,7 +85,7 @@ O fornecedor pode acessar todos os bancos de dados em todas as instâncias de ap
 
 Esse padrão próximo usa um aplicativo multilocatário com muitos bancos de dados, todos os que estão sendo bancos de dados de único locatário.  Um novo banco de dados é provisionado para cada novo locatário.  A camada de aplicativo é dimensionada *backup* verticalmente, adicionando mais recursos por nó.  Ou o aplicativo é dimensionado *out* horizontalmente adicionando mais nós.  O dimensionamento é com base na carga de trabalho e é independente do número ou a escala dos bancos de dados individuais.
 
-![Design de aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-132d]
+![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-132d]
 
 #### <a name="customize-for-a-tenant"></a>Personalizar para um locatário
 
@@ -97,7 +97,7 @@ Personalizando o esquema para um ou mais locatários individuais é simples atin
 
 Quando os bancos de dados são implantados no mesmo grupo de recursos, eles podem ser agrupados em pools elásticos.  Os grupos oferecem uma maneira econômica de compartilhamento de recursos em vários bancos de dados.  Essa opção de pool é mais barata do que a necessidade de cada banco de dados seja grande o suficiente para acomodar os picos de uso que ele passa por.  Mesmo que o pool de bancos de dados compartilham acesso aos recursos que ele ainda pode conseguir um alto grau de isolamento de desempenho.
 
-![Design de aplicativo de multilocatário com o banco de dados por locatário, usando o pool Elástico.][image-mt-app-db-per-tenant-pool-153p]
+![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-pool-153p]
 
 Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  Ambas as métricas de desempenho do nível do pool e nível de banco de dados estão disponíveis no portal do Azure e logs do Azure Monitor.  As métricas podem fornecer excelentes ideias sobre desempenho de agregação e específicos de locatário.  Bancos de dados individuais podem ser movidos entre grupos para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir o bom desempenho de maneira econômica.
 
@@ -146,7 +146,7 @@ Operações de gerenciamento que concentram-se em locatários individuais são m
 
 A maioria dos aplicativos SaaS acessar os dados de locatário somente um por vez.  O padrão de acesso permite que os dados de locatário seja distribuída por vários bancos de dados ou fragmentos, onde todos os dados para um locatário está contido em um fragmento.  Um modelo fragmentado combinado com um padrão de banco de dados multilocatário, permite que a escala praticamente ilimitada.
 
-![Design de aplicativo de multilocatário com bancos de dados multilocatário fragmentados.][image-mt-app-sharded-mt-db-174s]
+![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-sharded-mt-db-174s]
 
 #### <a name="manage-shards"></a>Gerenciar fragmentos
 

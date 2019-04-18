@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009564"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
@@ -75,13 +75,13 @@ Você pode excluir um usuário existente usando o portal do Azure Active Directo
     >[!Note]
     >Você deve usar o Windows Server Active Directory para atualizar a identidade, as informações de contato ou as informações do trabalho para os usuários cuja fonte de autoridade é o Windows Server Active Directory. Depois de concluir sua atualização, você deve aguardar a conclusão do próximo ciclo de sincronização antes de ver as alterações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de adicionar seus usuários, você pode executar os seguintes processos básicos:
 
-- [Adicionar ou alterar informações do perfil](active-directory-users-profile-azure-portal.md)
+- [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md)
+- [Atribuir funções a usuários](active-directory-users-assign-role-azure-portal.md)
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361344"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Execute o planejador de implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure
@@ -256,11 +256,11 @@ O relatório gerado do Microsoft Excel contém as seguintes informações:
 
 * [Resumo local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recomendações](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [Posicionamento de VM-Storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Posicionamento de armazenamento de VM](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [VMs compatíveis](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [VMs incompatíveis](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Requisito de armazenamento local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [Lote de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Envio em lote de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimativa de custo](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Relatório do planejador de implantação](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
@@ -309,4 +309,4 @@ Para a replicação, defina a largura de banda recomendada para atender ao RPO 1
 
     
 ## <a name="next-steps"></a>Próximos passos
-* [Analisar o relatório gerado](hyper-v-deployment-planner-analyze-report.md)
+* [Analise o relatório gerado](hyper-v-deployment-planner-analyze-report.md)

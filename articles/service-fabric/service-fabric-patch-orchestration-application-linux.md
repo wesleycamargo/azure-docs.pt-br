@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266130"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Linux em seu cluster do Service Fabric
 
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-patch-orchestration-application.md)
+> * [Windows](service-fabric-patch-orchestration-application.md)
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
@@ -127,7 +127,7 @@ O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/PO
 
 O comportamento do aplicativo de orquestração de patch pode ser configurado para atender às suas necessidades. Substitua os valores padrão passando o parâmetro de aplicativo durante a criação ou atualização do aplicativo. Parâmetros do aplicativo podem ser fornecidos especificando `ApplicationParameter` aos cmdlets `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication`.
 
-|**Parâmetro**        |**Type**                          | **Detalhes**|
+|**Parâmetro**        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Número máximo de resultados da Atualização, que devem ser armazenados em cache. <br>O valor padrão é 3000, supondo que o: <br> - Número de nós é 20. <br> - Número de atualizações acontecendo em um nó por mês seja de cinco. <br> – Número de resultados por operação possa ser de 10. <br> - Resultados para os últimos três meses devem ser armazenados. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instaladas em um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instaladas em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para a atualização.)
@@ -173,8 +173,7 @@ Para sua conveniência, scripts de powershell (Undeploy.ps1) e de bash (Undeploy
 
 ## <a name="view-the-update-results"></a>Exibir os resultados da Atualização
 
-O aplicativo de orquestração de patch expõe as APIs REST para exibir os resultados históricos do usuário. A seguir está um exemplo de resultado:
-```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+O aplicativo de orquestração de patch expõe as APIs REST para exibir os resultados históricos do usuário. Veja o exemplo de resultado a seguir: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -286,15 +285,15 @@ No exemplo a seguir, o cluster veio de um estado de erro temporário porque dois
 
 Caso o problema persista, consulte a seção de Solução de problemas.
 
-P. **Aplicativo de orquestração de patch está em estado de aviso**
+P. **O aplicativo de orquestração de patch está em estado de aviso**
 
 a. Verifique para ver se um relatório de integridade publicado em relação ao aplicativo é a causa raiz. Geralmente, o aviso contém detalhes do problema. Se o problema for transitório, o aplicativo deve esperar recuperar-se automaticamente desse estado.
 
-P. **O que fazer se meu cluster não está íntegro e preciso fazer uma atualização urgente do sistema operacional?**
+P. **O que fazer se o cluster não está íntegro e preciso fazer uma atualização urgente do sistema operacional?**
 
 a. O aplicativo de orquestração de patch não instala atualizações enquanto o cluster não está íntegro. Para desbloquear o fluxo de trabalho do aplicativo de orquestração de patch, coloque o cluster em um estado íntegro.
 
-P. **Por que aplicação de patch em clusters leva tanto tempo para ser executado?**
+P. **Por que a execução da aplicação de patch nos clusters leva tanto tempo?**
 
 a. O tempo que o aplicativo de orquestração de patch leva depende principalmente dos seguintes fatores:
 
@@ -304,26 +303,26 @@ a. O tempo que o aplicativo de orquestração de patch leva depende principalmen
 - O tempo médio necessário para baixar e instalar uma atualização, que não deve exceder alguma horas.
 - O desempenho da VM e largura da banda de rede.
 
-P. **Como o aplicativo de orquestração de patch faz decide quais atualizações são atualizações de segurança.**
+P. **Como o aplicativo de orquestração de patches decide quais atualizações são atualizações de segurança.**
 
 a. O aplicativo de orquestração de patches usa lógica específica de distribuição para determinar quais atualizações entre as atualizações disponíveis são as atualizações de segurança. Por exemplo:  No ubuntu, o aplicativo procura por atualizações de arquivos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
 
  
-P. **Como bloquear em uma versão específica do pacote?**
+P. **Como fixo em uma versão específica do pacote?**
 
 a. Use as configurações de ApprovedPatches para fixar seus pacotes em uma versão específica. 
 
 
-P. **O que acontece com as atualizações automáticas ativadas no Ubuntu?**
+P. **O que acontece com as atualizações automáticas habilitadas no Ubuntu?**
 
 a. Assim que você instalar o aplicativo de orquestração de patches no seu cluster, atualizações autônomas em seu nó de cluster serão desabilitadas. Todo o fluxo de trabalho de atualização periódica será determinado pelo aplicativo de orquestração de patches.
 Para que o ambiente de clusters seja consistente, é recomendável instalar as atualizações por meio apenas do aplicativo de orquestração de patches. 
  
-P. **Pós atualização patches do aplicativo de orquestração a limpeza de pacotes não utilizados?**
+P. **Após a atualização, o aplicativo de orquestração de patches realiza a limpeza de pacotes não utilizados?**
 
 a. Sim, a limpeza ocorre como parte das etapas pós-instalação. 
 
-P. **Aplicativo de orquestração de Patch pode ser usado para aplicar patch meu cluster de desenvolvimento (um nó de cluster)?**
+P. **O aplicativo de Orquestração de Patch pode ser usado para o cluster de desenvolvimento (cluster de um nó) do patch?**
 
 a. Não, o aplicativo de Orquestração de Patch não pode ser usado para cluster de um nó do patch. Essa limitação ocorre por design, uma vez que os [serviços de sistema do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todos os aplicativos cliente enfrentam tempo de inatividade e, portanto, qualquer trabalho de reparo para aplicação de patch nunca seria aprovado pelo gerenciador de reparo.
 

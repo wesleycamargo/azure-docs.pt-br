@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501250"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698148"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
@@ -76,12 +76,12 @@ Regra de sincronização de entrada significa que a fonte para o atributo é um 
 
  ![regras padrão](media/how-to-connect-fix-default-rules/default3a.png)
 
-Execute sua própria convenção de nomenclatura para nomear a regra, aqui a usamos **personalizados em do AD – usuário**, isso significa que a regra é uma regra personalizada e uma regra de entrada do espaço conector do AD para o metaverso. 
+Execute sua própria convenção de nomenclatura para nomear a regra, aqui a usamos **personalizados em do AD – usuário**, isso significa que a regra é uma regra personalizada e uma regra de entrada do espaço conector do AD para o metaverso.   
 
  ![regras padrão](media/how-to-connect-fix-default-rules/default3b.png)
 
 Fornecer sua própria descrição da regra para que a manutenção futura da regra é fácil, como o que é o objetivo desta regra e por que ela foi necessária.
-Selecionado (a floresta) do sistema conectado a origem do atributo. Em seguida, tipo de objeto do sistema conectado e o tipo de objeto do metaverso.
+Selecione um sistema conectado (floresta), a origem do atributo. Em seguida, selecione o tipo de objeto do sistema conectado e o tipo de objeto do metaverso.
 
 Especifique o valor de precedência entre 0 e 99 (diminuir o número, maior a precedência). Mantenha os outros campos como 'Tag', 'Habilitar a sincronização de senha' e 'Desabilitados' como padrão.
 

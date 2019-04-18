@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916556"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real na CDN do Microsoft Azure
@@ -32,7 +32,7 @@ Os grafos a seguir estão disponíveis:
 * [Largura de banda](#bandwidth)
 * [Códigos de status](#status-codes)
 * [Status do Cache](#cache-statuses)
-* [conexões](#connections)
+* [Conexões](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Acessando as estatísticas em tempo real
 1. No [Portal do Azure](https://portal.azure.com), navegue para seu perfil CDN.

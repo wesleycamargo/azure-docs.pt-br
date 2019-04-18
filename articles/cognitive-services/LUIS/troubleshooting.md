@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894450"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
@@ -240,7 +240,7 @@ O primeiro problema é descobrir se o problema está relacionado ao LUIS ou se o
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Transmita o mesmo enunciado do [ponto de extremidade do LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) para o LUIS. Se você receber um erro, resolva o problema no LUIS até que o erro já não seja retornado. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` -Este problema indica a necessidade de mudar de uma chave de criação para um [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou você precisa alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver o problema no Serviço de Bot do Azure
 
@@ -296,10 +296,10 @@ Os seguintes recursos foram lançados na Conferência Build 2018:
 [Rotas de API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de criação adicionais foram incluídas.
 
 Vídeos:
-* [Azure Friday At Build 2018: Serviços cognitivos – idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - o que há de novo no serviço de reconhecimento vocal](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Práticas recomendadas de sessão da Build 2018 - NLU, os recursos de fala e inteligência do Bot](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - atualizações do LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday no Build 2018: Serviços Cognitivos – Linguagem (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Mostra de IA na Build 2018 – Novidades do Serviço Inteligente de Reconhecimento Vocal](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Sessão da Build 2018 – Práticas recomendadas da inteligência do bot, dos recursos de fala e de NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 – atualizações de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projetos:
 * demonstração do [Bot Contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) – código-fonte no GitHub
@@ -307,5 +307,5 @@ Projetos:
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o LUIS, veja os seguintes recursos:
-* [Perguntas de estouro de pilha marcadas com o LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Fórum do (Luis reconhecimento) de serviços de linguagem do MSDN Noções básicas sobre inteligentes](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [Fórum de LUIS (Serviço Inteligente de Reconhecimento Vocal) na MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

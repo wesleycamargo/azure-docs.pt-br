@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918783"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
@@ -25,7 +25,7 @@ O RBAC (controle de acesso baseado em função) permite o gerenciamento de acess
 
 Na Automação do Azure, o acesso é concedido atribuindo a função apropriada de RBAC aos usuários, grupos e aplicativos no escopo da Conta de Automação. Veja a seguir as funções internas com suporte de uma Conta de Automação:
 
-| **Função** | **DESCRIÇÃO** |
+| **Função** | **Descrição** |
 |:--- |:--- |
 | Proprietário |A função Proprietário permite acesso a todos os recursos e ações em uma Conta de Automação, incluindo o fornecimento de acesso a outros usuários, grupos e aplicativos para gerenciar a conta de Automação. |
 | Colaborador |A função Colaborador permite gerenciar tudo, exceto a modificação de permissões de acesso de outros usuários para uma conta de Automação. |
@@ -55,10 +55,10 @@ O Proprietário pode gerenciar tudo, incluindo o acesso. A tabela a seguir mostr
 
 Um Colaborador pode gerenciar tudo, exceto o acesso. A tabela a seguir mostra as permissões concedidas e negadas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Criar e gerenciar recursos de todos os tipos|
-|**Não ações**||
+|**Não Ações**||
 |Microsoft.Authorization/*/Delete| Exclua funções e atribuições de função.       |
 |Microsoft.Authorization/*/Write     |  Crie funções e atribuições de função.       |
 |Microsoft.Authorization/elevateAccess/Action    | Nega a capacidade de criar um Administrador de Acesso do Usuário.       |
@@ -67,7 +67,7 @@ Um Colaborador pode gerenciar tudo, exceto o acesso. A tabela a seguir mostra as
 
 Um Leitor pode exibir todos os recursos em uma conta de Automação, mas não pode realizar nenhuma alteração.
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Exiba todos os recursos em uma Conta de automação. |
 
@@ -75,7 +75,7 @@ Um Leitor pode exibir todos os recursos em uma conta de Automação, mas não po
 
 Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes de runbook e propriedades para todos os runbooks em uma conta de Automação.  Observação: Se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função e, em vez disso, use as funções "Operador do Trabalho de Automação" e "Operador de Runbook de Automação" combinadas. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorização de leitura.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Leia os recursos do Hybrid Runbook Worker.|
@@ -102,7 +102,7 @@ Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes d
 
 Uma função Operador do Trabalho de Automação é concedida no escopo da conta de Automação. Isso permite que as permissões do operador criem e gerenciem trabalhos para todos os runbooks na conta. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorização de leitura.|
 |Microsoft.Automation/automationAccounts/jobs/read|Listar trabalhos do runbook.|
@@ -120,7 +120,7 @@ Uma função Operador do Trabalho de Automação é concedida no escopo da conta
 
 Uma função Operador de Runbook de Automação é concedida no escopo do Runbook. Um Operador de Runbook de Automação pode exibir o nome e as propriedades do runbook.  Essa função combinada com a função 'Operador de Trabalho de Automação' permite que o operador também crie e gerencie trabalhos para o runbook. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Liste os runbooks.        |
 |Microsoft.Authorization/*/read      | Autorização de leitura.        |
@@ -133,7 +133,7 @@ Uma função Operador de Runbook de Automação é concedida no escopo do Runboo
 
 Uma função Colaborador de Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler recursos de todos os tipos, exceto segredos.|
 |Microsoft.Automation/automationAccounts/*|Gerencie as contas de automação.|
@@ -153,20 +153,20 @@ Uma função Colaborador de Log Analytics pode ler todos os dados de monitoramen
 
 Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. A tabela a seguir mostra as permissões concedidas ou negadas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler recursos de todos os tipos, exceto segredos.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerencie consultas nos logs do Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquise dados de log do Azure Monitor.|
 |Microsoft.Support/*|Crie e gerencie tíquetes de suporte.|
-|**Não ações**| |
+|**Não Ações**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Não é possível ler as chaves de acesso compartilhadas.|
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
 Uma função Colaborador de Monitoramento pode ler todos os dados de monitoramento e atualizar as configurações de monitoramento. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler recursos de todos os tipos, exceto segredos.|
 |Microsoft.AlertsManagement/alerts/*|Gerencie alertas.|
@@ -192,7 +192,7 @@ Uma função Colaborador de Monitoramento pode ler todos os dados de monitoramen
 
 Um Leitor de Monitoramento pode ler todos os dados de monitoramento. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler recursos de todos os tipos, exceto segredos.|
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquise workspaces do Log Analytics.|
@@ -202,7 +202,7 @@ Um Leitor de Monitoramento pode ler todos os dados de monitoramento. A tabela a 
 
 Um Administrador de Acesso do Usuário pode gerenciar o acesso do usuário aos recursos do Azure. A tabela a seguir mostra as permissões concedidas para a função:
 
-|**Ações**  |**DESCRIÇÃO**  |
+|**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler todos os recursos|
 |Microsoft.Authorization/*|Gerenciar autorização|
@@ -251,7 +251,7 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Criar/editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
-|**Etapa 2 – integrar várias VMs**     |         |         |
+|**Etapa 2 – Integrar várias VMs**     |         |         |
 |Folha de VMOnboarding – Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
 |Criar/editar configuração de escopo  | Microsoft.OperationalInsights/workspaces/write   | Workspace|

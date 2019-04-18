@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276228"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Suporte a protocolos adicionais para Hub IoT
@@ -37,12 +37,12 @@ Para saber mais sobre o gateway de protocolo IoT do Azure e como usar e implant�
 
 * [Repositório de gateway de protocolo IoT do Azure no GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 
-* [Guia de desenvolvedor do gateway do Azure IoT protocolo](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Guia de desenvolvedor do gateway do protocolo IoT do Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Para saber mais sobre como planejar sua implantação do Hub IoT, consulte:
 
-* [Comparar com Hubs de Eventos](iot-hub-compare-event-hubs.md)
+* [Comparar com Hubs de eventos](iot-hub-compare-event-hubs.md)
 
 * [Dimensionamento, alta disponibilidade e recuperação de desastres](iot-hub-scaling.md)
 
-* [Guia do desenvolvedor do IoT Hub](iot-hub-devguide.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)

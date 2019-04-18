@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045477"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governança de identidade do Azure AD?
@@ -68,15 +68,15 @@ O Azure AD PIM (Privileged Identity Management) fornece controles adicionais ada
 
 Embora não haja nenhuma solução nem recomendação perfeita para todos os clientes, as configurações a seguir fornecem uma orientação quanto a quais políticas de linha de base a Microsoft recomenda para garantir uma força de trabalho mais segura e produtiva.
 
-- [Configurações de acesso ao dispositivo e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Protegendo o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Análises de acesso
 
-- [O que é uma revisão de acesso?](access-reviews-overview.md)
-- [Gerenciar o acesso de usuário com revisões de acesso](manage-user-access-with-access-reviews.md)
-- [Gerenciar o acesso de convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
+- [O que é revisão de acesso?](access-reviews-overview.md)
+- [Gerenciar o acesso do usuário com revisões de acesso](manage-user-access-with-access-reviews.md)
+- [Gerenciar o acesso do convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
 - [Iniciar uma revisão de acesso de funções do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Termos de uso

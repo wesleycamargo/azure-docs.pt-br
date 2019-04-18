@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258735"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory?
@@ -77,8 +77,8 @@ Você pode configurar políticas de acesso condicional com base no dispositivo. 
 É necessário registrar o dispositivo no Azure AD, antes de poder marcá-lo como compatível. Para registrar um dispositivo, há três opções: 
 
 - [Dispositivos registrados no Azure AD](../devices/overview.md#azure-ad-registered-devices)
-- [Dispositivos adicionados ao Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivos adicionados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivos ingressados no Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Dispositivos ingressados no Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Para obter mais informações, consulte [como exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](require-managed-devices.md).
 
@@ -124,7 +124,7 @@ Esses controles permitem o uso de determinados serviços externos ou personaliza
 Provedores que atualmente oferecem um serviço compatível incluem:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
@@ -174,9 +174,9 @@ Você pode usar esse controle para exigir que o Azure AD passe informações sob
 
 Para obter mais informações, consulte:
 
-- [Habilitando o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Ativando acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
-- [Habilitando o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
+- [Ativando acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Próximos passos
 

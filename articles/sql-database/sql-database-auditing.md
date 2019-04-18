@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361268"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680346"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -88,6 +88,9 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
     ![Painel de navegação][3]
 
 5. **Novo** – agora você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs para uma conta de armazenamento do Azure, um espaço de trabalho do Log Analytics para consumo pelos logs do Azure Monitor ou hub de eventos para consumo usando o hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
+
+   > [!WARNING]
+   > Habilitação da auditoria ao Log Analytics incorrerá em custos com base nas taxas de ingestão. Esteja ciente do custo associado com o uso isso [opção](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou considere armazenar a auditoria registra em log em uma conta de armazenamento do Azure.
 
     ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -231,7 +234,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 - [Criar ou atualizar o banco de dados (conjunto AzSqlDatabaseAuditing) da política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Criar ou atualizar a política de auditoria de servidor (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Obter política de auditoria de banco de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Obter a política de auditoria do banco de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
 - [Obter (Get-AzSqlServerAuditing) de diretiva de auditoria de servidor](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Para obter um exemplo de script, confira [Configurar a auditoria e a detecção de ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
@@ -240,10 +243,10 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
 
 **API REST**:
 
-- [Criar ou atualizar a política de auditoria de banco de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Criar ou atualizar a política de auditoria do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obter política de auditoria de banco de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Obter política de auditoria de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Create or Update Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate) (Criar ou atualizar a política de auditoria de tabela do banco de dados)
+- [Create or Update Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate) (Criar ou atualizar a política de auditoria de tabela do servidor)
+- [Get Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get) (Obter a política de auditoria do banco de dados)
+- [Get Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get) (Obter a política de auditoria do servidor)
 
 Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 
@@ -256,9 +259,9 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 
 Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelos do[ Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), de acordo com estes exemplos:
 
-- [Implantar um servidor do SQL Azure com a auditoria habilitada para gravar logs de auditoria para a conta de armazenamento de BLOBs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implantar um servidor do SQL Azure com a auditoria habilitada para gravar logs de auditoria no Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Implantar um servidor do SQL Azure com a auditoria habilitada para gravar logs de auditoria para Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Implantar um SQL Server do Azure comauditoria habilitada para gravar logs de auditoria no Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implantar um SQL Server do Azure com auditoria habilitada para gravar logs de auditoria no Hubs de Eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
 > Os exemplos vinculados estão em um repositório público externo e são fornecidos "como está", sem garantia e não têm suporte em qualquer programa/serviço suporte da Microsoft.

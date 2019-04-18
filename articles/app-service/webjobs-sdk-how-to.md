@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895200"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
@@ -369,10 +369,10 @@ Essas configurações de associação específicas são equivalentes às configu
 Você pode configurar as seguintes associações:
 
 * [Gatilho do Azure cosmos DB](#azure-cosmosdb-trigger-configuration-version-3x)
-* [Gatilho dos Hubs de Eventos](#event-hubs-trigger-configuration-version-3x)
+* [Gatilho de Hubs de eventos](#event-hubs-trigger-configuration-version-3x)
 * Gatilho de armazenamento de filas
 * [Associação SendGrid](#sendgrid-binding-configuration-version-3x)
-* [Gatilho do Barramento de Serviço](#service-bus-trigger-configuration-version-3x)
+* [Gatilho do barramento de serviço](#service-bus-trigger-configuration-version-3x)
 
 ### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuração de gatilho do Azure cosmos DB (versão 3. *x*)
 
@@ -849,7 +849,7 @@ Você pode filtrar independentemente cada categoria para um determinado [ `LogLe
 
 Versão 3. *x* do SDK depende a filtragem criados no .NET Core. A classe `LogCategories` permite que você defina categorias para funções, gatilhos e usuários específicos. Ele também define os filtros para estados de host específico, como `Startup` e `Results`. Isso permite que você ajustar a saída de log. Se nenhuma correspondência for encontrada nas categorias definidas, o filtro reverterá para o valor `Default` ao decidir se deseja filtrar a mensagem.
 
-`LogCategories` exige a seguinte instrução using:
+`LogCategories` requer a seguinte declaração de uso:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 
@@ -1010,9 +1010,9 @@ config.LoggerFactory = new LoggerFactory()
 
 Este artigo forneceu trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de WebJobs. Para obter exemplos completos, consulte [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
 
-['ExecutionContext']: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-['ITelemetryInitializer']: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
 [`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500288"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e a declaração de privacidade para um aplicativo
@@ -56,10 +56,10 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 
 Quando os termos de serviço e a declaração de privacidade estiverem prontos, você poderá adicionar links para esses documentos no seu aplicativo usando um destes métodos:
 
-* [No portal do Azure](#registered-in-azure-portal)
-* [No Portal de registro de aplicativo, ou centro de desenvolvimento](#registered-in-app-reg-portal)
-* [Usando o objeto JSON do aplicativo](#app-object-json)
-* [Usando o API REST versão beta do MSGraph](#msgraph-beta-rest-api)
+* [ através do portal do Azure ](#registered-in-azure-portal)
+* [ No Portal de Registro de Aplicativos ou no Centro de Desenvolvimento ](#registered-in-app-reg-portal)
+* [ Usando o objeto de aplicativo JSON ](#app-object-json)
+* [ Usando a API REST do MSGraph beta ](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se você registrou seu aplicativo no portal do Azure
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Tenha cuidado para não substituir todos os valores existentes previamente atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl`, e `logoUrl`
+> * Tenha cuidado para não sobrescrever quaisquer valores preexistentes atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl` e `logoUrl`
 > * A API REST beta do MSGraph só funcionará quando você fizer login com uma conta do AD do Azure. Contas pessoais da Microsoft não são suportadas.

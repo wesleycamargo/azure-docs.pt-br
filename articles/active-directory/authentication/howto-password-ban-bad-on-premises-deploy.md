@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904620"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
@@ -223,7 +223,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
 1. Opcional: Configure o serviço de proxy para a proteção de senha escutar em uma porta específica.
    * O software do agente de controlador de domínio para a proteção de senha nos controladores de domínio usa o RPC sobre TCP para se comunicar com o serviço de proxy. Por padrão, o serviço de proxy escuta em qualquer ponto de extremidade dinâmico de RPC disponível. Mas você pode configurar o serviço para escutar em uma porta TCP específica, se isso for necessário devido a requisitos de firewall em seu ambiente ou a topologia de rede.
-      * <a id="static" /></a>Para configurar o serviço para ser executado em uma porta estática, use o cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
+      * <a id="static" /></a>Para configurar o serviço para ser executado em uma porta estática, use o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -289,4 +289,4 @@ O design do software agente DC minimiza os problemas comuns que estão associado
 
 Agora que você instalou os serviços que você precisa para a proteção de senha do AD do Azure em seus servidores locais, [executar configuração pós-instalação e reunir informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 
-[Visão geral conceitual de proteção por senha do Azure AD](concept-password-ban-bad-on-premises.md)
+[ Visão geral conceitual da proteção por senha do Azure AD ](concept-password-ban-bad-on-premises.md)

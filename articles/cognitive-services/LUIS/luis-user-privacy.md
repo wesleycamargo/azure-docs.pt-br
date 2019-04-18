@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895149"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
@@ -37,7 +37,7 @@ O conteúdo do cliente foi armazenado criptografado no armazenamento do Azure re
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 Os usuários do LUIS tem controle total para excluir qualquer conteúdo, por meio do portal da web LUIS ou as APIs do LUIS (também conhecido como programáticas) de criação de usuário. A tabela a seguir exibe links para ajudar a ajudar com ambos:
 
-| | **Conta de usuário** | **Aplicativo** | **Exemplo Utterance(s)** | **Consultas de usuário final** |
+| | **Conta do Usuário** | **Aplicativo** | **Exemplo Utterance(s)** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Declarações de aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Declarações conectadas](luis-concept-data-storage.md#disable-logging-utterances) |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +46,7 @@ Os usuários do LUIS tem controle total para excluir qualquer conteúdo, por mei
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 Os usuários do LUIS tem controle total para exibir os dados no portal, no entanto, ele deve ser exportado por meio de APIs (também conhecido como programático) a criação de LUIS. A tabela a seguir exibe links para ajudar com as exportações de dados por meio das APIs (também conhecido como programática) LUIS de criação:
 
-| | **Conta de usuário** | **Aplicativo** | **Utterance(s)** | **Consultas de usuário final** |
+| | **Conta do Usuário** | **Aplicativo** | **Enunciado(s)** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -87,7 +87,7 @@ O [luis.ai](https://www.luis.ai) portal e dos Estados Unidos (também conhecido 
 Ao implantar essas regiões geográficas do Azure, as declarações recebidas pelo ponto de extremidade dos usuários finais do seu aplicativo serão armazenadas na geografia de Estados Unidos do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar armazenadas declarações, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência de regiões do LUIS](./luis-reference-regions.md)

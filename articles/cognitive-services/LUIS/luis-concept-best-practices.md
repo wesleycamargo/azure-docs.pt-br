@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895808"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
@@ -36,14 +36,14 @@ A lista a seguir inclui melhores práticas para aplicativos LUIS:
 
 |Certo|Errado|
 |--|--|
-|[Definir as intenções distintas](#do-define-distinct-intents) |[Adicionar várias declarações de exemplo para propósitos de](#dont-add-many-example-utterances-to-intents) |
-|[Localizar um ponto ideal entre muito genérico e muito específico para cada tentativa](#do-find-sweet-spot-for-intents)|[Use LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
-|[Crie seu aplicativo de forma iterativa](#do-build-the-app-iteratively)|[Adicionar várias declarações de exemplo do mesmo formato, ignorando os outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Adicionar listas de frase e padrões em iterações posteriores](#do-add-phrase-lists-and-patterns-in-later-iterations)|[A definição de intenções e entidades de combinação](#dont-mix-the-definition-of-intents-and-entities)|
-|[Equilibrar suas declarações em todas as intenções](#balance-your-utterances-across-all-intents) exceto a intenção Nenhum.<br>[Adicionar exemplos de enunciado à intenção None](#do-add-example-utterances-to-none-intent)|[Criar listas de frase com todos os valores possíveis](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Aproveitar o recurso de sugerir para aprendizado ativo](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar um número excessivo de padrões](#dont-add-many-patterns)|
-|[Monitorar o desempenho do seu aplicativo](#do-monitor-the-performance-of-your-app)|[Treinar e publicar com cada expressão de exemplo único adicionado](#dont-train-and-publish-with-every-single-example-utterance)|
-|[Versões de uso para cada iteração do aplicativo](#do-use-versions-for-each-app-iteration)||
+|[Definir intenções distintas](#do-define-distinct-intents) |[Adicionar muitos exemplos de declaração a intenções](#dont-add-many-example-utterances-to-intents) |
+|[Localizar um ponto ideal entre muito genérico e muito específico para cada intenção](#do-find-sweet-spot-for-intents)|[Usar o LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
+|[Criar seu aplicativo iterativamente](#do-build-the-app-iteratively)|[Adicionar muitas declarações de exemplo do mesmo formato, ignorando os outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Adicionar listas de frase e padrões em iterações posteriores](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Misturar a definição de intenções e entidades](#dont-mix-the-definition-of-intents-and-entities)|
+|[Equilibrar suas declarações em todas as intenções](#balance-your-utterances-across-all-intents) exceto a intenção Nenhum.<br>[Adicione declarações de exemplo à intenção None](#do-add-example-utterances-to-none-intent)|[Criar listas de frase com todos os valores possíveis](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Aproveitar o recurso de sugestão para aprendizado ativo](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar muitos padrões](#dont-add-many-patterns)|
+|[Monitorar o desempenho do seu aplicativo](#do-monitor-the-performance-of-your-app)|[Treinar e publicar com cada declaração de exemplo única adicionada](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Usar versões para cada iteração do aplicativo](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>Defina intenções distintas
 Verifique se o vocabulário para cada intenção é apenas para essa intenção e não está se sobrepondo a uma intenção diferente. Por exemplo, se desejar ter um aplicativo que manipula organizações de viagem como voos por companhia aérea e hotéis, será possível optar por tê-las como áreas de assunto, intenções separadas ou a mesma intenção com entidades para dados específicos dentro da declaração.
@@ -178,6 +178,6 @@ Para mais informações:
 * Instruções: [Usar versões para editar e testar sem afetar aplicativos de preparo ou produção](luis-how-to-manage-versions.md)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [planejar seu aplicativo](luis-how-plan-your-app.md) no aplicativo LUIS.

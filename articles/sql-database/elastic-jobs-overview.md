@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264413"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
@@ -98,5 +98,5 @@ Da mesma forma, um script deve ser capaz de realizar a execução com êxito tes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar e gerenciar trabalhos Elásticos usando o PowerShell](elastic-jobs-powershell.md)
-- [Criar e gerenciar trabalhos Elásticos usando o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerenciar Trabalhos Elásticos usando T-SQL (Transact-SQL)](elastic-jobs-tsql.md)

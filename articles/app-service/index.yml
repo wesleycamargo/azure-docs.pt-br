@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: Crie um aplicativo usando <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET com o Banco de Dados SQL do Azure</a> ou <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js com MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapear um domínio personalizado existente para seu aplicativo </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente para seu aplicativo </a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Associar um certificado SSL existente ao seu aplicativo</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Adicionar um CDN ao seu aplicativo</a>
   - title: Desenvolva suas habilidades com o Microsoft Learn
@@ -146,7 +146,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+          - html: <a href="/powershell/azureps-cmdlets-docs">PowerShell do Azure</a>
           - html: <a href="/cli/azure/appservice">CLI do Azure</a>
   - title: Referência
     items:
@@ -155,8 +155,8 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">PowerShell do Azure</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
           - title: Languages
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST
-            html: <p><a href="/rest/api/appservice">referência da API REST</a></p>
+            html: <p><a href="/rest/api/appservice">referência da API REST (a página pode estar em inglês)</a></p>

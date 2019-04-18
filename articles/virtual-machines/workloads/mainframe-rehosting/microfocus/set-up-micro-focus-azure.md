@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896238"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instalar o Micro Focus Enterprise Server 4.0 e do Enterprise Developer 4.0 no Azure
@@ -38,7 +38,7 @@ Antes de começar, confira estes pré-requisitos:
 > [!NOTE]
 > Uma prática recomendada é configurar um túnel de rede privada virtual (VPN) site a site ou um jumpbox, portanto, você pode controlar o acesso às VMs do Azure.
 
-## <a name="install-enterprise-server"></a>Instale o Enterprise Server
+## <a name="install-enterprise-server"></a>Instalar o Enterprise Server
 
 1. Para melhor capacidade de gerenciamento e segurança, considere a criação de um novo grupo de recursos apenas para este projeto — por exemplo, **RGMicroFocusEntServer**. Use a primeira parte do nome no Azure para designar o tipo de recurso para torná-lo mais fácil de identificar em uma lista.
 

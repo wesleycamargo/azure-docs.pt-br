@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271621"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
@@ -197,7 +197,7 @@ Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada aci
 * Crie entidades de índice na mesma partição que as entidades do funcionário.  
 * Crie entidades de índice em uma partição ou tabela separada.  
 
-<u>Opção 1 #: Usar o Armazenamento de Blobs</u>  
+<u>Opção nº 1: Usar o Armazenamento de Blobs</u>  
 
 Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blobs uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.  
 
@@ -362,7 +362,7 @@ Use esse padrão quando precisar acessar entidades na ordem inversa de data/hora
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Prefixar / acrescentar antipadrão](#prepend-append-anti-pattern)  
+* [Antipadrão prefixar/acrescentar](#prepend-append-anti-pattern)  
 * [Recuperando entidades](#retrieving-entities)  
 
 ## <a name="high-volume-delete-pattern"></a>Padrão de exclusão de alto volume
@@ -426,7 +426,7 @@ Use esse padrão quando precisar atualizar e recuperar uma série de dados assoc
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
-* [Padrão de entidades grandes](#large-entities-pattern)  
+* [Padrão de grandes entidades](#large-entities-pattern)  
 * [Mesclar ou substituir](#merge-or-replace)  
 * [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) (se você estiver armazenando a série de dados em um blob)  
 
@@ -513,7 +513,7 @@ Evite o antipadrão prefixar/acrescentar quando o volume de transações tenha a
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
-* [Padrão de rastro do log](#log-tail-pattern)  
+* [Padrão de final do log](#log-tail-pattern)  
 * [Modificando entidades](#modifying-entities)  
 
 ## <a name="log-data-anti-pattern"></a>Antipadrão de dados de log
@@ -1106,7 +1106,7 @@ Neste exemplo assíncrono, você pode ver as seguintes alterações da versão s
 
 O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada invocação de método será executado em um thread separado.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Relações de modelagem](table-storage-design-modeling.md)
 - [Design para consulta](table-storage-design-for-query.md)

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065793"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679118"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -435,26 +435,6 @@ Para localizar os logs de eventos do gateway, siga estas etapas:
 
    ![Exibir logs de eventos do gateway](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>Telemetria
-
-Para monitoramento adicional e solução de problemas, é possível ativar e coletar telemetria. 
-
-1. Navegue até o local do cliente do gateway de dados local, que geralmente é possível encontrar aqui: ```C:\Program Files\On-premises data gateway```
-
-   Caso contrário, para encontrar o local do cliente, abra o console de Serviços no mesmo computador, localize **Serviço de gateway de dados local** e exiba a propriedade **Caminho do executável**.
-
-2. Abra este arquivo de *configuração*: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Altere o valor **SendTelemetry** para **true**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Salve as alterações e, em seguida, reinicie o serviço Windows.
-
 ### <a name="review-slow-query-performance"></a>Examinar desempenho de consulta lenta
 
 Se você achar que as consultas são executadas lentamente por meio do gateway, é possível ativar o registro em log adicional que emite consultas e suas durações. Esses logs podem ajudá-lo a descobrir quais consultas são lentas ou de longa execução. Para ajustar o desempenho de consultas, talvez seja necessário modificar a fonte de dados, por exemplo, ajustar índices para consultas do SQL Server.
@@ -526,9 +506,9 @@ Para determinar a duração de uma consulta, siga estas etapas:
 
 ### <a name="trace-traffic-with-fiddler"></a>Rastrear tráfego com o Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) é uma ferramenta gratuita da Telerik que monitora o tráfego HTTP. Você pode examinar esse tráfego com o serviço do Power BI da máquina cliente. Esse serviço pode mostrar erros e outras informações relacionadas.
+[Fiddler](https://www.telerik.com/fiddler) é uma ferramenta gratuita da Telerik que monitora o tráfego HTTP. Você pode examinar esse tráfego com o serviço do Power BI da máquina cliente. Esse serviço pode mostrar erros e outras informações relacionadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
     
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: magoedte
 ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505627"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar logs de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor
@@ -50,12 +50,12 @@ Quando você está no tipo de preço Gratuito, os logs de atividade não se apli
 
 Ao contrário da maioria das outras soluções do Azure Monitor, os dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Com suporte | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
 | [Agentes do Windows](agent-windows.md) | Não  | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do System Center Operations Manager](om-agents.md) | Não  | A solução não coleta informações de agentes subordinados a um grupo de gerenciamento do Operations Manager. |
-| [Conta de Armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
+| [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

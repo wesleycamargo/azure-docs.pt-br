@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895030"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe rehosting em máquinas virtuais do Azure
@@ -53,7 +53,7 @@ TmaxSoft OpenFrame é uma solução de rehosting de mainframe popular usada em c
 Introdução:
 
 - [Introdução ao TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Baixe o ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Baixe o livro eletrônico](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
 
 ## <a name="ibm-zdt-120"></a>IBM zD & T 12.0
 
@@ -110,7 +110,7 @@ O Azure governamental ganhos uma autoridade provisória de funcionamento (P-ATO)
 
 Para começar, baixe [nuvem do Microsoft Azure governamental para aplicativos de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Peça ao nosso [parceiros](partner-workloads.md) para ajudá-lo a migrar ou hospedar novamente seus aplicativos de mainframe. Para obter orientações detalhadas sobre como escolher uma solução de parceiro, consulte o [plataforma modernização Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) site.
 
@@ -118,8 +118,8 @@ Consulte também:
 
 - [White papers sobre tópicos de mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [solução de problemas](/azure/virtual-machines/troubleshooting/)
-- [Desmistificando o mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Solução de problemas](/azure/virtual-machines/troubleshooting/)
+- [Desmistificando mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

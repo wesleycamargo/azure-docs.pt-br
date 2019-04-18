@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004596"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697882"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (versão prévia)?
 
-O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade de suas VMs do Linux e Windows e monitora seus processos e dependências de outros recursos e processos externos. 
+O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. 
 
 Como solução, o Azure Monitor para VMs inclui suporte para monitorar o desempenho e as dependências de aplicativos das VMs hospedadas localmente ou em outro provedor de nuvem. Três principais recursos fornecem insights detalhados:
 
@@ -39,7 +39,7 @@ Os recursos são organizados em três perspectivas:
 * Mapear
 
 >[!NOTE]
->Atualmente, o recurso Integridade é oferecido apenas para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais. Desempenho e recursos de mapa de suportam a VMs do Azure e máquinas virtuais que são hospedadas em seu ambiente ou outro provedor de nuvem.
+>Atualmente, o recurso de integridade é oferecido somente para máquinas virtuais do Azure. Desempenho e recursos de mapa de suportam a VMs do Azure, conjuntos de dimensionamento de VM do Azure e máquinas virtuais que são hospedadas em seu ambiente ou outro provedor de nuvem.
 
 A integração com os logs do Azure Monitor oferece uma agregação e uma filtragem eficientes, e pode analisar as tendências de dados ao longo do tempo. Esse monitoramento abrangente da carga de trabalho não pode ser obtido sozinho com o Azure Monitor ou o Mapa do Serviço.  
 

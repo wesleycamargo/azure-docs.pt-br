@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489974"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678472"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -63,8 +63,7 @@ Quando as redes virtuais estiverem emparelhadas, você também poderá configura
 
 ![trânsito de emparelhamento de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-Há suporte para o trânsito de gateway para o emparelhamento de rede virtual e o emparelhamento VNet Global (visualização). Você pode usar gateways remotos ou permitir trânsito de gateway em redes virtuais emparelhadas globalmente na versão prévia. A visualização está disponível em todas as regiões do Azure, regiões de nuvem da China e regiões de nuvem do governo. Nenhuma lista de permissões é necessária. Você pode testar no modo de visualização por meio da CLI, PowerShell, modelos ou API. Não há suporte para o portal na visualização.
-Gateway de trânsito entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) tem suporte apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Há suporte para o trânsito de gateway para o emparelhamento de rede virtual e o emparelhamento VNet Global. Gateway de trânsito entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) tem suporte apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRoute forem emparelhadas, o tráfego entre elas passará pela relação de emparelhamento (isto é, pela rede de backbone do Azure). Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Como alternativa, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 
@@ -99,9 +98,9 @@ Tráfego de gateway é uma propriedade de emparelhamento que permite que uma red
 
     |Modelo de implantação do Azure             | Assinatura  |
     |---------                          |---------|
-    |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
+    |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
-    |Um Resource Manager, um clássico  |[Idêntico](create-peering-different-deployment-models.md)|
+    |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 * Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).

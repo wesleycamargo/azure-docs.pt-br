@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338999"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678880"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de Métrica com Limites Dinâmicos no Azure Monitor (Versão Prévia Pública)
 
@@ -41,6 +41,9 @@ Os Limites Dinâmicos aprendem continuamente os dados da série de métrica e te
 
 Os limites são selecionados de modo que um desvio deles indique uma anomalia no comportamento da métrica.
 
+> [!NOTE]
+> Detecção de padrões sazonais é definida como o intervalo de hora, dia ou semana. Isso significa que outros padrões como o padrão de bihourly ou semiweekly pode não ser detectada.
+
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que a configuração de 'Sensibilidade' em Limites Dinâmicos significa?
 
 A sensibilidade do limite de alerta é um conceito de alto nível que controla a quantidade de desvio do comportamento da métrica necessária para disparar um alerta.
@@ -48,7 +51,7 @@ Essa opção não exige o conhecimento de domínio sobre a métrica, como limite
 
 - Alto – os limites serão rígidos e próximos do padrão da série da métrica. A regra de alerta será disparada ao menor desvio, resultando em mais alertas.
 - Médio – limites menos rígidos e mais equilibrados, menos alertas que com alta sensibilidade (padrão).
-- Baixo – os limites serão flexíveis, mais afastados do padrão da série de métrica. A regra de alerta só será disparada quando houver um desvio grande, resultando em menos alertas.
+- Baixo – os limites serão flexíveis, mais afastados do padrão da série de métrica. Regra de alerta só irá disparar no desvio grande, resultando em menos alertas.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quais são as opções de configuração de 'Operator' em Limites Dinâmicos?
 
@@ -61,7 +64,7 @@ Você pode escolher o alerta a ser disparado em uma das três condições a segu
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as configurações avançadas em Limites Dinâmicos significam?
 
-**Períodos de Falha** – Limites Dinâmicos também permitem que você configure o "Número de violações para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo:
+**Períodos de Falha** – Limites Dinâmicos também permitem que você configure o "Número de violações para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo: 
 
 Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 
@@ -73,13 +76,23 @@ Para disparar um alerta quando houver uma violação de um Limite Dinâmico em 2
 
 **Ignorar dados antes de** – os usuários também podem definir uma data de início a partida da qual o sistema deve começar a calcular os limites. Um caso de uso típico pode ocorrer quando um recurso estava em execução em um modo de teste e agora será promovido para atender a uma carga de trabalho de produção, portanto, o comportamento de qualquer métrica durante a fase de teste deve ser desconsiderado.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como descobrir por que um alerta de limites dinâmicos foi disparado?
+
+Você pode explorar as instâncias de alertas disparadas no modo de exibição de alertas clicando no link no email ou mensagem de texto ou navegador para ver os alertas a exibir no portal do Azure. [Saiba mais sobre a exibição de alertas](alerts-overview.md#alerts-experience).
+
+Exibe o modo de exibição de alerta:
+
+- Todos os detalhes da métrica no momento em que o alerta de limites dinâmicos disparado.
+- Um gráfico do período em que o alerta foi gatilho que inclua os limites dinâmico usado no momento.
+- Capacidade de fornecer comentários sobre o alerta de limites dinâmicos e os alertas de experiência de exibição, que pode aprimorar as detecções futuras.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Alteração de comportamento lenta na métrica disparará um alerta?
 
 Provavelmente, não. Limites Dinâmicos são bons para detectar desvios significativos, não problemas que se desenvolvem lentamente.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Qual é a quantidade de dados usada para visualizar e então calcular os limites?
 
-Os limites que aparecem no gráfico, antes de uma regra de alerta é criada na métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Pressionar 'Padrão semanal de exibição' vai adquirir dados históricos suficientes para calcular padrões sazonais semanais (28 dias). Depois de criar uma regra de alerta, os limites dinâmicos usará necessários todos os dados históricos que está disponível e irá aprender continuamente e adeptos com base nos novos dados para tornar os limites mais precisa.
+Os limites que aparecem no gráfico, antes de uma regra de alerta é criada na métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Depois de criar uma regra de alerta, os limites dinâmicos usará necessários todos os dados históricos que está disponível e irá aprender continuamente e adeptos com base nos novos dados para tornar os limites mais precisa. Isso significa que, após este gráfico de cálculo também exibirão padrões semanais.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para disparar um alerta?
 

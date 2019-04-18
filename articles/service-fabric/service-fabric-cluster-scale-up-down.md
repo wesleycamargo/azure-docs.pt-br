@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
 ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049174"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente
@@ -195,7 +195,7 @@ else
 }
 ```
 
-No **sfctl** de código abaixo, o comando a seguir é usado para obter o **nome do nó** valor o último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+No código **sfctl** abaixo, o comando a seguir é usado para obter o valor **node-name** do último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -261,9 +261,9 @@ Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-clust
 ## <a name="next-steps"></a>Próximas etapas
 Leia os seguintes artigos para saber também sobre como planejar a capacidade do cluster, atualizar um cluster e particionar os serviços:
 
-* [Planejar a capacidade de cluster](service-fabric-cluster-capacity.md)
+* [Planejar a capacidade do cluster](service-fabric-cluster-capacity.md)
 * [Atualizações do cluster](service-fabric-cluster-upgrade.md)
-* [Particionar serviços com monitoração de estado para escala máxima](service-fabric-concepts-partitioning.md)
+* [Serviços com estado de partição para escala máxima](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

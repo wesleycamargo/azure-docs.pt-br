@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: anzaman
 ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892822"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizar um modelo de Pessoa com o site do Video Indexer
@@ -201,4 +201,4 @@ Para excluir um rosto detectado no vídeo, vá para o painel de informações e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Personalizar o modelo de pessoa usando APIs](customize-person-model-with-api.md)
+[Personalizar o modelo de Pessoa usando APIs](customize-person-model-with-api.md)

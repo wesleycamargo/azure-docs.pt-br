@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803232"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681719"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -45,7 +45,7 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 Você pode adicionar, editar ou remover uma política por meio do portal do Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [APIs REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerenciar a política usando o portal e métodos do PowerShell.  
 
 > [!NOTE]
-> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. O bypass necessário são: `Logging,  Metrics,  AzureServices`. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -117,7 +117,7 @@ Cada regra na política tem vários parâmetros:
 |----------------|----------------|-------|----------|
 | Nome           | Cadeia de caracteres |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
 | Habilitado | BOOLEAN | Um booliano opcional para permitir que uma regra para ser temporário desabilitado. Valor padrão é true se não for definido. | Falso | 
-| Tipo           | Um valor de enumeração | O tipo atual de válido é `Lifecycle`. | True |
+| tipo           | Um valor de enumeração | O tipo atual de válido é `Lifecycle`. | True |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
 
 ## <a name="rules"></a>Regras
@@ -182,7 +182,7 @@ Gerenciamento de ciclo de vida dá suporte a disposição em camadas e exclusão
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Dá suporte aos blobs atualmente presentes na camada frequente         | Sem suporte |
 | tierToArchive | Dá suporte aos blobs atualmente presentes na camada frequente ou esporádica | Sem suporte |
-| excluir        | Com suporte                                   | Com suporte     |
+| excluir        | Suportado                                   | Suportado     |
 
 >[!NOTE] 
 >Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.

@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275429"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerenciar, implantar e monitorar modelos com os Serviços do Azure Machine Learning
@@ -33,7 +33,7 @@ O fluxo de trabalho de implantação inclui as seguintes etapas:
 
 Cada etapa pode ser executada independentemente ou como parte de um comando de implantação única. Além disso, você pode integrar a implantação em um **Fluxo de trabalho de CI/CD** conforme ilustrado neste gráfico.
 
-[!['Ciclo de CI/CD (implantação) / integração contínua do Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![' Ciclo/integração contínua (CI/CD) de implantação do azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Etapa 1: Registrar modelo
 
@@ -75,7 +75,7 @@ Você pode implantar imagens registradas na nuvem ou em dispositivos de borda. O
 
 Implantações de serviço Web também podem ser pesquisadas. Por exemplo, você pode pesquisar todas as implantações de uma imagem ou de um modelo específico.
 
-[![Idestinos de nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Destinos de inferência](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Você pode implantar suas imagens nos seguintes destinos de implantação na nuvem:
 

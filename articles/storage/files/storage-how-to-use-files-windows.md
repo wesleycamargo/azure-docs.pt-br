@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048836"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
@@ -225,7 +225,7 @@ Você pode selecionar **Abrir** para abrir um instantâneo específico.
 
 #### <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
 Selecione **Restaurar** para copiar o conteúdo do diretório inteiro recursivamente no momento da criação do instantâneo de compartilhamento para o local original.
- ![Botão Restaurar na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Botão Restaurar em mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Protegendo o Windows/Windows Server
 Para montar um compartilhamento de arquivos do Azure no Windows, a porta 445 deve estar acessível. Muitas organizações bloqueiam a porta 445 devido aos riscos de segurança inerentes ao protocolo SMB 1. SMB 1, também conhecido como CIFS (Common Internet File System), é um protocolo de sistema de arquivos herdados incluído no Windows e no Windows Server. O SMB 1 é um protocolo desatualizado, ineficiente e, o mais importante, não seguro. A boa notícia é que os arquivos do Azure não dão suporte a SMB 1 e todas as versões com suporte do Windows e do Windows Server possibilitam a remoção ou desabilitação do SMB 1. [Recomendamos sempre](https://aka.ms/stopusingsmb1) remover ou desabilitar o cliente e o servidor SMB 1 no Windows antes de usar os compartilhamentos de arquivos do Azure na produção.
@@ -299,9 +299,9 @@ Depois de criar essa chave do registro, você deverá reiniciar o servidor para 
 
 ### <a name="smb-resources"></a>Recursos de SMB
 - [Parar de usar protocolos SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 produto Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Descobrir protocolos SMB 1 em seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Desabilitando o SMB 1 por meio da diretiva de grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Produto SMB 1 Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Descobrir SMB 1 em seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Desabilitando o SMB 1 com Política de Grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:

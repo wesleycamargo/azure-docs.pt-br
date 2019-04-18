@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275888"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
@@ -132,4 +132,4 @@ Atualmente não damos suporte a chaves EC no formato PEM.
 
 ## <a name="see-also"></a>Veja também
 
-- [Sobre Chaves, Segredos e Certificados](about-keys-secrets-and-certificates.md)
+- [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358054"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
@@ -67,22 +67,22 @@ Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa,
 |Componente/Área  |Marcas  |
 |---------|---------|
 |Reconhecimento de fala |[[microsoft-cognitivas + fala em texto]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Síntese de fala |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Tradução de Fala |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intenção de fala |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|SDK de fala geral |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Síntese de fala |[[microsoft-cognitivas + texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Tradução de Fala |[[microsoft-cognitivas + conversão]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Intenção de fala |[[microsoft-cognitivas + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|SDK de fala geral |[[microsoft-cognitivas + microsoft-fala-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  
-> * [Como posso fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
-> * [Como criar um mínimo, completo e verificável exemplo](https://stackoverflow.com/help/mcve)
+> * [Como fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
+> * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
 Normalmente, os exemplos são lançados como código-fonte aberto. Para perguntas e problemas, crie uma *problema* no respectivo repositório do GitHub. Você pode enviar uma solicitação de pull, também. A lista a seguir contém links para os repositórios de exemplo:
 
-* [SDK de fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de Dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK da fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Você pode criar um relatório de bug, solicitação de recurso, ou fazer uma pergunta geral e compartilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
 
@@ -100,11 +100,11 @@ Etapas para reproduzir o comportamento:
 
 Descrição clara e concisa do que você esperava que acontecesse.
 
-**Versão do SDK de reconhecimento do fala dos serviços Cognitivos**
+**Versão da SDK de Reconhecimento de Fala dos serviços Cognitivos**
 
 Qual versão do SDK você está usando.
 
-**Linguagem de programação, sistema operacional e plataforma**
+**Sistema Operacional da Plataforma e Linguagem de Programação**
 
  - Sistema operacional: [por exemplo, Windows, Linux, Android, iOS,...] - seja específico
  - Hardware - x64, x86, ARM,...

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895876"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
@@ -77,7 +77,7 @@ Aqui estão as ações internas para trabalhar com saídas de dados e seus forma
 |   |   | 
 |---|---| 
 | [![Ícone incorporado][data-operations-icon]<br/>**Operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: Crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: Crie uma tabela de valores separados por vírgulas (CSV) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Junte-se**: Criar uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar o JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo do JSON, você pode usar essas propriedades no fluxo de trabalho. <br>- **Selecione**: Crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. | 
-| ![Ícone interno][date-time-icon]<br/>**Data/Hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar à hora**: Adicione o número especificado de unidades para um carimbo de hora. <br>- **Converter o fuso horário**: Converter um carimbo de data/hora do fuso horário de origem no fuso horário de destino. <br>- **Hora atual**: Retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: Retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair da hora**: Subtrair um número de unidades de tempo de um carimbo de data/hora. |
+| ![Ícone Interno][date-time-icon]<br/>**Data/Hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar à hora**: Adicione o número especificado de unidades para um carimbo de hora. <br>- **Converter o fuso horário**: Converter um carimbo de data/hora do fuso horário de origem no fuso horário de destino. <br>- **Hora atual**: Retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: Retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair da hora**: Subtrair um número de unidades de tempo de um carimbo de data/hora. |
 | [![Ícone Interno][variables-icon]<br/>**Variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item em uma matriz armazenado por uma variável. <br>- **Acrescentar à variável de cadeia de caracteres**: Inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: Diminua a uma variável em um valor constante. <br>- **Incrementar variável**: Aumente uma variável com um valor constante. <br>- **Inicializar variável**: Crie uma variável e declare seu tipo de dados e o valor inicial. <br>- **Defina a variável**: Atribua um valor diferente em uma variável existente. |
 |  |  | 
 
@@ -173,7 +173,7 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 
 * Para enviar ou votar em ideias para os Aplicativos Lógicos do Azure e conectores, visite o [site de comentários do usuário dos Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Encontrar a [lista completa de conectores](https://docs.microsoft.com/connectors)
 * [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)

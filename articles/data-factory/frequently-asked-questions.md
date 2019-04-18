@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048207"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
@@ -145,7 +145,7 @@ Fluxos de controle coordenam as atividades de pipeline, incluindo encadeamento d
 
 Para obter mais informações sobre os conceitos do Data Factory, confira os seguintes artigos:
 
-- [Conjunto de dados e serviços vinculados](concepts-datasets-linked-services.md)
+- [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
 - [Tempo de execução de integração](concepts-integration-runtime.md)
 
@@ -211,5 +211,5 @@ Use a atividade de cópia para transferir dados de qualquer um dos outros conect
 ## <a name="next-steps"></a>Próximas etapas
 Para obter instruções passo a passo para criar um data factory, consulte os tutoriais a seguir:
 
-- [Início Rápido: Criar uma data factory](quickstart-create-data-factory-dot-net.md)
+- [Início Rápido: Criar um data factory](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copiar dados na nuvem](tutorial-copy-data-dot-net.md)

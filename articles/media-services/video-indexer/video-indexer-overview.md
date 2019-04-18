@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895961"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
@@ -75,10 +75,10 @@ Abaixo estão alguns cenários em que o Video Indexer pode ser útil
 - Monetização: o Video Indexer pode ajudar a melhorar o valor dos vídeos. Por exemplo, setores que contam com a receita de anúncios (como a mídia de notícias, mídias sociais etc.) podem entregar anúncios mais relevantes usando as informações extraídas como sinais adicionais para o servidor do anúncio (apresentar um anúncio de sapatos esportivos é mais relevante durante uma partida de futebol do que em uma competição de natação).
 - Participação do usuário: as informações do vídeo podem ser usadas para melhorar a participação do usuário posicionando os momentos do vídeo relevantes para os usuários. Por exemplo, considere um vídeo educativo que explica as esferas nos primeiros 30 minutos e as pirâmides nos próximos 30 minutos. Um aluno que lê sobre as pirâmides aproveitaria mais se o vídeo fosse posicionado para começar a partir do marcador de 30 minutos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você está pronto para começar com o Video Indexer. Para obter mais informações, consulte os seguintes artigos:
 
-- [Introdução ao site do indexador de vídeo](video-indexer-get-started.md)
-- [Processar conteúdo com a API de REST do indexador de vídeo](video-indexer-use-apis.md)
-- [Inserir widgets visual em seu aplicativo](video-indexer-embed-widgets.md)
+- [Introdução ao site do Video Indexer](video-indexer-get-started.md)
+- [Processar o conteúdo com a API REST do Video Indexer](video-indexer-use-apis.md)
+- [Inserir widgets visuais em seu aplicativo](video-indexer-embed-widgets.md)

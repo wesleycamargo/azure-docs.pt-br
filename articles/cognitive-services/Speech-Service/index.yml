@@ -211,7 +211,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">Reconhecimento de fala (SR)</a><br/>
+          - html: <a href="speech-to-text-sample.md">Conversão de fala em texto (SR)</a><br/>
           - html: <a href="intent.md">Reconhecimento de intenção</a><br/>
           - html: <a href="translation.md">Tradução</a>
           - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Conversão de texto em fala</a><br/>
@@ -222,8 +222,8 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos de SDK do serviço</a><br/>'
-          - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemplos de SDK do dispositivo</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos de SDK do Serviço</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemplos de SDK do Dispositivo</a><br/>'
   - title: Referência
     items:
       - type: list
@@ -232,18 +232,18 @@ sections:
         items:
           - title: Referência do SDK
             html: |
-              <p><a href="https://aka.ms/csspeech/csharpref">API de C# (UWP, .NET e Unity)</a></p>
-              <p><a href="https://aka.ms/csspeech/cppref">API de C++</a></p>
+              <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP, .NET e Unity)</a></p>
+              <p><a href="https://aka.ms/csspeech/cppref">API do C++</a></p>
               <p><a href="https://aka.ms/csspeech/javaref">API Java</a></p>
-              <p><a href="https://aka.ms/csspeech/pythonref">API de Python</a></p>
-              <p><a href="https://aka.ms/csspeech/objectivecref">API de Objective-C</a></p>
+              <p><a href="https://aka.ms/csspeech/pythonref">API Python</a></p>
+              <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>
               <p><a href="https://aka.ms/csspeech/javascriptref">API de JavaScript</a></p>
           - title: API REST
             html: |
               <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
           - title: PowerShell
             html: |
-              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">PowerShell do Azure</a></p>
           - title: CLI
             html: |
               <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>

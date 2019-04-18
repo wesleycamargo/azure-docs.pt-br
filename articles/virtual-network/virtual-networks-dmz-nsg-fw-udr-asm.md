@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426521"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemplo 3: Crie uma rede de perímetro para proteger as redes com um firewall, UDR e NSGs
@@ -341,7 +341,7 @@ Aqui estão as especificidades de cada regra necessária para concluir este exem
 
 * **Regra de firewall de gerenciamento**: Essa regra de redirecionamento do aplicativo permite que o tráfego passe para as portas de gerenciamento de dispositivo de rede virtual, neste exemplo, um NextGen Firewall Barracuda. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são os mesmos, nenhuma conversão de porta. Essa regra é chamada SETUP-MGMT-ACCESS. Ele é uma regra padrão e habilitado por padrão no Barracuda NextGen Firewall, a versão 6.1.
   
-    ![Regra de Gerenciamento de Firewall][10]
+    ![Regra de gerenciamento de firewall][10]
 
   > [!TIP]
   > É o espaço de endereço de origem nesta regra **qualquer**. Se os intervalos de endereços IP de gerenciamento forem conhecidos, a redução desse escopo também reduz a superfície de ataque às portas de gerenciamento.
@@ -409,7 +409,7 @@ Aqui estão as especificidades de cada regra necessária para concluir este exem
 
 * **Regra sub-rede para sub-rede**: Essa regra de passagem de padrão ativada e modificada para permitir que qualquer servidor na sub-rede de back-end para se conectar a qualquer servidor na sub-rede de front-end. Essa regra coves somente tráfego interno para que o **método de Conexão** pode ser definido como `No SNAT`.
 
-    ![Regra entre Redes Virtuais do firewall][16]
+    ![Regra IntraVNet do firewall][16]
   
     > [!NOTE]
     > O **bidirecionais** caixa de seleção não está selecionada aqui para que esta regra aplica-se em uma única direção. Uma conexão pode ser iniciado da sub-rede de back-end para a rede de front-end, mas não o contrário. Se essa caixa de seleção foram selecionada, essa regra permitirá tráfego bidirecional, o que especificamos como indesejável no nosso diagrama lógico.

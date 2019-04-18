@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043999"
 ---
 # <a name="migrate-to-the-30-api"></a>Migrar para o 3.0 API
@@ -60,7 +60,7 @@ Com o 3.0 destinos de exportação de APIs que estamos expondo dois adicionais: 
 * Para usar o ARM, basta escolher um domínio Compact e, em seguida, escolha o DockerFile e ARM, em seguida, como as opções de exportação.
 * Para a visão AI Dev Kit, o projeto deve ser criado com o __geral (CD)__ argumento de plataformas de exportação de domínio, bem como especificar VAIDK no destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Documentação de referência de API de treinamento (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
 * [Documentação de referência de API de previsão (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

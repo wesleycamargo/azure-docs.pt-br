@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279339"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
@@ -57,7 +57,7 @@ SDK de dispositivos do Hub IoT do Azure para C (ANSIC - C99):
 * [Compilar o SDK do dispositivo C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
 * [Referência de API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Referência do módulo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
-* [Portabilidade do SDK de C para outras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Portabilidade do SDK C para outras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentação do desenvolvedor](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) para saber mais sobre compilação cruzada, introdução em diferentes plataformas, etc.
 * [Informações de consumo de recursos de SDK de C do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
@@ -160,7 +160,7 @@ Dispositivo de Provisionamento do Azure e SDKs de serviço para Python:
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-python)
 * Baixe a [SDK de Dispositivo](https://pypi.org/project/azure-iot-provisioning-device-client/) e a [SDK de Serviço](https://pypi.org/project/azure-iothub-provisioningserviceclient/) no pip
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-lo com o desenvolvimento:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando de plataforma cruzada para ajudar a diagnosticar problemas relacionados à conexão com o IoT Hub.
@@ -169,7 +169,7 @@ Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-
 Documentos relevantes relacionados ao desenvolvimento usando as SDKs de IoT do Azure:
 * Consulte [como gerenciar a conectividade e mensagens confiáveis](iot-hub-reliability-features-in-sdks.md) usando SDKs do Hub IoT.
 * Saiba mais sobre como [desenvolver para plataformas móveis](iot-hub-how-to-develop-for-mobile-devices.md) como iOS e Android.
-* [Suporte de plataforma SDK IoT do Azure](iot-hub-device-sdk-platform-support.md)
+* [Suporte de plataforma do SDK do IoT do Azure](iot-hub-device-sdk-platform-support.md)
 
 
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
@@ -178,4 +178,4 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
 * [Cotas e limitação](iot-hub-devguide-quotas-throttling.md)
 * [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md)
-* [Referência da API de REST do Hub IoT](/rest/api/iothub/)
+* [Referência de API REST do Hub IoT](/rest/api/iothub/)

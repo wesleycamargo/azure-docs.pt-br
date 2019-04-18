@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256882"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680886"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início rápido
 
@@ -93,7 +93,7 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 ![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO contínuo cria uma conta de computador denominada `AZUREADSSOACC` em seu local do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada. Store a conta de computador em uma UO (unidade organizacional) onde eles estejam protegidos contra exclusões acidentais e somente os administradores de domínio têm acesso.
+> O SSO contínuo cria uma conta de computador denominada `AZUREADSSOACC` em seu local do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada e que nenhuma outra conta no Active Directory tem permissões de delegação `AZUREADSSOACC` conta de computador. Store a conta de computador em uma UO (unidade organizacional) onde eles estejam protegidos contra exclusões acidentais e somente os administradores de domínio têm acesso.
 
 >[!NOTE]
 > Se você estiver usando arquiteturas de Pass-the-Hash e atenuação de roubo de credencial em seu ambiente local, faça as alterações apropriadas para garantir que o `AZUREADSSOACC` conta de computador não acaba no contêiner de quarentena. 
@@ -125,7 +125,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
 3. Navegue até **configuração do usuário** > **política** > **modelos administrativos** > **Windows Componentes** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: A URL do Azure AD para a qual os tíquetes do Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.

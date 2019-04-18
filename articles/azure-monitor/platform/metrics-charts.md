@@ -9,10 +9,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271672"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Gerenciador de métricas do Azure
@@ -138,7 +138,7 @@ Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar 
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-*Não consigo ver todos os dados em meu gráfico.*
+*Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos do painel. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
 

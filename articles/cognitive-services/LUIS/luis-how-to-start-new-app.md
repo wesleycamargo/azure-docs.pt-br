@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891422"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679631"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do [LUIS](https://www.luis.ai) ou por meio das [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de criação do LUIS.
@@ -67,10 +67,19 @@ Possíveis erros são:
 
 * Um aplicativo com esse nome já existe. Reimporte o aplicativo e defina as **nome opcional** para um novo nome. 
 
-## <a name="export-app"></a>Exportar aplicativo
+## <a name="export-app-for-backup"></a>Exportar o aplicativo para o backup
 
-1. Na página **Meus Aplicativos**, selecione **Importar novo aplicativo**.
-1. Na caixa de diálogo **Importar novo aplicativo**, selecione o arquivo JSON definindo o aplicativo do LUIS.
+1. Na **meus aplicativos** página, selecione **exportar**.
+1. Selecione **exportar como JSON**. Seu navegador baixa a versão ativa do aplicativo.
+1. Adicione esse arquivo para o sistema de backup para arquivar o modelo.
+
+## <a name="export-app-for-containers"></a>Exportar o aplicativo para contêineres
+
+1. Na **meus aplicativos** página, selecione **exportar**.
+1. Selecione **exportar como contêiner** , em seguida, selecione qual slot publicado (produção ou estágio) que você deseja exportar.
+1. Use esse arquivo com seu [contêiner LUIS](luis-container-howto.md). 
+
+    Se você estiver interessado em exportando um treinado, mas não ainda modelo publicado para usar com o contêiner do LUIS, vá para o **versões** página e exportar a partir daí. 
 
 ## <a name="delete-app"></a>Excluir aplicativo
 

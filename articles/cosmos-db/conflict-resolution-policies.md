@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407412"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684218"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos e políticas de resolução de conflitos
 
@@ -37,11 +37,11 @@ O Azure Cosmos DB oferece um mecanismo flexível orientada por diretivas para re
   > [!NOTE]
   > O Last Writer Wins é o modo de resolução de conflitos padrão. Ele está disponível para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e tabela.
 
-  Para saber mais, confira [exemplos que usam políticas de resolução de conflitos LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Para saber mais, confira [exemplos que usam políticas de resolução de conflitos LWW](how-to-manage-conflicts.md).
 
 - **Personalizado**: Esta política de resolução é projetada para semântica definida pelo aplicativo para reconciliação de conflitos. Quando você definir essa política em seu contêiner do Azure Cosmos, você também precisará registrar um *mesclar o procedimento armazenado*. Esse procedimento é invocado automaticamente quando os conflitos são detectados em uma transação de banco de dados no servidor. O sistema fornece exatamente uma garantia para a execução de um procedimento de mesclagem como parte do protocolo de confirmação.  
 
-  Se você configurar seu contêiner com a opção de resolução personalizada e você não conseguir registrar um procedimento de mesclagem no contêiner ou o procedimento de mesclagem gera uma exceção em tempo de execução, os conflitos são gravados para o *conflitos feed*. Seu aplicativo precisará resolver manualmente os conflitos no feed de conflitos. Para saber mais, confira [exemplos de como usar uma política de resolução personalizada e de como usar o feed de conflitos](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Se você configurar seu contêiner com a opção de resolução personalizada e você não conseguir registrar um procedimento de mesclagem no contêiner ou o procedimento de mesclagem gera uma exceção em tempo de execução, os conflitos são gravados para o *conflitos feed*. Seu aplicativo precisará resolver manualmente os conflitos no feed de conflitos. Para saber mais, confira [exemplos de como usar uma política de resolução personalizada e de como usar o feed de conflitos](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > A política de resolução de conflitos personalizada só está disponível para contas da API do SQL.
@@ -51,6 +51,5 @@ O Azure Cosmos DB oferece um mecanismo flexível orientada por diretivas para re
 Saiba como configurar políticas de resolução de conflitos:
 
 * [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
-* [Como usar a política de resolução de conflitos LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Como usar a política de resolução de conflitos personalizada](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Como gerenciar políticas de resolução de conflitos](how-to-manage-conflicts.md)
 * [Como ler de conflitos de feed](how-to-manage-conflicts.md#read-from-conflict-feed)

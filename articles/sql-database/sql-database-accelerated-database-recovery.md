@@ -11,12 +11,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475441"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677809"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperação Acelerada de Banco de Dados (versão prévia)
 
@@ -42,11 +42,11 @@ A recuperação do banco de dados no SQL Server segue o modelo de recuperação 
 
 - **Fase de análise**
 
-  Encaminhar a verificação do log de transações desde o início do último ponto de verificação bem-sucedido (ou a LSN da página mais antiga) até o final, para determinar o estado de cada transação no momento em que o SQL Server foi interrompido.
+  Encaminhar a verificação do log de transações desde o início do último ponto de verificação bem-sucedida (ou a página suja mais antiga LSN) até o final de para determinar o estado de cada transação no momento que do SQL Server é interrompido.
 
 - **Fase refazer**
 
-  Encaminhar verificação do log de transação da transação mais antiga não confirmada até o fim, para trazer o banco de dados para o estado em que estava no momento da falha ao refazer todas as operações.
+  Encaminhar verificação do log de transação da transação mais antiga não confirmada até o fim, para trazer o banco de dados para o estado em que estava no momento da falha ao refazer todas as operações confirmadas.
 
 - **Fase Desfazer**
 
@@ -56,13 +56,13 @@ Com base nesse design, o tempo que o mecanismo do banco de dados SQL leva para r
 
 Além disso, o cancelamento / reversão de uma transação grande com base nesse design também pode levar um longo tempo, já que está usando a mesma fase de recuperação Desfazer, conforme descrito acima.
 
-Além disso, o mecanismo de banco de dados SQL não pode truncar o log de transações quando há transações de execução longa, porque seus registros de log correspondentes são necessários para os processos de recuperação e reversão. Como resultado desse design do mecanismo de banco de dados SQL, alguns clientes enfrentam o problema de que o tamanho do log de transação cresce muito e consome grandes quantidades de espaço de log.
+Além disso, o mecanismo de banco de dados SQL não pode truncar o log de transações quando há transações de execução longa, porque seus registros de log correspondentes são necessários para os processos de recuperação e reversão. Como resultado desse design do mecanismo de banco de dados SQL, alguns clientes enfrentam o mesmo problema que o tamanho do log de transação ficar muito grande e consome enormes quantidades de espaço em disco.
 
 ## <a name="the-accelerated-database-recovery-process"></a>O processo de recuperação de banco de dados acelerada
 
 O ADR soluciona os problemas acima, redesenhando completamente o processo de recuperação do mecanismo de banco de dados SQL para:
 
-- Torne constante o tempo / instantâneo, evitando ter que escanear o log de / para o início da transação ativa mais antiga. Com o ADR, o log de transações é processado somente a partir do último ponto de verificação bem-sucedido (ou o mais antigo LSN (Log Sequence Number) da página suja). Como resultado, o tempo de recuperação não é afetado por longa execução de transações.
+- Torne constante o tempo / instantâneo, evitando ter que escanear o log de / para o início da transação ativa mais antiga. Com o ADR, só é processado no log de transações do último ponto de verificação bem-sucedida (ou número de sequência de Log (LSN) da página suja mais antiga). Como resultado, o tempo de recuperação não é afetado por longa execução de transações.
 - Minimize o espaço de log de transações necessário, pois não há mais necessidade de processar o log para toda a transação. Como resultado, o log de transações pode ser truncado de forma agressiva à medida que os pontos de verificação e backups ocorrem.
 
 Em um nível alto, o ADR obtém uma rápida recuperação do banco de dados, modificando todas as modificações físicas do banco de dados e apenas desfazendo as operações lógicas, que são limitadas e podem ser desfeitas quase instantaneamente. Qualquer transação que estava ativa no momento de uma falha é marcada como abortada e, portanto, qualquer versão gerada por essas transações pode ser ignorada por consultas de usuários simultâneas.
@@ -73,16 +73,19 @@ O processo de recuperação do ADR tem as mesmas três fases que o processo de r
 
 - **Fase de análise**
 
-  O processo permanece o mesmo de hoje, com a adição da reconstrução do log e a cópia dos registros de log para operações não relacionadas a versões.
+  O processo permanece o mesmo que hoje com a adição de reconstrução sLog copiando os registros de log de operações sem controle de versão.
+  
 - fase **Refazer**
 
   Dividido em duas fases (P)
   - Fase 1
 
       Refazer de sLog (transação não confirmada mais antiga até o último ponto de verificação). O Redo é uma operação rápida, pois precisa apenas processar alguns registros do sLog.
+      
   - Fase 2
 
      Refazer a partir do Log de transações inicia a partir do último ponto de verificação (em vez da transação não confirmada mais antiga)
+     
 - **Fase Desfazer**
 
    A fase Desfazer com ADR é concluída quase instantaneamente usando sLog para desfazer operações sem versão e Armazenamento de Versão Persistente (PVS) com Revolução Lógica para executar a Desfazer baseada em versão no nível da linha.
@@ -97,7 +100,7 @@ Os quatro componentes principais da ADR são:
 
 - **Lógica reverter**
 
-  A reversão lógica é o processo assíncrono responsável pela execução da desfazer baseada em versão no nível de linha - fornecendo a reversão instantânea da transação e desfazendo todas as operações com versão.
+  Reversão lógica é o processo assíncrono responsável por executar desfazer baseada em versão de nível de linha – fornecendo a reversão de transação de instantâneo e desfazer para todas as operações de controle de versão.
 
   - Mantém o controle de todas as transações anuladas
   - Executa a reversão usando o PVS para todas as transações do usuário

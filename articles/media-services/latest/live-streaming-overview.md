@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916014"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
@@ -67,7 +67,7 @@ Usando a codificação dinâmica com os Serviços de Mídia, você configuraria 
 
 Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v3, você precisa primeiro revisar e entende os conceitos a seguir: 
 
-- [Ponto de extremidade de streaming](streaming-endpoint-concept.md)
+- [Pontos de Extremidade de Streaming](streaming-endpoint-concept.md)
 - [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
 - [Localizadores de Streaming](streaming-locators-concept.md)
 
@@ -88,12 +88,12 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 ## <a name="other-important-articles"></a>Outros artigos importantes
 
 - [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md)
-- [Usando um DVR em nuvem](live-event-cloud-dvr.md)
-- [Comparação de recursos de tipos de evento ao vivo](live-event-types-comparison.md)
+- [Usar um DVR de nuvem](live-event-cloud-dvr.md)
+- [Comparação de recursos de tipos de Evento ao Vivo](live-event-types-comparison.md)
 - [Estados e cobrança](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+- [Latência](live-event-latency.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
-* [Orientação de migração para passar dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)
+* [Tutorial de live streaming](stream-live-tutorial-with-api.md)
+* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)

@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267201"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
@@ -77,7 +77,7 @@ Juntamente com essa propriedade, mapeamentos de atributo também dão suporte os
 - **Atributo de destino** – o atributo de usuário no sistema de destino (exemplo: ServiceNow).
 - **Corresponder objetos utilizando esse atributo** – indica se este mapeamento deve ser usado para identificar exclusivamente os usuários entre os sistemas de origem e destino. Normalmente, ele é definido no atributo userPrincipalName ou email no Azure AD, que normalmente é mapeado para um campo de nome de usuário em um aplicativo de destino.
 - **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver vários, eles são avaliados na ordem definida por este campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
-- **Aplicar este mapeamento**
+- **Aplicar esse mapeamento**
     - **Sempre** – aplicar esse mapeamento na criação de usuário e ações de atualização.
     - **Somente durante a criação** -aplicar esse mapeamento somente nas ações de criação de usuário.
 
@@ -123,9 +123,9 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
    * *Número inteiro* - O atributo contém um número inteiro.
    * *Referência* - O atributo contém uma ID que faz referência a um valor armazenado em outra tabela no aplicativo de destino.
    * *Cadeia de caracteres* - O atributo contém uma cadeia de caracteres de texto. 
-* **Chave Primária?** – Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
+* **Chave primária?** – Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
 * **Obrigatório?** – Se o atributo é necessário para ser preenchido no sistema ou aplicativo de destino.
-* **Com vários valores?** – Se o atributo dá suporte a vários valores.
+* **Vários valores?** – Se o atributo dá suporte a vários valores.
 * **Diferenciar maiúsculas e minúsculas?** -Se os valores de atributos são avaliados de maneira diferencia maiusculas de minúsculas.
 * **Expressão API** -não usar, a menos que instruído a fazer isso pela documentação de um conector de provisionamento específico (como o Workday).
 * **Referenciado atributo do objeto** - se é um atributo de tipo de referência, em seguida, esse menu permite que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Departamento" cujo valor armazenado faz referência a um objeto em uma tabela separada de "Departamentos", selecione "Departments.Name". As tabelas de referência e os campos ID primária tem suportados para um determinado aplicativo são pré-configurados e atualmente não podem ser editados usando o portal do Azure, mas podem ser editados usando o [API do Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
@@ -151,11 +151,11 @@ Selecionar esta opção efetivamente forçará uma ressincronização de todos o
 * Uma prática recomendada é manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Automatizar o provisionamento/desprovisionamento para aplicativos SaaS](user-provisioning.md)
+* [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 * [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
-* [Filtros de escopo para provisionamento de usuário](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Filtros de escopo para provisionamento de usuários](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
 

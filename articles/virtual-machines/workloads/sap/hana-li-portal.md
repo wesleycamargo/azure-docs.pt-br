@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009361"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
@@ -80,7 +80,7 @@ Na tela de visão geral, você está obtendo uma apresentação da unidade, que 
 Examinar os diferentes atributos mostrados, esses atributos são dificilmente diferentes atributos de VM do Azure. No cabeçalho do lado esquerdo, ele mostra o grupo de recursos, região do Azure, nome da assinatura e ID, bem como algumas marcas que você adicionou. Por padrão, as unidades de instância grande do HANA não têm nenhuma marca atribuída. No lado direito do cabeçalho, o nome da unidade está listado é atribuído quando a implantação foi concluída. O sistema operacional é mostrado, bem como o endereço IP. Como com a unidade de instância grande do HANA de tipo de VMs com o número de CPU threads e memória também é exibido. Obter mais detalhes sobre as diferentes unidades de instância grande do HANA, são mostrados aqui:
 
 - [SKUs disponíveis para HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Arquitetura de armazenamento do SAP HANA (Instâncias Grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Arquitetura de armazenamento do SAP HANA (instâncias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 Um campo adicional na coluna à direita do cabeçalho informa sobre o estado de energia da unidade de instância grande do HANA.
 

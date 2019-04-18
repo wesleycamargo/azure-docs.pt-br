@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010542"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e acessar os recursos com identidades gerenciadas em Aplicativos Lógicos do Azure
@@ -38,8 +38,8 @@ Para acessar recursos em outros locatários do Azure AD (Azure Active Directory)
 Para identidades gerenciadas atribuídas pelo sistema, você não precisa criar manualmente essa identidade. Para configurar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico, você pode usar estes recursos: 
 
 * [Portal do Azure](#azure-portal) 
-* [Modelos do Azure Resource Manager](#template) 
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
+* [Modelos do Gerenciador de Recursos do Azure](#template) 
+* [PowerShell do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
 <a name="azure-portal"></a>
 
@@ -61,7 +61,7 @@ Para habilitar uma identidade gerenciada atribuída pelo sistema para o seu apli
 
    | Propriedade | Valor | DESCRIÇÃO | 
    |----------|-------|-------------| 
-   | **ID de objeto** | <*identity-resource-ID*> | Um GUID (Identificador Global Exclusivo) que representa a identidade gerenciada atribuída pelo sistema para o seu aplicativo lógico em um locatário do Azure Active Directory | 
+   | **ID do objeto** | <*identity-resource-ID*> | Um GUID (Identificador Global Exclusivo) que representa a identidade gerenciada atribuída pelo sistema para o seu aplicativo lógico em um locatário do Azure Active Directory | 
    ||| 
 
 <a name="template"></a>
@@ -113,7 +113,7 @@ Quando o Azure cria o aplicativo lógico, a definição de fluxo de trabalho do 
 
 | Propriedade | Valor | DESCRIÇÃO | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Um globalmente GUID (identificador exclusivo) que representa o aplicativo lógico no locatário do AD do Azure e, às vezes, é exibido como uma "ID de objeto" ou `objectID` | 
+| **principalId** | <*principal-ID*> | Um GUID (Identificador Global Exclusivo) que representa o aplicativo lógico no locatário do Azure Active Directory e, às vezes, aparece como "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um GUID (identificador global exclusivo) que representa o locatário do Azure AD do qual o aplicativo lógico agora é membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. | 
 ||| 
 

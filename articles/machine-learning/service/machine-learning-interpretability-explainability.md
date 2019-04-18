@@ -1,7 +1,7 @@
 ---
 title: Interpretabilidade do modelo
 titleSuffix: Azure Machine Learning service
-description: Saiba como usar o SDK de possibilidade de interpretação do Azure Machine Learning para explicar por que o seu modelo faz previsões. Ele pode ser usado durante a inferência e treinamento para entender como seu modelo faz previsões.
+description: Saiba como explicar por que o seu modelo faz previsões usando o SDK do Azure Machine Learning possibilidade de interpretação. Ele pode ser usado durante a inferência e treinamento para entender como seu modelo faz previsões.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494433"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682447"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Possibilidade de interpretação do SDK do Azure Machine Learning
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Possibilidade de interpretação de modelo com o serviço Azure Machine Learning
 
 Neste artigo, você aprenderá a explicar por que o seu modelo de feitas as previsões ele feitas usando o SDK de possibilidade de interpretação do Azure Machine Learning. É importante ser capaz de explicar seu modelo pelos seguintes motivos:
 
@@ -25,9 +25,10 @@ Neste artigo, você aprenderá a explicar por que o seu modelo de feitas as prev
 * Como um cientista de dados, você quiser entender **como consultar o modelo para encontrar insights**. Você também precisa de ferramentas para tomar decisões informadas sobre **como melhorar seu modelo**.
 * Como uma empresa, você precisa entender **o comportamento do modelo com diferentes distribuições de entrada** e **como o modelo se comportará durante a análise de entrada específica**.
 
-Possibilidade de interpretação de aprendizado de máquina é importante em duas fases do ciclo de desenvolvimento do aprendizado de máquina: **treinamento** tempo e **inferência** tempo:
+Possibilidade de interpretação de aprendizado de máquina é importante em duas fases do ciclo de desenvolvimento do aprendizado de máquina: 
 
 * Durante **treinamento**: Avaliadores e designers de modelo exigem ferramentas de possibilidade de interpretação para explicar a saída de um modelo aos participantes para criar a relação de confiança. Eles também precisam percepções sobre o modelo para que eles podem depurar o modelo e tomar decisões sobre se o comportamento corresponde ao seus objetivos. Por fim, eles precisam garantir que o modelo não é mais adequado.
+
 * Durante **inferência**: Previsões precisam ser explicadas para as pessoas que usam seu modelo. Por exemplo, por que o modelo negar um empréstimo de hipoteca ou prever que um portfólio de investimento traz um risco mais alto?
 
 O SDK do Azure Machine Learning possibilidade de interpretação incorpora tecnologias desenvolvidas pela Microsoft e comprovadas bibliotecas de terceiros (por exemplo, da forma e verde-LIMÃO). O SDK cria uma API comum entre as bibliotecas integradas e integra os serviços do Azure Machine Learning. Usando esse SDK, você pode explicar os modelos de aprendizado de máquina **globalmente em todos os dados**, ou **localmente em um ponto de dados específicos** usando as tecnologias de última geração de uma maneira fácil de usar e escalonável.
@@ -91,7 +92,7 @@ A inteligência incorporada `TabularExplainer` se tornará mais sofisticadas con
 
 O diagrama a seguir mostra a relação entre os dois conjuntos de direct e explainers meta.
 
-[![MArquitetura de possibilidade de interpretação de aprendizado do áquina](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Arquitetura de possibilidade de interpretação de aprendizado de máquina](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Modelos com suporte
 

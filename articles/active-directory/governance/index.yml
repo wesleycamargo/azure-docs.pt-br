@@ -37,7 +37,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que é uma revisão de acesso?</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que é revisão de acesso?</a>
           - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gerenciar o acesso do usuário com revisões de acesso</a>
           - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gerenciar o acesso do convidado com revisões de acesso</a>
   - title: Termos de uso

@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283266"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
@@ -55,7 +55,7 @@ Execute as etapas a seguir para preparar as unidades.
 5.  Para obter a chave do BitLocker da unidade, execute o comando a seguir:
     
     `manage-bde -protectors -get <DriveLetter>:`
-6.  Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho de dados, isso pode levar várias horas a dias.** 
+6.  Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho dos dados, isso pode levar de várias horas a dias.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -70,7 +70,7 @@ Execute as etapas a seguir para preparar as unidades.
     |/id:     |A ID da sessão. Use um número de sessão exclusivo para cada instância do comando.      |
     |/sk:     |A chave de conta de Armazenamento do Microsoft Azure.         |
     |/t:     |A letra da unidade do disco a ser enviado. Por exemplo, unidade `D`.         |
-    |/bk:     |A chave do BitLocker para a unidade. Sua senha numérica da saída de `manage-bde -protectors -get D:`      |
+    |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure.         |
     |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e que os dados existentes no disco devem ser preparados.          |
@@ -142,9 +142,9 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, verifique se os dados foram carregados no Azure. Exclua os dados locais somente depois de verificar se o upload foi realizado com êxito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Exibir o status do trabalho e da unidade](storage-import-export-view-drive-status.md)
-* [Examine os requisitos de importação/exportação](storage-import-export-requirements.md)
+* [Verificar os requisitos de Importação/Exportação](storage-import-export-requirements.md)
 
 

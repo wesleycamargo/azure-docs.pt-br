@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278533"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679985"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 
@@ -93,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Dados intermediários (ou a saída de uma etapa) são representados por um objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` é produzida como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. `PipelineData` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline.
+Dados intermediários (ou a saída de uma etapa) são representados por um objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` é produzido como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. O `PipelineData` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline.
 
 ```python
 output_data1 = PipelineData(
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Depois de definir suas etapas, você pode criar o pipeline usando algumas ou todas essas etapas.
 
->[!NOTE]
->Não é carregado nenhum arquivo ou dado para o Serviço do Azure Machine Learning quando você define as etapas ou cria o pipeline.
+> [!NOTE]
+> Não é carregado nenhum arquivo ou dado para o Serviço do Azure Machine Learning quando você define as etapas ou cria o pipeline.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Para obter mais informações, consulte o [pacote de etapas de pipeline do azure
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
-Quando você envia o pipeline, o Serviço do Azure Machine Learning verifique as dependências para cada etapa e carrega um instantâneo do diretório de origem especificado. Se nenhum diretório de origem for especificado, o diretório local atual será carregado.
+Quando você envia o pipeline, o Serviço do Azure Machine Learning verifique as dependências para cada etapa e carrega um instantâneo do diretório de origem especificado. Se nenhum diretório de origem for especificado, o diretório local atual será carregado. O instantâneo também é armazenado como parte do experimento no seu espaço de trabalho.
 
+> [!IMPORTANT]
+> Para impedir que arquivos sejam incluídos no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` arquivo no diretório e adicione os arquivos para ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) arquivo. Se os dois arquivos existem, o `.amlignore` arquivo terá precedência.
+>
+> Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run
@@ -361,7 +365,7 @@ Confira a lista de todos os seus pipelines e seus detalhes de execução:
 1. Entre no [Portal do Azure](https://portal.azure.com/).  
 
 1. [Exiba seu workspace](how-to-manage-workspace.md#view) para encontrar a lista de pipelines.
- ![lista de pipelines de machine learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![lista de pipelines do aprendizado de máquina](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selecione um pipeline específico para ver os resultados da execução.
 

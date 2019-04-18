@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426385"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres 
@@ -61,17 +61,17 @@ A tabela a seguir fornece um detalhamento do cálculo que controla os estados de
 
 | |Status |Disponibilidade |  
 |-------|-------|-----------------|  
-|**Usuário Pod**| | |  
+|**Pod de usuários**| | |  
 | |Healthy |100% |  
 | |Aviso |90 – 99% |  
 | |Crítico |<90% |  
 | |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |  
-|**Sistema Pod**| | |  
+|**Pod de sistemas**| | |  
 | |Healthy |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
 | |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
-|**Nó** | | |
+|**Node** | | |
 | |Healthy |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
@@ -148,7 +148,7 @@ Os Nós Virtuais de Instâncias de Contêiner do Azure executando o sistema oper
 ![Hierarquia de nós de exemplo com Instâncias de Contêiner listadas](./media/container-insights-analyze/nodes-view-aci.png)
 
 Em um nó expandido, é possível fazer drill down do pod ou contêiner em execução no nó até o controlador para exibir dados de desempenho filtrados para esse controlador. Clique no valor sob a coluna **Controlador** para o nó específico.   
-![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
+![Exemplo de drill down do nó até o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Você pode selecionar controladores ou contêineres na parte superior da página e examinar o status e a utilização de recursos para esses objetos.  Se, em vez disso, você quiser examinar a utilização de memória, na lista suspensa **Métrica**, selecione **RSS de Memória** ou **Conjunto de trabalho de memória**. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **Mín.&nbsp;%** como *NaN&nbsp;%*, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representável. 
 

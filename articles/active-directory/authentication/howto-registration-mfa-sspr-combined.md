@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280563"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registro de informações de segurança Enable combinado (visualização)
@@ -57,6 +57,6 @@ Se você tiver configurado o Site à lista de atribuição de zona do Internet E
 
 [Configurar a redefinição de senha de autoatendimento](howto-sspr-deployment.md)
 
-[Configurar a Autenticação Multifator do Azure](howto-mfa-getstarted.md)
+[Configurar a autenticação multifator do Azure](howto-mfa-getstarted.md)
 
 [Solução de problemas combinado de registro de informações de segurança](howto-registration-mfa-sspr-combined-troubleshoot.md)

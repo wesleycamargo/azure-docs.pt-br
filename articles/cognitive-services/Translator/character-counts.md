@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917406"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Como a API de Tradução de Texto conta caracteres
@@ -24,8 +24,8 @@ A API de Tradução de Texto conta cada ponto de código Unicode do texto de ent
 O que conta é:
 
 * O texto é transferido para a API de Tradução de Texto no corpo da solicitação
-   * `Text` ao usar os métodos de traduzir, Transliterate e pesquisa em dicionário
-   * `Text` e `Translation` ao usar o método de exemplos de dicionário
+   * `Text` ao usar os métodos Tradução, Transliteração e Pesquisa no dicionário
+   * `Text` e `Translation` ao usar o método Exemplos de dicionário
 * Todas as marcações: HTML, marcas XML e afins no campo de texto do corpo da solicitação. A notação JSON usada para construir a solicitação (por exemplo "Text:") não é contabilizada.
 * Uma letra individual
 * Pontuação

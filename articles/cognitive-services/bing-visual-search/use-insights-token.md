@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493868"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Use um token de insights para obter insights para uma imagem
@@ -473,10 +473,10 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Criar um aplicativo Web de página única da Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)  
-[O que é a API da Pesquisa Visual do Bing?](overview.md)  
-[Experimente os Serviços Cognitivos](https://aka.ms/bingvisualsearchtryforfree)  
+[Criar um aplicativo web de página única de pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)  
+[O que é a API de pesquisa Visual do Bing?](overview.md)  
+[Experimente os serviços Cognitivos](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Imagens – pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc)

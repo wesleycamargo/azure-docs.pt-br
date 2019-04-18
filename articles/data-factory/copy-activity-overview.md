@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267139"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
@@ -72,9 +72,9 @@ O serviço que possibilita a Atividade de Cópia está disponível globalmente n
 
 Para usar a atividade de cópia no Azure Data Factory, você precisa:
 
-1. **Crie serviços vinculados para armazenamento de dados de origem e de coletor.** Consulte a seção “Propriedades de serviço vinculadas” do artigo do conector sobre como configurar e as propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [Formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats).
-2. **Crie conjuntos de dados de origem e coletor.** Consulte a seção “Propriedades do conjunto de dados” dos artigos do conector de origem e de coletor sobre como configurar e as propriedades com suporte.
-3. **Crie um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.  
+1. **Criar serviços vinculados para armazenamentos de dados de origem e de coletor.** Consulte a seção “Propriedades de serviço vinculadas” do artigo do conector sobre como configurar e as propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [Formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats).
+2. **Criar conjuntos de dados de origem e do coletor.** Consulte a seção “Propriedades do conjunto de dados” dos artigos do conector de origem e de coletor sobre como configurar e as propriedades com suporte.
+3. **Criar um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.  
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -130,7 +130,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das pro
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type de uma atividade de cópia deve ser definida como: **Copy** | Sim |
+| tipo | A propriedade type de uma atividade de cópia deve ser definida como: **Copy** | Sim |
 | inputs | Especifique o conjunto de dados criado que aponta para os dados de origem. A atividade de cópia dá suporte a apenas uma entrada. | Sim |
 | outputs | Especifique o conjunto de dados criado que aponta para os dados do coletor. A atividade de cópia dá suporte a apenas uma saída. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
@@ -161,11 +161,11 @@ Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução d
 >[!TIP]
 >Para alguns cenários, você também verá "**Dicas de ajuste de desempenho**" no alto da página de monitoramento de cópia, que informa o gargalo identificado e o orienta sobre o que mudar para aumentar a taxa de transferência de cópia; confira o exemplo com detalhes [aqui](#performance-and-tuning).
 
-**Exemplo: copiar do Amazon S3 para o Azure Data Lake Store**
-![detalhes de monitorar a atividade de execução](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+**Exemplo: cópia da Amazon S3 para o Azure Data Lake Store**
+![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Exemplo: cópia de banco de dados SQL para o SQL Data Warehouse do Azure usando cópia em etapas**
-![detalhes de monitorar a atividade de execução](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+**Exemplo: copiar do Banco de Dados SQL do Microsoft Azure para o SQL Data Warehouse do Microsoft Azure usando cópia preparada**
+![Monitorar os detalhes da execução de atividade](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>Monitorar programaticamente
 
@@ -239,7 +239,7 @@ Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](copy-activ
 
 Em alguns casos, quando você executa uma atividade de cópia no ADF, verá diretamente "**Dicas de ajuste de desempenho**" na parte superior da [página de monitoramento de atividade de cópia](#monitor-visually) conforme mostra o exemplo a seguir. Ele não apenas informa o gargalo identificado para a execução de cópia determinada, como também o orienta sobre o que mudar para impulsionar a taxa de transferência de cópia. As dicas de ajuste de desempenho atualmente dão sugestões como usar o PolyBase ao copiar dados para o SQL Data Warehouse do Azure, aumentar a RU do Azure Cosmos DB ou a DTU de BD SQL do Azure, quando o recurso no lado de armazenamento de dados é o gargalo, remover a cópia em etapas desnecessária, etc. As regras de ajuste de desempenho serão aprimoradas gradualmente também.
 
-**Exemplo: a cópia no Azure SQL DB com dicas de ajuste de desempenho**
+**Exemplo: cópia para o BD SQL do Azure com dicas de ajuste de desempenho**
 
 Neste exemplo, durante a execução da cópia, o ADF nota que o coletor do BD SQL do Azure atinge alta utilização de DTU, o que diminui as operações de gravação, assim, a sugestão é aumentar a camada do BD SQL do Azure com mais de DTU. 
 
@@ -251,9 +251,9 @@ O Data Factory suporta cenários para cópia incremental de dados delta de um ar
 ## <a name="read-and-write-partitioned-data"></a>Ler e gravar dados particionados
 Na versão 1, com suporte do Azure Data Factory ler ou gravar dados particionados usando variáveis de sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual, você pode obter esse comportamento usando um parâmetro de pipeline e o horário de início/horário agendado do acionador como um valor do parâmetro. Para obter mais informações, consulte [Como ler e gravar dados de partição](how-to-read-write-partitioned-data.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes guias de início rápido, tutoriais e exemplos:
 
-- [Copiar dados de um local para outro local no mesmo armazenamento de BLOBs do Azure](quickstart-create-data-factory-dot-net.md)
-- [Copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL](tutorial-copy-data-dot-net.md)
-- [Copiar dados do SQL Server no local para o Azure](tutorial-hybrid-copy-powershell.md)
+- [Copiar dados de um local para outro no mesmo Armazenamento de Blobs do Azure](quickstart-create-data-factory-dot-net.md)
+- [Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](tutorial-copy-data-dot-net.md)
+- [Copiar dados do SQL Server local para o Azure](tutorial-hybrid-copy-powershell.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916573"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e recuperar as propriedades e os metadados
@@ -98,6 +98,6 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-* [Biblioteca de cliente de armazenamento do Azure para referência do .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Biblioteca de cliente de armazenamento do Azure para o pacote NuGet do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+## <a name="next-steps"></a>Próximos passos
+* [Biblioteca do cliente de armazenamento do Azure para a referência do .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Biblioteca do cliente de armazenamento do Azure para o pacote NuGet do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

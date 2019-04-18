@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280886"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
@@ -28,11 +28,11 @@ Use o SDK do Azure Machine Learning para implantar seu modelo treinado para os s
 
 | Destino de computação | Tipo de implantação | DESCRIÇÃO |
 | ----- | ----- | ----- |
-| [AKS (Serviço do Kubernetes do Azure)](#aks) | Inferência de tipos em tempo real | Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
+| [AKS (Serviço de Kubernetes do Azure)](#aks) | Inferência de tipos em tempo real | Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
 | [Azure computação do Machine Learning (amlcompute)](#azuremlcompute) | Inferência de tipos de lote | Execute a previsão em lotes em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
 | [ACI (Instâncias de Contêiner do Azure)](#aci) | Testando | Bom para teste ou desenvolvimento. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Visualização) Módulo do IoT | Implante modelos em dispositivos do IoT. A inferência acontece no dispositivo. |
-| [FPGA (Matriz de portas programáveis em campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
+| [FPGA (matriz de porta programável no campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
 
 ## <a name="deployment-workflow"></a>Fluxo de trabalho de implantação
 
@@ -248,11 +248,11 @@ Ao obter a implantação, o processo será ligeiramente diferente dependendo do 
 
 | Destino de computação | Tipo de implantação | DESCRIÇÃO |
 | ----- | ----- | ----- |
-| [AKS (Serviço do Kubernetes do Azure)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
+| [AKS (Serviço de Kubernetes do Azure)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
 | [Computação do ML do Azure](#azuremlcompute) | Serviço Web (inferência de tipos de lote)| Execute a previsão em lotes em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
 | [ACI (Instâncias de Contêiner do Azure)](#aci) | Serviço Web (desenvolvimento/teste)| Bom para teste ou desenvolvimento. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Visualização) Módulo do IoT | Implante modelos em dispositivos do IoT. A inferência acontece no dispositivo. |
-| [FPGA (Matriz de portas programáveis em campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
+| [FPGA (matriz de porta programável no campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
 
 > [!IMPORTANT]
 > O CORS (compartilhamento de recurso entre origens) atualmente não é compatível com a ação de implantar um modelo como um serviço Web.
@@ -296,7 +296,7 @@ O Serviço de Kubernetes do Azure fornece os seguintes recursos:
 * Coleta de dados de modelo
 * Tempo de resposta rápido para seus serviços Web
 * Encerramento de TLS
-* Authentication
+* Autenticação
 
 #### <a name="autoscaling"></a>Dimensionamento automático
 
@@ -641,15 +641,15 @@ Para excluir um modelo registrado, use `model.delete()`.
 
 Para obter mais informações, confira a documentação de referência para [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
-* [Consumir um modelo de ML implantado como um serviço web](how-to-consume-web-service.md)
+* [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Como executar previsões em lotes](how-to-run-batch-predictions.md)
-* [Monitore seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md)
+* [Monitorar seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)
-* [SDK do serviço de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Usar o serviço Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
-* [Práticas recomendadas para criação de sistemas de recomendação](https://github.com/Microsoft/Recommenders)
+* [SDK do Serviço do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usar o Serviço do Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
+* [Melhores práticas para criar sistemas de recomendação](https://github.com/Microsoft/Recommenders)
 * [Compilar uma API de recomendação em tempo real no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

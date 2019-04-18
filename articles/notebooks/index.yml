@@ -65,4 +65,4 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/notebooks/azure-notebooks-samples">Exemplo de notebooks Jupyter</a>
+          - html: <a href="/azure/notebooks/azure-notebooks-samples">Exemplos de Notebooks Jupyter</a>

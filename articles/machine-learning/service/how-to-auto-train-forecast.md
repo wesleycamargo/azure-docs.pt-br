@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357238"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680852"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autotreinar um modelo de previsão de série temporal
 
@@ -34,27 +34,27 @@ Neste artigo, você aprenderá a treinar um modelo de regressão previsão de s�
 
 A diferença mais importante entre um tipo de tarefa de regressão de previsão e regressão tipo de tarefa dentro de aprendizado de máquina automatizados está incluindo um recurso em seus dados que representa uma série de tempo válido. Uma série de tempo regular tem uma frequência consistente e bem definida e tem um valor em cada ponto de amostra em um período de tempo contínuo. Considere o seguinte instantâneo de um arquivo `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Esse conjunto de dados é um exemplo simples de dados de vendas semanais de uma empresa que tem dois repositórios diferentes, A e B. Além disso, há um recurso para `week_of_year` que permitirá que o modelo detectar periodicidade semanal. O campo `week_starting` representa uma série de tempo limpo com frequência semanal e o campo `sales_quantity` é a coluna de destino para a execução de previsões. Leia os dados em um dataframe Pandas, em seguida, usar o `to_datetime` função para garantir que a série temporal é um `datetime` tipo.
+Esse conjunto de dados é um exemplo simples de dados de vendas diárias para uma empresa que tem dois repositórios diferentes, A e B. Além disso, há um recurso para `week_of_year` que permitirá que o modelo detectar periodicidade semanal. O campo `day_datetime` representa uma série de tempo limpo com frequência diária e o campo `sales_quantity` é a coluna de destino para a execução de previsões. Leia os dados em um dataframe Pandas, em seguida, usar o `to_datetime` função para garantir que a série temporal é um `datetime` tipo.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-Nesse caso, os dados já estão classificados em ordem crescente pelo campo time `week_starting`. No entanto, ao configurar um experimento, certifique-se que a coluna de período de tempo desejado é classificada em ordem crescente para criar uma série de tempo válido. Suponha que os dados contém 1.000 registros e fazer uma divisão determinística nos dados de treinamento de criar e testar conjuntos de dados. Em seguida, separar o campo de destino `sales_quantity` para criar o teste e treinar previsão conjuntos.
+Nesse caso, os dados já estão classificados em ordem crescente pelo campo time `day_datetime`. No entanto, ao configurar um experimento, certifique-se que a coluna de período de tempo desejado é classificada em ordem crescente para criar uma série de tempo válido. Suponha que os dados contém 1.000 registros e fazer uma divisão determinística nos dados de treinamento de criar e testar conjuntos de dados. Em seguida, separar o campo de destino `sales_quantity` para criar o teste e treinar previsão conjuntos.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ O `AutoMLConfig` objeto define as configurações e os dados necessários para q
 |`time_column_name`|Usado para especificar a coluna de data e hora nos dados de entrada usados para criar a série temporal e inferindo sua frequência.|✓|
 |`grain_column_names`|Nomes de definição de grupos de séries individuais nos dados de entrada. Se o detalhamento não estiver definido, o conjunto de dados é considerado uma série de tempo.||
 |`max_horizon`|Máximo desejado horizonte de previsão em unidades de frequência de série temporal.|✓|
+|`target_lags`|*n* valores antes do treinamento do modelo de destino de períodos de latência de encaminhamento.||
+|`target_rolling_window_size`|*n* períodos históricos a serem usados para gerar valores previstos, < = tamanho do conjunto de treinamento. Se omitido, *n* é o treinamento completo Definir tamanho.||
 
-Crie as configurações de série temporal como um objeto de dicionário. Defina as `time_column_name` para o `week_starting` campo no conjunto de dados. Definir a `grain_column_names` parâmetro para garantir que **dois separam grupos de série temporal** são criados para nossos dados, uma para a loja A e B. por fim, defina o `max_horizon` a 50 para prever para o teste inteiro definida.
+Crie as configurações de série temporal como um objeto de dicionário. Defina as `time_column_name` para o `day_datetime` campo no conjunto de dados. Definir a `grain_column_names` parâmetro para garantir que **dois separam grupos de série temporal** são criados para os dados, uma para a loja A e B. por fim, defina o `max_horizon` a 50 para prever para o teste inteiro definida. Configurar uma janela de previsão para 10 períodos com `target_rolling_window_size`e o destino 2 períodos em frente com os valores de latência de `target_lags` parâmetro.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,18 +145,18 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Agora que o geral foi determinada precisão do modelo, a próxima etapa mais realista é usar o modelo para prever valores futuros desconhecidos. Basta fornecer um conjunto de dados no mesmo formato que o conjunto de teste `X_test` mas com datetimes futuras e a previsão resultante conjunto é dos valores previstos para cada etapa de série temporal. Suponha que os últimos registros de série temporal no conjunto de dados foram para o início da semana de 12/31/2018. Para prever a demanda para a próxima semana (ou períodos quantos forem necessários para fazer uma previsão, < = `max_horizon`), crie um único registro de série de tempo para cada repositório para o início da semana 07/01/2019.
+Agora que o geral foi determinada precisão do modelo, a próxima etapa mais realista é usar o modelo para prever valores futuros desconhecidos. Basta fornecer um conjunto de dados no mesmo formato que o conjunto de teste `X_test` mas com datetimes futuras e a previsão resultante conjunto é dos valores previstos para cada etapa de série temporal. Suponha que os últimos registros de série temporal no conjunto de dados eram de 12/31/2018. Para prever a demanda para o próximo dia (ou períodos quantos forem necessários para fazer uma previsão, < = `max_horizon`), crie um único registro de série de tempo para cada repositório para 01/01/2019.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Repita as etapas necessárias para carregar esses dados futuros para um dataframe e, em seguida, executar `best_run.predict(X_test)` para prever valores futuros.
 
 > [!NOTE]
 > Valores não podem ser previstos para o número de períodos de maior que o `max_horizon`. O modelo deve ser treinado novamente com um limite maior para prever valores futuros, além de horizonte atual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Siga as [tutorial](tutorial-auto-train-models.md) para aprender a criar experiências com automatizados do aprendizado de máquina.
 * Modo de exibição de [SDK de aprendizado de máquina do Azure para Python](https://aka.ms/aml-sdk) documentação de referência.

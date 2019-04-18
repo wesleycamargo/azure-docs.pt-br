@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360809"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Escolher a melhor opção do Microsoft SQL Server no Azure
@@ -74,7 +74,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 
 | | Pools elásticos e bancos de dados individuais do Banco de Dados SQL | Instâncias gerenciadas do Banco de Dados SQL |Máquinas virtuais do Azure com o SQL Server |
 | --- | --- | --- |---|
-| **Melhor para:** |Novos aplicativos projetados em nuvem que desejam usar os mais recentes recursos estáveis do SQL Server e têm restrições de tempo no desenvolvimento e no marketing. | Novos aplicativos ou aplicativos locais existentes que precisam usar os recursos estáveis mais recentes do SQL Server e que são migrados para a nuvem com o mínimo de alterações.  | Aplicativos existentes que requerem uma migração rápida para a nuvem com o mínimo de alterações ou nenhuma alteração. Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção. |
+| **Mais adequado para:** |Novos aplicativos projetados em nuvem que desejam usar os mais recentes recursos estáveis do SQL Server e têm restrições de tempo no desenvolvimento e no marketing. | Novos aplicativos ou aplicativos locais existentes que precisam usar os recursos estáveis mais recentes do SQL Server e que são migrados para a nuvem com o mínimo de alterações.  | Aplicativos existentes que requerem uma migração rápida para a nuvem com o mínimo de alterações ou nenhuma alteração. Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção. |
 |  | Equipes que precisam da atualização, recuperação de desastres e alta disponibilidade interna para o banco de dados. | Mesmo que os bancos de dados individuais e em pool do Banco de Dados SQL. | Equipes que podem configurar, ajustar, personalizar e gerenciar a alta disponibilidade, a recuperação de desastre e a aplicação de patch do SQL Server. Alguns recursos automatizados fornecidos simplificam muito isso. |
 |  | Equipes que não desejam gerenciar o sistema operacional subjacente e definições de configuração. | Mesmo que os bancos de dados individuais e em pool do Banco de Dados SQL. | Você precisa de um ambiente personalizado com direitos administrativos completos. |
 |  | Bancos de dados de até 100 TB. | Até 8 TB. | Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. |
@@ -119,7 +119,7 @@ Com o **SQL Server nas VMs do Azure**, você pode usar qualquer imagem do SQL Se
 
 Quando você começar a usar uma plataforma de nuvem, o custo de execução do aplicativo incluirá os custos do novo desenvolvimento e da administração contínua, mais os custos de serviço da plataforma de nuvem pública.
 
-**Ao usar o banco de dados SQL:**
+**Ao usar o Banco de Dados SQL do Azure:**
 
 - Custos de administração altamente minimizados
 - Custos de desenvolvimento limitados para aplicativos migrados (instâncias gerenciadas)
@@ -135,9 +135,9 @@ Quando você começar a usar uma plataforma de nuvem, o custo de execução do a
 
 Para obter mais informações sobre preços, consulte os recursos a seguir:
 
-- [Preço do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 
@@ -162,7 +162,7 @@ Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA 
 
 **O SQL Server executado em VMs do Azure** é perfeito se seus aplicativos existentes ou novos exigirem bancos de dados grandes ou acesso a todos os recursos do SQL Server ou Windows / Linux e você quiser evitar o tempo e a despesa de adquirir novos hardware das instalações. Ele também é uma boa opção quando você deseja migrar aplicativos e bancos de dados locais existentes para o Azure no estado em que se encontram, nos casos em que a instância gerenciada do Banco de Dados SQL do Azure não é uma boa opção. Como você não precisa alterar as camadas de apresentação, aplicativo e dados, economiza tempo e orçamento na nova arquitetura da solução existente. Em vez disso, você pode se concentrar em migrar todas as soluções para o Azure e fazer algumas otimizações de desempenho que possam ser necessárias para a plataforma Microsoft Azure. Para obter mais informações, veja [Práticas Recomendadas de Desempenho para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-single-database-get-started.md) para uma introdução ao Banco de Dados SQL.
 - Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).

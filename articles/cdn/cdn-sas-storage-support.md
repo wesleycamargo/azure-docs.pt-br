@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918545"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Usando a CDN do Azure com SAS
@@ -86,11 +86,10 @@ Essa opção só está disponível para perfis da **CDN Premium do Azure da Veri
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Reescrita de URL CDN regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![regra de reescrita de URL da CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Regra de regravação da URL da CDN – esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Regra de regravação da URL da CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Depois que a nova regra se torna ativa, qualquer pessoa pode acessar arquivos no contêiner especificado no ponto de extremidade de CDN, independentemente de a pessoa usar ou não um token SAS na URL. Aqui está o formato:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Depois que a nova regra se torna ativa, qualquer pessoa pode acessar arquivos no contêiner especificado no ponto de extremidade de CDN, independentemente de a pessoa usar ou não um token SAS na URL. Este é o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por exemplo:    
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -125,8 +124,8 @@ Para usar a autenticação de token de segurança da CDN do Azure, você precisa
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Reescrita de URL CDN regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![regra de reescrita de URL da CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Regra de regravação da URL da CDN – esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Regra de regravação da URL da CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Se renovar a SAS, atualize a regra de regravação da URL para usar com o novo token de SAS. 
 
@@ -141,10 +140,10 @@ Como parâmetros da SAS não são visíveis para a CDN do Azure, a CDN do Azure 
 | Endereços IP permitidos | Opcional. Se estiver usando a **CDN do Azure da Verizon**, você poderá definir esse parâmetro para os intervalos definidos em [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api) (CDN do Azure de Intervalos de IP do Servidor de Borda Verizon). Se estiver usando a **CDN do Azure da Akamai**, você não poderá definir o parâmetro de intervalos de IP porque os endereços de IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para uma solicitação feita com a conta de SAS. A configuração HTTPS é recomendada.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre SAS, veja os seguintes artigos:
-- [Usando SAS (Assinaturas de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Como usar SAS (assinaturas de acesso compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar um SAS com o Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Para saber mais sobre como configurar a autenticação de token, confira [Protegendo ativos da Rede de Distribuição de Conteúdo do Azure com autenticação de token](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517531"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699023"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco no Azure Active Directory Identity Protection (atualizado)
 
@@ -41,7 +41,8 @@ O Microsoft Azure AD analisa cada entrada de um usuário. O objetivo da análise
 
 A política de risco de entrada é uma resposta automatizada que pode ser configurada para um nível de risco de entrada específico. Na resposta, você pode bloquear o acesso aos seus recursos ou exigir a transmissão de um desafio de MFA (autenticação multifator) para obter acesso.
 
-   
+Quando um usuário concluir com sucesso um prompt MFA disparado pela política de risco de entrada, ele fornece comentários para a proteção de identidade originadas na entrada de usuário legítimo. Assim, o evento de risco de entrada que disparou o prompt de MFA será fechado automaticamente e proteção de identidade impedirá que esse evento que contribuem para a elevação de risco do usuário. Habilitando a política de risco de entrada pode reduzir a complexidade quando no modo de exibição de entradas arriscadas, permitindo que os usuários solucionar por conta própria quando solicitado para o MFA e subsequentemente automaticamente fechando o associado entrada arriscada.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como acessar a política de risco de entrada?
    
 A política de risco de entrada encontra-se na seção **Configurar** na [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

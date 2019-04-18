@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006270"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Coletar métricas e logs de serviço do Azure no espaço de trabalho do Log Analytics no Azure Monitor
@@ -46,16 +46,16 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 | Balanceadores de Carga          | Microsoft.Network/loadBalancers         | Diagnósticos |             |  |
 | Aplicativos Lógicos              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnósticos | Diagnósticos | |
 | Grupos de segurança de rede | Microsoft.Network/networksecuritygroups | Diagnósticos |             | [Análise de Grupo de Segurança de Rede do Azure](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
-| Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Serviços de recuperação do Azure Analytics (visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+| Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Análise dos Serviços de Recuperação do Azure (Visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Serviços Search         | Microsoft.Search/searchServices         | Diagnósticos | Diagnósticos | |
-| Namespace do Barramento de Serviço   | Microsoft.ServiceBus/namespaces         | Diagnósticos | Diagnósticos | [Análise de barramento de serviço (visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (versão prévia)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
+| Namespace do Barramento de Serviço   | Microsoft.ServiceBus/namespaces         | Diagnósticos | Diagnósticos | [Análise do Barramento de Serviço (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (visualização)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnósticos | [Azure SQL Analytics (Visualização)](../insights/azure-sql.md) |
-| Armazenamento                 |                                         |             | Script      | [Análise de armazenamento do Azure (visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Armazenamento                 |                                         |             | Script      | [Análise do Azure Storage (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Máquinas Virtuais        | Microsoft.Compute/virtualMachines       | Extensão   | Extensão <br> Diagnósticos  | |
 | Conjuntos de dimensionamento de Máquinas Virtuais | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnósticos | |
 | Farms do servidor Web        | Microsoft.Web/serverfarms               |             | Diagnósticos | |
-| Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnósticos | [Análise de Aplicativos Web do Azure (Visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnósticos | [Análise dos Aplicativos Web do Azure (Visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

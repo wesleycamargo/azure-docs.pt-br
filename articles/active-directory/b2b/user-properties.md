@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257596"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
@@ -105,6 +105,6 @@ Sim. Por padrão, objetos convidados não são visíveis na lista de endereços 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+* [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Tokens de usuário de colaboração B2B](user-token.md)
-* [Mapeamento de declarações do usuário de colaboração de B2B](claims-mapping.md)
+* [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)

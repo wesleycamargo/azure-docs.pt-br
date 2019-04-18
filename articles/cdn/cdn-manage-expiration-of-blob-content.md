@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916794"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerenciar a expiração do armazenamento de Blobs do Azure na CDN do Azure
@@ -59,7 +59,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
    ![Página de Cache da CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Para definir cabeçalhos Cache-Control de um serviço armazenamento de Blob usando regras de cache globais:**
+**Para configurar os cabeçalho de Controle de Cache do serviço de armazenamento de Blobs usando regras de cache globais:**
 
 1. Em **Regras de cache globais**, defina **Comportamento de cache da cadeia de caracteres de consulta** para **Ignorar cadeias de consulta** e defina **Comportamento do cache** para **Substituição**.
       
@@ -71,7 +71,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
 3. Clique em **Salvar**.
  
-**Para definir cabeçalhos de Cache-Control do arquivo de um blob usando regras de cache personalizadas:**
+**Para definir os cabeçalhos de Controle de Cache do arquivo de blob usando regras de cache personalizadas:**
 
 1. Em **Personalizar regras de cache**, crie duas condições de combinação:
 
@@ -172,14 +172,14 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>API REST de serviços de armazenamento do Azure
 Você pode usar o [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/) para definir explicitamente a propriedade *x-ms-blob-cache-control* usando as seguintes operações em uma solicitação:
   
-   - [Put Blob](/rest/api/storageservices/Put-Blob)
-   - [Put Block List](/rest/api/storageservices/Put-Block-List)
-   - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties)
+   - [Colocar Blob](/rest/api/storageservices/Put-Blob)
+   - [Colocar lista de blocos](/rest/api/storageservices/Put-Block-List)
+   - [Definir propriedades de Blob](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Testando o cabeçalho de Controle de Cache
 Você pode facilmente verificar as configurações TTL dos seus blobs. Com as [ferramentas para desenvolvedores](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador, teste se o blob inclui `Cache-Control` no cabeçalho de resposta. Você também pode usar uma ferramenta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) ou [Fiddler](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+* [Saiba como gerenciar a expiração do conteúdo do Serviço de Nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
 * [Saiba mais sobre conceitos de cache](cdn-how-caching-works.md)
 

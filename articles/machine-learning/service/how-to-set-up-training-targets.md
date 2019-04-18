@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046148"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683895"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
@@ -44,7 +44,7 @@ O Serviço do Azure Machine Learning tem suporte variado nos diferentes destinos
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Análise Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Lote do Azure](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -377,7 +377,6 @@ Você pode acessar os destinos de computação associados ao seu workspace usand
 
 Para obter mais informações, veja [Gerenciamento de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Enviar execução de treinamento
 
 Depois de criar uma configuração de execução, você pode usá-la para executar seu teste.  O padrão de código para enviar uma execução de treinamento é o mesmo para todos os tipos de destinos de computação:
@@ -385,6 +384,13 @@ Depois de criar uma configuração de execução, você pode usá-la para execut
 1. Criar um experimento para executar
 1. Enviar a execução.
 1. Aguarde a conclusão da execução.
+
+> [!IMPORTANT]
+> Quando você envia a execução de treinamento, um instantâneo do diretório que contém seus scripts de treinamento é criado e enviado para o destino de computação. Ele também é armazenado como parte do experimento no seu espaço de trabalho. Se você alterar os arquivos e enviar a execução novamente, apenas os arquivos alterados serão carregados.
+>
+> Para impedir que arquivos sejam incluídos no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` arquivo no diretório e adicione os arquivos para ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) arquivo. Se os dois arquivos existem, o `.amlignore` arquivo terá precedência.
+> 
+> Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Criar uma experiência
 
@@ -399,8 +405,6 @@ Envie o experimento com um objeto `ScriptRunConfig`.  Esse objeto inclui:
 * **source_directory**: o diretório de origem que contém o script de treinamento
 * **script**: identificar o script de treinamento
 * **run_config**: a configuração de execução que, por sua vez, define em que local ocorrerá o treinamento.
-
-Ao enviar uma execução de treinamento, um instantâneo do diretório contendo os scripts de treinamento será criado e enviado ao destino de computação. Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshot).
 
 Por exemplo, para usar a configuração de [destino local](#local):
 
@@ -418,14 +422,14 @@ Ou você pode:
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
 Veja estes notebooks para obter exemplos de treinamento com vários destinos de computação:
-* [How-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usar o serviço Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)
+* [Usar o Serviço do Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

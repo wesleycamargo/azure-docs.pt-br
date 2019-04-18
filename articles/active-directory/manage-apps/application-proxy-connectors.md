@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852994"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684082"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -74,6 +74,8 @@ Para locatários com vários conectores, as atualizações automáticas destinam
 Poderá ocorrer tempo de inatividade quando o conector for atualizado se:  
 - você possui somente um conector, recomendamos que instale um segundo conector e [crie um grupo de conectores](application-proxy-connector-groups.md). Isso evitará tempo de inatividade e oferece maior disponibilidade.  
 - Um conector estava no meio de uma transação quando a atualização foi iniciada. Embora a transação inicial seja perdida, o navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
+
+Para obter informações sobre as versões lançadas anteriormente e quais alterações elas incluem, consulte [aplicativo Proxy - histórico de versão](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Criando grupos de conector
 

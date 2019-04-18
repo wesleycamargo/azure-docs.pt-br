@@ -60,8 +60,8 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelos de início rápido do Azure</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (versão prévia)</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelos de Início Rápido do Azure</a>'
+          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (Versão Prévia)</a>'
   - title: Referência
     items:
       - type: list
@@ -71,7 +71,7 @@ sections:
           - title: Modelos
             html: <p><a href="/azure/templates/">Referência de modelo</a></p><p><a href="/azure/resource-group-template-functions">Funções de modelo</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções de definição de interface do usuário</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de interface do usuário</a></p>
           - title: Linha de comando
-            html: <p><a href="/cli/azure/resource">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/resource">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell do Azure</a></p>
           - title: Languages
             html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
           - title: REST

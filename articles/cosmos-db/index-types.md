@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 5e7ee7c0bdfd0cff6be182e6d087cc264910e440
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271553"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
@@ -59,11 +59,11 @@ Aqui estão exemplos de consultas de intervalo e índices espaciais podem ser us
 
 O Azure Cosmos DB retorna um erro quando uma consulta usa ORDER BY, mas não tem um índice do Intervalo no caminho consultado com a precisão máxima.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre indexação no Azure Cosmos DB, consulte os artigos a seguir:
 
 - [Visão geral da indexação](index-overview.md)
 - [Política de indexação](indexing-policies.md)
-- [Caminhos de índice](index-paths.md)
+- [Caminhos de índices](index-paths.md)
 

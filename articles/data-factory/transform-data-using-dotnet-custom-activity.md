@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904569"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -381,11 +381,11 @@ Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.mi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
 
-* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade Hive](transform-data-using-hadoop-hive.md)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
-* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de Streaming do Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade do Spark](transform-data-using-spark.md)
-* [Atividade de execução de lote do aprendizado de máquina](transform-data-using-machine-learning.md)
-* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
+* [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
+* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
+* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

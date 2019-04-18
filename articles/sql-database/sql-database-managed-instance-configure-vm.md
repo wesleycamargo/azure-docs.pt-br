@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360490"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início Rápido: Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
@@ -45,9 +45,9 @@ As etapas a seguir criam uma sub-rede na VNet da Instância Gerenciada para uma 
 
 3. Preencha o formulário usando as informações nesta tabela:
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
-   | **NOME** | Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nome** | Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor padrão é bom para este início rápido.|
    | **Grupo de segurança de rede** | Nenhum | O valor padrão é bom para este início rápido.|
    | **Tabela de rotas** | Nenhum | O valor padrão é bom para este início rápido.|
@@ -78,16 +78,16 @@ A maneira mais fácil de criar uma máquina virtual cliente com todas as ferrame
    | ---------------- | ----------------- | ----------- |
    | **Assinatura** | Uma assinatura válida | Precisa ser uma assinatura na qual você tem permissão para criar novos recursos. |
    | **Grupo de recursos** |O grupo de recursos que você especificou no início rápido [Criar Instância Gerenciada](sql-database-managed-instance-get-started.md).|Esse grupo de recursos precisa ser aquele no qual a VNet existe.|
-   | **Local padrão** | O local para o grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
+   | **Localidade** | O local para o grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
    | **Nome da máquina virtual**  | Qualquer nome válido | Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Nome de Usuário do Administrador**|Qualquer nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "serveradmin", que é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que você [se conecta à VM](#connect-to-virtual-machine).|
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Você usa essa senha sempre que você [se conecta à VM](#connect-to-virtual-machine).|
    | **Tamanho da Máquina Virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este início rápido. |
-   | **Local padrão**|[resourceGroup().location].| Não altere esse valor. |
-   | **Nome da VNET**|A rede virtual em que você criou a instância gerenciada.|
+   | **Localidade**|[resourceGroup().location].| Não altere esse valor. |
+   | **Nome da Rede Virtual**|A rede virtual em que você criou a instância gerenciada.|
    | **Nome da sub-rede**|O nome da sub-rede que você criou no procedimento anterior| Não escolha a sub-rede na qual você criou a Instância Gerenciada.|
    | **Localização de artefatos** | [deployment().properties.templateLink.uri] | Não altere esse valor. |
-   | **token de Sas de localização de artefatos** | deixar em branco | Não altere esse valor. |
+   | **token SAS de Localização de artefatos** | deixar em branco | Não altere esse valor. |
 
    ![criar VM cliente](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

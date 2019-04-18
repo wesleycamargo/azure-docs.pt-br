@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496549"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Criar um aplicativo Web de página única da Pesquisa Visual
@@ -123,4 +123,4 @@ Com todos os elementos de código JavaScript e HTML em vigor, os resultados da p
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Recortar uma imagem no SDK da Pesquisa Visual do Bing para C#](tutorial-visual-search-crop-area-results.md)
+> [Tutorial: Recortar uma imagem com o SDK de pesquisa Visual do Bing paraC#](tutorial-visual-search-crop-area-results.md)

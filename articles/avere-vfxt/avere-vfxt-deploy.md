@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: v-erkell
 ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257307"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implantar cluster vFXT
@@ -29,7 +29,7 @@ Depois de seguir as instruções neste documento, você terá uma rede virtual, 
 Antes de usar o modelo de criação, verifique se você resolveu estes pré-requisitos:  
 
 1. [Nova assinatura](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Permissões de proprietário de assinatura](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+1. [Permissões do proprietário da assinatura](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Cota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Extremidade de serviço de armazenamento (se necessário)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – obrigatório para implanta usando uma rede virtual existente e criar o armazenamento de BLOBs
 

@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501052"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer declarações opcionais para seu aplicativo do AD do Azure
@@ -78,7 +78,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 Essas declarações são sempre incluídas nos tokens do Azure AD v 1.0, mas não incluídas em tokens da v2.0, a menos que solicitado. Essas declarações só são aplicáveis a JWTs (tokens de ID e Tokens de acesso). 
 
-**Tabela 3: Declarações opcionais somente v 2.0**
+**Tabela 3: Declarações opcionais somente V2.0**
 
 | Declaração JWT     | NOME                            | DESCRIÇÃO                                | Observações |
 |---------------|---------------------------------|-------------|-------|
@@ -98,13 +98,13 @@ Essas declarações são sempre incluídas nos tokens do Azure AD v 1.0, mas nã
 
 Algumas declarações opcionais podem ser configuradas para alterar o modo como a declaração é retornada. Essas propriedades adicionais são usadas principalmente para ajudar a migração de aplicativos locais com expectativas de dados diferentes (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não podem manipular marcas (`#`) no UPN)
 
-**Tabela 4: Valores de configuração de declarações opcionais**
+**Tabela 4: Valores de configuração para declarações opcionais**
 
 | Nome da propriedade  | Nome de Propriedade Adicional | DESCRIÇÃO |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | Mesmo que acima, exceto que marca o hash (`#`) são substituídos por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -196,7 +196,7 @@ Para atributos de extensão, use o nome completo da extensão (no formato: `exte
 
 No JWT, essas declarações serão emitidas com o seguinte formato de nome: `extn.<attributename>`.
 
-Em tokens SAML, essas declarações serão emitidas com o seguinte formato URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Em tokens SAML, essas declarações serão emitidas com o seguinte formato de URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="optional-claims-example"></a>Exemplo de declarações opcional
 
@@ -243,7 +243,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 1. Quando terminar de atualizar o manifesto, clique em **Salvar** para salvar o manifesto
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as declarações padrão fornecidas pelo Azure AD.
 

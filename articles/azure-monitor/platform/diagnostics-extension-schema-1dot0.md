@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492712"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
@@ -207,7 +207,7 @@ Atributos:
 
 |Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
-|**caminho**|cadeia de caracteres|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
+|**path**|cadeia de caracteres|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
 |**expandEnvironment**|booleano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
@@ -219,7 +219,7 @@ Atributos:
 
 |Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
-|**Nome**|cadeia de caracteres|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
+|**name**|cadeia de caracteres|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
 |**relativePath**|cadeia de caracteres|Obrigatório. O caminho relativo a um recurso local a ser monitorado.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
@@ -269,5 +269,5 @@ Atributos:
 
 |Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
-|**Nome**|cadeia de caracteres|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
+|**name**|cadeia de caracteres|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido do aplicativo Web do Azure AD v2.0 ASP.NET Core | Microsoft Docs
+title: Início rápido do aplicativo Web ASP.NET Core na plataforma de identidade da Microsoft | Azure
 description: Saiba como implementar a Entrada da Microsoft em um aplicativo Web do ASP.NET Core usando o OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005661"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579454"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005661"
 
 Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode autenticar contas pessoais (hotmail.com, outlook.com, outras) e contas corporativas e de estudante de qualquer instância do Azure AD (Azure Active Directory).
 
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -55,9 +55,9 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 > 1. Selecione **Novo registro**.
 > 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
 >    - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `AspNetCore-Quickstart`.
->    - Na **URL de Resposta**, adicione `https://localhost:44321/` e selecione **Registrar**.
+>    - Na **URI de redirecionamento**, adicione `https://localhost:44321/` e selecione **Registrar**.
 > 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
->    - Na **URL de Resposta**, adicione `https://localhost:44321/signin-oidc` e selecione **Registrar**.
+>    - Nas **URIs de redirecionamento**, adicione `https://localhost:44321/signin-oidc` e selecione **Salvar**.
 >    - Na seção **Configurações avançadas**, defina **URL de Saída** como `https://localhost:44321/signout-oidc`.
 >    - Sob **Concessão implícita**, marque **Tokens de ID**.
 >    - Clique em **Salvar**.
@@ -69,7 +69,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 > > [Fazer essa alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) Seu aplicativo está configurado com esses atributos.
+> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Etapa 2: Baixar o projeto do ASP.NET Core
 
@@ -88,11 +88,11 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` – é a **ID do aplicativo (cliente)** para o aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
-> - `Enter_the_Tenant_Info_Here` – é uma das seguintes opções:
+> - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** para o aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
+> - `Enter_the_Tenant_Info_Here` - é uma das seguintes opções:
 >   - Se seu aplicativo dá suporte a **Contas apenas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
->   - Se o aplicativo der suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->   - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, substitua esse valor por `common`
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,18 @@ public void ConfigureServices(IServiceCollection services)
 
 O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, além de definir o desafio para OpenId Connect. 
 
-A linha que contém `.AddAzureAd` adiciona a autenticação do Azure AD ao aplicativo. Em seguida, ele é configurado para entrar usando o ponto de extremidade do Azure AD v2.0.
+A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para se conectar usando o ponto de extremidade de plataforma de identidade da Microsoft.
 
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | ID do aplicativo (cliente) do aplicativo registrado no portal do Azure. |
 > | Authority | O ponto de extremidade do STS para o usuário autenticar. Geralmente, é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {tenant} é o nome ou Id do seu locatário, ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
 > | TokenValidationParameters | Uma lista de parâmetros para validação de token. Nesse caso, `ValidateIssuer` é definido como `false` para indicar que pode aceitar entradas de quaisquer contas corporativas, de estudante ou pessoais. |
+
+
+> [!NOTE]
+> A configuração de `ValidateIssuer = false` é uma simplificação para este início rápido. Em aplicativos reais, você precisa validar o emissor.
+> Consulte os exemplos para entender como fazer isso.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou um método do controlador
 
@@ -154,8 +159,7 @@ Você pode proteger um controlador ou métodos do controlador usando o atributo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o repositório do GitHub deste Início rápido do ASP.NET Core para saber mais, incluindo instruções sobre como adicionar autenticação a um aplicativo Web do ASP.NET Core totalmente novo:
+Confira o repositório do GitHub para este tutorial do ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação a um novo aplicativo Web do ASP.NET Core, como chamar o Microsoft Graph e outras APIs da Microsoft, como chamar suas próprias APIs, como adicionar autorização, como conectar usuários nas nuvens nacionais ou com identidades sociais e muito mais:
 
 > [!div class="nextstepaction"]
-> [Exemplo de código do aplicativo Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [Tutorial do aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

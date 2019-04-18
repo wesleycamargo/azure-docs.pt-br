@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257902"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 
-*Este artigo se aplica aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOBs do Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [do Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [o armazenamento de arquivos do Azure](connector-azure-file-storage.md), [Sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [do Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [ SFTP](connector-sftp.md).*
+*Este artigo se aplica aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob do Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Armazenamento de Arquivos do Azure](connector-azure-file-storage.md), [Sistema de Arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Armazenamento em Nuvem do Google](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
 
 Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. Se você quiser **analisar ou gerar arquivos com um formato específico**, o Azure Data Factory dará suporte aos seguintes tipos de formato de arquivo:
 
@@ -45,7 +45,7 @@ Se você quiser ler um arquivo de texto ou gravar em um arquivo de texto, defina
 | encodingName |Especifique o nome de codificação. |Um nomes de codificação válido. Consulte [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não  |
 | firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |True<br/><b>False (padrão)</b> |Não  |
 | skipLineCount |Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. Se skipLineCount e firstRowAsHeader forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Número inteiro |Não  |
-| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>False |Não  |
+| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não  |
 
 ### <a name="textformat-example"></a>Exemplo de TextFormat
 
@@ -103,11 +103,11 @@ Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON,
 
 A atividade de cópia pode analisar os padrões de arquivos JSON a seguir:
 
-- **Type I: setOfObjects**
+- **Tipo I: setOfObjects**
 
     Cada arquivo contém um único objeto ou vários objetos concatenados/delimitados por linhas. Quando essa opção é escolhida em um conjunto de dados de saída, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitados por linha).
 
-    * **exemplo de JSON de objeto único**
+    * **Exemplo de JSON de objeto único**
 
         ```json
         {
@@ -120,7 +120,7 @@ A atividade de cópia pode analisar os padrões de arquivos JSON a seguir:
         }
         ```
 
-    * **exemplo de JSON delimitado por linha**
+    * **Exemplo de JSON delimitado por linha**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -128,7 +128,7 @@ A atividade de cópia pode analisar os padrões de arquivos JSON a seguir:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **exemplo de JSON concatenado**
+    * **Exemplo de JSON concatenado**
 
         ```json
         {
@@ -194,7 +194,7 @@ A atividade de cópia pode analisar os padrões de arquivos JSON a seguir:
 
 **Caso 1: Copiar dados de arquivos JSON**
 
-**Exemplo 1: extrair dados de objeto e matriz**
+**Exemplo 1: extrair dados de objeto e de matriz**
 
 Neste exemplo, você espera que um objeto JSON de raiz seja mapeado para um único registro no resultado tabular. Se você tiver um arquivo JSON com o seguinte conteúdo:  
 
@@ -230,8 +230,8 @@ e quiser copiá-lo para uma tabela SQL do Azure no formato a seguir, ao extrair 
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- `structure` seção define os nomes de coluna personalizado e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Para obter mais informações, consulte [Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica onde extrair os dados. Para copiar dados de matriz, você pode usar `array[x].property` para extrair o valor da determinada propriedade do objeto `xth` ou usar `array[*].property` para localizar o valor de qualquer objeto que contenha essa propriedade.
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Para obter mais informações, consulte [Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, você pode usar `array[x].property` para extrair o valor da determinada propriedade do objeto `xth` ou usar `array[*].property` para localizar o valor de qualquer objeto que contenha essa propriedade.
 
 ```json
 "properties": {
@@ -268,7 +268,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 }
 ```
 
-**Exemplo 2: cruzar aplicar vários objetos com o mesmo padrão de matriz**
+**Exemplo 2: cruzar aplicar vários objetos com o mesmo padrão da matriz**
 
 Neste exemplo, você espera transformar um objeto JSON de raiz em vários registros no resultado tabular. Se você tiver um arquivo JSON com o seguinte conteúdo:
 
@@ -305,9 +305,9 @@ e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao ni
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte maneira: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- `structure` seção define os nomes de coluna personalizado e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Para obter mais informações, consulte [Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão em **array** `orderlines`.
-- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate` e `city` estão sob o objeto raiz com o caminho do JSON começando com `$.`, enquanto `order_pd` e `order_price` estão definidos com um caminho derivado do elemento da matriz sem `$.`.
+- A seção `structure` define os nomes de coluna personalizada e o tipo de dados correspondente ao converter em dados tabulares. Esta seção é **opcional**, a menos que você tenha de fazer o mapeamento de colunas. Para obter mais informações, consulte [Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
+- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão da **matriz** `orderlines`.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate` e `city` estão sob o objeto raiz com o caminho do JSON começando com `$.`, enquanto `order_pd` e `order_price` estão definidos com um caminho derivado do elemento da matriz sem `$.`.
 
 ```json
 "properties": {
@@ -352,7 +352,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 * Se houver nomes duplicados no mesmo nível, a atividade de cópia selecionará o último entre eles.
 * Os nomes de propriedade diferenciam maiúsculas de minúsculas. Duas propriedades com o mesmo nome, mas com maiúsculas e minúsculas diferentes são tratadas como duas propriedades separadas.
 
-**Caso 2: Gravar dados em um arquivo JSON**
+**Caso 2: Gravar dados no arquivo JSON file**
 
 Se você tiver a tabela a seguir no Banco de Dados SQL:
 
@@ -589,11 +589,11 @@ Você também pode criar essa funcionalidade usando uma atividade dotnet persona
 
 Consulte os artigos a seguir para armazenamentos de dados baseados em arquivo com suporte pelo Azure Data Factory:
 
-- [Conector de armazenamento de BLOBs do Azure](connector-azure-blob-storage.md)
-- [Conector do Azure Data Lake Store](connector-azure-data-lake-store.md)
-- [Conector do Amazon S3](connector-amazon-simple-storage-service.md)
-- [Conector do sistema de arquivos](connector-file-system.md)
-- [Conector de FTP](connector-ftp.md)
-- [Conector de SFTP](connector-sftp.md)
-- [Conector do HDFS](connector-hdfs.md)
-- [Conector HTTP](connector-http.md)
+- [Azure Blob Storage connector](connector-azure-blob-storage.md) (Conector do Armazenamento de Blobs do Azure)
+- [Azure Data Lake Store connector](connector-azure-data-lake-store.md) (Conector do Azure Data Lake Store)
+- [Amazon S3 connector](connector-amazon-simple-storage-service.md) (Conector do Amazon S3)
+- [File System connector](connector-file-system.md) (Conector de sistema de arquivos)
+- [FTP connector](connector-ftp.md) (Conector de FTP)
+- [SFTP connector](connector-sftp.md) (Conector de SFTP)
+- [HDFS connector](connector-hdfs.md) (Conector de HDFS)
+- [HTTP connector](connector-http.md) (Conector de HTTP)

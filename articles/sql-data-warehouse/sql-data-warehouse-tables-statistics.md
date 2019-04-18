@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279764"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estatísticas de tabela no Azure SQL Data Warehouse
@@ -78,7 +78,7 @@ O seguinte são recomendações atualizando estatísticas:
 |||
 |-|-|
 | **Frequência de atualizações de estatísticas**  | Conservadora: Diário </br> Depois de carregar ou transformar os dados |
-| **amostragem** |  Menos de 1 bilhão de linhas, use a amostragem padrão (20 por cento). </br> Com mais de 1 bilhão de linhas, use a amostragem de dois por cento. |
+| **Amostragem** |  Menos de 1 bilhão de linhas, use a amostragem padrão (20 por cento). </br> Com mais de 1 bilhão de linhas, use a amostragem de dois por cento. |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 

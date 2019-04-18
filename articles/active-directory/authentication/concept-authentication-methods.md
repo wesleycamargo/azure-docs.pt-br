@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360641"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
@@ -236,9 +236,9 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Habilitar o serviço de autoatendimento redefinição de senha para sua organização](quickstart-sspr.md)
+[Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
 
-[Habilitar autenticação multifator do Azure para sua organização](howto-mfa-getstarted.md)
+[Ativar a autenticação de vários fatores do Azure para sua organização](howto-mfa-getstarted.md)
 
 [Habilite o registro combinado no seu locatário](howto-registration-mfa-sspr-combined.md)
 

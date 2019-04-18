@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918222"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
@@ -63,7 +63,7 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 > 
 > Funcionalidade semelhante está disponível na API do Hub do Translator. Veja [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Configurar um sistema de idioma personalizado usando um conversor personalizado](https://aka.ms/CustomTranslatorDocs)
+> [Configurar um sistema de idioma personalizado usando o Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs)

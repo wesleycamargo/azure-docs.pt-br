@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268510"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys em um serviço com estado
 
-`HttpSysCommunicationListener` Atualmente, não foi projetado para uso em serviços com estado devido a complicações com subjacente *HTTP. sys* recurso de compartilhamento de porta. Para obter mais informações, consulte a seção a seguir sobre a alocação de porta dinâmica com o HttpSys. Para serviços com estado, o Kestrel é o servidor Web recomendado.
+O `HttpSysCommunicationListener` no momento não é projetado para uso em serviços com estado, devido a complicações com o recurso de compartilhamento de porta subjacente, *http.sys*. Para obter mais informações, consulte a seção a seguir sobre a alocação de porta dinâmica com o HttpSys. Para serviços com estado, o Kestrel é o servidor Web recomendado.
 
 ### <a name="endpoint-configuration"></a>Configuração de ponto de extremidade
 
@@ -510,7 +510,7 @@ Os serviços com monitoração de estado que são chamados apenas de dentro do c
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

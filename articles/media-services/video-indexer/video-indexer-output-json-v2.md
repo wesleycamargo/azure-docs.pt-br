@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280206"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
@@ -576,7 +576,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |NOME|DESCRIÇÃO|
 |---|---|
 |ID|A ID do efeito de áudio.|
-|Tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -820,7 +820,7 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Portal do desenvolvedor do indexador de vídeo](https://api-portal.videoindexer.ai)
+[Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai)
 
 Para obter informações sobre como incorporar widgets em seu aplicativo, consulte [Incorporar widgets do Video Indexer aos seus aplicativos](video-indexer-embed-widgets.md). 
 

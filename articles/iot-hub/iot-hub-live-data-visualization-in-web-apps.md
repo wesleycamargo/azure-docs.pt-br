@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 070f37a969411cfc4caf5f2d2b089ccfae759ca2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270873"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683184"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure
 
@@ -35,13 +35,13 @@ Neste tutorial, você aprenderá como visualizar dados de sensor em tempo real q
 
 ## <a name="what-you-need"></a>O que você precisa
 
-* [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) que aborda os seguintes requisitos:
+* Conclua o [simulador online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial ou um dos tutoriais dispositivo; por exemplo, [Raspberry Pi com Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes abrangem os seguintes requisitos:
 
   * Uma assinatura ativa do Azure
   * Um Hub IoT em sua assinatura
   * Um aplicativo cliente que envia mensagens para o seu Hub IoT
 
-* [Baixar o Git](https://www.git-scm.com/downloads)
+* [Baixar Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
@@ -114,7 +114,7 @@ Você deve ver os dados de temperatura e umidade em tempo real de seu Hub IoT.
 > [!NOTE]
 > Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você receberá um gráfico em branco, você pode consultar os tutoriais em [configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você usou com êxito seu aplicativo Web para visualizar dados do sensor em tempo real do seu Hub IoT.
 

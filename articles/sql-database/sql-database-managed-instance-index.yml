@@ -69,16 +69,15 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="sql-database-managed-instance#business-critical-service-tier">Camada Comercialmente Crítico</a> agora está na <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">Disponibilidade Geral (GA)</a>.'
-          - html: '(Versão prévia) Crie <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança do servidor do Azure AD (logons) em nível de instância</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.'
-          - html: '(Versão prévia) Criar instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento em nível de servidor de sua escolha</a>.'
-          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar retenção de backup de 35 dias</a> para restauração Ponto no tempo. Observe que a retenção de longo prazo (até 10 anos) ainda não está habilitada, você pode usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.'
-          - html: '(versão prévia) Use <a href="https://aka.ms/managed-instance-failover-groups">Grupos de failover distribuídos geograficamente</a> para manter uma cópia da instância em outra região e assegurar que seus dados estejam disponíveis até mesmo no cenário de desastre regional.'
-          - html: '(Versão prévia) <a href="https://aka.ms/managed-instance-tde-byok">Traga suas próprias chaves de criptografia</a> enquanto a migração de bancos de dados local que já tiver habilitado a Transparent Data Encryption (TDE).'
-          - html: Instâncias gerenciadas são protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
-          - html: '(Visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Recriar descartado bancos de dados usando o PowerShell</a>'
-          - html: 'Funcionalidade de restauração geográfica permite que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar seu banco de dados para outro data center usando o PowerShell</a>.'
           - html: '(Visualização) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuso horário de configurar</a> durante a criação de instância.'
+          - html: 'Funcionalidade de restauração geográfica permite que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar seu banco de dados para outro data center usando o PowerShell</a>.'
+          - html: '(Visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Recriar descartado bancos de dados usando o PowerShell</a>'
+          - html: Instâncias gerenciadas são protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
+          - html: '(Versão prévia) <a href="https://aka.ms/managed-instance-tde-byok">Traga suas próprias chaves de criptografia</a> enquanto a migração de bancos de dados local que já tiver habilitado a Transparent Data Encryption (TDE).'
+          - html: '(versão prévia) Use <a href="https://aka.ms/managed-instance-failover-groups">Grupos de failover distribuídos geograficamente</a> para manter uma cópia da instância em outra região e assegurar que seus dados estejam disponíveis até mesmo no cenário de desastre regional.'
+          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar retenção de backup de 35 dias</a> para restauração Ponto no tempo. Observe que a retenção de longo prazo (até 10 anos) ainda não está habilitada, você pode usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.'
+          - html: '(Versão prévia) Criar instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento em nível de servidor de sua escolha</a>.'
+          - html: '(Versão prévia) Crie <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança do servidor do Azure AD (logons) em nível de instância</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.'
   - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph

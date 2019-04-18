@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579403"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683564"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API GenerateAnswer e metadados
 
@@ -46,7 +46,7 @@ Você usa a API do GenerateAnswer no bot ou aplicativo para consultar a base de 
 Após publicar a base de dados de conhecimento, a partir do [portal do QnA Maker](https://www.qnamaker.ai), ou usando a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), será possível obter os detalhes do ponto de extremidade do GenerateAnswer.
 
 Para obter os detalhes do ponto de extremidade:
-1. Faça logon em [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. Entre em [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. Em **Minhas bases de dados de conhecimento**, clique em **Exibir Código** para a base de dados de conhecimento.
     ![minhas bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
@@ -64,7 +64,7 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
 O **URL de solicitação** tem o seguinte formato: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |Propriedade de solicitação HTTP|NOME|Type|Finalidade|
@@ -84,7 +84,7 @@ O corpo JSON tem várias configurações:
 |`top`|opcional|inteiro|o número de resultados classificados para incluir na saída. O valor padrão é 1.|
 |`userId`|opcional|cadeia de caracteres|ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.|
 |`isTest`|opcional|booleano|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
-|`strictFilters`|opcional|cadeia de caracteres|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados.|
+|`strictFilters`|opcional|cadeia de caracteres|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados. Use `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -202,7 +202,7 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A página de publicação também fornece informações para gerar uma resposta com [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 

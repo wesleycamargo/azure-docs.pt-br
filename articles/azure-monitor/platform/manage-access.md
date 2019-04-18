@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276398"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar dados de log e espaços de trabalho no Azure Monitor
@@ -35,8 +35,8 @@ Para criar um espaço de trabalho do Log Analytics, você precisa:
 
 Consulte os seguintes artigos para obter detalhes sobre como criar um espaço de trabalho:
 
-- [Criar um espaço de trabalho do Log Analytics no Portal do Azure](../learn/quick-create-workspace.md)
-- [Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md)
+- [Criar um espaço de trabalho do Log Analytics com a CLI 2.0 do Azure](../learn/quick-create-workspace-cli.md)
 - [Criar um espaço de trabalho do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de workspaces que você precisa

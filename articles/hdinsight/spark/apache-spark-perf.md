@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283062"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar trabalhos do Apache Spark
@@ -33,7 +33,7 @@ Versões anteriores do Spark usam RDDs para dados abstrato, Spark 1.3, e 1.6 int
     * Acesso direto à memória.
     * Baixa sobrecarga de coleta de lixo (GC).
     * Não é tão amigável para desenvolvedores como os Conjuntos de Dados, pois não há verificações de tempo de compilação ou programação de objeto de domínio.
-* **DataSets**
+* **Conjuntos de Dados**
     * Bom em pipelines ETL complexos, onde o impacto no desempenho é aceitável.
     * Não é bom em agregações onde o impacto no desempenho pode ser considerável.
     * Fornece otimização de consulta através do Catalyst.
@@ -63,7 +63,7 @@ Ao criar um novo cluster Spark, você terá a opção de selecionar Armazenament
 | Armazenamento do Blobs do Azure | **wasb[s]:**//url/ | **Standard** | Sim | Cluster transitório |
 | Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Mais rápido** | Sim | Cluster transitório |
 | Azure Data Lake Store Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Cluster transitório |
-| HDFS local | **hdfs:**//url/ | **Mais rápido** | Não  | Cluster interativo 24/7 |
+| HDFS local | **hdfs:**//url/ | **Mais rápida** | Não  | Cluster interativo 24/7 |
 
 ## <a name="use-the-cache"></a>Usar o cache
 
@@ -78,7 +78,7 @@ O Spark fornece os próprios mecanismos de cache nativo que podem ser utilizados
     * Usa cache SSD e em memória.
 
 * HDFS local (recomendado)
-    * `hdfs://mycluster` caminho.
+    * caminho `hdfs://mycluster`.
     * Usa cache SSD.
     * Os dados armazenados em cache serão perdidos ao excluir o cluster, e que será necessário recompilar o cache.
 
@@ -160,9 +160,9 @@ Dependendo da carga de trabalho do cluster Spark, você poderá determinar que u
 
 Aqui, são apresentado alguns parâmetros comuns que podem ser ajustados:
 
-* `--num-executors` Define o número apropriado de executores.
-* `--executor-cores` Define o número de núcleos para cada executor. Normalmente, você deverá ter executores de tamanho médio, pois outros processos consomem parte da memória disponível.
-* `--executor-memory` Define o tamanho da memória para cada executor, que controla o tamanho do heap no YARN. É necessário deixar alguma memória para sobrecarga de execução.
+* `--num-executors` define o número apropriado de executores.
+* `--executor-cores` define o número de núcleos para cada executor. Normalmente, você deverá ter executores de tamanho médio, pois outros processos consomem parte da memória disponível.
+* `--executor-memory` define o tamanho da memória para cada executor, que controla o tamanho de heap no YARN. É necessário deixar alguma memória para sobrecarga de execução.
 
 ### <a name="select-the-correct-executor-size"></a>Selecionar o tamanho correto de executor
 
@@ -215,7 +215,7 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 * [Depurar trabalhos do Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
 * [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
-* [Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster Apache Spark](apache-spark-livy-rest-interface.md)
+* [Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do Apache Spark](apache-spark-livy-rest-interface.md)
 * [Ajuste do Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Como realmente ajustar o Apache Spark trabalhos então eles funcionam](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Como realmente ajustar o funcionamento dos trabalhos do Apache Spark](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Serialização Kryo](https://github.com/EsotericSoftware/kryo)

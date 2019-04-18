@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268340"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677877"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: Análise técnica aprofundada
 
@@ -44,7 +44,7 @@ O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [a
 - A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada conta de computador terá sua própria chave de descriptografia Kerberos exclusiva.
 
 >[!IMPORTANT]
-> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada. Store a conta de computador em uma UO (unidade organizacional) onde eles estejam protegidos contra exclusões acidentais e somente os administradores de domínio têm acesso. A chave de descriptografia do Kerberos na conta de computador também deve ser tratada como confidenciais. É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
+> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Somente os administradores de domínio deve ser capazes de gerenciar a conta de computador. Certifique-se de que a delegação Kerberos na conta de computador está desabilitada e que nenhuma outra conta no Active Directory tem permissões de delegação `AZUREADSSOACC` conta de computador... Store a conta de computador em uma UO (unidade organizacional) onde eles estejam protegidos contra exclusões acidentais e somente os administradores de domínio têm acesso. A chave de descriptografia do Kerberos na conta de computador também deve ser tratada como confidenciais. É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
 
 Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows).
 
@@ -93,7 +93,7 @@ O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
 
 ![Logon Único Contínuo - Fluxo de Aplicativo Nativo](./media/how-to-connect-sso-how-it-works/sso14.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [**Início Rápido** ](how-to-connect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) – respostas para perguntas frequentes.

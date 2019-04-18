@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426436"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
@@ -140,7 +140,7 @@ Latência de rede é regida pela velocidade da luz em uma rede de fibra óptica.
 
 | | | | |
 |-|-|-|-|
-|**Rota**|**Distância**|**Tempo unidirecional**|**RTT**|
+|**Route**|**distância**|**Tempo unidirecional**|**RTT**|
 |Nova Iorque para San Francisco|4,148 km|21 ms|42 ms|
 |Nova York para Londres|5,585 km|28 ms|56 ms|
 |Nova York para Sydney|15,993 km|80 ms|160 ms|
@@ -386,6 +386,6 @@ Além disso, tenha em mente que alguns retransmissão e ACKs duplicados são nor
 
 Ainda assim, esses tipos de pacote são indicações de que a taxa de transferência TCP não estiver obtendo o máximo desempenho, pelos motivos discutidos em outras seções deste artigo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu sobre ajuste de desempenho de TCP/IP para VMs do Azure, você talvez queira ler sobre outras considerações para o [planejamento de redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como conectar e configurar as redes virtuais ](https://docs.microsoft.com/en-us/azure/virtual-network/).

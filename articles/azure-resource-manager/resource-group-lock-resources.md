@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360450"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas 
@@ -70,12 +70,12 @@ Ao usar um modelo do Resource Manager para implantar um bloqueio, você usa valo
 
 Ao aplicar um bloqueio para um **recurso**, usar os seguintes formatos:
 
-* nome – `{resourceName}/Microsoft.Authorization/{lockName}`
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
 * tipo- `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Ao aplicar um bloqueio para um **grupo de recursos** ou **assinatura**, usar os seguintes formatos:
 
-* nome – `{lockName}`
+* name - `{lockName}`
 * tipo- `Microsoft.Authorization/locks`
 
 O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo, um site da Web e um bloqueio no site da Web. O tipo de recurso do bloqueio é o tipo de recurso do recurso a ser bloqueado e **/providers/bloqueios**. O nome do bloqueio é criado por meio da concatenação do nome do recurso com **/Microsoft.Authorization/** e o nome do bloqueio.
@@ -236,7 +236,7 @@ Na solicitação, inclua um objeto JSON que especifica as propriedades do bloque
       }
     } 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a organização lógica de recursos, confira [Usando marcas para organizar os recursos](resource-group-using-tags.md)
 * É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, veja [O que é o Azure Policy?](../governance/policy/overview.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).

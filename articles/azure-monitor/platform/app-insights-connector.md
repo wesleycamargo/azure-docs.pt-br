@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905691"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
@@ -49,12 +49,12 @@ Ao usar a solução, você pode:
 
 Ao contrário da maioria das outras soluções do Log Analytics, os dados não são coletados para o Conector do Application Insights por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Com suporte | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não  | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de Armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações do armazenamento do Azure. |
+| [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não  | A solução não coleta informações do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -97,7 +97,7 @@ Clique no bloco **Application Insights** para abrir o painel **Application Insig
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
 
 
-| **Coluna** | **DESCRIÇÃO** |
+| **Coluna** | **Descrição** |
 | --- | --- |
 | Aplicativos – Número de aplicativos | Mostra o número de aplicativos nos recursos do Aplicativo. Também lista os nomes de aplicativo e para cada um, a contagem de registros do aplicativo. Clique no número para executar uma pesquisa de logs para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Clique em um nome de aplicativo para executar uma pesquisa de logs no aplicativo, que mostra registros de aplicativos por host, registros por tipo de telemetria e todos os dados por tipo (com base no último dia). |
 | Volume de Dados – hosts que enviam os dados | Mostra o número de hosts do computador que estão enviando dados. Também lista os hosts do computador e a contagem de registros de cada host. Clique no número para executar uma pesquisa de logs para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Clique em um nome do computador para executar uma pesquisa de logs no host, que mostra registros de aplicativos por host, registros por tipo de telemetria e todos os dados por tipo (com base no último dia). |

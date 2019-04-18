@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046165"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
@@ -286,7 +286,7 @@ O blob do Azure é um armazenamento em nuvem confiável e econômico para pequen
 
 ![Captura de tela do Gerenciador de Armazenamento do Microsoft Azure acessando uma Conta de Armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**Mova dados de VM para BLOBs do Azure: AzCopy**
+**Mover dados da VM para o Blob do Azure: AzCopy**
 
 Para mover dados entre seus arquivos locais e o armazenamento de blobs, você pode usar AzCopy na linha de comando ou no PowerShell:
 
@@ -311,20 +311,20 @@ Depois de executar o comando AzCopy para copiar um blob do Azure, seu arquivo se
 
 ![Captura de tela da conta de armazenamento, exibindo o arquivo CSV carregado](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Mova dados de VM para BLOBs do Azure: Gerenciador de Armazenamento do Azure**
+**Mover dados da VM para o Blob do Azure: Gerenciador de Armazenamento do Microsoft Azure**
 
 Você também pode carregar dados do arquivo local na VM usando o Gerenciador de Armazenamento do Azure:
 
-* Para carregar dados em um contêiner, selecione o contêiner de destino e clique no **carregue** botão.![ Captura de tela do botão carregar no Gerenciador de armazenamento do Azure](./media/vm-do-ten-things/storage-accounts.png)
-* Clique no **...**  à direita do **arquivos** , selecione um ou vários arquivos para carregar do sistema de arquivos e clique em **carregar** para começar a carregar os arquivos.![ Captura de tela da caixa de diálogo upload de arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Para carregar dados em um contêiner, selecione o contêiner de destino e clique no botão **Carregar**. ![Captura de tela do botão de carregamento no Gerenciador de Armazenamento do Microsoft Azure](./media/vm-do-ten-things/storage-accounts.png)
+* Clique em **...** à direita da caixa **Arquivos**, selecione um ou vários arquivos para carregar no sistema de arquivos e clique em **Carregar** para começar a carregar os arquivos.![Captura de tela da caixa de diálogo para carregar arquivos](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Ler dados do Blob do Azure: Módulo de leitor do Machine Learning**
+**Ler dados do Blob do Azure: Módulo de leitor do Azure Machine Learning**
 
 No Azure Machine Learning Studio, é possível usar um **módulo Importar Dados** para ler dados do blob.
 
 ![Captura de tela do módulo Importar Dados no Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Ler dados do Blob do Azure: Python ODBC**
+**Ler os dados de Blob do Azure: Python ODBC**
 
 Você pode usar **BlobService** biblioteca para ler dados diretamente do blob em um Notebook Jupyter ou em um programa Python.
 
@@ -389,7 +389,7 @@ O Armazenamento do Azure Data Lake é um repositório de grande escala para carg
 
 ![Captura de tela das ferramentas do Data Lake no Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**Mova dados da VM para o Data Lake: Azure Data Lake Explorer**
+**Mover dados da VM para o Data Lake: Azure Data Lake Explorer**
 
 Você pode usar o **Gerenciador do Azure Data Lake** para carregar dados dos arquivos locais em sua Máquina Virtual para o armazenamento do Data Lake.
 
@@ -397,7 +397,7 @@ Você pode usar o **Gerenciador do Azure Data Lake** para carregar dados dos arq
 
 Compile também um pipeline de dados para operacionalizar a movimentação de dados, entre o Azure Data Lake, usando o [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Veja este [artigo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) que vai orientá-lo pelas etapas de criação dos pipelines de dados.
 
-**Ler dados do Blob do Azure ao Data Lake: U-SQL**
+**Ler dados no Blob do Azure para Data Lake: U-SQL**
 
 Se os dados residirem no Armazenamento de Blobs, você poderá lê-los diretamente no blob do armazenamento do Azure na consulta U-SQL. Antes de compor a consulta U-SQL, verifique se sua conta de Armazenamento de Blobs está vinculada ao Azure Data Lake. Acesse o **Portal do Azure**, encontre o painel do Azure Data Lake Analytics, clique em **Adicionar Fonte de Dados**, escolha o tipo de armazenamento como **Armazenamento do Azure** e insira o Nome e a Chave da Conta de Armazenamento do Azure. Então você poderá fazer referência aos dados armazenados na conta de armazenamento.
 
@@ -453,7 +453,7 @@ Depois que a consulta for enviada ao servidor, será exibido um diagrama mostran
 
 ![Captura de tela do status da caixa de diálogo de trabalho](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Consultar dados no Data Lake: U-SQL**
+**Dados da consulta no Data Lake: U-SQL**
 
 Depois que o conjunto de dados for incluído no Azure Data Lake, você poderá usar a [linguagem U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) para consultar e explorar os dados. A linguagem U-SQL é semelhante à T-SQL, mas combina alguns recursos do C# para que os usuários escrevam módulos personalizados, funções definidas pelo usuário etc. Você pode usar os scripts da etapa anterior.
 
@@ -592,7 +592,7 @@ for i in range(1,13):
 
 Depois que os dados são carregados no cluster HDI, você pode verificá-los no Gerenciador de Armazenamento do Azure. Um banco de dados nyctaxidb é criado no cluster HDI.
 
-**Exploração de dados: Consultas de hive no Python**
+**Exploração de dados: Consultas de Hive no Python**
 
 Uma vez que os dados estão no cluster Hadoop, você pode usar o pacote pyodbc para se conectar aos Clusters Hadoop e consultar o banco de dados usando Hive para exploração e engenharia de recurso. É possível exibir as tabelas existentes que criamos na etapa de pré-requisitos.
 
@@ -817,7 +817,7 @@ pd.read_sql(queryString,connection)
 
 ![Linhas superiores de dados da tabela](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**Ler dados no HDI usando o Machine Learning: módulo de leitor**
+**Ler dados do HDI usando o Machine Learning: módulo de leitor**
 
 Você também pode usar o módulo de **leitor** no Machine Learning Studio para acessar o banco de dados no cluster Hadoop. Insira as credenciais dos clusters HDI e da Conta de Armazenamento do Microsoft Azure para habilitar a criação de modelos de aprendizado de máquina usando o banco de dados nos clusters HDI.
 

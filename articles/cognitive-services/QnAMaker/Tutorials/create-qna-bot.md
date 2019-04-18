@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263869"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Crie um Bot do QnA com o Azure Bot Service v4
 
 Criar um chat bot do QnA do **publicar** página para uma base de dados de conhecimento existente. Este bot usa o SDK do Bot Framework v4. Você não precisar escrever nenhum código para criar o bot, todo o código é fornecido para você.
 
-**Neste tutorial, você aprenderá como:**
+**Neste tutorial, você aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -41,7 +41,7 @@ Crie um bot como um aplicativo cliente para a base de Conhecimento.
 
 1. No portal do QnA Maker, vá para o **publicar** página e, em seguida, publique sua base de dados de Conhecimento. Selecione **criação de Bot**. 
 
-    ![No portal do QnA Maker, vá para a página de publicação e publicar sua base de dados de Conhecimento. Selecione Criar Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    ![No portal do QnA Maker, vá para a página Publicar e publique sua base de dados de conhecimento. Selecione Criar Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
     Abre o portal do Azure com a configuração de criação de bot.
 
@@ -57,7 +57,7 @@ Crie um bot como um aplicativo cliente para a base de Conhecimento.
     |Nome do aplicativo|`my-tutorial-kb-bot-app`|Isso é um aplicativo web para dar suporte a apenas seu bot. Isso não deve ser o mesmo nome do aplicativo, pois o serviço QnA Maker já está usando. Não há suporte para o compartilhamento de aplicativo de web do QnA Maker com qualquer outro recurso.|
     |Idioma do SDK|C#|Isso é a linguagem de programação subjacente usada pelo bot framework SDK. Suas opções são C# ou Node. js.|
     |Chave de autenticação do QnA|**Não alterar**|Esse valor é preenchido para você.|
-    |Plano do serviço de aplicativo/Localização|**Não alterar**|Para este tutorial, o local não é importante.|
+    |Local/plano de serviço de aplicativo|**Não alterar**|Para este tutorial, o local não é importante.|
     |Armazenamento do Azure|**Não alterar**|Dados de conversa são armazenados nas tabelas de armazenamento do Azure.|
     |Application Insights|**Não alterar**|Registro em log é enviado ao Application Insights.|
     |ID do Aplicativo da Microsoft|**Não alterar**|Usuário do Active Directory e a senha é necessária.|
@@ -104,12 +104,12 @@ Se você não tiver criado um novo grupo de recursos, você precisa localizar os
 * O serviço de Aplicativo
 * Opcionalmente, também pode incluir o serviço application insights e o armazenamento para os dados do application insights
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Conceito: base de dados de Conhecimento](../concepts/knowledge-base.md)
+> [Conceito: base de dados de conhecimento](../concepts/knowledge-base.md)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Gerenciar sua base de dados de Conhecimento](https://qnamaker.ai)
-- [Habilitar seu bot nos canais diferentes](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Gerencie sua base de dados de conhecimento](https://qnamaker.ai)
+- [Habilite o bot em canais diferentes](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

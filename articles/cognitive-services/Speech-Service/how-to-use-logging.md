@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012443"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro no SDK de fala
@@ -115,8 +115,8 @@ Para acessar um arquivo criado, adicione a abaixo propriedades para o `Info.plis
 
 Mais sobre iOS sistema de arquivos está disponível [aqui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
 

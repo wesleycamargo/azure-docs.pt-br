@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050230"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
@@ -291,8 +291,8 @@ Para remover um certificado secundário sejam usados para segurança de cluster,
 ## <a name="next-steps"></a>Próximas etapas
 Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 
-* [Processo de atualização de Cluster do Service Fabric e as expectativas de você](service-fabric-cluster-upgrade.md)
-* [Configurar o acesso baseado em função para clientes](service-fabric-cluster-security-roles.md)
+* [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
+* [Configurar o acesso baseado em funções para clientes](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

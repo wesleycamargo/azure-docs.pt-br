@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893513"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
@@ -81,7 +81,7 @@ Adiciona um `AlternativeSecurityId` a uma declaração `alternativeSecurityIdCol
 O exemplo a seguir vincula uma nova identidade social com uma conta existente. Para vincular uma nova identidade social:
 1. Nos perfis técnicos **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId**, emita a declaração **alternativeSecurityIds** do usuário.
 1. Peça ao usuário para entrar com um dos provedores de identidade que não estão associados este usuário.
-1. Usando o **CreateAlternativeSecurityId** declarações da transformação, crie um novo **alternativeSecurityId** tipo com o nome de declaração `AlternativeSecurityId2`
+1. Usando a transformação de declarações **CreateAlternativeSecurityId**, crie um tipo de declaração **alternativeSecurityId** com o nome de `AlternativeSecurityId2`
 1. Chame a transformação de declarações **AddItemToAlternativeSecurityIdCollection** para adicionar a declaração **AlternativeSecurityId2** à declaração **AlternativeSecurityIds** existente.
 1. Persistir a declaração **alternativeSecurityIds** para a conta de usuário
 

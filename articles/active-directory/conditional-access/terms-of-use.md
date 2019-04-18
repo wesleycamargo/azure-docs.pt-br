@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052351"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
@@ -34,8 +34,8 @@ O vídeo a seguir fornece uma visão geral rápida dos Termos de uso.
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
 Para ver outros vídeos, consulte:
-- [Como implantar os termos de uso no Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [Como distribuir os termos de uso no Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
+- [Como implantar os Termos de uso no Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Como implementar os Termos de uso no Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>O que posso fazer com os Termos de uso?
 Os Termos de uso do Azure AD têm as seguintes funcionalidades:
@@ -345,46 +345,46 @@ Termos de uso podem ser usados para diferentes aplicativos de nuvem, como Prote�
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**P: Como ver quando / se um usuário aceitou os termos de uso?**<br />
+**P: Como fazer para ver quando/se um usuário aceitou os Termos de uso?**<br />
 R: Na folha de Termos de uso, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, confira Exibir relatório de quem aceitou e recusou e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
 
-**P: Quanto tempo são informações armazenadas?**<br />
+**P: Por quanto tempo as informações ficam armazenadas?**<br />
 R: As contagens de usuário no relatório de Termos de uso, incluindo quem aceitou/recusou, são armazenadas durante a vigência dos Termos de uso. Os logs de auditoria do Azure AD são armazenados por 30 dias.
 
-**P: Por que vejo logs de auditoria de um número diferente de consentimentos em termos de uso relatório versus o Azure AD?**<br />
+**P: Por que vejo um número diferente de consentimentos no relatório de Termos de uso em comparação com os logs de auditoria do Azure AD?**<br />
 R: O relatório de Termos de uso é armazenado durante o período de vigência desses Termos de uso, enquanto os logs de auditoria do Azure AD são armazenados por 30 dias. Além disso, o relatório Termos de uso exibe apenas o estado de consentimento atual dos usuários. Por exemplo, se um usuário recusar e aceitar, o relatório de Termos de uso mostrará apenas a aceitação desse usuário. Se você precisar ver o histórico, poderá usar os logs de auditoria do Azure AD.
 
-**P: Se eu editar os detalhes para termos de uso, ele requer que os usuários aceitem novamente?**<br />
+**P: Se eu editar os detalhes de um Termos de uso, ele exige que os usuários aceitem novamente?**<br />
 R: Não, se um administrador editar os detalhes dos Termos de uso (nome, nome de exibição, exigir que usuários expandam ou adicionar um idioma), não é necessário que os usuários aceitem novamente os novos termos.
 
-**P: Posso atualizar uma existente de condições de uso de documento?**<br />
+**P: Posso atualizar um documento de Termos de uso existente?**<br />
 R: Atualmente, não é possível atualizar um documento de Termos de uso existente. Para alterar os termos de uso de documento, você terá que criar novos termos de uso de instância.
 
-**P: Se forem hiperlinks em termos de usar o documento PDF, os usuários finais conseguirá clicar nelas?**<br />
+**P: Se houverem hiperlinks no documento PDF de Termos de uso, os usuários finais poderão clicar neles?**<br />
 R: O PDF é renderizado por padrão como JPEG, portanto, os hiperlinks não são clicáveis. Os usuários têm a opção de selecionar **Você está tendo problemas para exibir? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks têm suporte.
 
-**P: Termos de uso podem dar suporte a vários idiomas?**<br />
+**P: Os Termos de uso podem dar suporte para vários idiomas?**<br />
 R: Sim. Atualmente, existem 108 idiomas diferentes que um administrador pode configurar para um único Termos de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
 
-**P: Quando é os termos de uso são acionados?**<br />
+**P: Quando os Termos de uso são disparados?**<br />
 R: Os Termos de uso são disparados durante a experiência de logon.
 
-**P: Quais aplicativos posso empregar os termos de uso para?**<br />
+**P: Para quais aplicativos posso destinar os Termos de uso?**<br />
 R: Você pode criar uma política de acesso condicional nos aplicativos empresariais usando autenticação moderna. Para obter mais informações, consulte [aplicativos empresariais](./../manage-apps/view-applications-portal.md).
 
-**P: Pode adicionar vários termos de uso para um determinado usuário ou aplicativo?**<br />
+**P: Posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**<br />
 R: Sim, criando várias políticas de acesso condicional direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve aceitar os Termos de uso um por um.
 
-**P: O que acontece se um usuário recusar os termos de uso?**<br />
+**P: O que acontece se um usuário recusar os Termos de uso?**<br />
 R: O usuário é impedido de acessar o aplicativo. O usuário precisa entrar novamente e aceitar os termos para obter acesso.
 
-**P: É possível unaccept termos de uso que anteriormente foram aceitas?**<br />
+**P: É possível recusar os Termos de uso que foram anteriormente aceitos?**<br />
 R: Você pode [revisar os Termos de uso anteriormente aceitos](#how-users-can-review-their-terms-of-use), mas atualmente não há nenhuma maneira de cancelar a aceitação.
 
-**P: O que acontece se também usando o Intune termos e condições?**<br />
+**P: O que acontece se também estiver usando os termos e condições do Intune?**<br />
 R: Caso já tenha configurado os Termos de uso do Azure AD e os [Termos e condições do Intune](/intune/terms-and-conditions-create), o usuário será solicitado a aceitar ambos. Para obter mais informações, consulte a [Escolha da solução de Termos correta para a publicação do seu blog da organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem](require-tou.md)
+- [Início rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem](require-tou.md)
 - [Práticas recomendadas para o acesso condicional no Azure Active Directory](best-practices.md)

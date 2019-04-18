@@ -11,10 +11,10 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894894"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar usuários com identidades sociais
@@ -29,11 +29,11 @@ Este artigo é uma continuação do artigo de migração de usuário e concentra
 
 * As identidades das **Contas sociais** são armazenadas na coleção`userIdentities`. A entrada especifica o `issuer` (nome do provedor de identidade) como facebook.com e `issuerUserId`, que é um identificador de usuário exclusivo para o emissor. O atributo `userIdentities` contém um ou mais registros UserIdentity que especificam o tipo de conta social e o identificador de usuário exclusivo do provedor de identidade social.
 
-* **Combine conta local com identidade social**. Como mencionado, os nomes de entrada da conta local e as identidades da conta social são armazenados em atributos diferentes. `signInNames` é usada para a conta local, enquanto `userIdentities` para conta social. Uma única conta do Microsoft Azure Active Directory B2C, pode ser uma conta local somente, conta social somente ou combinar uma conta local com identidade social em um registro do usuário. Esse comportamento permite gerenciar uma única conta, enquanto um usuário pode entrar com as credenciais da conta local ou com as identidades sociais.
+* **Combine conta local com identidade social**. Como mencionado, os nomes de entrada da conta local e as identidades da conta social são armazenados em atributos diferentes. `signInNames` é usado para conta local, enquanto `userIdentities` para conta social. Uma única conta do Microsoft Azure Active Directory B2C, pode ser uma conta local somente, conta social somente ou combinar uma conta local com identidade social em um registro do usuário. Esse comportamento permite gerenciar uma única conta, enquanto um usuário pode entrar com as credenciais da conta local ou com as identidades sociais.
 
-* `UserIdentity` Tipo - contém informações sobre a identidade de um usuário de conta social em um locatário do Azure AD B2C:
-  * `issuer` A representação de cadeia de caracteres do provedor de identidade que emitiu o identificador de usuário, como facebook.com.
-  * `issuerUserId` O identificador de usuário exclusivo usado pelo provedor de identidade social no formato base64.
+* `UserIdentity` Tipo - Contém informações sobre a identidade de um usuário da conta social em um locatário do Microsoft Azure Active Directory B2C:
+  * `issuer` A representação da cadeia de caracteres do provedor de identidade que emitiu o identificador de usuário, como facebook.com.
+  * `issuerUserId` O identificador de usuário exclusivo utilizado pelo provedor de identidade social no formato Base64.
 
     ```JSON
     "userIdentities": [{

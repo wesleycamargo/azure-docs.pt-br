@@ -37,7 +37,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">PowerShell do Azure</a></p>'
           - title: Languages
             html: <p><a href="/dotnet/api/overview/azure/blueprints/management">SDK do Azure para .NET</a></p>
           - title: REST
