@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58791636"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
@@ -91,6 +91,6 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 |-------------------|-----------------------------------------------------------|
 | Nomes de disco gerenciados       | <li> O nome deve ter 1 a 80 caracteres. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. </li><li>   O nome não deve ter espaços ou `/`.                                              |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Revisão [requisitos de sistema do disco Data Box](data-box-disk-system-requirements.md)

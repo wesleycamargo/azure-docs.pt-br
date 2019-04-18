@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892289"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se os Azure AD Domain Services são adequados ao seu caso de uso
@@ -39,18 +39,18 @@ A tabela a seguir ajuda você a decidir entre usar os Azure AD Domain Services e
 | [**Serviço gerenciado**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Implantações seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |O administrador precisa proteger a implantação. |
 | [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (serviço gerenciado) |**&#x2713;** |
-| [**Privilégios de administrador corporativo ou de domínio**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Ingresso no domínio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Autenticação de domínio usando Kerberos e NTLM**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Delegação restrita de Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|baseado em recursos|baseado em recursos e em conta|
 | [**Estrutura de UO personalizada**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Extensões de esquema**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**Relações de confiança de floresta/domínio do AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**Leitura LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**Gravação LDAP**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Política de Grupo**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Implantações distribuídas geograficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP Seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Implantações com distribuição geográfica**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Serviço gerenciado
 Os domínios dos Azure AD Domain Services são gerenciados pela Microsoft. Você não precisa se preocupar com a aplicação de patches, atualizações, monitoramento, backups e em garantir a disponibilidade de seu domínio. Essas tarefas de gerenciamento são oferecidas como um serviço pelo Microsoft Azure para seus domínios gerenciados.
@@ -118,6 +118,6 @@ Você pode ter casos de uso de implantação nos quais precisa de alguns dos rec
 Publicamos [Diretrizes para implantação do Windows Server Active Directory em máquinas virtuais do Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) para facilitar as instalações DIY.
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Recursos - Azure AD Domain Services](active-directory-ds-features.md)
+* [Recursos – Azure AD Domain Services](active-directory-ds-features.md)
 * [Cenários de implantação – Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Diretrizes para implantar o Windows Server Active Directory em máquinas virtuais do Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)
+* [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

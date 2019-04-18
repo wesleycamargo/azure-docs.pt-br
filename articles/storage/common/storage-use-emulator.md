@@ -9,10 +9,10 @@ ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878580"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
@@ -139,9 +139,9 @@ Por exemplo, o endereço a seguir pode ser usado para acessar um blob no emulado
 
 Os pontos de extremidade de serviço para o emulador de armazenamento são:
 
-* Serviço BLOB: `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Serviço de fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Serviço de tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Serviço Blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Serviço Fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Serviço Tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Endereçamento da conta secundária com RA-GRS
 A partir da versão 3.1, o emulador de armazenamento oferece suporte a replicação de georredundância com acesso de leitura (RA-GRS). Para recursos de armazenamento na nuvem e no emulador do local, você pode acessar o local secundário acrescentando -secundário no nome da conta. Por exemplo, o endereço a seguir pode ser usado para acessar um blob usando o secundário somente leitura no emulador de armazenamento:
@@ -170,7 +170,7 @@ Para exibir a lista de opções, digite `/help` no prompt de comando.
 | Opção | DESCRIÇÃO | Comando | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia o emulador de armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Inicia o emulador no processo atual em vez de criar um novo processo. |
-| **Stop** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
+| **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator.exe status` | |
 | **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Limpa os dados do blob. <br/>*queue*: Limpa os dados da fila. <br/>*table*: Limpa os dados da tabela. <br/>*all*: Limpa todos os dados em todos os serviços. |
 | **Init** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: Especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: Especifica o nome da instância do SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: Força a criação do banco de dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: Ignora a criação do banco de dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: Tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: Tenta remover as reservas das portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: Executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
@@ -277,7 +277,7 @@ Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçal
 * A interface gráfica do usuário do emulador de armazenamento é preterida por uma interface de linha de comando programável por script. Para obter detalhes sobre a interface de linha de comando consulte Referência da ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só poderá ser acessada quando o emulador de computação for instalado, clicando com o botão direito no ícone de bandeja do sistema e selecionando Mostrar IU do Emulador de Armazenamento.
 * A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Avalie o emulador de armazenamento de código aberto baseado na comunidade, plataforma cruzada [Azurite](https://github.com/arafato/azurite). 
 * [Exemplos de Armazenamento do Azure usando .NET](../storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.

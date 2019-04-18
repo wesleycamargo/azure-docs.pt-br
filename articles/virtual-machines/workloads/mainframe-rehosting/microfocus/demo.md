@@ -6,10 +6,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892476"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
@@ -270,6 +270,6 @@ Parabéns! Agora você está executando um aplicativo do CICS no Azure usando o 
 
 - [Executar o Enterprise Server em contêineres do Docker no Azure](run-enterprise-server-container.md)
 - [Migração de mainframe - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Máquinas Virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [solução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Desmistificando o mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Solução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Desmistificando mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

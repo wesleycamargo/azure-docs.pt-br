@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883710"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso do Stream Analytics do Azure: Detecção de fraude em tempo real
@@ -184,7 +184,7 @@ Agora que você tem um fluxo de eventos de chamada, você pode configurar um tra
  
 3. Clique em **Adicionar entrada de fluxo** e selecione **Hub de Eventos**. Em seguida, preencha a nova página de entrada com as seguintes informações:
 
-   |**Configuração**  |**Valor sugerido**  |**DESCRIÇÃO**  |
+   |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Insira um nome para identificar a entrada do trabalho.   |
    |Assinatura   |  \<Sua assinatura\> |  Selecione a assinatura do Azure com o Hub de Eventos que você criou.   |
@@ -354,7 +354,7 @@ Se você tiver uma conta de armazenamento de Blobs existente, poderá usá-la. P
 
 4. No painel **Saídas**, clique em **Adicionar** e selecione **Armazenamento de Blobs**. Em seguida, preencha a nova página de saída com as seguintes informações:
 
-   |**Configuração**  |**Valor sugerido**  |**DESCRIÇÃO**  |
+   |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de saída  |  CallStream-FraudulentCalls   |  Insira um nome para identificar a saída do trabalho.   |
    |Assinatura   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
@@ -407,7 +407,7 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode continuar este tutorial com o seguinte artigo:
 
@@ -415,7 +415,7 @@ Você pode continuar este tutorial com o seguinte artigo:
 
 Para obter mais informações sobre Stream Analytics em geral, leia estes artigos:
 
-* [Introdução a Análise de Fluxo do Azure](stream-analytics-introduction.md)
-* [Dimensionar trabalhos do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência de API de REST de gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

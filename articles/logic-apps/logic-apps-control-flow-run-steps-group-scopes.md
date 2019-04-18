@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882405"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo com os escopos em aplicativos lógicos do Azure
@@ -79,20 +79,20 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       | Configuração | Valor | DESCRIÇÃO |
       | ------- | ----- | ----------- |
-      | **Marco 1** | <*iniciar*> | Insira a origem da rota. | 
-      | **Marco 2** | <*finalizar*> | Insira o destino da rota. | 
-      | **Evite** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Localizador 1** | <*iniciar*> | Insira a origem da rota. | 
+      | **Localizador 2** | <*finalizar*> | Insira o destino da rota. | 
+      | **Evitar** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com informações de trânsito atuais, e assim por diante. Esse exemplo usa este valor: "timeWithTraffic" | 
-      | **Unidade de distância** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "Milha" | 
-      | **Modo de viagem** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
-      | **Data e hora de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
-      | **Tipo do tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Unidades de distância** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "Milha" | 
+      | **Modo de navegação** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
+      | **Data /Hora de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
       ||||  
 
 1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifique se o tempo de viagem atual com tráfego excede um tempo especificado. 
    Neste exemplo, siga estas etapas:
 
-   1. Renomeie a condição com esta Descrição: **Se o tempo de tráfego é mais do que o tempo especificado**
+   1. Renomeie a condição com esta descrição: **Se o tempo de tráfego é mais do que o tempo especificado**
 
    1. Na coluna mais à esquerda, clique dentro da caixa **Escolher um valor** para que a lista de conteúdo dinâmico seja exibida. A partir dessa lista, selecione o campo **Tráfego de Duração de Viagem**, que está em segundos. 
 
@@ -151,7 +151,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
   
        O campo **Corpo** agora é semelhante a este exemplo:
 
-       ![Campo "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Campo de "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Salve seu aplicativo lógico.
@@ -183,7 +183,7 @@ Em seguida, adicione um escopo para que seja possível agrupar ações específi
 
    ![Escopo adicionado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. No escopo, adicione uma condição que verifica o status do escopo. Renomeie a condição com esta Descrição: **Se a falha de escopo**
+1. No escopo, adicione uma condição que verifica o status do escopo. Renomeie a condição com esta descrição: **Se a falha de escopo**
 
    ![Adicionar condição para verificar o status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -398,6 +398,6 @@ Se você estiver trabalhando na exibição de código, será possível definir u
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar etapas baseadas em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)

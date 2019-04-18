@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882422"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
@@ -119,11 +119,11 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.OSTCExtensions | cadeia de caracteres |
-| Tipo | CustomScriptForLinux | cadeia de caracteres |
+| tipo | CustomScriptForLinux | cadeia de caracteres |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
 | commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | cadeia de caracteres |
@@ -133,9 +133,9 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 
-* `fileUris`: (matriz de cadeia de caracteres opcional,) a lista dos scripts
-* `enableInternalDNSCheck`: (opcional, booleano) o padrão é True, definido como False para desabilitar a verificação de DNS.
-* `commandToExecute`: (opcional, cadeia de caracteres) o script de ponto de entrada a ser executado
+* `fileUris`: (opcional, cadeia de caracteres) a lista uri dos scripts
+* `enableInternalDNSCheck`: (opcional, bool) padrão é True, defina para False para desabilitar a verificação de DNS.
+* `commandToExecute`: (opcional, cadeia de caracteres) o script de ponto de entrada para executar
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento
 * `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
 

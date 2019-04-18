@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878716"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de verificação de planejamento e implantação de carga de trabalho SAP no Azure 
@@ -50,7 +50,7 @@ Nesta fase, uma migração da carga de trabalho SAP para a nuvem pública do Azu
         2.  Nota de suporte SAP [nº 2039619](https://launchpad.support.sap.com/#/notes/2039619). A nota define a matriz de suporte da Oracle no Azure. Perceba que a Oracle apenas dá suporte ao Windows e ao Oracle Linux como SO convidado no Azure para carga de trabalho SAP. Essa instrução de suporte se aplica à camada do aplicativo SAP que executa instâncias SAP também. No entanto, a Oracle não dá suporte à alta disponibilidade para SAP Central Services em Oracle Linux por meio do Pacemaker. Se precisar de alta disponibilidade para ASCS no Oracle Linux, você precisa aproveitar SIOS Protection Suite para Linux. Para dados detalhados de certificação do SAP, verifique a observação de suporte SAP [#1662610 – detalhes de suporte do SIOS Protection Suite para Linux](https://launchpad.support.sap.com/#/notes/1662610). Para Windows, a solução de Failover de Cluster de Failover do Windows compatível com SAP para SAP Central Services tem suporte em conjunto com Oracle como camada DBMS. 
         3.  Nota de suporte SAP [nº 2235581](https://launchpad.support.sap.com/#/notes/2235581) para obter a matriz de suporte para SAP HANA em diferentes versões do sistema operacional
         4.  As VMs do Azure com suporte no SAP HANA e [Instâncias Grandes do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) listadas [aqui](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-        5.  [Matriz de disponibilidade de produto SAP](https://support.sap.com/en/)
+        5.  [Matriz de Disponibilidade de Produto SAP](https://support.sap.com/en/)
         6.  Outras notas SAP para outros produtos específicos da SAP  
     5.  Recomendamos usar designs de camada 3 estritos para sistemas de produção SAP. Não é recomendável combinar servidores ASCS + APP na mesma VM.  Usar configurações de cluster de vários SID para o SAP Central Services é compatível com o Windows como SO convidado no Azure. No entanto, não há suporte para configurações de cluster de vários SIDs no SAP Central Services com sistemas operacionais Linux no Azure. A documentação para o caso de SO convidado Windows pode ser encontrada em:
         1.  [Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -61,7 +61,7 @@ Nesta fase, uma migração da carga de trabalho SAP para a nuvem pública do Azu
             1.  Usar o Serviço de Cluster de Failover do Windows com a configuração de disco compartilhado para a camada de DBMS, como descrito para o SQL Server [aqui](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), é um recurso que **NÃO** tem suporte. Em vez disso, soluções como:
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
                 2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-                3.  [Replicação de sistema do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+                3.  [Replicação de Sistema do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  Para recuperação de desastres em diferentes regiões do Azure, verifique quais as possibilidades são oferecidas por diferentes fornecedores de DBMS. A maioria dá suporte para replicação assíncrona ou envio de logs
         4.  Para a camada de aplicativo SAP, defina se você executaria seus sistemas de teste de regressão empresarial, que idealmente são réplicas de suas implantações de produção, na mesma região do Azure ou na sua região de recuperação de desastre. No último caso, você pode direcionar esse sistema de regressão empresarial como destino de recuperação de desastre para produção
         5.  Se você decidir não colocar os sistemas não de produção no site de DR, avalie o Azure Site Recovery como método viável para replicar a camada de aplicativo SAP para a região de DR do Azure. Confira também [Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap) 
@@ -78,7 +78,7 @@ Nesta fase, uma migração da carga de trabalho SAP para a nuvem pública do Azu
 6.  Defina o número de assinaturas do Azure e a cota central para diferentes assinaturas. [Abra solicitações de suporte para aumentar as cotas de assinaturas do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) conforme necessário 
 7.  Plano de migração de dados e redução de dados para migrar dados do SAP para o Azure. Para sistemas SAP NetWeaver, a SAP tem diretrizes sobre como manter o volume de um grande número de dados limitado. A SAP publicou [este guia aprofundado](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) sobre o gerenciamento de dados em sistemas de ERP SAP. No entanto, algum conteúdo se aplica a sistemas NetWeaver e S/4HANA em geral.
 8.  Defina e decida a abordagem de implantação automatizada. A meta da automação por trás de implantações de infraestrutura no Azure é implantar de modo determinista e obter resultados deterministas. Muitos clientes usam o scripts baseados em CLI ou PowerShell. Porém, há várias tecnologias de software livre que podem ser usadas para implantar a infraestrutura do Azure para SAP e até mesmo instalar o software SAP. Exemplos podem ser encontrados no GitHub:
-    1.  [Implantações do SAP automatizados na nuvem do Azure](https://github.com/Azure/sap-hana)
+    1.  [Implantações automatizadas do SAP na nuvem do Azure](https://github.com/Azure/sap-hana)
     2.  [Instalação do SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definir uma cadência regular de análise de design e implantação entre você como cliente, o integrador de sistema, a Microsoft e outras partes envolvidas
 
@@ -272,5 +272,5 @@ Consulte a documentação:
 
 - [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Considerações para Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

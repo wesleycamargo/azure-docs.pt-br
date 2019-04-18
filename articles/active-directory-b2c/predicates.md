@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880994"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
@@ -194,7 +194,7 @@ Com **Predicados** e **PredicateValidationsInput**, é possível controlar os re
 - **Lowercase** usando o método `IncludesCharacters`, valida que a senha contém uma letra minúscula.
 - **Uppercase** usando o método `IncludesCharacters`, valida que a senha contém uma letra maiúscula.
 - **Number** usando o método `IncludesCharacters`, valida que a senha contém um dígito.
-- **Símbolo** usando o `IncludesCharacters` método, valida a senha contém um dos seguintes símbolos `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Symbol** usando o método `IncludesCharacters`, valida que a senha contém um dos símbolos a seguir `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN** usando o método `MatchesRegex`, valida que a senha contém somente números.
 - **AllowedAADCharacters** usando o método `MatchesRegex`, valida que o único caractere inválido da senha foi fornecido.
 - **DisallowedWhitespace** usando o método `MatchesRegex`, valida que a senha não começa ou termina com um caractere de espaço em branco.

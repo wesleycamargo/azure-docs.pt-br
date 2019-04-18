@@ -10,13 +10,13 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887008"
 ---
-**Requisitos do servidor de configuração/em processo para replicação de servidor físico**
+**Requisitos do servidor de Configuração/Processo para replicação de servidor físico**
 
 **Componente** | **Requisito** 
 --- | ---
@@ -37,14 +37,14 @@ Tipo de endereço IP | estático
 | 
 **CONFIGURAÇÕES DE ACESSO** | 
 MySQL | O MySQL deve ser instalado no servidor de configuração. Você pode instalar manualmente, ou o Azure Site Recovery pode instalá-lo durante a implantação. Para o Azure Site Recovery realizar a instalação, verifique se o computador pode acessar http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
-URLs | O servidor de configuração precisa ter acesso a estas URLs (diretamente ou via proxy):<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Transferência de dados de replicação: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gerenciamento de replicação: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Acesso de armazenamento: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização de hora: `time.nist.gov`; `time.windows.com`<br/><br/> Telemetria (opcional): `dc.services.visualstudio.com`
-Firewall | As regras de firewall baseadas em endereço IP devem permitir a comunicação com as URLs do Azure. Para simplificar e limitar os intervalos de IP, recomendamos usar a filtragem de URL.<br/><br/>**Para IPs comerciais:**<br/><br/>- Permita os [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/><br/> -Permita os intervalos de endereços IP para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).<br/><br/> - Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.<br/><br/> **Para o governo IPs:**<br/><br/> - Permita os Intervalos de IP do Datacenter do Azure Governamental a porta HTTPS (443).<br/><br/> - Permita os intervalos de endereços IP para todas as Regiões do Gov (US) (Virgínia, Texas, Arizona e Iowa) para dar suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.
+URLs | O servidor de configuração precisa ter acesso a estas URLs (diretamente ou via proxy):<br/><br/> Microsoft Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Transferência de dados de replicação: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gerenciamento de replicação: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Acesso de armazenamento: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização de hora: `time.nist.gov`; `time.windows.com`<br/><br/> Telemetria (opcional): `dc.services.visualstudio.com`
+Firewall | As regras de firewall baseadas em endereço IP devem permitir a comunicação com as URLs do Azure. Para simplificar e limitar os intervalos de IP, recomendamos usar a filtragem de URL.<br/><br/>**Para IPs comerciais:**<br/><br/>- Permita os [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/><br/> -Permita os intervalos de endereços IP para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).<br/><br/> - Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.<br/><br/> **Para IPs de governo:**<br/><br/> - Permita os Intervalos de IP do Datacenter do Azure Governamental a porta HTTPS (443).<br/><br/> - Permita os intervalos de endereços IP para todas as Regiões do Gov (US) (Virgínia, Texas, Arizona e Iowa) para dar suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.
 Portas | Permitir 443 (orquestração do canal de controle)<br/><br/> Permitir 9443 (transporte de dados) 
 
 
-**Requisitos de dimensionamento do servidor de configuração/em processo**
+**Requisitos de dimensionamento do servidor de processo/configuração**
 
-**CPU** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Computadores replicados**
+**CPU** | **Memória** | **Cache de disco** | **Taxa de alteração de dados** | **Computadores replicados**
 --- | --- | --- | --- | ---
 8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores
 12 vCPUs<br/><br/> 2 soquetes  * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB -1 TB | 100 a 150 computadores

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887089"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Início Rápido: Obter a lista de texto em fala vozes usando Node. js
@@ -27,7 +27,7 @@ Este início rápido requer uma [conta de serviços Cognitivos do Azure](https:/
 
 Este início rápido requer:
 
-* [Nó 8.12.x ou posterior](https://nodejs.org/en/)
+* [Node 8.12.x ou posterior](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
 * Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente!](get-started.md).
 
@@ -143,13 +143,13 @@ node get-voices.js
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Node. js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
+> [Explorar exemplos do Node.js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
 ## <a name="see-also"></a>Consulte também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
-* [Gravar amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)
+* [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
+* [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

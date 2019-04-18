@@ -11,10 +11,10 @@ ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
 ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805157"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
@@ -135,7 +135,7 @@ Para ajudá-lo a monitorar o consumo de armazenamento do seu aplicativo lógico,
 
 1. No **ação de aplicativo lógico** painel, localize os tamanhos para essa ação entradas e saídas são exibidos em respectivamente **Inputs link** e **link saídas**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre aplicativos lógicos do Azure](logic-apps-overview.md)
 * [Criar seu primeiro aplicativo lógico](quickstart-create-first-logic-app-workflow.md)

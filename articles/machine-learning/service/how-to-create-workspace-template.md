@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883183"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar um modelo do Azure Resource Manager para criar um espaço de trabalho para o serviço de Azure Machine Learning
@@ -182,9 +182,9 @@ O modelo de exemplo tem dois parâmetros:
 
 Para obter mais informações sobre modelos, consulte os artigos a seguir:
 
-* [Criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Implantar um aplicativo com modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Tipos de recurso Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Criar modelos do Gerenciador de Recursos do Azure](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Implantar um aplicativo com o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Tipos de recursos do Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 

@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878563"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
@@ -62,9 +62,9 @@ Dos **formato do identificador de escolha** menu suspenso, você pode selecionar
 | Formato de NameID | DESCRIÇÃO |
 |---------------|-------------|
 | **Padrão** | Azure AD usará o formato de fonte padrão. |
-| **Persistente** | Azure AD usará persistente como o formato de NameID. |
+| **Persistent** | Azure AD usará persistente como o formato de NameID. |
 | **EmailAddress** | Azure AD usará o endereço de email como o formato de NameID. |
-| **Não especificado** | Azure AD usará não especificado como o formato de NameID. |
+| **não especificado** | Azure AD usará não especificado como o formato de NameID. |
 | **Transitório** | Azure AD usará transitório como o formato de NameID. |
 
 Para saber mais sobre o atributo NameIDPolicy, consulte [protocolo SAML de logon único](single-sign-on-saml-protocol.md).
@@ -120,17 +120,17 @@ Você também pode usar as funções de transformações de declarações.
 | **Extract () - após a correspondência** | Retorna a subcadeia de caracteres depois que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon", o valor correspondente é "Finance_", então saída da declaração é "BSimon". |
 | **Extract () - antes da correspondência** | Retorna a subcadeia de caracteres até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "BSimon_US", o valor correspondente é "_US", então saída da declaração é "BSimon". |
 | **Extract () - entre correspondência** | Retorna a subcadeia de caracteres até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US" e saída da declaração é "BSimon". |
-| **ExtractAlpha() - prefixo** | Retorna a parte em ordem alfabética de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, ele retorna "BSimon". |
-| **ExtractAlpha() - sufixo** | Retorna a parte em ordem alfabética de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_Simon", em seguida, ele retorna "BSimon". |
-| **ExtractNumeric() - prefixo** | Retorna a parte numérica do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_BSimon", em seguida, ele retorna "123". |
-| **ExtractNumeric() - sufixo** | Retorna a parte numérica do sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, ele retorna "123". |
+| **ExtractAlpha() - Prefix** | Retorna a parte em ordem alfabética de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, ele retorna "BSimon". |
+| **ExtractAlpha() - Suffix** | Retorna a parte em ordem alfabética de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_Simon", em seguida, ele retorna "BSimon". |
+| **ExtractNumeric() - Prefix** | Retorna a parte numérica do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_BSimon", em seguida, ele retorna "123". |
+| **ExtractNumeric() - Suffix** | Retorna a parte numérica do sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, ele retorna "123". |
 | **IfEmpty()** | Gera um atributo ou uma constante se a entrada for nulo ou vazio.<br/>Por exemplo, se deseja gerar um atributo armazenado em um extensionattribute se employeeid para um determinado usuário está vazia. Para fazer isso, você poderia configurar os seguintes valores:<br/>Parâmetro 1(input): EmployeeID<br/>Parameter 2 (output): user.extensionattribute1<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): EmployeeID |
 | **IfNotEmpty()** | Gera um atributo ou uma constante se a entrada não for nulo ou vazio.<br/>Por exemplo, se você quiser gerar um atributo armazenado em um extensionattribute se employeeid para um determinado usuário não está vazio. Para fazer isso, você poderia configurar os seguintes valores:<br/>Parâmetro 1(input): EmployeeID<br/>Parameter 2 (output): user.extensionattribute1 |
 
 Se você precisar transformações adicionais, envie sua ideia na [Fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sob o *aplicativo de SaaS* categoria.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Gerenciamento de aplicativo no Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurar o logon único em aplicativos que não estão na Galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solucionar problemas com base em SAML SSO](howto-v1-debug-saml-sso-issues.md)
+* [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
+* [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Solução de problemas de logon único baseado em SAML](howto-v1-debug-saml-sso-issues.md)

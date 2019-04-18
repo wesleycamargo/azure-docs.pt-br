@@ -14,10 +14,10 @@ ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
 ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877373"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia do Java Enterprise para o Serviço de Aplicativo no Linux
@@ -119,5 +119,4 @@ O Serviço de Aplicativo oferece ferramentas para ajudar a solucionar problemas 
 
 -   Ative o log clicando em **Logs de diagnóstico** no painel de navegação à esquerda. Clique em **Sistema de Arquivos** para definir o período de retenção e a cota de armazenamento e salve suas alterações. É possível encontrar esses logs em `/home/LogFiles/`.
 -   [Use o SSH para conectar-se à instância de aplicativo](app-service-linux-ssh-support.md) para exibir logs para aplicativos em execução.
--   Logs de diagnóstico de seleção de **Logs de diagnóstico** painel do Portal ou usando o comando de CLI do Azure:
-`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`
+-   Verifique os logs de diagnóstico no painel **Logs de diagnóstico** do Portal ou usando o comando da CLI do Azure: `az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

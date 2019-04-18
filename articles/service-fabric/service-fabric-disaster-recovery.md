@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883234"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
@@ -69,8 +69,8 @@ Por exemplo, digamos que a falha de uma fonte de energia faça com que um rack d
 
 Domínios de Atualização são úteis para modelar áreas em que o software será atualizado ao mesmo tempo. Por isso, frequentemente os Domínios de Atualização também definem os limites em que o software é desativado durante atualizações planejadas. Atualizações do Service Fabric e de seus serviços seguem o mesmo modelo. Para saber mais sobre atualizações sem interrupção, domínios de atualização e o modelo de integridade do Service Fabric que ajuda a impedir que alterações não intencionais afetem o cluster e seu serviço, consulte estes documentos:
 
- - [Atualização do aplicativo](service-fabric-application-upgrade.md)
- - [Tutorial de atualização do aplicativo](service-fabric-application-upgrade-tutorial.md)
+ - [Atualização de aplicativo](service-fabric-application-upgrade.md)
+ - [Tutorial de atualização de aplicativo](service-fabric-application-upgrade-tutorial.md)
  - [Modelo de integridade do Service Fabric](service-fabric-health-introduction.md)
 
 É possível visualizar o layout de seu cluster usando o mapa de cluster fornecido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
@@ -136,11 +136,11 @@ O Service Fabric tem o conceito de Nós de Semente. Trata-se de nós que mantêm
 
 Em clusters independentes do Service Fabric e no Azure, o "Tipo de nó primário" é aquela que executa as propagações. Ao definir um tipo de nó primário, o Service Fabric aproveitará automaticamente o número de nós fornecidos, criando até nove nós iniciais e 7 réplicas de cada um dos serviços do sistema. Se um conjunto de falhas aleatórias desativar a maior parte dessas réplicas do serviço de sistema ao mesmo tempo, os serviços de sistema entrarão em perda de quorum, conforme descrito acima. Se a maioria desses nós de semente for perdida, o cluster será desligado logo em seguida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como simular várias falhas usando a [estrutura de capacidade de teste](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou várias orientações sobre estes tópicos. Embora alguns desses documentos mencionem técnicas específicas para uso em outros produtos, eles contêm várias práticas recomendadas gerais que também se aplicam ao contexto do Service Fabric:
   - [Lista de verificação de disponibilidade](../best-practices-availability-checklist.md)
-  - [Executar uma análise de recuperação de desastre](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Executando a análise de recuperação de desastre](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Recuperação de desastre e alta disponibilidade para aplicativos do Azure][dr-ha-guide]
 - Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 

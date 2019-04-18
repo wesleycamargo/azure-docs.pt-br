@@ -15,10 +15,10 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880688"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
@@ -66,7 +66,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 
-**APLICATIVOS**
+**Aplicativos**
 
 - Licenças e componentes de instalação de software para quaisquer aplicativos do SAP que conectam-se ao SAP HANA e contratos de suporte do SAP relacionados.
 - Licenças e os componentes de instalação de software para todos os aplicativos SAP não usado com o SAP HANA no ambiente do Azure (Instâncias Grandes) e relacionadas a contratos de suporte.

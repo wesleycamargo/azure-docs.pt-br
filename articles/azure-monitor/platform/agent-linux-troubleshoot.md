@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884169"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
@@ -117,7 +117,7 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 
 Log de depuração permite que você veja os carregamentos em lote para o Azure Monitor, separados por tipo, o número de itens de dados e o tempo necessário para enviar:
 
-*Log de depuração habilitada de exemplo:*
+*Log habilitado para depuração de exemplo:*
 
 ```
 Success sending oms.nagios x 1 in 0.14s
@@ -380,13 +380,13 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 
 **Em Segundo Plano:** Em vez de o agente do Log Analytics para Linux ser executado como um usuário privilegiado – `root`, o agente é executado como o usuário `omsagent`. Na maioria dos casos, a permissão explícita deve ser concedida a esse usuário para que determinados arquivos sejam lidos. Para conceder permissão para o usuário `omsagent`, execute os seguintes comandos:
 
-1. Adicionar o `omsagent` usuário ao grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Conceder acesso de leitura universal para o arquivo necessário `sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Adicione o usuário `omsagent` ao grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. Conceda acesso de leitura universal para o arquivo necessário `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Há um problema conhecido com uma condição de corrida com o agente do Log Analytics para a versão do Linux anterior a 1.1.0-217. Após atualizar para o agente mais recente, execute o seguinte comando para obter a versão mais recente do plug-in de saída `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problema: Você está tentando se integrar novamente em um novo workspace
-Quando você tenta re-inserir um agente em um novo espaço de trabalho, a configuração do agente do Log Analytics precisa ser limpa antes de reenquadrar. Para limpar a configuração antiga do agente, execute o pacote de shell com `--purge`
+Quando você tenta re-inserir um agente em um novo espaço de trabalho, a configuração do agente do Log Analytics precisa ser limpa antes de reenquadrar. Para limpar a configuração antiga do agente, execute o pacote do shell com `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge

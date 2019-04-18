@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: alkohli
 ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881759"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de Gateway da caixa de dados do Azure
@@ -48,7 +48,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Plataformas de virtualização com suporte para o dispositivo
 
-| **Plataforma do sistema operacional**  |**Versões**   |**Observações**  |
+| **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
@@ -95,5 +95,5 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 ## <a name="next-step"></a>Próxima etapa
 
-* [Implantar o Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md)
+* [Implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

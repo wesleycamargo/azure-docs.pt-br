@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880637"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
@@ -29,7 +29,7 @@ Se você usar as políticas personalizadas do Azure AD B2C (Azure Active Directo
 O erro mais comum na configuração de políticas personalizadas é XML com erro de formatação. Um bom editor de XML é praticamente essencial. Um bom editor de XML exibe XML nativamente, codifica o conteúdo por cor, preenche os termos comuns com antecedência, mantém os elementos XML indexados e pode validar no esquema. Aqui estão dois dos nossos editores de XML favoritos:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [O bloco de notas + +](https://notepad-plus-plus.org/)
+* [Bloco de Notas++](https://notepad-plus-plus.org/)
 
 A validação de esquema XML identifica os erros antes do upload do arquivo XML. Na pasta raiz do pacote inicial, obtenha a definição de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd. Para obter mais informações, na documentação do seu editor de XML, procure *Ferramentas XML* e *Validação de XML*.
 
@@ -41,16 +41,16 @@ Talvez seja útil examinar as regras de XML. O Azure AD B2C rejeita qualquer err
  
  Os erros de validação comuns incluem os seguintes.
 
-Trecho de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Snippet de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * O valor de ClaimType pode estar incorreto ou não existir no esquema.
 * Os valores de ClaimType devem ser definidos em pelo menos um dos arquivos na política. 
-    Por exemplo:  `<ClaimType Id="socialIdpUserId">`
+    Por exemplo: `<ClaimType Id="socialIdpUserId">`
 * Se ClaimType for definido no arquivo de extensões, mas também for usado em um valor de TechnicalProfile no arquivo de base, o upload do arquivo base resultará em um erro.
 
-Trecho de código de erro: `...makes a reference to a ClaimsTransformation with id...`
+Snippet de código de erro: `...makes a reference to a ClaimsTransformation with id...`
 * As causas do erro podem ser as mesmas que as do erro ClaimType.
 
-Trecho de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+Snippet de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * Verifique se o valor de TenantId nos elementos **\<TrustFrameworkPolicy\>** e **\<BasePolicy\>** correspondem a seu locatário de destino do Azure AD B2C.  
 
 ## <a name="troubleshoot-the-runtime"></a>Solucionar problemas de tempo de execução
@@ -68,9 +68,9 @@ Trecho de código de erro: `Reason: User is currently logged as a user of 'yourt
 
 **Mantenha várias versões de seus cenários. Agrupe-os em um projeto com seu aplicativo.** A base, extensões e os arquivos de terceira parte confiável são diretamente dependentes entre si. Salve-os como um grupo. Conforme novos recursos são adicionados nas políticas, mantenha versões de trabalho separadas. Prepare as versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual eles interagem.  Os aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas do Azure AD B2C.
 
-**Desenvolver e testar perfis técnicos com percursos do usuário conhecido.** Use políticas de pacote inicial testadas para configurar os perfis de técnicos. Teste-as separadamente antes de incorporá-las em suas próprias jornadas de usuário.
+**Desenvolver e testar perfis técnicos com jornadas de usuário conhecidas.** Use políticas de pacote inicial testadas para configurar os perfis de técnicos. Teste-as separadamente antes de incorporá-las em suas próprias jornadas de usuário.
 
-**Desenvolver e testar percursos do usuário com perfis técnicas testadas.** Altere as etapas de orquestração de uma jornada de usuário de forma incremental. Crie os seus cenários desejados de forma progressiva.
+**Desenvolva e teste jornadas de usuário com perfis técnicos testados.** Altere as etapas de orquestração de uma jornada de usuário de forma incremental. Crie os seus cenários desejados de forma progressiva.
 
 ## <a name="next-steps"></a>Próximas etapas
 

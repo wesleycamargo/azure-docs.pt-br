@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878495"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
@@ -98,7 +98,7 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** como o tipo do próximo salto em rotas definidas pelo usuário. Rotas com os tipos do próximo salto **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** são criadas somente pelo Azure, quando você configurar uma emparelhamento de rede virtual ou um ponto de extremidade de serviço.
 
-**Tipos de próximo salto nas ferramentas do Azure**
+**Tipos do próximo salto nas ferramentas do Azure**
 
 O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -181,7 +181,7 @@ Para ilustrar os conceitos neste artigo, as seções a seguir descrevem:
 ### <a name="requirements"></a>Requisitos
 
 1. Implementar duas redes virtuais na mesma região do Azure e habilitar recursos para se comunicar entre as redes virtuais.
-2. Habilitar uma rede local para se comunicar de modo seguro com ambas as redes virtuais por meio de um túnel VPN pela Internet. *Como alternativa, uma conexão de ExpressRoute pode ser usado, mas neste exemplo, uma conexão VPN é usada.*
+2. Habilitar uma rede local para se comunicar de modo seguro com ambas as redes virtuais por meio de um túnel VPN pela Internet. *Como alternativa, pode ser usada uma conexão ExpressRoute, mas uma conexão VPN é usada neste exemplo.*
 3. Para uma sub-rede em uma rede virtual:
  
     - Forçar todo o tráfego de saída da sub-rede, exceto para o Armazenamento do Azure e dentro da sub-rede, a fluir por meio de uma solução de virtualização de rede para inspeção e registro em log.
@@ -255,7 +255,7 @@ A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma tabela de rotas definidas pelo usuário com uma solução de virtualização de rede e rotas](tutorial-create-route-table-portal.md)
+- [Criar uma tabela de rotas definidas pelo usuário com rotas e uma solução de virtualização de rede](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usar o BGP com ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Exibir todas as rotas de uma sub-rede](diagnose-network-routing-problem.md). Uma tabela de rotas definidas pelo usuário só mostra as rotas definidas pelo usuário, não as rotas padrão e BGP de uma sub-rede. Exibir todas as rotas mostra as rotas padrão, BGP e definidas pelo usuário da sub-rede na qual está uma interface de rede.

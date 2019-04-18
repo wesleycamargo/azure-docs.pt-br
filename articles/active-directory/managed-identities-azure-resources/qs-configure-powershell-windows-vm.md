@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881164"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando PowerShell
@@ -54,8 +54,8 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
     ```
 
-   - [Criar uma máquina virtual do Windows usando o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-   - [Criar uma máquina virtual do Linux usando o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+   - [Crie uma Máquina Virtual do Windows usando o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+   - [Crie uma Máquina Virtual do Linux usando o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > Opcionalmente, você pode provisionar as identidades de gerenciado para a extensão VM de recursos do Azure, mas ele será preterido em breve. É recomendável usar o ponto de extremidade do Azure Instance Metadata identidade para autenticação. Para obter mais informações, consulte [migrar da extensão de VM para o ponto de extremidade de IMDS do Azure para autenticação](howto-migrate-vm-extension.md).
@@ -153,8 +153,8 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
     
-    - [Criar uma máquina virtual do Windows usando o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-    - [Criar uma máquina virtual do Linux usando o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+    - [Crie uma Máquina Virtual do Windows usando o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+    - [Crie uma Máquina Virtual do Linux usando o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > Opcionalmente, você pode provisionar as identidades de gerenciado para a extensão VM de recursos do Azure, mas ele será preterido em breve. É recomendável usar o ponto de extremidade do Azure Instance Metadata identidade para autenticação. Para obter mais informações, consulte [migrar da extensão de VM para o ponto de extremidade de IMDS do Azure para autenticação](howto-migrate-vm-extension.md).
@@ -213,10 +213,10 @@ $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Identidades gerenciadas para visão geral de recursos do Azure](overview.md)
 - Para os guias de início rápido completos sobre VM do Azure, consulte:
   
-  - [Aprenda rapidamente a criar máquinas virtuais Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Aprenda rapidamente a criar máquinas virtuais Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
+  - [Crie uma máquina virtual Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
+  - [Crie uma máquina virtual Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 

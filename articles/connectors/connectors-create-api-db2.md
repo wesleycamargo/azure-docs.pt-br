@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878393"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerenciar recursos do IBM DB2 com os Aplicativos Lógicos do Azure
@@ -109,7 +109,7 @@ Antes de criar sua conexão, é necessário já ter o gateway de dados local ins
 | **Nome da Conexão** | Sim | O nome da sua conexão, por exemplo, "MyLogicApp-DB2-connection" | 
 | **Servidor** | Sim | O endereço ou alias dois pontos número da porta para seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
 | **Banco de dados** | Sim | O nome do seu banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>– O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes e que o banco de dados é conhecido como um local "IBM DB2 para z/OS". <br>– O DB2 para i aceita uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
-| **Authentication** | Sim | O tipo de autenticação para sua conexão, por exemplo, "Básica" <p><p>**Observação**: Selecione esse valor na lista, que inclui Basic ou do Windows (Kerberos). |
+| **Autenticação** | Sim | O tipo de autenticação para sua conexão, por exemplo, "Básica" <p><p>**Observação**: Selecione esse valor na lista, que inclui Basic ou do Windows (Kerberos). |
 | **Nome de Usuário** | Sim | Seu nome de usuário para o banco de dados <p><p>**Observação**: Esse valor é uma cadeia de caracteres cujo comprimento baseia-se ao banco de dados específico: <p><p>– O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para i aceita uma cadeia de caracteres de 10 bytes. <br>– O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
 | **Senha** | Sim | Sua senha do banco de dados |
 | **Gateway** | Sim | O nome do seu gateway de dados local instalado <p><p>**Observação**: Selecione esse valor na lista, que inclui todos os gateways de dados instalados em sua assinatura do Azure e o grupo de recursos. |
@@ -157,7 +157,7 @@ Para efetuar fetch de um registro em uma tabela do banco de dados DB2, use a aç
    | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela que tem o registro desejado, como "AREA" neste exemplo |
-   | **ID da área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
+   | **ID de área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
    ||||
 
    ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
@@ -237,9 +237,9 @@ Para adicionar um único registro a uma tabela do banco de dados DB2, use a aç�
    | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela na qual adicionar o registro, como "AREA" |
-   | **ID da área** | Sim | A ID da área a ser adicionada, como "99999" |
-   | **Descrição de área** | Sim | A descrição da área a ser adicionada, como "Área 99999" |
-   | **ID de região** | Sim | A ID da região a ser adicionada, como "102" |
+   | **ID de área** | Sim | A ID da área a ser adicionada, como "99999" |
+   | **Descrição da área** | Sim | A descrição da área a ser adicionada, como "Área 99999" |
+   | **ID da região** | Sim | A ID da região a ser adicionada, como "102" |
    |||| 
 
    Por exemplo: 
@@ -285,9 +285,9 @@ Para atualizar um único registro em uma tabela do banco de dados DB2, use a aç
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela na qual atualizar o registro, como "AREA" |
    | **ID da linha** | Sim | A ID do registro a ser atualizado, como "99999" |
-   | **ID da área** | Sim | A nova ID de área, como "99999" |
-   | **Descrição de área** | Sim | A nova descrição de área, como "99999 atualizada" |
-   | **ID de região** | Sim | A nova ID da região, como "102" |
+   | **ID de área** | Sim | A nova ID de área, como "99999" |
+   | **Descrição da área** | Sim | A nova descrição de área, como "99999 atualizada" |
+   | **ID da região** | Sim | A nova ID da região, como "102" |
    ||||
 
    Por exemplo: 
@@ -369,6 +369,6 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
