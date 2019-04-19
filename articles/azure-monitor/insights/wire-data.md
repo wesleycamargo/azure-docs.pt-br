@@ -397,7 +397,7 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 | ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede usado |
 | IPVersion | Versão IP |
-| Direção | Entrada ou saída |
+| Direction | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma fonte mal-intencionada conhecida |
 | Severity | Gravidade de suspeita de malware |
 | RemoteIPCountry | País do endereço IP remoto |
