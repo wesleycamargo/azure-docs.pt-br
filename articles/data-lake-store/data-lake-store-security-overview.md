@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883286"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Storage Gen1 foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Azure Data Lake Storage Gen1, incluindo:
 
-* Authentication
+* Autenticação
 * Autorização
 * Isolamento da rede
 * Proteção de dados
@@ -111,6 +111,6 @@ Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, 
 
 ## <a name="see-also"></a>Consulte também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Introdução ao Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md)
-* [Proteger os dados no Data Lake armazenamento Gen1](data-lake-store-secure-data.md)
+* [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 

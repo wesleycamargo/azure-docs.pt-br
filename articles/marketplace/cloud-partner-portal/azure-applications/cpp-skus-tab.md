@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905606"
 ---
 # <a name="azure-application-skus-tab"></a>Guia de SKUs de aplicativo do Azure
@@ -124,7 +124,7 @@ Observe as seguintes propriedades principais desse recurso:
   >Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. Estes arquivos devem estar na pasta raiz:  MainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json.
 
 - **ID do locatário** – ID do locatário do Azure Active Directory da sua organização.
-- **Habilitar o acesso JIT?** – selecione **Sim** a fim de habilitar o acesso de gerenciamento Just-In-Time para implantações de cliente usando esta oferta.
+- **Habilitar acesso JIT?** – selecione **Sim** a fim de habilitar o acesso de gerenciamento Just-In-Time para implantações de cliente usando esta oferta.
 
   >[!NOTE] 
   >Se você habilitar o JIT, deverá atualizar o arquivo CreateUiDefinition.json para dar suporte a acesso JIT.
@@ -144,7 +144,7 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
    ![Configurações de autorização e política para um aplicativo gerenciado](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
-**Para criar uma nova autorização:**
+**Para criar uma nova regra de autorização:**
 
 1. Em **Autorização**, selecione **+ Nova Autorização**.
 2. Em **ID da entidade**, digite o identificador do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela definição de função.
@@ -163,6 +163,6 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
 4. Em **SKU de política**, selecione Gratuito ou Standard como o tipo de SKU de política. A SKU Standard é necessária para as políticas de auditoria.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Guia Marketplace](./cpp-marketplace-tab.md)

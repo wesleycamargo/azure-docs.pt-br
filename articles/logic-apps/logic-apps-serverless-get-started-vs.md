@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/02/2019
 ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862991"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Construir seu primeiro aplicativo sem servidor com os Aplicativos Lógicos do Azure e o Azure Functions - Visual Studio
@@ -29,18 +29,18 @@ Para construir um aplicativo sem servidor no Visual Studio, serão necessários 
 
 * Baixe e instale essas ferramentas, caso você ainda não as tenha:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 – Community Edition ou superior</a>. 
   Este início rápido usa o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
-    > Quando você instala o Visual Studio de 2019 ou 2017, certifique-se de que você selecione os **desenvolvimento do Azure** carga de trabalho.
-    > Para Visual Studio de 2019, Gerenciador de nuvem pode abrir o Designer do aplicativo lógico no portal do Azure, mas ainda não é possível abrir o Designer do aplicativo lógico incorporado.
+    > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
+    > Para o Visual Studio 2019, o Cloud Explorer pode abrir o Designer de Aplicativo Lógico no portal do Azure, mas ainda não pode abrir o Designer de Aplicativo Lógico inserido.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Microsoft Azure para .NET (2.9.1 ou posterior)</a>. Saiba mais sobre o <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">SDK do Azure para .NET</a>.
+  * O <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Microsoft Azure para .NET (2.9.1 ou posterior)</a>. Saiba mais sobre o <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">SDK do Azure para .NET</a>.
 
-  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
+  * [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
 
-  * Ferramentas de aplicativos lógicos do Azure para a versão do Visual Studio que você deseja:
+  * Ferramentas de Aplicativos Lógicos do Azure para as versões do Visual Studio que você deseja:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
 
@@ -73,11 +73,11 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
    > [!NOTE]
    > Se a categoria **Nuvem** ou o projeto **Grupo de Recursos do Azure** não existir, certifique-se de ter instalado o SDK do Azure para Visual Studio.
 
-   Se você estiver usando o Visual Studio de 2019, siga estas etapas:
+   Se você estiver usando o Visual Studio 2019, siga estas etapas:
 
-   1. No **criar um novo projeto** caixa, selecione a **grupo de recursos do Azure** modelo de projeto para qualquer Visual C# ou Visual Basic e escolha **próximo**.
+   1. Na caixa **Criar um projeto**, selecione o modelo de projeto **Grupo de Recursos do Azure** para o Visual C# ou Visual Basic e escolha **Próximo**.
 
-   1. Forneça o nome para o grupo de recursos do Azure que você deseja usar e outras informações do projeto. Quando terminar, escolha **Criar**.
+   1. Forneça o nome do grupo de recursos do Azure que você deseja usar e outras informações do projeto. Quando terminar, escolha **Criar**.
 
 1. Dê ao projeto um nome e um local e, em seguida, escolha **OK**.
 
@@ -157,4 +157,4 @@ Agora você pode baixar o aplicativo lógico já publicado no projeto do grupo d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar aplicativos lógicos com Visual Studio](manage-logic-apps-with-visual-studio.md)
+* [Gerenciar aplicativos lógicos no Visual Studio](manage-logic-apps-with-visual-studio.md)

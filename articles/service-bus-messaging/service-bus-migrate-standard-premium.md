@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896235"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>Migrar existente do Azure Service Bus Namespaces padrão para a camada Premium
@@ -185,7 +185,7 @@ Migração pode ser cancelada usando o comando 'Anular' ou por meio do portal do
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-![Anular fluxo – anular sincronização][]
+![Anular fluxo – anular sync][]
 ![anular fluxo - abort completa][]
 
 Quando o processo de migração é anulado, ele realmente anula o processo de cópia sobre as entidades (tópicos, assinaturas e filtros) de Standard para o namespace Premium e interrompe o emparelhamento.
@@ -215,7 +215,7 @@ No entanto, se você pode migrar durante uma janela de manutenção do sistema/m
     >
     > Depois que a migração for concluída, os receptores serão desconectar do namespace padrão e conecte-se automaticamente ao namespace Premium.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o [diferenças entre Standard e Premium de mensagens](./service-bus-premium-messaging.md)
 * Saiba mais sobre os aspectos de recuperação geográfica Diaster e de alta disponibilidade para o barramento de serviço Premium [aqui](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)

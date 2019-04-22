@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877662"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
@@ -47,8 +47,8 @@ As permissões em um objeto do sistema de arquivos são **Ler**, **Gravar** e **
 
 |            |    Arquivo     |   Pasta |
 |------------|-------------|----------|
-| **Read (R)** | Pode ler o conteúdo de um arquivo | Requer **Ler** e **Executar** para listar o conteúdo da pasta|
-| **Gravação (W)** | Pode gravar ou anexar a um arquivo | Requer **Gravar** e **Executar** para criar itens filhos em uma pasta |
+| **Ler (R)** | Pode ler o conteúdo de um arquivo | Requer **Ler** e **Executar** para listar o conteúdo da pasta|
+| **Gravar (W)** | Pode gravar ou anexar a um arquivo | Requer **Gravar** e **Executar** para criar itens filhos em uma pasta |
 | **Executar (X)** | Não significa nada no contexto do Data Lake Storage Gen1 | Necessário para percorrer os itens filhos de uma pasta |
 
 ### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
@@ -124,13 +124,13 @@ O usuário que criou o item é automaticamente o usuário proprietário do item.
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-**Segundo plano**
+**Informações**
 
 Nas ACLs do POSIX, cada usuário está associado a um "grupo primário". Por exemplo, o usuário "alice" pode pertencer ao grupo "finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o grupo primário dela. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
 
 Como não há "grupo primário" associado a usuários no Data Lake Storage Gen1, o grupo proprietário é atribuído conforme mostrado abaixo.
 
-**Atribuir o grupo proprietário de um novo arquivo ou pasta**
+**Atribuindo o grupo proprietário de um novo arquivo ou pasta**
 
 * **Caso 1**: A pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
 * **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.

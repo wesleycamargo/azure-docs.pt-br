@@ -17,10 +17,10 @@ ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
 ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918205"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usar APIs de Cobrança do Azure para obter informações programaticamente sobre o uso do Azure
@@ -65,10 +65,10 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 
 ## <a name="next-steps"></a>Próximas etapas
 * Confira as amostras de código no GitHub:
-  * [Exemplo de código da API da Fatura](https://go.microsoft.com/fwlink/?linkid=845124)
+  * [Exemplo de código da API de Fatura](https://go.microsoft.com/fwlink/?linkid=845124)
 
-  * [Exemplo de código da API do Uso](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+  * [Exemplo de código da API de Uso](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
-  * [Exemplo de código da API do RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+  * [Exemplo de código da API RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 * Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

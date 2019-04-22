@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885580"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
@@ -59,7 +59,7 @@ Examina o seguinte antes de configurar o RBS:
 
 * Certifique-se de que o tamanho total do conteúdo (o tamanho de um banco de dados de conteúdo) mais o tamanho de todos os BLOBs externalizados associados não exceda o limite de tamanho RBS compatível com o SharePoint. Esse limite é de 200 GB. 
   
-    **Para o tamanho do BLOB e banco de dados de conteúdo do medida**
+    **Para medir o tamanho do BLOB e do banco de dados de conteúdo**
   
   1. Execute esta consulta no WFE de Administração Central. Inicie o Shell de Gerenciamento do SharePoint e, em seguida, digite o seguinte comando do Windows PowerShell para obter o tamanho dos bancos de dados de conteúdo:
      

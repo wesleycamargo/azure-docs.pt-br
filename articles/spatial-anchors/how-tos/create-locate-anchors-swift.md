@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 6147616156bc192ffd8d38ddcc636734d8d5179c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915961"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Como criar e localizar as âncoras usando âncoras espacial do Azure em Swift
@@ -25,7 +25,7 @@ ms.locfileid: "58915961"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Âncoras Espaciais do Azure permitem que você compartilhe âncoras no mundo entre diferentes dispositivos. Ele dá suporte a vários ambientes de desenvolvimento diferentes. Neste artigo, vamos nos aprofundar em como usar o SDK do Azure espacial âncoras, em Swift, para:
+Âncoras Espaciais do Azure permitem que você compartilhe âncoras no mundo entre diferentes dispositivos. É compatível com vários ambientes de desenvolvimento diferentes. Neste artigo, vamos nos aprofundar em como usar o SDK do Azure espacial âncoras, em Swift, para:
 
 - Corretamente, configurar e gerenciar uma sessão âncoras espacial do Azure.
 - Criar e definir propriedades em âncoras locais.
@@ -36,8 +36,8 @@ ms.locfileid: "58915961"
 
 Para concluir este guia, verifique se que você tem:
 
-- Leia as [visão geral de âncoras espacial do Azure](../overview.md).
-- Concluir um dos [inícios rápidos de 5 minutos](../index.yml).
+- Leia a [Visão geral de Âncoras Espaciais do Azure](../overview.md).
+- Concluído um dos [Inícios Rápidos de 5 minutos](../index.yml).
 - Conhecimento básico em Swift.
 - Conhecimento básico sobre <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a>.
 

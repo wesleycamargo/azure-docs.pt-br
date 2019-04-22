@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883387"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como indexar o Cosmos DB usando um indexador de Azure Search
@@ -171,9 +171,9 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 
 | Campo   | DESCRIÇÃO |
 |---------|-------------|
-| **Nome** | Obrigatório. Escolha qualquer nome para representar seu objeto de fonte de dados. |
-|**Tipo**| Obrigatório. Deve ser `documentdb`. |
-|**credenciais** | Obrigatório. Deve ser uma cadeia de caracteres de conexão do Cosmos DB.<br/>Para coleções de SQL, as cadeias de caracteres de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDb** na cadeia de caracteres de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Search não poderá indexar seu banco de dados do Azure Cosmos DB.|
+| **name** | Obrigatório. Escolha qualquer nome para representar seu objeto de fonte de dados. |
+|**tipo**| Obrigatório. Deve ser `documentdb`. |
+|**credentials** | Obrigatório. Deve ser uma cadeia de caracteres de conexão do Cosmos DB.<br/>Para coleções de SQL, as cadeias de caracteres de conexão estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDb** na cadeia de caracteres de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Search não poderá indexar seu banco de dados do Azure Cosmos DB.|
 | **contêiner** | contém os seguintes elementos: <br/>**nome**: Obrigatório. Especifique a ID da coleção de banco de dados a serem indexados.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar.<br/>Para coleções do MongoDB, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Recomendável. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | Opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).|

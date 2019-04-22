@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886005"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
@@ -100,14 +100,14 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 * [Classificar dados retornados](#sorting)
 * [Retornar dados em páginas](#paging)
 * [Selecionar colunas específicas](#selecting)
-* [Pesquisar um registro por Id](#lookingup)
+* [Pesquisar um registro por ID](#lookingup)
 * [Lidando com consultas sem tipo](#untypedqueries)
 * [Inserindo dados](#inserting)
 * Atualizar dados
 * [Excluindo dados](#deleting)
-* [Resolução de conflitos e simultaneidade otimista](#optimisticconcurrency)
-* [Associando a uma Interface de usuário do Windows](#binding)
-* [Alterar o tamanho de página](#pagesize)
+* [Resolução de Conflitos e Simultaneidade Otimista](#optimisticconcurrency)
+* [Associação a uma Interface de Usuário do Windows](#binding)
+* [Alterando o Tamanho da Página](#pagesize)
 
 ### <a name="instantiating"></a>Como: Criar uma referência de tabela
 Todos os códigos que acessam e modificam dados em uma tabela de back-end chamam funções no objeto `MobileServiceTable` . Obtenha uma referência à tabela chamando o método [GetTable] da seguinte maneira:
@@ -138,7 +138,7 @@ Esta seção descreve como emitir consultas para o back-end do Aplicativo Móvel
 > Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas.  A paginação impede que as solicitações padrão de grandes conjuntos de dados prejudiquem o serviço.  Para retornar mais de 50 linhas, use os métodos `Skip` e `Take`, conforme descrito em [Retornar dados em páginas](#paging).
 
 ### <a name="filtering"></a>Como: Filtrar dados retornados
-O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função [Where] aplica um predicado de filtragem de linha à consulta na tabela.
+O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função [Onde] aplica um predicado de filtragem de linha à consulta na tabela.
 
 ```csharp
 // This query filters out completed TodoItems and items without a timestamp.
@@ -249,7 +249,7 @@ Em um aplicativo de verdade, você pode usar consultas semelhantes ao exemplo an
 
 
 ### <a name="selecting"></a>Como: Selecionar colunas específicas
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula [Select] à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
+Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula [Selecionar] à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
 
 ```csharp
 // Select one field -- just the Text
@@ -462,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Para obter mais informações, confira o tópico [Sincronização de Dados Offline nos Aplicativos Móveis do Azure] .
+Para obter mais informações, confira o tópico [Sincronização de Dados Offline em Aplicativos Móveis do Azure] .
 
 ### <a name="binding"></a>Como: Associar dados dos aplicativos móveis a uma interface do usuário do Windows
 Esta seção mostra como exibir os objetos de dados retornados usando elementos da interface do usuário em um aplicativo do Windows.  O exemplo de código a seguir associa a origem da lista a uma consulta de itens incompletos. O [MobileServiceCollection] cria uma coleção de associações com reconhecimento de Aplicativos Móveis.
@@ -637,20 +637,20 @@ Os tópicos a seguir são abordados nesta seção:
 
 * [Autenticação gerenciada pelo cliente](#clientflow)
 * [Autenticação gerenciada pelo servidor](#serverflow)
-* [Armazenamento em cache o token de autenticação](#caching)
+* [Armazenando o token de autenticação em cache](#caching)
 
 ### <a name="clientflow"></a>Autenticação gerenciada pelo cliente
 Seu aplicativo pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado durante o login com seu backend. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade. É melhor usar a autenticação de fluxo de cliente do que usar um fluxo de servidor, já que o SDK do provedor de identidade fornece uma aparência mais nativa do UX e permite uma maior personalização.
 
 Veja exemplos para os seguintes padrões de autenticação de fluxo de cliente:
 
-* [Biblioteca de autenticação do Active Directory](#adal)
-* [Facebook or Google](#client-facebook)
+* [Biblioteca de Autenticação do Active Directory](#adal)
+* [Facebook ou Google](#client-facebook)
 
 #### <a name="adal"></a>Autenticar usuários com a Active Directory Authentication Library
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para iniciar a autenticação do usuário a partir do cliente usando a autenticação do Azure Active Directory.
 
-1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para logon no Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
+1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de aplicativo para o logon do Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
 2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` . Ao pesquisar, inclua versões de pré-lançamento.
 3. Adicione o código a seguir ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
 
@@ -881,9 +881,9 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 ## <a name="pushnotifications"></a>Notificações por Push
 Os tópicos a seguir abordam Notificações por Push:
 
-* [Registrar para notificações por push](#register-for-push)
+* [Registrar notificações por push](#register-for-push)
 * [Obter um SID do pacote da Microsoft Store](#package-sid)
-* [Registrar com modelos de plataforma cruzada](#register-xplat)
+* [Registrar com modelos de Plataforma cruzada](#register-xplat)
 
 ### <a name="register-for-push"></a>Como: Registrar para notificações por push
 O cliente de Aplicativos Móveis permite que você se registrar para notificações por push com Hubs de Notificação do Azure. Ao se registrar, você obtém um identificador obtido do PNS (Serviço de Notificação por Push) específico da plataforma. Então fornece este valor, juntamente com quaisquer marcas, no momento em que cria o registro. O seguinte código registra seu aplicativo do Windows para notificações de push no WNS (Serviço de Notificação do Windows):
@@ -899,7 +899,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Se estiver enviando por push para o WNS, você PRECISARÁ [obter um SID de pacote da Microsoft Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao seu aplicativo].
+Se estiver enviando por push para o WNS, você PRECISARÁ [obter um SID de pacote da Microsoft Store](#package-sid).  Para saber mais sobre os aplicativos do Windows, inclusive como se registrar para obter registros de modelo, confira [Adicionar notificações por push ao aplicativo].
 
 A solicitação de marcas do cliente não tem suporte.  As solicitações de marca são descartadas silenciosamente do registro.
 Se você deseja registrar seu dispositivo com marcas, crie uma API personalizada que usa a API de Hubs de Notificação para realizar o registro em seu nome.  Chame a API Personalizada em vez do método `RegisterNativeAsync()`.
@@ -1040,10 +1040,10 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Adicionar autenticação ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
-[Adicionar notificações de push para seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
+[Sincronização de Dados Offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Adicionar notificações por push ao aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
-[Como configurar o serviço de aplicativo para logon do Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Como configurar o Serviço de aplicativo para o logon do Active Directory]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
@@ -1052,7 +1052,7 @@ public class MyHandler : DelegatingHandler
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[cria uma referência a uma tabela não tipada]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[cria uma referência para uma tabela não tipada]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
@@ -1064,20 +1064,20 @@ public class MyHandler : DelegatingHandler
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
 [Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[Ignorar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Centro de desenvolvimento do Windows]: https://dev.windows.com/overview
+[Central de Desenvolvimento do Windows]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[APIs de Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Exemplo de arquivos de aplicativos móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[APIs dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[exemplo de arquivos de Aplicativos Móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->

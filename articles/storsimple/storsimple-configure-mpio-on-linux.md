@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877577"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -432,13 +432,13 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 | &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |Verificar o estado da sessão de iSCSI e o volume descoberto no host |
 | &nbsp; |`iscsi –m session` |Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple |
 |  | | |
-| **Vários caminhos** |`service multipathd start` |Iniciar o daemon de vários caminhos |
+| **Múltiplos caminhos** |`service multipathd start` |Iniciar o daemon de vários caminhos |
 | &nbsp; |`service multipathd stop` |Parar o daemon de vários caminhos |
 | &nbsp; |`service multipathd restart` |Reiniciar o daemon de vários caminhos |
 | &nbsp; |`chkconfig multipathd on` </br> Ou </br> `mpathconf –with_chkconfig y` |Habilitar daemon de vários caminhos para iniciar no momento da inicialização |
 | &nbsp; |`multipathd –k` |Inicie o console interativo para solução de problemas |
 | &nbsp; |`multipath –l` |Listar as conexões e dispositivos de vários caminhos |
-| &nbsp; |`mpathconf --enable` |Criar um exemplo arquivo mulitpath conf `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Próximas etapas

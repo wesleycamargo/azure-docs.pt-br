@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895589"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Perguntas frequentes sobre o Cache Redis do Azure
@@ -135,7 +135,7 @@ Podemos tirar as seguintes conclusões desta tabela:
 
 | Tipo de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
-| **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Solicitações por segundo (RPS) não SSL** |**Solicitações por segundo (RPS) SSL** |
+| **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL** |**RPS (solicitações por segundo) SSL** |
 | C0 |250 MB |Compartilhado |100 / 12,5 |15.000 |7.500 |
 | C1 |1 GB |1 |500 / 62,5 |38.000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
@@ -143,7 +143,7 @@ Podemos tirar as seguintes conclusões desta tabela:
 | C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
 | C5 |26 GB |4 |1.000 / 125 |102.000 |93.000 |
 | C6 |53 GB |8 |2.000 / 250 |126.000 |120.000 |
-| **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Solicitações por segundo (RPS) não SSL, por fragmento** |**Solicitações por segundo (RPS) SSL, por fragmento** |
+| **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL, por fragmento** |**RPS (solicitações por segundo) SSL, por fragmento** |
 | P1 |6 GB |2 |1.500 / 187.5 |180,000 |172.000 |
 | P2 |13 GB |4 |3.000 / 375 |350.000 |341.000 |
 | P3 |26 GB |4 |3.000 / 375 |350.000 |341.000 |
@@ -173,8 +173,8 @@ Sim, o Cache do Azure para Redis está disponível no Azure Governamental na Nuv
 
 Para obter mais informações sobre considerações ao usar o Cache do Azure para Redis com outras nuvens, consulte os links a seguir.
 
-- [Bancos de dados do Azure governamental – Cache do Azure para Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure China na nuvem - Cache do Azure para Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Bancos de dados do Azure Governamental – Cache do Azure para Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure China na Nuvem – Cache do Azure para Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)
 
 Para obter mais informações sobre como usar o Cache do Azure para Redis com o PowerShell no Azure Governamental na Nuvem, Azure China na Nuvem e no Microsoft Azure Alemanha, veja [Como se conectar a outras nuvens – PowerShell do Cache do Azure para Redis](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
@@ -269,7 +269,7 @@ Sim, para usar o Cache do Azure para Redis como um cache de sessão de PHP, espe
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Se a chave não for codificado em URL, você receberá uma exceção com uma mensagem como: `Failed to parse session.save_path`
+> Se a chave não for codificada em URL, você receberá uma exceção com uma mensagem como: `Failed to parse session.save_path`
 >
 >
 
@@ -402,8 +402,8 @@ Como definir essa configuração:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilitar a GC (coleta de lixo) do servidor para obter mais produtividade no cliente ao usar o StackExchange.Redis
 Habilitar a GC do servidor pode otimizar o cliente e proporcionar melhor desempenho e produtividade ao usar o Stackexchange.Redis. Para saber mais sobre a GC do servidor e como habilitá-la, confira os artigos a seguir:
 
-* [Para habilitar a GC do servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [Conceitos básicos da coleta de lixo](/dotnet/standard/garbage-collection/fundamentals)
+* [Para habilitar a GC (coleta de lixo) do servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Noções básicas sobre a coleta de lixo](/dotnet/standard/garbage-collection/fundamentals)
 * [Coleta de lixo e desempenho](/dotnet/standard/garbage-collection/performance)
 
 
@@ -467,12 +467,12 @@ Outro aspecto fundamental do sucesso do Redis é o ecossistema de software livre
 Para saber mais sobre como começar a usar o Cache do Azure para Redis, consulte [Como usar o Cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do Cache do Azure para Redis](index.md).
 
 ### <a name="managed-cache-service"></a>Serviço de Cache gerenciado
-[O serviço foi desativado em 30 de novembro de 2016 de Cache gerenciado.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[O serviço de Cache Gerenciado foi descontinuado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 Para exibir a documentação arquivada, consulte [Documentação de Serviço de Cache Gerenciado arquivada](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Cache em Função
-[Cache na função foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Cache na função foi descontinuado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 Para exibir a documentação arquivada, consulte [Documentação de Cache na função arquivada](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 

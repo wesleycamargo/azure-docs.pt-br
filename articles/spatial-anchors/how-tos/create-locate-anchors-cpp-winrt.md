@@ -1,6 +1,6 @@
 ---
-title: Como criar e localizar as âncoras usando âncoras espacial do Azure no C + + c++ /CLI WinRT | Microsoft Docs
-description: Explicação detalhada sobre como criar e localizar as âncoras usando âncoras espacial do Azure no C + + c++ /CLI WinRT.
+title: Como criar e localizar as âncoras usando âncoras espacial do Azure em C++/WinRT | Microsoft Docs
+description: Explicação detalhada sobre como criar e localizar as âncoras usando âncoras espacial do Azure em C++/WinRT.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 966a8bd5990f955a3ec66ae465d14a0369d0cdf9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915301"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Como criar e localizar as âncoras usando âncoras espacial do Azure no C + + c++ /CLI WinRT
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Como criar e localizar as âncoras usando âncoras espacial do Azure em C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,7 +25,7 @@ ms.locfileid: "58915301"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Âncoras Espaciais do Azure permitem que você compartilhe âncoras no mundo entre diferentes dispositivos. Ele dá suporte a vários ambientes de desenvolvimento diferentes. Neste artigo, vamos nos aprofundar em como usar o SDK âncoras espacial do Azure, no C + + c++ /CLI WinRT, para:
+Âncoras Espaciais do Azure permitem que você compartilhe âncoras no mundo entre diferentes dispositivos. É compatível com vários ambientes de desenvolvimento diferentes. Neste artigo, vamos nos aprofundar em como usar o SDK âncoras espacial do Azure, em C++/WinRT, para:
 
 - Corretamente, configurar e gerenciar uma sessão âncoras espacial do Azure.
 - Criar e definir propriedades em âncoras locais.
@@ -36,8 +36,8 @@ ms.locfileid: "58915301"
 
 Para concluir este guia, verifique se que você tem:
 
-- Leia as [visão geral de âncoras espacial do Azure](../overview.md).
-- Concluir um dos [inícios rápidos de 5 minutos](../index.yml).
+- Leia a [Visão geral de Âncoras Espaciais do Azure](../overview.md).
+- Concluído um dos [Inícios Rápidos de 5 minutos](../index.yml).
 - Conhecimento básico sobre o C++ e o <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs do Windows Runtime</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]

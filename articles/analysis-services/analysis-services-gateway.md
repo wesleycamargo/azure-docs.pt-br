@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896016"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local
@@ -185,7 +185,7 @@ Você pode encontrar os logs do Gateway de Gerenciamento de Dados e do PowerBIGa
 ## <a name="telemetry"></a>Telemetria
 Telemetria pode ser usada para monitorar e solucionar problemas. Por padrão
 
-**Para ativar a Telemetria**
+**Para ativar a telemetria**
 
 1.  Verifique o diretório do cliente de gateway de dados local no computador. Normalmente, é **%systemdrive%\Program Files\On-premises data gateway**. Ou você pode abrir um console de serviços e verificar o caminho para o executável: Uma propriedade do serviço de gateway de dados local.
 2.  No arquivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config do diretório do cliente. Altere a configuração SendTelemetry para true.

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862413"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implantar um agente de segurança em seu dispositivo IoT
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Central de segurança (ASC) do Azure para IoT fornece arquiteturas de referência para os agentes de segurança que monitoram e coletam dados de dispositivos IoT.
@@ -95,7 +95,7 @@ A lista a seguir inclui todas as plataformas com suporte no momento.
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT Core build 17763 |x64|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre opções de configuração, continue para o guia de instruções para configuração do agente. 
 > [!div class="nextstepaction"]

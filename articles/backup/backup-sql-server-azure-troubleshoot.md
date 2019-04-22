@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916675"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
@@ -49,7 +49,7 @@ As tabelas a seguir são organizadas por código de erro.
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Ocorre quando o modelo de recuperação de banco de dados não permite o tipo de backup solicitado. O erro pode ocorrer nas seguintes situações: <br/><ul><li>Um banco de dados usando um modelo de recuperação simples não permite backup de log.</li><li>Não são permitidos backups de log e diferenciais para um banco de dados mestre.</li></ul>Para mais detalhes, consulte a documentação [Modelos de recuperação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Se o backup de log falhar para o BD no modelo de recuperação simples, tente uma destas opções:<ul><li>Se o banco de dados estiver no modo de recuperação simples, desabilite os backups de log.</li><li>Use a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para alterar o modelo de recuperação do banco de dados para Full ou Bulk Logged. </li><li> Se você não quiser alterar o modelo de recuperação e tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. Os backups diferenciais e completos funcionarão por agendamento. Os backups de log serão ignorados, o que é esperado neste caso.</li></ul>Se for um banco de dados mestre e você tiver configurado o backup de log ou diferencial, use uma das etapas a seguir:<ul><li>Use o portal para alterar o agendamento da política de backup do banco de dados mestre para Full.</li><li>Se você tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. O backup completo funcionará por agendamento. Backups de log ou diferenciais não ocorrerão, o que é esperado neste caso.</li></ul> |
-| Operação cancelada como uma operação conflitante já em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre backup e restauração de limitações](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que executam simultaneamente.| [Use o SQL Server Management Studio (SSMS) para monitorar os trabalhos de backup.](manage-monitor-sql-database-backup.md) Depois que a operação conflitante falhar, reinicie a operação.|
+| Operação cancelada como uma operação conflitante já em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre backup e restauração de limitações](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que executam simultaneamente.| [Use o SSMS (SQL Server Management Studio) para monitorar os trabalhos de backup.](manage-monitor-sql-database-backup.md) Depois que a operação conflitante falhar, reinicie a operação.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
@@ -169,8 +169,7 @@ Esses sintomas podem surgir devido a um ou mais dos seguintes motivos:
   * VM foi desligada por um longo período devido ao qual a configuração da extensão nele expirou
   * VM foi excluída e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM excluída
   * Um de nós do AG não recebeu a configuração de backup completa, isso pode ocorrer no momento do registro de grupo de disponibilidade para o cofre ou quando um novo nó é adicionado  <br>
-   
-Nos cenários acima, é recomendável para disparar a operação registrar novamente na VM. Essa opção só está disponível por meio do PowerShell e em breve estará disponível no portal do Azure.
+    Nos cenários acima, é recomendável para disparar a operação registrar novamente na VM. Essa opção só está disponível por meio do PowerShell e em breve estará disponível no portal do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

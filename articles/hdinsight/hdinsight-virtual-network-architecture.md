@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762915"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
@@ -72,6 +72,6 @@ Endereços IP públicos também são fornecidos para os dois pontos de extremida
 1. Um IP público é atribuído ao balanceador de carga para o nome de domínio totalmente qualificado (FQDN) para usar ao se conectar ao cluster pela internet `CLUSTERNAME.azurehdinsight.net`.
 1. O segundo endereço IP público é usado para o nome de domínio somente de SSH `CLUSTERNAME-ssh.azurehdinsight.net`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger o tráfego de entrada para clusters do HDInsight em uma rede virtual com pontos de extremidade privados](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

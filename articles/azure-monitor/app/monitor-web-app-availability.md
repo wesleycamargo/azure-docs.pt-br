@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005733"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -92,7 +92,7 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
     ![No Visual Studio Enterprise Edition, crie um projeto do modelo de Teste de carga e desempenho na Web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Não consegue ver o modelo de teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
+   * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
 
 2. Abra o arquivo .webtest e inicie a gravação.
 
@@ -293,7 +293,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 ## <a name="qna"></a> PERGUNTAS FREQUENTES
 
-* *Site parece okey, mas vejo falhas de teste? Por que Application Insights está me alertas?*
+* *Site parece certo, mas vejo falhas de teste? Por que Application Insights está me alerta?*
 
     * O teste apresenta "Analisar solicitações dependentes" habilitadas? Isso resulta em uma verificação estrita em recursos, como scripts, imagens, etc. Esses tipos de falhas podem não ser notados em um navegador. Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito. Para dessensibilizar o teste para essas falhas de recurso, simplesmente desmarque "Analisar Solicitações Dependentes" da configuração do teste. 
 
@@ -305,7 +305,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
     * Todos os locais relataram falha ou apenas alguns deles? Se apenas alguns relataram falhas, pode ser devido a problemas de rede de CDN. Novamente, clicando nos pontos vermelhos deve ajudar a entender por que o local relatou falhas.
 
-* *Eu não recebeu um email quando o alerta disparado ou resolvido ou ambos?*
+* *Eu não recebi um email quando o alerta disparou ou foi resolvido ou ambos?*
 
     Verifique a configuração de alertas clássicos para confirmar que seu e-mail está listado diretamente, ou você está usando uma lista de distribuição está configurada para receber notificações. Se for, em seguida, verifique a configuração da lista de distribuição para confirmar que ela possa receber e-mails externos. Também verifique se o administrador do sistema pode ter quaisquer políticas configuradas que podem causar esse problema.
 
@@ -313,36 +313,36 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
     Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para obter mais informações.
 
-* *Falha no teste de intermitente com um erro de violação de protocolo?*
+* *Falha de teste intermitente com um erro de violação do protocolo?*
 
     O erro ("violação de protocolo... CR deve ser seguido por LF"), indica um problema com o servidor (ou dependências). Isso acontece quando cabeçalhos malformados são definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, talvez alguns cabeçalhos não estejam usando CRLF para indicar o fim da linha, o que viola a especificação de HTTP e, portanto, causa falha na validação do nível de WebRequest .NET. Inspecione a resposta para encontrar cabeçalhos que possam estar em violação.
     
     Observação: A URL pode não falhar em navegadores que têm uma validação reduzida dos cabeçalhos HTTP. Consulte esta postagem de blog para obter uma explicação detalhada do problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Não vejo qualquer telemetria do lado servidor relacionado para diagnosticar falhas de teste?*
+* *Não vejo qualquer telemetria do lado servidor relacionado a falhas no teste de diagnóstico?*
     
     Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](../../azure-monitor/app/sampling.md) está em operação. Selecione um resultado de disponibilidade diferente.
 
-* *Pode chamar o código do meu teste na web?*
+* *Posso chamar o código através do meu teste na Web?*
 
-     Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
+    Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
 
-* *Há suporte para HTTPS*
+* *Há suporte para HTTPS?*
 
     Damos suporte a TLS 1.1 e TLS 1.2. Atualmente, não verificamos os erros de certificado HTTPS.  
 
-* *Há uma diferença entre "testes na web" e "testes de disponibilidade"?*
+* *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
 
     Os dois termos podem ser consultados de modo intercambiável. Testes de disponibilidade é um termo mais genérico que inclui os testes de ping de URL individuais, além dos testes na Web de várias etapas.
     
-* *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado atrás de um firewall.*
+* *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
     Há duas soluções possíveis:
     
     * Configure o firewall para permitir as solicitações de entrada dos [endereços IP de nossos agentes de teste da Web](../../azure-monitor/app/ip-addresses.md).
     * Escreva seu próprio código para testar periodicamente o servidor interno. Execute o código como um processo em segundo plano em um servidor de teste por trás do firewall. O processo de teste pode enviar seus resultados para o Application Insights usando a API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK principal. Isso requer que o servidor de teste tenha acesso de saída para o ponto de extremidade de ingestão do Application Insights, mas é um risco de segurança muito menor do que a alternativa de permitir as solicitações de entrada. Os resultados não serão exibidos nas folhas de testes na Web de disponibilidade, mas aparecerão como resultados de disponibilidade no Gerenciador de Análise, Pesquisa e Métrica.
 
-* *Carregamento de um teste da web de várias etapas falhar*
+* *Falha de carregamento de um teste na Web de várias etapas*
 
     Alguns motivos para isso acontecer:
     * Há um limite de tamanho de 300 K.
@@ -350,11 +350,11 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
     * Não há suporte para referências a outros testes na Web.
     * Não há suporte para fontes de dados.
 
-* *Não é meu teste de várias etapas concluída*
+* *O teste de várias etapas não foi concluído*
 
     Há um limite de 100 solicitações por teste. Além disso, o teste será interrompido se for executado por mais de dois minutos.
 
-* *Como executar um teste com certificados de cliente?*
+* *Como executar um teste com certificados de cliente*
 
     Não há suporte para isso, infelizmente.
 
@@ -380,7 +380,7 @@ Use a nova experiência de alerta/alertas quase em tempo real caso precise notif
 
 [Solução de problemas][qna]
 
-[Endereços IP dos agentes de teste da web](../../azure-monitor/app/ip-addresses.md)
+[Endereços IP de agentes de teste Web](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

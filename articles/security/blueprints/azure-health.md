@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885937"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
 ## <a name="overview"></a>Visão geral
 
-**O Azure projeto de segurança e conformidade - dados de integridade HIPAA/HITRUST e AI oferece uma implantação imediata de uma solução de IaaS e PaaS do Azure para demonstrar como ingerir, armazenar, analisar, interagir, identidade e implantar com segurança soluções com dados de integridade ao a capacidade de atender aos requisitos de conformidade do setor. O projeto ajuda a acelerar a adoção da nuvem e utilização para clientes com dados regulados.**
+**O Blueprint de Segurança e Conformidade do Azure – Dados de integridade de HIPAA/HITRUST e a IA oferecem uma implantação imediata de uma solução PaaS e IaaS do Azure para demonstrar como ingerir, armazenar, analisar, interagir, identificar e implantar soluções usando dados de integridade de forma segura, ao mesmo tempo em que atende aos requisitos de conformidade do setor. O projeto ajuda a acelerar a utilização e adoção de nuvem para clientes com dados regulados.**
 
 O Projeto de Segurança e Conformidade do Azure - Dados de integridade de HIPAA/HITRUST e AI fornece ferramentas e diretrizes para ajudar a implementar uma lei americana HIPAA (Health Insurance Portability Accountability Act) segura, e ambiente de PaaS (plataforma como serviço) da Information Health Trust (HITRUST) pronto para ingerir, armazenar, analisar e interagir com registros médicos pessoais e não pessoais em um ambiente de nuvem de várias camadas segura, implantado como um solução de ponta a ponta. 
 
@@ -148,38 +148,38 @@ O projeto inclui um grande conjunto de registros médicos anônimos para demonst
 ### <a name="users-and-roles"></a>Usuários e funções
 
 
-**Administrador do site – Alex**
+**Administrador de site -- Alexandre**
 
-*Email: Alex\_SiteAdmin*
+*Email: Pedro\_SiteAdmin*
 
 O trabalho de Alexandre é avaliar tecnologias que podem reduzir o custo indireto do gerenciamento de uma rede local e reduzir os custos de gerenciamento. Alexandre tem avaliado o Azure há algum tempo, mas tem dificuldades em configurar os serviços necessários para atender aos requisitos de conformidade da HiTrust para armazenar os Dados do Paciente na nuvem. Alexandre selecionou o AI de Integridade do Azure para implementar uma solução de integridade em conformidade, que abordou os requisitos para atender aos requisitos do cliente para HiTrust.
 
-**Cientista de dados - Débora**
+**Cientista de dados -- Débora**
 
-*Email: Débora\_DataScientist*
+*Email: Brenda\_DataScientist*
 
 Débora é responsável por usar e criar modelos que analisam registros médicos para fornecer informações sobre o atendimento ao paciente. Débora usa SQL e a linguagem de programação estatística R para criar seus modelos.
 
-**Analista de banco de dados – Daniel**
+**Analista de Banco de Dados -- Daniel**
 
-*Email: Danny\_DBAnalyst*
+*Email: Vinícius\_DBAnalyst*
 
 Daniel é o principal contato para assuntos relacionados ao Microsoft SQL Server, que armazena todos os dados de pacientes da Contosoclínica. Daniel é um administrador experiente do administrador do SQL Server que recentemente familiarizou-se com o Banco de Dados SQL do Microsoft Azure.
 
-**Diretor médico executivo de informações – Carolina**
+**Diretor médico executivo de informações -- Carolina**
 
 Carolina está trabalhando com Diogo, gerente de enfermagem, e Débora, cientista de dados, para determinar quais fatores influenciam o tempo de permanência do paciente.
 Carolina usa as previsões da solução LOS (duração de permanência) para determinar se os recursos estão sendo alocados adequadamente na rede hospitalar. Por exemplo, usando o painel incluído nesta solução.
 
-**Chris de – gerente de enfermagem**
+**Gerente de enfermagem -- Diogo**
 
-*Email: Chris\_CareLineManager*
+*Email: Paulo\_CareLineManager*
 
 Como o indivíduo diretamente responsável pela gestão de admissão e alta de pacientes na Contosoclínica, Diogo usa as previsões geradas pela solução LOS para garantir que funcionários adequados estejam disponíveis para prestar atendimento aos pacientes enquanto estiverem hospedados nas instalações.
 
-**Auditor--Henrique**
+**Auditor -- Henrique**
 
-*Email: Henrique\_Auditor*
+*Email: Diogo\_Auditor*
 
 Henrique é um auditor certificado que tem experiência de auditoria para ISO, SOC e HiTrust. Henrique foi contratado para avaliar a rede da Contosoclínica. Henrique pode revisar a Matriz de Responsabilidades do Cliente fornecida com a solução para garantir que o modelo e a solução LOS possam ser utilizados para armazenar, processar e exibir dados pessoais confidenciais.
 
@@ -249,7 +249,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 ### <a name="azure-functions"></a>Funções do Azure
 A solução foi projetada para usar o [Azure Functions](/azure/azure-functions/) processar a duração dos dados de permanência de exemplo utilizados na demonstração analítica. Três funcionalidade nas funções foram criadas.
 
-**1. Importação em massa dados phi dos dados do cliente**
+**1. Importação em massa de dados phi dos dados do cliente**
 
 Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPatientAdmission**, conforme descrito em**Implantar e executar a demonstração**, executa o pipeline de processamento a seguir:
 1. **Armazenamento de Blobs** - Exemplo do arquivo .csv de dados do paciente baixado para armazenamento
@@ -268,7 +268,7 @@ Além disso, o Azure Functions foi projetado para ler e proteger dados confidenc
 **2. Admissão de novos pacientes**
 
 Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPatientadmission**, conforme descrito em **Implantar e executar a demonstração**, executa o pipeline de processamento a seguir: ![](images/securetransact.png)
-**1. Azure Functions[ disparou e as solicitações de função para um ](/rest/api/)token de portador do Azure Active Directory.
+**1. Azure Functions** disparou e as solicitações de função para um [token de portador](/rest/api/) do Azure Active Directory.
 
 **2. Key Vault** solicitado por um segredo associado ao token solicitado.
 
@@ -384,4 +384,4 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 
 -   [Conector do Application Insights (versão prévia)](/azure/log-analytics/log-analytics-app-insights-connector) está habilitado
 
--   [Análise do Log de Atividades](/azure/log-analytics/log-analytics-activity) está habilitada
+-   [Análise de Logs de Atividades](/azure/log-analytics/log-analytics-activity) está habilitada

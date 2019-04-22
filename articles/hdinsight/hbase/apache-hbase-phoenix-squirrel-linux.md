@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903295"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Usar o Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight
@@ -34,14 +34,14 @@ Antes de poder usar o SQLLine, você deve ter os seguintes itens:
 
 Ao se conectar a um cluster do HBase, você precisa se conectar a uma das [VMs do Apache ZooKeeper](https://zookeeper.apache.org/). Cada cluster HDInsight tem três VMs do ZooKeeper.
 
-**Para obter o nome de host do ZooKeeper**
+**Para descobrir o nome do host do ZooKeeper**
 
 1. Abra o [Apache Ambari](https://ambari.apache.org/) navegando até **https: //\< nome do cluster \>.azurehdinsight.net**.
 2. Para se conectar, insira o nome de usuário HTTP (cluster) e a senha.
 3. No menu à esquerda, selecione **ZooKeeper**. Três instâncias do **Servidor do ZooKeeper** serão listadas.
 4. Clique em uma das instâncias do **Servidor do ZooKeeper** listadas. No painel **Resumo**, encontre o **Nome do host**. Ele é semelhante a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
-**Para usar o SQLLine**
+**Usar SQLLine**
 
 1. Conecte-se ao cluster usando o SSH. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

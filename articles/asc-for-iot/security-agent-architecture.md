@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: e10cd3f60c3b12c6d5115ff34f4cbde2ef19d9fd
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862804"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência do agente de segurança
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 

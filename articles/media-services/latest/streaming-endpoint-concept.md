@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881011"
 ---
 # <a name="streaming-endpoints"></a>Ponto de extremidade de streaming
@@ -29,7 +29,7 @@ No AMS (Serviços de Mídia do Microsoft Azure), a entidade [Ponto de Extremidad
 
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 
-Ponto de extremidade padrão: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Para o ponto de extremidade padrão: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
 Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
@@ -42,7 +42,7 @@ A tabela descreve os tipos:
 |Type|Unidades de escala|DESCRIÇÃO|
 |--------|--------|--------|  
 |**Ponto de Extremidade de Streaming Standard** (recomendado)|0|O padrão de ponto de extremidade de Streaming é uma **padrão** de tipo, mas pode ser alterado para o tipo Premium.<br/> O tipo padrão é a opção recomendada para virtualmente todos os cenários de transmissão e tamanhos de público-alvo. O tipo **Standard** dimensiona automaticamente a largura de banda de saída. A taxa de transferência desse tipo de ponto de extremidade de Streaming é até 600 Mbps. Fragmentos de vídeo armazenado em cache na CDN, não use a largura de banda do ponto de extremidade de Streaming.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Mídia oferecem pontos de extremidade de streaming **Premium**, que podem ser usados para dimensionar a capacidade dos maiores públicos-alvo da Internet. Se você espera grandes públicos e visualizadores simultâneos, entre em contato conosco em amsstreaming\@microsoft.com para obter orientação sobre como se você precisa mover para o **Premium** tipo. |
-|**Ponto de extremidade de Streaming Premium**|>0|Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. É possível mudar para um tipo **Premium**, ajustando `scaleUnits`. `scaleUnits` fornece capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium**, cada unidade habilitada fornece capacidade adicional de largura de banda ao aplicativo. |
+|**Ponto de Extremidade de Streaming Premium**|>0|Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. É possível mudar para um tipo **Premium**, ajustando `scaleUnits`. `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium**, cada unidade habilitada fornece capacidade adicional de largura de banda ao aplicativo. |
  
 ## <a name="comparing-streaming-types"></a>Comparando tipos de streaming
 
@@ -77,8 +77,8 @@ Esta seção fornece detalhes sobre algumas das propriedades de fluxo contínuo 
   - Verifique o resultado retornado para um `HTTP Error Code 412` (PreconditionFailed) com uma mensagem de "Propriedade CdnEnabled de ponto de extremidade de Streaming não pode ser definida como true, pois a funcionalidade de CDN não está disponível na região atual." 
 
     Se você receber esse erro, o data center não dará suporte. Você deve experimentar outro data center.
-- `cdnProfile` -Quando `cdnEnabled` é definido como true, você também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN em que o ponto de extremidade CDN será criado. Você pode fornecer um cdnProfile existente ou usar um novo. Se o valor for NULL e `cdnEnabled` for verdadeiro, o valor padrão "AzureMediaStreamingPlatformCdnProfile" será usado. Se o perfil `cdnProfile` fornecido já existir, um ponto de extremidade será criado sob ele. Se o perfil não existe, um novo perfil automaticamente será criado.
-- `cdnProvider` -Quando CDN está habilitado, você também pode passar `cdnProvider` valores. `cdnProvider` Controla qual provedor será usado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" é usado (ou seja, o valor padrão).
+- `cdnProfile` -Quando `cdnEnabled` é definido como true, você também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN no qual o ponto de extremidade CDN será criado. Você pode fornecer um cdnProfile existente ou usar um novo. Se o valor for NULL e `cdnEnabled` for verdadeiro, o valor padrão "AzureMediaStreamingPlatformCdnProfile" será usado. Se o perfil `cdnProfile` fornecido já existir, um ponto de extremidade será criado sob ele. Se o perfil não existe, um novo perfil automaticamente será criado.
+- `cdnProvider` -Quando CDN está habilitado, você também pode passar `cdnProvider` valores. `cdnProvider` controla qual provedor será usado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" é usado (ou seja, o valor padrão).
 - `crossSiteAccessPolicies` – Usado para especificar as políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>As configurações se aplicam somente para Smooth Streaming.
 - `customHostNames` – Usado para configurar um ponto de extremidade de Streaming para aceitar o tráfego direcionado para um nome de host personalizado.  Essa propriedade é válida para Standard e pontos de extremidade de Streaming Premium e pode ser definida quando `cdnEnabled`: false.
     

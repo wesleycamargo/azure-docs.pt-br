@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885716"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de serviço a serviço com Azure Data Lake Storage Gen1 usando API REST
 > [!div class="op_single_selector"]
-> * [Usando Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Usando o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
-> * [Usando Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Usando o Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Usar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Usando o Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Usar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 > 
 
@@ -52,6 +52,6 @@ Este artigo usa uma abordagem **não interativa** . Para saber mais sobre (chama
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como usar a autenticação de serviço a serviço para autenticar com o Data Lake Storage Gen1 usando API REST. Agora você pode consultar os artigos a seguir que descrevem como usar a API REST para trabalhar com Data Lake Storage Gen1.
 
-* [Operações de gerenciamento de conta no Data Lake armazenamento Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
-* [Operações de dados no Data Lake armazenamento Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md)
+* [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
+* [Operações de dados no Data Lake Storage Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md)
 

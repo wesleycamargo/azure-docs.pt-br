@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863025"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Apresentando a Central de segurança do Azure para IoT
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="secure-your-azure-iot-solution"></a>Proteger sua solução de IoT do Azure 
@@ -57,7 +57,7 @@ Esta visão geral, você aprendeu sobre os recursos e serviços da ASC para IoT.
 
 - [Arquitetura](architecture.md)
 - [Pré-requisitos do serviço](service-prerequisites.md)
-- [Introdução](getting-started.md)
+- [Guia de Introdução](getting-started.md)
 - [Definir sua solução](quickstart-configure-your-solution.md)
 - [ASC para perguntas Frequentes de IoT](resources-frequently-asked-questions.md)
 - [ASC para alertas de IoT](concept-security-alerts.md)

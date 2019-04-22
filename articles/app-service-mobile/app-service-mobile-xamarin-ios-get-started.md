@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892425"
 ---
 # <a name="create-a-xamarinios-app"></a>Criar um aplicativo Xamarin.iOS
@@ -71,10 +71,10 @@ Siga as etapas a seguir para configurar o projeto de servidor para usar o back-e
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicionar sincronização Offline ao seu aplicativo](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Adicionar sincronização offline ao seu aplicativo](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Adicionar autenticação ao seu aplicativo](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Adicionar notificações por push ao aplicativo Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Como usar o cliente gerenciado para Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Adicionar notificações por push ao seu aplicativo Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
+* [Como usar o cliente gerenciado para aplicativos móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

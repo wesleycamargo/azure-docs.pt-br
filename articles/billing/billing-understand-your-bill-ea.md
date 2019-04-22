@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
 ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848829"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entenda sua fatura do contrato Enterprise do Azure
@@ -136,5 +136,5 @@ Compare seu total no Azure Marketplace em **Relatórios** > **Resumo de uso** no
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Exibir e baixar seus encargos e o uso do Azure](billing-download-azure-daily-usage.md)

@@ -13,10 +13,10 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877798"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Criar sua primeira função do Azure com Java e IntelliJ
@@ -68,7 +68,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
 1. Abra a barra de ferramentas **Projetos Maven**.
 1. Expanda **Ciclo de Vida** e, em seguida, abra o **pacote**. A solução é compilada e empacotada em um diretório de destino criado recentemente.
 1. Expanda **Plug-ins** > **azure-functions** e abra **azure-functions:run** para iniciar o tempo de execução local do Azure Functions.  
-  ![Barra de ferramentas do Maven para o Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Barra de ferramentas Maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Feche a caixa de diálogo de execução quando terminar de testar a função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 
@@ -115,7 +115,7 @@ Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor
    [INFO] ------------------------------------------------------------------------
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine o [Guia do desenvolvedor de funções Java](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java.
 - Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino do Maven `azure-functions:add`.

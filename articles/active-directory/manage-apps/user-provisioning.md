@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894399"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
@@ -278,8 +278,8 @@ Como alternativa, você deve atribuir explicitamente (ou de outra forma [definir
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
-- [Personalizando os mapeamentos de atributo para o provisionamento de usuário](customize-application-attributes.md)
-- [Gravando expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
-- [Filtros de escopo para provisionamento de usuário](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Personalizando os mapeamentos de atributos para provisionamento de usuários](customize-application-attributes.md)
+- [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
+- [Filtros de escopo para provisionamento de usuários](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](use-scim-to-provision-users-and-groups.md)
-- [Visão geral de API de sincronização do AD do Azure](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

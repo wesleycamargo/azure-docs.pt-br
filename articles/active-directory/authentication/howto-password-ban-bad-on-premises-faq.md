@@ -12,27 +12,27 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861897"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
 ## <a name="general-questions"></a>Perguntas gerais
 
-**P: Quais diretrizes usuários terá sobre como selecionar uma senha segura?**
+**P: Que diretrizes os usuários devem receber sobre como selecionar uma senha segura?**
 
 A diretriz atual da Microsoft sobre este tópico pode ser encontrada no seguinte link:
 
-[Diretrizes de senha da Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Diretrizes de Senha da Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
 
-**P: É o local com suporte nas nuvens não públicos de proteção de senha do Azure AD?**
+**P: Há suporte para a proteção por senha do Azure AD local em nuvens não públicas?**
 
 Não, locais de proteção por senha do Azure AD têm suporte apenas na nuvem pública. Não foi anunciada nenhuma data para a disponibilidade de nuvem não pública.
 
-**P: Como aplicar benefícios da proteção de senha do Azure AD a um subconjunto dos meus usuários locais?**
+**P: Como posso aplicar os benefícios da proteção por senha do Azure AD a um subconjunto dos usuários locais?**
 
 Sem suporte. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
 
@@ -44,7 +44,7 @@ Um conjunto de senha (às vezes chamado de uma redefinição de senha) é quando
 
 A política de validação de senha se comporta da mesma, independentemente se estiver sendo feito uma alteração de senha ou um conjunto. O serviço do agente de controlador de domínio de proteção de senha do Azure AD registrar eventos diferentes para informá-lo se uma alteração de senha ou a operação set foi feita.  Ver [proteção de senha do Azure AD, monitoramento e registro em log](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**P: Há suporte para instalar a proteção de senha do Azure AD lado a lado com outros produtos com base em filtro de senha?**
+**P: Há suporte para instalação da proteção por senha do Azure AD lado a lado com outros produtos baseados em filtro de senha?**
 
 Sim. Suporte para várias dlls de filtro de senha registrada é um recurso importante do Windows e não específico para a proteção por senha do Azure AD. Todas as dlls de filtro de senha registrados devem aceitar antes que uma senha seja aceita.
 
@@ -52,11 +52,11 @@ Sim. Suporte para várias dlls de filtro de senha registrada é um recurso impor
 
 Sem suporte. A proteção de senha do Azure AD é um recurso do Azure que dá suporte a ser estendido para um ambiente local do Active Directory.
 
-**P: Como modificar o conteúdo da política no nível do Active Directory?**
+**P: Como faço para modificar o conteúdo da política no nível do Active Directory?**
 
 Sem suporte. A política só pode ser administrada usando o portal de gerenciamento do Azure AD. Confira também a pergunta anterior.
 
-**P: Por que o DFSR é necessária para a replicação do sysvol?**
+**P: Por que o DFSR é necessário para a replicação de SYSVOL?**
 
 FRS (a tecnologia do predecessor para DFSR) tem vários problemas conhecidos e é totalmente suportada em versões mais recentes do Windows Server Active Directory. Zero testes da proteção por senha do Azure AD serão feitos nos domínios configurados para FRS.
 
@@ -66,7 +66,7 @@ Para obter mais informações, consulte:
 
 [O fim é Nigh para FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-**P: Quanto espaço em disco que o recurso requer no compartilhamento de sysvol domínio?**
+**P: Quanto espaço em disco o recurso requer no compartilhamento sysvol de domínio?**
 
 O uso do espaço preciso varia, pois depende de fatores como o número e o tamanho dos tokens banidos na lista proibida global do Microsoft e a lista personalizada por locatário, além da sobrecarga de criptografia. O conteúdo dessas listas provavelmente aumentará no futuro. Com isso em mente, uma expectativa razoável é que o recurso precisará de pelo menos cinco (5) megabytes de espaço no compartilhamento de sysvol do domínio.
 
@@ -74,11 +74,11 @@ O uso do espaço preciso varia, pois depende de fatores como o número e o taman
 
 Esse requisito é causado pelo comportamento principal do Windows.
 
-**P: Há alguma maneira para configurar um agente de controlador de domínio para usar um servidor proxy específico?**
+**P: Há alguma maneira de configurar um agente de controlador de domínio para usar um servidor proxy específico?**
 
  Não. Uma vez que o servidor proxy é sem estado, não é importante saber qual servidor proxy específico é usado.
 
-**P: É okey implantar o serviço de Proxy de proteção de senha do Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
+**P: Não tem problema implantar o serviço de Proxy de Proteção de Senha do Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
 
 Sim. O serviço de Proxy de Proteção de Senha do Azure AD e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
@@ -86,7 +86,7 @@ Sim. O serviço de Proxy de Proteção de Senha do Azure AD e o Azure AD Connect
 
 Há suporte para qualquer ordenação de instalação do agente de Proxy, instalação do agente de controlador de domínio, o registro de floresta e registro do Proxy.
 
-**P: Deve ser preocupado sobre o impacto nos meus controladores de domínio de implantar esse recurso no desempenho?**
+**P: Devo me preocupar com o impacto ao desempenho de meus controladores de domínio ao implantar esse recurso?**
 
 O serviço do Agente de Controlador de Domínio de Proteção por Senha do Azure AD não deve afetar significativamente o desempenho do controlador de domínio em uma implantação íntegra existente do Active Directory.
 
@@ -100,13 +100,13 @@ No entanto se os controladores de domínio atuais já estão executando em níve
 
 Uma maneira de parcialmente atingir essa meta seria implantar a proteção de senha do Azure AD em todos os controladores de domínio em um determinado site do Active Directory. Essa abordagem fornecerá cobertura razoável para os clientes do Windows atribuídos a esse site e, portanto, também para os usuários que estão fazendo logon nesses clientes e alterando suas senhas.
 
-**P: Se eu instalar o serviço de agente do controlador de domínio de proteção de senha do Azure AD em apenas o domínio PDC (controlador primário), serão todos os outros controladores de domínio no domínio também protegidos?**
+**P: Se eu instalar o serviço de agente do controlador de domínio de proteção de senha do Azure AD apenas no domínio do PDC (controlador primário), todos os outros controladores de domínio no domínio também serão protegidos?**
 
  Não. Quando uma senha do usuário for alterada em um controlador de domínio do PDC não fornecido, a senha com texto não criptografado nunca será enviada ao PDC (essa ideia é uma percepção incorreta comum). Depois que uma nova senha é aceita em um determinado controlador de domínio, esse controlador de domínio a usa para criar vários hashes específicos de protocolo de autenticação dessa senha e, em seguida, manter esses hashes no diretório. A senha com texto não criptografado não é persistente. Os hashes atualizados então são replicados para o controlador de domínio primário. As senhas de usuário podem, em alguns casos, ser alteradas diretamente no PDC dependendo de vários fatores, como topologia de rede e design de site do Active Directory. (Confira a pergunta anterior.)
 
 Em resumo, a implantação do serviço de Agente de Controlador de Domínio de Proteção por Senha do Azure AD no PDC é necessária para alcançar 100% de cobertura de segurança do recurso em domínio. Implantar o recurso no PDC apenas não oferece benefícios de segurança de proteção por senha do Azure AD para todos os demais controladores de domínio no domínio.
 
-**P: Um pacote de gerenciamento do System Center Operations Manager está disponível para a proteção de senha do Azure AD?**
+**P: Um pacote de gerenciamento do System Center Operations Manager está disponível para a proteção por senha do Azure AD?**
 
  Não.
 
@@ -120,9 +120,9 @@ Os links a seguir não fazem parte da principal documentação da Proteção de 
 
 [Proteção por senha do AD do Azure agora está disponível!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guia de proteção de Phishing – de email parte 15: Implementar o serviço de proteção de senha do Microsoft Azure AD (para local muito!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Guia de proteção contra phishing por email – parte 15: Implementar o serviço de proteção de senha do Microsoft Azure AD (para local também!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
-[Bloqueio inteligente e a proteção por senha do AD do Azure estão agora em visualização pública!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+[O Bloqueio Inteligente e a Proteção por senha do Azure AD agora estão em Versão Prévia Pública!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
 ## <a name="microsoft-premierunified-support-training-available"></a>Treinamento em suporte da Microsoft Premier\Unified disponível
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905504"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
@@ -41,7 +41,7 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Diálogo de armazenamento – erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: a criação de uma conta de armazenamento por meio do Cloud Shell falha devido a uma política do Azure imposta pelo seu administrador. Mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Detalhes**: a criação de uma conta de armazenamento por meio do Cloud Shell falha devido a uma política do Azure imposta pelo seu administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Resolução**: contate o administrador do Azure para remover ou atualizar a política do Azure que nega a criação de armazenamento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Diálogo de armazenamento – erro: 400 DisallowedOperation
@@ -160,7 +160,7 @@ O Azure Cloud Shell leva seus dados pessoais a sério, os dados capturados e arm
 ### <a name="export"></a>Exportação
 Para **exportar** as configurações de usuário Cloud Shell salvas para você, como o shell preferencial, o tamanho da fonte e o tipo de fonte, execute os seguintes comandos.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicie o Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:
@@ -183,7 +183,7 @@ Para **excluir** as configurações de usuário Cloud Shell salvas para você, c
 >[!Note]
 > Se você excluir as configurações de usuário, vá para arquivos do Azure para concluir essa ação. Vá para os seus arquivos do Azure para concluir essa ação.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicie o Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:

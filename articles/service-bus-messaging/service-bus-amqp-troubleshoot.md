@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58910039"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erros AMQP no barramento de serviço do Azure
@@ -49,10 +49,10 @@ Error{condition=amqp:connection:forced, description='The connection was inactive
 
 Para saber mais sobre o AMQP e o Barramento de Serviço, visite os seguintes links:
 
-* [Visão geral do AMQP do barramento de serviço]
+* [Visão geral do Barramento de Serviço para AMQP]
 * [Guia do protocolo AMQP 1.0]
-* [AMQP no barramento de serviço do Windows Server]
+* [AMQP no Barramento de Serviço para Windows Server]
 
-[Visão geral do AMQP do barramento de serviço]: service-bus-amqp-overview.md
+[Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP no barramento de serviço do Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP no Barramento de Serviço para Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/02/2019
 ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862736"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
@@ -32,11 +32,11 @@ Embora você possa criar, editar, gerenciar e implantar aplicativos lógicos na 
 
 * Baixe e instale essas ferramentas, caso você ainda não as tenha: 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 – Community Edition ou superior</a>. 
   Este início rápido usa o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
-    > Quando você instala o Visual Studio de 2019 ou 2017, certifique-se de que você selecione os **desenvolvimento do Azure** carga de trabalho.
+    > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
     > Para obter mais informações, consulte [gerenciar recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
     >
     > No Visual Studio de 2019, Gerenciador de nuvem pode abrir o Designer do aplicativo lógico no portal do Azure, mas ainda não é possível abrir o Designer do aplicativo lógico incorporado.
@@ -46,9 +46,9 @@ Embora você possa criar, editar, gerenciar e implantar aplicativos lógicos na 
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Azure (2.9.1 ou posterior)</a> 
 
-  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">PowerShell do Azure</a>
 
-  * Ferramentas de aplicativos lógicos do Azure para a versão do Visual Studio que você deseja:
+  * Ferramentas de Aplicativos Lógicos do Azure para as versões do Visual Studio que você deseja:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
     

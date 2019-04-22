@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861835"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta da frente do Azure
@@ -54,7 +54,7 @@ Quaisquer cabeçalhos enviados para a porta da frente do back-end também são p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um Front Door](quickstart-create-front-door.md)
+- [Criar uma porta da frente](quickstart-create-front-door.md)
 - [Como funciona a porta da frente](front-door-routing-architecture.md)
 
 <!--Image references-->

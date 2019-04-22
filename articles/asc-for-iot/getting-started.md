@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: aac15d766439a725f593ca421cbdc6da496f29f4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862685"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Introdução à Central de segurança do Azure para IoT 
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo fornece uma explicação sobre os diferentes blocos de construção de Central de segurança do Azure (ASC) para o serviço de IoT e explica como começar com [habilitando o serviço](quickstart-onboard-iot-hub.md). 
@@ -76,6 +76,6 @@ Certifique-se de usar ASC para recursos de segurança aprimorada de IoT, como o 
 
 - Habilitar [ASC para IoT](quickstart-onboard-iot-hub.md)
 - Configurar seu [solução](quickstart-configure-your-solution.md)
-- [Criar módulos de segurança](quickstart-create-security-twin.md)
+- [Criar Módulos de Segurança](quickstart-create-security-twin.md)
 - Configurar [alertas personalizados](quickstart-create-custom-alerts.md)
 - [Implantar um agente de segurança](how-to-deploy-agent.md)

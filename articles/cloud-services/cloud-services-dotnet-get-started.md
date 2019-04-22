@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917469"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
@@ -418,7 +418,7 @@ Você pode criar e executar os aplicativos conforme explicado anteriormente no t
 As seções a seguir explicam o código relacionado ao trabalho com os blobs e filas do ambiente do Azure. Este tutorial não explica como criar controladores e exibições MVC usando scaffolding, como escrever código do Entity Framework que funciona com bancos de dados do SQL Server ou as noções básicas da programação assíncrona no ASP.NET 4.5. Para obter informações sobre esses tópicos, consulte os seguintes recursos:
 
 * [Introdução ao MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Introdução ao EF 6 e o MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introdução ao EF 6 e ao MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introdução à programação assíncrona no .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
@@ -703,7 +703,7 @@ Após cada interação do loop, se nenhuma mensagem foi encontrada na fila, o pr
 
 Algumas vezes o conteúdo de uma mensagem da fila causa um erro no processamento. Isso é chamado de *mensagem suspeita*, e se você acabou de registrar um erro e reiniciou o loop, pode tentar processar essa mensagem infinitamente.  Portanto, o bloco de captura inclui uma instrução que verifica quantas vezes o aplicativo tentou processar a mensagem atual, e se isso aconteceu mais de 5 vezes, a mensagem é excluída da fila.
 
-`ProcessQueueMessage` é chamado quando uma mensagem da fila for encontrada.
+`ProcessQueueMessage` é chamado quando uma mensagem em fila é encontrada.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -761,7 +761,7 @@ Para alterar o projeto a fim de usar o emulador completo, clique com o botão di
 
 Para executar o aplicativo com o emulador completo, abra o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
 
 Estes são alguns aplicativos função Web de serviço de nuvem que demonstram práticas mais reais de codificação, listados do menos para o mais complexo:
@@ -775,7 +775,7 @@ Para assistir a um vídeo de introdução às melhores práticas e padrões de a
 
 Para saber mais, consulte os recursos a seguir:
 
-* [Serviços de nuvem do Azure parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Serviços de Nuvem do Azure – Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

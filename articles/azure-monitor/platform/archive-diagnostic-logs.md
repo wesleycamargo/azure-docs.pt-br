@@ -76,7 +76,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
+| resourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
 | StorageAccountId |Não  |A ID de Recurso da Conta de Armazenamento na qual os Logs de Diagnóstico devem ser salvos. |
 | Categories |Não  |Lista separada por vírgulas de categorias de log para habilitar. |
 | Enabled |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |

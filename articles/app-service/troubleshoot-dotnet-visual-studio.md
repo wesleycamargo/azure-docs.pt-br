@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895006"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -85,7 +85,7 @@ Você tipicamente implanta um projeto Web com o `customErrors`sinalizador no arq
 
 ![Página de erro inútil](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
-**O site não é possível exibir a página**
+**O site não pode exibir a página**
 
 ![Página de erro inútil](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
@@ -257,13 +257,13 @@ Se a sua função [criou logs](https://github.com/Azure/azure-webjobs-sdk/wiki),
 ## <a name="logsoverview"></a>Visão geral dos logs de diagnóstico
 Um aplicativo ASP.NET executado em um aplicativo do Serviço de Aplicativo pode criar os seguintes tipos de logs:
 
-* **Logs de rastreamento de aplicativo**<br/>
+* **Logs de rastreamento de aplicativos**<br/>
   O aplicativo cria esses logs chamando métodos da classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) .
-* **Logs do Web Server**<br/>
+* **Logs do servidor Web**<br/>
   O servidor web cria uma entrada no log para cada solicitação HTTP ao aplicativo.
-* **Logs de mensagem de erro detalhadas**<br/>
+* **Logs de mensagens de erro detalhadas**<br/>
   O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (solicitações que resultam em um código de status 400 ou superior).
-* **Logs de rastreamento de solicitação com falha**<br/>
+* **Logs de rastreamento de solicitações com falha**<br/>
    O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
 
 Como o registro em log afeta o desempenho do aplicativo, o Azure oferece a possibilidade de habilitar ou desabilitar cada tipo de log conforme necessário. Para logs de aplicativo, você pode especificar que apenas os logs acima de um determinado nível de gravidade devem ser gravados. Por padrão, quando você cria um novo aplicativo, todo o registro em log está desabilitado.
@@ -639,9 +639,9 @@ Para obter mais informações sobre como usar o modo de depuração no Visual St
 Para saber mais sobre a depuração remota para aplicativos do Serviço de Aplicativo do Azure e Trabalhos Web, confira os seguintes recursos:
 
 * [Introdução à depuração remota do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introdução à parte do serviço de aplicativo de Azure de depuração remota 2 - dentro da depuração remota](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introdução à depuração remota de parte do serviço de aplicativo do Azure 3 - ambiente de várias instâncias e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
-* [Depuração de trabalhos Web (vídeo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
+* [Introdução à depuração remota do Serviço de Aplicativo do Azure parte 2 - Por dentro da depuração remota](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introdução à depuração remota do Serviço de Aplicativo do Azure parte 3 - Ambiente de várias instâncias e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Depuração de Trabalhos Web (vídeo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se o aplicativo usar uma API Web do Azure ou um back-end de Serviços Móveis e você precisar depurá-lo, confira [Depurando back-end do .NET no Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 
@@ -654,9 +654,9 @@ Não existem introduções completas e atualizadas para rastreamento do ASP.NET 
    Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
 * [Ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informações sobre ouvintes de rastreamento, mas não menciona o [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Passo a passo: Integrando o rastreamento do ASP.NET com rastreamento de System. Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Passo a passo: integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Esse artigo também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
-* [Rastreamento em exibições do Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Rastreamento em exibições do Razor do ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
    Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
 
 ``` c#
@@ -671,7 +671,7 @@ catch (Exception ex)
 }
 ```
 
-* [Streaming Diagnostics Trace Logging from Azure Command Line (plus Glimpse!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [Registro em log de rastreamento do diagnóstico de streaming na linha de comando do Azure (mais Glimpse!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
 * [Usando diagnóstico e registro em log de Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Logs de streaming dos Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
    Vídeos de Scott Hanselman e David Ebbo.

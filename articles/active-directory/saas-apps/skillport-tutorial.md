@@ -16,10 +16,10 @@ ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integração do Azure Active Directory com o Skillport
@@ -58,7 +58,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-skillport-from-the-gallery"></a>Adicionando Skillport da galeria
 Para configurar a integração do Skillport ao Azure AD, você precisará adicionar o Skillport da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Skillport da galeria, execute as seguintes etapas:**
+**Para adicionar o Skillport por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -146,7 +146,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
 1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
@@ -164,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/skillport-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -182,7 +182,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Britta Simon ao Skillport, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes ao Skillport, realize as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

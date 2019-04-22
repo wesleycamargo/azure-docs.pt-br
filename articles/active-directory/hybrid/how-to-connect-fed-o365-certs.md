@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883438"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados de federação para o Office 365 e o Azure Active Directory
@@ -114,7 +114,7 @@ Verifique o seguinte para confirmar se o certificado pode ser atualizado automat
 
 **1. A propriedade AutoCertificateRollover do AD FS deve ser definida como True.** Isso indica que o AD FS gerará automaticamente novos certificados de assinatura de token e de descriptografia de token antes da expiração dos antigos.
 
-**2. Os metadados de Federação do AD FS são acessível publicamente.**  Verifique se os metadados de federação são acessíveis publicamente, navegando até a seguinte URL em um computador na Internet pública (fora da rede corporativa):
+**2. Os metadados de federação do AD FS estão acessíveis publicamente.**  Verifique se os metadados de federação são acessíveis publicamente, navegando até a seguinte URL em um computador na Internet pública (fora da rede corporativa):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -134,7 +134,7 @@ Nesses cenários, sempre que atualizar os certificados de assinatura de token, v
 
 Se estiver usando uma configuração não padrão do AD FS (em que **AutoCertificateRollover** está definido como **False**), você provavelmente está usando certificados personalizados (não autoassinados). Para obter mais informações sobre como renovar os certificados de assinatura de token do AD FS, confira [Orientação para os clientes que não usam certificados autoassinados do AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-**Metadados de Federação não estão disponível publicamente**
+**Os metadados de federação não estão disponíveis publicamente**
 
 Por outro lado, se **AutoCertificateRollover** estiver definido como **True**, mas se os metadados de federação não estiverem acessíveis publicamente, primeiro verifique se novos certificados de assinatura de token foram gerados pelo AD FS. Confirme se você tem os novos certificados de assinatura de token por meio das seguintes etapas:
 

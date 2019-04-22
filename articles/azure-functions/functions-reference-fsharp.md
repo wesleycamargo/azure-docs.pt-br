@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894348"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
@@ -285,18 +285,18 @@ let mylog(log: ILogger, text: string) =
 Os caminhos fornecidos para a diretiva `#load` são relativos ao local de seu arquivo `.fsx`.
 
 * `#load "logger.fsx"` carrega um arquivo localizado na pasta de função.
-* `#load "package\logger.fsx"` carrega um arquivo localizado no `package` na pasta de função.
-* `#load "..\shared\mylogger.fsx"` carrega um arquivo localizado na `shared` pasta no mesmo nível que a pasta de função, ou seja, diretamente sob `wwwroot`.
+* `#load "package\logger.fsx"` carrega um arquivo localizado na pasta `package`na pasta da função.
+* `#load "..\shared\mylogger.fsx"` carrega um arquivo localizado em uma pasta `shared`no mesmo nível que a pasta de função, ou seja, diretamente em `wwwroot`.
 
 A diretiva `#load` só funciona com arquivos `.fsx` (script em F#) e não com arquivos `.fs`.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
-* [F#Guia](/dotnet/articles/fsharp/index)
+* [Guia de F#](/dotnet/articles/fsharp/index)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Associações e gatilhos do azure Functions](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 * [Teste do Azure Functions](functions-test-a-function.md)
 * [Dimensionamento do Azure Functions](functions-scale.md)
 

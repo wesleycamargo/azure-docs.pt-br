@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862095"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoramento de métricas e logs no serviço de porta da frente do Azure
@@ -90,7 +90,7 @@ Atualmente, o serviço de porta da frente fornece logs de diagnóstico (agrupado
 | UserAgent | O tipo de navegador que o cliente usou |
 | TrackingReference | A cadeia de caracteres de referência exclusivo que identifica uma solicitação no servidas por porta da frente, também é enviado como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Criar um perfil de Front Door](quickstart-create-front-door.md)
+- [Criar um perfil de porta da frente](quickstart-create-front-door.md)
 - [Como funciona a porta da frente](front-door-routing-architecture.md)

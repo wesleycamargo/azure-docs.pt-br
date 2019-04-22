@@ -8,10 +8,10 @@ ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879464"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>TCO (Custo Total de Propriedade) com o Azure Cosmos DB
@@ -52,7 +52,7 @@ O modelo de provisionamento sem servidor do Azure Cosmos DB elimina a necessidad
 
 * **Você obtém automaticamente alta disponibilidade, com pelo menos 10 a 20 domínios de falhas por padrão:** O Azure Cosmos DB oferece suporte a distribuição de cargas de trabalho entre domínios de falhas, um recurso que é crítico para alta disponibilidade. Ele oferece alta disponibilidade de 99,999 para leituras e gravações no 99º percentil em qualquer lugar do mundo. Seria alto o custo para implementação de algo parecido com isso por conta própria ou por meio de uma solução de terceiros.
 
-* **Você obtém automaticamente todos os recursos da empresa, sem nenhum custo adicional.** O Azure Cosmos DB oferece o conjunto mais abrangente de certificações de conformidade, segurança e criptografia em repouso e em movimento sem custo adicional (em comparação com a nossa concorrência). Você obtém automaticamente a disponibilidade regional em qualquer lugar do mundo. É possível ampliar o alcance do seu banco de dados para qualquer número de regiões do Azure e adicionar ou remover regiões em qualquer ponto.
+* **Você obtém automaticamente todos os recursos empresariais, sem nenhum custo adicional.** O Azure Cosmos DB oferece o conjunto mais abrangente de certificações de conformidade, segurança e criptografia em repouso e em movimento sem custo adicional (em comparação com a nossa concorrência). Você obtém automaticamente a disponibilidade regional em qualquer lugar do mundo. É possível ampliar o alcance do seu banco de dados para qualquer número de regiões do Azure e adicionar ou remover regiões em qualquer ponto.
 
 * **Você pode economizar até 65% dos custos com capacidade reservada:** A [capacidade reservada](cosmos-db-reserved-capacity.md) do Azure Cosmos DB ajuda você a economizar dinheiro, pagando previamente pelos recursos do Azure Cosmos DB por um período de um a três anos. É possível reduzir significativamente seus custos com compromissos antecipados de um ano ou três anos e economizar com descontos de 20 a 65% em comparação com o preço regular. Em suas cargas de trabalho de críticas, você pode obter SLAs melhores em termos de capacidade de provisionamento.
 

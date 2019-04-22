@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917304"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -110,7 +110,7 @@ Você pode consultar o [Esquema de Definição de Serviço](/previous-versions/a
 **LocalResources**  
  contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
 
-**Importações**  
+**Imports**  
  contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
 
 **Inicialização**  
@@ -200,9 +200,9 @@ O exemplo a seguir mostra a configuração de uma função web com um site e o a
 ## <a name="changing-the-configuration-of-a-role"></a>Alterar a configuração de uma função
 Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é executado no Azure, sem que o serviço fique offline. Para alterar informações de configuração, você pode carregar um novo arquivo de configuração, ou editar o arquivo de configuração no local e aplicá-lo ao seu serviço em execução. As seguintes alterações podem ser feitas na configuração de um serviço:
 
-* **Alterando os valores de parâmetros de configuração**  
+* **Alterando os valores das configurações**  
    Quando uma configuração é alterada, uma instância de função pode optar por aplicar a alteração enquanto a instância está online ou reciclar a instância normalmente e aplicar a alteração enquanto a instância está offline.
-* **Alterando a topologia de serviço das instâncias de função**  
+* **Alterando a topologia de serviço das instâncias da função**  
   As alterações da topologia não afetam as instâncias em execução, exceto quando uma instância está sendo removida. Todas as instâncias restantes geralmente não precisam ser recicladas. No entanto, você pode optar por reciclar instâncias de função em resposta a uma alteração de topologia.
 * **Alterando a impressão digital do certificado**  
    Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
@@ -210,9 +210,9 @@ Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é e
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Tratando alterações de configuração com eventos de tempo de execução do serviço
 A [Biblioteca de Tempo de Execução do Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)), que fornece classes para interagir com o ambiente do Azure de uma função. A classe [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
 
-* **[Alterando](/previous-versions/azure/reference/ee758134(v=azure.100)) evento**  
+* **[Alterando](/previous-versions/azure/reference/ee758134(v=azure.100)) eventos**  
   Isso ocorre antes que a alteração de configuração seja aplicada a uma instância específica de uma função, fornecendo a oportunidade de desativar as instâncias de função, se necessário.
-* **[Alterado](/previous-versions/azure/reference/ee758129(v=azure.100)) evento**  
+* **[Evento](/previous-versions/azure/reference/ee758129(v=azure.100)) alterado**  
    Ocorre depois que a alteração de configuração é aplicada a uma instância específica de uma função.
 
 > [!NOTE]
@@ -277,7 +277,7 @@ Onde as variáveis são definidas da seguinte maneira:
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Estou criando um pacote de serviço de nuvem e desejo...
 
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]

@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879158"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação serviço a serviço com Gen1 de armazenamento do Azure Data Lake usando o Java
 > [!div class="op_single_selector"]
-> * [Usando Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Usando o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
-> * [Usando Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Usando o Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Usar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Usando o Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Usar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 >  
 
@@ -82,6 +82,6 @@ O SDK do Data Lake armazenamento Gen1 fornece métodos convenientes que permitem
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como usar a autenticação do usuário final para autenticar com o Data Lake Storage Gen1 usando o Java SDK. Agora você pode ver os artigos a seguir que falam sobre como usar o Java SDK para trabalhar com o Data Lake Storage Gen1.
 
-* [Operações de dados no Data Lake armazenamento Gen1 usando o SDK do Java](data-lake-store-get-started-java-sdk.md)
+* [Operações de dados no Data Lake Storage Gen1 usando o Java SDK](data-lake-store-get-started-java-sdk.md)
 
 

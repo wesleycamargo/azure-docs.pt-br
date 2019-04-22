@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876948"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do .NET
@@ -59,8 +59,8 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
    2. Na guia **Gerenciador de Pacotes NuGet**, verifique se a **Origem do pacote** está definida como **nuget.org** e se a caixa de seleção **Incluir pré-lançamento** está marcada.
    3. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.DataLake.Store` -Este tutorial usa a versão v1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este tutorial usa a versão v2.3.1.
+      * `Microsoft.Azure.DataLake.Store` - Este tutorial usa a versão v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este tutorial usa a versão v2.3.1.
     
       Feche o **Gerenciador de Pacotes NuGet**.
 
@@ -90,7 +90,7 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
 
 Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticação, carregamento de arquivos, etc.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 * Para autenticação do usuário final para seu aplicativo, veja [Autenticação de usuário final com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para autenticação de serviço a serviço do aplicativo, confira [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -178,8 +178,8 @@ Aqui estão alguns exemplos sobre como usar o SDK do sistema de arquivos do Data
 * [Exemplo avançado no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Consulte também
-* [Operações de gerenciamento de conta no Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
-* [Referência SDK do .NET do data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
+* [Referência de SDK do .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Proteger os dados no Data Lake armazenamento Gen1](data-lake-store-secure-data.md)
+* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)

@@ -17,10 +17,10 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Azure Active Directory ao Reviewsnap
@@ -59,7 +59,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 ## <a name="adding-reviewsnap-from-the-gallery"></a>Adicionando o Reviewsnap da galeria
 Para configurar a integração do Reviewsnap no Azure AD, você precisa adicionar o Reviewsnap da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Reviewsnap da galeria, execute as seguintes etapas:**
+**Para adicionar o Reviewsnap da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do Azure AD com o Reviewsnap, você prec
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no aplicativo Reviewsnap.
 
-**Para configurar o logon único do Azure AD com Reviewsnap, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o Reviewsnap, execute as seguintes etapas:**
 
 1. No portal do Azure, na página de integração do aplicativo **Reviewsnap**, clique em **Logon único**.
 
@@ -111,7 +111,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
      a. Na caixa de texto **Identificador**, digite uma URL: `https://app.reviewsnap.com`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
@@ -142,7 +142,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
 1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/reviewsnap-tutorial/create_aaduser_04.png)
 
-     a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -178,7 +178,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 
 ![Atribuir a função de usuário][200] 
 
-**Para atribuir Britta Simon a Reviewsnap, execute as seguintes etapas:**
+**Para atribuir Britta Simon ao Reviewsnap, realize as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 

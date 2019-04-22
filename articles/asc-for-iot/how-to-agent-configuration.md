@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862770"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica a Central de segurança do Azure (ASC) para o agente de segurança de IoT, como alterá-los configurar ASC para agentes de segurança de IoT.
@@ -136,8 +136,8 @@ Valores padrão estão disponíveis no esquema adequado no [Github](https://aka.
 |Linha de base do sistema operacional| eventPriorityOSBaseline| Baixo|True|Verifique se o instantâneo de linha de base do dispositivo do sistema operacional.|
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Entender o ASC para recomendações de IoT](concept-recommendations.md)
 - [Explore o ASC para alertas de IoT](concept-security-alerts.md)
-- [Acessar dados de segurança brutos](how-to-security-data-access.md)
+- [Acessar os dados brutos de segurança](how-to-security-data-access.md)

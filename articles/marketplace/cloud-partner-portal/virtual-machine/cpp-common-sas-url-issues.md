@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879209"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problemas comuns de URL do SAS e correções
 
 A tabela a seguir lista alguns dos problemas comuns encontrados ao trabalhar com assinaturas de acesso compartilhado (que são usadas para identificar e compartilhar os VHDs enviados para sua solução), juntamente com as resoluções sugeridas.
 
-| **Problema** | **Mensagem de Falha** | **Correção** | 
+| **Problema** | **Mensagem de falha** | **Correção** | 
 | --------- | ------------------- | ------- | 
 | &emsp;  *Falha ao copiar imagens* |  |  |
 | "?" não é encontrado na URL do SAS | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Atualize o URL do SAS usando as ferramentas recomendadas. |

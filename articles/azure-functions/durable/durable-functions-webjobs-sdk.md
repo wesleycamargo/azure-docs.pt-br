@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905079"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar as funções duráveis como WebJobs
@@ -133,7 +133,7 @@ O SDK do WebJobs não oferece suporte para os seguintes recursos do Azure Functi
 
 * [Atributo FunctionName](#functionname-attribute)
 * [Gatilho HTTP](#http-trigger)
-* [API de gerenciamento de HTTP do funções durável](#http-management-api)
+* [API de gerenciamento de funções HTTP duráveis](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName
 
@@ -275,6 +275,6 @@ A principal alteração apresentada é o uso do .NET Core em vez do .NET Framewo
    }
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o SDK do WebJobs, consulte [como usar o SDK do WebJobs](../../app-service/webjobs-sdk-how-to.md).

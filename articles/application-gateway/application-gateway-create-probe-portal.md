@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862158"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-> * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
+> * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente por meio do portal do Azure. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
@@ -51,7 +51,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
 
    |**Configuração** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**NOME**|customProbe|Este valor é um nome amigável para a investigação que está acessível no portal.|
+   |**Nome**|customProbe|Este valor é um nome amigável para a investigação que está acessível no portal.|
    |**Protocolo**|HTTP ou HTTPS | O protocolo que a investigação de integridade usa.|
    |**Host**|ou seja contoso.com|Este valor é o nome do host usado para a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM.|
    |**Caminho**|/ ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com "/". Para o caminho padrão de http:\//contoso.com usar apenas '/' |

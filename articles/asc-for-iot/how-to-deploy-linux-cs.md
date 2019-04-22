@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862090"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar a Central de segurança do Azure para IoT C#-com base em agente de segurança para Linux
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este guia explica como instalar e implantar o Azure Security Center (ASC) para IoT C#-com base em agente de segurança no Linux.
@@ -34,7 +34,7 @@ Neste guia, você aprenderá a:
 > * Instalar
 > * Verificar implantação
 > * Desinstalar o agente
-> * Solucionar problemas 
+> * Solução de problemas 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Para implantar o agente de segurança, siga as instruções:
 
 1. Extraia o conteúdo do pacote e navegue até a pasta _/install_.
 
-1. Adicione permissões de execução para o **InstallSecurityAgent script** executando `chmod +x InstallSecurityAgent.sh` 
+1. Adicione permissões de execução para o **script InstallSecurityAgent** executando `chmod +x InstallSecurityAgent.sh` 
 
 1. Em seguida, execute: 
 
@@ -118,7 +118,7 @@ Para desinstalar o agente, execute o script com o parâmetro –u: `./InstallSec
 
    1. Veja o arquivo de log para obter mais informações sobre a falha.  
 
-       Local do arquivo de log é: `/var/ASCIoTAgent/IotAgentLog.log`
+       O local do arquivo de log é: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Altere o caminho do local do arquivo de acordo com o nome que você escolheu para o **logFilePath** na etapa 2. 
 

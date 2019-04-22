@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917610"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
@@ -30,7 +30,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
 > 
 
 ## <a name="how-startup-tasks-work"></a>Como funcionam as tarefas de inicialização
-As tarefas de inicialização são as ações executadas antes de suas funções começarem e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Task] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
+As tarefas de inicialização são as ações executadas antes de suas funções começarem e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Tarefa] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
 
 As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
 
@@ -99,8 +99,8 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 
 **executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
 
-* **Limitado**  
-   A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também é **limitado**, os privilégios do usuário são usados.
+* **limitado**  
+   A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Tempo de execução] também é **limitado**, os privilégios do usuário são usados.
 * **elevado**  
    A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.  
 
@@ -111,7 +111,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
-* **Simples**  
+* **simpless**  
   As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef] . Quando uma tarefa de inicialização **simples**termina com um **errorlevel** zero, a próxima tarefa de inicialização **simples** é executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
   
   > [!NOTE]
@@ -120,15 +120,15 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
   > 
   
     Para garantir que o arquivo em lote terminará com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do arquivo em lote.
-* **background**  
+* **segundo plano**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
-* **Em primeiro plano**  
+* **primeiro plano**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
 
-Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment] . Ambas estão na seção [Environment] do arquivo [ServiceDefinition.csdef] e usam o elemento [Variable] e o atributo **name**.
+Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment] . Ambas estão na seção [Ambiente] do arquivo [ServiceDefinition.csdef] e usam o elemento [Variable] e o atributo **name**.
 
 As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variable] . O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction** que você pode definir manualmente para os valores de "**preparo**" ou "**produção**" para executar ações diferentes de inicialização com base no valor da variável de ambiente **StagingOrProduction**.
 
@@ -162,9 +162,9 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Inicialização]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Tempo de execução]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
