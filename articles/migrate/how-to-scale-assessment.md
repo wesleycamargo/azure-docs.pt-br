@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490629"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
@@ -18,7 +18,7 @@ ms.locfileid: "59490629"
 As Migrações para Azure têm um limite de 1500 computadores por projeto e este artigo descreve como avaliar um grande número de VMs (máquinas virtuais) locais usando as [Migrações para Azure](migrate-overview.md).
 
 > [!NOTE]
-> Temos uma versão de visualização disponível que permite a descoberta de até 10.000 VMs do VMware em um único projeto usando um único dispositivo, se você estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
+> Temos uma versão de visualização disponível que permite a descoberta de até 10.000 VMs do VMware em um único projeto usando um único dispositivo. Se você estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ No caso de descoberta única (agora preterida), a descoberta funciona em um mode
 
 Planeje suas descobertas e avaliações com base nos limites a seguir:
 
-| **Entidade** | **Limite de computador** |
+| **Entidade** | **Limite de máquinas** |
 | ---------- | ----------------- |
 | Project    | 1.500             |
 | Descoberta  | 1.500             |

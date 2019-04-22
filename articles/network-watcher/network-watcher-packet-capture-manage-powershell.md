@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 267b2c375ef9672c8e5bd7cb8280b4dd40dbcd0d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045536"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o PowerShell
@@ -33,10 +33,10 @@ Captura de pacote do Observador de Rede permite que você crie sessões de captu
 
 Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão atualmente disponíveis para captura de pacote.
 
-- [**Iniciar uma captura de pacotes**](#start-a-packet-capture)
-- [**Parar uma captura de pacotes**](#stop-a-packet-capture)
-- [**Excluir uma captura de pacotes**](#delete-a-packet-capture)
-- [**Baixar um pacote de capturas**](#download-a-packet-capture)
+- [**Iniciar uma captura de pacote**](#start-a-packet-capture)
+- [**Parar uma captura de pacote**](#stop-a-packet-capture)
+- [**Excluir uma captura de pacote**](#delete-a-packet-capture)
+- [**Baixar uma captura de pacote**](#download-a-packet-capture)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -99,7 +99,7 @@ Para garantir que o agente está instalado, execute o cmdlet `Get-AzVMExtension`
 Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-O exemplo a seguir é um exemplo de resposta de execução `Get-AzVMExtension`
+A seguir está um exemplo de resposta ao executar `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -121,7 +121,7 @@ AutoUpgradeMinorVersion : True
 ForceUpdateTag          : 
 ```
 
-## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacotes
+## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacote
 
 Depois que as etapas anteriores forem concluídas, o agente de captura de pacote está instalado na máquina virtual.
 

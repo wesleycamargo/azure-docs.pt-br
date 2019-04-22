@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270176"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
@@ -126,15 +126,15 @@ Participe da discussão da [Comunidade de Parceiros da Microsoft](https://aka.ms
 
 Qualquer usuário da organização do parceiro que gerencia os recursos do cliente pode vincular a ID de parceiro à conta.
 
-**Uma ID de parceiro pode ser alterada depois que ele está vinculado?**
+**Uma ID de parceiro pode ser alterada depois que estiver vinculada?**
 
 Sim. Uma ID de parceiro vinculada pode ser alterada, adicionada ou removida.
 
-**E se um usuário tiver uma conta em mais de um locatário do cliente?**
+**E se um usuário tiver uma conta em vários locatários do cliente?**
 
 A vinculação entre a ID de parceiro e a conta é feita para cada locatário do cliente. Vincule a ID de parceiro em cada locatário do cliente.
 
-**Podem outros parceiros ou clientes, editar ou remover o link para a ID de parceiro?**
+**Outros parceiros ou clientes podem editar ou remover a vinculação à ID de parceiro?**
 
 A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e outros parceiros não podem alterar a vinculação à ID de parceiro. 
 

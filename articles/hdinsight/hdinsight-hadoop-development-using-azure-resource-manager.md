@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048912"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrando para ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters HDInsight
@@ -32,54 +32,54 @@ O HDInsight está preterindo as ferramentas baseadas em ASM (Azure Service Manag
 
 A seguir, há comandos básicos para trabalhar com o HDInsight por meio da CLI clássica do Azure:
 
-* `azure hdinsight cluster create` -cria um novo cluster HDInsight
-* `azure hdinsight cluster delete` -Exclui um cluster HDInsight existente
-* `azure hdinsight cluster show` -Exibir informações sobre um cluster existente
-* `azure hdinsight cluster list` -lista os clusters de HDInsight para sua assinatura do Azure
+* `azure hdinsight cluster create` - cria um novo cluster HDInsight
+* `azure hdinsight cluster delete` - exclui um cluster HDInsight existente
+* `azure hdinsight cluster show` - exibe informações sobre um cluster existente
+* `azure hdinsight cluster list` - lista os clusters HDInsight de sua assinatura do Azure
 
 Use a opção `-h` para inspecionar os parâmetros e as opções disponíveis para cada comando.
 
 ### <a name="new-commands"></a>Novos comandos
 Os novos comandos disponíveis no Azure Resource Manager são:
 
-* `azure hdinsight cluster resize` -Altera dinamicamente o número de nós de trabalho no cluster
-* `azure hdinsight cluster enable-http-access` -Habilita o acesso HTTPs ao cluster (em por padrão)
-* `azure hdinsight cluster disable-http-access` -Desabilita o acesso HTTPs ao cluster
-* `azure hdinsight script-action` -fornece comandos para criar e gerenciar as ações de Script em um cluster
-* `azure hdinsight config` -fornece comandos para criar um arquivo de configuração que pode ser usado com o `hdinsight cluster create` comando para fornecer informações de configuração.
+* `azure hdinsight cluster resize` - altera dinamicamente o número de nós de trabalho no cluster
+* `azure hdinsight cluster enable-http-access` - habilita o acesso HTTPs ao cluster (ativado por padrão)
+* `azure hdinsight cluster disable-http-access` - desabilita o acesso HTTPs ao cluster
+* `azure hdinsight script-action` - fornece comandos para criar/gerenciar as Ações de Script em um cluster
+* `azure hdinsight config` - fornece comandos para criar um arquivo de configuração que pode ser usado com o comando `hdinsight cluster create` para fornecer informações de configuração.
 
 ### <a name="deprecated-commands"></a>Comandos preteridos
 Se você usar os comandos `azure hdinsight job` para enviar trabalhos para o cluster HDInsight, esses comandos não estarão disponíveis por meio dos comandos do Resource Manager. Se você precisar enviar trabalhos ao HDInsight por meio de scripts de forma programática, será necessário usar as APIs REST fornecidas pelo HDInsight. Para obter mais informações sobre como enviar trabalhos usando as APIs REST, confira os seguintes documentos.
 
-* [Executar trabalhos MapReduce com Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Executar trabalhos do MapReduce com o Hadoop no HDInsight usando a cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Executar consultas do Apache Hive com Apache Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Executar trabalhos do Apache Pig com Apache Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
 Para saber mais sobre outras maneiras de executar o MapReduce do Apache Hadoop, Apache Hive e Apache Pig de forma interativa, veja [Usar o MapReduce do Apache Hadoop com Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usar o Apache Hive com Apache Hadoop no HDInsight](hadoop/hdinsight-use-hive.md) e [Usar o Apache Pig com Apache Hadoop no HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exemplos
-**Criar um cluster**
+**Criando um cluster**
 
-* Comando antigo (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Novo comando- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Comando antigo (ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Novo comando – `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
-**Excluir um cluster**
+**Excluindo um cluster**
 
-* Comando antigo (ASM)- `azure hdinsight cluster delete myhdicluster`
-* Novo comando- `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Comando antigo (ASM) - `azure hdinsight cluster delete myhdicluster`
+* Novo comando – `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Listar clusters**
 
-* Comando antigo (ASM)- `azure hdinsight cluster list`
-* Novo comando- `azure hdinsight cluster list`
+* Comando antigo (ASM) - `azure hdinsight cluster list`
+* Novo comando – `azure hdinsight cluster list`
 
 > [!NOTE]  
 > Para o comando “list”, a especificação do grupo de recursos usando `-g` retornará apenas os clusters no grupo de recursos especificado.
 
 **Mostrar informações de cluster**
 
-* Comando antigo (ASM)- `azure hdinsight cluster show myhdicluster`
-* Novo comando- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Comando antigo (ASM) - `azure hdinsight cluster show myhdicluster`
+* Novo comando – `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrando o Azure PowerShell para o Azure Resource Manager
 As informações gerais sobre o Azure PowerShell no modo Azure Resource Manager podem ser encontradas em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
@@ -212,9 +212,9 @@ Novo comando:
 
 
 #### <a name="other-samples"></a>Outras amostras
-* [Criar clusters do HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+* [Criar clusters HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Enviar trabalhos do Apache Hive](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Enviar trabalhos do Pig do Apache](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Enviar trabalhos do Apache Pig](hadoop/apache-hadoop-use-pig-powershell.md)
 * [Enviar trabalhos do Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrando para o novo SDK do .NET do HDInsight
@@ -290,7 +290,7 @@ Estes são alguns exemplos sobre como uma operação é executada usando o SDK b
   
         _hdiManagementClient = new HDInsightManagementClient(creds);
 
-**Criar um cluster**
+**Criando um cluster**
 
 * Comando antigo (ASM)
   
@@ -347,7 +347,7 @@ Estes são alguns exemplos sobre como uma operação é executada usando o SDK b
         };
         client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
 
-**Excluir um cluster**
+**Excluindo um cluster**
 
 * Comando antigo (ASM)
   

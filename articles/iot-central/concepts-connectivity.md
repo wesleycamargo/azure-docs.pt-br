@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425960"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade de dispositivo no Azure IoT Central | Microsoft Docs
@@ -87,7 +87,7 @@ As etapas a seguir descrevem como conectar dispositivos IoT Central usando certi
 
 - Exemplo de implementação para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Cliente de dispositivo de exemplo em C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Exemplo de cliente de dispositivo em C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>Para fins de teste somente
 
@@ -115,7 +115,7 @@ As etapas a seguir descrevem esse processo em mais detalhes. As etapas diferem l
 
     - **Certificados x. 509:** [Adicionar e verificar o certificado raiz/intermediário](#connect-devices-using-x509-certificates) e usá-lo para gerar os certificados de dispositivo na etapa a seguir.
     - **SAS:** Copie a chave primária. Essa chave é a chave de SAS de grupo para o aplicativo de IoT Central. Use a chave para gerar as chaves SAS do dispositivo na etapa a seguir.
-    ![Configurações de Conexão SAS](media/concepts-connectivity/connection-settings-sas.png)
+    ![SAS de configurações de conexão](media/concepts-connectivity/connection-settings-sas.png)
 
 1. Gerar suas credenciais do dispositivo
     - **Certificados x. 509:** Gere os certificados de folha para seus dispositivos usando o certificado raiz ou intermediário que é adicionado ao seu aplicativo de IoT Central. Verifique se você usar o minúsculo **ID do dispositivo** como o CNAME nos certificados de folha. Para fins de teste apenas, usam isso [ferramenta de linha de comando](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) para gerar certificados de dispositivo.
@@ -156,11 +156,11 @@ Quando um dispositivo real se conecta ao seu aplicativo IoT Central, suas altera
 
 A oferta de SDKs de dispositivo do Azure a maneira mais fácil para você implementar seu código de dispositivo. Estão disponíveis os SDKs do dispositivo a seguir:
 
-- [SDK do Azure IoT para C](https://github.com/azure/azure-iot-sdk-c)
-- [SDK do Azure IoT para Python](https://github.com/azure/azure-iot-sdk-python)
-- [SDK do Azure IoT para Node.js](https://github.com/azure/azure-iot-sdk-node)
-- [SDK do Azure IoT para Java](https://github.com/azure/azure-iot-sdk-java)
-- [SDK do Azure IoT para .NET](https://github.com/azure/azure-iot-sdk-csharp)
+- [SDK do IoT do Azure para C](https://github.com/azure/azure-iot-sdk-c)
+- [SDK do IoT do Azure para Python](https://github.com/azure/azure-iot-sdk-python)
+- [SDK do IoT do Azure para Node.js](https://github.com/azure/azure-iot-sdk-node)
+- [SDK do IoT do Azure para Java](https://github.com/azure/azure-iot-sdk-java)
+- [SDK do IoT do Azure para .NET](https://github.com/azure/azure-iot-sdk-csharp)
 
 Cada dispositivo conecta usando uma cadeia de conexão única que identifica o dispositivo. Um dispositivo só pode se conectar ao hub IoT em que ele está registrado. Quando você cria um dispositivo real em seu aplicativo do Azure IoT Central, o aplicativo gera as informações necessárias construir uma cadeia de caracteres de conexão usando `dps-keygen`.
 
@@ -168,7 +168,7 @@ Cada dispositivo conecta usando uma cadeia de conexão única que identifica o d
 
 Toda a comunicação do dispositivo com o Hub IoT usa as opções de conectividade do Hub IoT a seguir:
 
-- [Mensagens do dispositivo para a nuvem](../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Mensagens de dispositivo para nuvem](../iot-hub/iot-hub-devguide-messages-d2c.md)
 - [Dispositivos gêmeos](../iot-hub/iot-hub-devguide-device-twins.md)
 
 A tabela a seguir resume como os recursos do dispositivo Azure IoT Central são mapeados para os recursos do Hub IoT:
@@ -181,8 +181,8 @@ A tabela a seguir resume como os recursos do dispositivo Azure IoT Central são 
 
 Para saber mais sobre como usar os SDKs do Dispositivo, consulte um dos artigos a seguir para exemplo de código:
 
-- [Conectar-se um cliente genérico do Node. js ao seu aplicativo do Azure IoT Central](howto-connect-nodejs.md)
-- [Conectar um dispositivo Raspberry Pi ao seu aplicativo do Azure IoT Central](howto-connect-raspberry-pi-python.md)
+- [Conectar um cliente Node.js genérico ao aplicativo Azure IoT Central](howto-connect-nodejs.md)
+- [Conectar um dispositivo Raspberry Pi ao aplicativo Azure IoT Central](howto-connect-raspberry-pi-python.md)
 - [Conectar um dispositivo do kit de DevDiv ao aplicativo Azure IoT Central](howto-connect-devkit.md).
 
 ### <a name="protocols"></a>Protocolos
@@ -205,7 +205,7 @@ Todos os dados trocados entre dispositivos e o Azure IoT Central são criptograf
 
 Agora que você aprendeu sobre a conectividade do dispositivo no Azure IoT Central, aqui estão as próximas etapas sugeridas:
 
-- [Preparar e conectar um dispositivo de kit de desenvolvimento](howto-connect-devkit.md)
+- [Preparar e conectar um dispositivo DevKit](howto-connect-devkit.md)
 - [Preparar e conectar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Conectar-se um cliente genérico do Node. js ao seu aplicativo do Azure IoT Central](howto-connect-nodejs.md)
+- [Conectar um cliente Node.js genérico ao aplicativo Azure IoT Central](howto-connect-nodejs.md)
 - [SDK DE C: SDK do cliente de dispositivo de provisionamento](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

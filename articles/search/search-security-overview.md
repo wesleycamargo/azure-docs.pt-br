@@ -10,10 +10,10 @@ ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269547"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Segurança e privacidade de dados no Azure Search
@@ -28,11 +28,11 @@ O Azure Search é certificado para os seguintes padrões, conforme [anunciado em
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [Conformidade com SOC 2 Tipo 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Para o relatório completo, acesse [Azure - e relatório do Microsoft Azure Governamental SOC 2 Tipo II](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
-+ [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [Lei americana HIPAA (Health Insurance Portability and Accountability Act)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Parte 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Nível 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Austrália IRAP DLM não classificado](https://asd.gov.au/infosec/irap/certified_clouds.htm)
++ [Austrália IRAP Não Classificado DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 A conformidade com padrões se aplica a recursos geralmente disponíveis. As versões prévias dos recursos são certificadas quando mudam para disponibilidade geral e não devem ser utilizadas em soluções com requisitos de padrões estritos. A certificação de conformidade está documentada em [Visão geral de conformidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e na [Central de Confiabilidade](https://www.microsoft.com/en-us/trustcenter). 
 
@@ -53,8 +53,8 @@ A criptografia em repouso foi divulgada em 24 de janeiro de 2018 e se aplica a t
 
 Vários mecanismos de segurança estão disponíveis em toda a extensão do Azure e, portanto, estão disponíveis automaticamente para os recursos do Azure Search que você cria.
 
-+ [Bloqueios no nível de recursos para impedir a exclusão de assinatura ou](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Controle de acesso baseado em função (RBAC) para controlar o acesso a informações e operações administrativas](../role-based-access-control/overview.md)
++ [Bloqueios no nível de recurso ou da assinatura para impedir a exclusão](../azure-resource-manager/resource-group-lock-resources.md)
++ [RBAC (controle de acesso baseado em função) para controlar o acesso a informações e operações administrativas](../role-based-access-control/overview.md)
 
 Todos os serviços do Azure oferecem suporte a RBAC para definir níveis de acesso consistentes em todos os serviços. Por exemplo, a exibição de dados confidenciais, como a chave do administrador, é restrita às funções de Proprietário e Colaborador, enquanto a exibição do status do serviço fica disponível para os membros de qualquer função. O RBAC fornece funções de Leitor, Colaborador e Proprietário. Por padrão, todos os administradores de serviço são membros da função Proprietário.
 
@@ -97,8 +97,8 @@ Se você preferir o acesso granular, o controle do conteúdo por usuário, pode 
 
 | Abordagem | DESCRIÇÃO |
 |----------|-------------|
-|[Filtragem de segurança com base em filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
-|[Filtragem de segurança com base em identidades do Active Directory do Azure](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
+|[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
+|[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
 
 ## <a name="table-permissioned-operations"></a>Tabela: Operações permitidas
 
@@ -124,8 +124,8 @@ Os data centers da Microsoft fornecem segurança física líder no setor e são 
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Introdução ao .NET (demonstra o uso de uma chave de administração para criar um índice)](search-create-index-dotnet.md)
-+ [Introdução ao REST (demonstra o uso de uma chave de administração para criar um índice)](search-create-index-rest-api.md)
-+ [Controle de acesso baseado em identidade usando filtros de pesquisa do Azure](search-security-trimming-for-azure-search.md)
-+ [Controle de acesso baseado em identidade do Active Directory usando filtros de pesquisa do Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Introdução ao .NET (demonstra o uso de uma chave de administrador para criar um índice)](search-create-index-dotnet.md)
++ [Introdução ao REST (demonstra o uso de uma chave de administrador para criar um índice)](search-create-index-rest-api.md)
++ [Controle de acesso baseado na identidade usando filtros do Azure Search](search-security-trimming-for-azure-search.md)
++ [Controle de acesso baseado na identidade do Active Directory usando filtros do Azure Search](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros no Azure Search](search-filters.md)

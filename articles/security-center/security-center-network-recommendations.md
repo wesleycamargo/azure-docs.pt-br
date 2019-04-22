@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: monhaber
 ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046177"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteja seus recursos de rede na Central de Segurança do Azure
@@ -101,7 +101,7 @@ Para fazer drill down em um recurso:
 1. Quando você seleciona um recurso específico no mapa, o painel direito é aberto e fornece informações gerais sobre o recurso, soluções de segurança conectadas, se houver, e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso que você selecionar. 
 2. Clique em **Tráfego** para ver a lista de possíveis tráfego de saída e de entrada no recurso - essa é uma lista abrangente de quem pode se comunicar com o recurso e com quem pode se comunicar e por meio de quais protocolos e portas. Por exemplo, quando você seleciona uma VM, todas as VMs que ele possa se comunicar com são mostrados e, quando você seleciona uma sub-rede, todas as sub-redes que ele possa se comunicar com são mostradas.
 
-**Esses dados se baseia na análise de grupos de segurança de rede, bem como avançados de algoritmos que analisam a várias regras para compreender suas crossovers e interações de aprendizado de máquina.** 
+**Esses dados são baseados na análise dos Grupos de segurança de rede, bem como em algoritmos avançados de aprendizado de máquina que analisam várias regras para entender seus cruzamentos e interações.** 
 
 ![Mapa de tráfego de rede](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -146,7 +146,7 @@ Para saber mais sobre as recomendações que se aplicam aos outros tipos de recu
 
 * [Protegendo suas máquinas virtuais na Central de Segurança do Azure](security-center-virtual-machine-recommendations.md)
 * [Protegendo seus aplicativos na Central de segurança do Azure](security-center-application-recommendations.md)
-* [Protegendo o serviço do SQL do Azure na Central de segurança do Azure](security-center-sql-service-recommendations.md)
+* [Protegendo o serviço do SQL Azure na Central de Segurança do Azure](security-center-sql-service-recommendations.md)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

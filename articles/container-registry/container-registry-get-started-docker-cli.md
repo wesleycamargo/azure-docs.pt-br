@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282688"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
@@ -126,11 +126,11 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, implante as imagens de contêiner do Registro para:
 
-* [AKS (Serviço do Kubernetes do Azure)](../aks/tutorial-kubernetes-prepare-app.md)
+* [AKS (Serviço de Kubernetes do Azure)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Opcionalmente, instalar o [extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e o [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensão para trabalhar com seus registros de contêiner do Azure. Efetuar pull e push de imagens para um registro de contêiner do Azure ou executar tarefas de ACR, tudo no Visual Studio Code.
+Opcionalmente, instale a [Extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e a extensão [Conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com seus registros de contêiner do Azure. Efetue pull e push de imagens para um registro de contêiner do Azure ou execute Tarefas do ACR, tudo isso no Visual Studio Code.
 
 
 <!-- LINKS - external -->

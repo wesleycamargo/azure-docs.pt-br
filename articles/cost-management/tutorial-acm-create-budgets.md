@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490698"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
@@ -112,7 +112,7 @@ O exemplo a seguir mostra os limites de orçamento definidos como 50%, 75% e 100
 
 ![Exemplo que mostra as condições de alerta configuradas com vários tipos de ações e grupos de ações](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
 

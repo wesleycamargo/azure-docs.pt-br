@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046675"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
@@ -29,8 +29,8 @@ Depois de carregar seus discos rígidos virtuais (VHDs) - o VHD do sistema opera
 
 Para obter mais informações sobre imagens de VM consulte os posts de blog abaixo:
 
-- [Imagem de VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [PowerShell de imagem VM 'Como'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Image da VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [Guia do PowerShell da Imagem da VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre imagens de VM consulte os posts de blog abai
 
 Se você ainda não fez isso, instale o Azure PowerShell e CLI do Azure, usando as instruções a seguir:
 
-- [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Instale o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
@@ -62,7 +62,7 @@ Depois que a VM for implantada, você estará pronto para [certificar a imagem d
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parâmetro**              |   **DESCRIÇÃO**                                                            |
+   |  **Parâmetro**              |   **Descrição**                                                            |
    |  -------------              |   ---------------                                                            |
    | Nome de Conta de Armazenamento do Usuário   | Nome da conta de armazenamento onde se encontra o VHD generalizado                    |
    | Nome do Contêiner de Armazenamento de Usuário | Nome do contêiner onde se encontra o VHD generalizado                          |
@@ -98,7 +98,7 @@ Para implantar uma VM grande, a partir da imagem VM generalizada recém-criada, 
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você [criará uma imagem de VM do usuário](cpp-create-user-image.md) para sua solução.
 

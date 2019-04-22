@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490386"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usar um projeto de banco de dados U-SQL para desenvolver o banco de dados U-SQL para o Azure Data Lake
@@ -92,7 +92,7 @@ Você pode implantar um banco de dados U-SQL por meio de um projeto de banco de 
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Implantar um banco de dados U-SQL usando o SDK
 
-`PackageDeploymentTool.exe` fornece a programação e as interfaces de linha de comando que ajudam a implantar bancos de dados U-SQL. O SDK está incluído no [pacote do Nuget do SDK do U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) localizado em `build/runtime/PackageDeploymentTool.exe`.
+O `PackageDeploymentTool.exe` oferece as interfaces de programação e de linha de comando que ajudam a implantar os bancos de dados U-SQL. O SDK está incluído no [pacote do Nuget do SDK do U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) localizado em `build/runtime/PackageDeploymentTool.exe`.
 
 [Saiba mais sobre o SDK e como configurar o pipeline de CI/CD para implantação do banco de dados U-SQL](data-lake-analytics-cicd-overview.md).
 
@@ -114,8 +114,8 @@ Um projeto U-SQL pode fazer referência a um projeto de banco de dados U-SQL. A 
 
     ![Ferramentas do Data Lake para Visual Studio adicionam um assistente de referência do projeto de banco de dados](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference-wizard.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- [Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
+- [Como configurar o pipeline de CI/CD para o Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 - [Como testar seu código do Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
-- [Executar script U-SQL no computador local](data-lake-analytics-data-lake-tools-local-run.md)
+- [Executar um script U-SQL no computador local](data-lake-analytics-data-lake-tools-local-run.md)

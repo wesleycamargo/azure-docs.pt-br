@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: 89303e5c827fc24540d345a9a2b9a0743e453a4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257120"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
@@ -180,17 +180,17 @@ Este exemplo baseia-se sobre como usar o cliente Beeline de uma conexão SSH.
 
     Essas instruções executam as seguintes ações:
 
-    * `DROP TABLE` -Se a tabela existir, ele será excluído.
+    * `DROP TABLE` – Se a tabela existir, ela será excluída.
 
-    * `CREATE EXTERNAL TABLE` -Cria um **externo** tabela no Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
+    * `CREATE EXTERNAL TABLE` – Cria uma tabela **externa** no Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
 
-    * `ROW FORMAT` – O modo como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+    * `ROW FORMAT` – o modo como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-    * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados e em qual formato de arquivo.
+    * `STORED AS TEXTFILE LOCATION` – O local em que os dados são armazenados e em qual formato de arquivo.
 
-    * `SELECT` – Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[ERROR]**. Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
+    * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` – O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.
 
    > [!NOTE]  
    > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
@@ -284,7 +284,7 @@ Esta é uma continuação do exemplo anterior. Use as etapas a seguir para criar
 
 Para obter mais informações gerais sobre como usar o Hive no HDInsight, veja o seguinte documento:
 
-* [Usar o Apache Hive com Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para saber mais sobre outras maneiras pelas quais você pode trabalhar com o Hadoop no HDInsight, veja os seguintes documentos:
 

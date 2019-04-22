@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630658"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678081"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -137,7 +137,7 @@ Com um ASE externo, todas essas opções de publicação comportam-se da mesma m
 
 A principal diferença na publicação é em relação a um ASE ILB. Com um ASE ILB, os pontos de extremidade de publicação estão disponíveis apenas por meio do ILB. O ILB está em um IP privado na sub-rede do ASE, na rede virtual. Se você não tiver acesso à rede ao ILB, não poderá publicar nenhum aplicativo nesse ASE. Conforme observado em [Criar e usar um ASE ILB][MakeILBASE], você precisa configurar o DNS para os aplicativos no sistema. Isso inclui o ponto de extremidade SCM. Se eles não estiverem definidos corretamente, você não poderá publicar. Os IDEs também precisam ter acesso à rede ao ILB para publicar diretamente nele.
 
-Sistemas de CI baseados na Internet, como GitHub e Azure DevOps, não funcionam com um ASE ILB, pois o ponto de extremidade de publicação não é acessível pela Internet. Em vez disso, você precisa usar um sistema de CI que usa um modelo pull, como o Dropbox.
+Uso imediato, sistemas de CI baseados na Internet, como GitHub e DevOps do Azure, não funcionam com um ASE ILB porque o ponto de extremidade de publicação não está acessível pela Internet. Para operações de desenvolvimento do Azure, você pode contornar isso, instalando um agente de liberação auto-hospedado na sua rede interna em que ele pode acessar o ILB. Como alternativa, você também pode usar um sistema de CI que usa um modelo de pull, como o Dropbox.
 
 Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Você pode ver isso no perfil de publicação do aplicativo e na folha do portal do aplicativo (em **Visão Geral** > **Informações Básicas** e também em **Propriedades**). 
 

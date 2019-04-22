@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878223"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682952"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Visualização – criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para usar os nós virtuais usando a CLI do Azure
 
@@ -57,6 +57,16 @@ As regiões a seguir têm suporte para implantações de nó virtual:
 * Europa Ocidental (westeurope)
 * Oeste dos EUA (westus)
 
+## <a name="known-limitations"></a>Limitações conhecidas
+Funcionalidade de nós virtual é muito dependente de conjunto de recursos do ACI. Os cenários a seguir ainda não têm suporte com os nós virtuais
+
+* Usando a entidade de serviço para as imagens ACR de pull. [Solução alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) é usar [segredos do Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitações de rede virtual](../container-instances/container-instances-vnet.md) incluindo emparelhamento de rede virtual, as políticas de rede do Kubernetes e o tráfego de saída à internet com grupos de segurança de rede.
+* Contêineres de init
+* [Aliases de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec na ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não implantará os pods para o nó virtual
+
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
@@ -93,7 +103,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.241.0.0/16
+    --address-prefixes 10.241.0.0/16
 ```
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
@@ -322,7 +332,7 @@ az resource delete --ids $SAL_ID --api-version 2018-07-01
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, confira [Create a basic ingress controller in AKS][aks-basic-ingress] (Criar um controlador de entrada básico no AKS).
 
@@ -338,7 +348,7 @@ Nós virtuais geralmente são um componente de uma solução de dimensionamento 
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 

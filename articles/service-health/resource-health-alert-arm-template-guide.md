@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047510"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
@@ -164,7 +164,7 @@ E, para um escopo de nível de recursos, a seção de escopos deve se parecer co
 ],
 ```
 
-Por exemplo:  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Por exemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Você pode acessar o portal do Azure e examinar a URL ao exibir o recurso do Azure para obter essa cadeia de caracteres.
 
@@ -425,11 +425,11 @@ Aqui está o que sugerimos que você use:
 
 No entanto, você saberá melhor quais configurações são eficazes para você, então use as ferramentas mostradas a você nesta documentação para fazer sua própria personalização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Resource Health:
 -  [Visão geral do Azure Resource Health](Resource-health-overview.md)
 -  [Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health](resource-health-checks-resource-types.md)
 
 Criar alertas de Integridade do Serviço:
--  [Configurar alertas de integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurar alertas para a Integridade do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

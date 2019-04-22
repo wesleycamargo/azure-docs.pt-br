@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266912"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
@@ -149,7 +149,7 @@ O dimensionamento pode variar em uma série de fatores e ser diferente com base 
 
 Gatilhos diferentes também podem ter diferentes limites de dimensionamento, como documentado abaixo:
 
-* [Hub de evento](functions-bindings-event-hubs.md#trigger---scaling)
+* [Hub de Evento](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Melhores práticas e padrões para aplicativos escalonáveis
 
@@ -164,4 +164,4 @@ A cobrança do plano de Consumo é descrita detalhadamente na [página de preço
 
 Consultas úteis e informações sobre como entender sua fatura de consumo podem ser encontradas [sobre as perguntas frequentes sobre cobrança](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
-[Página de preços de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Página de preços do Azure Functions]: https://azure.microsoft.com/pricing/details/functions

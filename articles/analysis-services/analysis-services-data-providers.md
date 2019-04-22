@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270856"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
@@ -91,6 +91,6 @@ As bibliotecas de cliente para conexões de cliente são diferentes dos provedor
 2. Clique com botão direito do mouse em **Microsoft.AnalysisServices.AdomdClient** > **Propriedades** > **Detalhes**.  
 
 
-## <a name="next-steps"></a>Próximos passos
-[Conectar com o Excel](analysis-services-connect-excel.md)    
-[Conectar com Power BI](analysis-services-connect-pbi.md)
+## <a name="next-steps"></a>Próximas etapas
+[Conectar com Excel](analysis-services-connect-excel.md)    
+[Conectar com o Power BI](analysis-services-connect-pbi.md)

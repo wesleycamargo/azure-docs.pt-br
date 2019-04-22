@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426249"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
@@ -81,8 +81,8 @@ Use a lista a seguir para alterar o local do cache.
 
     | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local de pasta de cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local de pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
 
 4. Reinicie o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
@@ -113,8 +113,8 @@ A pasta de cache e o VHD dos metadados não têm os atributos necessários para 
 
 ## <a name="restore"></a>Restaurar
 
-### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se eu cancelar um trabalho de restauração em andamento?
-Se um trabalho de restauração em andamento é cancelado, o processo de restauração será interrompido e todos os arquivos restaurados antes do cancelamento, permanecer no destino configurado (local original ou alternativo), sem qualquer reversões.
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
+Se um trabalho de restauração em andamento for cancelado, o processo de restauração será interrompido e todos os arquivos restaurados antes do cancelamento permanecerão no destino configurado (local original ou alternativo) sem nenhuma reversão.
 
 
 ## <a name="manage-backups"></a>Gerenciar backups

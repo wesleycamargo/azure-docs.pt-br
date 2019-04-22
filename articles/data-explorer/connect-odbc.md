@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043874"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar-se ao Gerenciador de dados do Azure com o ODBC
@@ -100,6 +100,6 @@ Agora que você tiver terminado de configurar o ODBC, você pode colocar dados d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Escrever consultas para o Azure Data Explorer](write-queries.md)
+[Gravar consultas para Azure Data Explorer](write-queries.md)
 
-[Tutorial: Visualizar dados do Gerenciador de dados do Azure no Power BI](visualize-power-bi.md)
+[Tutorial: Visualizar dados do Azure Data Explorer no Power BI](visualize-power-bi.md)

@@ -14,10 +14,10 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272369"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Cenários populares para usar o Azure DevTest Labs
@@ -82,8 +82,8 @@ Uma **implantação dimensionada** consiste em semanas/meses de revisão e plane
 Um **prova de conceito** implantação concentra-se em um esforço concentrado de uma única equipe para estabelecer o valor organizacional. Embora possa ser tentador pensar em uma implantação dimensionada, a abordagem tende a falhar com mais frequência do que a opção de prova de conceito. Portanto, recomendamos que você comece pelo mais simples, aprenda com a primeira equipe, repita a mesma abordagem com outras duas ou três equipes e planeje uma implantação dimensionada com base no conhecimento adquirido. Para que sua prova de conceito seja bem-sucedida, recomendamos escolher uma ou duas equipes e identificar seus cenários (ambiente de desenvolvimento versus ambientes de teste), documentar seus casos de uso atuais e implantar o DevTest Labs.
 
 ## <a name="next-steps"></a>Próximos passos
-Leia os artigos a seguir:
+Leia os seguintes artigos:
 
 - [Conceitos dos Laboratórios de Desenvolvimento/Teste](devtest-lab-concepts.md)
-- [Perguntas frequentes sobre os DevTest Labs](devtest-lab-faq.md)
+- [Perguntas frequentes do DevTest Labs](devtest-lab-faq.md)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58791619"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure
@@ -108,7 +108,7 @@ Se você analisar o [rastreamento do Inspetor de API](api-management-howto-api-i
 
 Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outros valores nomeados. Se um texto contendo uma referência de propriedade for usado para um valor de propriedade, por exemplo, `Property value text {{MyProperty}}`, essa referência de propriedade não será substituída e será incluída como parte do valor da propriedade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre como trabalhar com políticas
   * [Políticas no Gerenciamento de API](api-management-howto-policies.md)
   * [Referência de política](/azure/api-management/api-management-policies)

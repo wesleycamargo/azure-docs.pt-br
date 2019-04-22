@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
 ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281940"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar regras de saída e de balanceamento de carga no Standard Load Balancer usando a CLI do Azure
@@ -183,4 +183,4 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 Neste artigo, você criou um Standard Load Balancer, configurou regras de tráfego de entrada e de balanceador de carga e configurou uma investigação de integridade para as VMs no pool de back-end. Para saber mais sobre o Azure Load Balancer, continue nos tutoriais do Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Tutoriais do balanceador de carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

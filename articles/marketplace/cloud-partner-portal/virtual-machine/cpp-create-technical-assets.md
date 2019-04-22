@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050094"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar recursos técnicos para uma oferta de máquina virtual
@@ -52,7 +52,7 @@ Projetar, criar e testar esses recursos leva tempo e exige conhecimento técnico
 ## <a name="suggested-tools"></a>Ferramentas sugeridas 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar VHDs e VMs:
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-   [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 -   [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento: 

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058570"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59256797"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
 
@@ -52,9 +52,9 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 
 Use os documentos a seguir para aprender a criar uma Rede Virtual do Azure conectada à sua rede local:
 
-* [Usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Usar o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Usando o PowerShell do Azure](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Usando a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+* [Usar a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## <a name="create-custom-dns-server"></a>Criar um servidor DNS personalizado
 
@@ -79,7 +79,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece várias opções de gerenciamento da disponibilidade e da resiliência de seus aplicativos.  Projete sua solução a fim de usar VMs replicadas em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger seus aplicativos e dados contra falhas do datacenter e eventos de manutenção. Este exemplo usa **Nenhuma redundância de infraestrutura necessária**. |
     |Imagem | Deixe **LTS do Ubuntu Server 18.04**. |
-    |Tipo de autenticação | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. É recomendável usar as chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [Criar e usar chaves SSH para VMs Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Tipo de autenticação. | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. É recomendável usar as chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [Criar e usar chaves SSH para VMs Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome de usuário |Insira o nome de usuário do administrador da VM.  Este exemplo usa **sshuser**.|
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha de **Tipo de autenticação**.  Insira o valor apropriado.|
     |Porta de entrada públicas|Selecione **Permitir portas selecionadas**. Em seguida, selecione **SSH (22)** da **selecione as portas de entrada** lista suspensa.|

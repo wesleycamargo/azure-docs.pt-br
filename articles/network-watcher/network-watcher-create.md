@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051556"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
@@ -103,7 +103,7 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você tem uma instância do Observador de Rede, saiba mais sobre os recursos disponíveis:
 
@@ -112,7 +112,7 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 * [Verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)
 * [Exibição de grupo de segurança](network-watcher-security-group-view-overview.md)
-* [Registro de fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
-* [Solução de problemas de Gateway de rede virtual](network-watcher-troubleshoot-overview.md)
+* [Registro do fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
+* [Solução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)
 
 Após uma instância do Observador de Rede, será possível habilitar a captura de pacote em máquinas virtuais. Para saber mais, consulte [Criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)

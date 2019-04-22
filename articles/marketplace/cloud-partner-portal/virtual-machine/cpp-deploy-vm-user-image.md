@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046728"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implantar uma VM do Azure de um VHD do usuário
@@ -31,7 +31,7 @@ Esse artigo explica como implantar uma imagem de VHD generalizada para criar um 
 
 Copie o modelo do Azure Resource Manager para [implantação de VHD](cpp-deploy-json-template.md) para um arquivo local chamado `VHDtoImage.json`.  Edite esse arquivo para fornecer valores para os parâmetros a seguir. 
 
-|  **Parâmetro**             |   **DESCRIÇÃO**                                                              |
+|  **Parâmetro**             |   **Descrição**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | O nome do grupo de recursos do Azure existente.  Normalmente usam o mesmo RG associado ao cofre de chaves  |
 | TemplateFile               | Nome do caminho completo para o arquivo `VHDtoImage.json`                                    |

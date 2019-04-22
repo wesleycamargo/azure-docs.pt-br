@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272199"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
@@ -53,10 +53,10 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como **SqlServer**. | Sim. |
+| Tipo | A propriedade type deve ser definida como **SqlServer**. | Sim. |
 | connectionString |Essa propriedade especifica as informações de connectionString necessárias para conectar-se à instância gerenciada usando a autenticação do SQL ou a autenticação do Windows. Para obter mais informações, confira os exemplos a seguir. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault, e se a autenticação for SQL, extraia a `password`configuração da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim. |
 | userName |Esta propriedade especifica um nome de usuário se você usa a autenticação do Windows. Um exemplo é **nome_do_domínio\\nome_de_usuário**. | Não. |
-| password |Esta propriedade especifica uma senha para a conta de usuário que você especificou para o nome de usuário. Selecione **SecureString** para armazenar as informações de connectionString com segurança no Data Factory ou [Confira um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não. |
+| Senha |Esta propriedade especifica uma senha para a conta de usuário que você especificou para o nome de usuário. Selecione **SecureString** para armazenar as informações de connectionString com segurança no Data Factory ou [Confira um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não. |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Provisione o tempo de execução da integração auto-hospedada na mesma rede virtual que sua instância gerenciada. |Sim. |
 
 >[!TIP]
@@ -83,7 +83,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 }
 ```
 
-**Exemplo 2: Usar autenticação do SQL com senha no Azure Key Vault**
+**Exemplo 2: Use a autenticação SQL com senha no Azure Key Vault**
 
 ```json
 {
@@ -112,7 +112,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 }
 ```
 
-**Exemplo 3: Usar a autenticação do Windows**
+**Exemplo 3: Usar autenticação do Windows**
 
 ```json
 {
@@ -146,7 +146,7 @@ Para copiar dados de e para a Instância Gerenciada do Banco de Dados SQL do Azu
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como **SqlServerTable**. | Sim. |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como **SqlServerTable**. | Sim. |
 | tableName |Essa propriedade é o nome da tabela ou exibição na instância de banco de dados à qual o serviço vinculado se refere. | Não para origem. Sim para coletor. |
 
 **Exemplo**
@@ -178,8 +178,8 @@ Para copiar dados da Instância Gerenciada do Banco de Dados SQL do Azure, defin
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da origem da atividade de cópia deve ser definida como **SqlSource**. | Sim. |
-| sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não. |
+| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como **SqlSource**. | Sim. |
+| SqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não. |
 | sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não. |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o uso de maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não. |
 
@@ -281,7 +281,7 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do coletor de atividade de cópia deve ser definida como **SqlSink**. | Sim. |
+| Tipo | A propriedade type do coletor de atividade de cópia deve ser definida como **SqlSink**. | Sim. |
 | writeBatchSize |Número de linhas para inserções na tabela SQL **por lote**.<br/>Os valores permitidos são inteiros para o número de linhas. |Não (padrão: 10.000). |
 | writeBatchTimeout |Essa propriedade especifica o tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00", que são 30 minutos. | Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia a ser executada antes da gravação de dados na instância gerenciada. É chamado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não. |
@@ -408,7 +408,7 @@ Observe que a tabela de destino tem uma coluna de identidade.
 }
 ```
 
-**Definição de JSON de conjunto de dados de destino**
+**Definição de JSON do conjunto de dados de destino**
 
 ```json
 {
@@ -510,37 +510,37 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 | Tipo de dados da Instância Gerenciada do Banco de Dados SQL do Azure | Tipo de dados provisório do Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| binary |Byte[] |
-| bit |Boolean |
+| binário |Byte[] |
+| bit |BOOLEAN |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
+| data |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numérico |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Objeto |
 | text |String, Char[] |
-| time |TimeSpan |
-| timestamp |Byte[] |
+| tempo real |TimeSpan |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > Para tipos de dados que mapeiam para o tipo provisório Decimal, no momento, o Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.

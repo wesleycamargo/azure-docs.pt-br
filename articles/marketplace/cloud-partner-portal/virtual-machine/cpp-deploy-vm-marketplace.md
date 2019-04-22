@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049306"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implantar uma máquina virtual do Azure Marketplace
@@ -31,7 +31,7 @@ Este artigo explica como implantar uma VM (máquina virtual) pré-configurada do
 
 O modelo de implantação de VM do Azure de início rápido, que está disponível como o arquivo online [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Ele contém os seguintes parâmetros:
 
-|  **Parâmetro**        |   **DESCRIÇÃO**                                 |
+|  **Parâmetro**        |   **Descrição**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | Nome da conta de armazenamento                       |
 | dnsNameForPublicIP    | Nome DNS do IP público. Precisa estar em minúsculas.    |
@@ -44,7 +44,7 @@ O modelo de implantação de VM do Azure de início rápido, que está disponív
 | vmName                | Nome da VM                                    |
 | vaultName             | Nome do cofre de chaves                             |
 | vaultResourceGroup    | Grupo de recursos do cofre de chaves                   |
-| certificateUrl        | URL do certificado, incluindo a versão no cofre de chaves, por exemplo  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl        | URL do certificado, incluindo a versão no KeyVault, por exemplo `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 

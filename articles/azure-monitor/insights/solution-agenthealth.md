@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426215"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de integridade do agente no Azure Monitor
@@ -51,7 +51,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | Grupo de gerenciamento do System Center Operations Manager | Sim | Eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes do Operations Manager para o Azure Monitor não é necessária. Dados de evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Usando a solução
-Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco no painel da solução integridade do agente](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco da solução Integridade do Agente no painel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do Agente**.  O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo de tempo especificado. É possível executar uma pesquisa de logs que fornece a lista inteira selecionando **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045757"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
@@ -187,12 +187,12 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
    > [!NOTE]
    > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você designa a um usuário uma função RBAC a um grupo de gerenciamento pai, o acesso é herdado pelas assinaturas de grupo de gerenciamento criança. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 > [!div class="nextstepaction"]
-> [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md)
+> [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Gerenciar e responder aos alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
+> [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 

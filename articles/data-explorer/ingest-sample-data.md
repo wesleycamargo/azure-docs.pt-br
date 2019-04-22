@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050610"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingerir dados de amostra no Azure Data Explorer
@@ -54,13 +54,13 @@ O conjunto de dados de amostra **StormEvents** contém dados relacionados ao cli
 
     ![Resultados da consulta](media/ingest-sample-data/query-results.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)
+> [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
 
 > [!div class="nextstepaction"]
 > [Gravar consultas](write-queries.md)
 
 > [!div class="nextstepaction"]
-> [Ingestão de dados do Azure Data Explorer](ingest-data-overview.md)
+> [Ingestão de dados de Data Explorer do Azure](ingest-data-overview.md)

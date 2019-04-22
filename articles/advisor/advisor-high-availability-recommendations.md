@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881181"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699297"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade do aplicativo com o Assistente do Azure
 
@@ -66,6 +66,10 @@ Habilite a [exclusão reversível](https://docs.microsoft.com/azure/storage/blob
 
 Na configuração ativo-ativo, ambas as instâncias de um gateway de VPN estabelecerão túneis de VPN S2S para seu dispositivo VPN local. Quando um evento de manutenção planejada ou um evento não planejado ocorrer em uma instância do gateway, o tráfego será mudado para outro túnel IPsec ativo automaticamente. O Assistente do Azure identificará os gateways de VPN que não estão configurados como ativo-ativo e sugerirá que você os configure para alta disponibilidade.
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Usar gateways de VPN de produção para executar suas cargas de trabalho de produção
+
+O Assistente do Azure verificará para quaisquer gateways VPN que são um SKU básico e recomendamos que você use um SKU de produção. O SKU básico foi projetado para fins de teste e desenvolvimento. SKUs de produção oferecem um número maior de túneis, suporte a BGP, opções de configuração ativo-ativo, personalizado política Ipsec/IKE e maior estabilidade e disponibilidade.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
@@ -76,7 +80,7 @@ Na configuração ativo-ativo, ambas as instâncias de um gateway de VPN estabel
 
 Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Introdução ao Azure Advisor](advisor-overview.md)
-* [Introdução ao Assistente](advisor-get-started.md)
+* [Introdução ao Advisor](advisor-get-started.md)
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)

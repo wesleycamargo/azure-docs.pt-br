@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051573"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
@@ -45,7 +45,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 
 ### <a name="ike-phase-1-setup"></a>Fase 1 da configuração IKE
 
-| **Propriedade** | **PolicyBased** | **Gateway de VPN RouteBased e Standard ou alto desempenho** |
+| **Propriedade** | **PolicyBased** | **Gateway de VPN RouteBased e Standard ou de Alto Desempenho** |
 | --- | --- | --- |
 | Versão IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
@@ -107,7 +107,7 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não |
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Authentication | Incompatibilidade de chave pré-compartilhada. | Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway correspondente não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|

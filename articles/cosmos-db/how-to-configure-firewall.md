@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281107"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
@@ -159,7 +159,7 @@ Solicitações de uma sub-rede em uma rede virtual que possui um ponto de extrem
 
 Para configurar um ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos DB, consulte os seguintes artigos:
 
-* [O controle para sua conta do Azure Cosmos DB de acesso de rede virtual e sub-rede](vnet-service-endpoint.md)
-* [Configurar acesso à rede virtual e à sub-rede para sua conta do Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
+* [Controle de acesso à rede virtual e sub-rede para sua conta do Azure Cosmos DB](vnet-service-endpoint.md)
+* [Configurar rede virtual e sub-rede com base em acesso para sua conta do Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
 
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490403"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Gatilhos e associações HTTP do Azure Functions
@@ -333,8 +333,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 * [Ler o parâmetro da cadeia de consulta](#read-parameter-from-the-query-string-java)
 * [Ler o corpo de uma solicitação POST](#read-body-from-a-post-request-java)
-* [Parâmetro de leitura de uma rota](#read-parameter-from-a-route-java)
-* [Corpo de POJO de leitura de uma solicitação POST](#read-pojo-body-from-a-post-request-java)
+* [Ler o parâmetro de uma rota](#read-parameter-from-a-route-java)
+* [Ler o corpo de POJO de uma solicitação POST](#read-pojo-body-from-a-post-request-java)
 
 O exemplo a seguir mostra uma associação de gatilho HTTP em um arquivo *function.json* e as [funções Java](functions-reference-java.md) respectivas que usam a associação. 
 
@@ -559,13 +559,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-| **Tipo** | n/d| Obrigatório – deve ser definido como `httpTrigger`. |
+| **tipo** | n/d| Obrigatório – deve ser definido como `httpTrigger`. |
 | **direction** | n/d| Obrigatório – deve ser definido como `in`. |
-| **Nome** | n/d| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave de API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é necessária. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é necessária.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
-| **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para a qual a função responde. Se não for especificada, a função responderá a todos os métodos HTTP. Consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
-| **rota** | **Rota** | Define o modelo da rota, controlando para quais URLs de solicitação sua função responde. O valor padrão se nenhum for fornecido será `<functionname>`. Para saber mais informações, consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Suporte apenas para a versão de tempo de execução 1.x._<br/><br/>Configure o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde a [webhooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com os webhooks do GitHub. Para saber mais informações, consulte a seção sobre webhooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;A função responde a [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com os webhooks do Slack. Para saber mais informações, consulte a seção sobre webhooks do Slack posteriormente neste artigo.</li></ul>|
+| **name** | n/d| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é obrigatória.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
+| **methods** |**Métodos** | Uma matriz dos métodos HTTP para a qual a função responde. Se não for especificada, a função responderá a todos os métodos HTTP. Consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
+| **route** | **Route** | Define o modelo da rota, controlando para quais URLs de solicitação sua função responde. O valor padrão se nenhum for fornecido será `<functionname>`. Para saber mais informações, consulte [personalização do ponto de extremidade http](#customize-the-http-endpoint). |
+| **webHookType** | **WebHookType** | _Com suporte apenas na versão 1.x do tempo de execução._<br/><br/>Configure o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;A função responde a [webhooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com os webhooks do GitHub. Para saber mais informações, consulte a seção sobre webhooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks do Slack](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com os webhooks do Slack. Para saber mais informações, consulte a seção sobre webhooks do Slack posteriormente neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
@@ -802,9 +802,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-| **Tipo** |Deve ser definido como `http`. |
+| **tipo** |Deve ser definido como `http`. |
 | **direction** | Deve ser definido como `out`. |
-|**Nome** | O nome da variável usada no código de função para a resposta, ou `$return` para usar o valor de retorno. |
+|**name** | O nome da variável usada no código de função para a resposta, ou `$return` para usar o valor de retorno. |
 
 ## <a name="output---usage"></a>Saída - uso
 
@@ -812,6 +812,6 @@ Para enviar uma resposta HTTP, use os padrões de resposta padrão do idioma. Em
 
 Por ver exemplos de respostas, confira o [exemplo de gatilho](#trigger---example).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais sobre o Azure functions gatilhos e associações](functions-triggers-bindings.md)
+[Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

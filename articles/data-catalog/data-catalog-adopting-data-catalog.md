@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 86b8e4a6d2e976c706acea6eab608504ad31a5b9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263257"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
@@ -163,6 +163,6 @@ Os pioneiros que participaram do piloto podem ser úteis para apregoar os benef�
 
 Este artigo foi uma introdução ao **Catálogo de Dados do Azure** em sua organização. Esperamos que você tenha conseguido iniciar um projeto-piloto do Catálogo de Dados e expandir o Catálogo de Dados por toda a organização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

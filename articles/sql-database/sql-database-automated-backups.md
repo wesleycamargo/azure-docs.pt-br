@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545817"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678591"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
-O Banco de dados SQL cria automaticamente backups de banco de dados que são mantidos entre 7 e 35 dias, e usa o armazenamento com redundância geográfica de acesso de leitura (RA-GRS) do Azure para garantir que eles são preservados, mesmo se o data center estiver indisponível. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que eles ocorram e você pode [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period). Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se as regras de segurança exigem que os backups fiquem disponíveis por um longo período de tempo (até 10 anos), configure uma [retenção de longo prazo](sql-database-long-term-retention.md).
+Banco de dados SQL automaticamente cria backups de banco de dados que são mantidos entre 7 e 35 dias e usa o armazenamento com redundância geográfica de acesso de leitura do Azure (RA-GRS) para garantir que eles sejam preservados, mesmo se o data center não está disponível. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que eles ocorram e você pode [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period). Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se as regras de segurança exigem que os backups fiquem disponíveis por um longo período de tempo (até 10 anos), configure uma [retenção de longo prazo](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -169,7 +169,7 @@ Código de status: 200
 
 Para obter mais informações, confira [API REST de retenção de backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 - Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).

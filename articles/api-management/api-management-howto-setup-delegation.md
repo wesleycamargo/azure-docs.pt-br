@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051743"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
@@ -141,7 +141,7 @@ Eles mostram exemplos de código como para:
 
 O mesmo código funciona para productId e userId com pequenas modificações.
 
-**C#código para gerar o hash de returnUrl**
+**Código C# para gerar hash de returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -158,7 +158,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-**Código NodeJS para gerar o hash de returnUrl**
+**Código NodeJS para gerar hash de returnUrl**
 
 ```
 var crypto = require('crypto');
@@ -184,9 +184,9 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicitar um token single-sign-on (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[criar um usuário]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[chamar a API REST para assinatura do produto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[solicite um token de logon único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[Crie um usuário]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[chamando a API REST para assinatura do produto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [código de exemplo fornecido abaixo]: #delegate-example-code
 

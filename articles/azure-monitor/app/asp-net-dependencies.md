@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273100"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependência
@@ -71,7 +71,7 @@ A folha de desempenho mostra a duração das chamadas de dependência feitas pel
 As **contagens de falhas** são mostrados na folha **Falhas**. Uma falha é qualquer código de retorno que não esteja no intervalo 200-399, ou que seja desconhecido.
 
 > [!NOTE]
-> **100% de falhas?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
+> **Falhas de 100%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -152,7 +152,7 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, poder
 Se desejar desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
-*Sinalizador de êxito da dependência sempre mostra true ou false.*
+*O sinalizador de êxito da dependência sempre mostra true ou false.*
 
 *Consulta SQL não mostrada por completo.*
 
@@ -167,5 +167,5 @@ Veja a tabela a seguir e garanta que você escolheu a configuração correta par
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
-* [Dados de usuário e da página](../../azure-monitor/app/javascript.md)
+* [Dados do usuário e da página](../../azure-monitor/app/javascript.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

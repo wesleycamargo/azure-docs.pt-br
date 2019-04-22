@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045587"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
@@ -90,7 +90,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 | Método | Latency |
 | --- | --- |
-| **Ingestão de embutido** | Imediata |
+| **Ingestão embutida** | Imediata |
 | **Ingestão de consulta** | Tempo de consulta + tempo de processamento |
 | **Ingestão de armazenamento** | Tempo de download + tempo de processamento |
 | **Ingestão na fila** | Tempo de envio em lote + tempo de processamento |
@@ -144,10 +144,10 @@ O mapeamento de esquema ajuda a associar os campos de dados de origem às coluna
 > [Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Ingestão de dados usando a assinatura de grade de eventos no Data Explorer do Azure](ingest-data-event-grid.md)
+> [Ingerir dados usando a assinatura de Grade de Eventos no Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
+> [Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
 > [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)
@@ -156,7 +156,7 @@ O mapeamento de esquema ajuda a associar os campos de dados de origem às coluna
 > [Ingerir dados usando a biblioteca do Node do Azure Data Explorer](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+> [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)
+> [Ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)

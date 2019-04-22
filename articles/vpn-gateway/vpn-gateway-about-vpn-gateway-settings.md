@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049856"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
@@ -167,7 +167,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar APIs REST, cmdlets do PowerShell na CLI do Azure para configurações do Gateway de VPN, veja as seguintes páginas:
 
-| **Clássico** | **Gerenciador de Recursos** |
+| **Clássico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |

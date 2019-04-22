@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264532"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
@@ -32,7 +32,7 @@ O Azure PowerShell é um ambiente de script poderoso que você pode usar para co
 Você deve ter o seguinte antes de iniciar este procedimento:
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Azure PowerShell](/powershell/azure/install-Az-ps)
+* [PowerShell do Azure](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
@@ -95,25 +95,25 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 
-* [Usar o Apache Hive com HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usar Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usar o MapReduce com HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolver aplicativos Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Desenvolvimento de aplicativos Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
-* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Usar componentes do Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="apache-spark-clusters"></a>Clusters do Apache Spark
 
 * [Criar um aplicativo autônomo usando Scala](spark/apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster do Apache Spark usando Livy Apache](spark/apache-spark-livy-rest-interface.md)
+* [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever resultados de inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 

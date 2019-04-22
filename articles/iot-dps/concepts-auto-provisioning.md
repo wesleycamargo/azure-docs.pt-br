@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051726"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de provisionamento automático
@@ -59,7 +59,7 @@ Uma série de tutoriais são fornecidos no sumário à esquerda para ajudar a ex
 
 O diagrama a seguir resume as funções e o sequenciamento das operações durante o provisionamento automático do dispositivo:
 <br><br>
-[![Sequência de provisionamento automático para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
+[![Sequência de provisionamento automático de um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Opcionalmente, o fabricante também pode executar a operação "Registrar a identidade do dispositivo" usando as APIs do Serviço de Provisionamento de Dispositivos (em vez de por meio do operador). Para obter uma discussão detalhada sobre esse sequenciamento e muito mais, veja o [Registro sem toque de dispositivos com vídeo IoT do Azure](https://youtu.be/cSbDRNg72cU?t=2460) (começando no marcador 41:00)
@@ -97,8 +97,8 @@ Pode ser útil marcar este artigo como um ponto de referência, enquanto você a
 
 Comece concluindo o Início Rápido "Configurar o provisionamento automático" que melhor se adapte a sua preferência de ferramenta de gerenciamento durante a fase de "Configuração do serviço":
 
-- [Configurar o provisionamento automático usando a CLI do Azure](quick-setup-auto-provision-cli.md)
-- [Configurar o provisionamento automático usando o portal do Azure](quick-setup-auto-provision.md)
+- [Configurar provisionamento automático usando CLI do Azure](quick-setup-auto-provision-cli.md)
+- [Configurar provisionamento automático usando o portal do Azure](quick-setup-auto-provision.md)
 - [Configurar o provisionamento automático usando um modelo do Resource Manager](quick-setup-auto-provision-rm.md)
 
 Em seguida, continue com um Início Rápido "Provisionamento automático de um dispositivo simulado" que atenda às seu mecanismo de atestado do dispositivo e a preferência de idioma/SDK do Serviço de Provisionamento de Dispositivos. Neste Início Rápido, você examina as fases "Registro do dispositivo" e "Registro e configuração do dispositivo": 

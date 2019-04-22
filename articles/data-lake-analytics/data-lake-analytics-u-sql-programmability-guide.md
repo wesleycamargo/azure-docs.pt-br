@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489649"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usar expressões C# para a data de hoje
 
-Para efetuar pull da data de hoje, podemos usar o seguinte C# expressão: `DateTime.Now.ToString("M/d/yyyy")`
+Para efetuar pull da data de hoje, podemos usar a seguinte expressão C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Aqui está um exemplo de como usar essa expressão em um script:
 
@@ -533,9 +533,9 @@ A interface `IFormatter` serializa e desserializa um grafo de objeto com o tipo 
 
 * **Serializar**: Serializa um objeto ou um grafo de objetos com a raiz especificada para o fluxo fornecido.
 
-`MyType` Instância: Instância do tipo.  
-`IColumnWriter` Gravador / `IColumnReader` leitor: O fluxo da coluna subjacente.  
-`ISerializationContext` contexto: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
+Instância `MyType`: Instância do tipo.  
+Gravador `IColumnWriter`/leitor `IColumnReader`: O fluxo da coluna subjacente.  
+Contexto `ISerializationContext`: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
 
 * **Intermediário**: Especifica que o contexto de origem ou de destino não é um repositório persistente.
 
@@ -1269,7 +1269,7 @@ public class MyOutputter : IOutputter
 
 * `Output` é chamado para cada linha de entrada. Retorna o conjunto de linhas `IUnstructuredWriter output`.
 * A classe Constructor é usada para passar parâmetros ao outputter definido pelo usuário.
-* `Close` é usado para, opcionalmente, substituir para liberar estado caro ou determinar quando a última linha foi gravada.
+* `Close` é usado para, opcionalmente, substituir e liberar estado caro ou determinar quando a última linha foi gravada.
 
 O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registrado como um outputter definido pelo usuário. Essa classe não pode ser herdada.
 

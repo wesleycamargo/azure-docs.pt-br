@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048292"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
@@ -56,7 +56,7 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [Monitor sintético de aplicativo de autoridade de certificação](https://asm.ca.com/en/checkit.php)
+* [Monitor Sintético de Aplicativo de AC](https://asm.ca.com/en/checkit.php)
 
     Anteriormente conhecido como a ferramenta Check Website de mouse de inspeção, esse site mostra o tempo de resolução DNS de várias regiões geográficas ao mesmo tempo. Insira a URL para ver o tempo de resolução de DNS, o tempo de conexão e a velocidade de vários locais geográficos. Use esse teste para ver qual serviço hospedado é retornado para diferentes locais no mundo.
 
@@ -66,7 +66,7 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
     Essa ferramenta fornece estatísticas de desempenho para cada elemento de uma página da Web. A guia Análise da Página mostra o percentual de tempo gasto na pesquisa de DNS.
 
-* [O que é meu DNS?](https://www.whatsmydns.net/)
+* [What's My DNS?](https://www.whatsmydns.net/)
 
     Este site realiza uma pesquisa de DNS de 20 locais diferentes e exibe os resultados em um mapa.
 
@@ -76,11 +76,11 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Sobre métodos de roteamento de tráfego do Gerenciador de tráfego](traffic-manager-routing-methods.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
-[Testar as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
+[Teste as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
 
-[Operações no Traffic Manager (referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets do Gerenciador de tráfego do Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
+[Cmdlets do Gerenciador de Tráfego do Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

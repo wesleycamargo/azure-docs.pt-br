@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259194"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
@@ -80,7 +80,7 @@ Há várias guias para configurar uma máquina de virtual do SQL Server. Com a f
 ## <a name="1-configure-basic-settings"></a>1. Definir as configurações básicas
 
 
-Sobre o **Noções básicas sobre** guia, forneça as seguintes informações:
+Na folha **Informações Básicas**, forneça as seguintes informações:
 
 * Sob **detalhes do projeto**, verifique se a assinatura correta está selecionada. 
 *  No **grupo de recursos** seção, selecione um recurso existente do grupo na lista ou escolha **criar novo** para criar um novo grupo de recursos. Um grupo de recursos é uma coleção de recursos relacionados no Azure (máquinas virtuais, contas de armazenamento, redes virtuais etc.). 
@@ -91,12 +91,12 @@ Sobre o **Noções básicas sobre** guia, forneça as seguintes informações:
   > O uso de um novo grupo de recursos é útil se você estiver apenas testando ou aprendendo sobre implantações do SQL Server no Azure. Após concluir o teste, exclua o grupo de recursos para excluir automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
 
-* Sob **detalhes da instância**:
+* Em **Detalhes da instância**:
     1. Insira um único **nome da máquina Virtual**.  
-    1. Escolha um local para seu **região**. 
-    1. Com a finalidade deste guia, deixe **opções de disponibilidade** definido como _sem redundância de infraestrutura necessários_. Para obter mais informações sobre opções de disponibilidade, consulte [regiões do Azure e disponibilidade](../../windows/regions-and-availability.md). 
-    1. No **imagem** lista, selecione _licença gratuita do SQL Server: SQL Server 2017 Developer no Windows Server 2016_.  
-    1. Escolher **alterar o tamanho** para o **tamanho** da máquina virtual e selecione o **A2 básico** oferta. Certifique-se de limpar seus recursos assim que terminar com eles para evitar encargos inesperados. Para as cargas de trabalho de produção, consulte os tamanhos recomendados de máquina e a configuração em [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
+    1. Escolha uma localização para sua **região**. 
+    1. Com a finalidade deste guia, deixe **opções de disponibilidade** definido como _sem redundância de infraestrutura necessários_. Para obter mais informações sobre as opções de disponibilidade, confira [Regiões do Azure e disponibilidade](../../windows/regions-and-availability.md). 
+    1. Na lista **Imagem**, selecione _Licença Gratuita do SQL Server: SQL Server 2017 Developer no Windows Server 2016_.  
+    1. Escolha **Alterar tamanho** para o **Tamanho** da máquina virtual e selecione a oferta **A2 Básico**. Limpe os recursos assim que terminar de trabalhar com eles para evitar encargos inesperados. Para as cargas de trabalho de produção, consulte os tamanhos recomendados de máquina e a configuração em [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
     ![Detalhes da instância](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -107,7 +107,7 @@ Sobre o **Noções básicas sobre** guia, forneça as seguintes informações:
 
    ![Conta de administrador](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* Sob **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa. 
+* Em **Regras de portas de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa. 
 
    ![Regras de porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
@@ -158,8 +158,8 @@ Sobre o **configurações do SQL Server** guia, defina as configurações espec�
 | Configuração |
 | --- |
 | [Conectividade](#connectivity) |
-| [Authentication](#authentication) |
-| [Integração do Azure Key Vault](#azure-key-vault-integration) |
+| [Autenticação](#authentication) |
+| [Integração do Cofre da Chave do Azure](#azure-key-vault-integration) |
 | [Configuração de armazenamento](#storage-configuration) |
 | [Aplicação de patch automatizada](#automated-patching) |
 | [Backup Automatizado](#automated-backup) |
@@ -186,7 +186,7 @@ Em geral, melhore a segurança escolhendo a conectividade mais restritiva que se
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Se você precisar da Autenticação do SQL Server, clique em **Habilitar** under **Autenticação do SQL**.
 
@@ -211,8 +211,8 @@ A tabela a seguir lista os parâmetros necessários para configurar a integraç�
 
 | PARÂMETRO | Descrição | EXEMPLO |
 | --- | --- | --- |
-| **URL do Key Vault** |O local do cofre da chave. |https:\//contosokeyvault.vault.azure.net/ |
-| **Nome da entidade de segurança** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
+| **URL do cofre da chave** |O local do cofre da chave. |https:\//contosokeyvault.vault.azure.net/ |
+| **Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Segredo da entidade** |Segredo da entidade de serviço do Azure Active Directory. O segredo também é chamado de Segredo do Cliente. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nome da credencial** |**Nome da credencial**: A Integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. |mycred1 |
 
@@ -274,9 +274,9 @@ Para obter mais informações, veja [Backup Automatizado para o SQL Server em M�
 Você tem a opção para habilitar [SQL Server R Services (análise avançada)](/sql/advanced-analytics/r/sql-server-r-services/). Essa opção permite que você use análises avançadas com o SQL Server 2017. Clique em **Habilitar** na janela **Configurações do SQL Server**.
 
 
-## <a name="4-review--create"></a>4. Revisar + criar
+## <a name="4-review--create"></a>4. Examinar + criar
 
-Sobre o **revisar + criar** guia, examine o resumo e selecione **criar** para criar o SQL Server, o grupo de recursos e recursos especificados para essa VM.
+Na guia **Examinar + criar**, examine o resumo e selecione **Criar** para criar o SQL Server, o grupo de recursos e os recursos específicos dessa VM.
 
 Você pode monitorar a implantação no portal do Azure. O botão **Notificações** na parte superior da tela mostra o status básico da implantação.
 

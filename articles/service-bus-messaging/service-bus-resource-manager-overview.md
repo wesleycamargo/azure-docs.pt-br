@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045262"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
@@ -37,10 +37,10 @@ Os modelos do Azure Resource Manager ajudam você a definir os recursos a serem 
 Esses modelos do Azure Resource Manager no Barramento de Serviço estão disponíveis para download e implantação. Clique nos links abaixo para obter detalhes sobre cada um, com links para os modelos no GitHub:
 
 * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
-* [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
-* [Criar um namespace do barramento de serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
-* [Criar um namespace de barramento de serviço com a regra de autorização e de fila](service-bus-resource-manager-namespace-auth-rule.md)
-* [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
+* [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
+* [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
+* [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 
@@ -252,13 +252,13 @@ Parameters        :
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora você já viu o fluxo de trabalho básico e os comandos para implantar um modelo do Azure Resource Manager. Para obter informações mais detalhadas, visite os seguintes links:
 
 * [Visão geral do Azure Resource Manager][Azure Resource Manager overview]
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Criando modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Tipos de recursos do ServiceBus](/azure/templates/microsoft.servicebus/allversions)
+* [Tipos de recursos do Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

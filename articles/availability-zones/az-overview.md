@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
 ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268714"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>O que são Zonas de Disponibilidade no Azure?
@@ -79,12 +79,12 @@ Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disp
 
 ## <a name="get-started-with-availability-zones"></a>Introdução às Zonas de Disponibilidade
 - [Criar uma máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
-- [Adicionar um disco gerenciado usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [Adicionar um Disco Gerenciado usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [VMs com balanceamento de carga entre zonas usando um balanceador de carga padrão com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [VMs com balanceamento de carga dentro de uma zona usando um balanceador de carga padrão com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
-- [Banco de dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Banco de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Recuperação de desastre geográfico dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação de desastre geográfico do Barramento de Serviço](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

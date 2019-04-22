@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
 ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489392"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar-se a sua solução externa usando o formato comum de evento
@@ -126,7 +126,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como conectar dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

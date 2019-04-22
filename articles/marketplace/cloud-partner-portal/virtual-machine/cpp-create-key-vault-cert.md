@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045674"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Azure Key Vault
@@ -39,7 +39,7 @@ Você pode usar um grupo de recursos do Azure novo ou existente para este trabal
 
 Edite e execute o seguinte script do Azure Powershell para criar o arquivo de certificado (.pfx) em uma pasta local.  Você precisará substituir os valores dos seguintes parâmetros:
 
-|  **Parâmetro**        |   **DESCRIÇÃO**                                                               |
+|  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Pasta local para salvar o arquivo .pfx  |
 | `$location`    | Um dos locais geográficos padrão do Azure  |
@@ -85,7 +85,7 @@ Edite e execute o seguinte script do Azure Powershell para criar o arquivo de ce
 
 Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) em um arquivo em seu computador local. (no script de exemplo abaixo, este recurso é `C:\certLocation\keyvault.json`.)  Edite e execute o seguinte script do Azure Powershell para criar uma instância do Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores dos seguintes parâmetros:
 
-|  **Parâmetro**        |   **DESCRIÇÃO**                                                               |
+|  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | A cadeia de caracteres numérica arbitrária acrescentada aos identificadores de implantação                     |
 | `$rgName`             | Nome do RG (grupo de recursos) do Azure a ser criado                                        |
@@ -219,6 +219,6 @@ Agora você pode armazenar os certificados contidos no arquivo .pfx no novo cofr
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você [implantará uma VM da imagem de VM do usuário](./cpp-deploy-vm-user-image.md).

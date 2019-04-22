@@ -19,10 +19,10 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260724"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparação entre o ponto de extremidade de plataforma de identidade Microsoft e o ponto de extremidade do Azure AD v 1.0
@@ -143,7 +143,7 @@ Registros de aplicativo que dão suporte ao trabalho e contas de estudante e con
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições em URLs de redirecionamento
 
-Aplicativos que são registrados para a plataforma de identidade da Microsoft estão restritos a um conjunto limitado de valores da URL de redirecionamento. O URL de redirecionamento para aplicativos e serviços da web deve começar com o esquema `https`, e todos os valores de URL de redirecionamento devem compartilhar um único domínio DNS.  O sistema de registro compara todo o nome DNS do URL de redirecionamento existente com o nome DNS do URL de redirecionamento que você está adicionando. `http://localhost` também é suportado como uma URL de redirecionamento.  
+Aplicativos que são registrados para a plataforma de identidade da Microsoft estão restritos a um conjunto limitado de valores da URL de redirecionamento. O URL de redirecionamento para aplicativos e serviços da web deve começar com o esquema `https`, e todos os valores de URL de redirecionamento devem compartilhar um único domínio DNS.  O sistema de registro compara todo o nome DNS do URL de redirecionamento existente com o nome DNS do URL de redirecionamento que você está adicionando. `http://localhost` também é compatível como uma URL de redirecionamento.  
 
 A solicitação para adicionar o nome DNS falhará se alguma das condições abaixo for verdadeira:  
 

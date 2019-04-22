@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263756"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade dos recursos do Azure
@@ -55,8 +55,8 @@ Um exame de avaliação de uma assinatura ou de um grupo de recursos pode ser in
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourRG}` – Substitua pelo nome do seu grupo de recursos
-- `{subscriptionId}` -Substitua pela sua ID de assinatura
+- `{YourRG}`: substitua pelo nome do grupo de recursos
+- `{subscriptionId}`: substitua por sua ID da assinatura
 
 O exame dá suporte à avaliação de recursos em uma assinatura ou em um grupo de recursos. Inicie uma verificação por escopo com um comando **POST** da API REST usando as seguintes estruturas de URI:
 
@@ -78,7 +78,7 @@ A chamada retorna um status **202 Aceito**. Uma propriedade **Location** com o s
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` estaticamente é gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
+`{ResourceContainerGUID}` é estaticamente gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
 
 ```json
 {

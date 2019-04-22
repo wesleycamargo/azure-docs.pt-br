@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793621"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorar suas APIs com Gerenciamento de API do Azure, os Hubs de Eventos e Moesif
@@ -307,7 +307,7 @@ Na imagem animada a seguir, você pode ver uma solicitação sendo feita em uma 
 ## <a name="summary"></a>Resumo
 O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o tráfego HTTP que entra e sai de suas APIs. Os Hubs de Eventos do Azure são uma solução escalonável de baixo custo para capturar esse tráfego e mantê-lo em sistemas de processamento secundários para registro em log, monitoramento e outras análise sofisticadas. A conexão a sistemas de monitoramento de tráfego de terceiros, como o Moesif, usa apenas algumas dezenas de linhas de código.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre Hubs de Eventos do Azure
   * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

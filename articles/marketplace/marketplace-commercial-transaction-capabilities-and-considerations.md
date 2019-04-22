@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731082"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678897"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Recursos e considerações sobre transações comerciais do Azure Marketplace
 
@@ -44,7 +44,7 @@ Além das opções de publicação de lista e de avaliação, a opção de publi
 
 ## <a name="transact-general-overview"></a>Visão geral de transações
 
-Ao usar a opção de publicação transacionar, a Microsoft permite a venda e a implantação de software de terceiros para a assinatura do Azure do cliente. O editor deve considerar o faturamento de valores de infraestrutura do Azure e os próprios valores de licenciamento de software do editor ao selecionar um modelo de faturamento e um tipo de oferta no Azure Marketplace. 
+Ao usar a opção de publicação de transação, a Microsoft permite que a venda de software de terceiros e a implantação de alguns tipos de oferta para a assinatura do cliente do Azure. O editor deve considerar o faturamento de valores de infraestrutura do Azure e os próprios valores de licenciamento de software do editor ao selecionar um modelo de faturamento e um tipo de oferta no Azure Marketplace.
 
 A opção de publicação Transact no Azure Marketplace é atualmente compatível com os seguintes tipos de oferta: Máquinas Virtuais, Aplicativos Azure ou Aplicativos SaaS.
 
@@ -58,7 +58,7 @@ Para máquinas virtuais e aplicativos do Azure, os valores de uso da infraestrut
 
 **Para aplicativos SaaS**
 
-Para aplicativos SaaS, o editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  É representado como um valor mensal fixo para o cliente. O uso da infraestrutura do Azure é gerenciado e faturado diretamente para o parceiro.  Os valores reais de uso da infraestrutura não são vistos pelo cliente.  Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software.  Os valores de licenciamento de software não são medidos ou baseados no consumo.
+Para aplicativos SaaS, o editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  Ela é representada como uma taxa fixa para o cliente. O uso da infraestrutura do Azure é gerenciado e faturado diretamente para o parceiro.  Os valores reais de uso da infraestrutura não são vistos pelo cliente.  Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software.  Os valores de licenciamento de software não são medidos ou baseados no consumo.
 
 ## <a name="transact-billing-models"></a>Transact modelos de cobrança
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268000"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
@@ -95,7 +95,7 @@ O comando **+ Novo** (atalho de teclado: n) cria novos arquivos ou pastas. Ao us
 
 | Tipo de item | DESCRIÇÃO | Comportamento do comando |
 | --- | --- | --- |
-| **Bloco de notas** | Um Jupyter Notebook | Exibe um pop-up em que você especifica o nome do arquivo e a linguagem de programação do notebook. |
+| **Notebook** | Um Jupyter Notebook | Exibe um pop-up em que você especifica o nome do arquivo e a linguagem de programação do notebook. |
 | **Pasta** | Uma subpasta | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome da pasta. |
 | **Arquivo em branco** | Um arquivo no qual você pode armazenar qualquer conteúdo como texto, dados, etc. | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome do arquivo. |
 | **Markdown** | Um arquivo markdown. | Cria um campo de edição na lista de arquivos do projeto em que você insere o nome do arquivo. |
@@ -220,7 +220,7 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

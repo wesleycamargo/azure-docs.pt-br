@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489273"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento do Azure (clássico)
@@ -139,7 +139,7 @@ Se você quiser baixar as métricas para armazenamento de longo prazo ou para an
 
 ||||  
 |-|-|-|  
-|**Métricas**|**Nomes da tabela**|**Observações**|  
+|**Métricas**|**Nomes de tabela**|**Observações**|  
 |Métricas por hora|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Em versões anteriores 2013-08-15, essas tabelas eram conhecidas como:<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> As métricas para o serviço de arquivos estão disponível desde a versão 2015-04-05.|  
 |Métricas por minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só pode ser habilitado usando o PowerShell ou programaticamente.<br /><br /> As métricas para o serviço de arquivos estão disponível desde a versão 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Somente serviço BLOB.|  
@@ -225,8 +225,8 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 -   Se dentro de cada hora, um serviço utiliza todas as APIs de serviço, em seguida, cerca de 12KB de dados é armazenado nas tabelas de métricas de transação a cada hora se você tiver habilitado o resumo de nível de serviço apenas.  
 -   A tabela de capacidade para blobs tem duas linhas adicionadas por dia, desde que você ter tiver optado-in para logs. Isso implica que todos os dias, o tamanho dessa tabela aumenta em até aproximadamente 300 bytes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Como monitorar uma conta de armazenamento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Esquema de tabela de métricas de análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Análise de armazenamento conectado operações e mensagens de Status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [Log do Storage Analytics](storage-analytics-logging.md)
+* [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Mensagens de operações e status registradas de análise de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [Registro em log da Análise de Armazenamento](storage-analytics-logging.md)

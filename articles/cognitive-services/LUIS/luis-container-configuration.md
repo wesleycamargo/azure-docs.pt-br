@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883100"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678557"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar contêineres do Docker do Serviço Inteligente de Reconhecimento Vocal 
 
@@ -30,23 +30,23 @@ Esse contêiner tem as seguintes configurações:
 |--|--|--|
 |Sim|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
 |Não |[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
-|Sim|[Cobrança](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
+|Sim|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
 |Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
 |Não |[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
 |Não |[Proxy HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
-|Não |[Registro em log](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
-|Sim|[Monta](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
+|Não |[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Sim|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
 > As configurações [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>Configuração ApiKey
 
-A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor de ApiKey e o valor deve ser uma chave válida para o recurso _Reconhecimento Vocal_ especificado para a definição de configuração [`Billing`](#billing-setting).
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o _dos serviços Cognitivos_ recurso especificado para o [ `Billing` ](#billing-setting) definição de configuração.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: gerenciamento de recurso do **Serviço Inteligente de Reconhecimento Vocal**, em **Chaves**
+* Portal do Azure: **Serviços cognitivos** gerenciamento de recursos, em **chaves**
 * Portal do LUIS: página **Configurações de Ponto de Extremidade e Chaves**. 
 
 Não use a chave inicial ou de criação. 
@@ -57,12 +57,15 @@ Não use a chave inicial ou de criação.
 
 ## <a name="billing-setting"></a>Configuração de cobrança
 
-A configuração `Billing` especifica o URI de ponto de extremidade do recurso _Reconhecimento Vocal_ no Azure usado para medir informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do _Serviço Inteligente de Reconhecimento Vocal_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+O `Billing` configuração especifica o URI do ponto de extremidade do _os serviços Cognitivos_ recursos no Azure é usado para monitorar informações de cobrança para o contêiner. Você deve especificar um valor para este parâmetro de configuração e o valor deve ser um URI de ponto de extremidade válido para um _dos serviços Cognitivos_ recursos no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: **Compreensão de idioma** visão geral, rotulado `Endpoint`
+* Portal do Azure: **Serviços cognitivos** visão geral, rotulado `Endpoint`
 * Portal do LUIS: página **Chaves e configurações de Ponto de Extremidade**, como parte do URI do ponto de extremidade.
+
+Lembre-se de incluir o `luis/v2.0` roteamento na URL, conforme mostrado na tabela a seguir:
+
 
 |Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ Os exemplos a seguir usam as definições de configuração para ilustrar como e
 * **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\`, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
 * **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 
+Lembre-se de incluir o `luis/v2.0` roteamento na URL, conforme mostrado na tabela a seguir.
+
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Placeholder | Valor | Formato ou exemplo |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | A chave do ponto de extremidade do aplicativo LUIS treinado. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | O valor do ponto de extremidade de cobrança está disponível na página Visão Geral do Serviço Inteligente de Reconhecimento Vocal do portal do Azure.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | O valor de ponto de extremidade de cobrança está disponível no Azure `Cognitive Services` página de visão geral. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](luis-container-howto.md#billing).
-> O valor de ApiKey é a **Chave** da página Chaves e Pontos de extremidade no portal do LUIS e também está disponível na página de chaves do recurso Reconhecimento Vocal do Azure. 
+> O valor de ApiKey é o **chave** das chaves e os pontos de extremidade de página no portal do LUIS e também está disponível no Azure `Cognitive Services` página chaves de recurso. 
 
 ### <a name="basic-example"></a>Exemplo básico
 

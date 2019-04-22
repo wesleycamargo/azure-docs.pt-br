@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045740"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
@@ -323,6 +323,6 @@ Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzT
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Monitoramento do Traffic Manager](traffic-manager-monitoring.md)
+[Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
-[Considerações de desempenho do Gerenciador de tráfego](traffic-manager-performance-considerations.md)
+[Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)

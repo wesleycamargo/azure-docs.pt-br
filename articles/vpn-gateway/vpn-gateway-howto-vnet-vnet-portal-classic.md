@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046115"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
@@ -33,8 +33,8 @@ Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. A
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Conectar modelos de implantação diferentes - portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Conectar modelos de implantação diferentes – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -118,13 +118,13 @@ Grupo de recursos: ClassicRG<br>
 Localização: Oeste dos EUA<br>
 GatewaySubnet: 10.41.1.0/27
 
-**Ao criar suas redes virtuais, tenha em mente as seguintes configurações:**
+**Ao criar suas redes virtuais, lembre-se das seguintes configurações:**
 
 * **Espaços de Endereço de Rede Virtual** – na página Espaços de Endereço de Rede Virtual, especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os endereços IP dinâmicos que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual.<br>Os espaços de endereço selecionados não podem sobrepor os espaços de endereço de qualquer outra VNet ou os locais em que essa VNet se conectará.
 
 * **Local** – ao criar uma rede virtual, você a associa a um local do Azure (região). Por exemplo, se você desejar que as VMs implantadas em sua rede virtual estejam localizadas fisicamente no oeste dos EUA, selecione esse local. Você não pode alterar o local associado à sua rede virtual depois de criá-la.
 
-**Depois de criar suas redes virtuais, você pode adicionar as seguintes configurações:**
+**Depois de criar suas VNets, você poderá adicionar as seguintes configurações:**
 
 * **Espaço de endereço** – espaço de endereço adicional não é necessário para essa configuração, mas você pode incluir espaço de endereço adicional após a criação da VNet.
 

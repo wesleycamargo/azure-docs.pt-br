@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044973"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
@@ -40,8 +40,8 @@ Você pode encontrar exemplos de modelo do HDInsight em [modelos de início ráp
 
 Para obter mais informações sobre modelos do Resource Manager, consulte os seguintes artigos e exemplos:
 
-* [Criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Implantar um aplicativo com modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
+* [Criar modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Implantar um aplicativo com o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 * Referência de modelo de [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
 * [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
@@ -69,11 +69,11 @@ Você pode implantar um modelo do Resource Manager usando a API REST. Para obter
 
 Para obter uma introdução ao uso do Visual Studio com grupos de recursos, veja [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
 * Para HDInsight mais modelos relacionados, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).

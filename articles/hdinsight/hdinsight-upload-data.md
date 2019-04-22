@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201918"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684133"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Apache Hadoop no HDInsight
 
-O HDInsight do Azure fornece um sistema completo de arquivos distribuídos do Hadoop (HDFS) sobre o Armazenamento do Microsoft Azure e o Armazenamento do Azure Data Lake (Gen1 e Gen2). O Armazenamento do Microsoft Azure e o Data Lake Storage Gen1 e Gen2 são projetados como extensões do HDFS para fornecer uma experiência perfeita aos clientes. Eles habilitam o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente nos dados gerenciados por ele. Armazenamento do Microsoft Azure, Data Lake Storage Gen1 e Gen2 são sistemas de arquivos distintos que são otimizados para armazenamento de dados e cálculos nesses dados. Para saber mais sobre os benefícios de usar o Armazenamento do Microsoft Azure, confira [Usar o Armazenamento do Microsoft Azure com o HDInsight][hdinsight-storage], [Usar o Data Lake Storage Gen1 com o HDInsight](hdinsight-hadoop-use-data-lake-store.md) e [Usar o Data Lake Storage Gen2 com HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md).
+O HDInsight do Azure fornece um sistema completo de arquivos distribuídos do Hadoop (HDFS) sobre o Armazenamento do Microsoft Azure e o Armazenamento do Azure Data Lake (Gen1 e Gen2). O Armazenamento do Microsoft Azure e o Data Lake Storage Gen1 e Gen2 são projetados como extensões do HDFS para fornecer uma experiência perfeita aos clientes. Eles habilitam o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente nos dados gerenciados por ele. Armazenamento do Microsoft Azure, Data Lake Storage Gen1 e Gen2 são sistemas de arquivos distintos que são otimizados para armazenamento de dados e cálculos nesses dados. Para saber mais sobre os benefícios de usar o Armazenamento do Microsoft Azure, confira [Usar o Armazenamento do Microsoft Azure com o HDInsight][hdinsight-storage], [Usar o Data Lake Storage Gen1 com o HDInsight](hdinsight-hadoop-use-data-lake-store.md) e [Usar o Data Lake Storage Gen2 com HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Observe os seguintes requisitos antes de começar:
 
     - [Usar o Armazenamento do Azure com HDInsight][hdinsight-storage]
     - [Usar o Data Lake Storage Gen1 com HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-    - [Usar o Data Lake Storage Gen2 com HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md)  
+    - [Usar o Data Lake Storage Gen2 com HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Carregar dados no Armazenamento do Azure
 

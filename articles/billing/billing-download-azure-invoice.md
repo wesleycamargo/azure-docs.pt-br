@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264056"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Exibir e baixar sua fatura do Microsoft Azure
@@ -131,11 +131,11 @@ Pode haver vários motivos pelos quais você não vê uma fatura:
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a fatura e os encargos, consulte:
 
-- [Exibir e baixar sua fatura de uso e cobrança do Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Exibir e baixar seus encargos e o uso do Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md)
 - [Compreender os termos na sua fatura do Azure](billing-understand-your-invoice.md)
 - [Compreender os termos em uso detalhado do Microsoft Azure](billing-understand-your-usage.md)

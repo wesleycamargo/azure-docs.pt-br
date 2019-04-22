@@ -10,10 +10,10 @@ ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 4b179c50af8b1ffc4313a49da978f178915ec9cc
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489889"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets do PowerShell para o Agendador do Azure
@@ -58,5 +58,5 @@ Get-Help <cmdlet name> -Full
 
 * [O que é o Agendador do Azure?](scheduler-intro.md)
 * [Hierarquia de entidades, terminologia e conceitos](scheduler-concepts-terms.md)
-* [Criar e agendar o primeiro trabalho - portal do Azure](scheduler-get-started-portal.md)
+* [Crie e agende seu primeiro trabalho - Portal do Azure](scheduler-get-started-portal.md)
 * [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
