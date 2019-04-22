@@ -62,7 +62,7 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 > [!IMPORTANT]
 > Firewalls e redes virtuais têm suporte apenas na **premium** camada do barramento de serviço.
 
-O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Barramento de Serviço existente.
+O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.
 
 Parâmetros de modelo:
 

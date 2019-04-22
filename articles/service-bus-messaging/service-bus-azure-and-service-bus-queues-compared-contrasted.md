@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856015"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699026"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure atualmente: filas de Armazenamento e filas de Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -84,7 +84,7 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 * O padrão PEPS garantido nas filas do Barramento de Serviço exige o uso de sessões de mensagens. Se o aplicativo travar durante o processamento de uma mensagem recebida no modo **Inspecionar e Bloquear**, na próxima vez que um destinatário da fila aceitar uma sessão de mensagens, ele começará com a mensagem com falha após a expiração do seu período TTL (vida útil).
 * As filas do Armazenamento foram projetadas para oferecer suporte a cenários de enfileiramento padrão, como desassociação dos componentes de aplicativo para aumentar a escalabilidade e a tolerância para falhas, redistribuição de carga e criação de fluxos de trabalho do processo.
 * As filas do Barramento de Serviço oferecem suporte à garantia de entrega *Pelo menos uma vez*. 
-* Inconsistências com relação ao tratamento de mensagens no contexto de sessões de barramento de serviço podem ser evitadas usando o estado de sessão para armazenar o estado do aplicativo em relação ao progresso de lidar com a sequência de mensagem da sessão e uso de transações em torno de Liquidar recebeu mensagens e atualizar o estado de sessão. Esse tipo de recurso de consistência, às vezes, é rotulado *exatamente-processamento de uma vez* em outro fornecedor produtos, mas transação falhas, obviamente, fará com que as mensagens sejam redeliveried e, portanto, o termo é não exatamente adequado.
+* Inconsistências com relação ao tratamento de mensagens no contexto de sessões de barramento de serviço podem ser evitadas usando o estado de sessão para armazenar o estado do aplicativo em relação ao progresso de lidar com a sequência de mensagem da sessão e uso de transações em torno de Liquidar recebeu mensagens e atualizar o estado de sessão. Esse tipo de recurso de consistência, às vezes, é rotulado *exatamente-uma vez processamento* em outro fornecedor produtos, mas transação falhas, obviamente, fará com que as mensagens ser entregue novamente e, portanto, o termo é não exatamente adequado.
 * As filas do Armazenamento fornecem um modelo de programação uniforme e consistente entre filas, tabelas e Blobs, para desenvolvedores e equipes de operações.
 * As filas do Barramento de Serviço fornecem suporte para transações locais no contexto de uma fila única.
 * O modo **Receber e Excluir** com suporte do Barramento de Serviço tem a capacidade de reduzir a contagem de operações de mensagens (e custos associados) em troca da garantia de entrega reduzida.
@@ -174,7 +174,7 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 
 | Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
-| Authentication |**Chave simétrica** |**Chave simétrica** |
+| Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado via tokens de SAS. |SAS |
 | Federação do provedor de identidade |**Não** |**Sim** |
 

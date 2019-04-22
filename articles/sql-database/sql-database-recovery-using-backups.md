@@ -38,7 +38,7 @@ Ao usar a camada de serviço Standard ou Premium, um banco de dados restaurado i
 - Restauração de P11 – P15 para S4 ou S12 ou P1– P6 se o tamanho máximo do banco de dados for superior a 500 GB.
 - Restauração de P1–P6 para S4-S12 se o tamanho máximo do banco de dados for superior a 250 GB.
 
-O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o tamanho de computação, e o armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra. Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.
+O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o tamanho da computação, e o armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra. Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usadas quando você cria uma [cópia de banco de dados](sql-database-copy.md).
@@ -48,7 +48,7 @@ O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é ma
 O tempo de recuperação para restaurar um banco de dados usando backups de banco de dados automatizado é afetado por vários fatores:
 
 - O tamanho do banco de dados
-- O tamanho de computação do banco de dados
+- O tamanho da computação do banco de dados
 - O número de logs de transações envolvidos
 - A quantidade de atividade que precisa ser repetida para recuperar até o ponto de restauração
 - A largura de banda de rede se a restauração for para uma região diferente
@@ -71,13 +71,13 @@ Não há nenhuma funcionalidade interna para restauração em massa. O [Banco de
 
 ## <a name="point-in-time-restore"></a>Restauração pontual
 
-É possível restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo como um novo banco de dados no mesmo servidor usando o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). Um banco de dados pode ser restaurado para qualquer camada de serviço ou tamanho de computação. Assegure-se de ter recursos suficientes no servidor para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu tamanho de computação e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
+É possível restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo como um novo banco de dados no mesmo servidor usando o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). Um banco de dados pode ser restaurado para qualquer camada de serviço ou tamanho da computação. Assegure-se de ter recursos suficientes no servidor para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu tamanho da computação e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
 
 Um banco de dados geralmente é restaurado para um ponto anterior para fins de recuperação. Ao fazê-lo, você poderá tratar o banco de dados restaurado como um substituto do banco de dados original ou usá-lo para recuperar os dados e, em seguida, atualizar o banco de dados original.
 
 - **Substituição de banco de dados**
 
-  Se o banco de dados restaurado for destinado a substituir o banco de dados original, verifique se o tamanho do computador e/ou camada de serviço são apropriados e dimensione o banco de dados, se necessário. Você pode renomear o banco de dados original e, em seguida, dar ao banco de dados restaurado o nome original usando o comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) no T-SQL.
+  Se o banco de dados restaurado for destinado a substituir o banco de dados original, verifique se o tamanho da computação e/ou camada de serviço são apropriados e dimensione o banco de dados, se necessário. Você pode renomear o banco de dados original e, em seguida, dar ao banco de dados restaurado o nome original usando o comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) no T-SQL.
 
 - **Recuperação de dados**
 
@@ -97,7 +97,7 @@ Para recuperar um banco de dados único, em pool ou de instância até um determ
 > [!TIP]
 > Para obter um script de exemplo do PowerShell que mostra como restaurar um banco de dados excluído, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]
-> Se você excluir uma instância de servidor de Banco de Dados SQL do Azure, todos os seus bancos de dados também serão excluídos e não poderão ser recuperados. No momento, não há suporte para restaurar um servidor excluído.
+> Se você excluir uma instância de servidor do Banco de Dados SQL do Azure, todos os seus bancos de dados também serão excluídos e não poderão ser recuperados. No momento, não há suporte para restaurar um servidor excluído.
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>Restauração do banco de dados excluída usando o portal do Azure
 
@@ -124,7 +124,7 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 Atualmente, não há suporte para a restauração pontual em uma área geográfica secundária. A restauração pontual pode ser feita somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam bancos de dados de tamanho pequeno (por exemplo, nível de serviço básico ou bancos de dados de inquilino de tamanho pequeno em pools elásticos), a restauração geográfica é frequentemente uma solução DR razoável com um TRE de até 12 horas (geralmente muito menos). Para soluções que usam bancos de dados grandes e exigem tempos de recuperação mais curtos, considere usar [Replicação geográfica ativa](sql-database-active-geo-replication.md) ou [Grupos de failover automático](sql-database-auto-failover-group.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Grupos de failover automático habilitam o failover automático para um grupo de bancos de dados. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
+> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam bancos de dados de tamanho pequeno (por exemplo, camada de serviço básico ou bancos de dados de inquilino de tamanho pequeno em pools elásticos), a restauração geográfica é frequentemente uma solução DR razoável com um TRE de até 12 horas (geralmente muito menos). Para soluções que usam bancos de dados grandes e exigem tempos de recuperação mais curtos, considere usar [Replicação geográfica ativa](sql-database-active-geo-replication.md) ou [Grupos de failover automático](sql-database-auto-failover-group.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Grupos de failover automático habilitam o failover automático para um grupo de bancos de dados. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
 
@@ -179,7 +179,7 @@ Para restaurar um banco de dados único ou em pool usando a API REST:
 
 ## <a name="summary"></a>Resumo
 
-Backups automáticos protegem seus bancos de dados contra erros de usuário e de aplicativo, exclusão acidental do banco de dados e interrupções prolongadas. Essa funcionalidade interna está disponível para todas as camadas de serviço e tamanhos de computação.
+Backups automáticos protegem seus bancos de dados contra erros de usuário e de aplicativo, exclusão acidental do banco de dados e interrupções prolongadas. Essa funcionalidade interna está disponível para todas as camadas de serviço e tamanhos da computação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

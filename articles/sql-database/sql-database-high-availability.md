@@ -32,7 +32,7 @@ Há dois modelos de arquiteturas de alta disponibilidade que são usados no banc
 
 Banco de dados SQL do Azure executa a versão estável mais recente do mecanismo de banco de dados do SQL Server e do sistema operacional do Windows e a maioria dos usuários não percebam que as atualizações são realizadas continuamente.
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidade de nível de serviço básico, padrão e de uso geral
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidade de camada de serviço básico, padrão e de uso geral
 
 Essas camadas de serviço aproveitam a arquitetura de disponibilidade padrão. A figura a seguir mostra quatro nós diferentes, com as camadas de computação e armazenamento separadas.
 
@@ -45,7 +45,7 @@ O modelo de disponibilidade padrão inclui duas camadas:
 
 Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado ou uma falha for detectada, Azure Service Fabric moverá o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado com capacidade livre suficiente. Os dados no armazenamento de BLOBs do Azure não são afetados pela mudança, e os arquivos de dados/log estão conectados ao processo do SQL Server recentemente inicializado. Esse processo garante a disponibilidade de 99,99%, mas uma pesada carga de trabalho poderá observar alguma degradação de desempenho durante a transição, pois a nova instância do SQL Server começa com cache frio.
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade de nível de serviço Premium e Business Critical
+## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade de camada de serviço Premium e Business Critical
 
 Premium e comercialmente crítico aproveitamento de camadas de serviço o modelo de disponibilidade do Premium, que se integra recursos de computação (processo de mecanismo de banco de dados do SQL Server) e SSD (armazenamento conectado localmente) em um único nó. Alta disponibilidade é obtida por meio da replicação de computação e armazenamento para nós adicionais criando um cluster de três a quatro - nó. 
 

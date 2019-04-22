@@ -17,7 +17,7 @@ ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53723205"
@@ -55,17 +55,17 @@ A alteração da quantidade ou do tamanho é chamada de uma operação de escala
 **Trabalhos**: os trabalhos são os locais em que seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
 * Não é possível adicionar trabalhadores instantaneamente. Eles podem levar até uma hora para provisionar.
-* O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
+* O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho da computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
 * se você alterar o tamanho dos recursos de computação usados em um pool de trabalho, causará inicializações a frio dos aplicativos em execução nesse pool de trabalho.
 
 Veja a seguir a maneira mais rápida de alterar o tamanho do recurso de computação de um pool de trabalho que não esteja executando aplicativos:
 
 * Reduza a quantidade de trabalhadores para 2.  A escala mínima de redução de tamanho no portal é 2. A desalocação de suas instâncias vai levar alguns minutos. 
-* Selecionar o novo tamanho de computação e o número de instâncias. A partir daqui, a conclusão demorará até duas horas.
+* Selecionar o novo tamanho da computação e o número de instâncias. A partir daqui, a conclusão demorará até duas horas.
 
 Se os aplicativos exigirem um recurso de computação maior, você não poderá aproveitar a orientação anterior. Em vez de alterar o tamanho do pool de trabalho que hospeda esses aplicativos, você pode preencher outro pool de trabalho com trabalhos do tamanho desejado e mover seus aplicativos para esse pool.
 
-* Criar instâncias adicionais com o tamanho de computação necessário em outro pool de trabalho. Isso levará uma hora para ser concluído.
+* Criar instâncias adicionais com o tamanho da computação necessário em outro pool de trabalho. Isso levará uma hora para ser concluído.
 * Reatribuir os Planos de Serviço de Aplicativo que hospedam os aplicativos que precisam de um tamanho maior para o pool de trabalho recém-configurado. Essa é uma operação rápida que deve demorar menos de um minuto para ser concluída.  
 * Reduzir verticalmente o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Essa operação leva alguns minutos para ser concluída.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: e07149865d2dda52e33003964c2852a8aaccf76f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7cd6bb1fd0377ca1440d9c667453df922aacbd4
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493188"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698649"
 ---
 # <a name="about-azure-devtest-labs"></a>Sobre os Laboratórios de Desenvolvimento/Teste do Azure
 O Azure DevTest Labs permite que os desenvolvedores em equipes Self gerenciar com eficiência os recursos de PaaS e máquinas virtuais (VMs) sem esperar que as aprovações.
@@ -33,8 +33,6 @@ Usando o DevTest Labs, você pode testar as versões mais recentes de seus aplic
 - Escalar verticalmente seu teste Provisionando vários agentes de teste de carga e crie ambientes pré-provisionados para treinamentos e demonstrações.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
-> 
-> 
 
 ## <a name="capabilities"></a>Funcionalidades
 Laboratórios de desenvolvimento/teste fornece os seguintes recursos para desenvolvedores que trabalham com máquinas virtuais:
@@ -42,7 +40,7 @@ Laboratórios de desenvolvimento/teste fornece os seguintes recursos para desenv
 - Crie VMs rapidamente executando menos de cinco etapas simples.
 - Escolha entre uma lista estruturada de bases VM que são configuradas, aprovado e autorizado pelo líder de equipe ou central de IT.
 - Crie VMs de imagens personalizadas criadas previamente que têm todos os softwares e ferramentas já instaladas. 
-- Crie VMs de imagens personalizadas, combinadas com os builds mais recentes do software instalado quando as máquinas virtuais são criadas.
+- Crie VMs de fórmulas que são combinadas com os builds mais recentes do software que é instalado quando as VMs são criadas de imagens essencialmente personalizadas. 
 - Instale os artefatos que são as extensões implantadas em VMs depois que eles são provisionados.
 - Definir o desligamento automático e início automático agendas em máquinas virtuais.
 - Declaração de uma VM criada previamente sem passar pelo processo de criação.
@@ -53,7 +51,7 @@ Laboratórios de desenvolvimento/teste fornece os seguintes recursos para desenv
 - Escolha entre uma lista estruturada de modelos do Resource Manager, que são configuradas e autorizado pelo líder de equipe ou central IT.
 - Crie um grupo de recursos vazio (área restrita) usando um modelo do Resource Manager para explorar o Azure dentro do contexto de um laboratório.
 
-DevTest Labs também permite central que a TI controlar desperdiça, otimizar os custos de recursos e permanecer dentro orçamentos, fazendo as seguintes tarefas: 
+DevTest Labs também permite central que a TI controlar desperdiça, otimizar os custos de recursos e permanecer dentro orçamentos, fazendo as seguintes tarefas:  
 
 - Definição de agendas de desligamento automático e início automático em máquinas virtuais.
 - Configuração de políticas no número de VMs que os usuários podem criar.
@@ -63,33 +61,31 @@ DevTest Labs também permite central que a TI controlar desperdiça, otimizar os
 
 Laboratórios de desenvolvimento/teste fornece os seguintes benefícios na criação, configuração e gerenciamento de ambientes na nuvem.
 
-## <a name="control-costs-and-governance"></a>Governança e controle de custos
+## <a name="cost-control-and-governance"></a>Governança e controle de custos
 Laboratórios de desenvolvimento/teste torna mais fácil controlar os custos, permitindo que você faça as seguintes tarefas:
 
-- Definir políticas nos seus laboratórios, como o número de VMs por usuário ou por laboratório. 
-- Crie políticas para desligar e iniciar VMs automaticamente.
-- Controlar os custos de recursos de VMs e PaaS funcionando dentro de laboratórios para permanecer dentro do orçamento.
+- [Definir políticas nos seus laboratórios](devtest-lab-get-started-with-lab-policies.md), como o número de VMs por usuário ou por laboratório. 
+- Crie [políticas para desligar automaticamente](devtest-lab-set-lab-policy.md) e iniciar VMs.
+- Controlar os custos de recursos de VMs e PaaS funcionando dentro de laboratórios para permanecer dentro [seu orçamento](devtest-lab-configure-cost-management.md).
 - Mantenha-se dentro do contexto de seus laboratórios para que você não perca os recursos fora dele.
 
 ## <a name="quickly-get-to-ready-to-test"></a>Chegue rapidamente ao estado Pronto para teste
-DevTest Labs permite que você crie ambientes pré-provisionados equipados com tudo o que sua equipe precisa para desenvolver e testar aplicativos. Basta declarar os ambientes em que a última compilação boa do seu aplicativo está instalada e começar a trabalhar. Ou use contêineres para a criação do ambiente ainda mais rápida e descomplicada.
+DevTest Labs permite que você crie ambientes pré-provisionados equipados com tudo o que sua equipe precisa para desenvolver e testar aplicativos. Basta [declarar os ambientes](devtest-lab-add-claimable-vm.md) onde a última compilação boa do seu aplicativo está instalada e funcionando de início. Ou use contêineres para a criação do ambiente ainda mais rápida e descomplicada.
 
 ## <a name="create-once-use-everywhere"></a>Crie uma vez, use em qualquer lugar
-Capturar e compartilhar modelos de ambiente de PaaS e artefatos de sua equipe ou organização — tudo no controle de origem — para facilmente criar desenvolvedor e ambientes de teste.
+Capturar e compartilhar PaaS [modelos de ambiente](devtest-lab-create-environment-from-arm.md) e [artefatos](add-artifact-repository.md) dentro de sua equipe ou organização — tudo no controle de origem — para facilmente criar desenvolvedor e ambientes de teste.
 
-## <a name="save-time-on-setup"></a>Economizar tempo de instalação  
-Facilmente você pode criar VMs de IaaS e os recursos de PaaS usando um conjunto de recursos pré-configurado.
+## <a name="worry-free-self-service"></a>Autoatendimento sem preocupações
+DevTest Labs permite que seus desenvolvedores e testadores a rapidamente e facilmente [criar VMs de IaaS](devtest-lab-add-vm.md) e [recursos de PaaS](devtest-lab-create-environment-from-arm.md) usando um conjunto de recursos pré-configurado.
 
 ## <a name="use-iaas-and-paas-resources"></a>Use os recursos de IaaS e PaaS 
-Os desenvolvedores podem também acelera os recursos de PaaS, como clusters do Service Fabric, o recurso de aplicativos Web do serviço de aplicativo do Azure e farms do SharePoint, usando modelos do Resource Manager. Para começar a usar em PaaS nos laboratórios, usar os modelos a partir do repositório de ambiente público ou conecte o laboratório a seu próprio repositório Git. Você também pode controlar os custos desses recursos para permanecer dentro do orçamento.
+Os desenvolvedores podem também acelera os recursos de PaaS, como clusters do Service Fabric, o recurso de aplicativos Web do serviço de aplicativo do Azure e farms do SharePoint, usando modelos do Resource Manager. Para começar no PaaS nos laboratórios, use os modelos a partir o [repositório de ambiente público](devtest-lab-configure-use-public-environments.md) ou [conectar-se o laboratório em seu próprio repositório Git](devtest-lab-create-environment-from-arm.md#configure-your-own-template-repositories). Você também pode controlar os custos desses recursos para permanecer dentro do orçamento.
 
 ## <a name="integrate-with-your-existing-toolchain"></a>Integre-se com a sua cadeia de ferramentas existente
-Usar plug-ins pré-fabricados ou a API para provisionar desenvolvimento/teste ambientes diretamente da sua ferramenta preferencial CI (integração contínua), ambiente desenvolvimento integrado (IDE) ou pipeline de liberação automatizado. Você também pode usar a ferramenta de linha de comando abrangente.
+Use previamente plug-ins ou a API para provisionar ambientes de desenvolvimento/teste diretamente de sua preferência [ferramenta de CI (integração contínua)](devtest-lab-integrate-ci-cd-vsts.md), ambiente desenvolvimento integrado (IDE) ou pipeline de liberação automatizado. Você também pode usar a ferramenta de linha de comando abrangente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:
 
 - Para saber mais sobre o DevTest Labs, consulte [conceitos do DevTest Labs](devtest-lab-concepts.md).
 - Para obter uma explicação com instruções passo a passo, consulte [Tutorial: Configurar um laboratório usando o Azure DevTest Labs](tutorial-create-custom-lab.md).
-
-

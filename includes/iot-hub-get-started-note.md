@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: a47c07c3a59b7dbb677d61de9765b570b7beefd5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e6ae89c8b14cfdcd1ac63863448d143b486be07b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59055610"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684558"
 ---
 > [!NOTE]
-> Antes de iniciar este tutorial, [configure seu dispositivo](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md). No artigo, você configura seu dispositivo IoT do Azure e o hub IoT, além de implantar um aplicativo de exemplo a ser executado no dispositivo. O aplicativo envia dados de sensor coletados para o hub IoT.
+> Antes de iniciar este tutorial, conclua o [simulador online Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial ou um dos tutoriais dispositivo; por exemplo, [Raspberry Pi com Node. js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). Nesses artigos, configurar seu dispositivo IoT do Azure e o hub IoT e implantar um aplicativo de exemplo para ser executado em seu dispositivo. O aplicativo envia dados de sensor coletados para o hub IoT.

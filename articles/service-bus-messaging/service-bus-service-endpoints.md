@@ -62,13 +62,13 @@ Isso significa que as soluções na nuvem de segurança confidencial não apenas
 
 As *regras de rede virtual* são o recurso de segurança do firewall que controla se o servidor de Barramento de Serviço do Azure aceita conexões de uma sub-rede de rede virtual específica.
 
-Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro é necessário criar um **ponto de extremidade de Rede Virtual** em uma sub-rede de Rede Virtual e habilitá-lo para "Microsoft.ServiceBus", conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma *regra de rede virtual*.
+Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro é necessário criar um **ponto de extremidade de serviço de Rede Virtual** em uma sub-rede de Rede Virtual e habilitá-lo para "Microsoft.ServiceBus", conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma *regra da rede virtual*.
 
-A regra de rede virtual é uma associação do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
+A regra da rede virtual é uma associação do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos do Azure Resource Manager
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criando uma regra da rede virtual com modelos do Azure Resource Manager
 
-O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Barramento de Serviço existente.
+O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.
 
 Parâmetros de modelo:
 

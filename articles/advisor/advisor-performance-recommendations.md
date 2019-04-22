@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491564"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698938"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Assistente do Azure
 
@@ -74,6 +74,25 @@ Migre seu modelo de implantação da Conta de Armazenamento para o Azure Resourc
 
 > [!NOTE]
 > Os alertas clássicos no Azure Monitor estão programados para desativação em junho de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Projetar suas contas de armazenamento para evitar atingir o limite máximo de assinaturas
+
+Uma região do Azure pode dar suporte a um máximo de 250 contas de armazenamento por assinatura. Depois que o limite for atingido, não será possível criar mais contas de armazenamento nessa combinação de região/assinatura. O Supervisor verificará suas assinaturas e recomendações de superfície para a criação de contas de armazenamento menos para os que estão perto de atingir o limite máximo.
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Otimizar o desempenho dos seus servidores do Azure MySQL, PostgreSQL do Azure e Azure MariaDB 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Corrigir a pressão da CPU dos seus servidores do Azure MySQL, PostgreSQL do Azure e Azure MariaDB com afunilamentos de CPU
+Muito alta utilização da CPU por um longo período pode causar baixo desempenho de consulta para sua carga de trabalho. Aumentar o tamanho de CPU, ajudar a otimizar o tempo de execução das consultas de banco de dados e melhorar o desempenho geral. O Azure Advisor identificar os servidores com uma alta utilização da CPU que provavelmente estão executando cargas de trabalho de CPU restrita e recomendável dimensionar sua computação.
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Reduza as restrições de memória em seus servidores do Azure MySQL, PostgreSQL do Azure e Azure MariaDB ou mudança para uma memória otimizada SKU
+Uma taxa de acertos do cache de baixa pode resultar em desempenho de consulta mais lento e maior IOPS. Isso pode ser devido a um plano de consulta incorretos ou executando uma carga de trabalho com uso intensivo de memória. Corrigindo o plano de consulta ou [aumentando a memória](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) do banco de dados do Azure para servidor de banco de dados PostgreSQL, servidor de banco de dados MySQL do Azure ou Azure MariaDB server ajudará a otimizar a execução da carga de trabalho de banco de dados. O Azure Advisor identifica os servidores afetados devido a essa variação do pool de buffer de alta e recomenda um plano de consulta, corrigindo movendo para um SKU superior com mais memória ou aumentando o tamanho de armazenamento para obter mais IOPS.
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Use um MySQL do Azure ou a réplica de leitura do PostgreSQL do Azure para escalar horizontalmente leituras para cargas de trabalho com uso intensivo de leitura
+O Assistente do Azure aproveita a heurística com base em carga de trabalho, como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar as cargas de trabalho de leitura intensa. Seu banco de dados do Azure para PostgreSQL recursos ou o banco de dados do Azure para MySQL de recurso com uma taxa muito alta de leitura/gravação pode resultar em contenções de CPU e/ou memória levando a reduzir o desempenho da consulta. Adicionando um [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará na expansão de leituras para o servidor de réplica, impedindo que as restrições de memória e/ou da CPU no servidor primário. O Supervisor identificará servidores com tais altas cargas de trabalho de leitura intensa e recomendável adicionar um [ler réplica](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) para descarregar algumas das cargas de trabalho de leitura.
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Escalar seu servidor do Azure MySQL, PostgreSQL do Azure ou Azure MariaDB para um SKU superior para impedir que as restrições de conexão
+Cada nova conexão ao seu servidor de banco de dados ocupa alguma memória. Se as conexões ao seu servidor estão falhando por causa da degrada o desempenho do servidor de banco de dados uma [limite superior](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) na memória. O Assistente do Azure será identificar servidores que executam com muitas falhas de conexão e recomendável fazer a atualização de limites de conexões do seu servidor para fornecer mais memória para seu servidor ao escalar verticalmente a computação ou usar os SKUs de otimizado da memória, que tem mais computação por núcleo.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 0c1c466149b4992d99e18cfb1fd5d8416834df35
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904518"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683133"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solucionar problemas de afinidade de sessão de Gateway de aplicativo do Azure
 
@@ -96,7 +96,7 @@ Esse problema ocorre porque o Internet Explorer e outros navegadores não podem 
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir esse problema, você deve acessar o Gateway de aplicativo usando um FQDN. Por exemplo, use [ http://website.com ](http://website.com/) ou [ http://appgw.website.com ](http://appgw.website.com/) .
+Para corrigir esse problema, você deve acessar o Gateway de aplicativo usando um FQDN. Por exemplo, use [ http://website.com ](https://website.com/) ou [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Logs adicionais para solucionar problemas
 
@@ -205,6 +205,6 @@ Use o depurador da web de sua escolha. Neste exemplo usaremos o Fiddler para cap
 
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).

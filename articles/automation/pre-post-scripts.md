@@ -1,22 +1,22 @@
 ---
-title: Configurar pré-scripts e pós-scripts na sua implantação do Gerenciamento de Atualizações no Azure (versão prévia)
+title: Configurar scripts pré e pós na sua implantação do gerenciamento de atualizações no Azure
 description: Este artigo descreve como configurar e gerenciar pré-scripts e pós-scripts para implantações de atualização
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263801"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698726"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
+# <a name="manage-pre-and-post-scripts"></a>Gerenciar scripts pré e pós
 
 Com os pré-scripts e pós-scripts, é possível executar runbooks do PowerShell na sua Conta de Automação antes (pré-tarefa) e depois (pós-tarefa) de uma implantação de atualização. Os pré-scripts e pós-scripts são executados no contexto do Azure, não localmente. Os pré-scripts são executados no início da implantação da atualização. Pós-scripts executam no final da implantação e após quaisquer reinícios configurados.
 
@@ -26,7 +26,7 @@ Para um runbook ser usado como um pré-script ou um pós-script, ele precisa ser
 
 ## <a name="using-a-prepost-script"></a>Usando um script pré/pós
 
-Para usar um pré-script ou um pós-script em uma Implantação de Atualização, comece criando uma Implantação de Atualização. Selecione **Pré-Scripts + Pós-scripts (versão prévia)**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.  
+Para usar um pré-script ou um pós-script em uma Implantação de Atualização, comece criando uma Implantação de Atualização. Selecione **pré-scripts + Scripts pós**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.  
 
 ![Selecionar scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Interação com computadores não Azure
+## <a name="interacting-with-machines"></a>Interagir com computadores
+
+Tarefas de pré e pós são executados como um runbook na sua conta de automação e não diretamente nos computadores em sua implantação. Tarefas de pré e pós também executado no contexto do Azure e não tem acesso a computadores não Azure. As seções a seguir mostram como você pode interagir com as máquinas diretamente se eles são uma VM do Azure ou em um computador não Azure:
+
+### <a name="interacting-with-azure-machines"></a>Interagindo com as máquinas do Azure
+
+Tarefas de pré e pós são executados como runbooks e não são executados nativamente em suas VMs do Azure em sua implantação. Para interagir com suas VMs do Azure, você deve ter os seguintes itens:
+
+* Uma conta Executar como
+* Um runbook que você deseja executar
+
+Para interagir com as máquinas do Azure, você deve usar o [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet para interagir com suas VMs do Azure. Para obter um exemplo de como fazer isso, consulte o exemplo de runbook [gerenciamento de atualizações - executar o Script com o comando executar](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Interação com computadores não Azure
 
 As pré-tarefas e as pós-tarefas são executadas no contexto do Azure e não têm acesso a computadores não Azure. Para interagir com os computadores não Azure, você precisa ter os seguintes itens:
 
@@ -215,38 +228,7 @@ As pré-tarefas e as pós-tarefas são executadas no contexto do Azure e não t�
 * Um runbook que deseja executar localmente
 * Um runbook pai
 
-Para interagir com computadores não Azure, um runbook pai é executado no contexto do Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). É necessário especificar o parâmetro `-RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+Para interagir com computadores não Azure, um runbook pai é executado no contexto do Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). É necessário especificar o parâmetro `-RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado. Para obter um exemplo de como fazer isso, consulte o exemplo de runbook [gerenciamento de atualizações - executar o Script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Anular a implantação de patches
 

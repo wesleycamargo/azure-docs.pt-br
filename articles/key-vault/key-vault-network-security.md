@@ -19,7 +19,7 @@ ms.locfileid: "58487224"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
-Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço da rede virtual para Key Vault](key-vault-overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de internet versão 4).
+Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço de rede virtual para Key Vault](key-vault-overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de internet versão 4).
 
 > [!IMPORTANT]
 > Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
@@ -31,7 +31,7 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando o portal do
 1. Navegue até o cofre de chaves que você quer proteger.
 2. Selecione **Firewalls e redes virtuais**.
 3. Em **Permitir acesso de**, clique em **Redes selecionadas**.
-4. Para adicionar redes virtuais existentes a firewalls e regras de rede virtual, selecione **+ Adicionar redes virtuais existentes**.
+4. Para adicionar redes virtuais existentes a firewalls e regras da rede virtual, selecione **+ Adicionar redes virtuais existentes**.
 5. Na nova folha que é aberta, selecione a assinatura, as redes virtuais e as sub-redes que você quer permitir acesso a esse cofre de chaves. Se as redes virtuais e sub-redes que você selecionar não tiverem pontos de extremidade de serviço habilitados, confirme que você quer habilitar pontos de extremidade de serviço e, em seguida, selecione **Habilitar**. Pode demorar até 15 minutos para entrar em vigor.
 6. Em **Redes IP**, adicione intervalos de endereços IPv4, digitando intervalos de endereços IPv4 na [notação CIDR (Roteamento Entre Domínios Sem Classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
 7. Clique em **Salvar**.
@@ -44,7 +44,7 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando a CLI do Az
 
 1. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [conecte-se](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-2. Liste as regras de rede virtual disponíveis. Se você ainda não definiu regras para esse cofre de chaves, a lista estará vazia.
+2. Liste as regras da rede virtual disponíveis. Se você ainda não definiu regras para esse cofre de chaves, a lista estará vazia.
    ```azurecli
    az keyvault network-rule list --resource-group myresourcegroup --name mykeyvault
    ```
@@ -83,7 +83,7 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando o PowerShel
 
 1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) mais recente e [conecte](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
-2. Liste as regras de rede virtual disponíveis. Se você ainda não definiu regras para esse cofre de chaves, a lista estará vazia.
+2. Liste as regras da rede virtual disponíveis. Se você ainda não definiu regras para esse cofre de chaves, a lista estará vazia.
    ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```

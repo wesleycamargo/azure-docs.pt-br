@@ -33,7 +33,7 @@ Hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o h
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo vCore fornece três camadas de serviço, Uso Geral, Hiperescala e Comercialmente Crítico. As camadas de serviço são diferenciadas por uma variedade de tamanhos de computação, design de alta disponibilidade, isolamento de falhas, tipos e tamanho de armazenamento e intervalo de E/S. Configure separadamente o período necessário de armazenamento e retenção para backups. No portal do Azure, vá para o servidor (não o banco de dados) > Backups gerenciados > Configurar política > Ponto no tempo de restauração da configuração > 7 a 35 dias.
+O modelo vCore fornece três camadas de serviço, Uso Geral, Hiperescala e Comercialmente Crítico. As camadas de serviço são diferenciadas por uma variedade de tamanhos da computação, design de alta disponibilidade, isolamento de falhas, tipos e tamanho de armazenamento e intervalo de E/S. Configure separadamente o período necessário de armazenamento e retenção para backups. No portal do Azure, vá para o servidor (não o banco de dados) > Backups gerenciados > Configurar política > Ponto no tempo de restauração da configuração > 7 a 35 dias.
 
 A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 
@@ -54,7 +54,7 @@ A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 
 - Para obter mais informações, confira [Limites de recursos vCore no banco de dados individual](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso vCore na Instância Gerenciada](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obter mais informações sobre as camadas de serviço de uso geral e comercialmente crítico, consulte [Camadas de Serviço de uso geral e Comercialmente Crítico](sql-database-service-tiers-general-purpose-business-critical.md).
-- Para obter detalhes sobre a camada de serviço Hyperscale no modelo de compra baseado no vCore, consulte [Camada do serviço de hiperescala](sql-database-service-tier-hyperscale.md).  
+- Para obter detalhes sobre a camada de serviço da Hiperescala no modelo de compra baseado no vCore, consulte [Nível de serviço da Hiperescala](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > Se você precisar de menos de um vCore de capacidade de computação, use o modelo de compra baseado em DTU.
@@ -122,13 +122,13 @@ A migração de grupos de failover com vários bancos de dados requer a migraç�
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Criação de um secundário para replicação geográfica
 
-Somente é possível criar um secundário geográfico usando a mesma camada de serviço que o primário. Para bancos de dados com alta taxa de geração de logs, recomendamos que o secundário seja criado com o mesmo tamanho de computação que o primário. Se você estiver criando um secundário geográfico no pool elástico para um banco de dados primário individual, recomendamos que o pool tenha a configuração `maxVCore` que corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico no pool elástico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`
+Somente é possível criar um secundário geográfico usando a mesma camada de serviço que o primário. Para bancos de dados com alta taxa de geração de logs, recomendamos que o secundário seja criado com o mesmo tamanho da computação que o primário. Se você estiver criando um secundário geográfico no pool elástico para um banco de dados primário individual, recomendamos que o pool tenha a configuração `maxVCore` que corresponde ao tamanho da computação do banco de dados primário. Se você estiver criando um secundário geográfico no pool elástico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Usando a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore
 
-É possível copiar qualquer banco de dados com um tamanho de computação baseado em DTU para um banco de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino dê suporte ao tamanho máximo do banco de dados de origem. O banco de dados cria um instantâneo de dados a partir do horário de início da operação de cópia e não executa a sincronização de dados entre a origem e o destino.
+É possível copiar qualquer banco de dados com um tamanho da computação baseado em DTU para um banco de dados com um tamanho da computação baseado em vCore sem restrições ou sequenciamento especial, desde que o tamanho da computação de destino dê suporte ao tamanho máximo do banco de dados de origem. O banco de dados cria um instantâneo de dados a partir do horário de início da operação de cópia e não executa a sincronização de dados entre a origem e o destino.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter detalhes sobre os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
-- Para obter detalhes sobre tamanhos de computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Para obter detalhes sobre os tamanhos da computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre tamanhos da computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

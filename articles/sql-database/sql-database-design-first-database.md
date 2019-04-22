@@ -91,7 +91,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível do servidor
 
-O serviço do Banco de Dados SQL cria um firewall de IP no nível do servidor. Esse firewall impede que os aplicativos e ferramentas externos se conectem ao servidor e aos bancos de dados no servidor, a menos que uma regra de firewall permita seu IP por meio do firewall. Para habilitar a conectividade externa com seu banco de dados individual, primeiro adicione uma regra de firewall de IP ao seu endereço IP (ou intervalo de endereços IP). Siga estas etapas para criar uma [Regra de firewall de IP no nível do servidor de Banco de Dados SQL](sql-database-firewall-configure.md).
+O serviço do Banco de Dados SQL cria um firewall de IP no nível do servidor. Esse firewall impede que os aplicativos e ferramentas externos se conectem ao servidor e aos bancos de dados no servidor, a menos que uma regra de firewall permita seu IP por meio do firewall. Para habilitar a conectividade externa com seu banco de dados individual, primeiro adicione uma regra de firewall de IP ao seu endereço IP (ou intervalo de endereços IP). Siga estas etapas para criar uma [Regra de firewall de IP no nível do servidor do Banco de Dados SQL](sql-database-firewall-configure.md).
 
 > [!IMPORTANT]
 > O serviço de Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando se conectar a esse serviço de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall da sua rede. Se isso acontecer, você não poderá conectar-se ao banco de dados individual, a menos que o administrador abra a porta 1433.
@@ -102,7 +102,7 @@ O serviço do Banco de Dados SQL cria um firewall de IP no nível do servidor. E
 
    ![nome do servidor](./media/sql-database-design-first-database/server-name.png)
 
-3. Clique em **Definir firewall do servidor** na barra de ferramentas. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta.
+3. Clique em **Definir firewall do servidor** na barra de ferramentas. A página **Configurações do firewall** do servidor do Banco de Dados SQL é aberta.
 
    ![regra de firewall de IP no nível do servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 

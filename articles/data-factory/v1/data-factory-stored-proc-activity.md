@@ -115,7 +115,7 @@ Depois de criar o data factory, crie um serviço vinculado do SQL do Azure que v
    ![Novo repositório de dados](media/data-factory-stored-proc-activity/new-data-store.png)
 3. No script JSON, faça as seguintes alterações:
 
-   1. Substitua `<servername>` pelo nome do servidor de Banco de Dados SQL do Azure.
+   1. Substitua `<servername>` pelo nome do servidor do Banco de Dados SQL do Azure.
    2. Substitua `<databasename>` pelo banco de dados no qual você criou a tabela e o procedimento armazenado.
    3. Substitua `<username@servername>` pela conta de usuário que tem acesso ao banco de dados.
    4. Substitua `<password>` pela senha da conta de usuário.

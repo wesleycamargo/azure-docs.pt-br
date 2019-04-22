@@ -29,14 +29,14 @@ Este artigo fornece um script do PowerShell que demonstra como você gerencia um
 
 Os cmdlets usados no exemplo de código são os seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um novo alias do DNS no sistema de serviços do Banco de Dados SQL do Azure. O alias refere-se ao servidor de Banco de Dados SQL do Azure 1.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um novo alias do DNS no sistema de serviços do Banco de Dados SQL do Azure. O alias refere-se ao servidor do Banco de Dados SQL do Azure 1.
 - [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtém e lista todos os aliases do DNS atribuídos ao servidor de BD SQL 1.
 - [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor para o qual o alias está configurado, do servidor 1 ao servidor de BD SQL 2.
 - [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias do DNS do servidor de BD SQL 2, usando o nome do alias.
 
 ## <a name="dns-alias-in-connection-string"></a>Alias de DNS na cadeia de conexão
 
-Para se conectar a um servidor de Banco de Dados SQL do Azure específico, um cliente, como o SSMS (SQL Server Management Studio), pode fornecer o nome do alias de DNS em vez do nome real do servidor. Na cadeia de caracteres de servidor de exemplo a seguir, o alias *any-unique-alias-name* substitui o primeiro nó delimitado por pontos na cadeia de caracteres de servidor de quatro nós:
+Para se conectar a um servidor do Banco de Dados SQL do Azure específico, um cliente, como o SSMS (SQL Server Management Studio), pode fornecer o nome do alias de DNS em vez do nome real do servidor. Na cadeia de caracteres de servidor de exemplo a seguir, o alias *any-unique-alias-name* substitui o primeiro nó delimitado por pontos na cadeia de caracteres de servidor de quatro nós:
 
 - Cadeia de caracteres de servidor de exemplo: `any-unique-alias-name.database.windows.net`.
 
@@ -48,7 +48,7 @@ Se você deseja executar o script de demonstração do PowerShell fornecido nest
 - Módulo do PowerShell do Azure, com o cmdlet **New-AzSqlServerDNSAlias**.
   - Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell][install-Az-ps-84p].
   - Execute `Get-Module -ListAvailable Az;` em powershell\_ise.exe, para localizar a versão.
-- Dois servidores de Banco de Dados SQL do Azure.
+- Dois servidores do Banco de Dados SQL do Azure.
 
 ## <a name="code-example"></a>Exemplo de código
 

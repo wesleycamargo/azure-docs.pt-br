@@ -44,7 +44,7 @@ Execute essas etapas para criar um Banco de Dados do Azure para MySQL nomeado �
     | *Localidade* | Sudeste Asiático (selecione entre a Europa Setentrional e o Oeste dos EUA) |
     | *Versão* | 5.7 (escolha uma versão do servidor de Banco de Dados do Azure para MySQL) |
 
-4. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo servidor. Selecione a guia **Uso Geral**. *Gen 5*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**.
+4. Clique em **Tipo de preço** para especificar o nível de desempenho e a camada de serviço para o novo servidor. Selecione a guia **Uso Geral**. *Gen 5*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

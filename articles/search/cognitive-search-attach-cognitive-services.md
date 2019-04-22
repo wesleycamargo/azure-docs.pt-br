@@ -7,36 +7,35 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880408"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683963"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso dos Serviços Cognitivos a um conjunto de habilidades no Azure Search 
 
-Os algoritmos de IA orientam os [pipelines de pesquisa cognitiva](cognitive-search-concept-intro.md) usados para o processamento de dados não estruturados em uma operação de indexação do Azure Search. Esses algoritmos baseiam-se em [recursos dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/), incluindo a [Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e a [Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para o reconhecimento de entidades, extração de frases-chave e outros enriquecimentos.
+Unidade de algoritmos de inteligência Artificial a [pipelines de indexação cognitivas](cognitive-search-concept-intro.md) usado para o processamento de dados não estruturados no Azure Search. Esses algoritmos baseiam-se em [recursos dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/), incluindo a [Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e a [Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para o reconhecimento de entidades, extração de frases-chave e outros enriquecimentos.
 
 Você pode aprimorar gratuitamente um número limitado de documentos ou anexar um recurso de Serviços Cognitivos faturável para cargas de trabalho maiores e mais frequentes. Neste artigo, aprenda a associar um recurso dos Serviços Cognitivos a seu conjunto de habilidades cognitivo para enriquecer os dados durante a [indexação do Azure Search](search-what-is-an-index.md).
 
 Se o pipeline consistir em habilidades não relacionadas à API de Serviços Cognitivos, você ainda deverá anexar um recurso dos Serviços Cognitivos. Essa ação substitui o recurso **Gratuito** que limita você a uma pequena quantidade de enriquecimentos por dia. Não há nenhum encargo para as habilidades que não estão associadas à API de Serviços Cognitivos. Essas habilidades incluem: [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md) e [formatador](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
-> Desde de 21 de dezembro de 2018, você pode associar um recurso de Serviços Cognitivos a um conjunto de habilidades do Azure Search. Isso permite nos permite cobrar a execução do conjunto de qualificações. Nessa data, também passamos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continua sendo oferecida sem custo adicional.
+> À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
 >
-> A execução de [habilidades cognitivas internas](cognitive-search-predefined-skills.md) é cobrada com base no [preço de pagamento conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services), com a mesma taxa que será utilizada se você realizar a tarefa diretamente. A extração de imagem é uma cobrança do Azure Search, atualmente oferecida com o preço de versão prévia. Para obter detalhes, confira a [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) ou [Como a cobrança funciona](search-sku-tier.md#how-billing-works).
+> Execução de [habilidades cognitivas internos](cognitive-search-predefined-skills.md) execução será cobrada com o [dos serviços Cognitivos pagamento medida que vá preços](https://azure.microsoft.com/pricing/details/cognitive-services), na mesma taxa como se você executou a tarefa diretamente. Extração de imagem é um encargo de Azure Search, refletido na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="use-free-resources"></a>Usar recursos gratuitos
 
 Você pode usar uma opção de processamento limitado e gratuito para concluir os exercícios do início rápido e o tutorial de pesquisa cognitiva. 
 
-> [!Important]
-> A partir de 1º de fevereiro de 2019, **Gratuito (Aprimoramentos Limitados)** estará restrito a 20 documentos por dia. 
+**Gratuito (aprimoramentos de limitado)** estão restritas a 20 documentos por dia, por assinatura.
 
 1. Abra o assistente **Importar dados**.
 
@@ -56,15 +55,21 @@ Para cargas de trabalho com um número superior a 20 enriquecimentos por dia, se
 
 Você é cobrado apenas pelas habilidades que chamam a API de Serviços Cognitivos. As habilidades não baseadas em API como [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md) e [formatador](cognitive-search-skill-shaper.md) não são cobradas.
 
-1. No assistente **Importar dados**, em **Anexar Serviços Cognitivos**, selecione um recurso existente ou clique em **Criar novo recurso de Serviços Cognitivos**.
+1. Abra o **importar dados** assistente, escolha uma fonte de dados e continuar a **(opcional) de pesquisa cognitiva adicionar**. 
 
-1. Para **Criar novo recurso de Serviços Cognitivos**, uma nova guia é aberta para que você possa criar o recurso. Dê um nome exclusivo ao recurso.
+1. Expandir **anexar serviços Cognitivos** e, em seguida, selecione **criar novo recurso de serviços Cognitivos**. Uma nova guia é aberta para que você possa criar o recurso. 
 
-1. Se você criar um novo recurso de serviços Cognitivos **escolha a mesma região** como seu recurso de Azure Search.
+   ![Criar um recurso de serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "criar um recurso de serviços Cognitivos")
 
-1. Escolha o tipo de preço Tudo-em-um, **S0**. Essa camada oferece os recursos de Visão e Idioma que apoiam as habilidades predefinidas na pesquisa cognitiva.
+1. No local, escolha a mesma região do Azure Search para evitar encargos de largura de banda de saída entre regiões.
 
-    ![Criar um novo recurso de Serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um novo recurso de Serviços Cognitivos")
+1. No tipo de preço, escolha **S0** para obter a coleção em um dos recursos de serviços Cognitivos, incluindo os recursos de visão e a linguagem que faça as habilidades predefinidas usadas pelo Azure Search. 
+
+   Para a camada S0, você pode encontrar as taxas para cargas de trabalho específicas na [página de preços dos serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/).
+  
+   + No **selecionar oferecem**, verifique se *dos serviços Cognitivos* está selecionado.
+   + Em recursos de linguagem, as taxas *padrão de análise de texto* se aplicam a indexação de inteligência Artificial. 
+   + Em recursos de visão, as taxas *S1 de visão do computador* são aplicadas.
 
 1. Clique em **Criar** para provisionar o novo recurso de Serviços Cognitivos. 
 
@@ -149,7 +154,7 @@ Neste exercício, estamos usando o preço mais caro por transação. Os custos r
 
 Juntando as peças, pagaríamos cerca de US$ 57,00 para ingerir 1.000 documentos PDF dessa natureza com o conjunto de habilidades descrito. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 + [Página de preços do Azure Search](https://azure.microsoft.com/pricing/details/search/)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

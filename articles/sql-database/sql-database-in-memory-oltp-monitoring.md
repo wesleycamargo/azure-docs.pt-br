@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55470256"
@@ -23,7 +23,7 @@ ms.locfileid: "55470256"
 
 Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium e Comercialmente Crítico tem um tamanho máximo de armazenamento OLTP in-memory. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Quando esse limite for excedido, as operações insert e update poderão começar a falhar com o erro 41823 para bancos de dados individuais e o erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para recuperar a memória, atualizar a camada de serviço ou o tamanho de computação do banco de dados.
+Quando esse limite for excedido, as operações insert e update poderão começar a falhar com o erro 41823 para bancos de dados individuais e o erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para recuperar a memória, atualizar a camada de serviço ou o tamanho da computação do banco de dados.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se ajustam ao limite de armazenamento OLTP na memória
 
@@ -34,7 +34,7 @@ A estimativa dos requisitos de memória para uma tabela com otimização de mem�
 A tabela e as linhas de variável de tabela, bem como índices, contam para o tamanho máximo dos dados do usuário. Além disso, ALTER TABLE precisa de espaço suficiente para criar uma nova versão da tabela inteira e de seus índices.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
-Você pode monitorar o uso de armazenamento na memória como um percentual do limite de armazenamento do tamanho de computação no [portal do Azure](https://portal.azure.com/): 
+Você pode monitorar o uso de armazenamento na memória como um percentual do limite de armazenamento do tamanho da computação no [portal do Azure](https://portal.azure.com/): 
 
 1. Na folha Banco de Dados, localize a caixa de utilização Recurso e clique em Editar.
 2. Selecione a métrica `In-Memory OLTP Storage percentage`.

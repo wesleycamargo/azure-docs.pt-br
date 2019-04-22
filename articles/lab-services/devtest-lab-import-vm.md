@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094505"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682301"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Importar VMs de outro laboratório no Azure DevTest Labs
 O serviço Azure DevTest Labs melhora significativamente o gerenciamento de VMs (máquinas virtuais) para atividades de desenvolvimento e teste. Ele permite que você mova uma VM de um laboratório para outro conforme os requisitos da equipe ou da infraestrutura se alteram. Aqui estão alguns cenários comuns em que pode ser necessário fazer isso: 
@@ -42,7 +42,7 @@ Além disso, para poder importar uma VM de um laboratório para outro, você pre
 No momento, você pode importar uma VM de um laboratório para outro apenas usando o Azure PowerShell e a API REST.
 
 ### <a name="use-powershell"></a>Usar o PowerShell
-Baixe o arquivo de script do PowerShell ImportVirtualMachines.ps1 do [repositório Git do Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) em sua unidade local. 
+Baixe o arquivo de script do PowerShell ImportVirtualMachines.ps1 do [repositório Git do Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) em sua unidade local. 
 
 #### <a name="import-a-single-vm"></a>Importar uma única VM
 Execute o script ImportVirtualMachines.ps1 para importar uma única VM de um laboratório de origem para um laboratório de destino. Você pode especificar um novo nome para a VM que está sendo copiada usando o parâmetro DestinationVirtualMachineName. 

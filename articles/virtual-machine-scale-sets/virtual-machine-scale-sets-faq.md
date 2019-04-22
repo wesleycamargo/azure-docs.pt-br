@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541019"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683946"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -29,13 +29,13 @@ Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionam
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Perguntas frequentes sobre os conjuntos de dimensionamento
 
-**P.** Quantas VMs posso ter em um conjunto de dimensionamento?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Quantas VMs posso ter em um conjunto de dimensionamento?
 
-**A.** Um conjunto de dimensionamento pode ter de 0 a 1.000 VMs baseadas em imagens da plataforma ou de 0 a 600 VMs baseadas em imagens personalizadas.
+Um conjunto de dimensionamento pode ter de 0 a 1.000 VMs baseadas em imagens da plataforma ou de 0 a 600 VMs baseadas em imagens personalizadas.
 
-**P.** Há suporte para os discos de dados nos conjuntos de dimensionamento?
+### <a name="are-data-disks-supported-within-scale-sets"></a>Há suporte para os discos de dados nos conjuntos de dimensionamento?
 
-**A.** Sim. Um conjunto de dimensionamento pode definir uma configuração de discos de dados anexados que se aplica a todas as máquinas virtuais no conjunto. Para saber mais, confira [Conjuntos de dimensionamento do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). Outras opções para armazenamento de dados incluem:
+Sim. Um conjunto de dimensionamento pode definir uma configuração de discos de dados anexados que se aplica a todas as máquinas virtuais no conjunto. Para saber mais, confira [Conjuntos de dimensionamento do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). Outras opções para armazenamento de dados incluem:
 
 * Arquivos do Azure (unidades compartilhada de SMB)
 * Unidade do sistema operacional
@@ -43,33 +43,33 @@ Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionam
 * Serviço de dados do Azure (por exemplo, Tabelas e Blobs do Azure)
 * Serviço de dados externo (por exemplo, banco de dados remoto)
 
-**P.** Quais são as regiões do Azure que dão suporte aos conjuntos de dimensionamento?
+### <a name="which-azure-regions-support-scale-sets"></a>Quais são as regiões do Azure que dão suporte aos conjuntos de dimensionamento?
 
-**A.** Todas as regiões dão suporte aos conjuntos de dimensionamento.
+Todas as regiões dão suporte aos conjuntos de dimensionamento.
 
-**P.** Como posso criar um conjunto de dimensionamento usando uma imagem personalizada?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Como posso criar um conjunto de dimensionamento usando uma imagem personalizada?
 
-**A.** Criar e capturar uma imagem de VM e depois usá-la como a fonte para o conjunto de dimensionamento. Para obter um tutorial de como criar e usar uma imagem de VM personalizada, use a [CLI do Azure](tutorial-use-custom-image-cli.md) ou o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Criar e capturar uma imagem de VM e depois usá-la como a fonte para o conjunto de dimensionamento. Para obter um tutorial de como criar e usar uma imagem de VM personalizada, use a [CLI do Azure](tutorial-use-custom-image-cli.md) ou o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**P.** Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
 
-**A.** Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
+Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
 
-**P.** E se eu aumentar a capacidade de 15 para 18?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>E se eu aumentar a capacidade de 15 para 18?
 
-**A.** Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
+Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
 
-**P.** Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
 
-**A.** Sim, você pode usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md) em conjuntos de dimensionamento.
+Sim, você pode usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md) em conjuntos de dimensionamento.
 
-**P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 
-**A.** Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculações*, que agem como um conjunto de disponibilidade implícito com cinco domínios de falha e cinco domínios de atualização. Conjuntos de dimensionamento de mais de 100 VMs abrangem vários grupos de posicionamento. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
+Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculações*, que agem como um conjunto de disponibilidade implícito com cinco domínios de falha e cinco domínios de atualização. Conjuntos de dimensionamento de mais de 100 VMs abrangem vários grupos de posicionamento. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
 
-**P.** Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
 
-**A.**  Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
+ Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale

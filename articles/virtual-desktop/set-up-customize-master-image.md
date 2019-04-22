@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505593"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698308"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
@@ -274,7 +274,7 @@ Para redirecionar os fusos horários:
 1. No servidor do Active Directory, abra o **Console de gerenciamento de diretiva de grupo**.
 2. Expanda seu domínio e objetos de diretiva de grupo.
 3. Clique com botão direito do **o objeto de diretiva de grupo** que você criou para as configurações de diretiva de grupo e selecione **editar**.
-4. No **Editor de gerenciamento de diretiva de grupo**, navegue até **configuração do computador** > **políticas** > **administrativo Modelos** > **componentes do Windows** > **horizonte exibir RDSH serviços** > **sessão da área de trabalho remota Host** > **dispositivo e o redirecionamento de recursos**.
+4. No **Editor de gerenciamento de diretiva de grupo**, navegue até **configuração do computador** > **políticas** > **administrativo Modelos** > **componentes do Windows** > **dos serviços de área de trabalho remota** > **Host de sessão da área de trabalho remota**   >  **Dispositivo e o redirecionamento de recursos**.
 5. Habilitar o **permitir o redirecionamento de fuso horário** configuração.
 
 Você também pode executar esse comando na imagem mestre para redirecionar os fusos horários:
@@ -363,12 +363,12 @@ As instruções a seguir descrevem como carregar sua imagem mestre em uma conta 
 
     ![Uma captura de tela da notificação de "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma imagem, você pode criar ou atualizar grupos de host. Para saber mais sobre como criar e atualizar grupos de host, consulte os seguintes artigos:
 
 - [Criar um pool de host com um modelo do Azure Resource Manager](create-host-pools-arm-template.md)
 - [Tutorial: Criar um pool de host com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](create-host-pools-powershell.md)
-- [Configurar um compartilhamento de perfil do usuário para um pool de host](create-host-pools-user-profile.md)
-- [Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows](configure-host-pool-load-balancing.md)
+- [Configure um compartilhamento de perfil de usuário para um pool de host](create-host-pools-user-profile.md)
+- [Configurar o método de balanceamento de carga de área de trabalho Virtual do Windows](configure-host-pool-load-balancing.md)

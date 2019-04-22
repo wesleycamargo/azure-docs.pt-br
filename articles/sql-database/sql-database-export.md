@@ -31,7 +31,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 - Armazenamento atrás de um firewall não é suportado atualmente.
 - Se a operação de exportação do Banco de Dados SQL do Azure exceder 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
 
-  - Aumente temporariamente o tamanho de computação.
+  - Aumente temporariamente o tamanho da computação.
   - Interromper toda a atividade de leitura e gravação durante a exportação.
   - Use um [índice clusterizado](https://msdn.microsoft.com/library/ms190457.aspx) com valores não nulos em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque o serviço de exportação precisa concluir a verificação da tabela para tentar exportar a tabela inteira. Uma boa maneira de determinar se as tabelas são otimizadas para exportação é executar **DBCC SHOW_STATISTICS** e verificar se *RANGE_HI_KEY* não é nulo e seu valor tem boa distribuição. Para obter detalhes, consulte [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
@@ -53,7 +53,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 
 3. Clique em **OK**.
 
-4. Para monitorar o progresso da operação de exportação, abra a página para o servidor de Banco de Dados SQL que contém o banco de dados que está sendo exportado. Em **Configurações**, clique em **Histórico de importação/exportação**.
+4. Para monitorar o progresso da operação de exportação, abra a página para o servidor do Banco de Dados SQL que contém o banco de dados que está sendo exportado. Em **Configurações**, clique em **Histórico de importação/exportação**.
 
    ![histórico de exportação](./media/sql-database-export/export-history.png)
 

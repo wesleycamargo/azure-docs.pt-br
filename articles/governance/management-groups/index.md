@@ -4,15 +4,15 @@ description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de sua
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699366"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -43,11 +43,11 @@ Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
 Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz".
-Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível de diretório. O [administrador global do Azure AD precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para ser o proprietário desse grupo raiz inicialmente. Quando o administrador for o proprietário do grupo, ele poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia.
+Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicados no nível de diretório. O [administrador global do Azure AD precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para a função de Administrador de Acesso do Usuário desse grupo raiz inicialmente. Após elevar o acesso, o administrador poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia. Como administrador, você pode atribuir sua própria conta como proprietário do grupo de gerenciamento raiz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Fatos importantes sobre o grupo de gerenciamento raiz
 
-- O nome e a ID do grupo de gerenciamento raiz são fornecidos por padrão. O nome de exibição pode ser atualizado a qualquer momento para mostrar diferentes no Portal do Azure.
+- O nome e a ID do grupo de gerenciamento raiz são fornecidos por padrão. O nome de exibição pode ser atualizado a qualquer momento para mostrar diferentes no Portal do Azure. Para [alterar o nome](manage.md#change-the-name-of-a-management-group), sua conta deve ser atribuída à função de Proprietário ou Colaborador no grupo de gerenciamento raiz.
   - O nome será "Grupo raiz de locatário".
   - A ID será a ID do Azure Active Directory.
 - O grupo de gerenciamento raiz não pode ser movido nem excluído, ao contrário de outros grupos de gerenciamento.  
@@ -69,7 +69,7 @@ Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas as assinaturas
 
-Alguns diretórios, que começaram usando grupos de gerenciamento na versão prévia antes de 25 de junho de 2018, podiam encontrar um problema em que nem todas as assinaturas estavam na hierarquia.  Os processos para colocar todas as assinaturas na hierarquia entrava em vigor depois que era feita uma atribuição de função ou de política no grupo de gerenciamento raiz no diretório.
+Alguns diretórios, que começaram usando grupos de gerenciamento na versão prévia antes de 25 de junho de 2018, podiam encontrar um problema em que nem todas as assinaturas estavam na hierarquia. O processo para colocar todas as assinaturas na hierarquia entrava em vigor depois que era feita uma atribuição de função ou de política no grupo de gerenciamento raiz no diretório. 
 
 ### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
 

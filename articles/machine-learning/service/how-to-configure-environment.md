@@ -66,7 +66,7 @@ O [Azure Notebooks](https://notebooks.azure.com) (versão prévia) é um ambient
 
 Use o [portal do Azure](https://portal.azure.com) começar com os blocos de anotações do Azure.  Abra seu espaço de trabalho e para o **visão geral** seção, selecione **Introdução ao Azure Notebooks**.
 
-Por padrão, o Azure Notebooks usa uma camada de serviços gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
+Por padrão, o Azure Notebooks usa uma camada de serviço gratuita que está limitada a 4 GB de memória e 1 GB de dados. No entanto, é possível remover esses limites anexando uma instância de Máquina Virtual de Ciência de Dados ao projeto do Azure Notebooks. Para saber mais, confira [Gerenciar e configurar projetos do Azure Notebooks: camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
 
 
 ## <a id="dsvm"></a>Máquina Virtual de Ciência de Dados

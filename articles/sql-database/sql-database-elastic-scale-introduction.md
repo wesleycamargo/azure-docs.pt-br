@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55463014"
@@ -57,7 +57,7 @@ A figura a seguir mostra as dimensões horizontal e vertical da colocação em e
 
 O dimensionamento horizontal refere-se à adição ou remoção de bancos de dados para ajustar a capacidade ou desempenho gera. Isso também é chamado de “escalar ou reduzir horizontalmente”. A fragmentação, na qual os dados são particionados em um conjunto de bancos de dados estruturados de forma idêntica, é uma maneira comum de implementara a escala horizontal.  
 
-O dimensionamento vertical refere-se ao aumento ou à diminuição do tamanho de computação de um banco de dados individual. Isso também é conhecido como “escalar ou reduzir verticalmente”.
+O dimensionamento vertical refere-se ao aumento ou à diminuição do tamanho da computação de um banco de dados individual. Isso também é conhecido como “escalar ou reduzir verticalmente”.
 
 A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinação dessas duas estratégias. Por exemplo, um aplicativo de Software como um Serviço pode usar o dimensionamento horizontal para provisionar novos clientes finais e o dimensionamento vertical para permitir que o banco de dados de cada cliente final aumente ou reduza em recursos conforme necessário para a carga de trabalho.
 

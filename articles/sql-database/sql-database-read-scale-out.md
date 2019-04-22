@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/28/2019
 ms.openlocfilehash: d9ad859ef24b51dc337dc23281d2fe4e1eada1e6
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58619884"
@@ -27,7 +27,7 @@ ms.locfileid: "58619884"
 
 **Read Scale-Out** permite que você faça o balanceamento de carga das cargas de trabalho somente leitura do Banco de Dados SQL do Azure usando a capacidade de uma réplica somente leitura.
 
-Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)) ou na camada Comercialmente Crítico ([modelo de compra com base em vCore](sql-database-service-tiers-vcore.md)) é provisionado automaticamente com várias réplicas AlwaysON para oferecer suporte ao SLA de disponibilidade. Isso é ilustrado pelo diagrama a seguir.
+Cada banco de dados na camada Premium ([modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)) ou na camada Comercialmente Crítico ([modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)) é provisionado automaticamente com várias réplicas AlwaysON para oferecer suporte ao SLA de disponibilidade. Isso é ilustrado pelo diagrama a seguir.
 
 ![Réplicas somente leitura](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 

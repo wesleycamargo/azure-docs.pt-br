@@ -24,7 +24,7 @@ ms.locfileid: "58223811"
 Este artigo fornece uma visão geral dos limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure e fornece informações sobre como criar solicitações para aumentar os limites de assinatura regional padrão.
 
 > [!NOTE]
-> Para outras limitações da Instância Gerenciada, consulte [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [nível de serviço de Instância Gerenciada](sql-database-managed-instance.md#managed-instance-service-tiers). Para diferenças em recursos suportados e instruções T-SQL, consulte [Diferenças de recursos](sql-database-features.md) e [Suporte à instrução T-SQL](sql-database-managed-instance-transact-sql-information.md).
+> Para outras limitações da Instância Gerenciada, consulte [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [camada de serviço de Instância Gerenciada](sql-database-managed-instance.md#managed-instance-service-tiers). Para diferenças em recursos suportados e instruções T-SQL, consulte [Diferenças de recursos](sql-database-features.md) e [Suporte à instrução T-SQL](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Limites de recursos no nível da instância
 
@@ -45,7 +45,7 @@ A Instância Gerenciada do Banco de Dados SQL do Azure pode ser implantada em du
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-A Instância Gerenciada tem dois níveis de serviço - Uso Geral e Comercialmente Crítico. Essas camadas fornecem recursos diferentes, conforme descrito na tabela a seguir:
+A Instância Gerenciada tem dois camadas de serviço - Uso Geral e Comercialmente Crítico. Essas camadas fornecem recursos diferentes, conforme descrito na tabela a seguir:
 
 | **Recurso** | **Uso geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
@@ -157,7 +157,7 @@ Para iniciar o processo de obtenção de uma cota maior:
      > [!IMPORTANT]
      > Uma solicitação válida deve incluir:
      > - Região na qual assinatura limite precisa ser aumentado
-     > - Número necessário de instâncias, por nível de serviço, em sub-redes existentes após o aumento da cota (se alguma das sub-redes existentes precisar ser expandida
+     > - Número necessário de instâncias, por camada de serviço, em sub-redes existentes após o aumento da cota (se alguma das sub-redes existentes precisar ser expandida
      > - Número necessário de novas sub-redes e número total de instâncias por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
 
 5. Clique em **Avançar**.

@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052651"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784732"
 ---
-# <a name="cross-network-connectivity"></a>Conectividade de rede entre
+# <a name="cross-network-connectivity"></a>Conectividade entre redes
 
 A Fabrikam Inc. tem uma grande presença física e implantação do Azure no leste dos EUA. A Fabrikam tem conectividade de back-end entre seus locais e implantações do Azure por meio do ExpressRoute. Da mesma forma, a Contoso Ltd. tem uma presença e a implantação do Azure no Oeste dos EUA. A Contoso tem conectividade de back-end entre seus locais e implantações do Azure por meio do ExpressRoute.  
 
@@ -115,7 +115,7 @@ A tabela a seguir mostra a tabela de rotas de emparelhamento privado do ExpressR
 
 [![16]][16]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Ver [perguntas Frequentes de rede virtual][VNet-FAQ], para ainda mais dúvidas sobre rede virtual e o emparelhamento de rede virtual. Ver [perguntas frequentes sobre ExpressRoute] [ ER-FAQ] para conectividade de rede mais dúvidas sobre o ExpressRoute e virtuais.
 

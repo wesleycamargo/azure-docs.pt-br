@@ -65,7 +65,7 @@ Para obter exemplos do PowerShell sobre como configurar a Sincronização de Dad
 
 Depois que o novo grupo de sincronização for criado e implantado, o item **Adicionar membros de sincronização (etapa 2)**, ficará realçado na página **Novo grupo de sincronização**.
 
-Na seção **Banco de Dados Hub**, insira as credenciais existentes do servidor de Banco de Dados SQL em que o banco de dados hub está localizado. Não insira *novas* credenciais nesta seção.
+Na seção **Banco de Dados Hub**, insira as credenciais existentes do servidor do Banco de Dados SQL em que o banco de dados hub está localizado. Não insira *novas* credenciais nesta seção.
 
 ![Configurações da etapa 2](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
@@ -81,10 +81,10 @@ Na seção **Banco de Dados Membro**, opcionalmente, adicione um Banco de Dados 
   | ----------------------------- | ------------------------------------------------- |
   | **Sincronizar Nome do Membro** | Forneça um nome para o novo membro de sincronização. Esse nome é diferente do nome do banco de dados. |
   | **Assinatura** | Selecione a assinatura associada do Azure para fins de cobrança. |
-  | **Servidor SQL do Azure** | Selecione o servidor de Banco de Dados SQL existente. |
+  | **Servidor SQL do Azure** | Selecione o servidor do Banco de Dados SQL existente. |
   | **Banco de Dados SQL do Azure** | Selecione o banco de dados SQL existente. |
   | **Sincronizar Trajeto** | Selecione **Sincronização Bidirecional**, **Para o Hub** ou **Do Hub**. |
-  | **Nome de usuário** e **Senha** | Insira as credenciais existentes para o servidor de banco de dados SQL em que o banco de dados membro está localizado. Não insira *novas* credenciais nesta seção. |
+  | **Nome de usuário** e **Senha** | Insira as credenciais existentes para o servidor do banco de dados SQL em que o banco de dados membro está localizado. Não insira *novas* credenciais nesta seção. |
 
   Selecione **OK** e aguarde até que o novo membro de sincronização seja criado e implantado.
 
@@ -120,7 +120,7 @@ Na seção **Banco de Dados Membro**, opcionalmente, adicione um SQL Server loca
 
     1. No aplicativo do agente de sincronização, selecione **Enviar Chave do Agente**. A caixa de diálogo **Configuração de Banco de Dados de Metadados de Sincronização** é aberta.
 
-    1. Na caixa de diálogo **Configuração de Banco de Dados de Metadados de sincronização**, cole a chave do agente copiada do portal do Azure. Insira também as credenciais existentes para o servidor de Banco de Dados SQL do Azure em que o banco de dados de metadados está localizado. (Se você criou um banco de dados de metadados, esse banco de dados está no mesmo servidor que o banco de dados hub.) Selecione **OK** e aguarde até que a configuração seja concluída.
+    1. Na caixa de diálogo **Configuração de Banco de Dados de Metadados de sincronização**, cole a chave do agente copiada do portal do Azure. Insira também as credenciais existentes para o servidor do Banco de Dados SQL do Azure em que o banco de dados de metadados está localizado. (Se você criou um banco de dados de metadados, esse banco de dados está no mesmo servidor que o banco de dados hub.) Selecione **OK** e aguarde até que a configuração seja concluída.
 
         ![Insira as credenciais de chave e servidor do agente](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498512"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698718"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -81,13 +81,14 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |Relatórios do Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Banco de dados Sybase     |  
 |Arquivo TXT  |
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> Tabular 1400 e modelos superiores somente.
+<a name="tab1400b">1</a> - Tabular 1.400 e modelos superiores somente.   
+<a name="filesSP">2</a> -não há suporte para arquivos no SharePoint local.
 
 ## <a name="specifying-a-different-provider"></a>Especificar um provedor diferente
 
@@ -113,7 +114,7 @@ Para fontes de dados de nuvem:
 
 * Se estiver usando a autenticação SQL, a representação deverá ser a Conta de serviço.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Gateway Local](analysis-services-gateway.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)   
 

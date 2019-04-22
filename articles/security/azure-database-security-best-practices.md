@@ -16,7 +16,7 @@ ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56117962"
@@ -55,7 +55,7 @@ Como parte do processo de conexão, as conexões de máquinas virtuais do Azure 
 Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](../sql-database/sql-database-firewall-configure.md).
 
 > [!Note]
-> Além das regras IP, o firewall gerencia regras de rede virtual. As regras de rede virtual são baseadas nos pontos de extremidade de serviço da rede virtual. Regras de rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, confira [Pontos de extremidade de serviço de rede virtual para o Banco de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+> Além das regras IP, o firewall gerencia regras da rede virtual. As regras da rede virtual são baseadas nos pontos de extremidade de serviço da rede virtual. Regras da rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, confira [Pontos de extremidade de serviço de rede virtual para o Banco de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Habilitar a autenticação de banco de dados
 O Banco de Dados SQL dá suporte a dois tipos de autenticação: autenticação do SQL Server e autenticação do Azure AD.
