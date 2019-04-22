@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 7252fcd0ce3e12c411729002e9594d1a75a49885
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Tutorial: Integração do Azure Active Directory ao Tango Analytics
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Tango Analytics ao Azure AD, você precisará adicionar o Tango Analytics da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Tango Analytics por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Tango Analytics da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Tango Analytics, siga estas eta
 
      a. Na caixa de texto **Identificador**, digite o valor: `TACORE_SSO`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
     > [!NOTE]
     > O valor de URL de Resposta não é real. Atualize-o com a URL de Resposta real. Contate a [equipe de suporte do cliente Tango Analytics](mailto:support@tangoanalytics.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

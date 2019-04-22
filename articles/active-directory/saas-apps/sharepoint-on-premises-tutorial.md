@@ -16,10 +16,10 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
 
     ![Informações de logon único de Domínio e URLs do SharePoint local](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `urn:sharepoint:federation`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do SharePoint local](https://support.office.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

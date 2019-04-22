@@ -12,10 +12,10 @@ ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: d9d57df3ec8e859a1f3257cb54e423d0006286b1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880178"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar SQL Server para uma instância gerenciada do Banco de Dados SQL do Azure online usando DMS
@@ -185,7 +185,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     | | |
     |--------|---------|
-    |**Compartilhamento da localização de rede SMB** | O compartilhamento de rede SMB local que contém os seus arquivos de backup de banco de dados completos e os arquivo de backup de log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para a migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
+    |**Compartilhamento do local de rede SMB** | O compartilhamento de rede SMB local que contém os seus arquivos de backup de banco de dados completos e os arquivo de backup de log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para a migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
     |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração. |
     |**Senha** | Senha do usuário. |
     |**Assinatura da Conta de Armazenamento do Azure** | Selecione a assinatura que contém a Conta de Armazenamento do Azure. |

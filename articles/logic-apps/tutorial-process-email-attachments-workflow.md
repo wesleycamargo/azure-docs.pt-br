@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881204"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
@@ -60,10 +60,10 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
    | Configuração | Valor | DESCRIÇÃO | 
    |---------|-------|-------------| 
-   | **NOME** | attachmentstorageacct | O nome da conta de armazenamento | 
+   | **Nome** | attachmentstorageacct | O nome da conta de armazenamento | 
    | **Modelo de implantação** | Gerenciador de recursos | O [modelo de implantação](../azure-resource-manager/resource-manager-deployment-model.md) para gerenciar a implantação de recursos | 
    | **Tipo de conta** | Propósito geral | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
-   | **Local padrão** | Oeste dos EUA | A região na qual armazenar informações sobre sua conta de armazenamento | 
+   | **Localidade** | Oeste dos EUA | A região na qual armazenar informações sobre sua conta de armazenamento | 
    | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Veja [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). | 
    | **Desempenho** | Standard | Essa configuração especifica os tipos de dados com suporte e a mídia para armazenar dados. Confira os [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Transferência segura é necessária** | Desabilitado | Essa configuração especifica a segurança necessária para solicitações de conexões. Confira [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). | 
@@ -142,8 +142,8 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    | **Nome do aplicativo** | CleanTextFunctionApp | Um nome globalmente exclusivo e descritivo para o aplicativo de funções | 
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente | 
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente | 
-   | **Plano de Hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). | 
-   | **Local padrão** | Oeste dos EUA | A mesma região que você usou anteriormente | 
+   | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). | 
+   | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente | 
    | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução compatível com sua linguagem de programação de funções favorita. Escolha .NET para as funções C# e F#. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** a conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. | 
    | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com o [Application Insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, escolha a configuração **Desativado**. | 
@@ -237,10 +237,10 @@ Depois de verificar que sua função funciona, crie o aplicativo lógico. Embora
 
    | Configuração | Valor | DESCRIÇÃO | 
    | ------- | ----- | ----------- | 
-   | **NOME** | LA-ProcessAttachment | O nome do seu aplicativo lógico | 
+   | **Nome** | LA-ProcessAttachment | O nome do seu aplicativo lógico | 
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente | 
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente |
-   | **Local padrão** | Oeste dos EUA | A mesma região que você usou anteriormente | 
+   | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente | 
    | **Log Analytics** | Desativar | Para este tutorial, mantenha a configuração **Desativado**. | 
    |||| 
 
@@ -395,8 +395,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Selecionar a função do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. Renomeie a forma da função com esta descrição:
-```Call RemoveHTMLFunction to clean email body```
+5. Renomeie a forma da função com esta descrição:```Call RemoveHTMLFunction to clean email body```
 
 6. Agora, especifique a entrada que sua função processará. 
 
@@ -440,8 +439,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
    | **Conta de armazenamento** | attachmentstorageacct | O nome da conta de armazenamento que você criou anteriormente para salvar os anexos | 
    |||| 
 
-4. Renomeie a ação **Criar blob** com esta descrição:
-```Create blob for email body```
+4. Renomeie a ação **Criar blob** com esta descrição:```Create blob for email body```
 
 5. Na ação **Criar blob**, forneça estas informações e selecione estes campos para criar o blob, como mostrado e descrito:
 
@@ -507,8 +505,7 @@ Para processar cada anexo no email, adicione um loop **For each** ao fluxo de tr
 
    ![Adicionar loop "for each"](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Renomeie o loop com esta descrição:
-```For each email attachment```
+2. Renomeie o loop com esta descrição:```For each email attachment```
 
 3. Agora, especifique os dados para o loop processar. Clique na caixa **Selecionar uma saída das etapas anteriores** para que a lista de conteúdo dinâmico seja aberta e selecione **Anexos**. 
 
@@ -531,8 +528,7 @@ Em seguida, adicione a ação que salva cada anexo como um blob no contêiner de
 
    ![Adicionar ação para criar um blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. Renomeie a ação **Criar blob 2** com esta descrição:
-```Create blob for each email attachment```
+3. Renomeie a ação **Criar blob 2** com esta descrição:```Create blob for each email attachment```
 
 4. Na ação **Criar blob para cada anexo de email**, forneça essas informações e selecione as propriedades para cada blob que você deseja criar, como mostrado e descrito:
 
@@ -597,8 +593,7 @@ Em seguida, adicione uma ação para que seu aplicativo lógico envie email para
 
 3. Se forem solicitadas credenciais, entre na sua conta de email para que os Aplicativos Lógicos criem uma conexão à sua conta de email.
 
-4. Renomeie a ação **Enviar um email** com esta descrição:
-```Send email for review```
+4. Renomeie a ação **Enviar um email** com esta descrição:```Send email for review```
 
 5. Forneça as informações para a ação e selecione os campos que você deseja incluir no email, como mostrado e descrito. Para adicionar linhas em branco em uma caixa de edição, pressione Shift + Enter.  
 
@@ -608,7 +603,7 @@ Em seguida, adicione uma ação para que seu aplicativo lógico envie email para
 
    | Configuração | Valor | Observações | 
    | ------- | ----- | ----- | 
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **Da** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do email. Clique nessa caixa, digite o texto de exemplo e, da lista de conteúdo dinâmico, selecione estes campos: <p>- O campo **De** em **Quando um novo email é recebido** </br>- O campo **Caminho** em **Criar blob para o corpo do email** </br>- O campo **Corpo** em **Chamar RemoveHTMLFunction para limpar o corpo do email** | 
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do email. Clique nessa caixa, digite o texto de exemplo e, da lista de conteúdo dinâmico, selecione estes campos: <p>- O campo **De** em **Quando um novo email é recebido** </br>- O campo **Caminho** em **Criar blob para o corpo do email** </br>- O campo **Corpo** em **Chamar RemoveHTMLFunction para limpar o corpo do email** | 
    | **Assunto**  | ```ASAP - Review applicant for position:``` **Assunto** | O assunto do email que você deseja incluir. Clique dentro dessa caixa, digite o texto de exemplo e, da lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando um novo email é recebido**. | 
    | **Para** | <*recipient-email-address*> | Para fins de teste, você pode usar seu próprio endereço de email. | 
    |||| 

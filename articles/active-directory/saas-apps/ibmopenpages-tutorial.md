@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699e4830b6399fbce07dfc125e69513b58f58dd1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Tutorial: Integração do Azure Active Directory ao IBM OpenPages
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do IBM OpenPages ao Azure AD, você precisa adicionar o IBM OpenPages da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o IBM OpenPages por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o IBM OpenPages da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o IBM OpenPages, execute as segui
 
     ![Informações de logon único de domínio e URLs do IBM OpenPages](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `http://<subdomain>.ibm.com:<ID>/openpages`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `http://<subdomain>.ibm.com:<ID>/openpages`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.ibm.com:<ID>/samlsps/op`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.ibm.com:<ID>/samlsps/op`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do IBM OpenPages](https://www.ibm.com/support/home/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

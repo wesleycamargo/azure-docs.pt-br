@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 2f4a877974c21dd7aead00f0b6aa949c84e2b80f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integração do Azure Active Directory com o Predictix Ordering

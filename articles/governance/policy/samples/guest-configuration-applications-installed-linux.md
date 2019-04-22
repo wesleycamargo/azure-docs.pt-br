@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
 ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256457"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exemplo – auditar se aplicativos especificados não são instalados dentro das VMs do Linux
@@ -24,7 +24,7 @@ Essa iniciativa de Configuração de Convidado da Política audita se o aplicati
 Você pode atribuir este exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [Azure PowerShell](#azure-powershell)
+- [PowerShell do Azure](#azure-powershell)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

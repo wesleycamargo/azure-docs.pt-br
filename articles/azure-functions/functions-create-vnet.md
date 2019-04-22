@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523725"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680325"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrar um aplicativo de funções com uma rede virtual do Azure
 
-Este tutorial passo a passo mostra como usar o Azure Functions para conectar-se aos recursos em uma VNET do Azure.
+Este tutorial mostra como usar o Azure Functions para conectar-se aos recursos em uma rede virtual do Azure.
 
 Para este tutorial, implantaremos um site do WordPress em uma VM em uma privada, não-acessível pela internet, rede virtual. Em seguida, implantaremos uma Função com acesso à internet e a rede virtual. Usaremos essa função para acessar os recursos do site do WordPress implantado dentro da VNET.
 

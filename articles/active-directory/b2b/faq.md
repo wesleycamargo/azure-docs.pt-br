@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496294"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
@@ -119,7 +119,7 @@ Sim. A colaboração do Azure AD B2B dá suporte a listas de permissões e nega�
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quais licenças precisamos usar no Azure AD B2B?
 Para obter informações sobre as licenças que sua organização precisa usar no Azure AD B2B, consulte [Diretrizes de licenciamento da colaboração do Azure Active Directory B2B](licensing-guidance.md).
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 

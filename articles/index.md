@@ -7,10 +7,10 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496498"
 ---
 <div id="main" class="v2">
@@ -27,7 +27,7 @@ ms.locfileid: "59496498"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Obter o guia de introdução para desenvolvedores do Azure</span>
+                                    <span class="likeAnH3">Guia de Introdução para Desenvolvedores do Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ ms.locfileid: "59496498"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Cursos gratuitos do Azure da Pluralsight</span>
+                                    <span class="likeAnH3">Cursos Gratuitos do Azure do Pluralsight</span>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@ PHP</a>
                                                     <li>
                                                         <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
-Node.js</a>
+Node. js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
@@ -178,7 +178,7 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">Aplicativos Web</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funções Sem Servidor</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Contêineres</a></li>
-                                                    <li><a class="barLink" href="/azure/aks/">Microsserviços com Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">Microsserviços com o Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microsserviços com o Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -194,11 +194,11 @@ Go</a>
                                                 <h3>Gerenciar dados e AI</h3>
                                                 <h4>Bancos de dados relacionais</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">Banco de dados SQL como serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">Banco de dados SQL como um serviço</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server em uma VM do Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse como serviço</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">Banco de dados PostgreSQL como serviço</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">Banco de dados MySQL como serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse como um serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">Banco de dados PostgreSQL como um serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">Banco de Dados MySQL como um serviço</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
@@ -210,7 +210,7 @@ Go</a>
                                                 </ul>
                                                 <h4>AI e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Serviços Cognitivos</a></li>
                                                     <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
@@ -310,7 +310,7 @@ Azure DevOps Projects </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
-Conheça os recursos e os serviços do Azure </a>
+Conheça os recursos e serviços do Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
@@ -2759,7 +2759,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Móvel</a>
+                        <a href="#mobile">Dispositivo móvel</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -3988,7 +3988,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#iot">Internet das coisas</a>
+                        <a href="#iot">Internet das Coisas</a>
                         <ul id="iot" class="cardsA">
                             <li>
                                 <a href="/azure/iot-fundamentals">
@@ -5182,7 +5182,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Ferramentas de gerenciamento</a>
+                        <a href="#mgmt">Ferramentas de Gerenciamento</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/backup/">
@@ -5951,7 +5951,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                 <a href="#sdkstools">SDKs/Ferramentas</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">tudo</a>
+                        <a href="#sdkstools-all">todos</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -6200,7 +6200,7 @@ CLI do Azure </h3>
                                                     <a href="/visualstudio/azure/">Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Download para Windows</a>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Download do Windows</a>
                                                 </p>
                                                  <p>
                                                     <a href="https://visualstudio.microsoft.com/vs/mac/">Download para Mac</a>
@@ -6224,10 +6224,10 @@ CLI do Azure </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Serviço de Aplicativo</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Serviço de aplicativo</a>
                                                 </p>
                                                  <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Funções do Azure</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Armazenamento</a>
@@ -6256,13 +6256,13 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Ferramentas do Visual Studio para Docker</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Download para Visual Studio</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Download do Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download para Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download do código do Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download para Azure DevOps</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download do Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6371,7 +6371,7 @@ Azure Resource Manager </h3>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Download para Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Download para Windows</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Download do Windows</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6391,7 +6391,7 @@ Azure Resource Manager </h3>
                                                 <h3>
 Ferramentas e SDK do Service Fabric </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download para Windows</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download do Windows</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download para Linux</a>
@@ -6400,7 +6400,7 @@ Ferramentas e SDK do Service Fabric </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Baixar o Mac OS X</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Baixar a CLI do Service Fabric </a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Baixar a CLI do Service Fabric</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6450,13 +6450,13 @@ Espaços de Desenvolvimento do Azure </h3>
                                                     <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Download para .NET Core e VS Code</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Download do .NET Core e do VS Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Download para .NET Core e Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Download do .NET Core e do Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Download para Node.js</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Download do Node.js</a>
                                                 </p>
                                             </div>
                                         </div>

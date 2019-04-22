@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Azure Active Directory ao Nexonia
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Nexonia, execute as seguintes e
 
      a. Na caixa de texto **Identificador**, digite uma URL: `Nexonia`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE]
     > O valor de URL de Resposta não é real. Atualize o valor com a URL de Resposta real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do Nexonia](https://nexonia.zendesk.com/hc/requests/new). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

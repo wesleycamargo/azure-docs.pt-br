@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492115"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Conectar seu dispositivo Fortinet 
@@ -141,7 +141,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 6. Para usar o esquema relevante no Log Analytics para os eventos Fortinet, pesquise **CommonSecurityLog**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como conectar dispositivos Fortinet ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

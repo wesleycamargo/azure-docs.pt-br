@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
 ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048462"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
@@ -149,7 +149,7 @@ Aplicativos do Service Fabric são executados em um cluster, um conjunto conecta
 
 Você pode:
 - Criar um cluster de teste no Visual Studio. Essa opção permite que você crie um cluster seguro diretamente no Visual Studio com suas configurações preferenciais. 
-- [Criar um cluster seguro com base em um modelo](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Criar um cluster seguro a partir de um modelo](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 Este tutorial cria um cluster do Visual Studio, que é ideal para cenários de teste. Se você criar um cluster de alguma outra forma, ou usar um cluster existente, você pode copiar e colar o ponto de extremidade de conexão ou escolhê-lo em sua assinatura. 
 

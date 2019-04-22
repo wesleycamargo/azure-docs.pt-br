@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491349"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo gêmeo de OPC e as dependências do zero
@@ -189,7 +189,7 @@ Todos os módulos são implantados usando um manifesto de implantação.  Um man
    ```
 
    O `device id` parâmetro diferencia maiusculas de minúsculas. O parâmetro de conteúdo aponta para o arquivo de manifesto de implantação que você salvou. 
-    ![saída de conjunto de módulos do IoT Edge AZ](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Após implantar os módulos no dispositivo, será possível exibir todos eles com o comando a seguir:
 
@@ -245,7 +245,7 @@ Para problemas de solução e depurá-lo são útil para executar os módulos do
    iotedgehubdev stop
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como implantar o gêmeo do OPC do zero, aqui está a próxima etapa sugerida:
 

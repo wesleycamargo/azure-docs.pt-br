@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045723"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
@@ -38,11 +38,11 @@ Na terceira parte da série, você aprenderá a:
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
-> * [Criar um aplicativo do Service Fabric .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Adicionar um ponto de extremidade HTTPS a um serviço de front-end do ASP.NET Core
 > * [Configurar CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Configurar o monitoramento e o diagnóstico do aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

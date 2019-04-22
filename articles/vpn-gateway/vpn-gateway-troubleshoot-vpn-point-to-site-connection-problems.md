@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492372"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão ponto a site do Azure
@@ -31,7 +31,7 @@ Este artigo lista os problemas comuns de conexão de ponto a site que podem ocor
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**Um certificado não pôde ser encontrado que pode ser usado com este protocolo EAP. (Erro 798)**
+**Não foi possível encontrar um certificado que possa ser usado com este protocolo EAP. (Erro 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -82,7 +82,7 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10 Versão 1709 | 22 de março de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Windows 10 Versão 1709 | 22 de março de 2018 | [BDC4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
 2. Defina o valor da chave do Registro. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD do Registro como 1.
@@ -93,7 +93,7 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**A mensagem recebida foi inesperada ou formatada incorretamente. (Erro 0x80090326)**
+**A mensagem recebida era inesperada ou estava formatada incorretamente. (Erro 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
@@ -116,7 +116,7 @@ Para resolver esse problema, siga estas etapas:
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**Uma cadeia de certificados foi processada mas terminou em um certificado raiz que não é confiável pelo provedor de confiança.**
+**Uma cadeia de certificados foi processada, mas terminou em um certificado raiz em que o provedor de confiabilidade não confia.**
 
 ### <a name="solution"></a>Solução
 
@@ -136,7 +136,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 Você vê a seguinte mensagem de erro:
 
-**Erro de download do arquivo. URI de destino não especificado.**
+**Erro de download do arquivo. O URI de destino não foi especificado.**
 
 ### <a name="cause"></a>Causa 
 
@@ -152,7 +152,7 @@ O tipo de gateway de VPN deve ser **VPN**, enquanto o tipo de VPN deve ser **Rou
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**Falha de script personalizado (para atualizar a tabela de roteamento). (Erro 8007026f)**
+**Falha de script personalizado (para atualizar sua tabela de roteamento). (Erro 8007026f)**
 
 ### <a name="cause"></a>Causa
 
@@ -185,7 +185,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro:
 
-**Falha ao salvar gateway de rede virtual &lt; *nome do gateway*&gt;. Dados do certificado &lt; *ID do certificado* &gt; é inválido.**
+**Falha ao salvar o gateway de rede virtual &lt;*nome do gateway*&gt;. Os dados para o certificado &lt;*ID do certificado*&gt; são inválidos.**
 
 ### <a name="cause"></a>Causa 
 

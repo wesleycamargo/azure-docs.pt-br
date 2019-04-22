@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495287"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger o OPC UA cliente e o aplicativo de servidor OPC UA 
@@ -37,11 +37,11 @@ Scripts de OPC cofre:
 **Início rápido**
 1. Vá para o [site OPC cofre](https://opcvault.azurewebsites.net/)
 
-1. Selecionar `Register New`
+1. Selecione `Register New`
 
 1. Insira as informações de OPC PLC conforme mostrado na saída de log da plataforma de teste anteriores `CreateSigningRequest information` área nos campos de entrada a `Register New OPC UA Application` página, selecione `Server` como ApplicationType.
 
-1. Selecionar `Register`
+1. Selecione `Register`
 
 1. Na próxima página, `Request New Certificate for OPC UA Application` selecione `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ Scripts de OPC cofre:
 
 1. Na próxima página `Generate a new KeyPair and for an OPC UA Application` inserir `CN=OpcPlc` como SubjectName, `opcplc-<_OPCVAULTID>` (substitua `<_OPCVAULTID>` com a sua) como DomainName, selecione `PEM` como PrivateKeyFormat e digite uma senha (mais tarde, fazemos referência a ele como `<certpassword-string>`)
 
-1. Selecionar `Generate New KeyPair`
+1. Selecione `Generate New KeyPair`
 
 1. Você agora está movendo para frente para `View Certificate Request Details`. Nessa página, você pode baixar todas as informações necessárias para provisionar armazenamentos de certificados de `opc-plc`.
 
@@ -148,7 +148,7 @@ docker-compose -f testbed.yml up
 - Cliente de teste OPC vai usar chamadas de método direto do hub IOT e chamadas de método OPC para configurar o publicador de OPC para publicar/cancelar a publicação de nós do servidor de teste OPC.
 - Assista a saída para mensagens de erro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como implantar o OPC cofre a um projeto existente, aqui está a próxima etapa sugerida:
 

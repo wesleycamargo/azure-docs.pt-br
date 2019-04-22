@@ -16,10 +16,10 @@ ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Azure Active Directory ao Bersin
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Bersin](common/idp-identifier-relay.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
 
     b. Clique em **Definir URLs adicionais**.
 

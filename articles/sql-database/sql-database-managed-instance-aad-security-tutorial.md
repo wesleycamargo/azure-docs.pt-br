@@ -11,10 +11,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882045"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no Banco de Dados SQL do Azure usando entidades de servidor (logons) do Azure AD
@@ -51,7 +51,7 @@ Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
   - Siga este artigo: [Início Rápido: Criar uma instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started.md)
 - Capaz de acessar sua instância gerenciada e [provisionar um administrador do Azure AD para a instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para obter mais informações, consulte:
     - [Conectar seu aplicativo a uma instância gerenciada](sql-database-managed-instance-connect-app.md) 
-    - [Arquitetura de conectividade da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md)
+    - [Arquitetura de conectividade de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md)
     - [Configurar e gerenciar autenticação do Azure Active Directory com SQL](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitando o acesso à sua instância gerenciada
@@ -65,11 +65,11 @@ As instâncias gerenciadas podem ser acessadas somente por meio de um endereço 
 
 A primeira entidade de servidor (logon) do Azure AD deve ser criado pela conta do SQL Server (não Azure AD) padrão que é um `sysadmin`. Leia os seguintes artigos para obter exemplos de como conectar-se à sua instância gerenciada:
 
-- [Início Rápido: Configurar o Azure VM para se conectar a uma instância gerenciada](sql-database-managed-instance-configure-vm.md)
+- [Início Rápido: Configurar a VM do Azure para conectar-se a uma instância gerenciada](sql-database-managed-instance-configure-vm.md)
 - [Início Rápido: Configurar uma conexão ponto a site com uma instância gerenciada do local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> O administrador do Azure AD usado para configurar a instância gerenciada não pode ser usado para criar uma entidade de servidor (logon) do Azure AD dentro da instância gerenciada. Você deve criar a primeira entidade de servidor (logon) do Azure AD usando uma conta do SQL Server que é um `sysadmin`. Essa é uma limitação temporária que será removida depois que as entidades de segurança do servidor (logons) do Azure AD se tornarem GA. Você verá o seguinte erro se tentar usar uma conta do administrador do Azure AD para criar o logon: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> O administrador do Azure AD usado para configurar a instância gerenciada não pode ser usado para criar uma entidade de servidor (logon) do Azure AD dentro da instância gerenciada. Você deve criar a primeira entidade de servidor (logon) do Azure AD usando uma conta do SQL Server que é um `sysadmin`. Essa é uma limitação temporária que será removida depois que as entidades de servidor (logons) do Azure AD se tornarem GA. Se você tentar usar uma conta do administrador do Azure AD para criar o logon, verá o seguinte erro: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Faça logon na sua instância gerenciada usando uma conta do SQL Server padrão (não Azure AD) que é um `sysadmin` usando o [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -442,15 +442,15 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
 Confira o seguinte artigo [recursos de segurança de funcionalidades da instância gerenciada](sql-database-managed-instance.md#azure-sql-database-security-features) para obter uma lista abrangente de maneiras de proteger seu banco de dados. Os seguintes recursos de segurança são discutidos:
 
 - [Auditoria de instância gerenciada](sql-database-managed-instance-auditing.md) 
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Sempre criptografado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Detecção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança em nível de linha](/sql/relational-databases/security/row-level-security) 
-- [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Recursos de instâncias gerenciadas
 
 Para obter uma visão geral completa de funcionalidades de instância gerenciada, confira:
 
 > [!div class="nextstepaction"]
-> [Recursos de instâncias gerenciadas](sql-database-managed-instance.md)
+> [Funcionalidades de Instância Gerenciada](sql-database-managed-instance.md)

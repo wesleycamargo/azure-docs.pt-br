@@ -16,10 +16,10 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a59dbd934ba1a449f7671d433529513b9f14c80
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Active Directory ao Cisco Cloud
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Cisco Cloud, execute as seguint
 
     ![Informações de logon único em Domínio e URLs do Cisco Cloud](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<subdomain>.cisco.com`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<subdomain>.cisco.com`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<subdomain>.cisco.com/sp/ACS.saml2`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.cisco.com/sp/ACS.saml2`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

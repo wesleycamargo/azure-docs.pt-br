@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/05/2019
 ms.author: diberry
 ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272845"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
@@ -106,4 +106,4 @@ Criar um bot está sempre disponível após a publicação por meio da página *
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md)
+> [Criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md)

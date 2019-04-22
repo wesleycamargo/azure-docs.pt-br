@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
 ms.openlocfilehash: 385092cb9c760e6f9fa848449bd61663541573b9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa Survey Enterprise
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, s
 
     ![Informações de logon único em Domínio e URLs do IBM Kenexa Survey Enterprise](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutorial: Integração do Azure Active Directory ao Appraisd

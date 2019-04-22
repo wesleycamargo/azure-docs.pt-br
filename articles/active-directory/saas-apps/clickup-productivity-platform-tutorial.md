@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Active Directory com a ClickUp Productivity Platform
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com a ClickUp Productivity Platform, 
 
     ![Informações de logon de único de logon único de URLs e Domínio da ClickUp Productivity Platform](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://app.clickup.com/login/sso`
+     a. Na caixa de texto **URL de logon**, digite uma URL: `https://app.clickup.com/login/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 

@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9130717f7846c81bee2bf4892a13fcf6042257c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Azure Active Directory com Ivanti Service Manager (ISM)
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Ivanti Service Manager (ISM) ao Azure AD, será necessário adicionar Ivanti Service Manager (ISM) da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Ivanti Service Manager (ISM) por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Ivanti Service Manager (ISM) da galeria, siga as etapas a seguir:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o ISM (Ivanti Service Manager), s
     | `https://<customer>.saasiteu.com/` |
     | `https://<customer>.saasitau.com/` |
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

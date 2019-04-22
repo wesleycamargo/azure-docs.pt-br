@@ -14,10 +14,10 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279373"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
@@ -64,7 +64,7 @@ No Visual Studio Code, faça as quatro alterações a seguir:
 ![O Azure Resource Manager cria várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Adicione um elemento `copy` à definição de recurso de conta de armazenamento. No elemento de cópia, você especifica o número de iterações e uma variável para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800.
-2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()` é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
+2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()`é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
 3. Exclua o elemento **variables**, porque ele não é mais usado.
 4. Exclua o elemento **outputs**. Ele não é mais necessário.
 
@@ -126,14 +126,14 @@ Consulte a seção [Implantar o modelo](./resource-manager-quickstart-create-tem
 
 Para listar todas as três contas de armazenamento, omita o parâmetro --name:
 
-# [<a name="azure-cli"></a>CLI do Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

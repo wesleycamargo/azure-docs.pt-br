@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 55d8ec8f0f767aef27266aa8ea9ddcc40b7da6ed
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração do Azure Active Directory ao TigerText Secure Messenger
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do TigerText Secure Messenger ao Azure AD, você precisa adicionar o TigerText Secure Messenger da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o TigerText Secure Messenger por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o TigerText Secure Messenger da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o TigerText Secure Messenger, exe
 
     ![Informações de logon único de Domínio e URLs do TigerText Secure Messenger](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://home.tigertext.com`
+     a. Na caixa de texto **URL de logon**, digite uma URL: `https://home.tigertext.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
 

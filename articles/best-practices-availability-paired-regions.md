@@ -2,16 +2,17 @@
 title: 'BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure | Microsoft Docs'
 description: Saiba mais sobre os pares regionais do Azure, que garantem que os aplicativos sejam resilientes durante falhas de data centers.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792300"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678863"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure
 
@@ -28,7 +29,7 @@ Figura 1 – Pares regionais do Azure
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
 | Ásia |Ásia Oriental |Sudeste Asiático |
-| Austrália |Leste da Austrália |Sudeste da Austrália |
+| Austrália |Austrália Oriental |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
@@ -37,6 +38,7 @@ Figura 1 – Pares regionais do Azure
 | Europa |Norte da Europa |Europa Ocidental |
 | França |França Central|Sul da França|
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
+| Alemanha |Norte da Alemanha | Centro-oeste da Alemanha
 | Índia |Índia Central |Sul da Índia |
 | Índia |Índia Ocidental |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
@@ -45,7 +47,14 @@ Figura 1 – Pares regionais do Azure
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA 
+| América do Norte |Oeste dos EUA 3 |Leste dos EUA
+| Noruega |Leste da Noruega |Oeste da Noruega
+| África do Sul | Norte da África do Sul | Sul da África do Sul
+| Suécia |Suécia Central |Sul da Suécia
+| Suíça | Norte da Suíça | Oeste da Suíça
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
+| Reino Unido |Norte do Reino Unido |Sul do Reino Unido 2
+| Emirados Árabes Unidos | Norte dos EAU | EAU central
 | Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Governo dos EUA |US Gov Iowa |Gov. dos EUA – Virgínia |
@@ -53,10 +62,11 @@ Figura 1 – Pares regionais do Azure
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
-- Índia Ocidental é diferente porque ele está associado a outra região em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
-- O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
-- A região secundária do US Gov Iowa é US Gov - Virgínia, mas região secundária de US Gov - Virgínia não está no US Gov Iowa.
-- A região secundária do US Gov - Virgínia é US Gov - Texas, mas região secundária de US Gov - Texas não está no US Gov - Virgínia.
+- Índia Ocidental é emparelhada em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
+- O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é Centro-Sul dos EUA. Da Centro-Sul dos EUA região secundária não é o sul do Brasil.
+- Região secundária do Gov. EUA Iowa é Gov. EUA Virgínia.
+- A região secundária de US gov – Virgínia é US gov-Texas.
+- Região secundária do US gov – Texas é gov. EUA-Arizona.
 
 
 É recomendável que você configure a recuperação de desastre de continuidade de negócios (BCDR) entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Para aplicativos que dão suporte a várias regiões do Active Directory, recomendamos usar ambas as regiões em um par de regiões, sempre que possível. Isso irá garantir a disponibilidade ideal para aplicativos e tempo de recuperação minimizado em caso de desastre. 

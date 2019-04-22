@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutorial: Integração do Azure Active Directory ao TonicDM
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o TonicDM, realize as seguintes e
 
     ![Informações de logon único de Domínio e URLs do TonicDM](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://tonicdm.com/`
+     a. Na caixa de texto **URL de logon**, digite uma URL: `https://tonicdm.com/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://tonicdm.com/saml/metadata`
 

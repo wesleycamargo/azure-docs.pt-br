@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045638"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
@@ -75,8 +75,8 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Essa h
  Se você habilitou o diagnóstico após a criação do cluster, você pode ver eventos para 
 
 * [Eventos de cluster do Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
-* [Eventos do modelo de programação dos Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-* [Eventos do modelo de programação dos Reliable Services](service-fabric-reliable-services-diagnostics.md)
+* [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
 >Além dos eventos do Service Fabric prontos para uso, é possível coletar eventos do sistema mais detalhados ao [atualizar a configuração da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).

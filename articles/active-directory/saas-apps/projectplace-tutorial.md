@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 5fe23b74531a5769ac62544a5a54f5919ca9e79e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Tutorial: integração do Azure Active Directory com o Projectplace
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Projectplace ao Azure AD, você precisa adicionar o Projectplace à sua lista de aplicativos SaaS gerenciados na galeria.
 
-**Para adicionar o Projectplace da galeria, execute as seguintes etapas:**
+**Para adicionar o Projectplace na galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 

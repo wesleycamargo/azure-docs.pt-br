@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609397"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678999"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -225,6 +225,7 @@ Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1684 GB por disco
+
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas - rede
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
@@ -236,6 +237,7 @@ NSG em NIC | Suportado | Associe o NSG à NIC usando um script de automação do
 NSG na sub-rede | Suportado | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
 Endereço IP reservado (estático) | Suportado | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ela será atribuída à VM com falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede na **itens replicados** > **configurações** > **de computação e rede**  >  **Interfaces de rede**.
 Endereço IP dinâmico | Suportado | Se a NIC de origem tiver o endereçamento IP dinâmico, a NIC na VM com failover também é dinâmica por padrão.<br/><br/> Você pode modificar isso para um endereço IP fixo, se necessário.
+Vários endereços IP | Sem suporte | Quando você faz o failover de uma VM que tem uma NIC com vários endereços IP, somente o endereço IP primário do adaptador de rede na região de origem é mantido. Para atribuir vários endereços IP, você pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexará um script para atribuir endereços IP adicionais ao plano, ou você pode fazer a alteração manualmente ou com um script após o failover. 
 Gerenciador de Tráfego     | Suportado | Você pode pré-configurar o Traffic Manager para que o tráfego seja roteado para o terminal na região de origem regularmente e para o terminal na região de destino em caso de failover.
 DNS do Azure | Suportado |
 DNS Personalizado  | Suportado |
