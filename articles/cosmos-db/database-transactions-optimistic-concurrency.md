@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279493"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Controle de transações e simultaneidade otimista
@@ -20,7 +20,7 @@ As transações do banco de dados oferecem um modelo de programação seguro e p
 
 O mecanismo de banco de dados no Azure Cosmos DB dá suporte completo a transações em conformidade ACID (atomicidade, consistência, isolamento, durabilidade) com isolamento de instantâneo. Todas as operações de banco de dados dentro do escopo de um contêiner [partição lógica](partition-data.md) executada de forma transacional dentro do mecanismo de banco de dados que é hospedado pela réplica da partição. Essas operações incluem operações de gravação (atualização de um ou mais itens dentro da partição lógica) e de leitura. A tabela a seguir ilustra diferentes operações e tipos de transação:
 
-| **Operação**  | **Tipo de operação** | **Único ou uma transação de Multi-Item** |
+| **Operação**  | **Tipo de operação** | **Transação de item único ou de vários itens** |
 |---------|---------|---------|
 | Inserir (sem um pré/pós-gatilho) | Gravar | Transação de item único |
 | Inserir (com um pré/pós-gatilho) | Gravar e ler | Transação de vários itens |
@@ -57,7 +57,7 @@ Cada item armazenado em um contêiner do Azure Cosmos tem uma propriedade `_etag
 
 O item `_etag` o valor é alterado toda vez que o item é atualizado. Para operações de item de substituição, `if-match` devem ser expressos explicitamente como parte das opções de solicitação. Para obter um exemplo, confira o código de exemplo no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` valores implicitamente são verificados para todos os itens escritos tocados pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado será reverter a transação e lançar uma exceção. Com esse método, toda ou nenhuma gravação dentro do procedimento armazenado é aplicada de maneira atômica. Isso é um sinal para o aplicativo reaplicar atualizações e repetir a solicitação original do cliente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre controle de transações e simultaneidade otimista do banco de dados nos seguintes artigos:
 

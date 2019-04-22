@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258463"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
@@ -113,11 +113,11 @@ Para registrar os agentes da área de trabalho Virtual do Windows, faça o segui
      - Selecione o botão verde play para executar o script.
 
 >[!IMPORTANT]
->Para ajudar a proteger seu ambiente de área de trabalho Virtual do Windows no Azure, é recomendável que não abrir a porta 3389 de entrada em suas VMs. Área de trabalho Virtual do Windows não exige uma porta de entrada aberta 3389 para que os usuários acessem as VMs do pool de host. Se você deve abrir a porta 3389 para fins de solução de problemas, recomendamos que você use [acesso VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você criou um pool de host, você pode preenchê-lo com os aplicativos remotos. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 
 > [!div class="nextstepaction"]
-> [Gerenciar o tutorial de grupos de aplicativo](./manage-app-groups.md)
+> [Tutorial Gerenciar grupos de aplicativos](./manage-app-groups.md)

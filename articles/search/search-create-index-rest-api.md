@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268017"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início Rápido: Criar um índice de Azure Search usando o PowerShell e a API REST
@@ -29,17 +29,17 @@ Este artigo orienta você pelo processo de criar, carregar e consultar uma Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes serviços e ferramentas são usadas neste início rápido. 
+Os serviços e as ferramentas a seguir são usados neste Início Rápido. 
 
 [Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
 [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para etapas sequenciais e interativas.
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e a URL
+## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
 As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-1. [Entrar no portal do Azure](https://portal.azure.com/)e em seu serviço search **visão geral** de página, obter a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
+1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
 2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
@@ -360,7 +360,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Tente adicionar descrições de francês para o índice. O exemplo a seguir inclui sequências em francês e demonstra as ações de pesquisa adicionais. Use mergeOrUpload para criar ou adicionar a campos existentes. As cadeias de caracteres a seguir precisam ser codificados em UTF-8.
 

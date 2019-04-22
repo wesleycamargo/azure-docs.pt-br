@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281634"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Hubs de notificação do Azure - diagnosticar notificações removidas
@@ -84,7 +84,7 @@ Examine os registros para garantir que há marcas correspondentes ao enviar uma 
 
 Por exemplo, se todos os seus registros com Hubs de Notificação foram feitos usando a marca “Política” e você enviar uma notificação com a marca “Esportes”, a notificação não será enviada para nenhum dispositivo. Um caso complexo pode envolver expressões de marca que você registrou usando “Tag A” OU “Tag B”, mas ao enviar as notificações, você tem como alvo as “Tag A && Tag B”. Na seção de dicas de autodiagnóstico posteriormente neste artigo, mostramos como examinar os registros e suas marcas.
 
-**Problemas de modelo**
+**Problemas do modelo**
 
 Se você usar modelos, siga as diretrizes descritas em [Modelos].
 
@@ -111,7 +111,7 @@ Como os serviços de notificação de plataforma são robustos, as notificaçõe
 
 Se um serviço de notificação por push tenta entregar uma notificação, mas o dispositivo está offline, a notificação é armazenada pelo serviço por um período limitado. A notificação é entregue ao dispositivo quando ele estiver disponível.
 
-Para cada aplicativo, apenas uma notificação recente é armazenada. Se várias notificações forem enviadas quando o dispositivo estiver offline, cada nova notificação fará com que a notificação anterior seja descartada. Manter somente a notificação mais recente é conhecido como *união de notificações* em APN, e *recolhimento* no FCM (que usa uma chave de recolhimento). Se o dispositivo permanecer offline por um longo tempo, as notificações que estavam sendo armazenadas para ele serão descartadas. Para obter mais informações, consulte [Visão geral de APN] e [sobre mensagens do FCM].
+Para cada aplicativo, apenas uma notificação recente é armazenada. Se várias notificações forem enviadas quando o dispositivo estiver offline, cada nova notificação fará com que a notificação anterior seja descartada. Manter somente a notificação mais recente é conhecido como *união de notificações* em APN, e *recolhimento* no FCM (que usa uma chave de recolhimento). Se o dispositivo permanecer offline por um longo tempo, as notificações que estavam sendo armazenadas para ele serão descartadas. Para obter mais informações, consulte [Visão geral de APN] e [Sobre mensagens de FCM].
 
 Com os Hubs de Notificações do Microsoft Azure, você pode passar uma chave de união por meio de um cabeçalho HTTP usando a API SendNotification genérica. Por exemplo, para o SDK do .NET, você usaria `SendNotificationAsync`. A API SendNotification também usa cabeçalhos HTTP que são passados no estado em que se encontram para o respectivo serviço de notificação por push.
 
@@ -121,9 +121,9 @@ Aqui estão os caminhos para diagnosticar a causa raiz de notificações removid
 
 ### <a name="verify-credentials"></a>Verifique as credenciais
 
-**Portal de desenvolvedor do serviço de notificação por push**
+**Portal do desenvolvedor do serviço de notificação por push**
 
-Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, Serviço de Notificação do Windows e assim por diante). Para saber mais, veja [Introdução ao Hubs de Notificações do Microsoft Azure].
+Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, Serviço de Notificação do Windows e assim por diante). Para saber mais, veja [Introdução aos Hubs de Notificações do Microsoft Azure].
 
 **Portal do Azure**
 
@@ -160,7 +160,7 @@ Você pode usar **envio de teste** página para enviar uma mensagem de notifica�
 > [!NOTE]
 > Use o Visual Studio para editar os registros somente durante o desenvolvimento e teste e com um número limitado de registros. Se for necessário editar seus registros em massa, considere usar a funcionalidade de exportar e importar registros descrita em [Exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
 
-**Service Bus Explorer**
+**Explorer do Barramento de Serviço**
 
 Muitos clientes usam o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para exibir e gerenciar o hub de notificação. O Gerenciador de Barramento de Serviço é um projeto de software livre. 
 
@@ -181,8 +181,8 @@ Você também pode enviar notificações de teste do Visual Studio.
 Para obter mais informações sobre como usar os Hubs de Notificação com o Gerenciador de Servidores do Visual Studio, consulte estes artigos:
 
 * [Exibir registros de dispositivo para os hubs de notificação]
-* [Análise aprofundada: Visual Studio 2013 atualização 2 RC e o Azure SDK 2.3]
-* [Anunciando o lançamento do Visual Studio 2013 atualização 3 e SDK 2.4 do Azure]
+* [Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]
+* [Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depurar notificações com falha e examinar o resultado da notificação
 
@@ -227,7 +227,7 @@ Em seguida, você pode usar a propriedade booliana `EnableTestSend`. Use a propr
     }
 ```
 
-**Saída de exemplo**
+**Exemplo de saída**
 
 ```text
 DetailedStateAvailable
@@ -259,7 +259,7 @@ No portal, é possível obter uma visão geral rápida de todas as atividades no
 
 4. Se as configurações de autenticação para o hub de notificação estiverem incorretas, a mensagem **Erro de autenticação do PNS** será exibida. É uma boa indicação para verificar as credenciais de serviço de notificação por push.
 
-**Acesso Programático**
+**Acesso programático**
 
 Para obter mais informações sobre o acesso programático, consulte [acesso programático à telemetria].
 
@@ -282,14 +282,14 @@ Para obter mais informações sobre o acesso programático, consulte [acesso pro
 
 <!-- LINKS -->
 [Visão geral dos Hubs de Notificação]: notification-hubs-push-notification-overview.md
-[Introdução aos Hubs de notificação do Azure]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Introdução aos Hubs de Notificações do Microsoft Azure]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Modelos]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Sobre mensagens de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Exibir registros de dispositivo para os hubs de notificação]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Análise aprofundada: Visual Studio 2013 atualização 2 RC e o Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Anunciando o lançamento do Visual Studio 2013 atualização 3 e SDK 2.4 do Azure]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Acesso programático à Telemetria]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[Acesso programático à telemetria]: https://msdn.microsoft.com/library/azure/dn458823.aspx

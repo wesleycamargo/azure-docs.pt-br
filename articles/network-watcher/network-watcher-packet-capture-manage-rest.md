@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049789"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando a API REST do Azure
@@ -33,11 +33,11 @@ Captura de pacote do Observador de Rede permite que você crie sessões de captu
 
 Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão atualmente disponíveis para captura de pacote.
 
-- [**Obter uma captura de pacote**](#get-a-packet-capture)
+- [**Obter uma captura de pacotes**](#get-a-packet-capture)
 - [**Listar todas as capturas de pacotes**](#list-all-packet-captures)
 - [**Consultar o status de uma captura de pacotes**](#query-packet-capture-status)
 - [**Iniciar uma captura de pacotes**](#start-packet-capture)
-- [**Parar uma captura de pacotes**](#stop-packet-capture)
+- [**Parar uma captura de pacote**](#stop-packet-capture)
 - [**Excluir uma captura de pacotes**](#delete-packet-capture)
 
 

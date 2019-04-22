@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358341"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de banco de dados SQL
@@ -259,5 +259,5 @@ Clientes do Banco de Dados SQL terão os direitos associados ao Benefício Híbr
   - [Criar um banco de dados SQL usando o PowerShell](sql-database-get-started-powershell.md)
 
 - Para ver vários exemplos da CLI do Azure e do PowerShell, consulte:
-  - [Exemplos CLI do Azure para o banco de dados SQL](sql-database-cli-samples.md)
-  - [Exemplos do Azure PowerShell para o banco de dados SQL](sql-database-powershell-samples.md)
+  - [Exemplos da CLI do Azure para o Banco de Dados SQL do Azure](sql-database-cli-samples.md)
+  - [Exemplos do Azure PowerShell para o Banco de Dados SQL do Azure](sql-database-powershell-samples.md)

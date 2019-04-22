@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050638"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
@@ -80,15 +80,15 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Sobre métodos de roteamento de tráfego do Gerenciador de tráfego](traffic-manager-routing-methods.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
-[O que é o Gerenciador de tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de Tráfego](traffic-manager-overview.md)
 
 [Serviços de Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Serviço de aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações no Traffic Manager (referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure][1]
 

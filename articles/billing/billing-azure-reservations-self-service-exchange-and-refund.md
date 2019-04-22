@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281974"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>As trocas de autoatendimento e os reembolsos para reservas do Azure
@@ -87,9 +87,9 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 - Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
     - [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
-    - [Gerenciar reservas no Azure](billing-manage-reserved-vm-instance.md)
+    - [Gerenciar Reservas no Azure](billing-manage-reserved-vm-instance.md)
     - [Entender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
     - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
     - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
     - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
-    - [Reservas do Azure no programa de parceiro provedor de solução de nuvem Center (CSP)](/partner-center/azure-reservations)
+    - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)

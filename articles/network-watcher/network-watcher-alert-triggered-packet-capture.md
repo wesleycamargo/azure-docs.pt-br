@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048751"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
@@ -80,8 +80,8 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
     |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
-    |**Plano de Hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
-    |**Local padrão**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
+    |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
+    |**Localidade**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
 
 3. Na folha **Aplicativos do Functions PacketCaptureExample**, selecione **Functions** > **Função personalizada** >**+**.
@@ -91,7 +91,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Configuração** | **Valor** | **Detalhes** |
     |---|---|---|
     |**Cenário**|Experimental|Tipo de cenário|
-    |**Nomear sua função**|AlertPacketCapturePowerShell|Nome da função|
+    |**Nomeie sua função**|AlertPacketCapturePowerShell|Nome da função|
     |**Nível de autorização**|Função|Nível de autorização para a função|
 
 ![Exemplo de funções][functions1]
@@ -149,7 +149,7 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
     ![Arquivos do PowerShell][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Para usar os cmdlets do PowerShell, você deve se autenticar. Configure a autenticação no aplicativo de funções. Para configurar a autenticação, você deverá configurar as variáveis de ambiente e carregar um arquivo de chave criptografado no aplicativo de funções.
 
@@ -346,13 +346,13 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
 
   |**Configuração** | **Valor** | **Detalhes** |
   |---|---|---|
-  |**NOME**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
-  |**DESCRIÇÃO**|Segmentos TCP enviados limite excedido|A descrição para a regra de alerta.|
+  |**Nome**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
+  |**Descrição**|Segmentos TCP enviados limite excedido|A descrição para a regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para disparar o alerta. |
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
   |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
-  |**webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
+  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
 
 > [!NOTE]
 > A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

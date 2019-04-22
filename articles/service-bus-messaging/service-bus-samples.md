@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006561"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
@@ -34,10 +34,10 @@ Os exemplos de mensagens do Barramento de Serviço demonstram os principais recu
 
 Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) é um exemplo hospedado no GitHub que permite a conexão a um namespace de serviço do Barramento de Serviço e o fácil gerenciamento de entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação, e a capacidade de testar entidades do sistema de mensagens e os serviços de retransmissão. Encontre toda a documentação e fonte do Explorer do Barramento de Serviço no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
-* [Visão geral de mensagens do barramento de serviço](service-bus-messaging-overview.md)
+* [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 

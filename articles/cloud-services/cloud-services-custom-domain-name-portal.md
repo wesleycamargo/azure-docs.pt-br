@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267133"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
@@ -68,7 +68,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
 
        ![seção rapidamente mostrando a URL do site][csurl]
 
-       **OU**
+       **OR**
    * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
 
        ```powershell
@@ -101,7 +101,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
 
        ![seção rapidamente mostrando a VIP][vip]
 
-       **OU**
+       **OR**
    * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
 
        ```powershell
@@ -131,7 +131,7 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você q
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
-* [Como mapear conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
+* [Como mapear o conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).

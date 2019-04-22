@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360291"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
@@ -30,7 +30,7 @@ A ferramenta fornece os seguintes detalhes:
 
 * Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM.
 
-**Avaliação de largura de banda de rede necessária versus RPO**
+**Largura de banda de rede necessária versus avaliação de RPO**
 
 * A largura de banda de rede estimada que é necessária para a replicação delta
 * A taxa de transferência que o Azure Site Recovery pode obter do local para o Azure
@@ -51,13 +51,13 @@ A ferramenta fornece os seguintes detalhes:
 * O espaço de armazenamento livre necessário em cada volume do armazenamento do Hyper-V para a replicação inicial e a replicação delta bem-sucedidas para garantir que a replicação de VM não causará nenhum tempo de inatividade indesejado para seus aplicativos de produção
 * Frequência máxima de cópia a ser definida para replicação do Hyper-V
 
-**Diretriz de envio em lote da replicação inicial** 
+**Diretrizes de envio em lote da replicação inicial** 
 * Número de lotes de VMs a serem usados para proteção
 * Lista de VMs em cada lote
 * Ordem na qual cada lote deve ser protegido
 * Tempo estimado para concluir a replicação inicial de cada lote
 
-**Custo estimado de recuperação de Desastre para Azure**
+**Custo estimado de recuperação de desastre para o Azure**
 * Custo total estimado de recuperação de desastre para o Azure: custos de licença de computação, armazenamento, rede e do Azure Site Recovery
 * Detalhes de análise de custo por VM
 
@@ -70,7 +70,7 @@ A ferramenta fornece os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
 Cenários com suporte |Sim|sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
@@ -136,5 +136,5 @@ A versão mais recente da ferramenta Planejador de implantação do Azure Site R
 Consulte a [histórico de versão do Azure Site Recovery implantação Planejador](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) página para obter as correções adicionadas em cada atualização.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Execute o Planejador de Implantações](site-recovery-hyper-v-deployment-planner-run.md).

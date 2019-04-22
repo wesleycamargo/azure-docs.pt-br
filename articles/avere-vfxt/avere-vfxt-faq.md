@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264447"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas frequentes do Avere vFXT para Azure
@@ -282,13 +282,13 @@ No Azure, não há taxa de licenciamento adicional para usar clusters do Avere v
 
 Não, os clusters do Avere vFXT exigem serviço "Always On". Os clusters poderão ser desligados quando não forem necessários. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para uma introdução ao Avere vFXT para Azure, leia estes artigos para saber como planejar e implantar seu próprio sistema:
 
 * [Planejar seu sistema Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Visão geral da implantação](avere-vfxt-deploy-overview.md)
-* [Prepare-se para criar um cluster de vFXT Avere](avere-vfxt-prereqs.md)
-* [Implantar o cluster de vFXT Avere](avere-vfxt-deploy.md)
+* [Preparar para criar um cluster do Avere vFXT](avere-vfxt-prereqs.md)
+* [Implantar cluster do Avere vFXT](avere-vfxt-deploy.md)
 
 Para saber mais sobre as funcionalidades e casos de uso do Avere vFXT, visite [Avere vFXT para Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

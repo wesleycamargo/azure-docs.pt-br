@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274783"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Prova de autoridade do consórcio Ethereum
@@ -283,7 +283,7 @@ Limite de gás do bloco (opções avançadas = habilitar)|O limite inicial de g�
 Período para selar o bloco novamente (s)|A frequência com que serão criados blocos vazios quando não existirem transações na rede. Uma frequência superior terá uma finalidade mais rápida, mas os custos de armazenamento serão maiores.|Qualquer numérico|15
 Contrato de permissão de transação (opções avançadas = habilitar)|Código de bytes para o contrato de permissão de transação. Restringe a implantação inteligente de contrato e a execução a uma lista permitida de contas Ethereum.|Código de bytes do contrato|ND
 
-Uma implantação de exemplo é mostrada abaixo: ![ethereum configurações](./media/ethereum-poa-deployment/ethereum-settings.png)
+Uma implantação de exemplo é mostrada abaixo: ![configurações do ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Monitoramento
 
@@ -300,7 +300,7 @@ ID de espaço de trabalho de análise de log existente (conectar-se em logs exis
 Chave primária de análise de log de existente (conectar-se em logs existentes do Azure Monitor = ingressar existente)|A chave primária usada para se conectar à instância existente de logs do Azure Monitor||ND
 
 
-Uma implantação de exemplo é mostrada abaixo: ![o azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+Uma implantação de exemplo é mostrada abaixo: ![folha básica](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Resumo
 

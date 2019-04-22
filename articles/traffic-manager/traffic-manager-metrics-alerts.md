@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
 ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268272"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Alertas e métricas do Gerenciador de Tráfego
@@ -33,13 +33,13 @@ No exemplo a seguir, a Figura 1 exibe todas as respostas de consulta que o perfi
   
 ![Exibição agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: Exibição de agregação com todas as consultas*
+*Figura 1: Exibição agregada com todas as consultas*
   
 A Figura 2 exibe as mesmas informações, porém, elas são divididas por pontos de extremidade. Como resultado, você pode ver o volume de respostas de consulta no qual um ponto de extremidade específico retornou.
 
 ![Métricas do Gerenciador de Tráfego - exibição dividida do volume de consulta por ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: Modo de divisão com o volume de consulta mostrado por ponto de extremidade retornado*
+*Figura 2: Modo divisão com o volume de consulta mostrado por ponto de extremidade retornado*
 
 ## <a name="endpoint-status-by-endpoint"></a>Status do ponto de extremidade por ponto de extremidade
 Use [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para entender o status de integridade dos pontos de extremidade no perfil. Ela usa dois valores:
@@ -51,12 +51,12 @@ Essa métrica pode ser exibida como um valor de agregação que representa o sta
 
 ![Métricas do Gerenciador de Tráfego - exibição composta do status do ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figura 3: Exibição de composição da métrica de status do ponto de extremidade – agregação "Médio" selecionada*
+*Figura 3: Exibição composta da métrica de status do ponto de extremidade – agregação “Méd” selecionada*
 
 
 ![Métricas do Gerenciador de Tráfego - exibição dividida do status do ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figura 4: Dividir a exibição das métricas de status do ponto de extremidade*
+*Figura 4: Modo divisão das métricas de status do ponto de extremidade*
 
 Você pode consumir essas métricas no portal do [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md), na [API REST](https://docs.microsoft.com/rest/api/monitor/), na [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor) e no [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), ou por meio da seção de métricas da experiência do portal do Gerenciador de Tráfego.
 

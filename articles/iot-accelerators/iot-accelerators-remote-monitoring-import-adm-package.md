@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009845"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importar um pacote de gerenciamento de dispositivo automático para o acelerador de solução de Monitoramento Remoto
 
 Uma configuração automática de gerenciamento de dispositivo define as alterações de configuração a serem implantadas em um grupo de dispositivos. Este artigo presume que um desenvolvedor em sua organização já criou uma configuração de gerenciamento de dispositivo automático. Para saber como um desenvolvedor cria uma configuração, consulte um dos seguintes artigos de instruções do Hub IoT:
 
-- [Configurar e monitorar dispositivos do IoT em escala usando o portal do Azure](../iot-hub/iot-hub-auto-device-config.md)
-- [Configurar e monitorar dispositivos do IoT em escala usando a CLI do Azure](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Configurar e monitorar dispositivos IoT em escala usando o portal do Azure](../iot-hub/iot-hub-auto-device-config.md)
+- [Configurar e monitorar dispositivos IoT em escala usando a CLI do Azure](../iot-hub/iot-hub-auto-device-config-cli.md)
 
 Um desenvolvedor cria e testa uma configuração de gerenciamento de dispositivo automático em um ambiente de desenvolvimento. Quando estiver pronto, você poderá importar a configuração para o acelerador de solução de Monitoramento Remoto.
 
@@ -30,14 +30,14 @@ Use o portal do Azure para exportar a configuração de gerenciamento de disposi
 
 1. No portal do Azure, navegue até o hub IoT que você está usando para desenvolver e testar os dispositivos IoT. Clique em **Configuração do dispositivo IoT**:
 
-    [![Iconfiguração do dispositivo oT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![Configuração do dispositivo IoT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. Clique na configuração que você quer usar. A página **Detalhes da Configuração do Dispositivo** é exibida:
 
-    [![Idetalhes de configuração do dispositivo oT](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+    [![Detalhe da configuração do dispositivo IoT](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. Clique em **Baixar arquivo de configuração**:
 
-    [![Darquivo de configuração de download](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
+    [![Baixar arquivo de configuração](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
 1. Salve o arquivo JSON como um arquivo local chamado **configuration.json**.
 

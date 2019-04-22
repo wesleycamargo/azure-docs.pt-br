@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274682"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
@@ -97,7 +97,7 @@ Ações de script também podem ser publicadas no Azure Marketplace como um apli
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Instalar aplicativos de terceiros Apache do Hadoop no HDInsight](../hdinsight-apps-install-applications.md)
+- [Instalar aplicativos Apache Hadoop de terceiros no HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalizar clusters do HDInsight utilizando ações de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicar um aplicativo HDInsight no Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -168,7 +168,7 @@ O HDInsight pode ser adicionado a uma Rede Virtual do Azure nova ou existente. S
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Virtual-redes-visão geral do Azure](../../virtual-network/virtual-networks-overview.md)
+- [Visão-geral-de-redes-virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conecte-se com segurança aos serviços do Azure com os ponto de extremidade de serviço da Rede Virtual do Microsoft Azure
@@ -194,4 +194,4 @@ Para obter mais informações, confira o artigo [Conectar o HDInsight à sua red
 
 Leia o próximo artigo desta série:
 
-- [Práticas recomendadas de armazenamento para o local para a migração do Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Melhores práticas de armazenamento para migração do local para o Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: diberry
 ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261405"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
@@ -26,7 +26,7 @@ O LUIS (Serviço Inteligente de Reconhecimento Vocal) fornece entidades predefin
 |--|--|--|
 |Chinês|[zh-CN](#chinese-entity-support)||
 |Holandês|[nl-NL](#dutch-entity-support)||
-|Inglês|[en-US (americano)](#english-american-entity-support)||
+|Inglês|[en-US (Americano)](#english-american-entity-support)||
 |Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), ||
 |Alemão|[de-DE](#german-entity-support)||
 |Italiano|[it-IT](#italian-entity-support)||
@@ -53,7 +53,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -74,7 +74,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -95,7 +95,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -116,7 +116,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -137,7 +137,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -158,7 +158,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -179,7 +179,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -200,7 +200,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -221,7 +221,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -242,7 +242,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -263,7 +263,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -284,7 +284,7 @@ Há suporte para as seguintes entidades:
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Percentual](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 

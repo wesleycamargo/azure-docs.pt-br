@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270890"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
@@ -27,8 +27,8 @@ Você pode usar um modelo do Azure Resource Manager para implantar um aplicativo
 Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Para modelos de exemplo, consulte:
-- [Aplicativo de funções no plano de consumo]
-- [Aplicativo de funções no plano do serviço de aplicativo do Azure]
+- [Aplicativo de funções no Plano de Consumo]
+- [Aplicativo de funções no Plano do Serviço de Aplicativo do Azure]
 
 > [!NOTE]
 > O plano Premium para hospedagem do Azure Functions está atualmente em visualização. Para obter mais informações, consulte [plano Premium do Azure Functions](functions-premium-plan.md).
@@ -664,15 +664,15 @@ Este é um exemplo que usa HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como desenvolver e configurar o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Como definir as configurações de aplicativo de funções do Azure](functions-how-to-use-azure-function-app-settings.md)
-* [Criar sua primeira função do Azure](functions-create-first-azure-function.md)
+* [Como definir configurações do aplicativo de funções do Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
-[Aplicativo de funções no plano de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplicativo de funções no plano do serviço de aplicativo do Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicativo de funções no Plano de Consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Aplicativo de funções no Plano do Serviço de Aplicativo do Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

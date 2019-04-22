@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358164"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Práticas recomendadas para usar o serviço de pesquisa do Azure mapas
@@ -136,7 +136,7 @@ Para encontrar mais correspondências parciais em consultas, `typeHead` parâmet
 
 No exemplo de consulta abaixo, você pode ver que a pesquisa do serviço de endereço é consultada para "Microso" com o `typehead` parâmetro definido como **verdadeiro**. Se você observar a resposta, você pode ver que o serviço de pesquisa interpretadas a consulta como consulta parcial e a resposta contém os resultados de consulta sugeridos automaticamente.
 
-**Exemplo de consulta:**
+**Consulta de exemplo:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
@@ -318,7 +318,7 @@ Para melhorar a relevância dos resultados e as informações na resposta, a res
 
 Vamos fazer uma [pesquisa de categoria de POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) solicitação para postos de gasolina quase campus da Microsoft (Redmond, WA). Se você observar a resposta, você pode ver informações sobre a marca para cada POI retornado.
 
-**Exemplo de consulta:**
+**Consulta de exemplo:**
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
@@ -497,7 +497,7 @@ Para recuperar apenas os resultados POI em torno de um local específico, o [nas
 
 Vamos fazer uma solicitação de pesquisa de endereço para o Azure mapas [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/search) um endereço em Seattle. Se você examinar cuidadosamente a URL de solicitação abaixo, definimos a `countrySet` parâmetro para **EUA** para pesquisar o endereço nos Estados Unidos da América.
 
-**Exemplo de consulta:**
+**Consulta de exemplo:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
@@ -699,7 +699,7 @@ Quando o tipo de resposta é **geometria**, ele pode incluir a ID de geometria q
 } 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais [como criar solicitações de serviço de pesquisa do Azure mapas](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
 * Explore o mapas do Azure [documentação da API de serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/search). 

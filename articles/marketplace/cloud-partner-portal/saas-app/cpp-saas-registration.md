@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012929"
 ---
 # <a name="register-a-saas-application"></a>Registrar um aplicativo SaaS
@@ -83,7 +83,7 @@ Método HTTP
 
 *Parâmetro URI*
 
-|  **Nome do parâmetro**  | **Obrigatório**  | **DESCRIÇÃO**                               |
+|  **Nome do parâmetro**  | **Obrigatório**  | **Descrição**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | tenantId             | True          | ID do locatário do aplicativo AAD registrado   |
 |  |  |  |
@@ -91,7 +91,7 @@ Método HTTP
 
 *Cabeçalho da solicitação*
 
-|  **Nome do cabeçalho**  | **Obrigatório** |  **DESCRIÇÃO**                                   |
+|  **Nome do cabeçalho**  | **Obrigatório** |  **Descrição**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
 |  Tipo de conteúdo     | True         | Tipo de conteúdo associado à solicitação. O valor padrão é `application/x-www-form-urlencoded`.  |
 |  |  |  |
@@ -99,7 +99,7 @@ Método HTTP
 
 *Corpo da solicitação*
 
-| **Nome da propriedade**   | **Obrigatório** |  **DESCRIÇÃO**                                                          |
+| **Nome da propriedade**   | **Obrigatório** |  **Descrição**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
 |  Grant_type         | True         | Tipo de concessão. O valor padrão é `client_credentials`.                    |
 |  Client_id          | True         |  Identificador do cliente/aplicativo associado ao Aplicativo Azure AD.                  |
@@ -108,9 +108,9 @@ Método HTTP
 |  |  |  |
 
 
-*Response*
+*Resposta*
 
-|  **NOME**  | **Type**       |  **DESCRIÇÃO**    |
+|  **Nome**  | **Tipo**       |  **Descrição**    |
 | ---------- | -------------  | ------------------- |
 | 200 OK    | TokenResponse  | Solicitação bem-sucedida   |
 |  |  |  |

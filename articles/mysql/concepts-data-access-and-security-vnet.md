@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006607"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
@@ -93,7 +93,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de Rede:** &nbsp; Ative o ponto de extremidade.
 - **Administrador do banco de dados:** &nbsp; Atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MySQL.
 
-*Alternativa RBAC:*
+*Alternativa de RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -140,10 +140,10 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter artigos sobre como criar regras de VNet, consulte:
-- [Criar e gerenciar o banco de dados do Azure para regras de MySQL VNet usando o portal do Azure](howto-manage-vnet-using-portal.md)
-- [Criar e gerenciar o banco de dados do Azure para regras de MySQL VNet usando a CLI do Azure](howto-manage-vnet-using-cli.md)
+- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
+- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

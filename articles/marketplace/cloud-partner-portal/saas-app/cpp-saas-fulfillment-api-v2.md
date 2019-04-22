@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010559"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versão de APIs de preenchimento SaaS 2 
@@ -106,7 +106,7 @@ A API de assinatura suporta as seguintes operações de HTTPS: **Obtenha**, **Po
 
 Lista todas as assinaturas para um publicador do SaaS.
 
-**Obter:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
+**Get:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -176,7 +176,7 @@ Código: 500 Erro Interno do Servidor
 
 Obtém a assinatura especificada de SaaS. Use essa chamada para obter informações de licença e informações do plano.
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -241,7 +241,7 @@ Erro interno do servidor<br>
 
 Use essa chamada para descobrir se há qualquer oferta privada/pública para o usuário atual.
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -478,7 +478,7 @@ Erro interno do servidor
 
 Cancelar a assinatura e exclua a assinatura especificada.
 
-**Excluir:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+**Delete:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -593,7 +593,7 @@ Código: 500<br> Erro interno do servidor
 
 Lista as operações pendentes para o usuário atual. 
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -657,7 +657,7 @@ Erro interno do servidor
 
 Permite que o usuário acompanhar o status da operação especificada assíncrona disparadas (inscrever-se/Cancelar assinatura/alterar plano).
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -744,6 +744,6 @@ Ponto de extremidade do host: `https://marketplaceapi.microsoft.com/api` Versão
 Qualquer uma das chamadas à API neste artigo podem ser feitas para o ponto de extremidade do host fictício. Você pode esperar obter os dados fictícios, como uma resposta.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os desenvolvedores também programaticamente podem recuperar e manipulação de cargas de trabalho, ofertas e publisher perfis usando o [as APIs REST do Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

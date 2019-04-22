@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006695"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
@@ -91,7 +91,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 - **Administrador de Rede:** &nbsp; Ative o ponto de extremidade.
 - **Administrador de banco de dados:** &nbsp; Atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MariaDB.
 
-*Alternativa RBAC:*
+*Alternativa de RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
 
@@ -140,7 +140,7 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter artigos sobre como criar regras de VNet, consulte:
-- [Criar e gerenciar o banco de dados do Azure para regras de MariaDB VNet usando o portal do Azure](howto-manage-vnet-portal.md)
+- [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MariaDB usando o portal do Azure](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

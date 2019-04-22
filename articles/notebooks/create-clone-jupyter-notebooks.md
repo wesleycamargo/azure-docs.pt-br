@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282314"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
@@ -30,20 +30,20 @@ Um projeto também mantém metadados e outras configurações que afetam o servi
 
 Seu painel **Meus Projetos** em `https://notebooks.azure.com/<userID>/projects` é onde você exibe, gerencia e cria projetos:
 
-[![Mpainel projetos y em blocos de anotações do Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Painel Meus Projetos no Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 O que você pode fazer no painel depende se você estiver conectado com a conta que possui a ID de usuário:
 
 | Comando | Disponível para | DESCRIÇÃO |
 | --- | --- | --- |
-| **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
+| **Run** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
 | **Baixar** | Qualquer pessoa | Baixa uma cópia do projeto selecionado como um arquivo ZIP. |
 | **Compartilhar** | Qualquer pessoa | Exibe o pop-up de compartilhamento por meio do qual você pode obter uma URL para um projeto selecionado, compartilhar em mídias sociais, envie um email com a URL e obter código HTML ou Markdown para um crachá "notebook de inicialização" (consulte [obter uma notificação de lançamento](#obtain-a-launch-badge)) com a URL. |
 | **Excluir** | Proprietário | Salva o projeto selecionado. Essa operação não pode ser desfeita. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto e, em seguida, abre uma nova janela com o terminal bash para esse servidor. |
-| **+ Novo projeto** | Proprietário | Cria um novo projeto. Consulte [Criar um novo projeto](#create-a-new-project). |
-| **Carregar o repositório do GitHub** | Proprietário | Importa o projeto do GitHub. [Importa o projeto do GitHub](#import-a-project-from-github). |
-| **Clone** | Qualquer pessoa | Copia um projeto selecionado para sua própria conta. Solicita que você entre, se ainda não estiver. Consulte [Clonar um projeto](#clone-a-project). |
+| **+ Novo Projeto** | Proprietário | Cria um novo projeto. Consulte [Criar um novo projeto](#create-a-new-project). |
+| **Carregar o Repositório do GitHub** | Proprietário | Importa o projeto do GitHub. [Importa o projeto do GitHub](#import-a-project-from-github). |
+| **Clonar** | Qualquer pessoa | Copia um projeto selecionado para sua própria conta. Solicita que você entre, se ainda não estiver. Consulte [Clonar um projeto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obtenha uma notificação de inicialização
 
@@ -120,10 +120,10 @@ Pra clonar um projeto:
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Explore os notebooks de exemplo](azure-notebooks-samples.md)
+- [Explorar notebooks de exemplo](azure-notebooks-samples.md)
 - [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
+- [Como: Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
 - [Como: Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
-- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
 - [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Usar os serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

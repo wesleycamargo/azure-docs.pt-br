@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264209"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Como configurar o glossário de negócios para marcação controlada
@@ -80,6 +80,6 @@ Marcas do usuário e marcas de glossário são pesquisáveis e você pode aplic�
 
 Usando o glossário de negócios no Catálogo de Dados do Azure e a marcação controlada que ele habilita, você pode identificar, gerenciar e descobrir ativos de dados de maneira consistente. O glossário de negócios pode promover o aprendizado do vocabulário de negócios pelos membros da organização. O glossário também dá suporte à captura de metadados significativos, o que simplifica a compreensão e a descoberta de ativos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Documentação da API REST para operações de Glossário de negócios](/rest/api/datacatalog/data-catalog-glossary)
+* [Documentação da API REST para operações de glossário de negócios](/rest/api/datacatalog/data-catalog-glossary)

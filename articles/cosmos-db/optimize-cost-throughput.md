@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009760"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
@@ -39,7 +39,7 @@ Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de tr
 
 4. Em vez de configurar uma taxa de transferência específica em contêineres individuais, você deseja obter a taxa de transferência agregada em um conjunto de contêineres no banco de dados.
 
-**Considere o provisionamento de taxa de transferência em um contêiner individual se:**
+**Considere o provisionamento da taxa de transferência em um contêiner individual se:**
 
 1. Você tem alguns contêineres do Azure Cosmos. Como o Azure Cosmos DB independe do esquema, um contêiner pode conter itens que têm esquemas heterogêneos e que não exigem que os clientes criem vários tipos de contêineres, um para cada entidade. É sempre uma opção considerar se vale a pena agrupar contêineres separados, 10 a 20, por exemplo, em um único contêiner. Com o mínimo de 400 RUs para contêineres, o pooling de todos os 10 a 20 contêineres em um só pode ser mais econômico. 
 

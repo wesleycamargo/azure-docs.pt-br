@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264549"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
@@ -164,7 +164,7 @@ O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 
 **VM** | **Detalhes**
 --- | ---
-** Windows** | 1. [Baixe e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o arquivo MSI do agente.<br/><br/> 2. Instale com permissões de administrador no computador.<br/><br/> 3. Verifique se a instalação. Na *C:\WindowsAzure\Packages* na VM, clique com botão direito **WaAppAgent.exe** > **propriedades**. Sobre o **detalhes** guia **versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se você estiver atualizando o agente, certifique-se de que nenhuma operação de backup está em execução, e [reinstalar o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Windows** | 1. [Baixe e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o arquivo MSI do agente.<br/><br/> 2. Instale com permissões de administrador no computador.<br/><br/> 3. Verifique se a instalação. Na *C:\WindowsAzure\Packages* na VM, clique com botão direito **WaAppAgent.exe** > **propriedades**. Sobre o **detalhes** guia **versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se você estiver atualizando o agente, certifique-se de que nenhuma operação de backup está em execução, e [reinstalar o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Instale usando um RPM ou pacote DEB do repositório de pacotes da distribuição. Esse é o método preferencial para instalar e atualizar o agente Linux do Azure. Todos os [provedores de distribuição aprovados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos instalá-lo a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e os binários de atualização.
 
 ### <a name="explicitly-allow-outbound-access"></a>Permitir explicitamente o acesso de saída
@@ -177,7 +177,7 @@ A extensão de backup em execução na máquina virtual precisa de acesso de sa�
 
 **Opção** | **Ação** | **Detalhes** 
 --- | --- | --- 
-**Configurar regras NSG** | Permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Em vez de permitir e gerenciar todos os intervalos de endereço, você pode adicionar uma regra que permita o acesso ao serviço de Backup do Azure usando um [marca de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Saiba mais](../virtual-network/security-overview.md#service-tags) sobre marcas de serviço.<br/><br/> Marcas de serviços simplificam o gerenciamento de acesso e não incorrem em custos adicionais.
+**Configurar regras de NSG** | Permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Em vez de permitir e gerenciar todos os intervalos de endereço, você pode adicionar uma regra que permita o acesso ao serviço de Backup do Azure usando um [marca de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Saiba mais](../virtual-network/security-overview.md#service-tags) sobre marcas de serviço.<br/><br/> Marcas de serviços simplificam o gerenciamento de acesso e não incorrem em custos adicionais.
 **Implantar um proxy** | Implante um servidor de proxy HTTP para rotear o tráfego. | Fornece acesso ao Azure por completo, não somente ao armazenamento.<br/><br/> É permitido o controle granular em relação às URLs de armazenamento.<br/><br/> Único ponto de acesso à Internet para VMs.<br/><br/> Custos adicionais para o proxy.
 **Configurar o Firewall do Azure** | Permite o tráfego por meio do Firewall do Azure na VM, usando uma tag de FQDN para o serviço de Backup do Azure | Simples de usar se você tiver o Firewall do Azure configurado em uma sub-rede de rede virtual.<br/><br/> É possível criar suas próprias marcações de FQDN, ou modificar os FQDNs em uma marca.<br/><br/> Se suas VMs do Azure possuem discos gerenciados, você talvez precise abrir adicional (8443) de porta nos firewalls.
 
@@ -227,10 +227,10 @@ Se você não tiver um proxy de conta do sistema, configure um da seguinte manei
 4. Defina as configurações de proxy.
    - Em máquinas do Linux:
      - Adicione esta linha ao arquivo **/etc/environment**:
-       - **http_proxy = http:\/porta de proxy: endereço IP /proxy**
+       - **http_proxy=http:\//proxy IP address:proxy port**
      - Adicione estas linhas ao arquivo **/etc/waagent.conf**:
-         - **HttpProxy.Host=proxy IP address**
-         - **HttpProxy.Port=proxy port**
+         - **Endereço IP HttpProxy.Host=proxy**
+         - **Porta HttpProxy.Port=proxy**
    - Em computadores Windows, nas configurações do navegador, especifique que um proxy deverá ser usado. Se estiver usando um proxy em uma conta de usuário, você poderá usar esse script para aplicar a configuração no nível de conta do sistema.
        ```powershell
       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -278,7 +278,7 @@ Você pode configurar o Firewall do Azure para permitir o acesso de saída para 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Solucione problemas com o [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
 - [Restaurar](backup-azure-arm-restore-vms.md) as VMs do Azure.

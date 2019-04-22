@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278761"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
@@ -66,8 +66,8 @@ Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser cri
 
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
-- [Azure PowerShell](#use-azure-powershell)
-- [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)
+- [PowerShell do Azure](#use-azure-powershell)
+- [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -219,6 +219,6 @@ Se você criar um endereço IP público ou um balanceador de carga, especifique 
 
 Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este Resource Manager de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você criou conjunto de dimensionamento em uma Zona de Disponibilidade, você pode aprender como [Implantar aplicativos em conjuntos de dimensionamento de máquina virtual](tutorial-install-apps-cli.md) ou [Usar o dimensionamento automático com conjuntos de dimensionamento de máquina virtual](tutorial-autoscale-cli.md).

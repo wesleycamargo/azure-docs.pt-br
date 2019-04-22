@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006744"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
@@ -77,7 +77,7 @@ A Central de Segurança pode criar automaticamente um workspace padrão no qual 
 Para selecionar um workspace criados pela Central de Segurança:
 
 1. Em **Configuração do workspace padrão**, selecione Usar workspaces criados pela Central de Segurança.
-   ![Selecionar tipo de preço][10] 
+   ![Selecione o tipo de preço][10] 
 
 1. Clique em **Salvar**.<br>
     A Central de Segurança criará um novo grupo de recursos e um workspace padrão nessa geolocalização e conectará o agente a esse workspace. A convenção de nomenclatura para o grupo de recursos e o workspace é:<br>
@@ -137,8 +137,8 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
      a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
     b.  Selecione o Espaço de Trabalho desejado no qual você pretende conectar o agente, clicando em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
-        ![Selecione o espaço de trabalho][8] c. Defina o tipo de preço.
-        ![Selecionar tipo de preço][9] 
+        ![Selecione o workspace][8] c. Defina o tipo de preço.
+        ![Selecione o tipo de preço][9] 
    
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
@@ -256,16 +256,16 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
    b.  Selecione o Workspace ao qual você pretende conectar o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
        ![Selecione o workspace][8]
 3. Defina o tipo de preço.
-   ![Selecionar tipo de preço][9] 
+   ![Selecione o tipo de preço][9] 
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
    > 
 
 4. Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
 
-    a.  [Instalar a extensão de máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+    a.  [Instalar a extensão da máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalar a extensão de máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Instalar a extensão da máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implantar as extensões em VMs existentes, siga as instruções em [Coletar dados sobre Máquinas Virtuais do Microsoft Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

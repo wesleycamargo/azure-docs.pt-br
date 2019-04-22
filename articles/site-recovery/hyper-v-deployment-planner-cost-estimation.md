@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359035"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
@@ -109,15 +109,15 @@ Para adicionar manualmente as máquinas virtuais:
 
      a. **Número de VMs**
 
-    b. **Tamanho da IaaS (sua seleção)**
+    b. **Tamanho da IaaS (Sua seleção)**
 
     c. **Tipo de armazenamento Standard/Premium**
 
     d. **Tamanho total de armazenamento da VM (GB)**
 
-    e. **Número de análises de recuperação de Desastre em um ano**
+    e. **Número de análises de recuperação de desastre em um ano**
 
-    f. **A duração de cada análise recuperação de Desastre (dias)**
+    f. **Duração de cada análise de recuperação de desastre (Dias)**
 
     g. **Tipo de sistema operacional**
 
@@ -178,5 +178,5 @@ O Planejador de Implantações do Site Recovery pode gerar o relatório de custo
 |SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como proteger [VMs do Hyper-V para o Azure usando o Site Recovery](hyper-v-azure-tutorial.md).

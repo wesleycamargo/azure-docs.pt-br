@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280461"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides de notebook
@@ -103,6 +103,6 @@ Uma vez que a apresentação de slides processa fragmentos com espaçamento mais
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
-- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
+- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
 - [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)

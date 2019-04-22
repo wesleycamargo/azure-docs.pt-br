@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283640"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
@@ -62,7 +62,7 @@ Os caracteres em branco que não fazem parte de uma cadeia de caracteres entre a
 
 A linguagem de consulta dá suporte a comentários de estilo T-SQL, como  
 
--   Instrução SQL `-- comment text [newline]`  
+-   Instrução SQL`-- comment text [newline]`  
 
 Embora os comentários e caracteres de espaço em branco não tenham nenhum significado na gramática, eles devem ser usados para separar os tokens. Por exemplo: `-1e5` é um token de número único, ao passo que `: – 1 e5` é um token de sinal de subtração seguido pelo número 1 e identificador e5.  
 
@@ -108,7 +108,7 @@ SELECT <select_specification>
   
 **Comentários**  
   
-A sintaxe `SELECT *` só será válida se a cláusula FROM tiver declarado exatamente um alias. `SELECT *` Fornece uma projeção de identidade, que pode ser útil se nenhuma projeção é necessária. SELECT * só é válida se a cláusula FROM é especificada e introduzida uma única fonte de entrada.  
+A sintaxe `SELECT *` só será válida se a cláusula FROM tiver declarado exatamente um alias. `SELECT *` fornece uma projeção de identidade, que pode ser útil se nenhuma projeção é necessária. SELECT * só é válida se a cláusula FROM é especificada e introduzida uma única fonte de entrada.  
   
 Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser expressos, como alternativa, usando instruções SELECT simples, conforme mostrado abaixo.  
   
@@ -124,7 +124,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**Veja também**  
+**Consulte também**  
   
 [Expressões escalares](#bk_scalar_expressions)  
 [Cláusula SELECT](#bk_select_query)  
@@ -226,7 +226,7 @@ A avaliação da junção depende do escopo de contexto dos conjuntos participan
   
 ### <a name="examples-of-joins"></a>Exemplos de junções  
   
-Vejamos a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Permite que cada fonte defina `input_alias1, input_alias2, …, input_aliasN`. Essa cláusula FROM retorna um conjunto de tuplas N (tupla com valores N). Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos.  
   
@@ -236,11 +236,11 @@ Vejamos a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... 
   
 - Permite que `<from_source2>` tenha escopo de documento, referenciando input_alias1 e represente os conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1,2} para `input_alias1 = A,`  
   
     {3} para `input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4,5} para`input_alias1 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2>` resultará nas tuplas abaixo:  
   
@@ -254,15 +254,15 @@ Vejamos a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... 
   
 - Permite que `<from_source2>` tenha escopo de documento, referenciando `input_alias1` e represente os conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1,2} para `input_alias1 = A,`  
   
     {3} para `input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4,5} para`input_alias1 = C,`  
   
 - Permite que `<from_source3>` tenha escopo de documento, referenciando `input_alias2` e represente os conjuntos:  
   
-    {100, 200} para `input_alias2 = 1,`  
+    {100, 200} para`input_alias2 = 1,`  
   
     {300} para `input_alias2 = 3,`  
   
@@ -283,15 +283,15 @@ Vejamos a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... 
   
 - Permite que <from_source2> tenha escopo de documento, referenciando input_alias1 e represente os conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1,2} para `input_alias1 = A,`  
   
     {3} para `input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4,5} para`input_alias1 = C,`  
   
 - Permite que `<from_source3>` tenha escopo `input_alias1` e represente os conjuntos:  
   
-    {100, 200} para `input_alias2 = A,`  
+    {100, 200} para`input_alias2 = A,`  
   
     {300} para `input_alias2 = C,`  
   
@@ -473,40 +473,40 @@ ORDER BY <sort_specification>
   
 |**Categoria**|**Detalhes**|  
 |-|-|  
-|**aritmética**|O operador espera que as entradas sejam números. A saída também é um número. Se qualquer uma das entradas for **indefinido** ou um tipo que não seja número, o resultado será **indefinido**.|  
+|**aritmético**|O operador espera que as entradas sejam números. A saída também é um número. Se qualquer uma das entradas for **indefinido** ou um tipo que não seja número, o resultado será **indefinido**.|  
 |**bit a bit**|O operador espera que as entradas sejam números inteiros com sinal de 32 bits. A saída também é um número inteiro com sinal de 32 bits.<br /><br /> Os valores não inteiros serão arredondados. Os valores positivos serão arredondados para baixo; os valores negativos, arredondados para cima.<br /><br /> Qualquer valor fora do intervalo inteiro de 32 bits será convertido usando-se os últimos 32 bits de notação de complemento do dois.<br /><br /> Se qualquer uma das entradas for **indefinido** ou um tipo que não seja número, o resultado será **indefinido**.<br /><br /> **Observação:** O comportamento acima é compatível com o comportamento do operador bit a bit do JavaScript.|  
-|**Lógica**|O operador espera que as entradas sejam boolianos. A saída também é um valor booliano.<br />Se qualquer uma das entradas for **indefinido** ou um tipo que não seja booliano, o resultado será **indefinido**.|  
-|**Comparação**|O operador espera que as entradas tenham o mesmo tipo e não sejam indefinidas. A saída é um valor booliano.<br /><br /> Se qualquer uma das entradas for **indefinido** ou tiver tipos diferentes, o resultado será **indefinido**.<br /><br /> Consulte a tabela **Ordenação dos valores para comparação** para ver detalhes da ordem dos valores.|  
-|**cadeia de caracteres**|O operador espera que as entradas sejam cadeias de caracteres. A saída também é uma cadeia de caracteres.<br />Se qualquer uma das entradas for **indefinido** ou um tipo que não seja cadeia de caracteres, o resultado será **indefinido**.|  
+|**lógico**|O operador espera que as entradas sejam boolianos. A saída também é um valor booliano.<br />Se qualquer uma das entradas for **indefinido** ou um tipo que não seja booliano, o resultado será **indefinido**.|  
+|**comparação**|O operador espera que as entradas tenham o mesmo tipo e não sejam indefinidas. A saída é um valor booliano.<br /><br /> Se qualquer uma das entradas for **indefinido** ou tiver tipos diferentes, o resultado será **indefinido**.<br /><br /> Consulte a tabela **Ordenação dos valores para comparação** para ver detalhes da ordem dos valores.|  
+|**string**|O operador espera que as entradas sejam cadeias de caracteres. A saída também é uma cadeia de caracteres.<br />Se qualquer uma das entradas for **indefinido** ou um tipo que não seja cadeia de caracteres, o resultado será **indefinido**.|  
   
  **Operadores unários:**  
   
-|**NOME**|**Operador**|**Detalhes**|  
+|**Nome**|**Operador**|**Detalhes**|  
 |-|-|-|  
-|**aritmética**|+<br /><br /> -|Retorna o valor do número.<br /><br /> Negação bit a bit. Retorna o valor do número negado.|  
+|**aritmético**|+<br /><br /> -|Retorna o valor do número.<br /><br /> Negação bit a bit. Retorna o valor do número negado.|  
 |**bit a bit**|~|Complemento de um. Retorna um complemento de um valor numérico.|  
-|**Lógico**|**NÃO**|Negação. Retorna o valor booliano negado.|  
+|**Lógico**|**NOT**|Negação. Retorna o valor booliano negado.|  
   
  **Operadores binários:**  
   
-|**NOME**|**Operador**|**Detalhes**|  
+|**Nome**|**Operador**|**Detalhes**|  
 |-|-|-|  
-|**aritmética**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Modulação.|  
+|**aritmético**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Modulação.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Deslocamento para a esquerda.<br /><br /> Deslocamento para a direita.<br /><br /> Deslocamento à direita com preenchimento com zero.|  
-|**Lógica**|**E**<br /><br /> **OU**|Conjunção lógica. Retorna **true** se os dois argumentos forem **true**; do contrário, retorna **false**.<br /><br /> Disjunção lógica. Retorna **true** se algum argumento for **true**; do contrário, retorna **false**.|  
-|**Comparação**|**=**<br /><br /> **! =, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Retorna **true** se os argumentos forem iguais; do contrário, retorna **false**.<br /><br /> Não igual a. Retorna **true** se os argumentos não forem iguais; do contrário, retorna **false**.<br /><br /> Maior que. Retorna **true** se o primeiro argumento for maior do que o segundo; do contrário, retorna **false**.<br /><br /> Maior ou igual a. Retorna **true** se o primeiro argumento for maior ou igual ao segundo; do contrário, retorna **false**.<br /><br /> Menor que. Retorna **true** se o primeiro argumento for menor do que o segundo; do contrário, retorna **false**.<br /><br /> Menor ou igual a. Retorna **true** se o primeiro argumento for menor ou igual ao segundo; do contrário, retorna **false**.<br /><br /> Coalesce. Retorna o segundo argumento se o primeiro argumento tem valor **indefinido**.|  
+|**lógico**|**AND**<br /><br /> **OR**|Conjunção lógica. Retorna **true** se os dois argumentos forem **true**; do contrário, retorna **false**.<br /><br /> Disjunção lógica. Retorna **true** se algum argumento for **true**; do contrário, retorna **false**.|  
+|**comparação**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Retorna **true** se os argumentos forem iguais; do contrário, retorna **false**.<br /><br /> Não igual a. Retorna **true** se os argumentos não forem iguais; do contrário, retorna **false**.<br /><br /> Maior que. Retorna **true** se o primeiro argumento for maior do que o segundo; do contrário, retorna **false**.<br /><br /> Maior ou igual a. Retorna **true** se o primeiro argumento for maior ou igual ao segundo; do contrário, retorna **false**.<br /><br /> Menor que. Retorna **true** se o primeiro argumento for menor do que o segundo; do contrário, retorna **false**.<br /><br /> Menor ou igual a. Retorna **true** se o primeiro argumento for menor ou igual ao segundo; do contrário, retorna **false**.<br /><br /> Coalesce. Retorna o segundo argumento se o primeiro argumento tem valor **indefinido**.|  
 |**Cadeia de caracteres**|**&#124;&#124;**|Concatenação. Retorna uma concatenação dos dois argumentos.|  
   
  **Operadores ternários:**  
 
-|**NOME**|**Operador**|**Detalhes**| 
+|**Nome**|**Operador**|**Detalhes**| 
 |-|-|-|  
 |Operador ternário|?|Retorna o segundo argumento se o primeiro argumento é avaliado como **true**; do contrário, retorna o terceiro argumento.|  
 
   
  **Ordenação dos valores para comparação**  
   
-|**Type**|**Ordem de valores**|  
+|**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Não é comparável.|  
 |**Nulo**|Valor único: **nulo**|  
@@ -521,7 +521,7 @@ ORDER BY <sort_specification>
   
  Isso significa que uma consulta semelhante a: SELECT * FROM ROOT r WHERE r.Age = 21 somente retornará documentos com a propriedade Idade igual ao número 21. Documentos com propriedade Age igual à cadeia de caracteres "21" ou à cadeia de caracteres "0021" não corresponderão, já que a expressão "21" = 21 é avaliada como indefinida. Isso permite um melhor uso dos índices porque a pesquisa de um valor específico (como o número 21) é mais rápida do que a pesquisa por um número indefinido de correspondências em potencial (o número 21 ou cadeia de caracteres "21", "021", "21.0" …). Isso é diferente de como o JavaScript avalia os operadores em relação a valores de tipos diferentes.  
   
- **Comparação e igualdade de matrizes e objetos**  
+ **Comparação e igualdade de objetos e matrizes**  
   
  A comparação de valores de objeto ou matriz usando os operadores de intervalo (>, >=, <, <=) resulta em indefinido, pois não tem ordem definida nos valores de objeto ou matriz. No entanto, o uso de operadores de igualdade/desigualdade (=,! =, <>) tem suporte e os valores são comparados estruturalmente.  
   
@@ -534,11 +534,11 @@ ORDER BY <sort_specification>
   
  **Suporte para tipos de dados escalares:**  
   
-|**Type**|**Ordem de valores**|  
+|**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Nulo**|Valor único: **nulo**|  
-|**BOOLEAN**|Valores: **falso**, **verdadeiro**.|  
+|**Booliano**|Valores: **falso**, **verdadeiro**.|  
 |**Número**|Um número de ponto flutuante de precisão dupla, padrão IEEE 754.|  
 |**Cadeia de caracteres**|Uma sequência de zero ou mais caracteres Unicode. As cadeias de caracteres devem ser colocadas entre aspas simples ou duplas.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalares, exceto Indefinido.|  
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   As seguintes sequências de escape são permitidas:  
   
-|**Sequência de escape**|**DESCRIÇÃO**|**Caractere Unicode**|  
+|**Sequência de escape**|**Descrição**|**Caractere Unicode**|  
 |-|-|-|  
 |\\'|apóstrofo (')|U+0027|  
 |\\"|aspas (")|U+0022|  
@@ -658,7 +658,7 @@ ORDER BY <sort_specification>
   
      A tabela a seguir descreve as convenções usadas para descrever a sintaxe na referência do SQL a seguir.  
   
-    |**Convenção**|**Usado para**|  
+    |**Convenção**|**Usadas para**|  
     |-|-|    
     |LETRAS MAIÚSCULAS|Palavras-chave não diferenciam maiúsculas de minúsculas.|  
     |letras minúsculas|Palavras-chave diferenciam maiúsculas de minúsculas.|  
@@ -691,10 +691,10 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[GRAUS](#bk_degrees)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[SIN](#bk_sin)|  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
@@ -1842,10 +1842,10 @@ SELECT
   
 ||||  
 |-|-|-|  
-|[CONCAT](#bk_concat)|[CONTÉM](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[COMPRIMENTO](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
-|[REPLICAR](#bk_replicate)|[INVERTER](#bk_reverse)|[CERTO](#bk_right)|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[COMPRIMENTO](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
@@ -3293,8 +3293,8 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
-- [Sintaxe SQL e consulta SQL para o Cosmos DB](how-to-sql-query.md)
+- [Sintaxe SQL e consulta SQL para Cosmos DB](how-to-sql-query.md)
 
-- [Documentação do cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Documentação do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006731"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Compreender atribuições de negação dos recursos do Azure
@@ -56,12 +56,12 @@ Este artigo descreve como as atribuições de negação são definidas.
 
 ## <a name="system-defined-principal"></a>Entidade definida pelo sistema
 
-Para suportar negar atribuições, o **Principal definido pelo sistema** foi introduzido. Essa entidade representa todos os usuários, grupos, entidades de serviço e identidades gerenciadas em um diretório do Microsoft Azure Active Directory. Se o ID principal for um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo principal for `SystemDefined`, o principal representará todos os principais. `SystemDefined` pode ser combinado com `ExcludePrincipals` para negar todas as entidades, exceto alguns usuários. `SystemDefined` tem as seguintes restrições:
+Para suportar negar atribuições, o **Principal definido pelo sistema** foi introduzido. Essa entidade representa todos os usuários, grupos, entidades de serviço e identidades gerenciadas em um diretório do Microsoft Azure Active Directory. Se o ID principal for um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo principal for `SystemDefined`, o principal representará todos os principais. `SystemDefined` pode ser combinado com `ExcludePrincipals` para negar todos os principais, exceto alguns usuários. `SystemDefined` tem as seguintes restrições:
 
 - Pode ser usada apenas em `Principals` e não pode ser usada em `ExcludePrincipals`.
 - `Principals[i].Type` deve ser definido como `SystemDefined`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Exibir atribuições de negação para recursos do Azure usando o portal do Azure](deny-assignments-portal.md)
-* [Compreender as definições de função nos recursos do Azure](role-definitions.md)
+* [Modo de exibição negar as atribuições de recursos do Azure usando o portal do Azure](deny-assignments-portal.md)
+* [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md)

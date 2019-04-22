@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048870"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
@@ -67,5 +67,5 @@ O dispositivo pode assinar um token SAS usando o nonce descriptografado e reesta
 
 Agora o dispositivo conecta-se ao Hub IoT e você tem a certeza de que as chaves dos seus dispositivos estão armazenadas com segurança. Agora que você sabe como o Serviço de Provisionamento de Dispositivos verifica com segurança a identidade de um dispositivo usando o TPM, confira os seguintes artigos para saber mais:
 
-* [Saiba mais sobre todos os conceitos de provisionamento automático](./concepts-auto-provisioning.md)
+* [Conheça todos os conceitos no provisionamento automático](./concepts-auto-provisioning.md)
 * [Comece a usar o provisionamento automático](./quick-setup-auto-provision.md) com os SDKs para cuidar do fluxo.

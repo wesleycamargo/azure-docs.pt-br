@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359115"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
@@ -47,9 +47,9 @@ Ao trabalhar com namespaces de barramento de serviço, você pode usar o [Get-Az
 
 Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
-* `$Namespace` é o nome do namespace do barramento de serviço com a qual queremos trabalhar.
+* `$Namespace` é o nome do namespace do Barramento de Serviço com o qual queremos trabalhar.
 * `$Location` identifica o data center no qual provisionamos o namespace.
-* `$CurrentNamespace` armazena o namespace de referência que recuperamos (ou criar).
+* `$CurrentNamespace` armazena o namespace de referência que recuperamos (ou criamos).
 
 Em um script real, `$Namespace` e `$Location` podem ser passados como parâmetros.
 
@@ -170,9 +170,9 @@ Você pode usar o [Módulo do PowerShell do Barramento de Serviço](/powershell/
 
 Há algumas formas alternativas de gerenciar entidades do Barramento de Serviço, conforme descrito nessas postagens de blog:
 
-* [Como criar filas do barramento de serviço, tópicos e assinaturas usando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Como criar um Namespace de barramento de serviço e um Hub de eventos usando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
-* [Scripts do PowerShell do barramento de serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 

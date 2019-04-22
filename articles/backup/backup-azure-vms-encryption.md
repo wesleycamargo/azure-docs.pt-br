@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358239"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
@@ -30,10 +30,10 @@ O Backup do Azure dá suporte ao backup de VMs do Azure que têm seus discos de 
 
 O Backup do Azure pode fazer backup e restaurar VMs do Azure usando o ADE com e sem o aplicativo do Azure AD, conforme resumido na tabela a seguir.
 
-**Tipo de disco de VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
+**Tipo de disco da VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
 --- | --- | ---
-**Não Gerenciado** | Sim | Sim
-**Gerenciada**  | Sim | Sim
+**não gerenciado** | Sim | Sim
+**Gerenciado**  | Sim | Sim
 
 - Saiba mais sobre [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), e [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leia as [perguntas frequentes sobre](../security/azure-security-disk-encryption-faq.md) para criptografia de disco de VM do Azure.
@@ -155,7 +155,7 @@ Você pode restaurar VMs criptografadas da seguinte maneira:
     - Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Crie uma nova VM de discos restaurados usando o Powershell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver algum problema, examine
 

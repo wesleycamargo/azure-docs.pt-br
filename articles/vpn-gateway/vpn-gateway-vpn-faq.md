@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281042"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
@@ -73,9 +73,9 @@ Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 1. Exclua o gateway:
 1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [O Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Criar um novo gateway do tipo desejado e concluir a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>É necessária uma 'GatewaySubnet'?
 
@@ -182,7 +182,7 @@ Esta seção se aplica ao modelo de implantação do Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
 
-**Modelo de implantação do Gerenciador de Recursos**<br>
+**Modelo de implantação do Resource Manager**<br>
 Sim. Veja a seção [BGP](#bgp) para saber mais.
 
 **Modelo de implantação clássica**<br>

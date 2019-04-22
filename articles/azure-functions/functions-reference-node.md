@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010109"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
@@ -110,13 +110,13 @@ Em JavaScript, [ligações](functions-triggers-bindings.md) são configuradas e 
 
 ### <a name="inputs"></a>Entradas
 As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Trigger e outras ligações de entrada (ligações de `direction === "in"`) podem ser lidas por uma função de três maneiras:
- - **_[Recomendado]_  Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. O `name` propriedade definida no *Function. JSON* não precisa corresponder ao nome do parâmetro, embora deveria.
+ - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. O `name` propriedade definida no *Function. JSON* não precisa corresponder ao nome do parâmetro, embora deveria.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como os membros de [ `context.bindings` ](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva....
+ - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva....
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    };
    ```
    
- - **Como entradas usando o JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto.** Isso é essencialmente o mesmo que passar entradas como parâmetros, mas permite que você manipule dinamicamente entradas.
+ - **Como entradas usando o [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx)objeto JavaScript.** Isso é essencialmente o mesmo que passar entradas como parâmetros, mas permite que você manipule dinamicamente entradas.
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ As saídas (ligações de `direction === "out"`) podem ser gravadas por uma fun�
 
 Você pode atribuir os dados para as associações de saída em uma das seguintes maneiras (não o combine esses métodos):
 
-- **_[Recomendado para várias saídas]_  Retornando um objeto.** Se você estiver usando uma async/promessa de retorno de função, você pode retornar um objeto com dados de saída atribuído. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
+-  **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma async/promessa de retorno de função, você pode retornar um objeto com dados de saída atribuído. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Você pode atribuir os dados para as associações de saída em uma das seguinte
   ```
 
   Se você estiver usando uma função síncrona, você pode retornar este objeto usando [`context.done`](#contextdone-method) (veja o exemplo).
-- **_[Recomendado para a saída única]_  Retornando um valor diretamente e usando o nome da associação $return.** Isso funciona apenas para as funções de retorno assíncrono / Promessa. Veja o exemplo em [exportando uma função assíncrona](#exporting-an-async-function). 
+- **_[Recomendado para saída única]_ Retornando um valor diretamente e usando o nome de ligação $ return.** Isso funciona apenas para as funções de retorno assíncrono / Promessa. Veja o exemplo em [exportando uma função assíncrona](#exporting-an-async-function). 
 - **Atribuindo valores a serem `context.bindings`**  você pode atribuir valores diretamente para Context. Bindings.
 
   ```javascript
@@ -352,9 +352,9 @@ O objeto `context.req` (solicitação) tem as seguintes propriedades:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo da solicitação.               |
 | _headers_     | Um objeto que contém os cabeçalhos da solicitação.                   |
-| _estático_      | O método HTTP da solicitação.                                |
+| _method_      | O método HTTP da solicitação.                                |
 | _originalUrl_ | A URL da solicitação.                                        |
-| _param. autom._      | Um objeto que contém os parâmetros de roteamento da solicitação. |
+| _params_      | Um objeto que contém os parâmetros de roteamento da solicitação. |
 | _query_       | Um objeto que contém os parâmetros da consulta.                  |
 | _rawBody_     | O corpo da mensagem como uma cadeia de caracteres.                           |
 
@@ -374,7 +374,7 @@ O objeto `context.res` (resposta) tem as seguintes propriedades:
 
 Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de solicitação e resposta HTTP:
 
-+ **Das propriedades `req` e `res` no objeto `context`.** Dessa forma, você pode usar o padrão convencional para acessar os dados HTTP a partir do objeto de contexto, em vez de usar o padrão `context.bindings.name` completo. O exemplo a seguir mostra como acessar os objetos `req` e `res` no `context`:
++ **Partir `req` e `res` propriedades no `context` objeto.** Dessa forma, você pode usar o padrão convencional para acessar os dados HTTP a partir do objeto de contexto, em vez de usar o padrão `context.bindings.name` completo. O exemplo a seguir mostra como acessar os objetos `req` e `res` no `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -383,7 +383,7 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ **A partir das associações de entrada e saída nomeadas.** Dessa forma, o gatilho e as associações de HTTP funcionam da mesma forma que qualquer outra associação. O exemplo a seguir define o objeto de resposta usando uma associação chamada `response`: 
++ **Na entrada nomeada e associações de saída.** Dessa forma, o gatilho e as associações de HTTP funcionam da mesma forma que qualquer outra associação. O exemplo a seguir define o objeto de resposta usando uma associação chamada `response`: 
 
     ```json
     {
@@ -395,9 +395,9 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Response only]_ Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com a entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
++ **_[Somente Resposta]_ Chamando`context.res.send(body?: any)`.** Uma resposta HTTP é criada com a entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
 
-+ **_[Response only]_ Chamando `context.done()`.** Um tipo especial de associação HTTP que retorna a resposta passada ao método `context.done()`. A seguinte associação de saída HTTP define um parâmetro de saída `$return`:
++ **_[Somente Resposta]_ Chamando`context.done()`.** Um tipo especial de associação HTTP que retorna a resposta passada ao método `context.done()`. A seguinte associação de saída HTTP define um parâmetro de saída `$return`:
 
     ```json
     {
@@ -494,7 +494,7 @@ As propriedades `scriptFile` e `entryPoint` do `function.json` podem ser usadas 
 
 Por padrão, uma função JavaScript é executada do `index.js`, um arquivo que compartilha o mesmo diretório pai que seu `function.json` correspondente.
 
-`scriptFile` pode ser usado para obter uma estrutura de pastas que se parece com o exemplo a seguir:
+`scriptFile` pode ser usado para obter uma estrutura de pastas semelhante ao exemplo a seguir:
 
 ```
 FunctionApp
@@ -624,8 +624,8 @@ Quando você usa um cliente específico do serviço em um aplicativo de funçõe
 
 Para saber mais, consulte os recursos a seguir:
 
-+ [Práticas recomendadas do Azure Functions](functions-best-practices.md)
++ [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-+ [Associações e gatilhos do azure Functions](functions-triggers-bindings.md)
++ [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 
 ['func azure functionapp publish']: functions-run-local.md#project-file-deployment

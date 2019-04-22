@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
 ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361364"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes
@@ -186,8 +186,8 @@ Discos dinâmicos têm suporte ao replicar máquinas virtuais Hyper-V e ao repli
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>É possível limitar a largura de banda alocada para o tráfego de replicação?
 Sim. Você pode ler mais sobre a limitação de largura de banda nesses artigos:
 
-* [Planejamento de capacidade para replicar VMs VMware e servidores físicos](site-recovery-plan-capacity-vmware.md)
-* [Planejamento de capacidade para replicar VMs Hyper-V para o Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Planejamento de capacidade para a replicação de VMs VMware e servidores físicos](site-recovery-plan-capacity-vmware.md)
+* [Planejamento de capacidade para a replicação de VMs Hyper-V para o Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 
 
@@ -223,9 +223,9 @@ Sim, você pode usar a recuperação em uma localização alternativa para fazer
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Posso automatizar os cenários do Site Recovery com um SDK?
 Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Rest, o PowerShell ou o SDK do Azure. Cenários com suporte no momento para implantar a Recuperação de Site usando o PowerShell:
 
-* [Replicar VMs Hyper-V em nuvens VMM para o Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
-* [Replicar VMs Hyper-V sem VMM para o Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
-* [Replicar o VMware no Azure com o PowerShell do Resource Manager](vmware-azure-disaster-recovery-powershell.md)
+* [Replicar VMs Hyper-V em nuvens VMM para o Azure PowerShell do Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Replicar VMs Hyper-V sem VMM para o Azure PowerShell do Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [Replicar o VMware no Azure com o Gerenciador de Recursos do PowerShell](vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="componentprovider-upgrade"></a>Atualização de componente/provedor
 
@@ -233,6 +233,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Res
 
 [Saiba mais](site-recovery-whats-new.md) sobre novas atualizações, e [Obtenha informações do pacote cumulativo de atualizações](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Leia a [visão geral do Site Recovery](site-recovery-overview.md)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265144"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início Rápido: Clonar um notebook
@@ -52,7 +52,7 @@ A clonagem cria uma cópia de um notebook do GitHub em sua conta do Azure Notebo
 
 1. Depois que a clonagem for concluída, o Azure Notebooks levará você para o novo projeto, no qual você poderá ver as cópias de todos os arquivos.
 
-    [![](media/quickstarts/completed-clone.png "Modo de exibição de um clone concluído")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "Exibição de um clone concluído")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Compartilhar um notebook
 
@@ -77,4 +77,4 @@ A clonagem cria uma cópia de um notebook do GitHub em sua conta do Azure Notebo
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar um tempo de execução de um bloco de anotações do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
 ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050672"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
@@ -154,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo de seguro desativado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> A opção `-D` é necessária porque o sistema de arquivos padrão no HDInsight é o Armazenamento do Microsoft Azure ou o Azure Data Lake Storage. `-D` Especifica que os comandos são executados no sistema de arquivos HDFS local.
+> A opção `-D` é necessária porque o sistema de arquivos padrão no HDInsight é o Armazenamento do Microsoft Azure ou o Azure Data Lake Storage. `-D` especifica que os comandos são executados no sistema de arquivos do HDFS local.
 
 Em seguida, você pode exibir um relatório que mostra os detalhes do estado do HDFS:
 
@@ -327,6 +327,6 @@ A opção final é observar as raras ocasiões em que o HDFS entra em modo de se
     
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução ao HDInsight do Azure](hadoop/apache-hadoop-introduction.md)
+* [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)

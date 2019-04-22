@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276636"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Visualização de sentinela do Azure integrado
@@ -49,7 +49,7 @@ Depois de se conectar suas fontes de dados, escolha de uma galeria de painéis c
 1. Entra no portal do Azure.
 2. Certifique-se de que a assinatura na qual o Azure Sentinel é criado, está selecionada. 
 3. Procure Sentinela do Azure. 
-   ![pequisa](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Clique em **+Adicionar**.
 1. Selecione o espaço de trabalho que você deseja usar ou criar um novo. Você pode executar o Azure Sentinel em mais de um espaço de trabalho, mas os dados são isolados para um único espaço de trabalho.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052786"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões no Assistente do Azure
@@ -53,5 +53,5 @@ Se você receber um erro ao tentar adiar ou ignorar uma recomendação, você po
 
 Este artigo forneceu uma visão geral de como o Supervisor usa o RBAC para controlar as permissões de usuário e como resolver problemas comuns. Para saber mais sobre o Assistente, consulte:
 
-- [O que é o Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
+- [O que é Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
 - [Introdução ao Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

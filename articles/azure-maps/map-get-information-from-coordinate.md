@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256049"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações de uma coordenada
@@ -29,7 +29,7 @@ Há duas maneiras de fazer uma pesquisa inversa de endereço. Uma delas é a con
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar a chave de assinatura. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. Em seguida, a `atlas.service.MapsURL.newPipeline()` usa o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `searchURL` representa uma URL para o Azure mapas [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
+O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. Em seguida, a `atlas.service.MapsURL.newPipeline()` usa o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `searchURL` representa uma URL para as operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas.
 
 O terceiro bloco de código atualiza o estilo do cursor do mouse em um ponteiro e cria um [pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objeto. Você pode ver [adicionar um popup no mapa](./map-add-popup.md) para obter instruções.
 
@@ -59,7 +59,7 @@ A mudança de cursor, um objeto pop-up e o evento click são todos criados no [l
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
@@ -67,7 +67,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Consulte os seguintes artigos para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Mostrar direções de A para B](./map-route.md)
+> [Mostrar trajetos de A para B](./map-route.md)
 
 > [!div class="nextstepaction"]
-> [Mostrar o tráfego](./map-show-traffic.md)
+> [Mostrar tráfego](./map-show-traffic.md)

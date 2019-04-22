@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279968"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
@@ -76,8 +76,8 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}` – Substitua pelo nome do seu grupo de gerenciamento
-- `{subscriptionId}` -Substitua pela sua ID de assinatura
+- `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
+- `{subscriptionId}`: substitua por sua ID da assinatura
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint
 
@@ -238,7 +238,7 @@ Os artefatos de um grupo de recursos são definidos com as propriedades "nome do
   }
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
