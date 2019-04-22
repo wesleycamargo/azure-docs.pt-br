@@ -55,11 +55,11 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    | Propriedade | Necessário | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Mercado | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Search Query | Sim | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Count | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Offset | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo:
@@ -106,11 +106,11 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Necessário | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Mercado | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
-   | Salvar pesquisa | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
+   | Count | Não | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Offset | Não | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira aqueles resultados cuja categoria inclua a palavra "tech".
