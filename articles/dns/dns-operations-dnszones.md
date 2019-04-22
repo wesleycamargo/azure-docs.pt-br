@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: victorh
 ms.openlocfilehash: 2d3bb37998a037dcb878a988d4aa01245584ca82
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496413"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerenciar as zonas DNS usando o PowerShell
@@ -168,7 +168,7 @@ Você pode substituir a configuração `$ConfirmPreference` atual usando o parâ
 
 Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [Sobre as Variáveis de Preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [gerenciar conjuntos de registros e registros](dns-operations-recordsets.md) em sua zona DNS.
 <br>

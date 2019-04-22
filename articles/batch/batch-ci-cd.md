@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494637"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Pipelines do Azure para criar e implantar soluções HPC
@@ -506,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 Além deste artigo, há dois tutoriais que utilizam o ffmpeg, usando o .NET e Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta do lote por meio de um aplicativo simples.
 
-* [Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python](tutorial-parallel-python.md)
-* [Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET](tutorial-parallel-dotnet.md)
+* [Executar uma carga de trabalho paralela com o lote do Azure usando a API do Python](tutorial-parallel-python.md)
+* [Executar uma carga de trabalho paralela com o lote do Azure usando a API do .NET](tutorial-parallel-dotnet.md)

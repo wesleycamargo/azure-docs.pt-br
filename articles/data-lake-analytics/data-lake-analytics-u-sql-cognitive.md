@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492933"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introdução aos recursos Cognitivos do U-SQL
@@ -31,7 +31,7 @@ Os exemplos a seguir usando recursos cognitivos estão disponíveis:
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrando extensões cognitivas no U-SQL
 Antes de começar, siga as etapas neste artigo para registrar extensões cognitivas no U-SQL: [Registrando extensões cognitivas no U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
-## <a name="next-steps"></a>Próximos passos
-* [U-SQL/exemplos de Cognitivos](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [Desenvolver scripts U-SQL usando ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## <a name="next-steps"></a>Próximas etapas
+* [U-SQL/Exemplos de Cognitivos](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)

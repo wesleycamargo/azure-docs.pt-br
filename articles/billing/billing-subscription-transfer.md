@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678812"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
 
@@ -30,7 +30,7 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 
 > [!IMPORTANT]
 > 
-> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
+> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino. Você também precisará recriar manualmente as identidades gerenciadas para recursos do Azure. Para obter mais informações, consulte [identidades gerenciadas de perguntas frequentes e problemas conhecidos com](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
 
@@ -52,7 +52,7 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 
    > [!IMPORTANT]
    > 
-   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
+   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino. Você também precisará recriar manualmente as identidades gerenciadas para recursos do Azure. Para obter mais informações, consulte [identidades gerenciadas de perguntas frequentes e problemas conhecidos com](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Caixa de diálogo de assinatura de transferência](./media/billing-subscription-transfer/image2.PNG)
 

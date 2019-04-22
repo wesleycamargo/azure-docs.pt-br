@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Azure Active Directory com Montage Online
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Montage Online ao Azure AD, você precisa adicionar o Montage Online a partir da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o Montage Online por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Montage Online a partir da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 

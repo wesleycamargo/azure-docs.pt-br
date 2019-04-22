@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
 ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491503"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
@@ -30,10 +30,10 @@ Este artigo fornece etapas de solução de problemas que podem ajudar você a re
 **Mensagem de erro**: Agente de VM não consegue se comunicar com o Backup do Azure<br>
 
 Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciará o trabalho comunicando-se com o agente de VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Quando um instantâneo não é disparado, o backup pode falhar. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:<br>
-**Causa 1: [O agente está instalado na VM, mas ele não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 1: [O agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [Não é possível recuperar o status do instantâneo ou um instantâneo não pode ser criado.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Causa 4: [A extensão de backup não pode ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Causa 4: [A extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 5: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError – não foi possível se comunicar com o agente de VM para o status do instantâneo
@@ -42,7 +42,7 @@ Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciar
 **Mensagem de erro**: Não foi possível se comunicar com o agente de VM para status do instantâneo <br>
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
-**Causa 1: [O agente está instalado na VM, mas ele não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 1: [O agente é instalado na VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
@@ -58,8 +58,8 @@ Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repi
 > [!NOTE]
 > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
-**Etapa 1: [Remova o bloqueio do grupo de recursos de ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**Etapa 2: [Limpar a coleção de pontos de restauração](#clean_up_restore_point_collection)**<br>
+**Etapa 1: [Remover bloqueio do grupo de recursos do ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Etapa 2: [ Limpar a coleção do ponto de restauração](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured – o backup não tem permissões suficientes no cofre de chaves para o backup de VMs criptografadas
 
@@ -74,8 +74,8 @@ Para que a operação de backup tenha êxito em VMs criptografadas, é necessár
 **Mensagem de erro**: Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual<br>
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:    
-**Causa 1: [Não é possível recuperar o status do instantâneo ou um instantâneo não pode ser criado.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [A extensão de backup não pode ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 1: [O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [A extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 3: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot - falha na operação da extensão VMSnapshot
@@ -84,9 +84,9 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Mensagem de erro**: Falha na operação da extensão de VMSnapshot<br>
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
-**Causa 1: [Não é possível recuperar o status do instantâneo ou um instantâneo não pode ser criado.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [A extensão de backup não pode ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [O agente está instalado na VM, mas ele não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 1: [O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [A extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [O agente é instalado na VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 4: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 – falha no backup, com um erro interno
@@ -95,11 +95,11 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Mensagem de erro**: Falha no backup com um erro interno – tente novamente a operação dentro de alguns minutos <br>
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
-**Causa 1: [O agente instalado na VM, mas ele não está respondendo (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 1: [O agente está instalado na VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [Não é possível recuperar o status do instantâneo ou um instantâneo não pode ser criado.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 4: [A extensão de backup não pode ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: Serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
+**Causa 3: [O status do instantâneo não pode ser recuperado, ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 4: [A extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 5: O serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Causa 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - Backup do Azure atualmente não dá suporte a tamanhos de disco maiores que 4095GB
@@ -164,7 +164,7 @@ A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VM
    > [!NOTE]
    > Estamos *altamente recomendável* que você atualizar o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente para a sua distribuição não está disponível, entre em contato com o suporte da distribuição para obter instruções de como instalá-lo. Para verificar o agente mais recente, vá para a página [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
 
-2. Certifique-se de que o agente do Azure está em execução na máquina virtual executando o seguinte comando: `ps -e`
+2. Verifique se o agente do Azure está em execução na VM, executando o seguinte comando: `ps -e`
 
    Se o processo não estiver em execução, reinicie-o usando os seguintes comandos:
 
@@ -225,7 +225,7 @@ A realização dessas etapas faz com que a extensão seja reinstalada durante o 
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de pontos de restauração
 Depois de remover o bloqueio, os pontos de restauração precisam ser limpos. Para limpar os pontos de restauração, siga qualquer um dos seguintes métodos:<br>
 * [Limpar a restauração de ponto coleção executando backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Limpar a restauração de ponto de coleção no portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
+* [Limpar a coleção de pontos de restauração do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a restauração de ponto coleção executando backup ad hoc
 Depois de remover o bloqueio, dispare um backup do ad hoc/manual. Isso garantirá que os pontos de restauração sejam limpos automaticamente. Esperar ad hoc/manual a falha da operação primeira vez; No entanto, ele garantirá que a limpeza automática, em vez de exclusão manual dos pontos de restauração. Após a limpeza, o próximo backup agendado deverá ser bem-sucedido.

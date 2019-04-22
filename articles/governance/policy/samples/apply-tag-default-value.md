@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266640"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exemplo – Aplicar tag e seu valor padrão
@@ -21,7 +21,7 @@ Essa política acrescenta um nome e valor de marca especificados, se a marca nã
 Você pode implantar essa política de exemplo usando:
 
 - O [Portal do Azure](#azure-portal)
-- [Azure PowerShell](#azure-powershell)
+- [PowerShell do Azure](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 

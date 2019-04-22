@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863008"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer backup de VMs do Azure com o PowerShell
@@ -122,5 +122,5 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Revisar](backup-azure-vms-automation.md) uma explicação mais detalhada de backup e restauração de VMs do Azure com o PowerShell. 
-- [Gerenciar e monitorar as VMs do Azure](backup-azure-manage-vms.md)
-- [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md)
+- [Gerenciar e monitorar o backup de VM do Azure](backup-azure-manage-vms.md)
+- [Restaurar máquinas virtuais do Azure](backup-azure-arm-restore-vms.md)

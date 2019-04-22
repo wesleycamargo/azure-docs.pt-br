@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493977"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Proteger a comunicação do cliente OPC e OPC PLC
@@ -92,7 +92,7 @@ O motivo da falha é que o certificado não é confiável. Isso significa que `o
     
 1. Vá para o [site do Cofre de OPC](https://opcvault.azurewebsites.net/).
 
-1. Selecionar `Register New`
+1. Selecione `Register New`
 
 1. Insira as informações de OPC PLC das saídas de log `CreateSigningRequest information` área nos campos de entrada a `Register New OPC UA Application` página, selecione `Server` como ApplicationType.
 

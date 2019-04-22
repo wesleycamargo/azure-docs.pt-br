@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 79913fc300f2ca66a84cf47c0e5b650b9ea2cc59
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878767"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Xamarin.Android usando Hubs de Notificação do Microsoft Azure
@@ -331,7 +331,7 @@ As notificações por push são geralmente enviadas em um serviço back-end, com
 Neste tutorial, você envia notificações de transmissão para todos os seus dispositivos Android registrados com o back-end. Para saber como enviar notificações por push para dispositivos Android específicos, vá para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
->[Notificações por push para dispositivos específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Notificações por push para especificar dispositivos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register

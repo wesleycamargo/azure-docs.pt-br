@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Tutorial: Integração do Azure Active Directory com o Pantheon
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar o Pantheon por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Pantheon por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Pantheon da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Pantheon, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Pantheon](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:pantheon:<orgname>-SSO`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:auth0:pantheon:<orgname>-SSO`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Pantheon](https://pantheon.io/docs/getting-support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

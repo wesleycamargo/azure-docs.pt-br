@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009251"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
@@ -58,7 +58,7 @@ Nas caixas de diálogo que seguem, faça as seguintes seleções:
     1. Desabilite a criação de um repositório Git para este projeto de exemplo.
     1. Ajuste os caminhos para o SDK em *Configurações do projeto*.
         1. Na guia **Geral** no cabeçalho **Binários Inseridos**, adicione a biblioteca do SDK como uma estrutura: **Adicionar binários inseridos** > **Adicionar outro…** > Navegue até seu diretório inicial e escolha o arquivo `MicrosoftCognitiveServicesSpeech.framework`. Isso adiciona a biblioteca do SDK ao cabeçalho **Estrutura e Bibliotecas Vinculadas** automaticamente.
-        ![Estrutura adicionada](media/sdk/qs-objectivec-framework.png)
+        ![Estrutura Adicionada](media/sdk/qs-objectivec-framework.png)
         1. Vá para a guia **Configurações de Build** e ative **Todas** as configurações.
         1. Adicione o diretório `$(SRCROOT)/..` a *Caminhos de Pesquisa do Framework* no cabeçalho **Caminhos de Pesquisa**.
         ![Configuração de Caminho de Pesquisa de Estrutura](media/sdk/qs-objectivec-framework-search-paths.png)

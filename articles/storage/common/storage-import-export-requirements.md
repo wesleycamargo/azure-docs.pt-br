@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457778"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679719"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -57,7 +57,7 @@ Cada trabalho pode ser usado para transferir dados para apenas uma conta de arma
 Os tipos de armazenamento na lista a seguir têm suporte com o serviço de Importação/Exportação do Azure.
 
 
-|Trabalho  |Serviço de Armazenamento |Com suporte  |Sem suporte  |
+|Trabalho  |Serviço de Armazenamento |Suportado  |Sem suporte  |
 |---------|---------|---------|---------|
 |Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
 |Exportação     |   Armazenamento de Blobs do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
@@ -72,9 +72,9 @@ Para o serviço de Importação/Exportação do Azure, você precisa de discos c
 Os discos na lista a seguir têm suporte para uso com o serviço de Importação/Exportação.
 
 
-|Tipo de disco  |Tamanho  |Com suporte |Sem suporte  |
+|Tipo de disco  |Tamanho  |Suportado |Sem suporte  |
 |---------|---------|---------|---------|
-|SSD    |   2,5"      |         |         |
+|SSD    |   2,5"      |SATA III          |  USB       |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |HDD externo com adaptador interno de USB <br> Disco dentro de um invólucro de HDD externo         |
 
 
@@ -87,7 +87,7 @@ Um grande número de unidades pode ser distribuído em vários trabalhos e não 
 Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport, você pode usar os adaptadores USB externos a seguir. A maioria dos adaptadores disponíveis no mercado USB 3.0 ou posteriores deve funcionar. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)

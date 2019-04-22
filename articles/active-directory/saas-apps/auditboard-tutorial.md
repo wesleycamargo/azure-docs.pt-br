@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutorial: Integração do Azure Active Directory ao AuditBoard
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do AuditBoard ao Azure AD, você precisará adicionar o AuditBoard da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o AuditBoard por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o AuditBoard da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,13 +105,13 @@ Para configurar o logon único do Azure AD com o AuditBoard, realize as seguinte
 
     ![Informações de logon único em Domínio e URLs do AuditBoard](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
     c. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo **Iniciado por SP**:
 
-    d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/`
+    d. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![Informações de logon único em Domínio e URLs do AuditBoard](common/metadata-upload-additional-signon.png)
 

@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496583"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Encaminhar status do trabalho e fluxos de trabalho de automação para logs do Azure Monitor
@@ -52,7 +52,7 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 Caso tenha mais de uma Conta de automação ou workspaces na saída dos comandos anteriores, localize o *Nome* que você precisa configurar e copie o valor de *ResourceId*.
 
-Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, selecione sua conta de Automação na folha **Conta de automação** e selecione **Todas as configurações**. Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**.  Na folha **Propriedades**, você pode observar esses valores.<br> ![Propriedades da conta de automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, selecione sua conta de Automação na folha **Conta de automação** e selecione **Todas as configurações**. Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**.  Na folha **Propriedades**, você pode observar esses valores.<br> ![Propriedades da Conta de Automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurar a integração com os logs do Azure Monitor
 
@@ -68,8 +68,7 @@ Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, 
 
 Depois de executar esse script, ele pode levar uma hora antes de começar a ver registros em logs do Azure Monitor do novo JobLogs ou JobStreams.
 
-Para ver os logs, execute a seguinte consulta na pesquisa de logs do log analytics:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os logs, execute a seguinte consulta na pesquisa de logs do log analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar a configuração
 
@@ -137,8 +136,7 @@ O diagnóstico da automação do Azure cria dois tipos de registros em logs do A
 
 Agora que você começou a enviar seus logs de trabalho de automação para logs do Azure Monitor, vamos ver o que você pode fazer com esses logs no Azure Monitor logs.
 
-Para ver os logs, execute a consulta a seguir:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os logs, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Enviar um email quando um trabalho de runbook falhar ou for suspenso
 Uma das principais solicitações de nossos clientes é a capacidade de enviar um email ou uma mensagem de texto quando algo dá errado em um trabalho de runbook.   
@@ -146,7 +144,7 @@ Uma das principais solicitações de nossos clientes é a capacidade de enviar u
 Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros de trabalhos de runbook que devem invocar o alerta. Clique no botão **Alerta** para criar e configurar a regra de alerta.
 
 1. Na página de visão geral do espaço de trabalho do Log Analytics, clique em **exibir logs**.
-2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Você também pode agrupar pelo RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` Você também pode agrupar pelo RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se você configurou logs de mais de uma Conta de automação ou assinatura para o workspace, também poderá agrupar os alertas por assinatura e por Conta de automação. O nome da Conta de automação pode ser encontrado no campo Recurso na pesquisa de JobLogs.
 3. Para abrir a tela **Criar regra**, clique em **+ Nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [ Logar alertas no Azure ](../azure-monitor/platform/alerts-unified-log.md).
@@ -166,7 +164,7 @@ Ao depurar um trabalho, talvez você também queira examinar os fluxos de trabal
 Finalmente, talvez você queira visualizar o histórico de trabalho ao longo do tempo. Você pode usar essa consulta para pesquisar o status dos trabalhos ao longo do tempo.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Gráfico de Status de trabalho histórico do log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Gráfico de status de trabalho histórico do Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="remove-diagnostic-settings"></a>Remover as configurações de diagnóstico
 

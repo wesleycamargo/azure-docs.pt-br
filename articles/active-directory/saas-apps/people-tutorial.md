@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 14313567df69b26b000f9bddd98e009aeed2dcd7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integração do Azure Active Directory ao People
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com o People, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do People](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
 
     b. Na caixa **Identificador**, digite uma URL: `https://www.peoplehr.com`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do People](mailto:customerservices@peoplehr.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

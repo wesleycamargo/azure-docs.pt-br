@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 44959410b68439dd6a132c41d2a51dcdafdec846
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integração do Azure Active Directory com o SimpleNexus
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do SimpleNexus ao Azure AD, é necessário adicionar o SimpleNexus à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o SimpleNexus por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o SimpleNexus por meio da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 

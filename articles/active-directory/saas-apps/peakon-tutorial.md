@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Azure Active Directory ao Peakon
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Peakon, siga estas etapas:
 
     ![Domínio do pico e informações de logon único de URLs](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/metadata`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/assert`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.peakon.com/saml/<companyid>/assert`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

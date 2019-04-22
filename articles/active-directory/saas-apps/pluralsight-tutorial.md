@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Azure Active Directory ao Pluralsight
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Pluralsight ao AD do Azure, você precisará adicionar o Pluralsight da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Pluralsight por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Pluralsight por meio da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o Pluralsight, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Pluralsight](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sso/<companyname>`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
     b. Na caixa **Identificador**, digite uma URL: `www.pluralsight.com`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Pluralsight](mailto:support@pluralsight.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

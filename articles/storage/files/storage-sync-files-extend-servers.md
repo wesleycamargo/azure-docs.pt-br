@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049128"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
@@ -220,10 +220,10 @@ Para implantar a Sincronização de Arquivos do Azure, primeiro coloque um recur
 
    | Valor | DESCRIÇÃO |
    | ----- | ----- |
-   | **NOME** | Um nome exclusivo (por assinatura) para o Serviço de Sincronização de Armazenamento.<br><br>Use _afssyncservice02_ para este tutorial. |
+   | **Nome** | Um nome exclusivo (por assinatura) para o Serviço de Sincronização de Armazenamento.<br><br>Use _afssyncservice02_ para este tutorial. |
    | **Assinatura** | A assinatura do Azure usada para este tutorial. |
    | **Grupo de recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento.<br><br>Use _afsresgroup101918_ para este tutorial. |
-   | **Local padrão** | Leste dos EUA |
+   | **Localidade** | Leste dos EUA |
 
 1. Quando terminar, selecione **Criar** para implantar o **Serviço de Sincronização de Armazenamento**.
 1. Selecione a guia **Notificações** > **Ir para o recurso**.
@@ -309,8 +309,8 @@ Um ponto de extremidade de servidor representa uma localização específica em 
    | Valor | DESCRIÇÃO |
    | **Servidor registrado** | O nome do servidor criado. Use *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade criada. Use *f:\filestosync* neste tutorial. |
-   | **Camada de Nuvem** | Deixe desabilitada para este tutorial. |
-   | **Espaço Livre no Volume** | Deixe em branco para este tutorial. |
+   | **Disposição em camadas de nuvem** | Deixe desabilitada para este tutorial. |
+   | **Espaço Livre do Volume** | Deixe em branco para este tutorial. |
 
 1. Selecione **Criar**.
 

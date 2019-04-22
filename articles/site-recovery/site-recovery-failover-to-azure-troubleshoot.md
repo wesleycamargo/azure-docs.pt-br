@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492848"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
@@ -78,8 +78,8 @@ Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você n
 
 1. Vá para **Máquina Virtual** > **Rede** e clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar o IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar Novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.
 6. Agora, para salvar as alterações feitas, clique em **Salvar**.
 7. Feche os painéis e navegue até a seção **Visão geral** de máquina virtual para conectar-se/RDP.

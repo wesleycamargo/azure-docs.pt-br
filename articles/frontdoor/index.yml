@@ -40,6 +40,6 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: '<p><a href="/cli/azure/ext/front-door">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>'
+            html: '<p><a href="/cli/azure/ext/front-door">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">PowerShell do Azure</a></p>'
           - title: REST
             html: <p><a href="/rest/api/frontdoor">API REST</a></p>

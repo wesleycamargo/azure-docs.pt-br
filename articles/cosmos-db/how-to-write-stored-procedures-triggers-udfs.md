@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268393"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
@@ -320,8 +320,8 @@ Aprenda mais conceitos e como escrever ou usar procedimentos armazenados, gatilh
 
 * [Como registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript no Azure Cosmos DB](how-to-write-javascript-query-api.md)
+* [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do Javascript no Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Como trabalhar com procedimentos armazenados, gatilhos e funções definidas pelo usuário do Azure Cosmos DB no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Trabalhando com procedimentos armazenados, gatilhos e funções definidas pelo usuário do Azure Cosmos DB no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Como trabalhar com a API de consulta integrada à linguagem do JavaScript no Azure Cosmos DB](javascript-query-api.md)
+* [Trabalhando com a API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md)

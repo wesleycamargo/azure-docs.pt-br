@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integração do Azure Active Directory com o O.C. Tanner - AppreciateHub
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do O.C. Tanner - AppreciateHub no AD do Azure, você precisa adicionar O.C. Tanner - AppreciateHub a partir da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o O.C. Tanner – AppreciateHub por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o O.C. Tanner - AppreciateHub da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -193,7 +193,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao O.C. para que ela f
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no O.C. Tanner - AppreciateHub.
 
-**Para criar um usuário chamado Brenda Fernandes no O.C. Tanner – AppreciateHub, execute as seguintes etapas:**
+**Para criar um usuário chamado Brenda Fernandes no O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
 Peça à sua [equipe de suporte do O.C. Tanner – AppreciateHub](mailto:sso@octanner.com) para criar um usuário que tenha o atributo nameID com o mesmo valor que o nome de usuário Brenda Fernandes no Azure AD.
 

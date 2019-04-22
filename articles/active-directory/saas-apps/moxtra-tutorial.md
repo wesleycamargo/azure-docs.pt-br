@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Azure Active Directory com o Moxtra
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar o Moxtra da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Moxtra por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Moxtra a partir da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -239,7 +239,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Moxtra.
 
-**Para criar um usuário chamado Brenda Fernandes no Moxtra, execute as seguintes etapas:**
+**Para criar um usuário chamado Brenda Fernandes no Moxtra, realize as seguintes etapas:**
 
 1. Faça logon em seu site de empresa do Moxtra como administrador.
 
