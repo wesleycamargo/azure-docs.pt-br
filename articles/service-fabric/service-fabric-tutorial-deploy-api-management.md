@@ -16,11 +16,11 @@ ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046386"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799449"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar o Gerenciamento de API ao Service Fabric no Azure
 
@@ -41,7 +41,7 @@ Este artigo mostra como configurar o [Gerenciamento de API do Azure](../api-mana
 Antes de começar:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale [o Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [CLI do Azure](/cli/azure/install-azure-cli).
+* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
 * Crie um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em um grupo de segurança de rede.
 * Se você implantar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale as cargas de trabalho do [Visual Studio 2017](https://www.visualstudio.com) e o **Desenvolvimento do Azure**, de **desenvolvimento ASP.NET e Web** e de **desenvolvimento multiplataforma do .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 

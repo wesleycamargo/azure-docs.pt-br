@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283470"
@@ -254,7 +254,7 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país, usando o mecanismo de regras
+#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país/região, usando o mecanismo de regras
 Essa condição de correspondência permite que você execute uma variedade de personalizações com base no local de origem de uma solicitação. Por exemplo, o comportamento do recurso de filtragem de país pode ser replicado por meio da configuração a seguir:
 
 - Correspondência do Curinga de Caminho da URL: defina a [condição de correspondência do Curinga de Caminho da URL](#url-path-wildcard) para o diretório que será protegido. 

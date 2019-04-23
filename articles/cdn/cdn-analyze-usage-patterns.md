@@ -119,7 +119,7 @@ O relatório fornece os seguintes detalhes:
 
 O relatório não inclui:
 
-* Solicitações negadas devido às opções de filtragem de país.
+* Solicitações negadas devido às opções de filtragem de país/região.
 * Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, cabeçalhos `Cache-Control: private`, `Cache-Control: no-cache` ou `Pragma: no-cache` impedem o armazenamento de um ativo em cache.
 * Solicitações de intervalo de bytes para conteúdo parcialmente armazenado em cache.
 

@@ -9,14 +9,14 @@ ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
 ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58260405"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Criar certificados para o back-end de lista de permissões com o Gateway de aplicativo do Azure
 
-Para executar o SSL de ponta a ponta, o gateway de aplicativo requer as instâncias de back-end para estar na lista branca ao carregar/confiável para autenticação de certificados de raiz. No caso de SKU do v1, certificados de autenticação são necessários, enquanto que no caso de SKU do v2, trusted certificados raiz são necessários para a lista de permissões os certificados
+Para executar o SSL de ponta a ponta, o gateway de aplicativo requer as instâncias de back-end para estar na lista de permissões ao carregar/confiável para autenticação de certificados de raiz. No caso de SKU do v1, certificados de autenticação são necessários, enquanto que no caso de SKU do v2, trusted certificados raiz são necessários para a lista de permissões os certificados
 
 Neste artigo, você aprenderá a:
 

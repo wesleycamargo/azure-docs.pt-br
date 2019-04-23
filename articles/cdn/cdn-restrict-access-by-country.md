@@ -16,7 +16,7 @@ ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59526174"
@@ -56,7 +56,7 @@ Na lista **AÇÃO**, selecione **Permitir** ou **Bloquear**:
 
 - **Permitir**: Apenas os usuários de países especificados terão o acesso aos ativos solicitados o caminho recursivo.
 
-- **Bloco**: Os usuários dos países especificados terão acesso negados aos ativos solicitados o caminho recursivo. Se nenhuma outra opção de filtragem de país tiver sido configurada para esse local, então, todos os outros usuários terão acesso permitido.
+- **Bloco**: Os usuários dos países especificados terão acesso negados aos ativos solicitados o caminho recursivo. Se nenhuma outra opção de filtragem de país/região tiver sido configurada para esse local, então, todos os outros usuários terão acesso permitido.
 
 Por exemplo, uma regra de filtragem geográfica para bloquear o caminho */Fotos/Estrasburgo/* filtra os arquivos a seguir:     
 *http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*

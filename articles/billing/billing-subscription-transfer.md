@@ -19,7 +19,7 @@ ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678812"
@@ -119,7 +119,7 @@ Todos os recursos, como VMs, discos e sites, são transferidos para o novo propr
 
 ### <a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
 
-Infelizmente, a transferência de assinatura de autoatendimento não está disponível para seu país ou oferta. Para transferir a sua assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Infelizmente, a transferência de assinatura de autoatendimento não está disponível para seu país/região ou oferta. Para transferir a sua assinatura, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Uma transferência de assinatura resulta em qualquer tempo de inatividade do serviço?
 

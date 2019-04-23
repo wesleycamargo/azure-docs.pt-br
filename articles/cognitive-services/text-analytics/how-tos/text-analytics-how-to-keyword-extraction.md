@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997709"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave na Análise de Texto
 
-A [API de Extração de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave. 
+A [API de Extração de Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave. 
 
 Esse recurso é útil se você precisar identificar rapidamente os principais pontos de estratégias em uma coleção de documentos. Por exemplo, para o texto de entrada dado "A comida estava deliciosa e a equipe era maravilhosa", o serviço retorna os principais pontos de discussão: "comida" e "equipe maravilhosa".
 
@@ -71,16 +71,16 @@ O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e vo
 
 Detalhes sobre a definição de solicitação podem ser encontrados em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 
-+ Defina o ponto de extremidade HTTP para extração de frases-chave, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Defina o ponto de extremidade HTTP para extração de frases-chave, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
 
 > [!Tip]
-> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) para estruturar uma solicitação e POSTAR no serviço.
+> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) para estruturar uma solicitação e POSTAR no serviço.
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
@@ -147,7 +147,7 @@ Conforme observado, o analisador localiza e descarta as palavras não essenciais
 
 Neste artigo, você aprendeu os conceitos e fluxo de trabalho de extração de frase-chave usando a análise de texto em Serviços Cognitivos. Em resumo:
 
-+ [API de extração de frase-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) está disponível para os idiomas selecionados.
++ [API de extração de frase-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) está disponível para os idiomas selecionados.
 + Documentos JSON no corpo da solicitação incluem um código de idioma, texto e id.
 + Solicitação POST é um `/keyphrases` ponto de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para sua assinatura.
 + Saída de resposta, que consiste em palavras e frases chave para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON, incluindo o Excel e Power BI, para citar alguns.
@@ -161,4 +161,4 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho de extração de f
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [API de Análise de Texto do Azure Machine Learning](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API de Análise de Texto do Azure Machine Learning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
