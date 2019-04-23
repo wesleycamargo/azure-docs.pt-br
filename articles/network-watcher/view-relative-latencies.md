@@ -18,7 +18,7 @@ ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59792411"
@@ -135,7 +135,7 @@ Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher
 
 Os dados só estão disponíveis para os países, estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o observador de rede *NetworkWatcher_eastus* em um grupo de recursos denominado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um executando as tarefas em [Criar um observador de rede](#create-a-network-watcher). 
 
-Depois de executar o comando anterior, você pode filtrar a saída retornada especificando os valores válidos para **País**, **Estado** e **Cidade**, se quiser.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
+Depois de executar o comando anterior, você pode filtrar a saída retornada especificando os valores válidos para **País/Região**, **Estado** e **Cidade**, se quiser.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -147,4 +147,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> O valor especificado para **País** deve ter letras maiúsculas e minúsculas. Os valores especificados para **Estado** e **Cidade** devem estar em minúsculas. Os valores devem estar na saída retornada após a execução do comando sem valores para **País**, **Estado** e **Cidade**. Se você especificar a capitalização incorreta ou especificar um valor para **País**, **Estado**, ou **Cidade** que não esteja na saída retornada após executar o comando sem valores para essas propriedades, a saída retornada estará vazia.
+> O valor especificado para **País** deve ter letras maiúsculas e minúsculas. Os valores especificados para **Estado** e **Cidade** devem estar em minúsculas. Os valores devem estar na saída retornada após a execução do comando sem valores para **País/Região**, **Estado** e **Cidade**. Se você especificar a capitalização incorreta ou especificar um valor para **País**, **Estado**, ou **Cidade** que não esteja na saída retornada após executar o comando sem valores para essas propriedades, a saída retornada estará vazia.

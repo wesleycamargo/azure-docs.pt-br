@@ -14,7 +14,7 @@ ms.date: 03/22/2017
 ms.author: kumud
 ms.openlocfilehash: f033f8e8e686165febdd2262953b2aa871686a12
 ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2019
 ms.locfileid: "59609227"
@@ -99,7 +99,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - Me(Montenegro)
 
-        - MK (Macedônia do Norte)
+        - MK(Macedônia do Norte)
 
         - MT(Malta)
 
