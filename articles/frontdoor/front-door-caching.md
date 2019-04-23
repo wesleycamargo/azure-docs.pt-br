@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528290"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149471"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Cache com o Azure Front Door Service
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado.
@@ -104,7 +104,7 @@ A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um ite
 2. Cache-Control: maxage=\<seconds>
 3. Expira em: \<http-date >
 
-Cabeçalhos de resposta de Cache-Control que indicam que a resposta não será ser armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store não são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta.
+Cabeçalhos de resposta de Cache-Control que indicam que a resposta não será ser armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store não são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de Cache estiver presente o comportamento padrão é que AFD armazenará em cache o recurso para X período de tempo em que o X é escolhido aleatoriamente entre 1 a 3 dias.
 
 
 ## <a name="request-headers"></a>Cabeçalhos da solicitação
@@ -114,7 +114,7 @@ Os seguintes cabeçalhos de solicitação não serão encaminhados para um back-
 - Content-Length
 - Transfer-Encoding
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como o Front Door funciona](front-door-routing-architecture.md).

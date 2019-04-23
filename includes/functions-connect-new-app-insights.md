@@ -9,10 +9,10 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497331"
 ---
 As funções simplificam a adição da integração do Application Insights a um aplicativo de funções do [portal do Azure].
@@ -25,10 +25,10 @@ As funções simplificam a adição da integração do Application Insights a um
 
    ![Criar um recurso do Application Insights](media/functions-connect-new-app-insights/ai-general.png)
 
-    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
+    | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **NOME** | Nome de aplicativo exclusivo | É mais fácil usar o mesmo nome que seu aplicativo de funções, que deve ser exclusivo em sua assinatura. | 
-    | **Local padrão** | Europa Ocidental | Se possível, use a mesma [região](https://azure.microsoft.com/regions/) que seu aplicativo de funções ou uma região próxima dela. |
+    | **Nome** | Nome de aplicativo exclusivo | É mais fácil usar o mesmo nome que seu aplicativo de funções, que deve ser exclusivo em sua assinatura. | 
+    | **Localidade** | Europa Ocidental | Se possível, use a mesma [região](https://azure.microsoft.com/regions/) que seu aplicativo de funções ou uma região próxima dela. |
 
 1. Escolha **OK**. O recurso do Application Insights é criado no mesmo grupo de recursos e assinatura que seu aplicativo de funções. Após concluir a criação, feche a janela do Application Insights.
 

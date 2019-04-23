@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491741"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IIoT (IoT industrial)
@@ -50,4 +50,4 @@ O OPC Vault é uma implementação do GDS (Servidor de Descoberta Global) da UA 
 Agora que você viu uma introdução à IoT industrial e seus componentes, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [O que é um OPC gêmeo?](overview-opc-twin.md)
+> [O que é um OPC Twin](overview-opc-twin.md)

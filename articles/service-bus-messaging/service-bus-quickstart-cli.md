@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500627"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início Rápido: Usar a CLI do Azure para criar uma fila do Barramento de Serviço
@@ -369,7 +369,7 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como escrever código para enviar e receber mensagens, continue com os tutoriais na seção **Enviar e receber mensagens**. 
+Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como escrever o código para enviar e receber mensagens, continue com os tutoriais na seção **Enviar e receber mensagens**. 
 
 > [!div class="nextstepaction"]
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)

@@ -8,10 +8,10 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490305"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
@@ -56,7 +56,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 4. Crie um novo grupo de recursos.
 5. Especifique a localização geográfica na qual você deseja criar o projeto e clique em **Criar**. Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, você ainda pode planejar a migração de qualquer local de destino do Azure. A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais.
 
-**painel Geografia do app&#39;s selecionado** | **Local de armazenamento**
+**Geografia** | **Localização de armazenamento**
 --- | ---
 Azure Government | Gov. dos EUA – Virgínia
 Ásia | Sudeste Asiático
@@ -270,7 +270,7 @@ Cada avaliação baseada em desempenho das Migrações para Azure está associad
 
 Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória da VM. Além disso, para cada disco anexado à VM, é necessário ter os dados da taxa de transferência e a IOPS do disco. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da entrada/saída da rede para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
 
-   **Disponibilidade de pontos de dados** | **Classificação de confiança**
+   **Disponibilidade dos pontos de dados** | **Classificação de confiança**
    --- | ---
    0%-20% | 1 estrela
    21%-40% | 2 estrelas

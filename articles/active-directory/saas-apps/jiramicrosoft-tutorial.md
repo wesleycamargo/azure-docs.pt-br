@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com o SSO de SAML para o JIRA da Microsoft
@@ -133,11 +133,11 @@ Para configurar o logon único do Azure AD com o SSO de SAML para o JIRA da Micr
 
     ![Informações de logon único e domínio do SSO do SAML para o JIRA da Microsoft](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<domain:port>/`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.

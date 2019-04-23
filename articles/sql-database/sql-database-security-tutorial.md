@@ -12,10 +12,10 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496430"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
@@ -63,7 +63,7 @@ Defina **Permitir acesso aos serviços do Azure** como **DESATIVADO** para a con
 > [!NOTE]
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isso acontecer, você não poderá se conectar ao servidor do Banco de Dados SQL do Azure, a menos que o administrador abra a porta 1433.
 
-### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor de Banco de Dados SQL
+### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor do Banco de Dados SQL
 
 As regras de firewall de IP no nível do servidor se aplicam a todos os bancos de dados dentro do mesmo servidor do Banco de Dados SQL.
 

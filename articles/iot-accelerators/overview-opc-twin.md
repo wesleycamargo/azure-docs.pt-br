@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496804"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>O que é gerenciamento de dispositivo OPC (Open Platform Communications) do Azure IoT?
@@ -42,4 +42,4 @@ O OPC Twin pode ser usado com aplicativos escritos em qualquer linguagem de prog
 Agora que você aprendeu sobre o OPC Twin e seus usos, está é a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [O que é um cofre OPC?](overview-opc-twin-architecture.md)
+> [O que é um OPC Vault](overview-opc-twin-architecture.md)

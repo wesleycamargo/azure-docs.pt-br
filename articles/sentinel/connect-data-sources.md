@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492355"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
@@ -40,13 +40,13 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
 - **Serviços Microsoft**:<br> os serviços da Microsoft são conectados nativamente, utilizando a base do Azure para integração pronta para o uso. É possível conectar as soluções a seguir em poucos cliques:
     - [Office 365](connect-office-365.md)
-    - [Entradas e logs de auditoria do Azure AD](connect-azure-active-directory.md)
+    - [Entradas e logs de auditoria do Microsoft Azure Active Directory](connect-azure-active-directory.md)
     - [Atividades do Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Central de Segurança do Azure](connect-azure-security-center.md)
     - [Proteção de Informações do Azure](connect-azure-information-protection.md)
     - [Proteção Avançada contra Ameaças do Azure](connect-azure-atp.md)
-    - [Segurança de Aplicativo de Nuvem](connect-cloud-app-security.md)
+    - [Cloud App Security](connect-cloud-app-security.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
 
@@ -56,7 +56,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 - **Soluções externas por meio de agente**: o Azure Sentinel pode ser conectado a todas as outras fontes de dados capazes de executar streaming de log em tempo real usando o protocolo Syslog, por meio de um agente. <br>A maioria dos dispositivos usa o protocolo Syslog para enviar mensagens de eventos que incluem o próprio log e dados sobre o log. O formato dos logs varia. No entanto, a maioria dos dispositivos dá suporte ao padrão CEF (Formato Comum de Evento). <br>O agente do Azure Sentinel, que se baseia no agente OMS, converte logs formatados como CEF em um formato que pode ser ingerido pela Análise de Logs. Dependendo do tipo de dispositivo, o agente é instalado diretamente no dispositivo ou em um servidor dedicado do Linux. O agente para Linux recebe eventos do daemon Syslog por UDP. Porém, em casos em que um computador Linux deve coletar um alto volume de eventos de Syslog, eles são enviados por meio de TCP do daemon Syslog para o agente e de lá para a Análise de Logs.
     - Firewalls, proxies e pontos de extremidade:
         - [F5](connect-f5.md)
-        - [Ponto de Verificação](connect-checkpoint.md)
+        - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)

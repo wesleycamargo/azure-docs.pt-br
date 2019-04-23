@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489307"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
@@ -141,7 +141,7 @@ Para distribuir o tráfego para as VMs, o balanceador de carga usa um pool de en
 
 Para permitir que o balanceador de carga monitore o status da VM, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. 
 
-**Para criar uma investigação de integridade para monitorar a integridade das VMs:**
+**Para criar uma investigação de integridade e monitorar a integridade das VMs:**
 
 1. Selecione **Todos os recursos** no menu à esquerda e **myLoadBalancer** na lista de recursos.
    
@@ -166,7 +166,7 @@ Uma regra do balanceador de carga define como o tráfego é distribuído para as
 
 A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80 no front-end **LoadBalancerFrontEnd**. A regra envia tráfego de rede ao pool de endereços de back-end **MyBackendPool**, também na porta 80. 
 
-**Para criar a regra do balanceador de carga:**
+**Para criar a regra de balanceador de carga:**
 
 1. Selecione **Todos os recursos** no menu à esquerda e **myLoadBalancer** na lista de recursos.
    
@@ -199,7 +199,7 @@ Primeiro, conecte-se às três VMs com a RDP (Área de Trabalho Remota).
 >[!NOTE]
 >Por padrão, as VMs já tem a porta **RDP** (Área de Trabalho Remota) aberta para permitir o acesso remoto à área de trabalho. 
 
-**Para acessar a RDP (área de trabalho remota) na VM:**
+**Para acessar a RDP (Área de Trabalho Remota) na VM:**
 
 1. No portal, selecione **Todos os recursos** no menu à esquerda. Na lista de recursos, selecione cada VM no grupo de recursos **MyResourceGroupLB**.
    
