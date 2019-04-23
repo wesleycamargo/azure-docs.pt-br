@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904212"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785023"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar acesso das VNets (redes virtuais)
 
@@ -26,7 +26,7 @@ Você pode configurar as contas de banco de dados do Microsoft Azure Cosmos DB p
 >
 > Para saber mais, consulte as etapas descritas na seção [Migrando de uma regra de firewall de IP para uma lista de controle de acesso à rede virtual](#migrate-from-firewall-to-vnet) deste artigo. 
 
-As seções a seguir descrevem como configurar o ponto de extremidade do serviço VNET para uma conta do Azure Cosmos DB.
+As seções a seguir descrevem como configurar o ponto de extremidade do serviço de rede virtual para uma conta do Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,7 +50,7 @@ As seções a seguir descrevem como configurar o ponto de extremidade do serviç
    ![Rede virtual e sub-rede configuradas com sucesso](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
 > [!NOTE]
-> Para habilitar terminais de serviço de rede virtual, você precisaria das seguintes permissões de assinatura:
+> Para habilitar pontos de extremidade de serviço de rede virtual, você precisaria das seguintes permissões de assinatura:
 >   * Assinatura com rede virtual: Colaborador de rede
 >   * Assinatura com a conta do Azure Cosmos DB: Colaborador da Conta do DocumentDB
 >   * Se sua rede virtual e conta do Azure Cosmos DB estão em assinaturas diferentes, certifique-se de que a assinatura que tem a rede virtual também tem `Microsoft.DocumentDB` registrado do provedor de recursos. Para registrar um provedor de recursos, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/resource-manager-supported-services.md) artigo. 
@@ -298,8 +298,8 @@ Depois que um ponto de extremidade de serviço para uma conta de banco de dados 
        -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
-1. Remova a regra de firewall IP da sub-rede.
+1. Remova a regra de firewall de IP da sub-rede.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [Suporte ao firewall](firewall-support.md).

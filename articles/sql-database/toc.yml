@@ -107,7 +107,7 @@ items:
     href: sql-database-resource-manager-samples.md
 - name: Conceitos
   items:
-  - name: Adquirir modelos
+  - name: Modelos de compra
     items:
     - name: Visão geral
       href: sql-database-purchase-models.md
@@ -127,9 +127,9 @@ items:
       href: sql-database-service-tier-general-purpose.md
     - name: Camadas de serviço Comercialmente Crítico/Premium
       href: sql-database-service-tier-business-critical.md
-    - name: Tipo de serviço de hiperescala
+    - name: Camada de serviço de hiperescala
       href: sql-database-service-tier-hyperscale.md
-    - name: Perguntas frequentes de hiperescala
+    - name: Perguntas frequentes de Hiperescala
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Bancos de dados únicos
     items:
@@ -733,8 +733,8 @@ items:
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
 ms.openlocfilehash: d789a7d8cb42d0871dcd09e55036f965daef0d9f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495064"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786906"

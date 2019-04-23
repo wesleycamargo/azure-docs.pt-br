@@ -130,4 +130,4 @@ Os seguintes tipos de clientes devem considerar a ativação do ADR:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Para habilitar o ADR durante este período de pré-visualização
 
-Durante o período de visualização deste recurso, envie um e-mail para [adr@microsoft.com](mailto:adr@microsoft.com) para saber mais e experimentar o ADR (Accelerated Database Recovery). No email, inclua o nome do seu servidor de Banco de Dados SQL (para bancos de dados individuais e em pool no Banco de Dados SQL, bem como para bancos de dados no Data Warehouse do Azure). Como esse é um recurso de visualização, seu servidor de teste deve ser um servidor que não seja de produção.
+Durante o período de visualização deste recurso, envie um e-mail para [adr@microsoft.com](mailto:adr@microsoft.com) para saber mais e experimentar o ADR (Accelerated Database Recovery). No email, inclua o nome do seu servidor do Banco de Dados SQL (para bancos de dados individuais e em pool no Banco de Dados SQL, bem como para bancos de dados no Data Warehouse do Azure). Como esse é um recurso de visualização, seu servidor de teste deve ser um servidor que não seja de produção.

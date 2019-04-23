@@ -1,6 +1,6 @@
 ---
 title: Segurança de Dados Avançada – Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba sobre a funcionalidade para descobrir e classificar dados sensíveis, gerenciando suas vulnerabilidades do banco de dados e detectando atividades anômalas que podem indicar uma ameaça ao banco de dados do Azure SQL.
+description: Saiba sobre a funcionalidade para descobrir e classificar dados sensíveis, gerenciando suas vulnerabilidades do banco de dados e detectando atividades anômalas que podem indicar uma ameaça ao banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,11 +12,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791602"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784476"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de Dados Avançada para Banco de Dados SQL do Azure
 
@@ -30,9 +30,9 @@ Segurança de dados avançados (ADS) fornece um conjunto de recursos avançados 
 - A [Avaliação de vulnerabilidade ](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudar a corrigir possíveis vulnerabilidades do banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
 - [Proteção avançada contra ameaças](sql-database-threat-detection-overview.md) detecta atividades anômalas indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Proteção avançada contra ameaças alertas fornecem detalhes sobre as atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.
 
-Habilite a ADS do SQL uma vez para habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ADS para todos os bancos de dados em seu servidor de Banco de Dados SQL ou instância gerenciada. A habilitação ou o gerenciamento das configurações da ADS requer a função de [Gerenciador de Segurança de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), a função de administrador do banco de dados SQL ou a função de administrador do servidor SQL. 
+Habilite a ADS do SQL uma vez para habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ADS para todos os bancos de dados em seu servidor do Banco de Dados SQL ou instância gerenciada. A habilitação ou o gerenciamento das configurações da ADS requer a função de [Gerenciador de Segurança de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), a função de administrador do banco de dados SQL ou a função de administrador do servidor SQL. 
 
-O preço da ADS está alinhado à camada padrão da Central de Segurança do Azure, na qual cada instância gerenciada ou servidor de Banco de Dados SQL protegido é contado como um nó. Recursos protegidos recentemente se qualificam para uma avaliação gratuita da camada Standard da Central de Segurança. Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança do Azure.
+O preço da ADS está alinhado à camada padrão da Central de Segurança do Azure, na qual cada instância gerenciada ou servidor do Banco de Dados SQL protegido é contado como um nó. Recursos protegidos recentemente se qualificam para uma avaliação gratuita da camada Standard da Central de Segurança. Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança do Azure.
 
 ## <a name="getting-started-with-ads"></a>Introdução à ADS
 
@@ -40,7 +40,7 @@ As etapas a seguir são para você começar a usar a ADS.
 
 ## <a name="1-enable-ads"></a>1. Habilitar a ADS
 
-Habilite a ADS navegando até **Segurança de Dados Avançada** sob o título **Segurança** do servidor de Banco de Dados SQL ou da instância gerenciada. Para habilitar a ADS para todos os bancos de dados no servidor de banco de dados ou instância gerenciada, clique em **Habilitar segurança de dados avançada no servidor**.
+Habilite a ADS navegando até **Segurança de Dados Avançada** sob o título **Segurança** do servidor do Banco de Dados SQL ou da instância gerenciada. Para habilitar a ADS para todos os bancos de dados no servidor de banco de dados ou instância gerenciada, clique em **Habilitar segurança de dados avançada no servidor**.
 
 > [!NOTE]
 > Uma conta de armazenamento é automaticamente criada e configurada para armazenar seus **avaliação de vulnerabilidade** resultados da varredura. Se você já tiver habilitado o ADS para outro servidor no mesmo grupo de recursos e região, a conta de armazenamento existente é usada.
@@ -48,15 +48,15 @@ Habilite a ADS navegando até **Segurança de Dados Avançada** sob o título **
 ![Habilitar a ADS](./media/sql-advanced-protection/enable_ads.png) 
 
 > [!NOTE]
-> O custo da ADS está alinhado aos preços da camada Standard da Central de Segurança do Azure por nó, em que um nó é toda a instância gerenciada ou servidor de Banco de Dados SQL. Portanto, você está pagando apenas uma vez para proteger todos os bancos de dados na instância gerenciada ou servidor de banco de dados com a ADS. Você pode experimentar a ADS inicialmente com uma avaliação gratuita.
+> O custo da ADS está alinhado aos preços da camada Standard da Central de Segurança do Azure por nó, em que um nó é toda a instância gerenciada ou servidor do Banco de Dados SQL. Portanto, você está pagando apenas uma vez para proteger todos os bancos de dados na instância gerenciada ou servidor de banco de dados com a ADS. Você pode experimentar a ADS inicialmente com uma avaliação gratuita.
 
 ## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Iniciar dados de classificação, vulnerabilidades de rastreamento e investigação de alertas de ameaça
 
 Clique no cartão **Descoberta de Dados e Classificação** para ver colunas confidenciais a serem classificadas e classificar seus dados com rótulos de confidencialidade persistente. Clique no cartão **Avaliação de Vulnerabilidade** para exibir e gerenciar relatórios e verificações de vulnerabilidade e relatórios e acompanhar sua estatura de segurança. Se receber alertas de segurança, clique no **proteção avançada contra ameaças** cartão para exibir detalhes dos alertas e para ver um relatório consolidado em todos os alertas na sua assinatura do Azure por meio da página de alertas de segurança central de segurança do Azure .
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Gerenciar configurações da ADS em seu servidor de Banco de Dados SQL ou instância gerenciada
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Gerenciar configurações da ADS em seu servidor do Banco de Dados SQL ou instância gerenciada
 
-Para exibir e gerenciar as configurações da ADS, navegue até **Segurança de Dados Avançada** sob o título **Segurança** para seu servidor de Banco de Dados SQL ou instância gerenciada. Nessa página, você pode habilitar ou desabilitar anúncios e modificar a vulnerabilidade de avaliação e as configurações de proteção avançada contra ameaças para sua instância gerenciada ou todo o servidor de banco de dados SQL.
+Para exibir e gerenciar as configurações da ADS, navegue até **Segurança de Dados Avançada** sob o título **Segurança** para seu servidor do Banco de Dados SQL ou instância gerenciada. Nessa página, você pode habilitar ou desabilitar anúncios e modificar a vulnerabilidade de avaliação e as configurações de proteção avançada contra ameaças para sua instância gerenciada ou todo o servidor de banco de dados SQL.
 
 ![Configurações do servidor](./media/sql-advanced-protection/server_settings.png) 
 

@@ -13,16 +13,16 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357903"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784015"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviço de uso geral – Banco de Dados SQL do Azure
 
 > [!NOTE]
-> A camada de serviço de uso geral no modelo de compra baseado em vCore é chamada da camada de serviço padrão no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
+> A camada de serviço de uso geral no modelo de compra baseado em vCore é chamada da camada de serviço padrão no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-purchase-models.md).
 
 O Banco de Dados SQL do Azure é baseado na arquitetura de mecanismo de banco de dados do SQL Server, que é adaptada ao ambiente de nuvem para garantir disponibilidade de 99,99%, até mesmo no caso de falhas de infraestrutura. Três camadas de serviço são usadas no Banco de Dados SQL do Azure, cada uma com diferentes modelos de arquitetura. Essas camadas de serviço são:
 
@@ -45,9 +45,9 @@ Sempre que o mecanismo de banco de dados ou sistema operacional é atualizado, a
 
 ## <a name="when-to-choose-this-service-tier"></a>Quando escolher essa camada de serviço
 
-A camada de Uso Geral é uma camada de serviço padrão no Banco de Dados SQL que foi projetada para a maioria das cargas de trabalho genéricas. Caso você precise de um mecanismo de banco de dados totalmente gerenciado com SLA de 99,99% com latência de armazenamento entre 5 ms e 10 ms e que corresponda à IaaS do Azure SQL na maioria dos casos, a camada de Uso Geral é a opção adequada para você.
+A camada de Uso Geral é uma camada de serviço padrão no Banco de Dados SQL do Azure que foi projetada para a maioria das cargas de trabalho genéricas. Caso você precise de um mecanismo de banco de dados totalmente gerenciado com SLA de 99,99% com latência de armazenamento entre 5 ms e 10 ms e que corresponda à IaaS do Azure SQL na maioria dos casos, a camada de Uso Geral é a opção adequada para você.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre camadas [Comercialmente Críticas](sql-database-service-tier-business-critical.md) e de [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md).

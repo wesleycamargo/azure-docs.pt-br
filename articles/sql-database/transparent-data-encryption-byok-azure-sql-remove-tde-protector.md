@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Remover um protetor de TDE - Banco de Dados SQL do Microsoft Azure| Microsoft Docs
+title: PowerShell - Remover um protetor de TDE - Banco de Dados SQL do Azure| Microsoft Docs
 description: Guia de instruções para responder a um protetor de TDE potencialmente comprometido de um Data Warehouse ou Banco de Dados SQL do Azure usando TDE com o suporte BYOK (Bring Your Own Key).
 services: sql-database
 ms.service: sql-database

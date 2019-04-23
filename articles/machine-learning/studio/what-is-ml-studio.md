@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
-ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/20/2019
+ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893995"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682994"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.
@@ -108,7 +108,7 @@ Para obter ajuda sobre navegação através da grande biblioteca de algoritmos d
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implantando um serviço Web de análise preditiva
 Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo como um serviço Web diretamente no Machine Learning Studio. Para obter mais detalhes sobre esse processo, consulte [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-
+<a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Qual é a diferença entre o Machine Learning Studio e o Serviço do Azure Machine Learning?
 
 O [Serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md) fornece SDKs e serviços para rapidamente preparar dados, treinar e implantar modelos de machine learning. Aprimore a produtividade e os custos com pipelines e computação de dimensionamento automático. Use essas funcionalidades com estruturas do Python de software livre, como a PyTorch, a TensorFlow e a Scikit-learn. 

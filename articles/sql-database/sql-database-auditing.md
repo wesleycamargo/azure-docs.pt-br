@@ -1,6 +1,6 @@
 ---
 title: Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs
-description: Use a auditoria de banco de dados SQL Azure para rastrear eventos de banco de dados para um log de auditoria.
+description: Use a auditoria de banco de dados SQL do Azure para rastrear eventos de banco de dados para um log de auditoria.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

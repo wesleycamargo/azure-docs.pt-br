@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256287"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786703"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Procedimento Armazenado. 
@@ -198,7 +198,7 @@ Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que h
 1. Crie um arquivo JSON denominado **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADF\RunSSISPackage** com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua o &lt;servername&gt;, o &lt;username&gt;, e a &lt;senha&gt; pelos valores do seu banco de dados do SQL Azure antes de salvar o arquivo.
+    > Substitua o &lt;servername&gt;, o &lt;username&gt;, e a &lt;senha&gt; pelos valores do seu banco de dados SQL do Azure antes de salvar o arquivo.
 
     ```json
     {
@@ -360,5 +360,5 @@ Na etapa anterior, você chamou a pipeline sob demanda. Você também pode criar
     ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Você também pode monitorar o pipeline usando o Portal do Azure. Para obter instruções passo a passo, consulte [Monitorar o pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

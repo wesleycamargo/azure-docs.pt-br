@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade - Serviço do Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre os recursos e capacidades de alta disponibilidade do serviço de Banco de Dados SQL do Microsoft Azure
+description: Saiba mais sobre os recursos e capacidades de alta disponibilidade do serviço de Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -21,7 +21,7 @@ ms.locfileid: "59698222"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 
-O objetivo da arquitetura de alta disponibilidade no banco de dados SQL é a garantia de que seu banco de dados está ativo e em execução 99,99% do tempo, sem se preocupar sobre o impacto das operações de manutenção e interrupções. Azure trata automaticamente tarefas de manutenção críticas, como aplicação de patches, backups, atualizações do Windows e SQL, bem como eventos não planejados, como falhas de hardware, software ou de rede subjacentes.  Quando a instância do SQL subjacente for corrigida ou faz o failover, o tempo de inatividade não é perceptível se você [empregar uma lógica de repetição](sql-database-develop-overview.md#resiliency) em seu aplicativo. O Banco de Dados SQL do Microsoft Azure pode se recuperar rapidamente, até nas circunstâncias mais críticas, garantindo que seus dados estejam sempre disponíveis.
+O objetivo da arquitetura de alta disponibilidade no banco de dados SQL é a garantia de que seu banco de dados está ativo e em execução 99,99% do tempo, sem se preocupar sobre o impacto das operações de manutenção e interrupções. Azure trata automaticamente tarefas de manutenção críticas, como aplicação de patches, backups, atualizações do Windows e SQL, bem como eventos não planejados, como falhas de hardware, software ou de rede subjacentes.  Quando a instância do SQL subjacente for corrigida ou faz o failover, o tempo de inatividade não é perceptível se você [empregar uma lógica de repetição](sql-database-develop-overview.md#resiliency) em seu aplicativo. O Banco de Dados SQL do Azure pode se recuperar rapidamente, até nas circunstâncias mais críticas, garantindo que seus dados estejam sempre disponíveis.
 
 A solução de alta disponibilidade é projetada para garantir que os dados confirmados nunca não perdidos devido a falhas, que as operações de manutenção não afeta sua carga de trabalho, e que o banco de dados não será um ponto único de falha em sua arquitetura de software. Não há nenhuma janela de manutenção ou tempo de inatividade que deva exigir que você pare a carga de trabalho enquanto o banco de dados é atualizado ou está em manutenção. 
 

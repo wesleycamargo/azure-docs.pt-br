@@ -130,7 +130,7 @@ items:
       href: event-hubs-messaging-exceptions.md
   - name: Usar firewalls
     href: event-hubs-ip-filtering.md
-  - name: Usar pontos de extremidade do serviço de rede virtual
+  - name: Usar pontos de extremidade de serviço de rede virtual
     href: event-hubs-service-endpoints.md
   - name: Dimensionar automaticamente unidades de transferência
     href: event-hubs-auto-inflate.md

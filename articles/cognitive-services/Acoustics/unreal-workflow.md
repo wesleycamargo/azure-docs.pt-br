@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491467"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784669"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unreal/Wwise
 Este tutorial descreve a configuração de design e fluxo de trabalho do Projeto Acústico no Unreal e Wwise.

@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903312"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787793"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 
@@ -36,7 +36,7 @@ O Banco de Dados SQL monitora continuamente as consultas que estão sendo execut
 
 Se você tentar descartar a coluna que tem um índice criado automaticamente por ela, o comando é passado. O índice criado automaticamente é descartado com o comando também. Índices regulares bloqueiam o comando ALTER/RENAME em colunas que são indexadas.
 
-Depois que a recomendação para criar índice for aplicada, o Banco de Dados do Azure SQL comparará o desempenho das consultas com o desempenho de linha de base. Se o novo índice melhorou o desempenho, a recomendação é sinalizada como bem-sucedida e o relatório de impacto fica disponível. Se o índice não melhorou o desempenho, ele é revertido automaticamente. O Banco de Dados SQL usa este processo para garantir que as recomendações melhorem o desempenho do banco de dados.
+Depois que a recomendação para criar índice for aplicada, o Banco de Dados SQL do Azure comparará o desempenho das consultas com o desempenho de linha de base. Se o novo índice melhorou o desempenho, a recomendação é sinalizada como bem-sucedida e o relatório de impacto fica disponível. Se o índice não melhorou o desempenho, ele é revertido automaticamente. O Banco de Dados SQL usa este processo para garantir que as recomendações melhorem o desempenho do banco de dados.
 
 Qualquer recomendação **criar índice** tem uma política de retirada que não permite aplicar a recomendação se o uso de recursos de um banco de dados ou pool estiver alto. A política de retirada leva em conta CPU, E/S de Dados, E/S de Log e armazenamento disponível. 
 
@@ -45,7 +45,7 @@ Se CPU, E/S de Dados ou Log de E/S for maior do que 80% nos 30 minutos anteriore
 Esse processo se repetirá até que não haja armazenamento suficiente disponível para criar um índice ou até que o índice não seja visto mais como benéfico.
 
 ## <a name="drop-index-recommendations"></a>Recomendações para Remover Índice
-Além de detectar um índice ausente, o Banco de Dados SQL analisa continuamente o desempenho dos índices existentes. Se um índice não for usado, o banco de dados do SQL Azure recomendará cancelá-lo. Descartar um índice é recomendado em dois casos:
+Além de detectar um índice ausente, o Banco de Dados SQL analisa continuamente o desempenho dos índices existentes. Se um índice não for usado, o banco de dados SQL do Azure recomendará cancelá-lo. Descartar um índice é recomendado em dois casos:
 * O índice é uma duplicata de outro índice (mesma coluna indexada e incluída, esquema de partição e filtros).
 * O índice não foi usado por um período prolongado (93 dias).
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
 ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849587"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787723"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -139,6 +139,6 @@ Cancelar o registro de uma instância do SQL Server depois de desabilitar a prot
 
 É recomendável usar essa opção com cuidado; Quando disparado em uma VM com uma extensão já íntegra, esta operação fará com que a extensão para obter reiniciado. Isso pode resultar em todos os trabalhos em andamento falhe. . Verifique para um ou mais dos [sintomas](backup-sql-server-azure-troubleshoot.md#symptoms) antes de disparar a operação registrar novamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [solucionar problemas de backups em um banco de dados do SQL Server](backup-sql-server-azure-troubleshoot.md).

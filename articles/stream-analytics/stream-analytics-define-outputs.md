@@ -82,7 +82,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado em consultas para direcionar a saída da consulta para esse banco de dados. |
 | Banco de dados | O nome do banco de dados no qual você está enviando a saída. |
-| Nome do servidor | Nome do servidor de Banco de Dados SQL do Azure. |
+| Nome do servidor | Nome do servidor do Banco de Dados SQL do Azure. |
 | Nome de Usuário | O nome de usuário que tenha acesso de gravação ao banco de dados. Stream Analytics dá suporte à autenticação do SQL. |
 | Senha | A senha para se conectar ao banco de dados. |
 | Tabela | O nome da tabela em que a saída é gravada. O nome da tabela diferencia maiusculas de minúsculas. O esquema da tabela deve corresponder exatamente ao número de campos e seus tipos que gera a saída do trabalho. |
@@ -90,7 +90,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 |Corresponder contagem do lote| O limite recomendado no número de registros enviados com cada bulk insert a transação.|
 
 > [!NOTE]
-> Atualmente, há suporte para a oferta do Banco de Dados SQL uma saída do trabalho do Stream Analytics. Não há suporte para uma máquina virtual do Azure executando o SQL Server com um banco de dados anexado. Isso está sujeito à mudança em versões futuras.
+> Atualmente, há suporte para a oferta do Banco de Dados SQL do Azure uma saída do trabalho do Stream Analytics. Não há suporte para uma máquina virtual do Azure executando o SQL Server com um banco de dados anexado. Isso está sujeito à mudança em versões futuras.
 >
 
 ## <a name="blob-storage"></a>Armazenamento de blob

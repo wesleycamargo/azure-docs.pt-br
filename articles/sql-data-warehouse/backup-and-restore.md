@@ -11,11 +11,11 @@ ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359020"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787625"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 
@@ -106,6 +106,6 @@ Você pode [restaurar seu data warehouse](https://docs.microsoft.com/azure/sql-d
 > [!NOTE]
 > Para executar uma restauração com redundância geográfica, você não deve ter recusado esse recurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre planejamento de desastre, consulte [Visão geral sobre a continuidade dos negócios](../sql-database/sql-database-business-continuity.md)

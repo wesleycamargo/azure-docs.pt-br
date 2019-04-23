@@ -1,6 +1,6 @@
 ---
 title: Restringir o acesso à rede para recursos PaaS - CLI do Azure | Microsoft Docs
-description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Microsoft Azure, com pontos de extremidade de serviço de rede virtual usando a CLI do Azure.
+description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862583"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789067"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança 
 
 > [!IMPORTANT]
-> Central de segurança do Azure para IoT está atualmente em visualização pública.
+> A Central de Segurança do Azure para IoT está em versão prévia pública no momento.
 > Esta versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Central de segurança (ASC) do Azure para IoT armazena dados brutos de segurança, recomendações e alertas de segurança (se você optar por salvá-lo) em seu espaço de trabalho do Log Analytics.
@@ -177,7 +177,7 @@ SecurityRecommendation
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | 4   |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Leia o ASC para IoT [visão geral](overview.md)
 - Saiba mais sobre o ASC para IoT [arquitetura](architecture.md)

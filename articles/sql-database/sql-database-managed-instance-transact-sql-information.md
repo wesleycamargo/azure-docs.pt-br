@@ -50,7 +50,7 @@ A [Alta disponibilidade](sql-database-high-availability.md) é um recurso intern
 
 As instâncias gerenciadas têm backups automáticos e permitem que os usuários criem backups `COPY_ONLY` de bancos de dados completos. Não há suporte para backups de backups de instantâneo de arquivo, logs e diferenciais.
 
-- Com uma Instância Gerenciada, você pode fazer backup de uma instância de banco de dados somente em uma conta do Armazenamento de Blobs do Azure:
+- Com uma Instância Gerenciada, você pode fazer backup de um banco de dados de instância em uma conta do Armazenamento de Blobs do Azure:
   - Apenas `BACKUP TO URL` tem suporte
   - `FILE`, `TAPE` e dispositivos de backup não têm suporte  
 - A maioria das opções gerais `WITH` têm suporte

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262458"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788231"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -72,7 +72,7 @@ Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida
 
 Para ver um exemplo, confira a [Consulta de próxima página](/rest/api/azureresourcegraph/resources/resources#next_page_query) na documentação da API REST.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso no [consultas Starter](../samples/starter.md)
 - Ver usos avançados em [Consultas avançadas](../samples/advanced.md)

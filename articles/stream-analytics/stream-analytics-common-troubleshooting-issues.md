@@ -75,7 +75,7 @@ Durante a operação normal do trabalho, se você verificar que a saída do trab
 
 Para ver os detalhes, no portal do Azure, selecione o trabalho de streaming e selecione o **Diagrama de trabalho**. Para cada entrada, ha uma métrica de evento de lista de pendências por partição. Se a métrica de evento de lista de pendências continuar crescendo, é um indicador de que os recursos do sistema estão restritos. Potencialmente é devido a limitação de coletor de saída ou alta utilização da CPU. Para obter mais informações sobre como usar o diagrama de trabalho, consulte [Depuração orientada a dados usando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
 
-## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Lidar com registros duplicados na saída do Banco de Dados SQL do Microsoft Azure
+## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Lidar com registros duplicados na saída do Banco de Dados SQL do Azure
 
 Ao configurar o Banco de Dados SQL do Azure como saída para um trabalho do Stream Analytics, o volume insere registros na tabela de destino. Em geral, o Azure Stream Analytics garante [pelo menos uma vez a entrega]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) para o coletor de saída, ainda pode-se obter [EOD (exactly-once-delivery)]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para saída do SQL quando a tabela do SQL tiver uma restrição exclusiva definida. 
 

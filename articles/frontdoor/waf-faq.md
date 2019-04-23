@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255913"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788914"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Perguntas frequentes sobre o firewall do aplicativo web do Azure
 
@@ -75,7 +75,7 @@ Atualmente, ModSec CRS 2.2.9 e regras de CRS 3.0 só têm suporte com o WAF no G
 
 Distribuído globalmente nas bordas de rede do Azure, porta de entrada do Azure pode absorver e geograficamente isolar os ataques de grande volume. Você pode criar a política personalizada do WAF para bloco automaticamente e a taxa de limitar os ataques de HTTP (s) que têm assinaturas de conhecidos. Ainda mais além disso, você pode habilitar a proteção de DDoS Standard na rede virtual em que o seu back-ends são implantados. Os clientes de proteção contra DDoS Standard do Azure recebem benefícios adicionais, incluindo a proteção de custos, garantia de SLA e o acesso aos especialistas da equipe de resposta rápida de DDoS para ajuda imediata durante um ataque. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [firewall do aplicativo web do Azure](waf-overview.md).
 - Saiba mais sobre [do Azure da frente](front-door-overview.md).

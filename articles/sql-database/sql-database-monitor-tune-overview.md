@@ -1,6 +1,6 @@
 ---
 title: Monitoramento e ajuste de desempenho – Banco de Dados SQL do Azure | Microsoft Docs
-description: Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria.
+description: Dicas de ajuste de desempenho no Banco de Dados SQL do Azure por meio de avaliação e melhoria.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59683138"
@@ -54,13 +54,13 @@ Depois de adicionar essas métricas, você pode continuar a visualizá-las no gr
 
 Você também pode configurar alertas nas métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métrica**. Siga o Assistente para configurar o alerta. Você tem a opção de alerta se a métrica exceder um limite determinado ou se ficar abaixo de um limite determinado.
 
-Por exemplo, se você espera que a carga de trabalho em seu banco de dados cresça, você poderá configurar um alerta por email sempre que seu banco de dados atinge 80% em qualquer uma das métricas de desempenho. Você pode usar isso como um aviso antecipado para decidir quando precisará alternar para o próximo tamanho mais alto de computação.
+Por exemplo, se você espera que a carga de trabalho em seu banco de dados cresça, você poderá configurar um alerta por email sempre que seu banco de dados atinge 80% em qualquer uma das métricas de desempenho. Você pode usar isso como um aviso antecipado para decidir quando precisará alternar para o próximo tamanho da computação mais elevado.
 
-As métricas de desempenho podem ajudá-lo a determinar se você pode fazer downgrade para um tamanho de computação inferior. Suponha que você está usando um banco de dados Standard S2 e todas as métricas de desempenho mostram que o banco de dados em média não usa mais de 10% a qualquer momento. É provável que o banco de dados funcione bem em Standard S1. No entanto, tome cuidado com cargas de trabalho que apresentam picos ou oscilam antes de tomar a decisão de migrar para um tamanho de computação inferior.
+As métricas de desempenho podem ajudá-lo a determinar se você pode fazer downgrade para um tamanho da computação inferior. Suponha que você está usando um banco de dados Standard S2 e todas as métricas de desempenho mostram que o banco de dados em média não usa mais de 10% a qualquer momento. É provável que o banco de dados funcione bem em Standard S1. No entanto, tome cuidado com cargas de trabalho que apresentam picos ou oscilam antes de tomar a decisão de migrar para um tamanho da computação inferior.
 
 ## <a name="troubleshoot-performance-issues"></a>Solucionar problemas de desempenho
 
-Para diagnosticar e resolver problemas de desempenho, comece Noções básicas sobre o estado de cada consulta ativa e as condições que causam problemas de desempenho relevantes para cada estado da carga de trabalho. Para melhorar o desempenho do Banco de Dados SQL do Microsoft Azure, entenda que cada solicitação de consulta ativa do seu aplicativo está em execução ou em um estado de espera. Ao solucionar um problema de desempenho no banco de dados SQL, tenha o gráfico a seguir em mente que você leia este artigo para diagnosticar e resolver problemas de desempenho.
+Para diagnosticar e resolver problemas de desempenho, comece Noções básicas sobre o estado de cada consulta ativa e as condições que causam problemas de desempenho relevantes para cada estado da carga de trabalho. Para melhorar o desempenho do Banco de Dados SQL do Azure, entenda que cada solicitação de consulta ativa do seu aplicativo está em execução ou em um estado de espera. Ao solucionar um problema de desempenho no banco de dados SQL do Azure, tenha o gráfico a seguir em mente que você leia este artigo para diagnosticar e resolver problemas de desempenho.
 
 ![Estados da carga de trabalho](./media/sql-database-monitor-tune-overview/workload-states.png)
 
@@ -142,7 +142,7 @@ A consulta a seguir mostra a contagem de consultas por hash de consulta para det
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Resolver consultas com problema ou fornecer mais recursos
 
-Depois de identificar o problema, você pode ajustar as consultas problemáticas ou atualizar o tamanho do computador ou a camada de serviço para aumentar a capacidade do banco de dados SQL do Azure para absorver os requisitos da CPU. Para obter informações sobre dimensionamento de recursos para bancos de dados únicos, consulte [Recursos de banco de dados único de escala no Banco de Dados SQL do Azure](sql-database-single-database-scale.md) e para dimensionar recursos para conjuntos elásticos, consulte [Recursos do conjunto elástico de escala no Banco de Dados SQL do Azure](sql-database-elastic-pool-scale.md). Para obter informações sobre o dimensionamento de uma instância gerenciada, consulte [Limites de recursos no nível da instância](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Depois de identificar o problema, você pode ajustar as consultas problemáticas ou atualizar o tamanho da computação ou a camada de serviço para aumentar a capacidade do banco de dados SQL do Azure para absorver os requisitos da CPU. Para obter informações sobre dimensionamento de recursos para bancos de dados únicos, consulte [Recursos de banco de dados único de escala no Banco de Dados SQL do Azure](sql-database-single-database-scale.md) e para dimensionar recursos para conjuntos elásticos, consulte [Recursos do conjunto elástico de escala no Banco de Dados SQL do Azure](sql-database-elastic-pool-scale.md). Para obter informações sobre o dimensionamento de uma instância gerenciada, consulte [Limites de recursos no nível da instância](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 
 ### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Determinar se problemas de execução devem-se ao aumento de volume de carga de trabalho
 
@@ -175,7 +175,7 @@ Nem sempre é fácil concluir que há uma alteração de volume de carga de trab
 Quando tiver certeza de que você não está enfrentando um problema de desempenho relacionado à execução de CPU alto, você está enfrentando um problema de desempenho relacionado à espera. Ou seja, os recursos da CPU não estão sendo usados eficientemente porque a CPU está aguardando algum outro recurso. Nesse caso, o próximo passo é identificar quais recursos da sua CPU estão aguardando. Os métodos mais comuns para mostrar as principais categorias de tipo de espera:
 
 - O [Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornece estatísticas de esperta por consulta ao longo do tempo. No Repositório de Consultas, aguarde os tipos de espera combinados em categorias de espera. O mapeamento das categorias de espera para tipos de espera está disponível em [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retorna informações sobre todas as esperas encontradas por conversas executadas durante a operação. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o Banco de Dados SQL do Microsoft Azure e também com consultas e lotes específicos.
+- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retorna informações sobre todas as esperas encontradas por conversas executadas durante a operação. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o Banco de Dados SQL do Azure e também com consultas e lotes específicos.
 - [DM os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retorna informações sobre a fila de espera de tarefas que estão esperando algum recurso.
 
 Em cenários de CPU alta, o Repositório de Consultas e as estatísticas de espera nem sempre refletem a utilização da CPU por estes dois motivos:

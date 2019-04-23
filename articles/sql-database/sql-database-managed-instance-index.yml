@@ -61,7 +61,7 @@ sections:
             html: '<p>Escolha entre as camadas de serviço de Uso Geral e Comercialmente Crítico, dependendo das suas necessidades de negócios.</p>'
           - title: Segurança avançada
             href: /azure/sql-database/sql-database-security-index
-            html: <p>Proteja sua instância e bancos de dados com recursos de segurança de banco de dados do Azure SQL.<p>
+            html: <p>Proteja sua instância e bancos de dados com recursos de segurança de banco de dados SQL do Azure.<p>
   - title: Novos recursos e versão prévia de recursos
     items:
       - type: paragraph

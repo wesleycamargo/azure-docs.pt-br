@@ -44,8 +44,8 @@ Alguns pontos importantes a serem considerados:
  
 - Se houver uma rede virtual do Azure Resource Manager existente conectada à sua rede local em um local diferente do IR do Azure-SSIS, você poderá primeiro criar uma [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão de rede virtual do Azure Resource Manager para o Azure Resource Manager. Ou você pode criar uma [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o IR do Azure-SSIS a ela. Em seguida, configure uma conexão entre [rede virtual clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Hospedar o banco de dados do Catálogo SSIS no Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual/Instância Gerenciada
-Se o catálogo do SSIS estiver hospedado no Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual ou Instância Gerenciada, você poderá ingressar no seu Azure-SSIS IR para: 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Hospedar o banco de dados do Catálogo SSIS no Banco de Dados SQL do Azure com pontos de extremidade de serviço de rede virtual/Instância Gerenciada
+Se o catálogo do SSIS estiver hospedado no Banco de Dados SQL do Azure com pontos de extremidade de serviço de rede virtual ou Instância Gerenciada, você poderá ingressar no seu Azure-SSIS IR para: 
 
 - A mesma rede virtual 
 - Uma rede virtual diferente que tenha uma conexão de rede a rede com aquela usada para a Instância Gerenciada 
