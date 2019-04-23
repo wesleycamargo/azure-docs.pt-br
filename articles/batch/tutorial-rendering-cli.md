@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750198"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149921"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -33,7 +33,7 @@ Neste tutorial, você renderiza uma cena 3ds Max com o Lote usando o renderizado
 
 Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
 
-A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
+A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

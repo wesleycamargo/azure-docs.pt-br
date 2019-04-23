@@ -127,7 +127,7 @@ Se você quiser comparar seu código com o nosso, o exemplo completo está dispo
 
 ## <a name="sample-response"></a>Resposta de exemplo
 
-Localize a abreviação do país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Localize a abreviação do país/região nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 [
