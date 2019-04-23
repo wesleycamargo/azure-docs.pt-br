@@ -243,7 +243,7 @@ As propriedades dos agendamentos de trabalho são descritas na tabela a seguir.
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | schedule name |Entidade de único **nome** com o nome do agendamento. |
-| runbook name |Uma entidade com **nome** único com o nome do runbook.  |
+| runbook name  |Uma entidade com **nome** único com o nome do runbook.  |
 
 
 

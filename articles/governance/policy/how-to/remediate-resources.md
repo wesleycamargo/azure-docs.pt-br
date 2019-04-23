@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283436"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794975"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -138,7 +138,7 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
-   ![Pesquisa de política em todos os serviços](../media/remediate-resources/search-policy.png)
+   ![Pesquisar Política em Todos os Serviços](../media/remediate-resources/search-policy.png)
 
 1. Selecione **Correção** no lado esquerdo da página do Azure Policy.
 
@@ -191,7 +191,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 Para outros cmdlets de correção e exemplos, consulte o [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) módulo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Revise os exemplos em [amostras da Política do Azure](../samples/index.md)
 - Revise a [estrutura de definição de política](../concepts/definition-structure.md)

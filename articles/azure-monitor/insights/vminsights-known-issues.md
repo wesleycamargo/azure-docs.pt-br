@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
 ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916681"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795059"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (versão prévia)
 
 Este artigo aborda os problemas conhecidos com o Azure Monitor para VMs, uma solução do Azure que combina monitoramento da integridade, da descoberta de componentes de aplicativo e de desempenho do sistema operacional da VM do Azure. 
 
-## <a name="health"></a>Integridade 
+## <a name="health"></a>Saúde 
 Os seguintes são problemas conhecidos com a versão atual do recurso de Integridade:
 
 - O painel de propriedades da VM exibe o sistema operacional do Windows Server 2019 como Windows Server 2016. Isso será corrigido em uma versão futura.

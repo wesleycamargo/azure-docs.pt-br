@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 546e8e50bc34307c46d33e217d5bc0887b548774
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801803"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798435"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurar o ambiente de desenvolvimento dos Serviços de Mídia  
 
@@ -45,7 +45,7 @@ Para configurar o ambiente de desenvolvimento do REST, confira [este](media-serv
 
 Para conectar-se à API dos Serviços de Mídia do Azure, veja [acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [Exemplos de código de Serviços de Mídia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
