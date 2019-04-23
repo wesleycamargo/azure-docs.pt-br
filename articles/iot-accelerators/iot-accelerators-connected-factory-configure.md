@@ -132,7 +132,7 @@ Os itens `<factory_configuration>` e `<production_line_configuration>` têm uma 
 
 * **Country** (tipo cadeia de caracteres)
 
-  O país da localização
+  O país/região da localização
 
 * **Latitude** (tipo double)
 

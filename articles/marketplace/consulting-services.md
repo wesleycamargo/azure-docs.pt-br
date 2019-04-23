@@ -16,7 +16,7 @@ ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58078747"
@@ -124,7 +124,7 @@ A listagem da sua oferta de serviço de consultoria no Azure Marketplace e AppSo
 3. **Envio**: forneça as informações exigidas listadas nas instruções. Todo o conteúdo e o material de apoio deverão ser enviados em inglês. 
 4. **Revisão:** nossa equipe editorial e de marketing revisa seu envio e faz melhorias com relação à legibilidade, à gramática e à eficácia. 
 5. **Preparo**: o envio é preparado para sua revisão. 
-6. **Publicação**: quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para entrar no ar no marketplace. A data de entrada no ar de sua listagem depende do país especificado na oferta. Se o catálogo do país selecionado já estiver no Azure Marketplace ou AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem será exibida assim que o catálogo ficar ativo.
+6. **Publicação**: quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para entrar no ar no marketplace. A data de entrada no ar de sua listagem depende do país especificado na oferta. Se o catálogo do país/região selecionado já estiver no Azure Marketplace ou AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem será exibida assim que o catálogo ficar ativo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Listagens de oferta e critérios de análise do conteúdo
 As ofertas devem ser um dos cinco tipos de serviços a seguir (você pode listar mais de um): 
