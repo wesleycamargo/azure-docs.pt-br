@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
@@ -109,14 +109,14 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de Produção: `https://<yourorg>.iqualify.com/`|
-    | Ambiente de Teste: `https://<yourorg>.iqualify.io`|
+    | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
+    | Ambiente de teste: `https://<yourorg>.iqualify.io`|
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de Produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Ambiente de Teste: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | Ambiente de produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
+    | Ambiente de teste: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -125,8 +125,8 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
     Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
-    | Ambiente de Produção: `https://<yourorg>.iqualify.com/login` |
-    | Ambiente de Teste: `https://<yourorg>.iqualify.io/login` |
+    | Ambiente de produção: `https://<yourorg>.iqualify.com/login` |
+    | Ambiente de teste: `https://<yourorg>.iqualify.io/login` |
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente iQualify LMS](https://www.iqualify.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

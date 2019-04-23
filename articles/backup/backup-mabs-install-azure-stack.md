@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497920"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996502"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -61,7 +61,7 @@ Se compartilhado com outras máquinas virtuais, o tamanho da conta de armazename
 Cada máquina virtual do Azure Stack vem com armazenamento em disco temporário, que está disponível para o usuário como volume `D:\`. A área de preparação local necessária para o Backup do Azure pode ser configurada para residir no `D:\`, e o local do cache pode ser colocado em `C:\`. Dessa forma, nenhum armazenamento precisará ser formado longe os discos de dados anexados à máquina virtual do Servidor de Backup do Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenar dados de backup em disco local e no Azure
-O Servidor de Backup do Azure armazena dados de backup em discos do Azure anexados à máquina virtual, para recuperação operacional. Depois que os discos e o espaço de armazenamento são anexados à máquina virtual, o Servidor de Backup do Azure gerenciará o armazenamento para você. A quantidade de armazenamento de dados de backup depende do número e do tamanho dos discos anexados a cada [máquina de virtual do Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Cada tamanho de VM do Azure Stack tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é para quatro discos. A3 é para oito discos. A4 é para 16 discos. Novamente, o tamanho e o número de discos determina o pool de armazenamento de backup total.
+O Servidor de Backup do Azure armazena dados de backup em discos do Azure anexados à máquina virtual, para recuperação operacional. Depois que os discos e o espaço de armazenamento são anexados à máquina virtual, o Servidor de Backup do Azure gerenciará o armazenamento para você. A quantidade de armazenamento de dados de backup depende do número e do tamanho dos discos anexados a cada [máquina de virtual do Azure Stack](/azure-stack/user/azure-stack-storage-overview). Cada tamanho de VM do Azure Stack tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é para quatro discos. A3 é para oito discos. A4 é para 16 discos. Novamente, o tamanho e o número de discos determina o pool de armazenamento de backup total.
 
 > [!IMPORTANT]
 > **Não** retenha os dados de recuperação operacional (backup) nos discos anexados ao Servidor de Backup do Azure por mais de cinco dias.
@@ -73,7 +73,7 @@ Para armazenar dados de backup no Azure, crie ou use um cofre dos Serviços de R
  
 ### <a name="scaling-deployment"></a>Dimensionar a implantação
 Se você quiser dimensionar a implantação, terá as seguintes opções:
-  - Escalar verticalmente: aumentar o tamanho da máquina virtual do Servidor de Backup do Azure da série A para a série D. Além disso, aumentar o armazenamento local [de acordo com as instruções da máquina virtual do Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Escalar verticalmente: aumentar o tamanho da máquina virtual do Servidor de Backup do Azure da série A para a série D. Além disso, aumentar o armazenamento local [de acordo com as instruções da máquina virtual do Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Descarregar dados: enviar dados mais antigos para o Microsoft Azure e reter somente os mais recentes no armazenamento anexado ao Servidor de Backup do Azure.
   - Escalar horizontalmente: adicionar mais Servidores de Backup do Azure para proteger as cargas de trabalho.
 
@@ -214,7 +214,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
 
     ![Servidor de Backup do Azure - Boas-vindas e Verificação de pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Se o ambiente tiver os pré-requisitos necessários, você verá uma mensagem indicando que o computador atende aos requisitos. Clique em **Próximo**.  
+    Se o ambiente tiver os pré-requisitos necessários, você verá uma mensagem indicando que o computador atende aos requisitos. Clique em **Avançar**.  
 
     ![Servidor de Backup do Azure: verificação de pré-requisitos aprovada](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 

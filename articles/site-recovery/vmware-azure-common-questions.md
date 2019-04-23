@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360523"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004764"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -111,7 +111,7 @@ Replicação de novas VMs para uma conta de armazenamento só está disponível 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Posso alterar o tipo de disco gerenciado depois que o computador é protegido?
 
-Sim, você pode facilmente [alterar o tipo de disco gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). No entanto, se você puder o tipo de disco gerenciado, espera-se atualizado para pontos de recuperação a ser gerado se você precisa testar o failover ou failover após a alteração.
+Sim, você pode facilmente [alterar o tipo de disco gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Antes de alterar o tipo, certifique-se de que você revogue a URL de SAS para o disco, vá para o recurso de disco gerenciado no portal do Azure. Na folha visão geral, cancele qualquer exportação em andamento. Depois que a URL SAS é revogada, altere o tipo do disco de dentro de alguns minutos. No entanto, se você alterar o tipo de disco gerenciado, aguarde para pontos de recuperação atualizado seja gerado pelo Azure Site Recovery. Use os novos pontos de recuperação para qualquer failover de teste ou failover no futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso mudar a replicação de discos gerenciados para discos não gerenciados?
 
@@ -294,6 +294,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery, utilizando a AP
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 * [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.

@@ -10,22 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a9f48c8cef8d977469bb6c583d0bc363e334f693
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245313"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008487"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Idiomas e regiões compatíveis com a API de Análise de Texto
 
-Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimento, extração de frases-chave e detecção de idioma.
+Este artigo explica quais linguagens têm suporte para cada operação: análise de sentimento, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
 ## <a name="language-detection"></a>Detecção de Idioma
 
 A API de Análise de Texto pode detectar até 120 idiomas diferentes. A detecção de idioma retorna o "script" de um idioma. Por exemplo, a frase "Eu tenho um cachorro" retornará `en`, em vez de `en-US`. O único especial é chinês, em que a funcionalidade de detecção de idioma retornará `zh_CHS` ou `zh_CHT` se ela puder determinar o script fornecido pelo texto fornecido. Em situações em que um script específico não pode ser identificado para um documento em chinês, ela retornará simplesmente `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-recognition"></a>Análise de Sentimento, Extração de Frases-chave e Reconhecimento de Entidade
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análise de sentimento, extração de frases-chave e reconhecimento de entidade nomeada
 
 Para análise de sentimento, extração de frases-chave e reconhecimento de entidade, a lista de idiomas compatíveis é mais seletiva, uma vez que os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais.
 
@@ -33,30 +33,34 @@ Para análise de sentimento, extração de frases-chave e reconhecimento de enti
 
 O suporte a idiomas é implantado inicialmente em versão prévia, passando para o status GA (disponível ao público em geral), de modo independente um do outro e do serviço de Análise de Texto como um todo. É possível que idiomas permaneçam em versão prévia mesmo quando a API de Análise de Texto passar para disponível ao público em geral.
 
-| Linguagem    | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade |   Observações  |
+| Linguagem    | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada |   Observações  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Dinamarquês      | `da`          | ✔ \*     | ✔           |             |     |
-| Holandês       | `nl`          | ✔ \*     | ✔          |             |     |
-| Inglês     | `en`          | ✔        | ✔           |  ✔ \*   |      |
-| Finlandês     | `fi`          | ✔ \*     | ✔           |             |     |
-| Francês      | `fr`          | ✔        | ✔           |             |     |
-| Alemão      | `de`          | ✔ \*     | ✔           |            |     |
+| Árabe      | `ar`          |           |             | ✔ \*                     | |
+| Tcheco       | `cs`          |           |             | ✔ \*                     | |
+| Chinês simplificado | `zh-CN`|           |             | ✔ \*        |    |
+| Dinamarquês      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
+| Holandês       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Inglês     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| Finlandês     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Francês      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
+| Alemão      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Grego       | `el`          | ✔ \*     |             |            |     |
-| Italiano     | `it`          | ✔ \*     | ✔           |             |     |
-| Japonês    | `ja`          |          | ✔           |            |     |
-| Coreano      | `ko`          |          | ✔           |            |     |
-| Norueguês (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
-| Polonês      | `pl`          | ✔ \*     |  ✔          |             |     |
-| Português (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` também é aceito|
-| Português (Brasil)   | `pt-BR`|          |  ✔   |         |     |
-| Russo     | `ru`          | ✔ \*     | ✔           |             |     |
-| Espanhol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| Sueco     | `sv`          | ✔ \*     | ✔           |             |     |
-| Turco     | `tr`          | ✔ \*     |             |             |  |
+| Húngaro   | `hu`          |           |             |  ✔ \*          |     | 
+| Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Japonês    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
+| Norueguês (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
+| Polonês      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
+| Português (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` também é aceito|
+| Português (Brasil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
+| Russo     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Espanhol     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| Sueco     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
+| Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* indica suporte a idiomas na versão prévia
+\* Suporte de linguagem está em versão prévia
 
-\*\* A extração de entidade para espanhol só está disponível no [(versão 2.1-prévia)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+\*\* Reconhecimento de entidade de chamada e [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md) ambas estão disponíveis para esse idioma.    
 
 ## <a name="see-also"></a>Consulte também
 

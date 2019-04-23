@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862095"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009745"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoramento de métricas e logs no serviço de porta da frente do Azure
 
@@ -65,7 +65,7 @@ Logs de atividades fornecem informações sobre as operações realizadas em rec
 
 Para configurar logs de diagnóstico para seu serviço de porta da frente:
 
-1. Selecione o serviço de gerenciamento de API do Azure.
+1. Selecione o serviço do Azure da frente.
 
 2. Escolher **configurações de diagnóstico**.
 
@@ -90,7 +90,7 @@ Atualmente, o serviço de porta da frente fornece logs de diagnóstico (agrupado
 | UserAgent | O tipo de navegador que o cliente usou |
 | TrackingReference | A cadeia de caracteres de referência exclusivo que identifica uma solicitação no servidas por porta da frente, também é enviado como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar um perfil de porta da frente](quickstart-create-front-door.md)
 - [Como funciona a porta da frente](front-door-routing-architecture.md)

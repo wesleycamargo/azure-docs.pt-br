@@ -11,50 +11,42 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203162"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498352"
 ---
-## <a name="register-your-application"></a>Registrar seu aplicativo
+## <a name="register-your-application"></a>Registre seu aplicativo
 
 Você pode registrar seu aplicativo de duas maneiras.
 
-### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
+### <a name="option-1-express-mode"></a>Opção 1: Modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
-1. Vá até o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
+1. Vá para o [portal do Azure – Registro de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Insira um nome para seu aplicativo e selecione **Registrar**.
+1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 
-2. Selecione **Adicionar um aplicativo**.
-
-3. No campo **Nome do Aplicativo**, insira um nome para o seu aplicativo.
-
-4. Marque a caixa de seleção **Instalação Interativa** e, depois, selecione **Criar**.
-
-5. Siga as instruções para obter a ID do aplicativo e cole-a em seu código.
-
-### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: Modo Avançado
 
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
-1. Caso ainda não tenha registrado seu aplicativo, acesse o [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-
-2. Selecione **Adicionar um aplicativo**.
-
-3. No campo **Nome do Aplicativo**, insira um nome para o seu aplicativo.
-
-4. Desmarque a caixa de seleção **Instalação Interativa** e, depois, selecione **Criar**.
-
-5. Selecione **Adicionar Plataforma**, selecione **Aplicativo Nativo** e, em seguida, selecione **Salvar**.
-
-6. Na caixa **ID do Aplicativo**, copie o GUID.
-
-7. Vá para o Visual Studio, abra o arquivo *App.xaml.cs* e, depois, substitua `your_client_id_here` pela ID do aplicativo que você acabou de registrar e copiar.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
+1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
+1. Selecione **Novo registro**.
+   - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
+   - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+   - Selecione **Registrar** para criar o aplicativo.
+1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
+1. Na seção **URIs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
+1. Clique em **Salvar**.
+1. Vá para o Visual Studio, abra o arquivo *App.xaml.cs* e, depois, substitua `Enter_the_Application_Id_here` pela ID do aplicativo que você acabou de registrar e copiar.
 
     ```csharp
-    private static string ClientId = "your_application_id_here";
+    private static string ClientId = "Enter_the_Application_Id_here";
     ```

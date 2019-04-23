@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105294"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489307"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
 
@@ -95,11 +95,10 @@ Crie um balanceador de carga interno Básico usando o portal. O nome e o endere�
     | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
     | NOME                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Type          | Selecione **Público**.                                        |
+    | Type          | selecione **Interno**.                                        |
     | SKU           | Selecione **Basic**.                          |
     | Rede virtual           | Selecione *MyVNet*.                          |    
-| Endereço IP público | Selecione **Criar novo**. |
-    | Atribuição de endereço IP público              | Selecione **Estático**.   |
+    | Atribuição de endereço IP              | Selecione **Estático**.   |
     | Endereço IP privado|digite um endereço que está no espaço de endereço de sua rede virtual e sub-rede, por exemplo, *10.3.0.7*.  |
 
 3. Na guia **Revisar + criar**, clique em **Criar**. 
@@ -142,7 +141,7 @@ Para distribuir o tráfego para as VMs, o balanceador de carga usa um pool de en
 
 Para permitir que o balanceador de carga monitore o status da VM, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. 
 
-**Para criar uma investigação de integridade e monitorar a integridade das VMs:**
+**Para criar uma investigação de integridade para monitorar a integridade das VMs:**
 
 1. Selecione **Todos os recursos** no menu à esquerda e **myLoadBalancer** na lista de recursos.
    
@@ -167,7 +166,7 @@ Uma regra do balanceador de carga define como o tráfego é distribuído para as
 
 A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80 no front-end **LoadBalancerFrontEnd**. A regra envia tráfego de rede ao pool de endereços de back-end **MyBackendPool**, também na porta 80. 
 
-**Para criar a regra de balanceador de carga:**
+**Para criar a regra do balanceador de carga:**
 
 1. Selecione **Todos os recursos** no menu à esquerda e **myLoadBalancer** na lista de recursos.
    
@@ -200,7 +199,7 @@ Primeiro, conecte-se às três VMs com a RDP (Área de Trabalho Remota).
 >[!NOTE]
 >Por padrão, as VMs já tem a porta **RDP** (Área de Trabalho Remota) aberta para permitir o acesso remoto à área de trabalho. 
 
-**Para acessar a RDP (Área de Trabalho Remota) na VM:**
+**Para acessar a RDP (área de trabalho remota) na VM:**
 
 1. No portal, selecione **Todos os recursos** no menu à esquerda. Na lista de recursos, selecione cada VM no grupo de recursos **MyResourceGroupLB**.
    

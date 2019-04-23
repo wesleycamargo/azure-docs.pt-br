@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d067d36ea41f80648fcb06fe3b0e51e4f5b3a1a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integração do Azure Active Directory com o Weekdone
@@ -107,12 +107,12 @@ Para configurar o logon único do Azure AD com o Weekdone, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Weekdone](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
     > O arquivo de metadados de weekdone pode ser recuperado usando a mesma URL.
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenantname>`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenantname>`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

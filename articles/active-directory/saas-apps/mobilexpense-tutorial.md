@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Azure Active Directory com o Mobile Xpense
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Mobile Xpense no Azure AD, você precisa adicionar o Mobile Xpense através da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o Mobile Xpense por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Mobile Xpense através da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Mobile Xpense, execute as segui
 
     ![Informações de logon único de Domínio e URLs do Mobile Xpense](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://mobilexpense.com/ServiceProvider`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://mobilexpense.com/ServiceProvider`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

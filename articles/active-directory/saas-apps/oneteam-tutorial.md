@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integração do Azure Active Directory com o Oneteam
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure Active Directory com o Oneteam, execute 
 
     ![Informações de logon único de Domínio e URLs do Oneteam](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

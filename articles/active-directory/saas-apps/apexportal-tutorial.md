@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852584"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integração do Azure Active Directory ao Portal Apex
 
@@ -68,7 +69,7 @@ Para configurar a integração do portal Apex ao Azure AD, você precisa adicion
 
 4. Na caixa de pesquisa, digite **portal Apex**, selecione **portal Apex** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![portal Apex na lista de resultados](common/search-new-app.png)
+    ![portal Apex na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -106,9 +107,9 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
 
     ![Informações de logon único de Domínio e URLs do portal Apex](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Portal do Apex](mailto:support@apexanalytix.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -120,7 +121,7 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
 
     | NOME | Atributo de Origem|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | NOME | user.givenname |
     | SOBRENOME | user.surname |
     | E-MAIL | user.mail |
@@ -142,7 +143,7 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -154,7 +155,7 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
 
     a. URL de logon
 
-    b. Identificador do Azure Ad
+    b. Identificador do Azure AD
 
     c. URL de logoff
 
@@ -180,8 +181,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -233,4 +233,3 @@ Ao clicar no bloco do Portal do Apex no Painel de Acesso, você deverá ser cone
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

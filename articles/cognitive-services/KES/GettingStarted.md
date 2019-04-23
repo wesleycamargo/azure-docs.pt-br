@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994946"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523317"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -252,7 +252,7 @@ Ao criar o serviço de nuvem, será possível usar [`kes.exe deploy_service`](Co
 
 [Alterne](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) o conteúdo do slot de teste com o slot de produção, para que o tráfego dinâmico seja direcionado agora para o serviço implantado recentemente. É possível repetir esse processo ao implantar uma versão atualizada do serviço com novos dados. Como ocorrer com todos os outros serviços de nuvem do Azure, você pode usar o portal do Azure para configurar o [dimensionamento automático](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-Neste exemplo, você implanta o índice *Academic* no slot de teste de um serviço de nuvem existente com VMs *<vm_size>* VMs. Use o seguinte comando:
+Neste exemplo, você implanta o índice *Academic* no slot de preparo de um serviço de nuvem existente com VMs *\<vm_size>*. Use o seguinte comando:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

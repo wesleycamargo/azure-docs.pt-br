@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d982ea49bdc24ccd9894c98435f1e3012d9dd156
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581039"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000888"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Atribuir funções de administrador do Active Directory do Azure usando o PowerShell
 
-Você pode automatizar como atribuir funções às contas de usuário usando o Azure PowerShell. Este artigo usa o [Azure Active Directory PowerShell versão 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) módulo.
+Você pode automatizar como atribuir funções às contas de usuário usando o Azure PowerShell. Este artigo usa o [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) módulo.
 
 ## <a name="prepare-powershell"></a>Preparar o PowerShell
 
@@ -161,7 +161,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Fique à vontade para compartilhar seus comentários conosco no [fórum de funções administrativas do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 * Para obter mais informações sobre funções e a atribuição de função de Administrador, confira [Atribuir funções de administrador](directory-assign-admin-roles.md).

@@ -4,59 +4,49 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/30/2018
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7d194d810e0fd3b9fb57b0876bee12447f65c6
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 91f1d7151debb1f1f3a562337d6c37e4f63a7ee7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519852"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory ao Infinite Campus
 
 Neste tutorial, você aprenderá como integrar o Infinite Campus ao Azure AD (Azure Active Directory).
-
 A integração do Campus Infinito ao Microsoft Azure Active Directory oferece os seguintes benefícios:
 
-- Você pode controlar no Microsoft Azure Active Directory quem tem acesso ao Infinite Campus.
-- Você pode permitir que seus usuários façam logon automaticamente no Campus Infinito (Logon Único) com suas contas do Microsoft Azure Active Directory.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Microsoft Azure Active Directory quem tem acesso ao Infinite Campus.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Infinite Campus (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é acesso de aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md)
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Microsoft Azure Active Directory ao Infinite Campus, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Assinatura habilitada para um Campus infinito logon único
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
-- No mínimo, você precisa ser um administrador do Active Directory do Azure e ter uma função de segurança de produto do Campus de "aluno informações de sistema (SIS)" para concluir a configuração.
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura habilitada para logon único do Infinite Campus
+* No mínimo, você precisa ser um administrador do Azure Active Directory e ter uma Função de Segurança de Produto do Campus "SIS (Sistema de Informações de Alunos)" para concluir a configuração.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-1. Adicionando o infinito Campus da Galeria
-2. configurar e testar o logon único do AD do Azure
+* O Infinite Campus dá suporte ao SSO iniciado por **SP**
 
 ## <a name="adding-infinite-campus-from-the-gallery"></a>Adicionando o infinito Campus da Galeria
 
@@ -64,71 +54,55 @@ Para configurar a integração do Infinite Campus no Microsoft Azure Active Dire
 
 **Para adicionar o infinito Campus da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Para adicionar um novo aplicativo, clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Infinite Campus**, selecione **Infinite Campus** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Infinite Campus**, selecione **Infinite Campus** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Campus infinito na lista de resultados](./media/infinitecampus-tutorial/tutorial_infinitecampus_addfromgallery.png)
+    ![Campus infinito na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configura e testa o logon único do Microsoft Azure Active Directory com o Infinite Campus com base em um usuário de teste chamado "Britta Simon".
-
-Para que o logon único funcione, o Microsoft Azure Active Directory precisa saber o que o usuário de contraparte do Infinite Campus é para um usuário no Azure AD. Em outras palavras, um relacionamento de link entre um usuário do Microsoft Azure Active Directory e o usuário relacionado no Infinite Campus precisa ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Infinite Campus, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Infinite Campus.
 
 Para configurar e testar o logon único do Microsoft Azure Active Directory com o Infinite Campus, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criando um usuário de teste do Campus infinito](#creating-an-infinite-campus-test-user)**  – para ter um equivalente de Britta Simon no Campus infinita que esteja vinculado à representação de usuário do AD do Azure.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do Infinite Campus](#configure-infinite-campus-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Infinite Campus](#create-infinite-campus-test-user)** – para ter um equivalente de Brenda Fernandes no Infinite Campus que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Microsoft Azure Active Directory no portal do Azure e configurará o logon único em seu aplicativo Infinite Campus.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Microsoft Azure Active Directory com o Infinite Campus, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Infinite Campus, execute as seguintes etapas:
 
-1. No portal do Azure, sobre o **Campus infinito** página de integração do aplicativo, clique em **logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Infinite Campus**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Configurar o logon único](common/tutorial_general_301.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Configurar o logon único](common/editconfigure.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. No **básicas de configuração de SAML** seção, se você tiver um **arquivo de metadados do provedor de serviços** exportados do Campus infinito, concluir etapas 4.a por meio de 4.d e, em seguida, pule para a etapa 11.c. Se você não tiver um arquivo de metadados do provedor de serviços, vá para a etapa 5.
-
-     a. Clique em **Carregar arquivo de metadados**.
-
-        ![image](common/b9_saml.png)
-
-    b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
-
-    ![image](common/b9(1)_saml.png)
-
-    c. Depois que o arquivo de metadados for carregado com êxito, os valores **Identificador** e **URL de resposta** serão populados automaticamente na caixa de texto da seção **Configuração Básica do SAML**, conforme mostrado abaixo:
-
-    ![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
-
-    d. Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão (o domínio variará com o modelo de hospedagem): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
-
-5. Se você não tiver o **arquivo de metadados do provedor de serviços**, execute as etapas a seguir (observe que o domínio variará conforme o modelo de hospedagem):
+4. Na seção Configuração Básica do SAML, execute as seguintes etapas (observe que o domínio variará de acordo com o Modelo de Hospedagem, mas o valor **FULLY-QUALIFIED-DOMAIN** precisa corresponder à instalação do Infinite Campus):
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -136,121 +110,105 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
 
-    ![Domínio Campus Infinito e informações de logon único de URLs](./media/infinitecampus-tutorial/tutorial_infinitecampus_url1.png)
+    ![Domínio Campus Infinito e informações de logon único de URLs](common/sp-identifier-reply.png)
 
-6. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no **ícone** de cópia para copiar  **URL de metadados da federação de aplicativo**  e cole-o no bloco de notas.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-    ![O link de download do Certificado](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
+    ![O link de download do Certificado](common/copy-metadataurl.png)
 
-7. Na seção **Configurar Infinito Campus**, use os seguintes valores para validar o upload ou a utilização do arquivo / URL de metadados do Azure.
+### <a name="configure-infinite-campus-single-sign-on"></a>Configurar o logon único do Infinite Campus
 
-    a. URL de logon
+1. Em outra janela do navegador da Web, entre no Infinite Campus como Administrador de segurança.
 
-    b. Identificador do Azure AD
-
-    c. URL de logoff
-
-    ![Infinite Campus Configuration](common/configuresection.png)
-
-8. Em uma janela do navegador da Web diferente, faça login no Infinite Campus como um administrador de segurança.
-
-9. No lado esquerdo do menu, clique em **Administração do sistema**.
+2. No lado esquerdo do menu, clique em **Administração do sistema**.
 
     ![O administrador](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-10. Navegue para **Segurança do usuário** >  **Gerenciamento do SAML** > **Configuração do provedor de serviços de SSO**.
+3. Navegue para **Segurança do usuário** >  **Gerenciamento do SAML** > **Configuração do provedor de serviços de SSO**.
 
     ![O saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
-11. Na página **Configuração do Provedor de Serviços de SSO**, execute as seguintes etapas:
+4. Na página **Configuração do Provedor de Serviços de SSO**, execute as seguintes etapas:
 
     ![O sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Selecione **habilitar logon único do SAML**.
-    
-    b. Editar o **nome do atributo opcional** conter **nome**
-    
-    c. No **selecione uma opção para recuperar dados do servidor de provedor de identidade (IDP)** , selecione **URL de metadados**, cole o **Url de metadados de Federação do aplicativo** (da etapa 6 acima) em a caixa e clique **sincronização**.
 
-    d. Clique no link **Metadados do Provedor de Serviços** para salvar o **arquivo de metadados do Provedor de Serviços** no seu computador e carregue-o na seção **Configuração básica do SAML** para preencher automaticamente os valores de **Identificador** e **URL de resposta** no portal do Azure (consulte a etapa 4 para carregamento e preenchimento automático dos valores ou a etapa 5 para entrada manual).
+    b. Edite o **Nome do Atributo Opcional** para que ele contenha o **nome**
 
-    e. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**.
+    c. Na seção **Selecionar uma opção para recuperar os dados do servidor do IdP (Provedor de Identidade)**, selecione **URL de Metadados**, cole na caixa o valor da **URL de Metadados da Federação do Aplicativo** copiado do portal do Azure e, em seguida, clique em **Sincronizar**.
 
-    f. Clique em **Salvar**.
+    d. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**. Esses valores podem ser verificados para que correspondam aos valores vistos na etapa 4 acima.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+    e. Clique em **Save** (Salvar).
 
-O objetivo desta seção é criar uma _único_ usuário de teste no portal do Azure chamado Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![Criar um usuário do AD do Azure][100]
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
 
-### <a name="creating-an-infinite-campus-test-user"></a>Criando um usuário de teste do Campus infinito
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Infinite Campus tem uma arquitetura demográfica centrada. Entre em contato com a equipe de suporte do [Infinite Campus](mailto:sales@infinitecampus.com) para adicionar os usuários à plataforma Infinite Campus.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+> [!NOTE]
+> Caso deseje que todos os usuários do Azure tenham acesso de logon único ao Infinite Campus e dependam do sistema de permissões internas do Infinite Campus para controlar o acesso, defina a propriedade **Atribuição de Usuário Necessária** do aplicativo como Não e ignore as etapas a seguir.
 
 Nesta seção, você permite que Britta Simon use o logon único do Azure, concedendo acesso ao Infinite Campus.
 
-1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Infinite Campus**.
 
-    ![Atribuir usuário][201]
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, selecione **Infinite Campus**.
 
-    ![Configurar o logon único](./media/infinitecampus-tutorial/tutorial_infinitecampus_app.png) 
+    ![O link do Infinite Campus na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![Atribuir usuário][202]
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![Atribuir usuário][203]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
 5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-infinite-campus-test-user"></a>Criar um usuário de teste do Infinite Campus
+
+Infinite Campus tem uma arquitetura demográfica centrada. Entre em contato com a equipe de suporte do [Infinite Campus](mailto:sales@infinitecampus.com) para adicionar os usuários à plataforma Infinite Campus.
+
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar na peça Infinite Campus no Painel de Acesso, deverá fazer logon automaticamente no aplicativo Infinite Campus. Se você está fazendo logon no aplicativo Campus infinito no mesmo navegador que você está administrando o Azure AD, certifique-se de que você está conectado ao Azure AD como o usuário de teste. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco do Infinite Campus no Painel de Acesso, você deverá ser conectado automaticamente ao Infinite Campus, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
-
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com o Silverback
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com o Silverback, execute as seguinte
 
     ![Informações de logon único em Domínio e URLs do Silverback](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Silverback](mailto:helpdesk@matrix42.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

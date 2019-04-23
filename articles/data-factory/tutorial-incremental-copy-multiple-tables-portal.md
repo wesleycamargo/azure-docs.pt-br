@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257426"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565998"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -491,11 +491,12 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
 1. Alterne para a guia **Coletor** e selecione **SinkDataset** para o campo **Conjunto de Dados do Coletor**. 
         
     ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Alterne para a guia **Parâmetros** e execute as seguintes etapas:
+1. Execute as seguintes etapas:
 
-    1. Na propriedade **Nome do Procedimento Armazenado no Coletor**, digite `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Na propriedade **do Tipo de Tabela do Coletor**, digite `@{item().TableType}`.
-    1. Na seção **Conjunto de Dados do Coletor**, no parâmetro **SinkTableName**, digite `@{item().TABLE_NAME}`.
+    1. Na propriedade **Dataset**, para o parâmetro **SinkTableName**, insira `@{item().TABLE_NAME}`.
+    1. Na propriedade **Nome do Procedimento Armazenado**, insira `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Na propriedade **Tipo de Tabela**, insira `@{item().TableType}`.
+
 
         ![Atividade de cópia - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Arraste e solte a atividade de **Procedimento armazenado** da caixa de ferramentas **Atividades** para a superfície do designer de pipeline. Conecte a atividade de **Cópia** à atividade de **Procedimento Armazenado**. 
@@ -565,7 +566,7 @@ O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForE
 ## <a name="review-the-results"></a>Revise os resultados
 No SQL Server Management Studio, execute as seguintes consultas no banco de dados SQL de destino para verificar se os dados foram copiados das tabelas de origem para as tabelas de destino: 
 
-**Consultar** 
+**Consulta** 
 ```sql
 select * from customer_table
 ```
@@ -582,7 +583,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Consultar**
+**Consulta**
 
 ```sql
 select * from project_table
@@ -599,7 +600,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Consultar**
+**Consulta**
 
 ```sql
 select * from watermarktable
@@ -667,7 +668,7 @@ VALUES
 ## <a name="review-the-final-results"></a>Examine os resultados finais
 No SQL Server Management Studio, execute as seguintes consultas no banco de dados de destino para verificar se os dados atualizados/novos foram copiados das tabelas de origem para as tabelas de destino. 
 
-**Consultar** 
+**Consulta** 
 ```sql
 select * from customer_table
 ```
@@ -686,7 +687,7 @@ PersonID    Name    LastModifytime
 
 Observe os novos valores de **Name** e **LastModifytime** para **PersonID** para o número 3. 
 
-**Consultar**
+**Consulta**
 
 ```sql
 select * from project_table
@@ -706,7 +707,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Observe que a entrada **NewProject** foi adicionada a project_table. 
 
-**Consultar**
+**Consulta**
 
 ```sql
 select * from watermarktable
@@ -743,6 +744,6 @@ Neste tutorial, você realizará os seguintes procedimentos:
 Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Carregar dados de forma incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando a tecnologia Controle de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

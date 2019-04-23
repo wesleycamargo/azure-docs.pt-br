@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001283"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526734"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Criar um modelo de base do Terraform no Azure usando o Yeoman
 
@@ -73,8 +73,8 @@ Em um prompt de comando:
 1. Navegue até o diretório pai que conterá o diretório novo e vazio que estamos prestes a criar.
 1. Digite `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Substitua <new-directory-name> pelo nome do novo diretório. Neste exemplo, nomeamos o novo diretório `GeneratorDocSample`.
+    > [!NOTE]
+    > Substitua `<new-directory-name>` pelo nome de seu novo diretório. Neste exemplo, nomeamos o novo diretório `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Todos esses itens estão pré-instalados no Cloud Shell.
 
 1. Crie a pasta $GOPATH, se ela ainda não existir: Digite `mkdir ~/go`.
 
-1. Crie uma pasta dentro da pasta $GOPATH: Digite `mkdir ~/go/src`. Essa pasta será usada para armazenar e organizar pastas de projetos diferentes que você pode criar, como a pasta <nome-do-seu-módulo> que criaremos na próxima etapa.
+1. Crie uma pasta dentro da pasta $GOPATH: Digite `mkdir ~/go/src`. Essa pasta será usada para armazenar e organizar pastas de projetos diferentes que você pode criar, como a pasta `<your-module-name>` que criaremos na próxima etapa.
 
 1. Crie uma pasta para armazenar o módulo Terraform: Digite `mkdir ~/go/src/<your-module-name>`.
 

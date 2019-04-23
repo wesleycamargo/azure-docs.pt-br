@@ -1,6 +1,6 @@
 ---
 title: SDKs dos Serviços de Mídia do Azure v3 – Azure
-description: Este artigo fornece uma visão geral de como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs/ferramentas.
+description: Este artigo fornece uma visão geral de como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -13,50 +13,51 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9fb4d1561a661387f759aada9e776d43a95aa5c7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044399"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564501"
 ---
-# <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs/ferramentas
+# <a name="develop-against-media-services-v3-api-using-sdks"></a>Desenvolvimento na API dos Serviços de Mídia v3 usando SDKs
 
 Como desenvolvedor, você pode usar a [API REST](https://aka.ms/ams-v3-rest-ref) dos Serviços de Mídia ou bibliotecas de clientes que permitem interagir com a API REST para criar, gerenciar e manter fluxos de trabalho de mídia personalizados com facilidade. A API dos [Serviços de Mídia v3](https://aka.ms/ams-v3-rest-sdk) se baseia na especificação do OpenAPI (anteriormente conhecida como um Swagger).
 
-Este tópico fornece links para os SDKs, as ferramentas e a documentação. Também fornece algumas informações úteis para diferentes ambientes de desenvolvimento.
-
 > [!NOTE]
 > Os SDKs dos Serviços de Mídia do Azure v3 não têm garantia de serem thread-safe. Ao desenvolver um aplicativo com multi-thread, você deverá adicionar sua própria lógica de sincronização de thread para proteger o cliente ou usar um novo objeto AzureMediaServicesClient por thread. Você também deve tomar cuidado com problemas de multi-threading introduzidos por objetos opcionais fornecidos pelo código ao cliente (como uma instância do HttpClient no .NET).
+
+Este tópico fornece links para os SDKs, as ferramentas e os guias de instruções.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para iniciar o desenvolvimento nos Serviços de Mídia, você precisará:
 
 - Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)
+- [Saiba mais sobre conceitos fundamentais](concepts-overview.md)
+- Examine [Desenvolvimento com as APIs dos Serviços de Mídia v3](media-services-apis-overview.md)
 - [Criar uma conta dos Serviços de Mídia – CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Comece a desenvolver com SDKs
+## <a name="start-developing-with-sdks"></a>Começar a desenvolver com SDKs
 
 ### <a name="net"></a>.NET
 
-Use o [SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk).
+Use o [SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk) para [se conectar aos Serviços de Mídia](configure-connect-dotnet-howto.md).
 
-Explore a documentação dos Serviços de Mídia [ref .NET](https://aka.ms/ams-v3-dotnet-ref).
+Explore a documentação de [referência do .NET](https://aka.ms/ams-v3-dotnet-ref) dos Serviços de Mídia.
 
 ### <a name="java"></a>Java
 
-Use o [SDK do Java](https://aka.ms/ams-v3-java-sdk).
+Use o [SDK do Java](https://aka.ms/ams-v3-java-sdk) para [se conectar aos Serviços de Mídia](configure-connect-java-howto.md).
 
 Examine a documentação de [referência do Java](https://aka.ms/ams-v3-java-ref) dos Serviços de Mídia.
 
 ### <a name="nodejs"></a>Node.js
 
-Use [o SDK do Node.js](https://aka.ms/ams-v3-nodejs-sdk).
+Use o [SDK do Node.js](https://aka.ms/ams-v3-nodejs-sdk) para [se conectar aos Serviços de Mídia](configure-connect-nodejs-howto.md).
 
 Explore a documentação de [referência do Node.js](https://aka.ms/ams-v3-nodejs-ref) dos Serviços de Mídia e confira as [amostras](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que explicam como usar a API dos Serviços de Mídia com o Node.js.
 

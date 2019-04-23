@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762490"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004747"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -88,7 +88,7 @@ Você pode recuperar a taxa de transferência mínima de um contêiner ou um ban
 
 Ao usar o SDK do .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite que você recupere a taxa de transferência mínima de um contêiner ou um banco de dados. 
 
-Você pode dimensionar a taxa de transferência provisionada de um contêiner ou um banco de dados a qualquer momento. Você pode executar a operação de redução de escala após o período de ociosidade de 4 horas. O período ocioso é definido como a hora de período quando não havia nenhuma oferta de operações de substituição (que inclui a ampliação e redução) em um contêiner ou um banco de dados. 
+Você pode dimensionar a taxa de transferência provisionada de um contêiner ou um banco de dados a qualquer momento. 
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 

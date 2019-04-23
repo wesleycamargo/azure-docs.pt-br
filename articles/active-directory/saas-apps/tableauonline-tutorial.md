@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278098"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory ao Tableau Online
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Tableau Online ao Azure AD, você precisa adicionar o Tableau Online da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Tableau Online da galeria, execute as seguintes etapas:**
+**Para adicionar o Tableau Online por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Tableau Online, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Tableau Online](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+     a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o Tableau Online, execute as segu
   
     a. No portal do Azure, acesse a página de integração de aplicativos do **Tableau Online**.
 
-    b. Na seção **Atributos do usuário e declarações****, clique no ícone editar.
+    b. Na seção **Atributos e Declarações de Usuário**, clique no ícone Editar.
 
    ![Configurar o logon único](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    Por exemplo, BrendaFernandes\@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 

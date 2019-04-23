@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integração do Azure Active Directory ao Syncplicity
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Syncplicity ao Azure AD, você precisará adicionar o Syncplicity da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Syncplicity por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Syncplicity da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Syncplicity, siga estas etapas:
 
 1. Na página do diálogo **SSO (Logon Único)** , realize as seguintes etapas:
 
-    ![SSO \(Logon Único\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Logon Único \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
      a. Na caixa de texto **Domínio Personalizado** , digite o nome do seu domínio.
   
@@ -190,7 +190,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
     ![O link do Syncplicity na lista de aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+    ![O link "Usuários e grupos"](common/users-groups-blade.png)
 
 4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 

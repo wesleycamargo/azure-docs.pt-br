@@ -3,19 +3,19 @@ title: Este início rápido mostra como registrar o dispositivo X.509 no Serviç
 description: Este início rápido usa registros em grupo. Neste início rápido, você irá registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874993"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500865"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando C#
 
@@ -53,7 +53,7 @@ Para usar essas ferramentas de teste para gerar certificados, execute as seguint
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Atualmente, o tamanho desse repositório está em torno de 220 MB. Essa operação deve demorar alguns minutos.
+   Essa operação deve demorar alguns minutos.
 
    As ferramentas de teste estão localizadas em *azure-iot-sdk-c/tools/CACertificates* do repositório clonado.    
 

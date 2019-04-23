@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045398"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578400"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -22,7 +22,7 @@ A Grade de Eventos do Azure permite compilar facilmente aplicativos com as arqui
 
 Você pode usar filtros para encaminhar eventos específicos a pontos de extremidade diferentes, multicast para vários pontos de extremidade e verificar se os eventos são distribuídos de forma confiável.
 
-Atualmente, a Grade de Eventos do Azure está disponível em todas as regiões públicas. Ainda não está disponível nas nuvens do Azure Alemanha, Azure China ou Azure Governamental.
+Atualmente, a Grade de Eventos do Azure está disponível em todas as regiões públicas. Ainda não disponível nas nuvens do Azure Alemanha, Azure na China 21Vianet nem Azure Governamental.
 
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
@@ -34,30 +34,29 @@ Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas 
 
 Para obter detalhes completos sobre os recursos de cada origem, bem como artigos relacionados, confira [origens do evento](event-sources.md). Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
 
-* Assinaturas do Azure (operações de gerenciamento)
-* Registro de Contêiner
-* Tópicos personalizados
-* Hubs de Eventos
-* Hub IoT
-* Serviços de mídia
-* Grupos de recursos (operações de gerenciamento)
-* Barramento de Serviço
-* Blob de Armazenamento
-* Uso geral v2 (GPv2) do Armazenamento
-* Mapas do Azure
+* [Assinaturas do Azure (operações de gerenciamento)](event-sources.md#azure-subscriptions)
+* [Registro de Contêiner](event-sources.md#container-registry)
+* [Tópicos personalizados](event-sources.md#custom-topics)
+* [Hubs de Evento](event-sources.md#event-hubs)
+* [Hub IoT](event-sources.md#iot-hub)
+* [Serviços de Mídia](event-sources.md#media-services)
+* [Grupos de recursos (operações de gerenciamento)](event-sources.md#resource-groups)
+* [Barramento de Serviço](event-sources.md#service-bus)
+* [Armazenamento de Blobs](event-sources.md#storage)
+* [Mapas do Azure](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
 Para obter detalhes completos sobre os recursos de cada manipulador, bem como artigos relacionados, confira [manipuladores de evento](event-handlers.md). Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
 
-* Automação do Azure
-* Funções do Azure
-* Hubs de Eventos
-* Conexões Híbridas
-* Aplicativos Lógicos
-* Microsoft Flow
-* Armazenamento de Filas
-* WebHooks
+* [Automação do Azure](event-handlers.md#azure-automation)
+* [Funções do Azure](event-handlers.md#azure-functions)
+* [Hubs de Evento](event-handlers.md#event-hubs)
+* [Conexões híbridas](event-handlers.md#hybrid-connections)
+* [Aplicativos Lógicos](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Armazenamento de Filas](event-handlers.md#queue-storage)
+* [Webhooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Conceitos
 
@@ -114,11 +113,11 @@ A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, par
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Encaminhar eventos do Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Eventos de blob de armazenamento de rota](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Responda a eventos de blob de armazenamento usando a Grade de Eventos.
 * [Criar e assinar eventos personalizados](custom-event-quickstart.md)  
   Comece imediatamente a enviar seus próprios eventos personalizados para qualquer ponto de extremidade usando o início rápido da Grade de Eventos do Azure.
-* [Como usar Aplicativos Lógicos como um manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Usando Aplicativos Lógicos como um Manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Um tutorial sobre como compilar um aplicativo usando os Aplicativos Lógicos para reagir a eventos enviados por push pela Grade de Eventos.
 * [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)  
   Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o SQL Data Warehouse.

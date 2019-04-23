@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integração do Azure Active Directory com o Igloo Software
@@ -106,11 +106,11 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
     ![Informações de logon único de domínio e de URLs do Igloo Software](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com/saml.digest`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com/saml.digest`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com/saml.digest`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao Cliente do Igloo Software](https://www.igloosoftware.com/services/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

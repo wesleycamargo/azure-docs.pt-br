@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351942"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004866"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Perguntas frequentes da API da Pesquisa Visual Computacional
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351942"
 
 -----
 
-**Pergunta**: *Quais idiomas são compatíveis com a Pesquisa Visual Computacional?*
-
-**Resposta**: As linguagens com suporte incluem:
-
-| | | Idiomas com suporte | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Dinamarquês (da-DK)  | Holandês (nl-NL)     | Inglês           | Finlandês (fi-FI)            |Francês (fr-FR)
-| Alemão (de-DE)  | Grego (el-GR)     | Húngaro (hu-HU) | Italiano (it-IT)            | Japonês (ja-JP)
-| Coreano (ko-KR)  | Norueguês (nb-NO) | Polonês (pl-PL)    | Português (pt-BR) (pt-PT) | Russo (ru-RU)
-| Espanhol (es-ES)   | Sueco (sv-SV)     | Turco (tr-TR)   |                            |
-
------
-
 **Pergunta**: *A Pesquisa Visual Computacional pode ser usada para ler placas de automóvel?*
 
 **Resposta**: A API da Pesquisa Visual Computacional oferece boa detecção de texto com OCR, mas ele não é otimizado para placas de automóveis no momento. Estamos constantemente tentando melhorar nossos serviços e adicionamos OCR para reconhecimento de placas automaticamente à nossa lista de solicitações de recursos.
-
------
-
-**Pergunta**: *Quais idiomas são suportados para o reconhecimento de manuscrito?*
-
-**Resposta**: Atualmente, há suporte apenas para inglês.
 
 -----
 

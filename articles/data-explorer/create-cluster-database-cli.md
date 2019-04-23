@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 1fb9027ab3301bb860d260aed737ab7674039d9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043965"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524711"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Criar um cluster e um banco de dados do Azure Data Explorer usando a CLI do Azure
 
@@ -32,7 +32,7 @@ Para concluir este início rápido, você precisa de uma assinatura do Azure. Se
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI do Azure localmente, este Início Rápido exigirá a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar sua versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI do Azure localmente, este Início Rápido exigirá a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar sua versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Configurar os parâmetros da CLI
 
@@ -79,7 +79,7 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
 1. Crie o banco de dados usando o seguinte comando:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Configuração** | **Valor sugerido** | **Descrição do campo**|
@@ -87,8 +87,8 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
    | nome do cluster | *azureclitest* | O nome do cluster em que o banco de dados será criado.|
    | Nome | *clidatabase* | O nome do banco de dados.|
    | resource-group | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
-   | soft-delete-period | *3650:00:00:00* | O tempo durante o qual os dados serão mantidos disponíveis para consulta. |
-   | hot-cache-period | *3650:00:00:00* | O tempo durante o qual os dados serão mantidos no cache. |
+   | soft-delete-period | *P365D* | Indica o tempo durante o qual os dados serão mantidos disponíveis para consulta. Consulte [política de retenção](/azure/kusto/concepts/retentionpolicy) para obter mais informações. |
+   | hot-cache-period | *P31D* | Indica o tempo durante o qual os dados serão mantidos no cache. Consulte [política de cache](/azure/kusto/concepts/cachepolicy) para obter mais informações. |
 
 1. Execute o seguinte comando para ver o banco de dados criado:
 

@@ -1,7 +1,6 @@
 ---
 title: As trocas de autoatendimento e os reembolsos para reservas do Azure | Microsoft Docs
 description: Saiba como você pode trocar ou o reembolso de reservas do Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281974"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009303"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>As trocas de autoatendimento e os reembolsos para reservas do Azure
 
 Reservas do Azure fornecem flexibilidade para atender às suas necessidades em constante evolução. Você pode trocar uma reserva para reserva outra do mesmo tipo. Você também pode reembolso de uma reserva, de até US $50.000 USD por ano, se você não precisar mais dela.
 
 Recurso de troca e Cancelar Self-service não está disponível para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA incluindo pagamento conforme o uso e o CSP.
+
+Você deve ter acesso de proprietário no pedido de reserva para trocar ou reembolso de uma reserva existente.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Uma instância reservada existente do Exchange
 
@@ -39,7 +40,7 @@ Você pode trocar sua reserva com três etapas rápidas na [portal do Azure](htt
 
 Para reembolso de uma reserva, vá para **detalhes de reserva** e clique em **reembolso**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Como retornar e transações do exchange são processadas
+## <a name="how-transactions-are-processed"></a>Como as transações são processadas
 
 Em primeiro lugar, a Microsoft cancela a reserva existente e reembolsos a quantidade proporcional para essa reserva. Se houver uma troca, a nova compra é processada. Microsoft processa reembolsos usando um dos métodos a seguir, dependendo do seu tipo de conta e método de pagamento:
 
@@ -49,7 +50,7 @@ Dinheiro é adicionado ao compromisso monetário por trocas e reembolsos se a co
 
 Se a compra original tiver sido feita como um excedente, a Microsoft emite um memorando de crédito.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Os clientes de pagamento de nota fiscal pago conforme o uso e o programa Cloud solution provider
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Pagamentos de nota fiscal pago conforme o uso e o programa CSP
 
 A fatura original de compra de reserva é cancelada e, em seguida, uma nova fatura é criada para obter o reembolso. Trocas, a nova fatura mostra o reembolso e nova compra. A quantidade de reembolso é ajustada em relação a compra. Se você apenas reembolsada uma reserva, em seguida, a quantidade proporcional permanece com a Microsoft e ele será ajustado em relação a uma compra de reserva futuras.
 
@@ -74,7 +75,7 @@ A fatura original é cancelada e uma nova fatura é criada. O dinheiro será ree
 - Somente os proprietários de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários podem gerenciar uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - A Microsoft se reserva o direito de cobrar uma penalidade de 12% para qualquer retorna, embora a penalidade no momento, não é cobrada.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Um reserva de VM de uma reserva de armazenamento premium do armazenamento não premium do Exchange
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Armazenamento não premium para o armazenamento premium do Exchange
 
 Você pode trocar uma reserva adquirida para um tamanho de VM que não oferece suporte a armazenamento premium para um tamanho VM correspondente que faz. Por exemplo, um _F1_ para um _F1s_. Para tornar o exchange, vá para detalhes de reserva e clique em **Exchange**. O exchange não redefinir o termo da instância reservada ou crie uma nova transação.
 

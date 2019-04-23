@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256372"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491741"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IIoT (IoT industrial)
 
@@ -23,7 +23,7 @@ IIoT é a Internet das Coisas Industrial. IIoT aprimora a eficiência industrial
 
 Aprimore sua produtividade e lucratividade operacionais com um acelerador de solução de fábrica conectada. Conecte e monitore seus dispositivos e equipamentos industriais na nuvem – incluindo as máquinas que já operam no chão de fábrica. Analise seus dados de IoT para obter insights que o ajudam a aumentar o desempenho de todo o chão de fábrica.
 
-Reduza o processo demorado de acessar computadores do chão de fábrica com gerenciamento de dispositivo da UA de OPC do Azure IoT (OPC Twin) e dedique seu tempo à criação de soluções de IIoT. Simplifique o gerenciamento de certificados e a integração de ativos industriais com o gerenciamento de certificados da UA de OPC do Azure IoT (OPC Vault) e fique confiante de que a conectividade do ativo está protegida. Esses microsserviços fornecem uma API REST semelhante além dos [componentes do Azure IoT Industrial](https://github.com/Azure/azure-iiot-opc-ua). A API do serviço dá a você controle sobre a funcionalidade do módulo de borda. 
+Reduza o processo demorado de acessar computadores do chão de fábrica com gerenciamento OPC Twin e dedique seu tempo à criação de soluções de IIoT. Simplifique o gerenciamento de certificados e a integração de ativos industriais com o OPC Vault e tenha certeza de que a conectividade do ativo está protegida. Esses microsserviços fornecem uma API REST semelhante além dos [componentes do Azure IoT Industrial](https://github.com/Azure/azure-iiot-opc-ua). A API do serviço dá a você controle sobre a funcionalidade do módulo de borda. 
 
 ![Visão geral de IoT industrial](media/overview-iot-industrial/overview.png)
 
@@ -39,11 +39,11 @@ A [Fábrica Conectada](../iot-accelerators/iot-accelerators-connected-factory-fe
 
 ## <a name="factory-floor-connectivity"></a>Conectividade de chão de fábrica
 
-Gerenciamento de dispositivos da UA de OPC do Azure IoT, também conhecido como OPC Twin, é um componente de IIoT que automatiza o registro e a descoberta de dispositivos e oferece controle remoto de dispositivos industriais por meio de APIs REST. O OPC Twin usa o Hub IoT e o Azure IoT Edge para conectar-se à nuvem e à rede de fábrica. O OPC Twin permite que os desenvolvedores de IIoT se concentrem na criação de aplicativos de IIoT sem se preocuparem com a maneira de acessar as máquinas locais de modo seguro.
+O OPC Twin é um componente de IIoT que automatiza o registro e a descoberta de dispositivos e oferece controle remoto de dispositivos industriais por meio de APIs REST. O OPC Twin usa o Hub IoT e o Azure IoT Edge para conectar-se à nuvem e à rede de fábrica. O OPC Twin permite que os desenvolvedores de IIoT se concentrem na criação de aplicativos de IIoT sem se preocuparem com a maneira de acessar as máquinas locais de modo seguro.
 
 ## <a name="security"></a>Segurança
 
-O gerenciamento de certificados da UA de OPC do Azure IoT ou OPC Vault é uma implementação do GDS (Servidor de Descoberta Global) da UA de OPC que pode configurar, registrar e gerenciar o ciclo de vida de certificado para o servidor da UA de OPC e aplicativos cliente na nuvem. O OPC Vault simplifica a implementação e a manutenção de conectividade segura de ativo no espaço de industrial. Ao automatizar o gerenciamento de certificados, o OPC Vault libera os operadores de fábrica dos processos manuais e complexos associados a ao gerenciamento de certificados e conectividade.
+O OPC Vault é uma implementação do GDS (Servidor de Descoberta Global) da UA de OPC que pode configurar, registrar e gerenciar o ciclo de vida de certificado para o servidor da UA de OPC e aplicativos cliente na nuvem. O OPC Vault simplifica a implementação e a manutenção de conectividade segura de ativo no espaço de industrial. Ao automatizar o gerenciamento de certificados, o OPC Vault libera os operadores de fábrica dos processos manuais e complexos associados a ao gerenciamento de certificados e conectividade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js'
+title: 'Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js'
 titlesuffix: Azure Cognitive Services
 description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
-ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 04/02/2019
+ms.author: aahill
+ms.openlocfilehash: 0a1260de6428f6ebc70757261cdcc3002820ec7b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885900"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547757"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js
 
-Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Python simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Node simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito em Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,18 +30,18 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija HTTPS. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura.
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija `https`. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura.
 
     ```javascript
     'use strict';
     let https = require ('https');
-    
+
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/spellcheck';
-    let key = 'ENTER KEY HERE';
+    let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Crie variáveis para o mercado, o modo de verificação ortográfica e o texto do qual deseja fazer a verificação ortográfica. Em seguida, crie uma cadeia de caracteres que acrescenta o parâmetro `?mkt=` ao mercado e `&mode=` ao modo.
+2. Crie variáveis para os parâmetros de pesquisa e o texto que deseja verificar. Acrescente o código de mercado após `mkt=`. O código no mercado é o país no qual você faz a solicitação. Além disso, acrescente o modo de verificação ortográfica após `&mode=`. O modo é `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
 
     ```javascript
     let mkt = "en-US";
@@ -78,7 +78,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-        console.log (body);
+        let body_ = JSON.parse (body);
+        console.log (body_);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -98,7 +99,7 @@ req.end ();
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo:
 
 ```json
 {

@@ -1,64 +1,99 @@
 ---
 title: Indexação no Azure Cosmos DB
 description: Entenda como funciona a indexação no Azure Cosmos DB.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265688"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996723"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – visão geral
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – visão geral
 
-O Azure Cosmos DB é um banco de dados independente de esquema e permite que você faça uma iteração no aplicativo rapidamente sem a necessidade de gerenciamento de índices ou esquema. Por padrão, o Azure Cosmos DB indexa automaticamente todos os itens no contêiner sem exigir esquemas ou índices secundários dos desenvolvedores.
+O Azure Cosmos DB é um banco de dados independente de esquema permite que você itere em seu aplicativo sem ter que lidar com o gerenciamento de esquema ou índice. Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades para todos os itens em sua [contêiner](databases-containers-items.md#azure-cosmos-containers) sem a necessidade de definir qualquer esquema ou índices secundários de configurar.
 
-## <a name="items-as-trees"></a>Itens como árvores
+O objetivo deste artigo é explicar como o Azure Cosmos DB indexa dados e como ele usa índices para melhorar o desempenho da consulta. É recomendável passar por essa seção antes de explorar como personalizar [políticas de indexação](index-policy.md).
 
-Ao projetar itens em um contêiner, como documentos JSON e que os representam como árvores, Azure Cosmos DB normaliza a estrutura e os valores de instância em itens em conceito unificador de um **codificado dinamicamente a estrutura de caminho** . Essa representação, cada rótulo em um documento JSON, que inclui os nomes de propriedade e seus valores, torna-se um nó da árvore. As folhas da árvore contêm os valores reais e os nós intermediários contêm as informações de esquema. A imagem a seguir representa as árvores criadas para dois itens (1 e 2) em um contêiner do Azure Cosmos:
+## <a name="from-items-to-trees"></a>De itens de árvores
 
-![Representação em árvore de dois itens diferentes em um contêiner do Azure Cosmos](./media/index-overview/indexing-as-tree.png)
+Sempre que um item é armazenado em um contêiner, seu conteúdo é projetado como um documento JSON, então convertido em uma representação em árvore. Isso significa que todas as propriedades de um item é representada como um nó em uma árvore. Um nó de raiz de pseudo é criado como um pai para todas as propriedades de primeiro nível do item. Os nós folha contêm os valores escalares reais realizados por um item.
 
-Um nó de raiz de pseudo é criado como um pai de nós reais correspondente para os rótulos no documento JSON abaixo. As estruturas de dados aninhadas direcionam a hierarquia na árvore. Nós artificiais intermediários rotulados com valores numéricos (por exemplo, 0, 1, ...) são empregados para representar enumerações e índices de matriz.
+Por exemplo, considere este item:
 
-## <a name="index-paths"></a>Caminhos de índice
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Itens em um contêiner do Azure Cosmos como documentos JSON e o índice como árvores de projetos do Azure Cosmos DB. Em seguida, você pode ajustar as políticas de índice para caminhos dentro da árvore. Você pode optar por incluir ou excluir caminhos da indexação. Isso pode oferecer melhor desempenho de gravação e diminuir o armazenamento de índice para cenários em que os padrões de consulta são conhecidos antecipadamente. Para obter mais informações, consulte [caminhos de índice](index-paths.md).
+Ele seria representado pela árvore do seguinte:
 
-## <a name="indexing-under-the-hood"></a>Indexação: Nos bastidores
+![O item anterior, representado como uma árvore](./media/index-overview/item-as-tree.png)
 
-Aplica-se o banco de dados do Azure Cosmos *indexação automática* aos dados, onde todos os caminhos em uma árvore é indexado, a menos que você configure para excluir determinados caminhos.
+Observe como as matrizes são codificadas na árvore: cada entrada em uma matriz obtém um nó intermediário rotulado com o índice da entrada de dentro da matriz (0, 1 etc.).
 
-O banco de dados do Azure Cosmos emprega estrutura de dados de índice invertido para armazenar as informações de cada item e facilitar a representação eficiente para consulta. A árvore de índice é um documento que é construído com a união de todas as árvores que representam os itens individuais em um contêiner. A árvore de índice cresce ao longo do tempo conforme novos itens são adicionados ou itens existentes são atualizados no contêiner. Ao contrário de indexação do banco de dados relacional, Azure Cosmos DB não reinicie a indexação do zero, como novos campos são introduzidos. Novos itens são adicionados à estrutura de índice existente. 
+## <a name="from-trees-to-property-paths"></a>Das árvores de caminhos de propriedade
 
-Cada nó de árvore de índice é uma entrada de índice que contém os valores de rótulo e a posição, chamados de *termo*e as IDs dos itens, chamados a *lançamentos*. Os lançamentos entre colchetes (por exemplo {1,2}) na Figura índice invertido correspondem aos itens, como *Documento1* e *Document2* que contém o valor de rótulo fornecido. Uma implicação importante do tratamento os rótulos de esquema e os valores de instância de maneira uniforme é que tudo o que é empacotado dentro de um índice grande. Um valor de instância que ainda está nas folhas não é repetido, pode estar em diferentes funções nos itens, com diferentes rótulos de esquema, mas é o mesmo valor. A imagem a seguir mostra a indexação invertido para dois itens diferentes:
+O motivo por que o Azure Cosmos DB transforma itens em árvores é porque ela permite que propriedades sejam referenciadas por seus caminhos dentro essas árvores. Para obter o caminho para uma propriedade, podemos percorrer a árvore do nó raiz para essa propriedade e concatenar os rótulos de cada nó atravessado.
 
-![Indexação subjacente, Índice invertido](./media/index-overview/inverted-index.png)
+Aqui estão os caminhos para cada propriedade do item de exemplo descrito acima:
 
-> [!NOTE]
-> O índice invertido pode parecer semelhante às estruturas de indexação usadas em um mecanismo de pesquisa no domínio de recuperação de informações. Com esse método, o Azure Cosmos DB permite que você pesquise qualquer item no banco de dado, independentemente da estrutura de esquema.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-Para o caminho normalizado, o índice codifica o caminho de encaminhamento desde a raiz até o valor, juntamente com as informações de tipo do valor. O caminho e o valor são codificados para fornecer vários tipos de indexação, como o intervalo, espacial, etc. A codificação de valor é projetada para fornecer valor exclusivo ou uma composição de um conjunto de caminhos.
+Quando um item é escrito, o Azure Cosmos DB indexa efetivamente o caminho de cada propriedade e seu valor correspondente.
+
+## <a name="index-kinds"></a>Tipos de índice
+
+Atualmente, o Azure Cosmos DB dá suporte a dois tipos de índices:
+
+O **intervalo** tipo de índice é usado para:
+
+- consultas de igualdade: `SELECT * FROM container c WHERE c.property = 'value'`
+- consultas de intervalo: `SELECT * FROM container c WHERE c.property > 'value'` (funciona para `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` consultas: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` consultas: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Índices de intervalo podem ser usados em valores escalares (cadeia de caracteres ou número).
+
+O **espacial** tipo de índice é usado para:
+
+- consultas de distância geoespaciais: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- geoespacial dentro de consultas: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Índices espaciais podem ser usados em corretamente formatado [GeoJSON](geospatial.md) objetos. Atualmente, há suporte para pontos, LineStrings e polígonos.
 
 ## <a name="querying-with-indexes"></a>Consultar com índices
 
-O índice invertido permite que uma consulta identifique rapidamente os documentos que correspondem ao predicado da consulta. Tratando o esquema e os valores de instância uniformemente em termos de caminhos, o índice invertido é também uma árvore. Assim, o índice e os resultados podem ser serializados para um documento JSON válido e retornados como documentos, na medida em que são retornados na representação de árvore. Esse método permite a recursão dos resultados para consultas adicionais. A imagem a seguir ilustra um exemplo de indexação em uma consulta de ponto:  
+Os caminhos extraídos do durante a indexação de dados facilitam a pesquisar o índice quando uma consulta de processamento. Correspondendo a `WHERE` cláusula de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem ao predicado de consulta muito rapidamente.
 
-![Exemplo de consulta de ponto](./media/index-overview/index-point-query.png)
+Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. O predicado da consulta (filtragem de itens, onde qualquer local tem "França" como seu país) seria corresponder ao caminho realçado em vermelho abaixo:
 
-Para uma consulta de intervalo *GermanTax* é um [função definida pelo usuário](stored-procedures-triggers-udfs.md#udfs) executado como parte do processamento de consulta. A função definida pelo usuário é qualquer função JavaScript registrada, que pode fornecer a lógica de programação avançada integrada na consulta. A imagem a seguir ilustra um exemplo de indexação em uma consulta de intervalo:
+![Um caminho específico dentro de uma árvore de correspondência](./media/index-overview/matching-path.png)
 
-![Exemplo de consulta de intervalo](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> Uma `ORDER BY` cláusula *sempre* precisa de um intervalo de índice e falhará se o caminho que faz referência a ele não tiver um.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre indexação nos seguintes artigos:
 
 - [Política de indexação](index-policy.md)
-- [Tipos de índice](index-types.md)
-- [Caminhos de índice](index-paths.md)
 - [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)

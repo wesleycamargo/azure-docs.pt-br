@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671697"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118349"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas do Microsoft Azure
 
@@ -35,6 +35,12 @@ Você pode usar as recomendações de reserva para ajudar a determinar as reserv
 - O Azure Advisor fornece recomendações de compra para assinaturas individuais.  
 - Você pode usar as APIs para obter recomendações de compra para o escopo compartilhado e o escopo de assinatura única. Para obter mais informações, consulte [reservados recomendação de compra de instância APIs para clientes corporativos](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Para clientes do EA, adquirir as recomendações para compartilhado e escopos de assinatura única estão disponíveis com o [pacote de conteúdo de Insights de consumo do Azure Power BI](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Serviços de nuvem e VMs clássicas
+
+Instâncias de máquina virtual reservada se aplicam a ambas as VMs clássicas e serviços de nuvem quando a flexibilidade de tamanho de instância é habilitada automaticamente. Não existem quaisquer SKUs especiais para VMs clássicas ou serviços de nuvem. Os mesmos SKUs de VM se aplicam a eles.
+
+Por exemplo, você pode converter suas VMs clássicas ou serviços de nuvem para VMs baseadas no Azure Resource Manager. Neste exemplo, o desconto de reserva aplica automaticamente as VMs de correspondência. Não é necessário para *exchange* uma instância reservada existente - aplica automaticamente.
 
 ### <a name="analyze-your-usage-information"></a>Analise suas informações de uso
 Você deve analisar suas informações de uso para ajudar a determinar quais reservas você deve comprar.
@@ -74,14 +80,8 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
     |Otimizar para     |A flexibilidade de tamanho da instância de VM aplica o desconto de reserva a outras VMs no mesmo [grupo de tamanhos de VM](https://aka.ms/RIVMGroups). A prioridade da capacidade prioriza a capacidade de data center para suas implantações. Isso oferece confiança adicional na sua capacidade de iniciar as instâncias de VM quando precisar delas. A prioridade de capacidade está disponível apenas quando o escopo de reserva é uma assinatura única. |
     |Termo        |Um ano ou três anos.|
     |Quantidade    |O número de instâncias sendo compradas na reserva. A quantidade é o número de instâncias de VM que podem obter o desconto de cobrança. Por exemplo, se estiver executando 10 VMs Standard_D2 no Leste dos EUA, pode especificar a quantidade como 10 para maximizar o benefício para todas as máquinas em execução. |
-5. Você pode exibir o custo da reserva quando você seleciona **Calcular custo**.
 
-    ![Captura de tela antes de enviar a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Selecione **Comprar**.
-7. Selecione **Exibir essa Reserva** para ver o status de sua compra.
-
-    ![Captura de tela após enviar a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480678"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523351"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar a API do Azure AD Graph
 
@@ -165,7 +165,7 @@ Para usar a identidade gerenciada atribuída ao sistema da VM para autenticaçã
    $AccessToken = $content.access_token
    ```
 
-5. Usando a ID de objeto da entidade de serviço da sua identidade VM (você pode recuperar esse valor de variável declarada nas etapas anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), você pode consultar a API do Azure AD Graph para recuperar suas associações de grupo. Substitua <OBJECT ID> pela ID de Objeto da etapa anterior e <ACCESS-TOKEN> pelo token de acesso obtido anteriormente:
+5. Usando a ID de objeto da entidade de serviço da sua identidade VM (você pode recuperar esse valor de variável declarada nas etapas anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), você pode consultar a API do Azure AD Graph para recuperar suas associações de grupo. Substitua `<OBJECT ID>` pela ID de Objeto da etapa anterior e <`ACCESS-TOKEN>` pelo token de acesso obtido anteriormente:
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"

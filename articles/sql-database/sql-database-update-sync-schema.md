@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 712ccfa71c85629111428a4e0c7acaea050942b8
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58483736"
@@ -174,7 +174,7 @@ Para outros tipos de alterações de esquema - por exemplo, criação de procedi
 
 ## <a name="troubleshoot"> </a> Solucionar problemas de replicação automatizada de alterações de esquema
 
-A lógica de replicação descrita neste artigo para de funcionar em algumas situações, por exemplo, se você fez um esquema de alteração em um banco de dados local que não há suporte para o banco de dados do SQL Azure. Nesse caso, a tabela de controle de alterações de esquema a sincronização falhará. Você precisa corrigir o problema manualmente:
+A lógica de replicação descrita neste artigo para de funcionar em algumas situações, por exemplo, se você fez um esquema de alteração em um banco de dados local que não há suporte para o banco de dados SQL do Azure. Nesse caso, a tabela de controle de alterações de esquema a sincronização falhará. Você precisa corrigir o problema manualmente:
 
 1.  Desabilitar um gatilho DDL e evitar qualquer alteração de esquema adicional até que o problema seja corrigido.
 
@@ -208,7 +208,7 @@ Se você quiser limpar os registros na tabela de rastreamento de alteração de 
 
 -   Você só pode fazer alterações de esquema no banco de dados em que o gatilho de DDL é criado.
 
--   Se você estiver fazendo uma alteração em um banco de dados do SQL Server local, verifique se que a alteração de esquema é suportada no SQL Azure.
+-   Se você estiver fazendo uma alteração em um banco de dados do SQL Server local, verifique se que a alteração de esquema é suportada no Banco de Dados SQL do Azure.
 
 -   Se forem feitas alterações de esquema em bancos de dados que não seja o banco de dados em que o gatilho DDL é criado, as alterações não são replicadas. Para evitar esse problema, você pode criar gatilhos DDL para bloquear alterações em outros pontos de extremidade.
 
@@ -224,7 +224,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL e SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

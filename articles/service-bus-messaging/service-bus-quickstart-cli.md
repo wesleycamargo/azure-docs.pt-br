@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076880"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500627"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início Rápido: Usar a CLI do Azure para criar uma fila do Barramento de Serviço
-
-O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos (aplicativos não precisam estar online ao mesmo tempo), transferindo alterações de dados ou estado e enviando mensagens entre os aplicativos. 
-
-Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse caso, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço:
-
-![fila](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 Este início rápido descreve como enviar e receber mensagens com o Barramento de Serviço usando a CLI do Azure e a biblioteca Java do Barramento de Serviço. Por fim, se você estiver interessado em mais detalhes técnicos poderá [ler uma explicação](#understand-the-sample-code) dos principais elementos do código de exemplo.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
+Se você usar o botão **Experimente** para iniciar o Cloud Shell, entre no Azure usando suas credenciais. 
 
-Clique no botão do Cloud Shell no menu, no canto superior direito do portal do Azure e, no menu suspenso **Selecionar ambiente**, selecione **Bash**. 
+Se você iniciou o Cloud Shell no navegador da Web, diretamente ou no portal do Azure, alterne para **Bash** se você vir **PowerShell** no canto superior esquerdo do Cloud Shell. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Usar a CLI do Azure para criar recursos
-
-No Cloud Shell, no prompt Bash, emita os comandos a seguir para provisionar os recursos do Barramento de Serviço. Verifique se todos os espaços reservados foram substituídos pelos valores apropriados: O programa de exemplo Java espera que o nome da fila seja BasicQueue, portanto, não o altere. 
+No Cloud Shell, no prompt Bash, emita os comandos a seguir para provisionar os recursos do Barramento de Serviço. Verifique se todos os espaços reservados foram substituídos pelos valores apropriados: O programa de exemplo Java espera que o nome da fila seja BasicQueue, portanto, não o altere. Talvez você queira copiar/colar comandos um por vez para que possa substituir os valores antes de executá-los. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,10 +369,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como gravar código para enviar e receber mensagens, continue no tutorial para Barramento de Serviço a seguir:
+Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como escrever código para enviar e receber mensagens, continue com os tutoriais na seção **Enviar e receber mensagens**. 
 
 > [!div class="nextstepaction"]
-> [Atualizar o estoque usando a CLI do Azure e o Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

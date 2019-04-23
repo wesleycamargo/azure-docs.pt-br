@@ -1,6 +1,6 @@
 ---
-title: Interpretar o esquema do log de auditoria do Azure Active Directory no Azure Monitor (visualização) | Microsoft Docs
-description: Descrever o esquema de log de auditoria do Azure AD para uso no Azure Monitor (visualização)
+title: Interpretar o esquema de log de auditoria do Azure Active Directory no Azure Monitor | Microsoft Docs
+description: Descrever o esquema de log de auditoria do AD do Azure para uso no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436958"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010221"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Microsoft Azure Active Directory no Azure Monitor (visualização)
 
@@ -149,10 +149,10 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 
 | Nome do campo | DESCRIÇÃO |
 |------------|-------------|
-| tempo real       | Data e hora (UTC). |
+| time       | Data e hora (UTC). |
 | operationName | O nome da operação. |
 | operationVersion | Versão da API REST solicitada pelo cliente. |
-| categoria | Atualmente, *Auditoria* é o único valor suportado. |
+| category | Atualmente, *Auditoria* é o único valor suportado. |
 | tenantId | O GUID de locatário associado aos logs. |
 | resultType | Resultado da operação. O resultado pode ser *Sucesso* ou *Falha*. |
 | resultSignature |  Esse campo não é mapeado e você pode ignorar esse campo com segurança. | 
@@ -176,7 +176,7 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | Nome do recurso de destino | Nome do recurso de destino. Isso pode ser um nome de aplicativo, um nome de função, um nome principal de usuário ou um nome principal de serviço. |
 | additionalTargets | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores são listados em *targetUpdatedProperties*. | 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Logs de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100285"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526553"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com uma entidade simples e uma lista de frases
 
@@ -48,7 +48,7 @@ A entidade simples é uma boa escolha para esse tipo de dados quando:
 * Os dados não foram bem formatados como uma expressão regular.
 * Os dados não são comuns como uma entidade predefinida de dados ou número de telefone.
 * Os dados não correspondem exatamente à lista de palavras conhecidas como uma entidade de lista.
-* Os dados não contêm outros itens de dados como uma entidade de composição ou hierárquica.
+* Os dados não contêm outros itens de dados, como uma entidade de composição ou funções contextuais.
 
 Considere os seguintes enunciados de um chatbot:
 

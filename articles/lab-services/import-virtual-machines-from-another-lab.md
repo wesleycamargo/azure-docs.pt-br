@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546570"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148893"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importar máquinas virtuais do laboratório outro no Azure DevTest Labs
-Este artigo fornece informações sobre como importar as máquinas virtuais do laboratório de outro para seu laboratório. 
+Este artigo fornece informações sobre como importar as máquinas virtuais do laboratório de outro para seu laboratório.
 
 ## <a name="scenarios"></a>Cenários
-Aqui estão alguns cenários em que você precisa importar máquinas virtuais de um laboratório para outro laboratório: 
+Aqui estão alguns cenários em que você precisa importar máquinas virtuais de um laboratório para outro laboratório:
 
 - Uma pessoa da equipe está migrando para outro grupo dentro da empresa e deseja levar a área de trabalho do desenvolvedor para DevTest Labs a nova equipe.
 - O grupo de atingir uma [cota de nível de assinatura](../azure-subscription-service-limits.md) e deseja dividir as equipes em algumas assinaturas
@@ -34,8 +34,8 @@ Esse recurso permite que você importe as VMs em um laboratório (origem) para o
 
 O processo levar algum tempo e é afetado pelos seguintes fatores:
 
-- Número/tamanho dos discos anexados à máquina de origem (já que é uma operação de cópia e não uma operação de movimentação) 
-- Distância para o destino (por exemplo, região Leste dos EUA para o sudeste asiático).  
+- Número/tamanho dos discos anexados à máquina de origem (já que é uma operação de cópia e não uma operação de movimentação)
+- Distância para o destino (por exemplo, região Leste dos EUA para o sudeste asiático).
 
 Depois que o processo for concluído, a máquina Virtual de origem permanece desligamento e a nova um está em execução no laboratório de destino.
 
@@ -47,12 +47,12 @@ Há duas restrições de chave a serem consideradas ao planejar importar VMs de 
 - Atualmente, esse recurso tem suporte apenas por meio do Powershell e a API REST.
 
 ## <a name="use-powershell"></a>Usar o PowerShell
-Baixar arquivo ImportVirtualMachines.ps1 do [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Você pode usar o script para importar uma única VM ou todas as VMs no laboratório de origem para o laboratório de destino. 
+Baixar arquivo ImportVirtualMachines.ps1 do [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Você pode usar o script para importar uma única VM ou todas as VMs no laboratório de origem para o laboratório de destino.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Usar o PowerShell para importar uma única VM
 Executar este script do powershell requer a identificação a VM de origem e o laboratório de destino e, opcionalmente, fornecendo um novo nome a ser usado para a máquina de destino:
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ Executar este script do powershell requer a identificação a VM de origem e o l
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Usar o PowerShell para importar todas as VMs no laboratório de origem
 Se a máquina Virtual de origem não for especificado, o script importa automaticamente todas as VMs em DevTest Labs.  Por exemplo: 
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -82,8 +82,8 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos: 
+## <a name="next-steps"></a>Próximos passos
+Confira os seguintes artigos:
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)
 - [Perguntas frequentes](devtest-lab-faq.md)

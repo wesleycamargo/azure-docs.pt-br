@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443038"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008674"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
 Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução controla as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
 As alterações ao software instalado, serviços do Windows, do registro do Windows e arquivos e daemons do Linux nos servidores monitorados são enviadas para o serviço do Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+
+> [!NOTE]
+> Controle de alterações de automação do Azure rastreia as alterações nas máquinas virtuais. Para acompanhar as alterações de propriedade do Azure Resource Manager, consulte do Graph do Azure Resource [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 
@@ -76,7 +79,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|habilitado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
 |Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: “/etc/* .conf”       |
@@ -99,10 +102,10 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|habilitado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Insira o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
@@ -131,7 +134,7 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|habilitado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave de registro a ser rastreada.        |
 |Agrupar     | Um nome de grupo para agrupar chaves de registro logicamente.        |
 |Chave de Registro do Windows   | O caminho para verificar a chave de registro. Por exemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |

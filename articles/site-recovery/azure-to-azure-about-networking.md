@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651536"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149307"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
@@ -96,13 +96,19 @@ Os intervalos de endereços IP do Site Recovery são como os demonstrados a segu
    Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
    Coreia Central | 52.231.28.253 | 52.231.32.85
-   Sul da Coreia | 52.231.298.185 | 52.231.200.144
+   Sul da Coreia | 52.231.198.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul da França | 52.136.139.227 |52.136.136.62
    Austrália central| 20.36.34.70 | 20.36.46.142
    Austrália Central 2| 20.36.69.62 | 20.36.74.130
    Sul da África do Sul | 102.133.72.51 | 102.133.26.128
    Norte da África do Sul | 102.133.160.44 | 102.133.154.128
+   Gov. dos EUA – Virgínia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   Governo dos EUA do Arizona | 52.244.205.45 | 52.244.48.85
+   Governo dos EUA do Texas | 52.238.119.218 | 52.238.116.60
+   DoD do Leste dos EUA | 52.181.164.103 | 52.181.162.129
+   DoD Central dos EUA | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
 
 Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
@@ -161,7 +167,7 @@ Se estiver usando NVAs (soluções de virtualização de rede) para controlar o 
 
 Você pode substituir a rota de sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com um [rota personalizados](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para uma solução de virtualização de rede (NVA) local, mas essa configuração não é recomendada para a recuperação de Site replicação. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para failover de máquina virtual do Azure.
 - Saiba mais sobre recuperação de desastres do [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

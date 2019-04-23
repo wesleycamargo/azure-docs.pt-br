@@ -12,25 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285370"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607765"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux (Versão Prévia)
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Python com base na imagem Python interna (versão prévia) no Serviço de Aplicativo no Linux usando a [CLI do Azure](/cli/azure/install-azure-cli).
-
-Você pode seguir as etapas deste artigo usando um computador Mac, Windows ou Linux.
+Neste Início Rápido, você implantará um aplicativo Python simples no [Serviço de Aplicativo no Linux](app-service-linux-intro.md), que fornece um serviço de hospedagem Web altamente escalonável e com aplicação automática de patch. Use a interface de linha de comando do Azure (a [CLI do Azure](/cli/azure/install-azure-cli)) por meio do Azure Cloud Shell interativo baseado em navegador para seguir as etapas. Use um computador Mac, Linux ou Windows.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,6 +34,7 @@ Para concluir este guia de início rápido:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Instale o Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* Uma assinatura do Azure. Se você ainda não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ## <a name="download-the-sample-locally"></a>Baixar o exemplo localmente
 
@@ -109,7 +106,7 @@ Checking connectivity... done.
 
 Altere para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
 
-No exemplo a seguir, substitua <app-name> por um nome do aplicativo exclusivo.
+No exemplo a seguir, substitua `<app-name>` por um nome de aplicativo exclusivo.
 
 ```bash
 cd python-docs-hello-world
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 Salve suas alterações e saia do editor. Use o comando `^S` para salvar e `^Q` para sair.
 
-Agora você vai reimplantar o aplicativo. Substitua `<app-name>` pelo seu aplicativo.
+Reimplante o aplicativo usando o comando [`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up). Substitua `<app-name>` pelo nome do aplicativo e especifique uma localização para `<location-name>` (usando um dos valores mostrados no comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations)).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa **Navegar até o aplicativo** e atualize a página.
@@ -205,13 +202,10 @@ O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 A imagem interna do Python no Serviço de Aplicativo no Linux está atualmente em versão prévia, sendo possível personalizar o comando usado para iniciar o aplicativo. Nesse caso, também é possível criar aplicativos Python de produção usando um contêiner personalizado.
 
 > [!div class="nextstepaction"]
-> [Python com PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Aplicativo Python com o PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar um comando de inicialização personalizado](how-to-configure-python.md#customize-startup-command)
+> [Configurar o aplicativo Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Solução de problemas](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Usar imagens personalizadas](tutorial-custom-docker-image.md)
+> [Tutorial: Executar o aplicativo Python em um contêiner personalizado](tutorial-custom-docker-image.md)

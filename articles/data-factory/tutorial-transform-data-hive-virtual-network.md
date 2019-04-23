@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 8ab647a7d97ace0d0f67fa462ada06901184933f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1905174eea9c765f52a9a89015a9a573048b15a9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102985"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523572"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a atividade Hive em um cluster HDInsight que está em uma Rede Virtual (VNet) do Azure. Neste tutorial, você realizará os seguintes procedimentos:
@@ -222,7 +222,7 @@ Atualize os valores para as propriedades a seguir na definição de serviço vin
 
 - **userName**. Nome usuário de logon do cluster especificado ao criar o cluster. 
 - **password**. A senha do usuário.
-- **clusterUri**. Especifique a URL do seu cluster HDInsight no seguinte formato: https://<clustername>.azurehdinsight.net.  Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em `https://clustername.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs (Grupos de Segurança de Rede) ou UDRs (rotas definidas pelo usuário) para restringir o acesso da Internet. Para que o Data Factory envie trabalhos para clusters HDInsight na Rede Virtual do Azure, esta precisa ser configurada de modo que a URL possa ser resolvida para o endereço IP do gateway usado pelo HDInsight.
+- **clusterUri**. Especifique a URL de seu cluster do HDInsight no seguinte formato: `https://<clustername>.azurehdinsight.net`.  Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em `https://clustername.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs (Grupos de Segurança de Rede) ou UDRs (rotas definidas pelo usuário) para restringir o acesso da Internet. Para que o Data Factory envie trabalhos para clusters HDInsight na Rede Virtual do Azure, esta precisa ser configurada de modo que a URL possa ser resolvida para o endereço IP do gateway usado pelo HDInsight.
 
   1. No Portal do Azure, abra a Rede Virtual que contém o HDInsight. Abra o adaptador de rede cujo nome começa com `nic-gateway-0`. Anote o endereço IP privado dela. Por exemplo, 10.6.0.15. 
   2. Se sua Rede Virtual do Azure tem um servidor DNS, atualize o registro DNS de modo que a URL do cluster do HDInsight `https://<clustername>.azurehdinsight.net` possa ser resolvida para `10.6.0.15`. Essa é a abordagem recomendada. Se você não tiver um servidor DNS em sua Rede Virtual do Azure, você poderá usar uma solução alternativa temporária para isso editando o arquivo de hosts (C:\Windows\System32\drivers\etc.) de todas as VMs registradas como nós de Integration Runtime auto-hospedado, adicionando uma entrada como esta: 

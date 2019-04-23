@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788611"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009847"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -76,7 +76,7 @@ Depois de associar uma assinatura para um diretório diferente, pode haver etapa
 
 1. Se você tiver qualquer cofres de chaves, você deve alterar a ID de locatário do Cofre de chaves. Para obter mais informações, consulte [alterar uma ID de locatário do Cofre de chaves depois de mover uma assinatura](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Se você tiver registrado uma pilha do Azure usando essa assinatura, você deve registrar novamente. Para obter mais informações, consulte [registrar o Azure Stack com o Azure](../../azure-stack/azure-stack-registration.md).
+2. Se você tiver registrado uma pilha do Azure usando essa assinatura, você deve registrar novamente. Para obter mais informações, consulte [registrar o Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

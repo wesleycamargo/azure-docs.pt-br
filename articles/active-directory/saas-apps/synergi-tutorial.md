@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e6916cc96f9d9778cc829e39f82ef7204e137bc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutorial: Integração do Azure Active Directory com o Synergi
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Synergi, siga estas etapas:
 
     ![Informações de logon único de Domínio e URLs do Synergi](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.irmsecurity.com`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.irmsecurity.com`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<company name>.irmsecurity.com/sso/<organization id>`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.irmsecurity.com/sso/<organization id>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do cliente Synergi](https://www.irmsecurity.com/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203279"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503132"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -35,7 +35,7 @@ Se você não estiver usando o Visual Studio, verifique se o servidor Web está 
     ```
 1. Abra o navegador e digite http://<span></span>localhost:30662 ou http://<span></span>localhost:{port} em que **port** é a porta que o seu servidor Web está escutando. Você deve ver o conteúdo do seu arquivo index.html e o botão **Entrar**.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testar com Visual Studio
 
@@ -43,7 +43,7 @@ Se você estiver usando o Visual Studio, verifique se selecionou a solução de 
 
 ## <a name="test-your-application"></a>Teste seu aplicativo
 
-Depois que o navegador carregar seu arquivo index.html, clique em **Entrar**. Você será solicitado a entrar com o ponto de extremidade do Azure AD (Microsoft Azure Active Directory) v2.0:
+Depois que o navegador carregar seu arquivo index.html, clique em **Entrar**. Será solicitado que você entre com o ponto de extremidade da plataforma de identidade da Microsoft:
 
 ![Entre na sua conta SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270796"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545290"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de lojas usando o Azure Mapas
 
@@ -44,14 +44,14 @@ Antes de mergulhar no código, é uma boa ideia começar com um design. O locali
 <br/>
 <center>
 
-![Layout de um localizador de lojas para localizações de cafeterias Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Localizador de lojas delineado para lojas da Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para maximizar a utilidade do localizador de lojas, incluímos um layout dinâmico que se ajusta à largura da tela do usuário quando ela tem menos de 700 pixels de largura. Um layout dinâmico facilita o uso do localizador de lojas em uma tela pequena, como em um dispositivo móvel. Aqui está um layout delineado para tela pequena:  
 
 <br/>
 <center>
 
-![Layout de um localizador de lojas Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Localizador de lojas delineado para a Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 O localizador delineado mostra um aplicativo bastante simples. O aplicativo tem uma caixa de pesquisa, uma lista de lojas próximas, um mapa com alguns marcadores (símbolos) e uma janela pop-up que exibe informações adicionais quando o usuário seleciona um marcador. Mais detalhadamente, aqui estão os recursos que criamos para esse localizador de lojas neste tutorial:
 
@@ -115,7 +115,7 @@ Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.mic
 <br/>
 <center>
 
-![Captura de tela da pasta do projeto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Captura de tela da pasta do projeto do Localizador de Lojas Simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Criar a interface do usuário
 
@@ -569,7 +569,7 @@ Até aqui, tudo está configurado na interface do usuário. Agora, precisamos ad
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -955,11 +955,11 @@ Neste tutorial, você aprendeu como criar um localizador de lojas básico usando
 > * Implante o localizador de lojas como um [aplicativo Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 > * Armazene seus dados em um banco de dados e pesquise lugares mais próximos. Para obter mais informações, consulte a [Visão geral de tipos de dados espaciais do SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Consultar dados espaciais sobre o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
-Você pode acessar o exemplo de código para este tutorial aqui:
+> [!div class="nextstepaction"]
+> [Exibir código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Criar um localizador de lojas usando o Azure Mapas](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[Confira a amostra dinâmica aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [Exibir amostra dinâmica](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as funcionalidades do Azure Mapas:
 
@@ -969,7 +969,7 @@ Para saber mais sobre a cobertura e as funcionalidades do Azure Mapas:
 Para ver mais exemplos de código e uma experiência interativa de codificação:
 
 > [!div class="nextstepaction"]
-> [Como usar o controle de mapeamento](how-to-use-map-control.md)
+> [Como usar o Controle de Mapeamento](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
-> [Usar expressões de estilo orientadas por dados](data-driven-style-expressions-web-sdk.md)
+> [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)

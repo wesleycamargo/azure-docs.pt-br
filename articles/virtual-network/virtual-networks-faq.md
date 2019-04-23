@@ -14,7 +14,7 @@ ms.date: 02/12/2019
 ms.author: jdial
 ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
 ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58188604"
@@ -194,7 +194,7 @@ Sim. Para obter detalhes, consulte [Integração de rede virtual para os serviç
 
 ### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>Quais recursos de PaaS do Azure eu posso restringir o acesso de uma VNet?
 
-Recursos implantados através de alguns serviços de PaaS do Azure (como Armazenamento do Microsoft Azure e Banco de Dados SQL do Microsoft Azure) podem restringir o acesso de rede a recursos somente em uma VNet através do uso de pontos de extremidade de serviço de rede virtual. Para obter detalhes, consulte [Visão geral dos pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
+Recursos implantados através de alguns serviços de PaaS do Azure (como Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure) podem restringir o acesso de rede a recursos somente em uma VNet através do uso de pontos de extremidade de serviço de rede virtual. Para obter detalhes, consulte [Visão geral dos pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Posso mover meus serviços para dentro e fora das redes virtuais?
  Não. Não é possível mover serviços para dentro e fora das redes virtuais. Para mover um recurso para outra VNet, você deverá excluir e reimplantar o recurso.

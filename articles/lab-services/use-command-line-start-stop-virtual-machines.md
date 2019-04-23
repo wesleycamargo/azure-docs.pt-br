@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798922"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996451"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usar ferramentas de linha de comando para iniciar e parar máquinas de virtuais do Azure DevTest Labs
 Este artigo mostra como usar o Azure PowerShell ou CLI do Azure para iniciar ou parar máquinas virtuais em um laboratório no Azure DevTest Labs. Você pode criar scripts CLI/PowerShell para automatizar essas operações. 
@@ -34,7 +34,7 @@ No entanto, em alguns cenários, você talvez queira automatizar Iniciando e par
 - Use-o como uma tarefa em um fluxo de trabalho de CI/CD para começar do início do fluxo, usar as VMs como máquinas de compilação, máquinas ou infraestrutura de teste e parar as VMs quando o processo for concluído. Um exemplo disso seria a fábrica de imagem personalizada com o Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-O seguinte script do PowerShell inicia uma VM em um laboratório. [AzResourceAction invocar](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) é o principal foco para esse script. O **ResourceId** parâmetro é a ID de recurso totalmente qualificado para a VM no laboratório. O **ação** parâmetro é onde o **inicie** ou **parar** opções forem definidas, dependendo do que é necessário.
+O seguinte script do PowerShell inicia uma VM em um laboratório. [AzResourceAction invocar](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o principal foco para esse script. O **ResourceId** parâmetro é a ID de recurso totalmente qualificado para a VM no laboratório. O **ação** parâmetro é onde o **inicie** ou **parar** opções forem definidas, dependendo do que é necessário.
 
 ```powershell
 # The id of the subscription

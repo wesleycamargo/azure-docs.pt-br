@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: Integração do Azure Active Directory ao InTime
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o InTime, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do InTime](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+     a. Na caixa de texto **URL de logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://auth.intimesoft.com/auth/realms/master`
 

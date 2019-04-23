@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904841"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521638"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -80,8 +80,8 @@ Assim que tiver os arquivos, você deverá editar o arquivo de parâmetros a fim
 
 - `namingInfix` Prefixo para nomes de recursos do HSM
 - `ExistingVirtualNetworkName` Nome da rede virtual usada para os HSMs
-- `DedicatedHsmResourceName1` Nome do recurso do HSM no selo 1 do datacenter
-- `DedicatedHsmResourceName2` Nome do recurso do HSM no selo 2 do datacenter
+- `DedicatedHsmResourceName1` Nome do recurso do HSM no carimbo 1 do datacenter
+- `DedicatedHsmResourceName2` Nome do recurso do HSM no carimbo 2 do datacenter
 - `hsmSubnetRange` Intervalo de endereços IP de sub-rede para HSMs
 - `ERSubnetRange` Intervalo de endereços IP de sub-rede para o gateway de VNET
 
@@ -217,7 +217,7 @@ A ferramenta SSH é usada para se conectar à máquina virtual. O comando será 
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 A senha a ser usada é a do arquivo de parâmetros.
-Depois de fazer logon na VM do Linux, você pode fazer logon no HSM usando o endereço IP encontrado no portal para o recurso <prefix>hsm_vnic.
+Depois de fazer logon na VM Linux, você pode fazer logon no HSM usando o endereço IP encontrado no portal para o recurso \<prefixo>hsm_vnic.
 
 ```powershell
 

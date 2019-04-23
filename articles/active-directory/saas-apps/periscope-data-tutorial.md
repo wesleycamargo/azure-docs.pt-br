@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275531"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
 
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Periscope Data no Azure AD, você precisará adicionar o Periscope Data da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Periscope Data da galeria, execute as seguintes etapas:**
+**Para adicionar Periscope Data da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
     d. Localize a tag **SingleLogoutService** e cole o valor **Local** na caixa de texto **URL de SLO**.
 
-    e. Copie o valor **Identificador** para sua instância e cole-o na caixa de texto  **Identificador (ID da Entidade)** da seção **Configuração Básica de SAML** no portal do Azure.
+    e. Copie o valor de **Identificador** da instância e cole-o na caixa de texto **Identificador (ID da Entidade)** da seção **Configuração Básica do SAML** no portal do Azure.
 
     f. Encontre a primeira tag do arquivo XML, copie o valor de **entityID** e cole-o na caixa de texto **Emissor**.
 

@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59528400"
@@ -938,7 +938,7 @@ Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **ty
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade connectionString. |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -960,7 +960,7 @@ Para definir um conjunto de dados do Banco de Dados SQL do Azure, defina o **typ
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |Sim |
+| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL do Azure à qual o serviço vinculado se refere. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -5006,7 +5006,7 @@ Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **ty
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. |Sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade connectionString. |Sim |
 
 #### <a name="json-example"></a>Exemplo de JSON
 

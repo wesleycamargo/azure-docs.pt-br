@@ -11,7 +11,7 @@ ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885937"
@@ -164,7 +164,7 @@ Débora é responsável por usar e criar modelos que analisam registros médicos
 
 *Email: Vinícius\_DBAnalyst*
 
-Daniel é o principal contato para assuntos relacionados ao Microsoft SQL Server, que armazena todos os dados de pacientes da Contosoclínica. Daniel é um administrador experiente do administrador do SQL Server que recentemente familiarizou-se com o Banco de Dados SQL do Microsoft Azure.
+Daniel é o principal contato para assuntos relacionados ao Microsoft SQL Server, que armazena todos os dados de pacientes da Contosoclínica. Daniel é um administrador experiente do administrador do SQL Server que recentemente familiarizou-se com o Banco de Dados SQL do Azure.
 
 **Diretor médico executivo de informações -- Carolina**
 
@@ -319,7 +319,7 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 -   [Regras de firewall do nível do banco de dados e servidor](/azure/sql-database/sql-database-firewall-configure) foram reforçadas.
 
 -   [Colunas Always Encrypted](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) são utilizadas para proteger o nome e sobrenome dos pacientes.
-    Além disso, a criptografia da coluna do banco de dados também utiliza o Azure Active Directory para autenticar o aplicativo no Banco de Dados SQL do Microsoft Azure.
+    Além disso, a criptografia da coluna do banco de dados também utiliza o Azure Active Directory para autenticar o aplicativo no Banco de Dados SQL do Azure.
 
 -   O acesso ao Banco de Dados SQL e ao SQL Server está configurado de acordo com o princípio do mínimo privilégio.
 

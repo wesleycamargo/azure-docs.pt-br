@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275837"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Azure Active Directory ao Percolate
 
@@ -51,7 +51,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Percolate ao Azure AD, é necessário adicionar o Percolate da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Percolate da galeria, execute as seguintes etapas:**
+**Para adicionar o Percolate por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o Percolate, execute as seguintes
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica de SAML**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP** , o usuário não precisará executar nenhuma etapa, pois o aplicativo já estará pré-integrado ao Azure.
+4. Na seção **Configuração Básica de SAML**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP**, o usuário não precisará executar nenhuma etapa, pois o aplicativo já estará pré-integrado ao Azure.
 
     ![Informações de logon único de URLs e Domínio do Percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Percolate, execute as seguintes
 
     b. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
-    c. No Bloco de Notas, abra o certificado codificado em Base 64 baixado no portal do Azure, copie o conteúdo e cole-o na caixa **Certificados x.509** .
+    c. No Bloco de notas, abra o certificado codificado em Base 64 baixado no portal do Azure, copie o conteúdo e, em seguida, cole-o na caixa **Certificados x509**.
 
     d. Na caixa de texto **Atributo de Email**, digite **emailaddress**.
 
@@ -219,9 +219,9 @@ Para permitir que os usuários do Azure AD entrem no Percolate, eles devem ser p
 
     ![Configurar o logon único](./media/percolate-tutorial/configure04.png)
 
-    a. Na caixa de texto **Email** , insira o email do usuário como brittasimon@contoso.com.
+     a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
 
-    b. Na caixa de texto **Nome completo** , insira o nome do usuário como **Brendafernandes**.
+    b. Na caixa de texto **Nome completo**, insira o nome de usuário como **Brendafernandes**.
 
     c. Clique em **Criar usuários**.
 

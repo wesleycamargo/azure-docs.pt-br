@@ -12,7 +12,7 @@ ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57895713"
@@ -28,7 +28,7 @@ O Azure Machine Learning Studio tem dois tipos de serviços Web:
 * RSS (Serviço de Solicitação-Resposta): Um serviço de baixa latência altamente escalonável que pontua um único registro de dados.
 * BES (Serviço de Execução em Lote): um serviço assíncrono que pontua um lote de registros de dados.
 
-A entrada para BES é como os dados de entrada que RRS usa. A principal diferença é que o BES lê um bloco de registros de uma variedade de fontes, como o armazenamento de Blobs do Azure, o armazenamento de Tabelas do Azure, um banco de dados do SQL Azure, o HDInsight (consulta hive) e fontes HTTP.
+A entrada para BES é como os dados de entrada que RRS usa. A principal diferença é que o BES lê um bloco de registros de uma variedade de fontes, como o armazenamento de Blobs do Azure, o armazenamento de Tabelas do Azure, um banco de dados SQL do Azure, o HDInsight (consulta hive) e fontes HTTP.
 
 Em um ponto de exibição de alto nível, implante seu modelo em três etapas:
 

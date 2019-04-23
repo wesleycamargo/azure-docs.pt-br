@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685691"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000701"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de aplicativo do Azure AD
 
@@ -158,7 +158,7 @@ Os seguintes elementos de design devem aumentar o sucesso da sua implementação
 3. Em seguida, adicione o método SSO para seu aplicativo e teste novamente para validar o acesso.
 4. Aplica o acesso condicional e políticas MFA conforme necessário. Testar e validar o acesso.
 
-**Solucionando problemas de ferramentas**: Ao solucionar problemas, sempre comece validar acesso para o aplicativo publicado do navegador no host do conector e confirmar que o aplicativo funciona conforme o esperado. Mais simples do que o seu programa de instalação mais fácil para determinar a causa raiz, portanto, considere tentar reproduzir problemas com uma configuração mínima como o uso de apenas um único conector e nenhum SSO. Em alguns casos, a web, ferramentas de depuração como Fiddler da Telerik pode provar indispensável para solucionar problemas de acesso ou o conteúdo em aplicativos acessados por meio de um proxy. Fiddler também pode atuar como um proxy para ajudar a rastrear e depurar o tráfego para plataformas móveis como iOS e Android, e praticamente qualquer coisa que possa ser configurado para rotear por meio de um proxy. Consulte a [guia de solução](/application-proxy-troubleshoot.md) para obter mais informações.
+**Solucionando problemas de ferramentas**: Ao solucionar problemas, sempre comece validar acesso para o aplicativo publicado do navegador no host do conector e confirmar que o aplicativo funciona conforme o esperado. Mais simples do que o seu programa de instalação mais fácil para determinar a causa raiz, portanto, considere tentar reproduzir problemas com uma configuração mínima como o uso de apenas um único conector e nenhum SSO. Em alguns casos, a web, ferramentas de depuração como Fiddler da Telerik pode provar indispensável para solucionar problemas de acesso ou o conteúdo em aplicativos acessados por meio de um proxy. Fiddler também pode atuar como um proxy para ajudar a rastrear e depurar o tráfego para plataformas móveis como iOS e Android, e praticamente qualquer coisa que possa ser configurado para rotear por meio de um proxy. Consulte a [guia de solução](application-proxy-troubleshoot.md) para obter mais informações.
 
 ## <a name="implement-your-solution"></a>Implementar sua solução
 

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918919"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009830"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnico de OAuth2 em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure AD (Azure Active Directory) B2C oferece suporte para o provedor de identidade do protocolo OAuth2. Este é o principal protocolo de autorização e autenticação delegada. Para obter mais informações, confira [RFC 6749 O Framework de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). Com o perfil técnico OAuth2, você pode federar com um provedor de identidade baseado em OAuth2, como o Facebook e o Live.com, permitindo que os usuários entrem com suas identidades empresariais ou de redes sociais existentes.
+O Azure AD (Azure Active Directory) B2C oferece suporte para o provedor de identidade do protocolo OAuth2. OAuth2 é o principal protocolo de autorização e autenticação delegada. Para obter mais informações, confira [RFC 6749 O Framework de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). Com um perfil técnico de OAuth2, você pode federar com um provedor de identidade baseada no OAuth2, como o Facebook. Federação com um provedor de identidade permite que os usuários entram com suas redes sociais existentes ou identidades corporativas.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -54,7 +54,7 @@ O exemplo a seguir mostra as declarações retornadas pelo provedor de identidad
 
 - A declaração **first_name** é mapeada para a declaração **givenName**.
 - A declaração **last_name** é mapeada para a declaração **surname**.
-- A declaração **displayName** sem mapeamento de nome.
+- O **displayName** sem mapeamento de nome de declaração.
 - A declaração **email** sem mapeamento de nome.
 
 O perfil técnico também retorna declarações que não são retornadas pelo provedor de identidade: 
@@ -64,7 +64,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -76,7 +76,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador do aplicativo do provedor de identidade. |
 | IdTokenAudience | Não  | O público-alvo do id_token. Se for especificado, o Azure AD B2C verificará se o token está em uma declaração retornada pelo provedor de identidade e é igual ao especificado. |
@@ -90,7 +90,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ClaimsEndpointFormat | Não  | O valor do que o parâmetro de cadeia de caracteres de consulta do formato. Por exemplo, você pode definir o valor como `json` neste ponto de extremidade de declarações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | Não  | O nome do provedor de identidade. |
 | response_mode | Não  | O método que o provedor de identidade usa para enviar o resultado de volta ao Azure AD B2C. Valores possíveis: `query`, `form_post` (padrão) ou `fragment`. |
-| scope | Não  | O escopo da solicitação de acesso definida de acordo com a especificação do provedor de identidade OAuth2. Como `openid`, `profile` e `email`. |
+| scope | Não  | O escopo da solicitação que é definido de acordo com a especificação do provedor de identidade OAuth2. Como `openid`, `profile` e `email`. |
 | HttpBinding | Não  | A associação HTTP esperada para o token de acesso e pontos de extremidade do token de declarações. Os valores possíveis são `GET` ou `POST`.  |
 | ResponseErrorCodeParamName | Não  | O nome do parâmetro que contém a mensagem de erro retornada por HTTP 200 (OK). |
 | ExtraParamsInAccessTokenEndpointResponse | Não  | Contém os parâmetros extra que podem ser retornados na resposta de **AccessTokenEndpoint** por alguns provedores de identidade. Por exemplo, a resposta de **AccessTokenEndpoint** contém um parâmetro extra, como `openid`, que é um parâmetro obrigatório, além de access_token em uma cadeia de caracteres de consulta de solicitação **ClaimsEndpoint**. Vários nomes de parâmetro devem ter um escape e ser separados pelo delimitador de vírgula ','. |
@@ -100,9 +100,9 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade. A chave de criptografia será necessária apenas se os metadados **response_types** estiverem definidos como `code`. Nesse caso, o Azure AD B2C faz outra chamada para trocar o código de autorização para um token de acesso. Se os metadados forem definidos como `id_token`, você poderá omitir a chave de criptografia.  |  
+| client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade. A chave de criptografia será necessária apenas se os metadados **response_types** estiverem definidos como `code`. Nesse caso, o Azure AD B2C faz outra chamada para trocar o código de autorização para um token de acesso. Se os metadados são definidos `id_token`, você pode omitir a chave de criptografia. |  
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 

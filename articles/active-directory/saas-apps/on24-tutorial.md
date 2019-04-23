@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Active Directory com o ON24 Virtual Environment SAML Connection
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
      a. Na caixa de texto **Identificador**, digite uma URL:
 
-     **URL do Ambiente de Produção**
+     **URL do ambiente de produção**
     
     `SAML-VSHOW.on24.com`
 
@@ -115,7 +115,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
     `SAP PROD SAML-EliteAudience.on24.com` 
                 
-     **URL do Ambiente de Garantia de Qualidade**
+     **URL do ambiente de garantia de qualidade**
     
     `SAMLQA-VSHOW.on24.com` 
 
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
     b. Na caixa de texto **URL de resposta**, insira uma URL:
 
-     **URL do Ambiente de Produção**
+     **URL do ambiente de produção**
     
     `https://federation.on24.com/sp/ACS.saml2`
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
     `https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
 
-     **URL do Ambiente de Garantia de Qualidade**
+     **URL do ambiente de garantia de qualidade**
     
     `https://qafederation.on24.com/sp/ACS.saml2`
 

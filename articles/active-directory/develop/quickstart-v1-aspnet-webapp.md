@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007618"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548538"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -32,7 +32,7 @@ Neste início rápido, você aprenderá como implementar a entrada com a Microso
 No final deste início rápido, seu aplicativo aceitará entradas de contas corporativas e de estudantes de organizações integradas ao Azure AD (Azure Active Directory).
 
 > [!NOTE]
-> Se você precisar habilitar entradas para contas pessoais, além das contas corporativas e de estudantes, poderá usar o [ponto de extremidade v2.0](azure-ad-endpoint-comparison.md). Para obter mais informações, consulte [este tutorial do ASP.NET para o ponto de extremidade v2.0](tutorial-v2-asp-webapp.md), bem como [este artigo](active-directory-v2-limitations.md) que explica as limitações atuais do ponto de extremidade v2.0.
+> Caso precise habilitar credenciais para contas pessoais, além das contas corporativa e de estudante, use o *[ponto de extremidade da plataforma de identidade da Microsoft](azure-ad-endpoint-comparison.md)*. Para obter mais informações, confira [este tutorial do ASP.NET](tutorial-v2-asp-webapp.md), bem como [este artigo](active-directory-v2-limitations.md) que explica o *ponto de extremidade da plataforma de identidade da Microsoft*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

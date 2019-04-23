@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#'
+title: 'Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#'
 titlesuffix: Azure Cognitive Services
 description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546296"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616281"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#
 
@@ -24,14 +24,17 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.
+* Para instalar o `Newtonsoft.Json` como um pacote NuGet no Visual Studio:
+    1. No Gerenciador de Soluções, clique com o botão direito do mouse no arquivo de Solução.
+    1. Selecione **Gerenciar Pacotes NuGet para a Solução**.
+    1. Pesquise `Newtonsoft.Json` e instale o pacote.
 * Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. crie uma nova solução de console chamada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes namespaces no arquivo de código principal.
+1. Crie uma solução de console chamada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes namespaces no arquivo de código principal.
     
     ```csharp
     using System;
@@ -52,14 +55,14 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Crie uma variável para os parâmetros de pesquisa. Acrescente o código de mercado a `mkt=` e o modo de verificação ortográfica a `&mode=`.
+3. Crie uma variável para os parâmetros de pesquisa. Acrescente o código de mercado após `mkt=`. O código de mercado é o país no qual você faz a solicitação. Além disso, acrescente o modo de verificação ortográfica após `&mode=`. O modo é `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

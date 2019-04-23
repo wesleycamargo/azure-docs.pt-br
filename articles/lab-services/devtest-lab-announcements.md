@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542481"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148961"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Postar um comunicado em um laboratório no Azure DevTest Labs
 
@@ -37,8 +37,8 @@ O recurso de comunicado deve ser usado para notificações temporárias.  Você 
 
 1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços** e selecione **DevTest Labs** na lista. (O laboratório já pode ser exibido no painel, em **Todos os Recursos**).
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja postar um comunicado.  
-1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.  
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja postar um comunicado.
+1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.
 
     ![Botão Configuração e políticas](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-É possível especificar um comunicado como parte de um modelo do Azure Resource Manager, conforme mostrado no exemplo a seguir: 
+É possível especificar um comunicado como parte de um modelo do Azure Resource Manager, conforme mostrado no exemplo a seguir:
 
 ```json
 {
@@ -119,7 +119,7 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se você alterar ou definir uma política de laboratório, talvez seja melhor postar um comunicado para informar aos usuários. [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como aplicar as convenções e restrições em sua assinatura usando políticas personalizadas.
-* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

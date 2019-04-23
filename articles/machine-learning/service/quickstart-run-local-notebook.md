@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281124"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549128"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Início Rápido: Usar seu próprio servidor do notebook para começar a usar o Azure Machine Learning
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 * Um servidor de notebook do Python 3.6 com o SDK do Azure Machine Learning instalado
 * Um workspace de serviço do Azure Machine Learning
-* Um arquivo de configuração do workspace (**aml_config/config.json** ).
+* Um arquivo de configuração do workspace (**.azureml/config.json**).
 
 Obtenha todos esses pré-requisitos em [Criar um workspace de serviço do Azure Machine Learning](setup-create-workspace.md#portal).
 
@@ -74,6 +74,6 @@ Se você não pretende usar os recursos criados neste artigo, exclua-os para evi
 Neste artigo, você criou os recursos necessários para experimentar e implantar modelos. Você executou um código em um notebook e explorou o histórico de execuções desse código no workspace na nuvem.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)
+> [Tutorial: treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)
 
 Você também pode explorar [exemplos mais avançados no GitHub](https://aka.ms/aml-notebooks) ou exibir o [guia do usuário do SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

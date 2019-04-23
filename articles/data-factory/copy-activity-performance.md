@@ -14,7 +14,7 @@ ms.date: 01/28/2019
 ms.author: jingwang
 ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
 ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58445839"
@@ -172,7 +172,7 @@ Ao copiar dados de um armazenamento de dados de origem para um armazenamento de 
 
 - **Você deseja ingerir dados de vários armazenamentos de dados no SQL Data Warehouse via PolyBase**. O SQL Data Warehouse usa o PolyBase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados no SQL Data Warehouse. No entanto, os dados de origem devem estar no armazenamento de Blobs ou no Azure Data Lake Store e devem atender a critérios adicionais. Quando você carrega dados de um armazenamento de dados diferente do armazenamento de Blobs ou do Azure Data Lake Store, pode ativar a cópia dos dados por meio do armazenamento de Blobs de preparo provisório. Nesse caso, o Data Factory executa as transformações de dados necessárias para garantir que eles atenderão aos requisitos do PolyBase. Em seguida, ele usa o PolyBase para carregar os dados no SQL Data Warehouse de forma eficaz. Para ver mais informações, confira [Usar o PolyBase para carregar dados para o SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **Às vezes, leva algum tempo para realizar a movimentação de dados híbridos (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem) em uma conexão de rede lenta**. Para melhorar o desempenho, você pode usar a cópia em etapas para compactar os dados locais para que ela leve menos tempo para mover dados para o armazenamento de dados de preparo na nuvem e descompactar os dados no repositório de preparo antes de carregar no armazenamento de dados de destino.
-- **Você não deseja abrir portas diferentes da porta 80 e da porta 443 em seu firewall, devido às políticas corporativas de TI**. Por exemplo, quando você copia dados de um armazenamento de dados local para um coletor do Banco de Dados SQL ou um coletor do SQL Data Warehouse, precisa ativar a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo. Nesse cenário, a cópia em etapas pode tirar proveito do Integration Runtime auto-hospedado para primeiro copiar dados para uma instância de preparo de armazenamento de Blobs por HTTP ou HTTPS na porta 443, em seguida carregar os dados no Banco de Dados SQL ou no SQL Data Warehouse do Azure do preparo do armazenamento de blobs. Nesse fluxo, você não precisa habilitar a porta 1433.
+- **Você não deseja abrir portas diferentes da porta 80 e da porta 443 em seu firewall, devido às políticas corporativas de TI**. Por exemplo, quando você copia dados de um armazenamento de dados local para um coletor do Banco de Dados SQL do Azureou um coletor do SQL Data Warehouse, precisa ativar a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo. Nesse cenário, a cópia em etapas pode tirar proveito do Integration Runtime auto-hospedado para primeiro copiar dados para uma instância de preparo de armazenamento de Blobs por HTTP ou HTTPS na porta 443, em seguida carregar os dados no Banco de Dados SQL ou no SQL Data Warehouse do Azure do preparo do armazenamento de blobs. Nesse fluxo, você não precisa habilitar a porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Como funciona a cópia em etapas
 

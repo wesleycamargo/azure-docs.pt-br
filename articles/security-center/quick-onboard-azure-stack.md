@@ -3,7 +3,7 @@ title: Início Rápido da Central de Segurança do Azure – integrar as máquin
 description: Este início rápido mostra como provisionar a extensão da máquina virtual Gerenciamento de Configuração, de Atualização e do Azure Monitor em máquinas virtuais do Azure Stack.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904008"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563787"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido:  Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
 Após integrar sua assinatura do Azure, será possível permitir que a Central de Segurança proteja suas máquinas virtuais em execução no Azure Stack adicionando a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** no marketplace do Azure Stack.
@@ -32,7 +32,7 @@ Para começar a usar a Central de Segurança, você deve ter uma assinatura do M
 
 É necessário ter uma assinatura do Azure na camada Standard da Central de Segurança antes de iniciar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. É possível experimentar a camada Standard da Central de Segurança sem custo por 30 dias. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Adicionar uma máquina virtual do Azure Stack
+## <a name="select-your-workspace-in-azure-security-center"></a>Selecionar seu workspace na Central de Segurança do Azure
 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto. 
@@ -65,8 +65,12 @@ Agora é necessário adicionar a extensão da máquina virtual **Gerenciamento d
 3. Selecione **Extensões**. A lista de extensões da máquina virtual instaladas nesta máquina virtual é mostrada.
 4. Clique na guia **Adicionar**. A folha de menu **Novo recurso** é aberta e mostra a lista de extensões da máquina virtual disponíveis. 
 5. Selecione a extensão **Gerenciamento de Configuração, de Atualização e do Azure Monitor** e clique em **Criar**. A folha de configuração **Instalar extensão** é aberta.
+
+>[!NOTE]
+> Caso você não veja a extensão **Gerenciamento de Configuração, de Atualização e do Azure Monitor** listada no marketplace, contate seu operador do Azure Stack para disponibilizá-lo.
+
 6. Na folha de configuração **Instalar extensão**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas no procedimento anterior.
-7.  Quando terminar de fornecer as configurações necessárias, clique em **OK**.
+7.  Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
 8. Depois que a instalação da extensão for concluída, seu status será mostrado como **Provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual seja exibida no portal da Central de Segurança.
 
 Para saber mais sobre como instalar e configurar o agente para Windows, confira [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) (Conectar computadores com Windows).
@@ -97,7 +101,7 @@ Para remover a extensão:
 Neste início rápido, você provisionou a extensão Gerenciamento de Configuração, de Atualização e do Azure Monitor em uma máquina virtual em execução no Azure Stack. Para saber mais sobre como usar a Central de Segurança, prossiga para o tutorial para configurar uma política de segurança e avaliar a segurança de seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: Definir e avaliar as políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

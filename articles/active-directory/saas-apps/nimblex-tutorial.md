@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Azure Active Directory com o Nimblex
@@ -107,11 +107,11 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
     ![Informações de Domínio e URLs do Nimblex para logon único](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<path-to-application>/SamlReply.aspx`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<path-to-application>/SamlReply.aspx`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Nimblex](mailto:support@ebms.com.au) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

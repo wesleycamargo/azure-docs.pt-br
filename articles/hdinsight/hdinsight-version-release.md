@@ -1,22 +1,22 @@
 ---
-title: Visão geral do HDInsight 4.0 (versão prévia) – Azure
+title: Visão geral do Azure HDInsight 4.0
 description: Compare o HDInsight 3.6 com os recursos, as limitações e as recomendações de atualização do HDInsight 4.0.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: overview
-ms.date: 10/04/2018
-ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 04/15/2019
+ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408078"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609193"
 ---
-# <a name="hdinsight-40-overview-preview"></a>Visão geral do HDInsight 4.0 (versão prévia)
+# <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
-O Microsoft Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análise de código-fonte aberto Apache Hadoop e Apache Spark no Azure. O HDI (HDInsight) 4.0 é uma distribuição em nuvem dos componentes do Apache Hadoop da [HDP (Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
+O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure. O HDI (HDInsight) 4.0 é uma distribuição em nuvem dos componentes do Apache Hadoop da [HDP (Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
 
 ## <a name="whats-new-in-hdi-40"></a>Novidades no HDI 4.0
 

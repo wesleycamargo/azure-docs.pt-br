@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 92316d3f84f0a8d3cda0e98fd8ae751eb78b7e56
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337695"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009473"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
 
@@ -34,25 +34,25 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="countries"></a>Países
 
-|País/região|Codificar|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
-|Alemanha|Alemanha|
+|Alemanha|DE|
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|TI|
+|Itália|IT|
 |Japão|JP|
-|Coreia|KR|
+|Coreia do Sul|KR|
 |Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
@@ -76,7 +76,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Idioma|Código de mercado|
+|País/Região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -91,12 +91,12 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|RAE de Hong Kong|Chinês Tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
-|Coreia|Coreano|ko-KR|
+|Coreia do Sul|Coreano|ko-KR|
 |Malásia|Inglês|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Holandês|nl-NL|
@@ -112,11 +112,11 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Suécia|Sueco|sv-SE|
 |Suíça|Francês|fr-CH|
 |Suíça|Alemão|de-CH|
-|Taiwan|Chinês Tradicional|zh-TW|
+|Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501630"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996009"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 O envio em lote não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço usando a biblioteca [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). O protocolo HTTP não dá suporte ao envio em lote.
+
+> [!NOTE]
+> Definir BatchFlushInterval garante que o envio em lote é implícito da perspectiva do aplicativo. ou seja, o aplicativo faz SendAsync () e CompleteAsync() chama e não faz chamadas específicas do lote.
+>
+> Envio em lote de lado do cliente explícita pode ser implementado utilizando o abaixo da chamada de método - 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Aqui o tamanho combinado das mensagens deve ser menor que o tamanho máximo suportado pelo tipo de preço.
 
 ## <a name="batching-store-access"></a>Acesso ao repositório do envio em lote
 
@@ -240,7 +249,7 @@ Para maximizar a taxa de transferência, experimente as etapas a seguir:
 * Defina a contagem de pré-busca como 20 vezes a taxa de recebimento esperada em segundos. Essa contagem reduz o número de transmissões de protocolo de cliente do Barramento de Serviço.
 * Use um tópico particionado para obter desempenho e disponibilidade aprimorados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][Partitioned messaging entities].
 

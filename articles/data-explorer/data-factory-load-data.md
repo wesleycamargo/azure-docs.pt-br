@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618917"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005359"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Copiar dados do Azure Data Factory para o Data Explorer do Azure
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Data Explorer do Azure usando o Azure Data Factory 
 
 Gerenciador de dados do Azure é um serviço de análise de dados rápido, totalmente gerenciado para análise em tempo real em grandes volumes de dados de streaming de várias fontes, como aplicativos, sites e dispositivos IoT. Explorar dados e identificar padrões e anomalias para melhorar os produtos, aprimorar as experiências do cliente, de forma iterativa monitorar dispositivos e melhorar as operações. Explore novas perguntas e obtenha respostas em minutos. O Azure Data Factory é um serviço de integração de dados baseado em nuvem completamente gerenciado. Você pode usar o serviço para preencher seu banco de dados do Data Explorer do Azure com os dados do seu sistema existente e economizar tempo ao criar suas soluções de análise.
 
@@ -32,7 +32,7 @@ Este artigo mostra como usar a ferramenta Copiar dados do Data Factory para carr
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster do Gerenciador de dados do Azure e o banco de dados](create-cluster-database-portal.md)
-* Amazon S3.
+* Fonte de dados.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -147,10 +147,6 @@ Azure Data Explorer novo serviço vinculado é criado para copiar os dados na ta
 
     ![Armazenamento de dados de destino ADX](media/data-factory-load-data/destination-data-store.png)
 
-1. Na **escolha o arquivo de saída ou a pasta**, insira o nome da pasta de saída, determinar as configurações e selecione **próxima**.
-
-    ![Especifique a pasta de saída](media/data-factory-load-data/specify-path.png)
-
 1. Na **mapeamento de tabela**, defina o nome da tabela de destino e selecione **próxima**.
 
     ![Mapeamento de tabela do conjunto de dados de destino](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -184,8 +180,10 @@ Azure Data Explorer novo serviço vinculado é criado para copiar os dados na ta
 
     ![Página Implantação](media/data-factory-load-data/deployment.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre como editar serviços vinculados, conjuntos de dados e pipelines no [IU do Data Factory](/azure/data-factory/quickstart-create-data-factory-portal)
+* Saiba mais sobre o [conector do Gerenciador de dados do Azure](/azure/data-factory/connector-azure-data-explorer) no Azure Data Factory.
+
+* Saiba mais sobre como editar serviços vinculados, conjuntos de dados e pipelines na [IU do Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Saiba mais sobre [consultas de Data Explorer do Azure](/azure/data-explorer/web-query-data) para consultar os dados.

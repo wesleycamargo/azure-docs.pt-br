@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260656"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505678"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definir e atribuir um blueprint no portal
 
@@ -41,116 +41,117 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    ![Criar blueprint da página de definições de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Fornecer um **nome do blueprint** tais como **MyBlueprint**. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe **descrição do blueprint** em branco por enquanto. 
-   
+1. Fornecer um **nome do blueprint** tais como **MyBlueprint**. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe **descrição do blueprint** em branco por enquanto.
+
 1. Na caixa **Definir local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que deseja salvar o blueprint e clique em **Selecionar**.
 
 1. Verifique se as informações estão corretas. Os campos **nome do blueprint** e **local da definição** não poderão ser alterados posteriormente. Em seguida, selecione **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
-1. Criar uma atribuição de função em um nível de assinatura: 
+1. Criar uma atribuição de função em um nível de assinatura:
 
-    a. Selecione a linha **+ Adicionar artefato** sob **Assinatura**. A janela **Adicionar um artefato** é aberta no lado direito do navegador. 
-   
-   b. Selecione **Atribuição de função** para **Tipo de artefato**. 
-   
-   c. Em **Função**, selecione **Colaborador**. Deixe a caixa **Adicionar usuário, aplicativo ou grupo** caixa com a caixa de seleção que indica um parâmetro dinâmico. 
-   
-   d. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+   1. Selecione a linha **+ Adicionar artefato** sob **Assinatura**. A janela **Adicionar um artefato** é aberta no lado direito do navegador.
+
+   1. Selecione **Atribuição de função** para **Tipo de artefato**.
+
+   1. Em **Função**, selecione **Colaborador**. Deixe a caixa **Adicionar usuário, aplicativo ou grupo** caixa com a caixa de seleção que indica um parâmetro dinâmico.
+
+   1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
    ![Atribuição de função para um artefato de blueprint](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > A maioria dos artefatos suporta parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um *parâmetro estático*. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um *parâmetro dinâmico*. Para obter mais informações, consulte [parâmetros de blueprint](./concepts/parameters.md).
 
-1. Incluir uma atribuição de política em um nível de assinatura: 
+1. Incluir uma atribuição de política em um nível de assinatura:
 
-    a. Clique na linha **+ Adicionar artefato** sob o artefato de atribuição de função. 
-   
-   b. Selecione **Atribuição de política** para **Tipo de artefato**. 
-   
-   c. Altere **tipo** para **interno**. Na **pesquisa**, insira **marca**. 
-   
-   d. Clique fora da **pesquisa** para a filtragem ocorra. Selecione **Aplicar     a marca e seu valor padrão a grupos de recursos**. 
-   
-   e. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+   1. Clique na linha **+ Adicionar artefato** sob o artefato de atribuição de função.
 
-1. Clique na linha da designação de política **Aplicar tag e seu valor padrão aos grupos de recursos**. 
+   1. Selecione **Atribuição de política** para **Tipo de artefato**.
+
+   1. Altere **tipo** para **interno**. Na **pesquisa**, insira **marca**.
+
+   1. Clique fora da **pesquisa** para a filtragem ocorra. Selecione **Aplicar a marca e seu valor padrão a grupos de recursos**.
+
+   1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+
+1. Clique na linha da designação de política **Aplicar tag e seu valor padrão aos grupos de recursos**.
 
 1. A janela para fornecer parâmetros para o artefato como parte da definição do blueprint é aberta e permite configurar os parâmetros para todas as atribuições (parâmetros estáticos) com base nesse blueprint em vez de durante a atribuição (parâmetros dinâmicos). Este exemplo usa parâmetros dinâmicos durante a atribuição do blueprint e, portanto, deixe os padrões e clique em **Cancelar**.
 
-1. Adicione um grupo de recursos no nível da assinatura: 
+1. Adicione um grupo de recursos no nível da assinatura:
 
-    a. Selecione a linha **+ Adicionar artefato** sob **Assinatura**. 
-   
-   b. Selecione **Grupo de recursos** para **Tipo de artefato**. 
-   
-   c. Deixe os campos **Nome de exibição do artefato**, **Nome do grupo de recursos** e **Local** em branco, mas garanta que a caixa de seleção esteja marcada para cada propriedade de parâmetro para torná-los parâmetros dinâmicos. 
-   
-   d. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+   1. Selecione a linha **+ Adicionar artefato** sob **Assinatura**.
 
-1. Adicionar modelo sob o grupo de recursos: 
+   1. Selecione **Grupo de recursos** para **Tipo de artefato**.
 
-    a. Selecione a linha **+ Adicionar artefato**, sob a entrada **ResourceGroup**. 
-   
-   b. Selecione **Modelo do Azure Resource Manager** para **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco. 
-   
-   c. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, selecione a guia **Parâmetros** e observe que os parâmetros de modelo **storageAccountType** e **local** foram detectados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico. 
-   
-   > [!IMPORTANT]
-   > Se estiver importando o modelo, verifique se o arquivo é apenas JSON e não inclui HTML. Ao apontar para uma URL no GitHub, assegure-se de ter clicado em **RAW** para obter o arquivo JSON puro e não aquele envolvido com HTML para exibição no GitHub. Um erro ocorrerá se o modelo importado não for puramente JSON.
+   1. Deixe os campos **Nome de exibição do artefato**, **Nome do grupo de recursos** e **Local** em branco, mas garanta que a caixa de seleção esteja marcada para cada propriedade de parâmetro para torná-los parâmetros dinâmicos.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
-   d. Remova a marca da caixa de seleção **storageAccountType** e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um parâmetro dinâmico. 
-   
-   e. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+1. Adicionar modelo sob o grupo de recursos:
+
+   1. Selecione a linha **+ Adicionar artefato**, sob a entrada **ResourceGroup**.
+
+   1. Selecione **Modelo do Azure Resource Manager** para **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco.
+
+   1. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager.
+      Depois de colar o modelo, selecione a guia **Parâmetros** e observe que os parâmetros de modelo **storageAccountType** e **local** foram detectados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico.
+
+      > [!IMPORTANT]
+      > Se estiver importando o modelo, verifique se o arquivo é apenas JSON e não inclui HTML. Ao apontar para uma URL no GitHub, assegure-se de ter clicado em **RAW** para obter o arquivo JSON puro e não aquele envolvido com HTML para exibição no GitHub. Um erro ocorrerá se o modelo importado não for puramente JSON.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Remova a marca da caixa de seleção **storageAccountType** e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um parâmetro dinâmico.
+
+   1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
    ![Modelo do Resource Manager para o artefato de blueprint](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ Em [Criar um blueprint](#create-a-blueprint), uma descrição não foi fornecida
 
 1. Selecione **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
-1. Adicionar atribuição de função sob o grupo de recursos: 
+1. Adicionar atribuição de função sob o grupo de recursos:
 
-    a. Selecione a linha **+ Adicionar artefato**, diretamente sob a entrada **ResourceGroup**. 
-   
-   b. Selecione **Atribuição de função** para **Tipo de artefato**. 
-   
-   c. Sob **Função**, selecione **Proprietário**e desmarque a caixa de seleção sob a caixa **Adicionar usuário, aplicativo ou grupo**. 
-   
-   d. Procure e selecione um usuário, aplicativo ou grupo a ser adicionado. Esse artefato usa um parâmetro static definido igualmente em todas as atribuições deste blueprint. 
-   
+   1. Selecione a linha **+ Adicionar artefato**, diretamente sob a entrada **ResourceGroup**.
+
+   1. Selecione **Atribuição de função** para **Tipo de artefato**.
+
+   1. Sob **Função**, selecione **Proprietário**e desmarque a caixa de seleção sob a caixa **Adicionar usuário, aplicativo ou grupo**.
+
+   1. Procure e selecione um usuário, aplicativo ou grupo a ser adicionado. Esse artefato usa um parâmetro static definido igualmente em todas as atribuições deste blueprint.
+
    e. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
    ![Segunda atribuição de função para um artefato de blueprint](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
    Se as ofertas do Enterprise com suporte estiverem disponíveis em [Cobrança do Azure](../../billing/index.md), um link **Criar novo** será ativado na caixa **Assinatura**. Siga estas etapas:
 
-    a. Selecione o link **Criar novo** para criar uma nova assinatura, em vez de selecionar os existentes.
+   1. Selecione o link **Criar novo** para criar uma nova assinatura, em vez de selecionar os existentes.
 
-   b. Forneça um **Nome de exibição** para a nova assinatura.
+   1. Forneça um **Nome de exibição** para a nova assinatura.
 
-   c. Selecione a **Oferta** disponível na lista suspensa.
+   1. Selecione a **Oferta** disponível na lista suspensa.
 
-   d. Use o botão de reticências para selecionar o [grupo de gerenciamento](../management-groups/index.md) do qual a assinatura será um filho.
+   1. Use o botão de reticências para selecionar o [grupo de gerenciamento](../management-groups/index.md) do qual a assinatura será um filho.
 
-   e. Selecione **Criar** na parte inferior da página.
+   1. Selecione **Criar** na parte inferior da página.
 
    ![Criar uma assinatura para uma assinatura de atribuição de blueprint](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 1. Para o **ResourceGroup**, forneça um **Nome** de **StorageAccount** e um **Local** de **East US 2** no menu suspenso.
 
    > [!NOTE]
-   > Para cada artefato que foi incluído no grupo de recursos durante a definição do blueprint, esse artefato é recuado para alinhar com o grupo de recursos ou objeto com o qual será implementado. Os artefatos que não receberem parâmetros ou não tiverem parâmetros a serem definidos na atribuição serão listados apenas para informações contextuais.
+   > Para cada artefato que foi incluído no grupo de recursos durante a definição do blueprint, esse artefato é recuado para alinhar com o grupo de recursos ou objeto com o qual será implementado.
+   > Os artefatos que não receberem parâmetros ou não tiverem parâmetros a serem definidos na atribuição serão listados apenas para informações contextuais.
 
 1. No modelo **StorageAccount** do Azure Resource Manager, selecione **Standard_GRS** para o parâmetro **storageAccountType**.
 
@@ -294,7 +296,8 @@ Se não for mais necessária, remova uma atribuição de blueprint de uma assina
 1. Clique no blueprint que deseja excluir e, em seguida, selecione **Excluir blueprint**. Em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 > [!NOTE]
-> A exclusão de um blueprint nesse método também exclui todas as versões publicadas do blueprint selecionado. Para excluir uma única versão, abra o blueprint, selecione a guia **Versões publicadas**, selecione a versão que você deseja excluir e, em seguida, clique em **Excluir esta versão**. Além disso, você não pode excluir um blueprint até que tenha excluído todas as atribuições dessa definição de blueprint.
+> A exclusão de um blueprint nesse método também exclui todas as versões publicadas do blueprint selecionado.
+> Para excluir uma única versão, abra o blueprint, selecione a guia **Versões publicadas**, selecione a versão que você deseja excluir e, em seguida, clique em **Excluir esta versão**. Além disso, você não pode excluir um blueprint até que tenha excluído todas as atribuições dessa definição de blueprint.
 
 ## <a name="next-steps"></a>Próximas etapas
 

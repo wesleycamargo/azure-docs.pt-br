@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648530"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010289"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
 
 Depois de adquirir uma capacidade reservada do Azure Cosmos DB, o desconto de reserva é aplicado automaticamente aos recursos do Banco de Dados do Azure Cosmos que correspondem aos atributos e à quantidade da reserva. Uma reserva cobre a taxa de transferência provisionada para recursos do Azure Cosmos DB. Ela não cobre software, rede, armazenamento nem encargos de contêiner predefinidos.
+
+## <a name="how-reservation-discount-is-applied"></a>Como o desconto de reserva é aplicado
+
+Um desconto de reserva é "*uso-it-ou-perder-it*". Dessa forma, se você não tiver recursos correspondentes para qualquer hora, em seguida, você perderá uma quantidade de reserva para essa hora. Você não pode transportar encaminhar horas reservadas não utilizadas.
+
+Quando você desligar um recurso, o desconto de reserva se aplica automaticamente a outro recurso correspondente no escopo especificado. Se nenhum recurso de correspondência é encontrado no escopo especificado, são as horas reservadas *perdido*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Desconto de reserva aplicado às contas do Azure Cosmos DB
 
@@ -107,7 +113,7 @@ Para entender e visualizar o aplicativo de suas reservas do Azure nos relatório
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 

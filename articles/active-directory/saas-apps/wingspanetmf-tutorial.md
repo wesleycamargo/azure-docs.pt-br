@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integração do Azure Active Directory com o Wingspan eTMF
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com o Wingspan eTMF, execute as segui
 
     ![Informações de logon único em Domínio e URLs do Wingspan eTMF](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<customer name>.<instance name>.mywingspan.com/saml`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<customer name>.<instance name>.mywingspan.com/`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Wingspan eTMF](http://www.wingspan.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

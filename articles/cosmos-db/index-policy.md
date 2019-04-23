@@ -1,76 +1,109 @@
 ---
 title: Políticas de indexação no Azure Cosmos DB
-description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho.
-author: rimman
+description: Saiba como configurar e alterar a política para a indexação automática e melhor desempenho no Azure Cosmos DB de indexação padrão.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278556"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005087"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Indexar política no Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
-Você pode substituir a política de indexação padrão em um contêiner do Azure Cosmos configurando os seguintes parâmetros:
+No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens de contêiner devem ser indexados. O padrão de política para a indexação recentemente criados índices de contêineres todas as propriedades de cada item, imposição de índices de intervalo para qualquer cadeia de caracteres ou número, e índices espaciais para qualquer objeto GeoJSON de tipo de ponto. Isso permite que você obtenha o alto desempenho de consulta sem precisar pensar sobre a indexação e o gerenciamento de índice com antecedência.
 
-* **Incluir ou excluir itens e os caminhos do índice**: Você pode excluir ou incluir itens específicos no índice, quando você insere ou substituir os itens dentro de um contêiner. Você também pode incluir ou excluir caminhos / propriedades específicos a serem indexados em contêineres. Os caminhos podem incluir padrões de caracteres curinga, por exemplo, *.
+Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner, definindo sua *modo de indexação*e inclua ou exclua *caminhos da propriedade*.
 
-* **Configurar tipos de índice**: Além para o intervalo de caminhos indexados, você pode adicionar outros tipos de índices, tais como espacial.
+## <a name="indexing-mode"></a>Modo de indexação
 
-* **Configurar modos de índice**: Usando a política de indexação em um contêiner, você pode configurar diferentes modos de indexação, como *Consistente* ou *Nenhum*.
+O Azure Cosmos DB dá suporte a dois modos de indexação:
 
-## <a name="indexing-modes"></a>Modos de indexação
+- **Consistentee**: Se a política de indexação de um contêiner é definida para consistente, o índice é atualizado de forma síncrona como criar, atualizar ou excluir itens. Isso significa que a consistência de consultas de leitura será o [consistência configurada para a conta](consistency-levels.md).
 
-O Azure Cosmos DB dá suporte a dois modos de indexação que podem ser configuradas em um contêiner do Cosmos do Azure por meio da política de indexação:
+- **Nenhum**: Se a política de indexação de um contêiner é definida como None, a indexação efetivamente está desabilitada no contêiner. Isso é comumente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ajudar a acelerar a massa operações de inserção.
 
-* **Consistentee**: Se a política de um contêiner Azure Cosmos está definida como *consistente*, as consultas em um contêiner específico seguirão o mesmo nível de consistência especificado para leituras de ponto (por exemplo, forte, desatualização limitada, sessão ou eventual). 
+## <a name="including-and-excluding-property-paths"></a>Incluindo e excluindo os caminhos de propriedade
 
-  O índice é atualizado de forma síncrona conforme você atualiza os itens. Por exemplo, inserir, substituir, atualizar e excluir operações em um item resultará na atualização do índice. A indexação consistente dá suporte a consultas consistentes ao custo que afetam a taxa de transferência de gravação. A redução na taxa de transferência de gravação depende de "caminhos incluídos no índice" e "nível de consistência". Modo de indexação consistente foi projetado para manter o índice atualizado com todas as atualizações e para atender a consultas imediatamente.
+Uma política de indexação personalizada pode especificar caminhos de propriedade explicitamente incluídos ou excluídos da indexação. Otimizando o número de caminhos que são indexados, você pode reduzir a quantidade de armazenamento usada por seu contêiner e melhorar a latência de operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção de visão geral de indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
-* **Nenhum**: Um contêiner que possui um modo de índice Nenhum não possui um índice associado a ele. Isso é comumente usado se o banco de dados do Azure Cosmos for usado como um armazenamento de valor-chave e os itens forem acessados apenas por sua propriedade de ID.
+- um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com `/?`
+- elementos de uma matriz são endereçados juntos por meio de `/[]` notação (em vez de `/0`, `/1` etc.)
+- o `/*` curinga pode ser usado para corresponder a todos os elementos abaixo do nó
 
-  > [!NOTE]
-  > Configurando o modo de indexação como um *None* tem o efeito colateral de remover quaisquer índices existentes. Você deve usar essa opção se seus padrões de acesso exigirem apenas ID ou auto-link.
+Levando o mesmo exemplo novamente:
 
-Níveis de consistência de consulta são mantidos semelhantes para as operações de leitura regulares. Banco de dados Cosmos do Azure retornará um erro se você consultar o contêiner que possui um *None* modo de indexação. Você pode executar as consultas como verificações por meio de explícito **x-ms-documentdb-enable-scan** cabeçalho na API REST ou o **EnableScanInQuery** opção de solicitação usando o SDK do .NET. Alguns recursos de consulta, como ORDER BY, atualmente não são suportados com **EnableScanInQuery**, porque eles exigem um índice correspondente.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- o `headquarters`do `employees` caminho é `/headquarters/employees/?`
+- o `locations`' `country` caminho é `/locations/[]/country/?`
+- o caminho para qualquer coisa em `headquarters` é `/headquarters/*`
+
+Quando um caminho for explicitamente incluído na política de indexação, ela também precisa definir quais tipos de índice devem ser aplicados para o caminho e para cada tipo de índice, o tipo de dados deste índice aplica-se a:
+
+| Tipo de índice | Tipos de dados de destino permitidos |
+| --- | --- |
+| Intervalo | Cadeia de caracteres ou número |
+| Espacial | Ponto, LineString ou um polígono |
+
+Por exemplo, podemos pode incluir a `/headquarters/employees/?` caminho e especificar que um `Range` índice deve ser aplicado nesse caminho para ambos `String` e `Number` valores.
+
+### <a name="includeexclude-strategy"></a>Incluir/excluir estratégia
+
+Qualquer política de indexação deve incluir o caminho raiz `/*` como um incluído ou um caminho excluído.
+
+- Inclua o caminho raiz para excluir seletivamente os caminhos que não precisam ser indexados. Isso é a abordagem recomendada, já que permite que o Azure Cosmos DB proativamente qualquer nova propriedade que pode ser adicionada ao seu modelo de índice.
+- Exclua o caminho raiz para seletivamente incluir caminhos que precisam ser indexados.
+
+Ver [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para exemplos de política de indexação.
 
 ## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
 
-No Azure Cosmos DB, você pode atualizar a política de indexação de um contêiner a qualquer momento. Uma alteração na política de indexação em um contêiner do Azure Cosmos pode levar a uma alteração na forma do índice. Essa alteração afeta os caminhos que podem ser indexados, sua precisão e o modelo de consistência do próprio índice. Uma mudança na política de indexação efetivamente exige uma transformação do índice antigo em um novo índice.
+Política de indexação do contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização da política de indexação aciona uma transformação do índice antigo para o novo, que é executada online e localmente (de modo que nenhum espaço de armazenamento adicional é consumido durante a operação). Índice da política antiga é transformado com eficiência para a nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. Transformação de índice é uma operação assíncrona, e o tempo necessário para concluir depende a taxa de transferência provisionada, o número de itens e seu tamanho. 
 
-### <a name="index-transformations"></a>Transformações de índice
+> [!NOTE]
+> Enquanto a reindexação está em andamento, consultas não podem retornar todos os resultados correspondentes e fará isso sem retornar erros. Isso significa que os resultados da consulta podem não ser consistentes até que a transformação do índice seja concluída. É possível acompanhar o andamento da transformação do índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
 
-Todas as transformações de índice são realizadas online. Os itens indexados pela política antiga serão transformados com eficiência pela nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. A consistência de leitura e gravação operações que são executadas usando a API REST, SDKs, ou usando de procedimentos armazenados e gatilhos não é afetado durante a transformação de índice.
+Se o modo da política de indexação nova é definido para consistente, nenhuma outra alteração de política indexação pode ser aplicada enquanto a transformação do índice está em andamento. Uma transformação de índice em execução pode ser cancelada, definindo o modo da política de indexação como Nenhum (que o descartará imediatamente o índice).
 
-Alterar a política de indexação é uma operação assíncrona, e o tempo para concluir a operação depende do número de itens, taxa de transferência provisionada e o tamanho dos itens. Enquanto a reindexação está em andamento, sua consulta não pode retornar todos os resultados correspondentes, se as consultas usam o índice que está sendo modificado, e as consultas não retornará quaisquer erros/falhas. Enquanto a reindexação está em andamento, as consultas são eventualmente consistentes, independentemente da configuração do modo indexação. Após o índice transformação ser concluído, você continuará ver resultados consistentes. Isso se aplica a consultas emitidas pelas interfaces, como API REST, SDKs ou procedimentos armazenados e disparadores. Transformação de índice é executada de forma assíncrona, em segundo plano, nas réplicas por usando os recursos que estão disponíveis para réplicas específicas.
+## <a name="indexing-policies-and-ttl"></a>As políticas de indexação e o TTL
 
-Todas as transformações de índice são feitas em vigor. O Azure Cosmos DB não mantém duas cópias do índice. Portanto, nenhum espaço em disco adicional é necessário ou consumido em seus contêineres enquanto ocorre a transformação de índice.
+O [recurso Time-to-Live (TTL)](time-to-live.md) exige a indexação para ser o Active Directory no contêiner que ele seja ativado. Isso significa que:
 
-Quando você altera a política de indexação, as alterações são aplicadas para mover o índice antigo para o novo índice e são principalmente com base nas configurações do modo de indexação. As configurações do modo de indexação desempenham um papel importante quando comparadas a outras propriedades, como caminhos incluídos / excluídos, tipos de índice e precisão.
+- não é possível ativar a TTL em um contêiner em que o modo de indexação é definido como None,
+- não é possível definir o modo de indexação como nenhum em um contêiner em que o TTL é ativado.
 
-Se as políticas de indexação antigas e novas usarem a indexação **Consistente**, o banco de dados do Azure Cosmos executará uma transformação de índice online. Não será possível aplicar outra alteração de política de indexação que tenha um modo de indexação Consistente, enquanto a transformação estiver em andamento. Ao mudar para Nenhum, o índice será imediatamente ignorado. Mover para Nenhum é útil quando você deseja cancelar uma transformação em andamento e começar de novo com uma política de indexação diferente.
+Para cenários em que nenhum caminho de propriedade precisa ser indexados, mas o TTL é necessária, você pode usar uma política de indexação com:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Modificando a política de indexação - exemplos
+- um modo de indexação definido para consistente, e
+- Nenhum caminho incluído, e
+- `/*` como o único caminho excluído.
 
-A seguir é os casos de uso mais comuns quando você deseja atualizar uma política de indexação:
+## <a name="obsolete-attributes"></a>Atributos obsoletos
 
-* Se você quiser ter resultados consistentes durante a operação normal, mas ao fazer fallback para o **None** modo de indexação durante importações de dados em massa.
+Ao trabalhar com as políticas de indexação, você pode encontrar os seguintes atributos agora estão obsoletos:
 
-* Se você quiser começar a usar os recursos de indexação nos contêineres atuais do Azure Cosmos. Por exemplo, você pode usar a consulta geoespacial, que requer o tipo de índice espacial, ou consultas ORDER BY / string range, que requerem o tipo de índice de intervalo de cadeia.
+- `automatic` um valor booliano é definido na raiz de uma política de indexação. Ele agora é ignorado e pode ser definido como `true`, quando a ferramenta que você está usando requer a ele.
+- `precision` um número é definido no nível do índice para caminhos incluídos. Ele agora é ignorado e pode ser definido como `-1`, quando a ferramenta que você está usando requer a ele.
+- `hash` é um tipo de índice que está sendo substituído pelo tipo de intervalo.
 
-* Se você deseja selecionar manualmente as propriedades a serem indexadas e alterá-las ao longo do tempo para ajustar-se às suas cargas de trabalho.
-
-* Se você quiser ajustar a precisão de indexação para melhorar o desempenho da consulta ou para reduzir o armazenamento consumido.
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre indexação nos artigos a seguir:
 
-* [Visão geral de indexação](index-overview.md)
-* [Tipos de índice](index-types.md)
-* [Caminhos de índice](index-paths.md)
-* [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)
+- [Visão geral de indexação](index-overview.md)
+- [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)

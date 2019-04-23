@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com o Klue
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Klue ao Azure AD, é necessário adicionar o Klue à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-**Para adicionar o Klue da galeria, realize as seguintes etapas:**
+**Para adicionar o Klue por meio da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Klue, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Klue](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:klue:<Customer ID>`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

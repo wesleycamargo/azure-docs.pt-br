@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313100"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490305"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -56,7 +56,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 4. Crie um novo grupo de recursos.
 5. Especifique a localização geográfica na qual você deseja criar o projeto e clique em **Criar**. Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, você ainda pode planejar a migração de qualquer local de destino do Azure. A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais.
 
-**Geografia** | **Localização de armazenamento**
+**painel Geografia do app&#39;s selecionado** | **Local de armazenamento**
 --- | ---
 Azure Government | Gov. dos EUA – Virgínia
 Ásia | Sudeste Asiático
@@ -195,6 +195,9 @@ Importe o arquivo baixado para o vCenter Server.
     - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta de somente leitura que o coletor usará para descobrir VMs no servidor do vCenter.
     - Em **Escopo de coleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente maior.
 
+       > [!NOTE]
+       > **Escopo da coleção** lista somente pastas de hosts e clusters. Pastas de VMs não podem ser selecionadas diretamente como escopo de coleção. No entanto, você pode descobrir usando uma conta do vCenter com acesso às VMs individuais. [Saiba mais](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) sobre definir o escopo para uma pasta de VMs.
+
 7. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se não as copiar, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
 8. Em **Exibir progresso da coleção**, monitore o status da descoberta. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre quais dados são coletados pelo Coletor de Migrações para Azure.
 
@@ -267,7 +270,7 @@ Cada avaliação baseada em desempenho das Migrações para Azure está associad
 
 Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória da VM. Além disso, para cada disco anexado à VM, é necessário ter os dados da taxa de transferência e a IOPS do disco. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da entrada/saída da rede para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
 
-   **Disponibilidade dos pontos de dados** | **Classificação de confiança**
+   **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---
    0%-20% | 1 estrela
    21%-40% | 2 estrelas

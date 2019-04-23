@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f45f1831572387aa6997700432a7fe156d9b6a92
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495438"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548638"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Node.js no Serviço de Aplicativo do Azure no Linux
 
@@ -191,4 +191,7 @@ Esse comando pode demorar um pouco para ser executado.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Aplicativo Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurar o aplicativo Node.js](configure-language-nodejs.md)

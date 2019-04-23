@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory ao Pingboard
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Pingboard, execute as seguintes
 
      a. Na caixa de texto **Identificador**, digite uma URL: `http://app.pingboard.com/sp`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -208,7 +208,7 @@ Nesta seção, você habilita o Brenda Fernandes para usar o logon único do Azu
 
 ### <a name="create-pingboard-test-user"></a>Criar um usuário de teste do Pingboard
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Pingboard. O Pingboard dá suporte ao provisionamento automático de usuário, que é habilitado por padrão. Você pode encontrar mais detalhes [ aqui ](pingboard-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Pingboard. O Pingboard dá suporte ao provisionamento automático de usuário, que é habilitado por padrão. Você pode encontrar [aqui](pingboard-provisioning-tutorial.md) mais detalhes de como configurar o provisionamento automático de usuário.
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 

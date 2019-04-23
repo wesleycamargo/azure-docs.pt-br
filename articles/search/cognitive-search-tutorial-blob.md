@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Chamar API de Serviços Cognitivos em um pipeline de indexação - Azure Search'
-description: Percorra um exemplo de extração de dados, idioma natural e processamento de imagem AI na indexação do Azure Search para transformação e extração de dados em blobs do JSON.
+title: 'Tutorial: Chamar APIs REST dos Serviços Cognitivos em um pipeline de indexação – Azure Search'
+description: Veja um exemplo de extração de dados, linguagem natural e processamento de imagem AI na indexação do Azure Search para transformação e extração de dados em blobs JSON usando Postman e a API REST.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261914"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528366"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Chamar APIs de Serviços Cognitivos em um pipeline de indexação do Azure Search (versão prévia)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial do REST: Chamar APIs de Serviços Cognitivos em um pipeline de indexação do Azure Search (versão prévia)
 
 Neste tutorial, você aprenderá a mecânica de programação enriquecimento de dados no Azure Search usando *habilidades cognitivas*. As habilidades são apoiadas pelos recursos de processamento de linguagem natural (PLN) e análise de imagem nos Serviços Cognitivos. Por meio da composição do conjunto de qualificações e configuração, você pode extrair texto e representações de texto de um arquivo de imagem ou documento digitalizado. Você também pode detectar a linguagem, entidades, frases-chave e muito mais. O resultado final é rico conteúdo adicional em um índice do Azure Search, criado por um pipeline de indexação com Inteligência Artificial. 
 
@@ -35,7 +35,7 @@ Saída é um índice de pesquisa de texto completo no Azure Search. Você pode a
 Este tutorial é executado no serviço gratuito, mas o número de transações gratuitos é limitado a 20 documentos por dia. Se você quiser executar este tutorial mais de uma vez no mesmo dia, use um conjunto de arquivos menor para que você possa encaixar mais execuções.
 
 > [!NOTE]
-> À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto de documentos.
+> À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
 >
 > A execução das habilidades internas é cobrada com base no [preço de pagamento conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/). O preço da extração de imagem é cobrado com o preço da versão prévia, o que está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
@@ -43,31 +43,37 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
+
+[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+
+[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo.
 
 O [aplicativo da área de trabalho do postman](https://www.getpostman.com/) é usado para fazer chamadas REST ao Azure Search.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Obter uma chave de API do Azure Search e o ponto de extremidade
+[Dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistem em um conjunto de pequenos arquivos de tipos diferentes. 
+
+## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
 As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-1. No portal do Azure, na página **Visão geral**, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://my-service-name.search.windows.net`.
+1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
-2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
 ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de amostra
+## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
 
-O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). Observe que não há suporte para o Armazenamento de Tabelas do Azure para Pesquisa Cognitiva. Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
+O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). O Armazenamento de Tabelas do Azure não tem suporte para a pesquisa cognitiva. Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
 
-1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. 
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de Armazenamento do Azure, clique em **Blobs** e, em seguida, clique em **+ Contêiner**.
 
-1. [Inscreva-se no armazenamento de blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), crie uma conta de armazenamento, abra as páginas de serviços Blob e crie um contêiner. Crie a conta de armazenamento na mesma região do Azure Search.
+1. [Crie um contêiner de Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o Nível de Acesso Público para qualquer um de seus valores válidos.
 
-1. No contêiner criado, clique em **Carregar** para carregar os arquivos de exemplo baixados em uma etapa anterior.
+1. Após o contêiner ser criado, abra-o e selecione **Carregar** na barra de comandos para carregar os arquivos de exemplo que você baixou na etapa anterior.
 
    ![Arquivos de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados 
 
 Existem outras maneiras de especificar a cadeia de caracteres de conexão, como fornecer uma assinatura de acesso compartilhado. Para saber mais sobre as credenciais de fonte de dados, consulte [indexação armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
 
+## <a name="set-up-postman"></a>Configurar o Postman
+
+Inicie o Postman e configure uma solicitação HTTP. Se você não estiver familiarizado com essa ferramenta, consulte [Explorar APIs REST do Azure Search usando Postman](search-fiddler.md).
+
+Os métodos de solicitação usados neste tutorial são **POST**, **PUT** e **GET**. As chaves de cabeçalho são "Content-type" definido como "application/json" e "api-key" definido como uma chave de administração de seu serviço Azure Search. O corpo é onde você coloca o conteúdo real de sua chamada. 
+
+  ![Pesquisa semi-estruturada](media/search-semi-structured-data/postmanoverview.png)
+
+Estamos usando o para Postman fazer quatro chamadas à API para o serviço de pesquisa para criar uma fonte de dados, um conjunto de habilidades, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
+
+
 ## <a name="create-a-data-source"></a>Criar uma fonte de dados
 
 Agora que os serviços e os arquivos de origem estão preparados, comece montando os componentes do pipeline de indexação. Começar com uma [o objeto de fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) que informa o Azure Search como recuperar dados de origem externa.
 
-Para este tutorial, use a API REST e uma ferramenta que pode formular e enviar solicitações HTTP, como o Fiddler, Postman ou PowerShell. No cabeçalho da solicitação, forneça o nome do serviço que você usou ao criar o serviço do Azure Search e a chave de api gerado para o serviço de pesquisa. No corpo da solicitação, especifique a cadeia de conexão e de nome de contêiner do blob.
+No cabeçalho da solicitação, forneça o nome do serviço que você usou ao criar o serviço do Azure Search e a chave de api gerado para o serviço de pesquisa. No corpo da solicitação, especifique a cadeia de conexão e de nome de contêiner do blob.
 
 ### <a name="sample-request"></a>Solicitação de Exemplo
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 Enviar a solicitação. A ferramenta de teste da web deve retornar um código de status de 201 confirmando êxito. 
 
-Como esta é sua primeira solicitação, verifique o portal do Azure para confirmar a fonte de dados foi criado no Azure Search. Na página de painel do serviço de pesquisa, verifique se o bloco de fontes de dados tem um novo item. Talvez seja necessário aguardar alguns minutos para que a página do portal atualizar. 
+Como esta é sua primeira solicitação, verifique o portal do Azure para confirmar a fonte de dados foi criado no Azure Search. Na página de painel do serviço de pesquisa, verifique se a lista de Fontes de Dados tem um novo item. Talvez seja necessário aguardar alguns minutos para que a página do portal atualizar. 
 
   ![Fontes de dados lado a lado no portal do](./media/cognitive-search-tutorial-blob/data-source-tile.png "lado a lado no portal de fontes de dados")
 
@@ -116,13 +133,13 @@ Se você receber um erro 403 ou 404, verifique a construção da solicitação: 
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de habilidades
 
-Nesta etapa, você deve definir um conjunto de etapas de enriquecimento que você deseja aplicar aos seus dados. Chamar cada etapa enriquecimento um *habilidade*e o conjunto de etapas de enriquecimento um *conjunto de qualificações*. Este tutorial usa [predefinidos habilidades cognitivas](cognitive-search-predefined-skills.md) para o conjunto de qualificações:
+Nesta etapa, você deve definir um conjunto de etapas de enriquecimento que você deseja aplicar aos seus dados. Chamar cada etapa enriquecimento um *habilidade*e o conjunto de etapas de enriquecimento um *conjunto de qualificações*. Este tutorial usa [habilidades cognitivas internas](cognitive-search-predefined-skills.md) para o conjunto de habilidades:
 
 + [A detecção de idioma](cognitive-search-skill-language-detection.md) para identificar o idioma do conteúdo.
 
 + [Divisão de texto](cognitive-search-skill-textsplit.md) para dividir o conteúdo grande em partes menores antes de chamar a habilidade de extração de frase-chave. Extração de frase-chave aceita entradas de 50.000 caracteres ou menos. Alguns dos arquivos de exemplo precisam dividir para se ajustar dentro desse limite.
 
-+ [Reconhecimento de entidade de chamada](cognitive-search-skill-named-entity-recognition.md) para extrair os nomes das organizações de conteúdo no contêiner de blob.
++ [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) para extrair os nomes das organizações de conteúdo no contêiner de blobs.
 
 + [Extração de frase chave](cognitive-search-skill-keyphrases.md) para destacar as principais frases-chave. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 Enviar a solicitação. A ferramenta de teste da web deve retornar um código de status de 201 confirmando êxito. 
 
-#### <a name="about-the-request"></a>Sobre a solicitação
+#### <a name="explore-the-request-body"></a>Explore o corpo da solicitação
 
 Observe como a habilidade de extração de frase-chave é aplicada para cada página. Ao definir o contexto como ```"document/pages/*"``` executar este enricher para cada membro da matriz de páginas do documento (para cada página do documento).
 
@@ -306,11 +323,13 @@ Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Crie um indexador, mapear os campos e executar transformações
 
-Até agora, você criou uma fonte de dados, um conjunto de qualificações e um índice. Esses três componentes se tornam parte de um [indexador](search-indexer-overview.md) que reúne cada item em uma única operação de várias fases. Para unir esses em um indexador, você deve definir mapeamentos de campo. Mapeamentos de campo são parte da definição do indexador e executar as transformações ao enviar a solicitação.
+Até agora, você criou uma fonte de dados, um conjunto de qualificações e um índice. Esses três componentes se tornam parte de um [indexador](search-indexer-overview.md) que reúne cada item em uma única operação de várias fases. Para unir esses em um indexador, você deve definir mapeamentos de campo. 
 
-Para não aprimorada de indexação, a definição do indexador fornece uma seção opcional *fieldMappings* se os tipos de dados ou nomes de campo não coincidem com precisão, ou se você quiser usar uma função.
++ Os fieldMappings são processados antes do conjunto de habilidades, mapeando campos de origem da fonte de dados para campos de destino em um índice. Se os tipos e os nomes do campo forem os mesmos em ambas as extremidades, nenhum mapeamento será necessário.
 
-Para cargas de trabalho de pesquisa cognitivas tendo um pipeline de enriquecimento, um indexador requer *outputFieldMappings*. Esses mapeamentos são usados quando um processo interno (pipeline enriquecimento) é a origem dos valores de campo. Comportamentos exclusivos *outputFieldMappings* incluem a capacidade de lidar com tipos complexos criados como parte da enriquecimento (por meio de habilidade shaper). Além disso, pode haver vários elementos por documento (por exemplo, várias organizações em um documento). O *outputFieldMappings* construção pode direcionar o sistema para coleções de elementos em um único registro de "mesclar".
++ Os outputFieldMappings são processados depois do conjunto de habilidades, fazendo referência a sourceFieldNames que não existem até a decodificação de documentos ou até que o enriquecimento os crie. O targetFieldName é um campo em um índice.
+
+Além de conectar entradas a saídas, você também pode usar mapeamentos de campo para mesclar estruturas de dados. Para obter mais informações, consulte [Como mapear campos enriquecidos para um índice pesquisável](cognitive-search-output-field-mapping.md).
 
 ### <a name="sample-request"></a>Solicitação de Exemplo
 
@@ -378,7 +397,7 @@ Espere essa ação levar vários minutos para ser concluída. Embora o conjunto 
 > [!TIP]
 > Criar um indexador invoca o pipeline. Se houver problemas ao acessar os dados, as entradas de mapeamento e saídas ou ordem de operações, eles aparecem neste estágio. Para executar novamente o pipeline com as alterações de código ou script, você precisará primeiro descarte de objetos. Para saber mais, confira [Reiniciar e Reexecutar](#reset).
 
-### <a name="explore-the-request-body"></a>Explore o corpo da solicitação
+#### <a name="explore-the-request-body"></a>Explore o corpo da solicitação
 
 O script define ```"maxFailedItems"``` como -1, que instrui o mecanismo de indexação para ignorar erros durante a importação de dados. Isso é útil porque há portanto alguns documentos na fonte de dados de demonstração. Para uma fonte de dados maior, você definirá o valor maior que 0.
 

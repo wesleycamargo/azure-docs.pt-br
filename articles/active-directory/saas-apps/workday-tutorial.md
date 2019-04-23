@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 8451fd692409933803f5f8023f1e1161c3a97daf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Workday, siga as etapas abaixo:
 
     ![Informações de logon único de Domínio e URLs do Workday](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.workday.com`
+    b. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.workday.com`
 
 5. Clique em **Definir URLs adicionais** e execute a seguinte etapa:
 

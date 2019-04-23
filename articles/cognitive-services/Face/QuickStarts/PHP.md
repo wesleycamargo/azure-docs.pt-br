@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630171"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490439"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e PHP
 
@@ -26,6 +26,7 @@ Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com
 - Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave.
 - Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
 - O pacote PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
+- Um navegador da Web habilitado para PHP. Se ainda não tiver configurado isso, você poderá fazer isso instalando e configurando o [XAMPP](https://www.apachefriends.org/) em seu computador.
 
 ## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
 

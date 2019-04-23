@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526480"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006413"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma no Serviço de Kubernetes do Azure
 
@@ -325,7 +325,7 @@ Esta seção usa a CLI **kubectl** para se comunicar com o Serviço de Kubernete
     |Linha 78<br> Propriedade `image`|Local da imagem da imagem de idioma em seu Registro de Contêiner<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Linha 95<br> Propriedade `name`|O segredo do Registro de Contêiner para a imagem, conhecido como `<client-secret>` na seção anterior.|
     |Linha 91<br> Propriedade `apiKey`|Sua chave de recurso de análise de texto|
-    |Linha 92<br> Propriedade `billing`|O ponto de extremidade de cobrança para o recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Linha 92<br> Propriedade `billing`|O ponto de extremidade de cobrança para o recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Porque o **apiKey** e o **ponto de extremidade de cobrança** são configurados como parte da definição de orquestração do Kubernetes, o contêiner de site não precisa saber sobre eles ou passá-los como parte da solicitação. O contêiner do site refere-se ao contêiner de detecção de idioma por seu nome de orquestração `language`. 
 
@@ -405,7 +405,7 @@ az group delete --name cogserv-container-rg
 
 * [kubectl para usuários do Docker](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 * Use mais [Contêineres de Serviços Cognitivos](../../cognitive-services-container-support.md)
 * Usar o Serviço Conectado da Análise de Texto](../vs-text-connected-service.md)

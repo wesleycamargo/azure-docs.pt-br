@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969661"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996043"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 
@@ -67,9 +67,9 @@ Dependendo do modelo, os dispositivos StorSimple podem estar disponíveis em reg
 
 Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo estará disponível nos seguintes países.
 
-| #  | País        | #  | País     | #  | País      | #  | País              |
+| #  | País/Região        | #  | País/Região     | #  | País/Região      | #  | País/Região              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Austrália      | 16 | Hong Kong   | 31 | Nova Zelândia  | 46 | África do Sul         |
+| 1  | Austrália      | 16 | RAE de Hong Kong| 31 | Nova Zelândia  | 46 | África do Sul         |
 | 2  | Áustria        | 17 | Hungria     | 32 | Nigéria      | 47 | Coreia do Sul          |
 | 3  | Bahrein        | 18 | Islândia     | 33 | Noruega       | 48 | Espanha                |
 | 4  | Bélgica        | 19 | Índia       | 34 | Peru         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo estará di
 | 9  | República Tcheca | 24 | Japão       | 11,8 | Catar        | 54 | Turquia               |
 | 10 | Dinamarca        | 25 | Quênia       | 40 | Romênia      | 55 | Ucrânia              |
 | 11 | Egito          | 26 | Kuwait      | 41 | Rússia       | 56 | Emirados Árabes Unidos |
-| 12 | Finlândia        | 27 | Macau       | 42 | Arábia Saudita | 57 | Reino Unido       |
+| 12 | Finlândia        | 27 | RAE de Macau   | 42 | Arábia Saudita | 57 | Reino Unido       |
 | 13 | França         | 28 | Malásia    | 43 | Singapura    | 58 | Estados Unidos        |
 | 14 | Alemanha        | 29 | México      | 44 | Eslováquia     | 59 | Vietnã              |
 | 15 | Grécia         | 30 | Países Baixos | 45 | Eslovênia     | 60 | Croácia              |

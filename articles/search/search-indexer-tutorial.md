@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270448"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528043"
 ---
-# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial em C#: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial do C#: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
 
 Saiba como configurar um indexador para extrair dados pesquisáveis de um Banco de dados SQL do Azure de exemplo. [Indexadores](search-indexer-overview.md) são componentes do Azure Search que rastreiam as fontes de dados externas, preenchendo um [índice de pesquisa](search-what-is-an-index.md) com conteúdo. De todos os indexadores, o indexador do Banco de Dados SQL do Azure é o mais amplamente utilizado. 
 
@@ -87,7 +87,7 @@ Nesta etapa, crie uma fonte de dados externa que pode ser rastreada por um index
 
 O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados existentes e instrui você a criar os dois na etapa 2. Opcionalmente, se você tiver um recurso existente, pode adicionar a tabela hotéis, começando na etapa 4.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/). 
+1. [Entre no Portal do Azure](https://portal.azure.com/). 
 
 2. Localize ou crie um **Banco de Dados SQL do Azure** para criar um banco de dados, um servidor e um grupo de recursos. Você pode usar os padrões e o tipo de preço com o valor mais baixo. Uma vantagem de criar um servidor é que você pode especificar um nome de usuário e senha do administrador, necessários para criar e carregar tabelas em uma etapa posterior.
 
@@ -99,7 +99,7 @@ O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados 
 
    ![Página do banco de dados SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Na barra de comandos, clique em **Ferramentas** > **Editor de consultas**.
+4. No painel de navegação, clique em **Editor de consultas (visualização)**.
 
 5. Clique em **Logon** e insira o nome de usuário e senha do administrador do servidor.
 
@@ -116,7 +116,7 @@ O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados 
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    A consulta de modelo, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que atualmente não é tratado no editor. Para obter uma lista de outras colunas para consulta, execute esta instrução: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    A consulta de modelo, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que atualmente não é tratado no editor. Para obter uma lista das outras colunas para consultar, você pode executar essa instrução: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Agora que você tem um conjunto de dados externo, copie a cadeia de conexão ADO.NET para o banco de dados. Na página de Banco de Dados SQL do seu banco de dados, vá para **Configurações** > **Cadeias de Conexão** e copie a cadeia de conexão ADO.NET.
  
@@ -137,7 +137,7 @@ O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados 
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Seu código agora está pronto para compilar e executar. Antes de fazer isso, reserve um minuto para estudar as definições de índice e indexador para este exemplo. O código relevante encontra-se em dois arquivos:
+Depois que os dados e as configurações estiverem em vigor, o programa de exemplo em **DotNetHowToIndexers.sln** estará pronto para ser criado e executado. Antes de fazer isso, reserve um minuto para estudar as definições de índice e indexador para este exemplo. O código relevante encontra-se em dois arquivos:
 
   + **hotel.cs**, que contém o esquema que define o índice
   + **Program.cs**, que contém as funções para criar e gerenciar estruturas em seu serviço
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 Um esquema também pode incluir outros elementos, incluindo perfis de pontuação para acelerar uma pontuação de pesquisa, analisadores personalizados e outros constructos. No entanto, neste caso, o esquema é definido de forma esparsa, consistindo somente em campos encontrados nos conjuntos de dados de exemplo.
 
-Neste tutorial, o indexador extrai dados de uma fonte de dados. Na prática, você pode anexar vários indexadores ao mesmo índice, criando um índice pesquisável consolidado de várias fontes de dados e indexadores. Você pode usar o mesmo par de índice e indexador, variando apenas as fontes de dados ou um índice com várias combinações de indexador e fonte de dados, dependendo de onde você precisa de flexibilidade.
+Neste tutorial, o indexador extrai dados de uma fonte de dados. Na prática, você pode anexar vários indexadores ao mesmo índice, criando um índice pesquisável consolidado de várias fontes de dados. Você pode usar o mesmo par de índice e indexador, variando apenas as fontes de dados ou um índice com várias combinações de indexador e fonte de dados, dependendo de onde você precisa de flexibilidade.
 
 ### <a name="in-programcs"></a>Em Program.cs
 
-O programa principal inclui funções para todas as três fontes de dados normais. Os seguintes objetos destacam-se quando nos concentrarmos somente no Banco de Dados SQL do Azure:
+O programa principal inclui lógica para a criação de um cliente, um índice, uma fonte de dados e um indexador. O código verifica e exclui os recursos existentes do mesmo nome, sob a suposição de que você pode executar este programa várias vezes.
+
+O objeto de fonte de dados é configurado com configurações específicas de recursos do banco de dados SQL do Azure, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos internos de detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do Azure SQL. O banco de dados de hotéis de demonstração no SQL Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna está definida como true no banco de dados, o indexador remove o documento correspondente do índice do Azure Search.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-No Azure Search, os objetos que você pode exibir, configurar ou excluir de forma independente incluem índices, indexadores e fontes de dados (*hotéis*, *azure-sql-indexer*, *azure-sql*, respectivamente). 
-
-A coluna *AzureSqlHighWaterMarkColumnName* merece menção especial porque ela fornece informações de detecção de alteração, usadas pelo indexador para determinar se uma linha foi alterada desde a última carga de trabalho de indexação. [Alterar as políticas de detecção](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) são compatíveis somente com indexadores e variam de acordo com a fonte de dados. Para o Banco de Dados SQL do Azure, você pode escolher entre duas políticas, dependendo dos requisitos do banco de dados.
-
-O código a seguir mostra os métodos em Program.cs usados para criar uma fonte de dados e um indexador. O código verifica e exclui os recursos existentes do mesmo nome, sob a suposição de que você pode executar este programa várias vezes.
+Um objeto de indexador é independente da plataforma, com invocação, a programação e a configuração sendo as mesmas independentemente da origem. Esse indexador de exemplo inclui uma agenda e uma opção de redefinir que limpa o histórico do indexador e chama um método para criar e executar o indexador imediatamente.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Observe que as chamadas de API do indexador são independentes da plataforma exceto [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet), que especifica o tipo de rastreador a ser invocado.
+
 
 ## <a name="run-the-indexer"></a>Executar o indexador
 
@@ -236,12 +256,10 @@ No portal do Azure, na página de Visão geral do serviço de pesquisa, clique e
 
 Todos os indexadores, incluindo o que você acabou de criar de forma programática, são listados no portal. Você pode abrir uma definição do indexador e exibir sua fonte de dados ou configurar um agendamento de atualização para obter linhas novas e alteradas.
 
-1. Abra a página Visão geral do serviço do seu serviço do Azure Search.
-2. Role para baixo para encontrar os blocos de **Indexadores** e **Fontes de Dados**.
-3. Clique em um bloco para abrir uma lista de cada recurso. Você pode selecionar fontes de dados ou indexadores individuais para exibir ou modificar as definições de configuração.
+1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão geral** de seu serviço de pesquisa, clique nos links para **Índices**, **Indexadores** e **Fontes de dados**.
+3. Selecione objetos individuais para exibir ou modificar as definições de configuração.
 
    ![Blocos de indexador e de fonte de dados](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -252,4 +270,4 @@ A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o g
 Você pode anexar algoritmos com inteligência artificial a um pipeline do indexador. Como uma próxima etapa, prossiga para o tutorial a seguir.
 
 > [!div class="nextstepaction"]
-> [Como indexar documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indexação de documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

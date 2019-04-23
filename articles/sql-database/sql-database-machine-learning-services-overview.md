@@ -1,6 +1,6 @@
 ---
 title: Serviços do Azure SQL banco de dados de Machine Learning com visão geral do R (versão prévia)
-description: Este tópico descreve os Serviços do Machine Learning do Banco de Dados SQL do Azure (com R) e explica como eles funcionam.
+description: Este artigo descreve os serviços de aprendizado de máquina do Azure SQL banco de dados (com R) e explica como ele funciona.
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762052"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997471"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços do Azure SQL banco de dados de Machine Learning com R (versão prévia)
 
@@ -35,25 +35,27 @@ Os Serviços do Machine Learning são um recurso do Banco de Dados SQL do Azure,
 
 ## <a name="what-you-can-do-with-r"></a>O que você pode fazer com o R
 
-Use o poder da linguagem R para fornecer análise avançada e machine learning no banco de dados. Essa capacidade leva os cálculos e o processamento para o local em que os dados residem, eliminando a necessidade de efetuar pull de dados na rede. Além disso, aproveite o poder dos pacotes empresariais do R para fornecer análise avançada em escala.
+Use o poder da linguagem R para fornecer análise avançada e machine learning no banco de dados. Essa capacidade leva os cálculos e o processamento para o local em que os dados residem, eliminando a necessidade de efetuar pull de dados na rede. Além disso, você pode aproveitar o poder dos pacotes de R enterprise para fornecer análise avançada em escala.
 
 Os Serviços do Machine Learning incluem uma distribuição base do R, sobreposta com pacotes empresariais do R da Microsoft. As funções e os algoritmos do R da Microsoft foram desenvolvidos para escala e utilidade, fornecendo análise preditiva, modelagem estatística, visualizações de dados e algoritmos de machine learning de ponta.
 
 ### <a name="r-packages"></a>Pacotes R
 
-Os pacotes R de software livre mais comuns são pré-instalados nos Serviços do Machine Learning. Os seguintes pacotes R da Microsoft também estão incluídos:
+Pacotes de R de código-fonte aberto mais comuns são pré-instalados no serviços de Machine Learning. Os seguintes pacotes R da Microsoft também estão incluídos:
 
-| Pacote R | Descrição|
+| Pacote R | DESCRIÇÃO|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | O Microsoft R Open é a distribuição aprimorada de R da Microsoft. É uma plataforma de software livre completa para análise estatística e ciência de dados. É baseada no R e totalmente compatível com ele, além de incluir outras funcionalidades para um melhor desempenho e capacidade de reprodução. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | O Microsoft R Open é a distribuição aprimorada de R da Microsoft. É uma plataforma completa de código-fonte aberto para a ciência de dados e análise estatística. É baseada no R e totalmente compatível com ele, além de incluir outras funcionalidades para um melhor desempenho e capacidade de reprodução. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | O RevoScaleR é a biblioteca principal para o R escalonável. As funções nessa biblioteca estão entre mais amplamente usadas. As transformações e a manipulação de dados, resumo estatístico, visualização e muitas formas de modelagem e de análises são encontrados nessas bibliotecas. Além disso, as funções nessas bibliotecas distribuem automaticamente as cargas de trabalho entre os núcleos disponíveis para processamento paralelo, com a capacidade de trabalhar em partes de dados coordenadas e gerenciadas pelo mecanismo de cálculo. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | O MicrosoftML adiciona algoritmos de machine learning para criar modelos personalizados para análise de texto, análise de imagem e de sentimento. |
 
-Além dos pacotes pré-instalados, é possível [instalar pacotes de adição](sql-database-connect-query-r.md#add-package).
+<!-- Add this back when the new package-related article is written
+In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
+-->
 
 <a name="signup"></a>
 
-## <a name="sign-up-for-the-preview"></a>Inscreva-se para a visualização
+## <a name="sign-up-for-the-preview"></a>Inscrever-se para obter a visualização
 
 Para se inscrever na versão prévia pública, siga estas etapas:
 
@@ -61,11 +63,11 @@ Para se inscrever na versão prévia pública, siga estas etapas:
 
 2. Envie um email para a Microsoft pelo endereço [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) a fim de se inscrever na versão prévia pública. A versão prévia pública dos Serviços de Machine Learning (com R) no Banco de Dados SQL não está habilitada por padrão.
 
-Após se inscrever no programa, a Microsoft integrará você à versão prévia pública e habilitará o R para seu banco de dados novo ou existente.
+Depois que você está inscrito no programa, a Microsoft irá integrar você para a visualização pública e habilitar R nova ou de seu banco de dados.
 
 Serviços de Machine Learning com R não é recomendado para cargas de trabalho de produção durante a visualização pública.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Confira as [principais diferenças dos serviços do Machine Learning do SQL Server](sql-database-machine-learning-services-differences.md)
 - Para saber como usar os Serviços do Microsoft Machine Learning (com R) no Banco de Dados SQL do Azure, confira [Guia de início rápido](sql-database-connect-query-r.md).

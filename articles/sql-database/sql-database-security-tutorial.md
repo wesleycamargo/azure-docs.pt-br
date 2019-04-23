@@ -1,6 +1,6 @@
 ---
 title: Proteger um banco de dados individual ou em pool no Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre técnicas e recursos para proteger um banco de dados individual ou em pool no Banco de Dados SQL do Azure.
+description: Um tutorial que ensina sobre as técnicas e os recursos para proteger um banco de dados individual ou em pool no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893264"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496430"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
+
+Neste tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+> - Criar regras de firewall no nível do servidor e do banco de dados
+> - Configurar um administrador do Azure AD (Active Directory)
+> - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
+> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
 
 O Banco de Dados SQL do Azure protege os dados em um banco de dados individual ou em pool, permitindo que você:
 
@@ -28,14 +37,6 @@ O Banco de Dados SQL do Azure protege os dados em um banco de dados individual o
 
 > [!NOTE]
 > Um Banco de Dados SQL do Azure em uma instância gerenciada é protegido usando regras de segurança de rede e pontos de extremidade privados, conforme descrito em [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-index.yml) e [Arquitetura de conectividade](sql-database-managed-instance-connectivity-architecture.md).
-
-Melhore a segurança de seu banco de dados com apenas algumas etapas simples. Neste tutorial, você aprenderá a:
-
-> [!div class="checklist"]
-> - Criar regras de firewall no nível do servidor e do banco de dados
-> - Configurar um administrador do Azure AD (Active Directory)
-> - Gerenciar o acesso do usuário com a autenticação do SQL, a autenticação do Azure AD e cadeias de conexão seguras
-> - Habilitar recursos de segurança, como a segurança de dados avançada, a auditoria, a máscara de dados e a criptografia
 
 Para obter mais informações, confira os artigos [Visão geral](/azure/sql-database/sql-database-security-index) e [Recursos de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 

@@ -16,7 +16,7 @@ ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57997538"
@@ -44,7 +44,7 @@ O SDK do Node.js dos Aplicativos Móveis dá suporte à versão atual de LTS do 
 
 O SDK do Node.js dá suporte a dois drivers de banco de dados: 
 
-* O driver node-mssql dá suporte ao Banco de Dados SQL do Microsoft Azure e instâncias do SQL Server locais.  
+* O driver node-mssql dá suporte ao Banco de Dados SQL do Azure e instâncias do SQL Server locais.  
 * O driver sqlite3 dá suporte a bancos de dados SQLite somente em uma instância única.
 
 ### <a name="howto-cmdline-basicapp"></a>Criar um back-end do Node.js básico usando a linha de comando
@@ -274,7 +274,7 @@ O SDK do Node.js de Aplicativos Móveis fornece três opções para servir dados
 
 * Usar o driver de **memória** para fornecer um repositório de exemplo não persistente.
 * Usar o driver **MSSQL** para fornecer um repositório de dados do SQL Server Express para desenvolvimento.
-* Usar o driver **MSSQL** para fornecer um armazenamento de dados do Banco de Dados SQL do Microsoft Azure para produção.
+* Usar o driver **MSSQL** para fornecer um armazenamento de dados do Banco de Dados SQL do Azure para produção.
 
 O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para estabelecer e usar uma conexão tanto para o Banco de Dados SQL como para o SQL Server Express. Este pacote exige que você habilite as conexões TCP na instância do SQL Server Express.
 

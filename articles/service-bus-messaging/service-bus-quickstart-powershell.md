@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045234"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499794"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início Rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
-O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade absoluta. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos e a transferência de alterações de dados ou estado. Esses cenários podem envolver agendamento de vários trabalhos em lotes em outro aplicativo ou serviços, ou cumprimento da ordem de disparo. Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse cenário, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço.
-
-![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o PowerShell para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
-- [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
+- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar. 
+- [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Use o Visual Studio para criar um exemplo que envia e recebe mensagens de uma fila. O exemplo tem a finalidade de testar a fila criada no portal. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-Este início rápido requer que você esteja executando a versão mais recente do Azure PowerShell. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell][].
+Este início rápido requer que você esteja executando a versão mais recente do Azure PowerShell. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell][]. Se estiver familiarizado com o Azure Cloud Shell, você poderá usá-lo sem instalar o Azure PowerShell em seu computador. Para obter detalhes sobre o Azure Cloud Shell, consulte [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 1. Primeiro, instale o módulo do PowerShell do Barramento de Serviço caso ainda não tenha feito isso:
 
@@ -45,7 +43,7 @@ Este início rápido requer que você esteja executando a versão mais recente d
    Install-Module Az.ServiceBus
    ```
 
-2. Execute o comando a seguir para fazer logon no Azure:
+2. Execute o comando a seguir para entrar no Azure:
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -167,7 +165,7 @@ Em seguida, o método `Main()` inicia o loop de mensagem assíncrona, `MainAsync
 
 ### <a name="message-loop"></a>Loop de mensagem
 
-O método MainAsync () cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de mensagens de recebimento nomeado `RegisterOnMessageHandlerAndReceiveMessages()` e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de mensagens de recebimento chamado `RegisterOnMessageHandlerAndReceiveMessages()` e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como gravar código para enviar e receber mensagens, continue no tutorial para Barramento de Serviço a seguir:
+Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como escrever código para enviar e receber mensagens, continue com os tutoriais na seção **Enviar e receber mensagens**. 
 
 > [!div class="nextstepaction"]
-> [Atualizar o estoque usando o Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Instalar e configurar o Azure PowerShell]: /powershell/azure/install-Az-ps

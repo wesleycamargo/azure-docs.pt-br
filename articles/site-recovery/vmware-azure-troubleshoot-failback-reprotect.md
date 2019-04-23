@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833424"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999460"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de failback no local do Azure
 
@@ -56,7 +56,7 @@ Para resolver esse problema:
 
 Para resolver esse problema:
 
-Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (estado suspenso ou desligamento), o servidor de configuração não poderá alcançar o Serviço de Mobilidade na VM para iniciar a nova proteção.
+Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador está em uma rede incorreta ou não está em execução (não responder ou desligado), o servidor de configuração não pode acessar o serviço de mobilidade na VM para iniciar a nova proteção.
 
 * Reinicie a VM para que possa começar a comunicar-se de volta no local.
 * Reinicie o trabalho de nova proteção depois de iniciar a máquina virtual do Azure.

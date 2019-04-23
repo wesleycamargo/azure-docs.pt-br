@@ -1,7 +1,7 @@
 ---
 title: Funções de padrão
 titleSuffix: Azure Cognitive Services
-description: Use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.
+description: Padrões extraem dados de enunciados de modelo bem formatados. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106586"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523267"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextualmente usando funções
 
-Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
+Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma [entidade simples](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
 
 
 **Neste tutorial, você aprenderá a:**
@@ -40,7 +40,7 @@ Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem 
 
 ## <a name="using-roles-in-patterns"></a>Usando funções em padrões
 
-O propósito das funções é extrair entidades relacionadas ao contexto em um enunciado. No enunciado, `Move new employee Robert Williams from Sacramento and San Francisco`, a cidade de origem e os valores da cidade de destino estão relacionados entre si e usam uma linguagem comum para denotar cada local. 
+O propósito das funções é extrair entidades relacionadas contextualmente em um enunciado. No enunciado, `Move new employee Robert Williams from Sacramento and San Francisco`, a cidade de origem e os valores da cidade de destino estão relacionados entre si e usam uma linguagem comum para denotar cada local. 
 
 
 O nome do novo funcionário, Billy Patterson, não faz parte da entidade lista **funcionário** ainda. O nome do novo funcionário é extraído primeiro, para enviar o nome a um sistema externo para criar as credenciais da empresa. Depois que as credenciais da empresa são criadas, as credenciais dos funcionários são adicionadas à entidade da lista **Funcionários**.
@@ -373,19 +373,6 @@ As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer
     ```
 
 A pontuação da intenção agora é muito maior e os nomes das funções são parte da resposta da entidade.
-
-## <a name="hierarchical-entities-versus-roles"></a>Funções versus entidades hierárquicas
-
-No [tutorial hierárquico](luis-quickstart-intent-and-hier-entity.md), a intenção **MoveEmployee** detectou quando mover um funcionário existente de um prédio e escritório para outro. Os exemplos de declarações tinham localizações de origem e destino, mas não utilizavam funções. Em vez disso, a origem e o destino eram filhos da entidade hierárquica. 
-
-Neste tutorial, o aplicativo Recursos Humanos detecta enunciados sobre como mover novos funcionários de uma cidade para outra. Esses dois tipos de enunciados são semelhantes, mas são resolvidos com diferentes habilidades do LUIS.
-
-|Tutorial|Exemplo de enunciado|Locais de origem e destino|
-|--|--|--|
-|[Hierarchical (não há funções)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
-|Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** à **Denver**.|Yuma, Denver|
-
-Para mais informações, consulte [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

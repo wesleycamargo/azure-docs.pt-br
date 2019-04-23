@@ -1,6 +1,6 @@
 ---
-title: Como integrar logs do Azure Active Directory com ArcSight usando Azure Monitor (versão prévia)  | Microsoft Docs
-description: Aprenda a integrar logs do Azure Active Directory com ArcSight usando Azure Monitor (versão prévia)
+title: Como integrar os logs do Azure Active Directory ao ArcSight usando o Azure Monitor | Microsoft Docs
+description: Saiba como integrar os logs do Azure Active Directory ao ArcSight usando o Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438097"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996298"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Integrar logs do Azure Active Directory com ArcSight usando Azure Monitor (versão prévia)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs do Azure Active Directory ArcSight usando o Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) uma solução SIEM (gerenciamento de eventos e informações de segurança) que ajuda a detectar e responder a ameaças de segurança na plataforma. Agora você pode rotear os logs do Azure AD (Azure Active Directory) para ArcSight usando o Azure Monitor usando o conector ArcSight para Azure AD. Esse recurso permite que você monitore o locatário por comprometimento de segurança usando o ArcSight.  
 
@@ -59,4 +59,4 @@ Baixe e abra o [guia de configuração do ArcSight SmartConnector para Hub de Ev
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Guia de configuração do ArcSight SmartConnector para Hub de Eventos do Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Guia de configuração do ArcSight SmartConnector para Hub de Eventos do Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

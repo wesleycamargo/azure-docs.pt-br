@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203453"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503000"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configurando seu aplicativo iOS
 
@@ -61,7 +61,7 @@ Copie e cole o que está abaixo. Este comando busca dependências em uma pasta d
 carthage update
 ```
 
-> O processo acima é usado para baixar e criar a MSAL (Biblioteca de Autenticação da Microsoft). O MSAL manipula a aquisição, o armazenamento em cache e a atualização de tokens de usuário usados para acessar APIs protegidas pelo Azure Active Directory v2.0.
+> O processo acima é usado para baixar e criar a MSAL (Biblioteca de Autenticação da Microsoft). A MSAL trata da aquisição, do armazenamento em cache e da atualização de tokens do usuário usados para acessar APIs protegidas pela plataforma de identidade da Microsoft.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Adicionar a estrutura da MSAL ao seu aplicativo
 
@@ -91,7 +91,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 
 Um arquivo Main.storyboard deve ser criado automaticamente como parte do modelo de projeto. Siga as instruções abaixo para criar a interface do usuário do aplicativo:
 
-1.  Pressione CTRL e clique em `Main.storyboard` para abrir o menu de contexto e, em seguida, clique em: `Open As` > `Source Code`
+1.  Pressione CTRL e clique em `Main.storyboard` para abrir o menu contextual e, em seguida, clique em: `Open As` > `Source Code`
 2.  Substitua o nó `<scenes>` pelo código a seguir:
 
 ```xml

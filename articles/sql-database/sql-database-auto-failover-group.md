@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848394"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009038"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -40,7 +40,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Funcionalidades e terminologia de grupo de failover automático
 
-- **Grupo de failover**
+- **Grupo de failover (NÉVOA)**
 
   Um grupo de failover é um grupo de bancos de dados gerenciados por um único servidor do Banco de Dados SQL ou dentro de uma única instância gerenciada que pode fazer failover como uma unidade para outra região caso alguns ou todos os bancos de dados primários não estejam disponíveis devido a uma interrupção na região primária.
 
@@ -77,11 +77,11 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   - **Servidor de Banco de Dados SQL do registro DNS CNAME para o ouvinte de leitura/gravação**
 
-     Em um servidor do Banco de Dados SQL, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formado como `failover-group-name.database.windows.net`.
+     Em um servidor do Banco de Dados SQL, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formado como `<fog-name>.database.windows.net`.
 
   - **Instância Gerenciada do registro DNS CNAME para o ouvinte de leitura/gravação**
 
-     Em uma Instância Gerenciada, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formada como `failover-group-name.zone_id.database.windows.net`.
+     Em uma Instância Gerenciada, o registro CNAME de DNS para o grupo de failover que aponta para a URL do primário atual é formada como `<fog-name>.zone_id.database.windows.net`.
 
 - **Ouvinte de somente leitura do grupo de failover**
 
@@ -89,11 +89,11 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   - **Servidor de Banco de Dados SQL do registro DNS CNAME para o ouvinte somente leitura**
 
-     Em um servidor do Banco de Dados SQL, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `failover-group-name.secondary.database.windows.net`.
+     Em um servidor do Banco de Dados SQL, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `'.secondary.database.windows.net`.
 
   - **Instância Gerenciada do registro DNS CNAME para o ouvinte somente leitura**
 
-     Em uma Instância Gerenciada, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `failover-group-name.zone_id.database.windows.net`.
+     Em uma Instância Gerenciada, o registro CNAME de DNS para o leitor somente leitura que aponta para a URL do secundário é formado como `<fog-name>.zone_id.database.windows.net`.
 
 - **Política de failover automático**
 
@@ -156,11 +156,11 @@ Ao projetar um serviço pensando em continuidade de negócios, siga estas diretr
 
 - **Use ouvinte de leitura/gravação para carga de trabalho OLTP**
 
-  Ao executar operações de OLTP, use `failover-group-name.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. Observe que o failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS.
+  Ao executar operações de OLTP, use `<fog-name>.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. Observe que o failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS.
 
 - **Use o ouvinte somente leitura para a carga de trabalho somente leitura**
 
-  Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para sessões somente leitura, use `failover-group-name.secondary.database.windows.net` como a URL do servidor e a conexão é direcionada automaticamente para o secundário. Também recomendamos que você indique na cadeia de conexão a intenção de leitura usando **ApplicationIntent=ReadOnly**.
+  Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para sessões somente leitura, use `<fog-name>.secondary.database.windows.net` como a URL do servidor e a conexão é direcionada automaticamente para o secundário. Também recomendamos que você indique na cadeia de conexão a intenção de leitura usando **ApplicationIntent=ReadOnly**.
 
 - **Prepare-se para degradação de desempenho**
 
@@ -206,7 +206,7 @@ Se o aplicativo usar a Instância Gerenciada como a camada de dados, siga estas 
 
 - **Use ouvinte de leitura/gravação para carga de trabalho OLTP**
 
-  Ao executar operações de OLTP, use `failover-group-name.zone_id.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. O failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS. Como a instância do secundário compartilha a zona DNS com o primário, o aplicativo cliente poderá reconectar-se a ele usando o mesmo certificado de SAN.
+  Ao executar operações de OLTP, use `<fog-name>.zone_id.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. O failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS. Como a instância do secundário compartilha a zona DNS com o primário, o aplicativo cliente poderá reconectar-se a ele usando o mesmo certificado de SAN.
 
 - **Conectar-se diretamente a um secundário replicado geograficamente para consultas somente leitura**
 
@@ -214,8 +214,8 @@ Se o aplicativo usar a Instância Gerenciada como a camada de dados, siga estas 
 
   > [!NOTE]
   > Em determinadas camadas de serviço, o Banco de Dados SQL do Azure é compatível com o uso de [réplicas somente leitura](sql-database-read-scale-out.md) para realizar o balanceamento de cargas de trabalho de consulta somente leitura usando a capacidade de uma réplica somente leitura e usando o parâmetro `ApplicationIntent=ReadOnly` na cadeia de conexão. Quando você tiver configurado um secundário replicado geograficamente, você pode usar essa funcionalidade para se conectar a uma réplica somente leitura na localização do primário ou na localização com replicação geográfica.
-  > - Para se conectar a uma réplica somente leitura na localização do primário, use `failover-group-name.zone_id.database.windows.net`.
-  > - Para se conectar a uma réplica somente leitura no local secundário, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para se conectar a uma réplica somente leitura na localização do primário, use `<fog-name>.zone_id.database.windows.net`.
+  > - Para se conectar a uma réplica somente leitura no local secundário, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Prepare-se para degradação de desempenho**
 

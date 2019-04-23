@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522308"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995992"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -67,30 +67,31 @@ Para obter mais informações sobre os ambientes do serviço de integração, co
 
 Para funcionar corretamente e permanecer acessível, o ISE (Ambiente de Serviço de Integração) precisará ter portas específicas disponíveis na rede virtual. Caso contrário, se alguma dessas portas estiver indisponível você poderá perder o acesso ao ISE que, por consequência, poderá parar de funcionar. Ao usar um ISE em uma rede virtual, um problema comum de configuração é ter uma ou mais portas bloqueadas. Para conexões entre o ISE e o sistema de destino, o conector usado também poderá ter seus próprios requisitos de porta. Por exemplo, ao comunicar-se com um sistema FTP usando o conector FTP, certifique-se de que a porta usada nesse sistema FTP, como a porta 21 para enviar comandos, está disponível.
 
-Para controlar o tráfego entre sub-redes da rede virtual onde você implanta seu ISE, você pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) para essas sub-redes por [filtragem de tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Essas tabelas descrevem as portas na rede virtual que o ISE usa e onde essas portas são usadas. A [marca de serviço](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
+Para controlar o tráfego entre sub-redes da rede virtual onde você implanta seu ISE, você pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) para essas sub-redes por [filtragem de tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Essas tabelas descrevem as portas na rede virtual que o ISE usa e onde essas portas são usadas. O [marcas de serviço do Gerenciador de recursos](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
 
 > [!IMPORTANT]
 > Para a comunicação interna dentro de suas sub-redes, a ISE requer a abertura de todas as portas dentro dessas sub-redes.
 
 | Finalidade | Direção | Portas | Marca de serviço de origem | Marca de serviço de destino | Observações |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Comunicação a partir do Aplicativos Lógicos do Azure | Saída | 80 e 443 | REDE_VIRTUAL | INTERNET | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
-| Azure Active Directory | Saída | 80 e 443 | REDE_VIRTUAL | AzureActiveDirectory | |
-| Dependência de Armazenamento do Azure | Saída | 80 e 443 | REDE_VIRTUAL | Armazenamento | |
-| Comunicação intersubnet | Entrada e Saída | 80 e 443 | REDE_VIRTUAL | REDE_VIRTUAL | Para a comunicação entre as sub-redes |
-| Comunicação para Aplicativos Lógicos do Azure | Entrada | 443 | INTERNET  | REDE_VIRTUAL | O endereço IP do computador ou serviço que chama qualquer gatilho de solicitação ou o webhook que existe em seu aplicativo lógico. Fechar ou bloquear essa porta impede chamadas HTTP para aplicativos lógicos com gatilhos de solicitação.  |
-| Histórico de execução do aplicativo lógico | Entrada | 443 | INTERNET  | REDE_VIRTUAL | O endereço IP para o computador do qual você pode exibir o aplicativo lógico do histórico de execução. Embora o fechamento ou bloquear essa porta não impede que você exibir o histórico de execução, não é possível exibir as entradas e saídas para cada etapa em que o histórico de execução. |
-| Gerenciamento de Conexão | Saída | 443 | REDE_VIRTUAL  | INTERNET | |
-| Publicar métricas e logs de diagnóstico | Saída | 443 | REDE_VIRTUAL  | AzureMonitor | |
-| Designer de Aplicativos Lógicos - propriedades dinâmicas | Entrada | 454 | INTERNET  | REDE_VIRTUAL | As solicitações vêm de aplicativos lógicos [acessar o ponto de extremidade de entrada a endereços IP nessa região](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Dependência de Gerenciamento de Serviço de Aplicativo | Entrada | 454 e 455 | AppServiceManagement | REDE_VIRTUAL | |
-| Implantação do conector | Entrada | 454 & 3443 | INTERNET  | REDE_VIRTUAL | Necessário para implantar e atualizar os conectores. Fechar ou bloquear essa porta faz com que as implantações de ISE falhe e impede que o conector atualizações ou correções. |
-| Dependência SQL do Azure | Saída | 1433 | REDE_VIRTUAL | SQL |
-| Azure Resource Health | Saída | 1886 | REDE_VIRTUAL | INTERNET | Para publicar o status de integridade no Resource Health |
-| Gerenciamento de API - ponto de extremidade de gerenciamento | Entrada | 3443 | APIManagement  | REDE_VIRTUAL | |
-| Dependência do Log para agente de monitoramento e política do Hub de Eventos | Saída | 5672 | REDE_VIRTUAL  | EventHub | |
-| Acessar Instâncias do Cache do Azure para Redis entre Instâncias de Função | Entrada <br>Saída | 6379-6383 | REDE_VIRTUAL  | REDE_VIRTUAL | Além disso, para o ISE trabalhar com o Cache do Azure para Redis, você deve abri-los [portas de entrada e saídas descritas no Cache do Azure para perguntas frequentes sobre Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Entrada | * | AZURE_LOAD_BALANCER | REDE_VIRTUAL |  |
+| Comunicação a partir do Aplicativos Lógicos do Azure | Saída | 80 e 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
+| Azure Active Directory | Saída | 80 e 443 | VirtualNetwork | AzureActiveDirectory | |
+| Dependência de Armazenamento do Azure | Saída | 80 e 443 | VirtualNetwork | Armazenamento | |
+| Comunicação intersubnet | Entrada e Saída | 80 e 443 | VirtualNetwork | VirtualNetwork | Para a comunicação entre as sub-redes |
+| Comunicação para Aplicativos Lógicos do Azure | Entrada | 443 | Internet  | VirtualNetwork | O endereço IP do computador ou serviço que chama qualquer gatilho de solicitação ou o webhook que existe em seu aplicativo lógico. Fechar ou bloquear essa porta impede chamadas HTTP para aplicativos lógicos com gatilhos de solicitação.  |
+| Histórico de execução do aplicativo lógico | Entrada | 443 | Internet  | VirtualNetwork | O endereço IP para o computador do qual você pode exibir o aplicativo lógico do histórico de execução. Embora o fechamento ou bloquear essa porta não impede que você exibir o histórico de execução, não é possível exibir as entradas e saídas para cada etapa em que o histórico de execução. |
+| Gerenciamento de Conexão | Saída | 443 | VirtualNetwork  | Internet | |
+| Publicar métricas e logs de diagnóstico | Saída | 443 | VirtualNetwork  | AzureMonitor | |
+| Comunicação do Gerenciador de tráfego do Azure | Entrada | 443 | AzureTrafficManager | VirtualNetwork | |
+| Designer de Aplicativos Lógicos - propriedades dinâmicas | Entrada | 454 | Internet  | VirtualNetwork | As solicitações vêm de aplicativos lógicos [acessar o ponto de extremidade de entrada a endereços IP nessa região](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dependência de Gerenciamento de Serviço de Aplicativo | Entrada | 454 e 455 | AppServiceManagement | VirtualNetwork | |
+| Implantação do conector | Entrada | 454 & 3443 | Internet  | VirtualNetwork | Necessário para implantar e atualizar os conectores. Fechar ou bloquear essa porta faz com que as implantações de ISE falhe e impede que o conector atualizações ou correções. |
+| Dependência SQL do Azure | Saída | 1433 | VirtualNetwork | SQL |
+| Azure Resource Health | Saída | 1886 | VirtualNetwork | Internet | Para publicar o status de integridade no Resource Health |
+| Gerenciamento de API - ponto de extremidade de gerenciamento | Entrada | 3443 | APIManagement  | VirtualNetwork | |
+| Dependência do Log para agente de monitoramento e política do Hub de Eventos | Saída | 5672 | VirtualNetwork  | EventHub | |
+| Acessar Instâncias do Cache do Azure para Redis entre Instâncias de Função | Entrada <br>Saída | 6379-6383 | VirtualNetwork  | VirtualNetwork | Além disso, para o ISE trabalhar com o Cache do Azure para Redis, você deve abri-los [portas de entrada e saídas descritas no Cache do Azure para perguntas frequentes sobre Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Entrada | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>
@@ -114,7 +115,7 @@ Na lista de resultados, selecione **Ambiente de Serviço de Integração (versã
 
    ![Fornecer detalhes do ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | Necessário | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Assinatura** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para o ambiente |
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure no qual deseja criar seu ambiente |
@@ -247,12 +248,12 @@ Para criar uma conta de integração que usa um ISE, siga as etapas em [como cri
 
 ![Selecionar o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Fórum dos Aplicativos Lógicos do Azure</a>.
 * Para enviar ou votar em ideias de recurso, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários do usuário de Aplicativos Lógicos</a>.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
 * Saiba mais sobre a [integração de rede virtual para os serviços do Azure](../virtual-network/virtual-network-for-azure-services.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790976"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149438"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solucionando problemas de compactação de arquivo CDN
 Este artigo ajuda você a solucionar problemas com a [compactação de arquivo CDN](cdn-improve-performance.md).
@@ -117,5 +117,5 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo passada por um servidor proxy.  Por padrão, os servidores Web do Microsoft IIS não compactam as respostas quando a solicitação contém um cabeçalho **Via** .  Para substituir esse comportamento, execute o seguinte procedimento:
 
 * **IIS 6**: [Defina HcNoCompressionForProxies = "FALSE" nas propriedades de Metabase do IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 e superior**: [Defina as **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 e superior**: [Defina as **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
 

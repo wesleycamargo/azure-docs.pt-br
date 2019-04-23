@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855632"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com o SAP NetWeaver
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 6. Substitua **Nome do Provedor** de T01122 para `http://T01122` e clique em **Salvar**.
 
     > [!NOTE]
-    > Como nome do provedor vem como <sid><client> formato mas o Azure AD espera nome no formato <protocol>://<name>, recomendadas manter o nome do provedor como https://<sid> <client> para permitir que vários mecanismos SAP NetWeaver configurem no Azure Active Directory.
+    > Por padrão, o nome do provedor vem no formato `<sid><client>`, mas o Azure AD espera o nome no formato `<protocol>://<name>`, recomendando manter o nome do provedor como `https://<sid><client>` para permitir que vários mecanismos SAP NetWeaver ABAP sejam configurados no Azure AD.
 
     ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -200,7 +200,7 @@ Para configurar o logon único do Azure AD com o SAP NetWeaver, execute as segui
 
     c. Na lista **Parâmetro 1**, selecione **user.userprinicipalname**.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 14. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -316,7 +316,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integração do Azure Active Directory ao Versal
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Versal, execute seguintes etapa
 
      a. Na caixa de texto **Identificador**, digite uma URL: `VERSAL`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://versal.com/sso/saml/orgs/<organization_id>`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://versal.com/sso/saml/orgs/<organization_id>`
 
     > [!NOTE]
     > O valor de URL de Resposta não é real. Atualize esse valor com a URL de Resposta real. Contate a [equipe de suporte ao Cliente do Versal](https://support.versal.com/hc/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

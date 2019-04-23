@@ -1,6 +1,6 @@
 ---
-title: Analisar logs de atividades do Azure Active Directory usando os logs do Azure Monitor (versão prévia) | Microsoft Docs
-description: Saiba como analisar logs de atividade do Azure Active Directory usando os logs do Azure Monitor (versão prévia)
+title: Analisar logs de atividade do Azure Active Directory usando os logs do Azure Monitor | Microsoft Docs
+description: Saiba como analisar logs de atividade do Azure Active Directory usando os logs do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436794"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005529"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor (versão prévia)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD de analisar os logs de atividade com logs do Azure Monitor
 
 Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar as [exibições do Log Analytics para logs de atividade do Azure AD](howto-install-use-log-analytics-views.md) para obter acesso a relatórios pré-criados em torno de eventos de auditoria e entrada em seu ambiente.
 

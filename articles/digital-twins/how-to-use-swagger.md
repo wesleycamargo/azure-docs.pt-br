@@ -9,21 +9,18 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120947"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001976"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger de Gêmeos Digitais do Azure
 
 Cada instância de Gêmeos Digitais do Azure provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
 
 [Swagger](https://swagger.io/) ou [OpenAPI](https://www.openapis.org/), une informações de API complexas em um recurso de referência interativo e agnóstico de idioma. O Swagger fornece material de referência crítico sobre quais cargas úteis, métodos HTTP e pontos de extremidade específicos do JSON devem ser usados para executar operações em uma API.
-
-> [!IMPORTANT]
-> O suporte para autenticação do Swagger estará temporariamente desabilitado durante a visualização pública.
 
 ## <a name="swagger-summary"></a>Resumo do Swagger
 
@@ -98,7 +95,42 @@ Os exemplos também incluem os códigos de erro para ajudar a depurar ou melhora
 Para saber mais sobre solicitações de teste interativas protegidas pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
-> O suporte para autenticação do OAuth 2.0 estará temporariamente desabilitado durante a visualização pública.
+> A entidade de usuário que criou o recurso de gêmeos Digital do Azure terá uma atribuição de função de administrador de espaço e será capaz de criar atribuições de função adicionais para outros usuários.
+
+1. Siga as etapas em [este guia de início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar um aplicativo do Azure AD do tipo ***aplicativo Web / API***. Ou você pode reutilizar um registro de aplicativo existente.
+
+2. Adicione a seguinte url de resposta para o registro do aplicativo:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | NOME  | Substitua por | Exemplo |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | A URL da documentação API REST de gerenciamento encontrada no portal do  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. Conceder permissões para seu aplicativo acessar os gêmeos Digital do Azure. Em **Permissões necessárias**, digite `Azure Digital Twins` e selecione **Permissões Delegadas**. Em seguida, selecione **conceder permissões**.
+
+    ![API de registros do aplicativo do Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. Configure o manifesto de aplicativo para permitir fluxo implícito do OAuth 2.0. Clique em **Manifesto** para abrir o manifesto do aplicativo para seu aplicativo. Definir *oauth2AllowImplicitFlow* para `true`.
+
+    ![Fluxo implícito do Azure AD](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. Copie a ID do aplicativo do Azure AD.
+
+6. Clique no botão Autorizar em sua página de swagger.
+
+    ![Botão Autorizar o swagger](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. Cole a ID do aplicativo no campo client_id.
+
+    ![Swagger client_id field](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Conceder permissões de aplicativo do swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. Agora você deve ver o portador token de autenticação é passado no cabeçalho de autorização e a identidade do usuário conectado exibido no resultado.
+
+    ![Resultado de token do swagger](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

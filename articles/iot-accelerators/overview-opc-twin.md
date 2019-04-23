@@ -1,5 +1,5 @@
 ---
-title: O que é gerenciamento de dispositivo da UA de OPC do Azure IoT | Microsoft Docs
+title: O que é o OPC Twin – Azure | Microsoft Docs
 description: Visão geral do OPC Twin
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759685"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496804"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>O que é gerenciamento de dispositivo OPC (Open Platform Communications) do Azure IoT?
-O gerenciamento de dispositivos da UA de OPC do Azure IoT, também conhecido como OPC Twin, consiste em microsserviços que usam o Azure IoT Edge e o Hub IoT para conectarem-se à nuvem e à rede de fábrica. O OPC Twin fornece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST. O OPC Twin não exige um SDK da UA (Arquitetura Unificada) de OPC, é independente de linguagem de programação e pode ser incluído em um fluxo de trabalho sem servidor. Este artigo descreve vários casos de uso do OPC Twin.
+
+O OPC Twin é composto por microsserviços que usam o Azure IoT Edge e o Hub IoT para se conectarem à nuvem e à rede de fábrica. O OPC Twin fornece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST. O OPC Twin não exige um SDK da UA (Arquitetura Unificada) de OPC, é independente de linguagem de programação e pode ser incluído em um fluxo de trabalho sem servidor. Este artigo descreve vários casos de uso do OPC Twin.
 
 ## <a name="discovery-and-control"></a>Descoberta e controle
 Você pode usar o OPC Twin para descoberta e registro simples.
@@ -41,4 +42,4 @@ O OPC Twin pode ser usado com aplicativos escritos em qualquer linguagem de prog
 Agora que você aprendeu sobre o OPC Twin e seus usos, está é a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [O que é um OPC Vault](overview-opc-twin-architecture.md)
+> [O que é um cofre OPC?](overview-opc-twin-architecture.md)

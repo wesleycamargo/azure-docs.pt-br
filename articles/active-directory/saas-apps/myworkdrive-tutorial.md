@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integração do Azure Active Directory ao MyWorkDrive
@@ -117,7 +117,7 @@ Para configurar o logon único do Microsoft Azure AD com o MyWorkDrive, execute 
     > 
     > URL de Resposta: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
-    > URL de Logon:`https://yourserver.yourdomain.com/Account/Login-saml`
+    > URL de logon:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
     > Entre em contato com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) se você não tiver certeza de como configurar seu próprio nome de host e certificado SSL para esses valores.
 

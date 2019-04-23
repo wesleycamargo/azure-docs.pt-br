@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integração do Azure Active Directory ao TAS
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure Active Directory com o TAS, execute as s
 
     ![Informações de logon único de Domínio do TAS e URLs](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

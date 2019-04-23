@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679067"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149692"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -208,7 +208,7 @@ Para executar uma pesquisa de logs sobre as informações do computador, atualiz
 
 ## <a name="install-updates"></a>Instalar as atualizações
 
-Depois que as atualizações são avaliadas para todos os computadores com Windows e Linux em seu workspace, você pode instalar as necessárias atualizações, criando uma *implantação de atualizações*. Para criar uma implantação de atualização, você deve ter acesso de gravação para a conta de automação e acesso de gravação para as VMs do Azure que estão são direcionados na implantação. Uma implantação de atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores. Você especifica a data e hora para a implantação e um computador ou um grupo de computadores para incluir no escopo de uma implantação. Para saber mais sobre grupos de computadores, consulte [grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Depois que as atualizações são avaliadas para todos os computadores com Windows e Linux em seu workspace, você pode instalar as necessárias atualizações, criando uma *implantação de atualizações*. Para criar uma implantação de atualização, você deve ter acesso de gravação para a conta de automação e acesso de gravação para as VMs do Azure que são direcionados na implantação. Uma implantação de atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores. Você especifica a data e hora para a implantação e um computador ou um grupo de computadores para incluir no escopo de uma implantação. Para saber mais sobre grupos de computadores, consulte [grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez no momento da criação da agenda. As alterações subsequentes em um grupo não são refletidas. Para contornar esse uso [grupos dinâmicos](#using-dynamic-groups), esses grupos são resolvidos no momento da implantação e são definidos por uma consulta para VMs do Azure ou uma pesquisa salva para VMs não Azure.
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Patches de terceiros no Windows
 
-Gerenciamento de Atualizações se baseia no WSUS ou no Windows Update para aplicar patch com suporte a sistemas Windows. Ferramentas como [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) permitem que você publique atualizações personalizadas no WSUS. Esse cenário permite que o Gerenciamento de Atualizações aplique patch a computadores que usam o WSUS como repositório de atualização com software de terceiros. Para saber como configurar o Updates Publisher, veja [Instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Gerenciamento de atualizações depende do repositório de atualização configurado localmente para aplicar patches a sistemas com suporte do Windows. Isso é o WSUS ou o Windows Update. Ferramentas como [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) permitem que você publique atualizações personalizadas no WSUS. Esse cenário permite que o gerenciamento de atualizações para máquinas de patch que usam o System Center Configuration Manager como seu repositório de atualização com o software de terceiros. Para saber como configurar o Updates Publisher, veja [Instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planejamento de Rede
 

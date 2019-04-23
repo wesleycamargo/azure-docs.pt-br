@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integração do Azure Active Directory com ExcelityGlobal
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do ExcelityGlobal ao Azure AD, você precisará adicionar o ExcelityGlobal da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o ExcelityGlobal por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o ExcelityGlobal da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -106,15 +106,15 @@ Para configurar o logon único do Azure AD com o ExcelityGlobal, execute as segu
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    **Para o ambiente de produção**: `https://ess.excelityglobal.com`
+    **Para o ambiente de produção:** : `https://ess.excelityglobal.com`
 
-    **Para o ambiente de área restrita**: `https://s6.excelityglobal.com`
+    **Para o ambiente de área restrita** : `https://s6.excelityglobal.com`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    **Para o ambiente de produção**: `https://ess.excelityglobal.com/ACS`
+    **Para o ambiente de produção** : `https://ess.excelityglobal.com/ACS`
 
-    **Para o ambiente de área restrita**: `https://s6.excelityglobal.com/ACS`
+    **Para o ambiente de área restrita** : `https://s6.excelityglobal.com/ACS`
 
 5. Seu aplicativo ExcelityGlobal espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo ExcelityGlobal espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterando-o.
  

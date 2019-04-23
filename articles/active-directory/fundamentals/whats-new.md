@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 16f684674e69113a869346d5de9ef1d50734f01b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271808"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009135"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -552,7 +552,7 @@ Para obter mais informações sobre funções e permissões, confira [Atribuindo
 **Categoria de serviço:** Registro e Gerenciamento de Dispositivos  
 **Funcionalidade do produto:** Gerenciamento do Ciclo de Vida do Dispositivo
 
-Percebemos que, ao longo do tempo, você precisa atualizar e desativar os dispositivos de suas organizações no Azure AD, para evitar a presença de dispositivos obsoletos no ambiente. Para ajudar com esse processo, o Azure AD agora atualiza seus dispositivos com um novo carimbo de data/hora de atividade, ajudando você a gerenciar o ciclo de vida do dispositivo.
+Sabemos que, ao longo do tempo, você deve atualizar e desativar dispositivos de sua organização no Azure AD, para evitar que dispositivos obsoletos em seu ambiente. Para ajudar com esse processo, o Azure AD agora atualiza seus dispositivos com um novo carimbo de data/hora de atividade, ajudando você a gerenciar o ciclo de vida do dispositivo.
 
 Para obter mais informações sobre como obter e usar esse carimbo de data/hora, confira [Como: Gerenciar os dispositivos obsoletos no Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 

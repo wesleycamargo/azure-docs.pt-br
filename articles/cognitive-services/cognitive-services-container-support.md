@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681804"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005954"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
@@ -33,7 +33,7 @@ Os serviços de [Pesquisa Visual Computacional](Computer-vision/Home.md), [Detec
 
 - **Controle sobre os dados**: permitir que os clientes escolham onde esses Serviços Cognitivos processam seus dados. Isso é essencial para clientes que não podem enviar dados para a nuvem, mas precisam acessar a tecnologia de Serviços Cognitivos. Suporte para consistência em ambientes híbridos – entre dados, gerenciamento, identidade e segurança.
 - **Controle sobre atualizações do modelo**: fornecer aos clientes flexibilidade na versão e atualização dos modelos implantados nas soluções.
-- **Arquitetura portátil**: habilite a criação de uma arquitetura de aplicativo portátil que possa ser implantada no Azure, localmente e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml), nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](../azure-stack/index.yml). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Arquitetura portátil**: habilite a criação de uma arquitetura de aplicativo portátil que possa ser implantada no Azure, localmente e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml), nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Baixa latência/alta produtividade**: forneça aos clientes a capacidade de escalar para requisitos de alta taxa de transferência e baixa latência, permitindo que os Serviços Cognitivos sejam executados fisicamente próximo à lógica e aos dados do aplicativo. Os contêineres não limitam as transações por segundo (TPS) e poderão ser escalados vertical e horizontalmente para lidar com a demanda se você fornecer os recursos de hardware necessários. 
 
 
@@ -77,7 +77,7 @@ Contêineres individuais podem ter seus próprios requisitos, incluindo requisit
 
 Exemplos de desenvolvedor estão disponíveis em nosso [repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Instale e explore a funcionalidade fornecida pelos contêineres nos Serviços Cognitivos do Azure:
 

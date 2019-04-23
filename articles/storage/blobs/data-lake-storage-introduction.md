@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009421"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009456"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ No passado, a análise baseada na nuvem tinha que se comprometer em áreas de de
 
 -   **Econômico**: O Data Lake Storage Gen2 oferece transações e capacidade de armazenamento de baixo custo. À medida que os dados transitam por todo o seu ciclo de vida, as taxas de faturamento mudam, mantendo os custos no mínimo por meio de recursos integrados, como [ ciclo de vida de armazenamento do Blur do Azure ](storage-lifecycle-management-concepts.md).
 
--   **Driver otimizado**: O driver ABFS é [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
+-   **Driver otimizado**: É o driver ABFS [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de big data. As APIs REST correspondentes exibidas por meio do ponto de extremidade `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Escalabilidade
 
@@ -64,7 +64,7 @@ A seguir estão as entidades equivalentes, conforme descrito pelos diferentes co
 | Conceito                                | Organização de nível superior | Organização de nível inferior                                            | Contêiner de dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – Armazenamento de objetos de uso geral | Contêiner              | Diretório virtual (SDK somente – não fornece a manipulação atômica) | Blob           |
-| ADLS Gen2 – Armazenamento de Análise          | Filesystem             | Diretório                                                           | Arquivo           |
+| ADLS Gen2 – Armazenamento de Análise          | Sistema de arquivos             | Diretório                                                           | Arquivo           |
 
 ## <a name="supported-open-source-platforms"></a>Plataformas de software livre com suporte
 
@@ -81,7 +81,7 @@ Várias plataformas de software livre suportam o Data Lake Storage Gen2. Essas p
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versão do Databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados de nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos a seguir descrevem alguns dos principais conceitos do Data Lake Storage Gen2 e detalham como armazenar, acessar, gerenciar e obter insights de seus dados:
 

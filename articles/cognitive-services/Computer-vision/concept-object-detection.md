@@ -1,28 +1,28 @@
 ---
 title: Detecção de objetos – Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à detecção de objetos usando a API da Pesquisa Visual Computacional.
+description: Aprenda os conceitos relacionados ao recurso de detecção do objeto da API de visão do computador - uso e limites.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496931"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001840"
 ---
-# <a name="object-detection"></a>Detecção de objetos
+# <a name="detect-common-objects-in-images"></a>Detectar objetos comuns em imagens
 
 A detecção de objetos é semelhante à [marcação](concept-tagging-images.md), mas a API retorna as coordenadas da caixa delimitadora (em pixels) para cada objeto encontrado. Por exemplo, se uma imagem contiver um cachorro, um gato e uma pessoa, a operação Detect listará esses objetos junto com as coordenadas na imagem. Você pode usar essa funcionalidade para processar as relações entre os objetos em uma imagem. Ele também permite determinar se há várias instâncias da mesma marca em uma imagem.
 
-A API de Detecção se aplica a tags com base em objetos ou seres vivos identificados na imagem. Neste ponto, não há nenhuma relação formal entre a taxonomia de marcação e a taxonomia de detecção de objeto. Em um nível conceitual, a API de detectar apenas Localiza objetos e seres vivos, enquanto a API de marca também pode incluir contextuais termos como "interno", que não podem ser localizados com caixas delimitadoras.
+A API de Detecção se aplica a tags com base em objetos ou seres vivos identificados na imagem. Atualmente, não há nenhuma relação formal entre a taxonomia de marcação e a taxonomia de detecção de objeto. Em um nível conceitual, a API de detectar apenas Localiza objetos e seres vivos, enquanto a API de marca também pode incluir contextuais termos como "interno", que não podem ser localizados com caixas delimitadoras.
 
 ## <a name="object-detection-example"></a>Exemplo de detecção de objetos
 

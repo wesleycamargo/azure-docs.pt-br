@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integração do Azure Active Directory ao TargetProcess
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do TargetProcess ao Azure AD, você precisa adicionar o TargetProcess por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o TargetProcess por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o TargetProcess por meio da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o TargetProcess, realize as segui
 
 2. Depois de adicionar a extensão ao navegador, clique em **configurar TargetProcess**. Você será direcionado para o aplicativo TargetProcess. Em seguida, forneça as credenciais de administrador para entrar no TargetProcess. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
 
-    **Caso deseje configurar o aplicativo manualmente, execute as seguintes etapas:**
+    **Se desejar configurar o aplicativo manualmente, realize as seguintes etapas:**
 
 3. Entre no seu aplicativo TargetProcess como administrador.
 

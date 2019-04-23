@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188094"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000837"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters do Azure Databricks
 
@@ -247,7 +247,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 8. **Migrar o armazenamento de blobs do Azure e as montagens do Azure Data Lake Storage**
 
-   Remonte manualmente todos os pontos de montagem do [Armazenamento de blobs do Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) e do [Azure Data Lake Storage (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) usando uma solução baseada no bloco de anotações. Os recursos de armazenamento teriam sido montados no workspace primário, e isso precisaria ser repetido no workspace secundário. Não há nenhuma API externa para montagens.
+   Manualmente, monte novamente todos os [armazenamento de BLOBs do Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) e [Azure Data Lake Store (Ger 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) usando uma solução baseada no bloco de anotações de pontos de montagem. Os recursos de armazenamento teriam sido montados no workspace primário, e isso precisaria ser repetido no workspace secundário. Não há nenhuma API externa para montagens.
 
 9. **Migrar scripts de inicialização de cluster**
 
@@ -271,6 +271,6 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 Se você estiver usando outros serviços do Azure, certifique-se de implementar as práticas recomendadas de recuperação de desastres para esses serviços, muito. Por exemplo, se você optar por usar uma instância de metastore do Hive externa, você deve considerar a recuperação de desastres para [SQL Server do Azure](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), e/ou [banco de dados do Azure para MySQL ](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastres, consulte [recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte a [documentação do Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

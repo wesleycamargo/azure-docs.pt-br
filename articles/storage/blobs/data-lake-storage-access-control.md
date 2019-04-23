@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802941"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001585"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -126,11 +126,11 @@ O usuário que criou o item é automaticamente o usuário proprietário do item.
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-Nas ACLs do POSIX, cada usuário está associado a um *grupo primário*. Por exemplo, o usuário "alice" pode pertencer ao grupo "finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o grupo primário dela. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
+Nas ACLs do POSIX, cada usuário está associado a um *grupo primário*. Por exemplo, o usuário "Alice" pode pertencer ao grupo "Finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o grupo primário dela. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuindo o grupo proprietário de um novo arquivo ou diretório
 
-* **Caso 1**: Diretório Raiz "/". Esse diretório é criado quando um sistema de arquivos do Azure Data Lake Storage Gen2. Nesse caso, o grupo proprietário é definido para o usuário que criou o sistema de arquivo se tivesse sido feito usando o OAuth. Se o sistema de arquivos é criado usando a chave compartilhada, uma Conta SAS, ou Serviço SAS, então o grupo de proprietário e propriedade são definidos para **$superuser**.
+* **Caso 1**: Diretório Raiz "/". Esse diretório é criado quando um sistema de arquivos do Azure Data Lake Storage Gen2. Nesse caso, o grupo proprietário é definido para o usuário que criou o sistema de arquivo se tivesse sido feito usando o OAuth. Se o sistema de arquivos é criado usando a chave compartilhada, uma SAS de conta ou uma SAS de serviço, o proprietário e o grupo proprietário estiverem definidos como **$superuser**.
 * **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 #### <a name="changing-the-owning-group"></a>Alterando o grupo proprietário
@@ -285,7 +285,7 @@ Um GUID será mostrado se a entrada representa um usuário e esse usuário não 
 
 Quando você define ACLs para entidades de serviço, é importante usar a ID de objeto (OID) do *entidade de serviço* para o registro do aplicativo que você criou. É importante observar que os aplicativos registrados tem uma entidade de serviço separado no específicos do locatário do Azure AD. Aplicativos registrados têm um OID que está visível no portal do Azure, mas o *entidade de serviço* tem outro OID (diferente).
 
-Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode usar o `az ad sp show` comando. Especifique a ID do aplicativo como o parâmetro. Aqui está um exemplo sobre como obter o OID da entidade de serviço que corresponde a um registro de aplicativo com a Id do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
+Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode usar o `az ad sp show` comando. Especifique a ID do aplicativo como o parâmetro. Aqui está um exemplo sobre como obter o OID da entidade de serviço que corresponde a um registro de aplicativo com a ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

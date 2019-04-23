@@ -4,93 +4,74 @@ description: Tutorial para enviar alertas em resposta a erros em seu aplicativo 
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/20/2017
+ms.date: 04/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05285a177827cd0dd1e0e39e779a395ccfdfc0cd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079155"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578757"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
-O Azure Application Insights permite monitorar seu aplicativo e enviar alertas quando ele não está disponível, apresentando falhas ou sofrendo problemas de desempenho.  Este tutorial o guiará pelo processo de criação de testes para verificar continuamente a disponibilidade de seu aplicativo e enviar os diferentes tipos de alertas em resposta a problemas detectados.  Você aprenderá como:
+O Azure Application Insights permite monitorar seu aplicativo e enviar alertas quando ele não está disponível, apresentando falhas ou sofrendo problemas de desempenho.  Este tutorial descreve o processo de criação de testes para verificar de forma contínua a disponibilidade de seu aplicativo.
+
+Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um teste de disponibilidade para verificar continuamente a resposta do aplicativo
 > * Enviar email aos administradores quando ocorrer um problema
-> * Criar alertas com base em métricas de desempenho 
-> * Use um Aplicativo Lógico para enviar telemetria resumida conforme um agendamento.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-- Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
-    - Desenvolvimento Web e ASP.NET
-    - Desenvolvimento do Azure
-    - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md). 
+Crie um [recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
 
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Criar teste de disponibilidade
-Testes de disponibilidade no Application Insights permitem testar automaticamente seu aplicativo de vários locais em todo o mundo.   Neste tutorial, você executará um teste simples para garantir que o aplicativo esteja disponível.  Você também pode criar um passo a passo completo para testar sua operação detalhada. 
+
+Testes de disponibilidade no Application Insights permitem testar automaticamente seu aplicativo de vários locais em todo o mundo.   Neste tutorial, você executará um teste de URL para garantir que o aplicativo Web esteja disponível.  Você também pode criar um passo a passo completo para testar sua operação detalhada. 
 
 1. Selecione **Application Insights** e, em seguida, selecione sua assinatura.  
-1. Selecione **Disponibilidade** no menu **Investigar** e clique em **Adicionar teste**.
- 
-    ![Adicionar teste de disponibilidade](media/tutorial-alert/add-test.png)
 
-2. Digite um nome para o teste e deixe os outros padrões.  Isso solicita a página inicial do aplicativo a cada cinco minutos de cinco localizações geográficas diferentes. 
-3. Selecione **Alertas** para abrir o painel **Alertas**, no qual você pode definir os detalhes de como responder se o teste falha. Tipo de um endereço de email para enviar quando os critérios de alerta forem atendidos.  Opcionalmente, você pode digitar o endereço de um webhook para chamar quando os critérios de alerta forem atendidos.
+2. Selecione **Disponibilidade** no menu **Investigar** e, em seguida, clique em **Criar teste**.
 
-    ![Criar teste](media/tutorial-alert/create-test.png)
- 
-4. Retorne ao painel de teste e, depois de alguns minutos, você deverá começar a ver resultados do teste de disponibilidade.  Clique no nome do teste para exibir detalhes de cada local.  O gráfico de dispersão mostra o sucesso e a duração de cada teste.
+    ![Adicionar teste de disponibilidade](media/tutorial-alert/add-test-001.png)
 
-    ![Detalhes do teste](media/tutorial-alert/test-details.png)
+3. Digite um nome para o teste e deixe os outros padrões.  Essa seleção disparará as solicitações para a URL do aplicativo a cada 5 minutos em cinco localizações geográficas diferentes.
 
-5.  Você pode fazer drill down até os detalhes de qualquer teste específico clicando no seu ponto no gráfico de dispersão.  O exemplo a seguir mostra os detalhes de uma solicitação com falha.
+4. Selecione **Alertas** para abrir o menu suspenso **Alertas**, no qual você poderá definir os detalhes de como responder em caso de falha do teste. Escolha **Quase em tempo real** e defina o status como **Habilitado.**
 
-    ![Resultado do teste](media/tutorial-alert/test-result.png)
+    Tipo de um endereço de email para enviar quando os critérios de alerta forem atendidos.  Opcionalmente, você pode digitar o endereço de um webhook para chamar quando os critérios de alerta forem atendidos.
+
+    ![Criar teste](media/tutorial-alert/create-test-001.png)
+
+5. Retorne ao painel de teste, selecione as reticências e edite o alerta para inserir a configuração para o alerta quase em tempo real.
+
+    ![Editar alerta](media/tutorial-alert/edit-alert-001.png)
+
+6. Defina as localizações com falha como superior ou igual a 3. Crie um [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para configurar quem será notificado quando o limite de alerta for violado.
+
+    ![Salvar a interface do usuário do alerta](media/tutorial-alert/save-alert-001.png)
+
+7. Depois de configurar o alerta, clique no nome do teste para exibir os detalhes de cada localização. Os testes podem ser exibidos no formato grafo de linhas ou gráfico de dispersão para visualizar o êxito/as falhas de determinado intervalo de tempo.
+
+    ![Detalhes do teste](media/tutorial-alert/test-details-001.png)
+
+8. Faça uma busca detalhada em qualquer teste clicando em seu ponto no gráfico de dispersão. Isso iniciará a exibição de detalhes da transação completa. O exemplo a seguir mostra os detalhes de uma solicitação com falha.
+
+    ![Resultado do teste](media/tutorial-alert/test-result-001.png)
   
-6. Se os critérios de alerta forem atendidos, uma mensagem semelhante à seguinte será enviada ao endereço que você especificou.
-
-    ![Email de alerta](media/tutorial-alert/alert-mail.png)
-
-
-## <a name="create-an-alert-from-metrics"></a>Crie um alerta de métricas
-Além de enviar alertas de um teste de disponibilidade, você pode criar um alerta de qualquer métrica de desempenho que esteja sendo coletada para o seu aplicativo.
-
-1. Selecione **Alertas** no menu **Configurar**.  Isso abre o painel de Alertas do Azure.  Pode haver outras regras de alerta configuradas aqui para outros serviços.
-1. Clique em **Adicionar alerta da métrica**.  Isso abre o painel para criar uma nova regra de alerta.
-
-    ![Adicionar alerta da métrica](media/tutorial-alert/add-metric-alert.png)
-
-1. Digite um **Nome** para a regra de alerta e selecione seu aplicativo no menu suspenso para **Recurso**.
-1. Selecione uma **Métrica** a amostrar.  Um grafo é exibido para indicar que o valor dessa solicitação nas últimas 24 horas.  Isso ajuda a configurar a condição para a métrica.
-
-    ![Adicionar regra de alerta](media/tutorial-alert/add-alert-01.png)
-
-1. Especifique uma **Condição** e um valor de **Limite**. Este é o número de vezes que a métrica deve ser excedida para um alerta ser criado. 
-1. Em **Notificar via**, marque a caixa **Proprietários, contribuidores e leitores de email** para enviar um email para esses usuários quando a condição de alerta for atendida e adicionar o endereço de email de quaisquer destinatários adicionais.  Você também pode especificar um webhook ou um aplicativo lógico aqui que seja executado quando a condição for atendida.  Isso pode ser usado para tentar reduzir o problema detectado ou 
-
-    ![Adicionar regra de alerta](media/tutorial-alert/add-alert-02.png)
-
-
-## <a name="proactively-send-information"></a>Enviar informações proativamente
-Os alertas são criados em reação a um conjunto específico de problemas identificados em seu aplicativo e normalmente reservam alertas para condições críticas que exigem atenção imediata.  Você pode receber informações proativamente sobre o seu aplicativo com um Aplicativo Lógico que seja executado automaticamente em um agendamento.  Por exemplo, você enviar um email aos administradores diariamente com informações de resumo que exijam mais avaliação.
-
-Para obter detalhes sobre a criação de um Aplicativo Lógico com o Application Insights, consulte [Automatizar processos do Application Insights usando Aplicativos Lógicos](../../azure-monitor/app/automate-with-logic-apps.md)
-
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você aprendeu a alertar sobre problemas, avance para o próximo tutorial para aprender a analisar como os usuários estão interagindo com o seu aplicativo.
 
 > [!div class="nextstepaction"]

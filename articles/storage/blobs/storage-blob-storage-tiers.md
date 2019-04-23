@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402432"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004220"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>O armazenamento de BLOBs do Azure: quente, frio e arquivar as camadas de acesso
 
@@ -100,7 +100,7 @@ Blobs em todas as camadas de acesso três podem coexistir na mesma conta. Qualqu
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 
-O gerenciamento de ciclo de vida do Armazenamento de Blobs (versão prévia) oferece uma avançada política baseada em regra que pode ser usada para fazer a transição dos seus dados para a melhor camada de acesso e para expirar os dados ao fim do seu ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
+Gerenciamento de ciclo de vida de armazenamento de blob oferece uma política avançada, baseada em regra, que você pode usar para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Cobrança da camada no nível do blob
 

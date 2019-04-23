@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Azure Active Directory com moconavi
@@ -50,7 +50,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do moconavi ao Azure AD, você precisará adicionar o moconavi da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o moconavi por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o moconavi da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -104,11 +104,11 @@ Para configurar o logon único do Azure AD com o moconavi, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do moconavi](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
+     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2`
 
-    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/SSO`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do moconavi](mailto:support@recomot.co.jp) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

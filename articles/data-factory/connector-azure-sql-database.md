@@ -14,7 +14,7 @@ ms.date: 04/16/2019
 ms.author: jingwang
 ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59683861"
@@ -24,13 +24,13 @@ ms.locfileid: "59683861"
 > * [Versão 1](v1/data-factory-azure-sql-connector.md)
 > * [Versão atual](connector-azure-sql-database.md)
 
-Este artigo explica como usar a atividade de cópia na fábrica de dados do Azure para copiar dados de ou para o banco de dados do SQL Azure. Ele amplia a [visão geral da atividade de cópia](copy-activity-overview.md) artigo, que apresenta uma visão geral da atividade de cópia.
+Este artigo explica como usar a atividade de cópia na fábrica de dados do Azure para copiar dados de ou para o banco de dados SQL do Azure. Ele amplia a [visão geral da atividade de cópia](copy-activity-overview.md) artigo, que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
 Você pode copiar dados de ou para o Banco de Dados SQL do Azure para qualquer repositório de dados de coletores com suporte. E você pode copiar dados de qualquer repositório de dados de origem com suporte para o Banco de Dados SQL do Azure. Para obter uma lista de armazenamentos de dados que são suportados como fontes ou coletores por Atividade de Cópia, consulte a tabela [Armazenamentos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, este conector de banco de dados SQL dá suporte a estas funções:
+Especificamente, este conector de banco de dados SQL do Azure dá suporte a estas funções:
 
 - Copie os dados usando a autenticação de token do Aplicativo Azure AD (Azure Active Directory) e autenticação do SQL com uma entidade de serviço ou identidades gerenciadas para recursos do Azure.
 - Como uma fonte, recupere dados usando uma consulta SQL ou procedimento armazenado.
@@ -221,7 +221,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Esta seção fornece uma lista de propriedades com suporte pelo conjunto de dados do banco de dados SQL.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Esta seção fornece uma lista de propriedades com suporte pelo conjunto de dados do banco de dados SQL do Azure.
 
 Para copiar dados de ou para o Banco de Dados SQL do Azure, defina a propriedade **tipo** do conjunto de dados para **AzureSqlTable**. Há suporte para as seguintes propriedades:
 
@@ -358,7 +358,7 @@ GO
 
 ### <a name="azure-sql-database-as-the-sink"></a>Banco de Dados SQL do Azure como o coletor
 
-Para copiar dados para o banco de dados do SQL Azure, defina o **tipo** do coletor de propriedade na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
+Para copiar dados para o banco de dados SQL do Azure, defina o **tipo** do coletor de propriedade na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
@@ -519,7 +519,7 @@ O alvo tem uma coluna adicional com uma identidade. Nesse cenário, você deve e
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invocar o procedimento armazenado do coletor SQL
 
-Quando você copiar dados para o banco de dados do SQL Azure, você também pode configurar e invocar um procedimento armazenado especificado pelo usuário com parâmetros adicionais.
+Quando você copiar dados para o banco de dados SQL do Azure, você também pode configurar e invocar um procedimento armazenado especificado pelo usuário com parâmetros adicionais.
 
 Você pode usar um procedimento armazenado quando os mecanismos internos de cópia não atendem à finalidade. Eles são normalmente usados quando um upsert, insert plus update ou processamento extra deve ser feito antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são colunas de mesclagem, pesquisa valores adicionais e inserção em mais de uma tabela.
 

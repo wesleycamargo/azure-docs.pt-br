@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680699"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008691"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Especificamente, este conector Salesforce dá suporte à:
 - Edições de Desenvolvedor, Professional, Enterprise ou Ilimitada do Salesforce.
 - Copiar dados de e para a produção, da área restrita e do domínio personalizado do Salesforce.
 
-O conector do Salesforce é criado sobre a API de REST do Salesforce, com [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados de e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para um.
+O conector do Salesforce é criado sobre a API de REST/Bulk Salesforce, com [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados de e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para um.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -316,10 +316,10 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Tipo de dados do Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | Numeração automática |Cadeia de caracteres |
-| Caixa de seleção |BOOLEAN |
+| Caixa de seleção |Boolean |
 | Moeda |Decimal |
-| Data |DateTime |
-| Data/hora |DateTime |
+| Data |Datetime |
+| Data/hora |Datetime |
 | Email |Cadeia de caracteres |
 | ID |Cadeia de caracteres |
 | Relação de pesquisa |Cadeia de caracteres |
@@ -328,7 +328,7 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Porcentagem |Decimal |
 | Telefone |Cadeia de caracteres |
 | Lista de seleção |Cadeia de caracteres |
-| Texto |Cadeia de caracteres |
+| Text |Cadeia de caracteres |
 | Área de texto |Cadeia de caracteres |
 | Área de texto (longo) |Cadeia de caracteres |
 | Área de texto (Rich) |Cadeia de caracteres |

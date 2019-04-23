@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501085"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995618"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 
@@ -72,7 +72,7 @@ ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 
 Em vez de configurar e criar uma URL SAS, você pode usar o nome do seu contêiner de armazenamento do Azure para acessar seus dados de blob. O contêiner de armazenamento usada precisa na conta de armazenamento do Azure que esteja vinculada à sua conta do lote, conhecida como a conta de armazenamento automático. Usar o nome do contêiner de armazenamento de uma conta de armazenamento automático permite que você ignore a configuração e criação de uma URL de SAS para acessar um contêiner de armazenamento.
 
-Neste exemplo, vamos supor que os dados a ser usado para a criação do arquivo de recurso já estão em uma conta de armazenamento do Azure vinculada a sua conta do lote. Se você não tiver uma conta de armazenamento automático, consulte as etapas em [criar uma conta do lote](/create-a-batch-account.md) para obter detalhes sobre como criar e vincular uma conta.
+Neste exemplo, vamos supor que os dados a ser usado para a criação do arquivo de recurso já estão em uma conta de armazenamento do Azure vinculada a sua conta do lote. Se você não tiver uma conta de armazenamento automático, consulte as etapas em [criar uma conta do lote](batch-account-create-portal.md) para obter detalhes sobre como criar e vincular uma conta.
 
 Usando uma conta de armazenamento vinculada, você não precisa criar e configurar uma URL SAS para um contêiner de armazenamento. Em vez disso, forneça o nome do contêiner de armazenamento em sua conta de armazenamento vinculada.
 

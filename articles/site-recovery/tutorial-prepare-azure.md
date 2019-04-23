@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358494"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617406"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar recursos do Azure para recuperação de desastre de computadores locais
 
@@ -54,7 +54,7 @@ Para concluir essas tarefas, sua conta deve receber a função interna de Colabo
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-1. No portal do Azure, clique em **+Criar um recurso** e pesquise por **Serviços de recuperação** no Marketplace.
+1. No portal do Azure, clique em **+Criar um recurso** e pesquise **Recuperação** no Marketplace.
 2. Clique em **Backup e Site Recovery (OMS)** e, na página Backup e Site Recovery, clique em **Criar**. 
 1. No **cofre dos Serviços de Recuperação** > **Nome**, insira um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
 2. No **Grupo de recursos**, selecione um grupo de recursos existente ou crie um. Para este tutorial, estamos usando **contosoRG**.
@@ -70,10 +70,10 @@ Para concluir essas tarefas, sua conta deve receber a função interna de Colabo
 Os computadores locais são replicados para discos gerenciados do Azure. Quando ocorre failover, VMs do Azure são criadas com base nesses discos gerenciados e associadas à rede do Azure que você especifica neste procedimento.
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**.
-2. Deixe **Resource Manager** selecionado como o modelo de implantação.
+2. Mantenha **Resource Manager** selecionado como o modelo de implantação.
 3. Em **Nome**, insira um nome de rede. O nome deve ser exclusivo dentro do grupo de recursos do Azure. Estamos usando **ContosoASRnet** neste tutorial.
 4. Especifique o grupo de recursos no qual a rede será criada. Estamos usando o grupo de recursos existente **contosoRG**.
-5. Em **Intervalo de endereços**, insira o intervalo para a rede. Estamos usando **10.0.0.0/24**, e não uma sub-rede.
+5. Em **Intervalo de endereços**, insira o intervalo para a rede. Estamos usando **10.1.0.0/24** e não uma sub-rede.
 6. Em **Assinatura**, selecione a assinatura na qual deseja criar a rede.
 7. Em **Local**, selecione a mesma região em que o cofre dos Serviços de Recuperação foi criado. Em nosso tutorial, é **Europa Ocidental**.  A rede deve estar na mesma região do que o cofre.
 8. Estamos deixando as opções padrão de proteção contra DDoS básica, sem nenhum ponto de extremidade de serviço na rede.

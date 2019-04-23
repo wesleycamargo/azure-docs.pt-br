@@ -11,42 +11,46 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cce0bb9d1a9317396d197d182a424a45c8448f1b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203568"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528519"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, você tem duas opções:
 
-### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
+### <a name="option-1-express-mode"></a>Opção 1: Modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
 
-1. Registre seu aplicativo através do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure).
-2. Insira um nome para o aplicativo e seu email.
-3. Verifique se que a opção Instalação guiada está marcada.
-4. Siga as instruções para adicionar uma URL de redirecionamento para seu aplicativo.
+1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+1. Insira um nome para o aplicativo e clique em **Registrar**.
+1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: Modo Avançado
 
-Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
+Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 
-1. Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo.
-2. Insira um nome para o aplicativo e seu email.
-3. Verifique se a opção Instalação Guiada está desmarcada
-4. Selecione `Add Platform`e, em seguida, selecione`Web`.
-5. Volte ao Visual Studio e, no Gerenciador de Soluções, selecione o projeto e examine a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4)
-6. Altere habilitado para SSL `True`.
-7. Clique com botão direito no projeto no Visual Studio e, em seguida, escolha **propriedades**e o **Web** guia. No *servidores* seção alteração a *Url do projeto* para ser a URL de SSL.
-8. Copie a URL do SSL e adicione essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do Portal de Registro:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-9. Adicione o seguinte em `web.config` localizado na pasta raiz, na seção `configuration\appSettings`:
+1. Acesse o Visual Studio e:
+   1. no Gerenciador de Soluções, selecione o projeto e examine a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4).
+   1. Altere habilitado para SSL `True`.
+   1. Clique com botão direito no projeto no Visual Studio e, em seguida, escolha **propriedades**e o **Web** guia. No *servidores* seção alteração a *Url do projeto* para ser a URL de SSL.
+   1. Copie a URL do SSL. Você adicionará essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do Portal de Registro na próxima etapa:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
+1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
+1. Selecione **Novo registro**.
+1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
+   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `ASPNET-Tutorial`.
+   1. Adicione a URL do SSL copiada do Visual Studio na etapa 1 (por exemplo, `https://localhost:44368/`) à **URL de Resposta** e clique em **Registrar**.
+1. Selecione o menu **Autenticação** menu, defina **Tokens de ID** em **Concessão Implícita**e selecione **Salvar**.
+1. Adicione o seguinte em `web.config` localizado na pasta raiz, na seção `configuration\appSettings`:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -55,5 +59,5 @@ Para registrar seu aplicativo e adicionar suas informações de registro de apli
     <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" />
     ```
 
-10. Substitua `ClientId` pelo ID do aplicativo que você acabou de registrar.
-11. Substitua `redirectUri` com a URL do SSL de seu projeto.
+1. Substitua `ClientId` pelo ID do aplicativo que você acabou de registrar.
+1. Substitua `redirectUri` com a URL do SSL de seu projeto.

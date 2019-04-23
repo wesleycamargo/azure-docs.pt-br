@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260838"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549381"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -280,13 +280,13 @@ Neste tutorial, você aprendeu como:
 > * Criar nova página da Web usando a API de Controle de mapa
 > * Usar o Serviço de Pesquisa para localizar um ponto de interesse próximo
 
-Você pode acessar o exemplo de código para este tutorial aqui:
+> [!div class="nextstepaction"]
+> [Exibir código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Pesquisa de local com o Azure Mapas](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[Confira o exemplo dinâmico aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [Exibir amostra dinâmica](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 O seguinte tutorial demonstra como exibir uma rota entre dois locais.
 
 > [!div class="nextstepaction"]
-> [Rota para um destino](./tutorial-route-location.md)
+> [Rotear para um destino](./tutorial-route-location.md)
