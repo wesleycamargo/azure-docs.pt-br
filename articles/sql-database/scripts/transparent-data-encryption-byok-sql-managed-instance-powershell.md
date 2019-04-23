@@ -11,17 +11,17 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783387"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003115"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerenciar Transparent Data Encryption em uma Instância Gerenciada usando sua própria chave do Azure Key Vault
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Gerenciar a criptografia transparente de dados em uma instância gerenciada usando sua própria chave do Cofre de chaves do Azure (visualização)
 
-Este script do PowerShell configura a TDE (Transparent Data Encryption) no cenário Bring Your Own Key para Instância Gerenciada do SQL do Azure usando uma chave do Azure Key Vault. Para saber mais sobre a TDE com suporte BYOK (Bring Your Own Key), visite [TDE com Bring Your Own Key para SQL do Azure](../transparent-data-encryption-byok-azure-sql.md).
+Este exemplo de script do PowerShell configura a criptografia de dados transparente (TDE) no cenário de Bring Your Own Key (versão prévia) para instância gerenciada do SQL, usando uma chave do Cofre de chaves do Azure. Para saber mais sobre a TDE com suporte BYOK (Bring Your Own Key), visite [TDE com Bring Your Own Key para SQL do Azure](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

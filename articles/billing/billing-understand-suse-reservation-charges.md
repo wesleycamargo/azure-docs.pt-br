@@ -1,7 +1,6 @@
 ---
-title: Entender o desconto de plano de reserva do SUSE e o uso - Azure | Microsoft Docs
-description: Saiba como os descontos de planos do SUSE são aplicados ao software SUSE em máquinas virtuais.
-services: billing
+title: Desconto de plano de software - Azure | Microsoft Docs
+description: Saiba como os descontos de plano de software são aplicados ao software em máquinas virtuais.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917780"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002724"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Entender como o SUSE Linux Enterprise software plano o desconto de reserva é aplicado para o Azure
+# <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
 
-Depois de adquirir um plano do SUSE Linux, o desconto é aplicado automaticamente às máquinas virtuais (VMs) do SUSE implantadas que correspondem à reserva. Um plano do SUSE Linux cobre o custo de execução do software SUSE em uma VM do Azure.
+Planos de software do Azure para o SUSE e RedHat são reservas que se aplicam às VMs implantadas. O desconto de plano de software é aplicado para o uso de software de VMs implantadas que correspondem a reserva.
 
-Para comprar o plano correto do SUSE Linux, você precisa entender quais VMs do SUSE são executadas e o número de vCPUs nessas VMs. Use as seções a seguir para ajudar a identificar, a partir do arquivo CSV de uso, qual plano comprar.
+Quando você desligar uma VM, o desconto é aplicado automaticamente a outra VM correspondente, se disponível. Um plano de software abrange o custo de executar o software em uma máquina virtual. Outros encargos, como computação, armazenamento e rede são cobrados separadamente.
 
-## <a name="discount-applies-to-different-vm-sizes"></a>Desconto aplica-se aos diferentes tamanhos de VM
+Para comprar o plano certo, você precisa entender o uso VM e o número de vCPUs nessas VMs. Use as seções a seguir para ajudar a identificar o que pretendem comprar, com base em seus dados de uso.
+
+## <a name="how-reservation-discount-is-applied"></a>Como o desconto de reserva é aplicado
+
+Um desconto de reserva é "*uso-it-ou-perder-it*". Dessa forma, se você não tiver recursos correspondentes para qualquer hora, em seguida, você perderá uma quantidade de reserva para essa hora. Você não pode transportar encaminhar horas reservadas não utilizadas.
+
+Quando você desligar um recurso, o desconto de reserva se aplica automaticamente a outro recurso correspondente no escopo especificado. Se nenhum recurso de correspondência é encontrado no escopo especificado, são as horas reservadas *perdido*.
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Revise o uso de VM RedHat antes de comprar
+
+Obtenha o nome do produto de seus dados de uso e comprar o plano RedHat com o mesmo tipo e tamanho.
+
+Por exemplo, se o seu uso tem o produto **Red Hat Enterprise Linux - 1 a 4 vCPU VM licença**, você deve adquirir **Red Hat Enterprise Linux** para **1 a 4 vCPU VM**.
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>Revise o uso de VM SUSE antes de comprar
+
+Obtenha o nome do produto de seus dados de uso e comprar o plano do SUSE com o mesmo tipo e tamanho.
+
+Por exemplo, se o seu uso é para o produto **prioridade do SUSE Linux Enterprise Server – 2 a 4 vCPU VM Support**, você deve adquirir **prioridade do SUSE Linux Enterprise Server** para **2 a 4 vCPU**.
+
+![Exemplo de seleção para comprar o produto](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Desconto aplica-se aos diferentes tamanhos de VM para os planos do SUSE
 
 Como as instâncias de VMs reservadas, as compras do plano do SUSE oferecem flexibilidade no tamanho da instância. Isso significa que seu desconto se aplica mesmo quando você implanta uma VM com uma contagem diferente de vCPU. O desconto se aplica a diferentes tamanhos de VM dentro do plano de software.
 
@@ -38,9 +61,7 @@ Por exemplo, se você comprar um plano para o SUSE Linux Enterprise Server para 
 - 1 VM implantada com 3 ou 4 vCPUs,
 - ou 0,77 ou cerca de 77% de uma VM com 5 ou mais vCPUs.
 
-A taxa de 5 ou mais vCPUs é 2.6. Portanto, uma reserva para SUSE com uma VM com vCPUs 5 ou mais abrange uma única parte do custo de software, que é de aproximadamente 77%.
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>Entender o uso da VM SUSE antes de comprar
+A taxa de 5 ou mais vCPUs é 2.6. Portanto, uma reserva para o SUSE com uma VM com 5 ou mais vCPUs cobre apenas uma parte do custo do software, que é de cerca de 77%.
 
 As tabelas a seguir mostram os planos de software para os quais você pode comprar uma reserva, os medidores de uso associados e as taxas de cada uma.
 
@@ -122,6 +143,10 @@ Nomes do marketplace no portal do Azure:
 |SLES 3 a 4 núcleos vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 + vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as reservas, consulte os seguintes artigos:
@@ -132,7 +157,3 @@ Para saber mais sobre as reservas, consulte os seguintes artigos:
 - [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
-
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

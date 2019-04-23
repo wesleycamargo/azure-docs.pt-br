@@ -1,6 +1,6 @@
 ---
-title: Definições de alerta de esquema comuns para Webhooks lógicos/aplicativos/Azure Functions
-description: Noções básicas sobre as definições de alerta de esquema comuns para Webhooks lógicos/aplicativos/Azure Functions
+title: Definições de alerta de esquema comuns para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica
+description: Noções básicas sobre as definições de alerta de esquema comuns para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010389"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149403"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
-Este artigo descreve o [definições de alerta de esquema comuns](https://aka.ms/commonAlertSchemaDocs) para Webhooks lógicos/aplicativos/Azure Functions. 
+Este artigo descreve o [definições de alerta de esquema comuns](https://aka.ms/commonAlertSchemaDocs) para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica. 
 
 ## <a name="overview"></a>Visão geral
 
@@ -88,7 +88,7 @@ Qualquer instância de alerta descreve **o recurso que foi afetado** e **a causa
 | originAlertId | ID da instância do alerta como gerado pelo serviço de monitoramento gerá-lo. |
 | firedDateTime | Data hora de quando a instância de alerta foi disparada em UTC |
 | resolvedDateTime | Data hora de quando a condição do monitor para a instância de alerta é definida como resolvido em UTC. No momento, só é aplicável para alertas de métrica.|
-| Descrição | Descrição, conforme definido na regra de alerta |
+| description | Descrição, conforme definido na regra de alerta |
 |essentialsVersion| Número de versão para a seção essentials.|
 |alertContextVersion | Número de versão para a seção alertContext |
 

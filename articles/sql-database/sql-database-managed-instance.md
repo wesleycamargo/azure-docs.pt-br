@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361812"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002741"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usar segurança de dados avançada do Banco de Dados SQL com as redes virtuais e compatibilidade de quase 100%
 
@@ -126,7 +126,7 @@ A opção de implantação da instância gerenciada combina os recursos de segur
 A instância gerenciada fornece isolamento de segurança adicional de outros locatários na nuvem do Azure. O isolamento de segurança inclui:
 
 - [Implementação de rede virtual nativa](sql-database-managed-instance-connectivity-architecture.md) e conectividade com seu ambiente local usando o Azure ExpressRoute ou o Gateway de VPN.
-- O ponto de extremidade do SQL é exposto apenas por meio de um endereço IP privado, permitindo conectividade segura de redes híbridas ou privadas do Azure.
+- Em uma implantação padrão, o ponto de extremidade do SQL é exposto apenas por meio de um endereço IP privado, permitindo conectividade segura do Azure privado ou redes híbridas.
 - Locatário único com infraestrutura subjacente dedicada (computação, armazenamento).
 
 O diagrama a seguir descreve várias opções de conectividade para seus aplicativos:

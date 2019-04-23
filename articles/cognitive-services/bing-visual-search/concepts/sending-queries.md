@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489341"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011683"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para a API da Pesquisa Visual do Bing
 
@@ -73,7 +73,7 @@ As solicitações precisam ser enviadas como apenas solicitações HTTP POST.
 
 Veja a seguir os parâmetros de consulta que devem ser especificados pela solicitação. No mínimo, você deve incluir o `mkt` parâmetro de consulta:
 
-| NOME | Valor | Type | Obrigatório |
+| NOME | Value | Type | Necessário |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Um código de país de dois caracteres que representa onde vêm os resultados.<br /><br /> Se você definir esse parâmetro, também precisará especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing usa o primeiro idioma compatível encontrado na lista de idiomas e combina o idioma com o código do país especificado para determinar o mercado do qual os resultados são retornados. Se a lista de idiomas não incluir um idioma compatível, o Bing encontrará o idioma e o mercado mais próximos que dão suporte à solicitação. Ou ele pode usar um mercado agregado ou padrão para os resultados, em vez daquele especificado.<br /><br /> Você deverá usar esse parâmetro de consulta e o parâmetro de consulta `Accept-Language` somente se especificar vários idiomas; caso contrário, use os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Esse parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos – não especifique ambos. | Cadeia de caracteres | Não        |
 | <a name="mkt" />mkt   | O mercado do qual os resultados são obtidos. <br /><br /> **OBSERVAÇÃO:** Você sempre deve especificar o mercado, se conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos – não especifique ambos. | Cadeia de caracteres | Sim      |
@@ -98,7 +98,7 @@ Veja a seguir os cabeçalhos que devem ser especificados pela solicitação. O `
 | <a name="location" />X-Search-Location   | Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por ponto-e-vírgula de pares chave/valor que descrevem a localização geográfica do cliente. O Bing usa as informações de local para determinar o comportamento da pesquisa segura e retornar o conteúdo local relevante. Especifique o par chave/valor como \<key\>:\<value\>. Veja a seguir as chaves usadas para especificar o local do usuário.<br /><br /><ul><li>lat – obrigatório. A latitude do local do cliente, em graus. A latitude precisa ser superior ou igual a -90,0 e inferior ou igual a +90,0. Valores negativos indicam latitudes sul e valores positivos indicam latitudes norte.<br /><br /></li><li>long – obrigatório. A longitude do local do cliente, em graus. A longitude precisa ser superior ou igual a -180,0 e inferior ou igual a +180,0. Valores negativos indicam longitudes oeste e valores positivos indicam longitudes leste.<br /><br /></li><li>re – obrigatório. O raio, em metros, que especifica a precisão horizontal das coordenadas. Passe o valor retornado pelo serviço de local do dispositivo. Os valores típicos podem ser 22 MB para GPS/Wi-Fi, m 380 para triangulação de torre de célula e 18.000 m para a pesquisa inversa de IP.<br /><br /></li><li>ts – opcional. O carimbo de data/hora UTC UNIX do período em que o cliente estava no local. (O carimbo de data/hora UNIX é o número de segundos desde 1º de janeiro de 1970.)<br /><br /></li><li>head – opcional. A direção ou o curso da viagem relativo do cliente. Especifique a direção da viagem como graus de 0 a 360, no sentido horário em relação ao norte verdadeiro. Especifique essa chave somente se a chave `sp` for diferente de zero.<br /><br /></li><li>sp – opcional. A velocidade horizontal, em metros por segundo, na qual o dispositivo cliente está viajando.<br /><br /></li><li>alt – opcional. A altitude do dispositivo cliente, em metros.<br /><br /></li><li>are – opcional. O raio, em metros, que especifica a precisão vertical das coordenadas. Especifique essa chave somente se você especificar a chave `alt`.<br /><br /></li></ul> **OBSERVAÇÃO:** Embora muitas chaves sejam opcionais, quanto mais informações você fornecer, mais precisos serão os resultados da localização.<br /><br /> **OBSERVAÇÃO:** Embora opcional, é recomendável sempre especificar a localização geográfica do usuário. O fornecimento do local é especialmente importante se o endereço IP do cliente não reflete precisamente o local físico do usuário (por exemplo, se o cliente usa VPN). Para obter melhores resultados, você deve incluir esse cabeçalho e o `X-MSEdge-ClientIP` cabeçalho, mas, no mínimo, você deve incluir esse cabeçalho.       |
 
 > [!NOTE]
-> Lembre-se de que o [API de pesquisa do Bing, usar e aos requisitos de exibição](/../bing-web-search/use-display-requirements.md) exigir conformidade com todas as leis aplicáveis, inclusive sobre o uso desses cabeçalhos. Por exemplo, em algumas jurisdições, como na Europa, há requisitos para obter o consentimento do usuário antes de colocar determinados dispositivos de monitoramento em dispositivos do usuário.
+> Lembre-se de que o [API de pesquisa do Bing, usar e aos requisitos de exibição](../../bing-web-search/use-display-requirements.md) exigir conformidade com todas as leis aplicáveis, inclusive sobre o uso desses cabeçalhos. Por exemplo, em algumas jurisdições, como na Europa, há requisitos para obter o consentimento do usuário antes de colocar determinados dispositivos de monitoramento em dispositivos do usuário.
 
 <a name="content-form-types" />
 

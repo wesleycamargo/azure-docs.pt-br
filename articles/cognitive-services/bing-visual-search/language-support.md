@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8181fc259ffbed11672fe64a8fc821e234183b72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856845"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002759"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Idiomas e regiões compatíveis com a API da Pesquisa Visual do Bing
 
@@ -49,7 +49,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
 |Itália|IT|
@@ -93,7 +93,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Hong Kong|Chinês tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|

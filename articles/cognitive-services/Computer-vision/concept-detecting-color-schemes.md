@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313068"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998610"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
 
@@ -30,7 +30,7 @@ A Pesquisa Visual Computacional também retorna um valor booliano que indica se 
 
 O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é em preto e branco, mas as cores de primeiro plano e da tela de fundo predominantes são pretas e as cores predominantes da imagem inteira são em preto e branco.
 
-![Montanha ao ar livre](./Images/mountain_vista.png)
+![Com visibilidade em exteriores Mountain em pôr do sol, com a silhueta da pessoa](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador a
 
 A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem retornados para cada imagem de exemplo.
 
-| Imagem | Cores predominantes |
+| Image | Cores predominantes |
 |-------|-----------------|
 |![Uma flor branca com um fundo verde](./Images/flower.png)| Primeiro plano: Preto<br/>Plano de fundo: Branco<br/>Cores: Preto, Branco, Verde|
 ![Um treinamento em execução por meio de uma estação](./Images/train_station.png) | Primeiro plano: Preto<br/>Plano de fundo: Preto<br/>Cores: Preto |
@@ -63,7 +63,7 @@ A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem 
 
  A tabela a seguir mostra a cor de ênfase retornada, como um valor hexadecimal de cor HTML, para cada imagem de exemplo.
 
-| Imagem | Cor de destaque |
+| Image | Cor de destaque |
 |-------|--------------|
 |![Uma pessoa que está em uma montanha ao pôr do sol](./Images/mountain_vista.png) | #BB6D10 |
 |![Uma flor branca com um fundo verde](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem 
 
 A tabela a seguir mostra a avaliação de preto e branco da Pesquisa Visual Computacional nas imagens de exemplo.
 
-| Imagem | Preto e branco? |
+| Image | Preto e branco? |
 |-------|----------------|
 |![Uma imagem em preto e branco dos edifícios em Manhattan](./Images/bw_buildings.png) | verdadeiro |
 |![Uma casa azul e o jardim da frente](./Images/house_yard.png) | falso |

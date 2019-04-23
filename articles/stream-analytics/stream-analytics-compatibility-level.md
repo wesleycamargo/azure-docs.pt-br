@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: b5c833798f8533e7c6fbe3595a726ac6ce56e2d2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682807"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998253"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -75,7 +75,7 @@ Para obter mais informações, consulte [atualiza a recursos geoespaciais no Azu
 
 **Níveis anteriores:** O comportamento de upsert era *inserir ou mesclar*.
 
-**nível de 1,2:** Integração nativa de API em massa com a saída do CosmosDB maximiza a taxa de transferência e com eficiência lida com solicitações de limitação.
+**nível de 1,2:** Integração nativa de API em massa com a saída do CosmosDB maximiza a taxa de transferência e com eficiência lida com solicitações de limitação. Para obter mais informações, consulte [a saída do Azure Stream Analytics para a página do Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
 É o comportamento de upsert *inserir ou substituir*.
 
@@ -134,7 +134,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 **nível de 1.1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Integridade de recursos de análise de Stream](stream-analytics-resource-health.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879685"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007620"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
@@ -82,8 +82,6 @@ A opção de failover manual está sempre disponível para uso, independentement
 > - Os exercícios de teste não devem ser executados em hubs de IoT que estão sendo usados em seus ambientes de produção.
 >
 > - O failover manual não deve ser usado como um mecanismo para migrar permanentemente seu hub entre as regiões emparelhadas do Azure. Fazer isso causaria uma latência maior para as operações que estão sendo executadas no hub a partir de dispositivos hospedados na antiga região primária.
->
-> - O failover manual está atualmente em visualização e não está disponível nas seguintes regiões do Azure. Leste dos EUA, Oeste dos EUA, Norte da Europa, Europa Ocidental, Brasil Sul, Sul dos EUA Central.
 
 ### <a name="failback"></a>Failback
 

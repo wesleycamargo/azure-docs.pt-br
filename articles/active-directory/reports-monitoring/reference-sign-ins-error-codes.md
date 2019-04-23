@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439373"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996162"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -174,11 +174,13 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |81012|Isso não é uma condição de erro. Isso indica que o usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo. É possível ignorar esse código nos logs com segurança.|
 |90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação não compatível (apenas o método POST é compatível) ou não há suporte para o algoritmo de autenticação de tokens solicitado. Contate o desenvolvedor do aplicativo.|
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
+|90051| Token de delegação inválido. ID de nuvem nacional inválido ({cloudId}) é especificado.|
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
+|530021|Aplicativo não atende os requisitos de aplicativo de acesso condicional aprovado.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

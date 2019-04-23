@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528179"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007450"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -29,7 +29,7 @@ Os componentes do Service Fabric do Azure apresentam relatórios de integridade 
 > 
 > 
 
-Os relatórios de integridade do sistema dão visibilidade da funcionalidade do cluster e do aplicativo e sinalizam problemas. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem monitoramento de integridade da lógica de negócios do serviço nem detecção de processos travados. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
+Os relatórios de integridade do sistema dão visibilidade da funcionalidade do cluster e do aplicativo e sinalizam problemas. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem monitoramento de integridade da lógica de negócios do serviço nem detecção de processos que não estão respondendo. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
 
 > [!NOTE]
 > Os relatórios de integridade enviados pelos watchdogs do usuário ficam visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ela. O mesmo é verdadeiro quando uma nova instância da entidade é criada. Um exemplo é quando uma nova instância de réplica de serviço persistente com estado é criada. Todos os relatórios associados à instância antiga são excluídos e removidos do repositório.

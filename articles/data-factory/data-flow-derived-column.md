@@ -1,20 +1,19 @@
 ---
-title: Transformação de Coluna Derivada de Fluxo de Dados do Azure Data Factory
-description: Transformação de Coluna Derivada de Fluxo de Dados do Azure Data Factory
+title: Transformação de coluna derivada de mapeamento de fluxo de dados do Azure Data Factory
+description: Como transformar dados em grande escala com o Azure Data Factory Mapeando dados fluxo de transformação coluna derivada
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 1335b86431bcf345f452ead0c95926d295ae185f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728753"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999477"
 ---
-# <a name="azure-data-factory-data-flow-derived-column-transformation"></a>Transformação de Coluna Derivada do Fluxo de Dados do Azure Data Factory
+# <a name="mapping-data-flow-derived-column-transformation"></a>Mapeamento de fluxo de dados de transformação de coluna derivada
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -27,3 +26,13 @@ Você pode executar várias ações de Coluna Derivada em uma única transforma�
 No campo Coluna, selecione uma coluna existente para sobrepor com um novo valor derivado ou clique em "Criar Nova Coluna" para gerar uma nova coluna com o novo valor derivado.
 
 A caixa de texto Expressão abrirá o Construtor de Expressões onde você poderá criar a expressão para as colunas derivadas usando funções de expressão.
+
+## <a name="column-patterns"></a>Padrões de coluna
+
+Se os nomes de coluna são variáveis de suas fontes, você poderá criar transformações dentro da coluna derivada usando padrões de coluna em vez de usar colunas nomeadas. Consulte a [descompasso do esquema](concepts-data-flow-schema-drift.md) artigo para obter mais detalhes.
+
+![padrão de coluna](media/data-flow/columnpattern.png "padrões de coluna")
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre o [linguagem de expressão de Data Factory para transformações](http://aka.ms/dataflowexpressions) e o [construtor de expressões](concepts-data-flow-expression-builder.md)

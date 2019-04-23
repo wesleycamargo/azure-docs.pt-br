@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518024"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998287"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usar o Azure Data Box para migrar dados de um repositório do HDFS local para o armazenamento do Azure
 
@@ -133,4 +133,4 @@ Este comando copia os dados e metadados de sua conta de armazenamento em sua con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como o Data Lake armazenamento Gen2 funciona com clusters do HDInsight. Confira [Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Saiba como o Data Lake armazenamento Gen2 funciona com clusters do HDInsight. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

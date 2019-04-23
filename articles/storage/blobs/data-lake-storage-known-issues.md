@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194701"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006855"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -47,13 +47,13 @@ Discos de VM (máquina virtual) não gerenciados dependem das APIs de Armazename
 
 APIs de armazenamento de B’lob e APIs do Azure Data Lake Gen2 não são interoperáveis.
 
-Se você tiver ferramentas, aplicativos, serviços ou scripts que usam APIs de Blob e desejar usá-los para trabalhar com todo o conteúdo carregado para sua conta, não habilite um namespace hierárquico em sua conta de Armazenamento de Blobs até que essas APIs de Blob se tornem interoperáveis com as APIs do Azure Data Lake Gen2. Usar uma conta de armazenamento sem um namespace hierárquico significa que, então, você não tem acesso a recursos específicos do Azure Data Lake Storage Gen2, como listas de controle de acesso de sistema de arquivos e diretório.
+Se você tiver ferramentas, aplicativos, serviços ou scripts que usam APIs de Blob e desejar usá-los para trabalhar com todo o conteúdo carregado para sua conta, não habilite um namespace hierárquico em sua conta de Armazenamento de Blobs até que essas APIs de Blob se tornem interoperáveis com as APIs do Azure Data Lake Gen2. Usar uma conta de armazenamento sem um namespace hierárquico significa que, em seguida, você não tem acesso a recursos específicos do Data Lake armazenamento Gen2, como o diretório e arquivo listas de controle de acesso do sistema.
 
 ## <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
 
 Para exibir ou gerenciar contas do Azure Data Lake Storage Gen2 usando o Gerenciador de Armazenamento do Microsoft Azure, você deve ter pelo menos versão `1.6.0` da ferramenta que está disponível como [download gratuito](https://azure.microsoft.com/features/storage-explorer/).
 
-Observe a versão do Gerenciador de Armazenamento incorporada no Portal do Azure não dá suporte, no momento, à exibição ou ao gerenciamento de contas do Azure Data Lake Storage Gen2 com o recurso de namespace hierárquico habilitado.
+Observe que a versão do Gerenciador de armazenamento que está incorporado no portal do Azure atualmente não dá suporte a exibir ou gerenciar contas do Data Lake armazenamento Gen2 com o recurso de namespace hierárquico habilitado.
 
 ## <a name="blob-viewing-tool"></a>Ferramenta de visualização de Blob
 

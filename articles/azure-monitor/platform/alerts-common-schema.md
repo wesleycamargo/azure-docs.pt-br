@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851664"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149369"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
 
@@ -39,14 +39,14 @@ O esquema de alerta comuns principalmente se manifestará em suas notificações
 |:---|:---|
 | sms | Um modelo consistente de SMS para todos os tipos de alerta. |
 | Email | Um modelo de email consistente e detalhadas, permitindo que você diagnosticar facilmente problemas rapidamente. Links profundo inseridos para a instância de alerta no portal e os recursos afetados Certifique-se de que você pode ir rapidamente para o processo de correção. |
-| Função de aplicativo/Azure/lógica de Webhook | Uma JSON estrutura consistente para todos os tipos de alerta, que permite que você crie facilmente as integrações entre os diferentes tipos de alerta. |
+| Runbook de automação/função de aplicativo/Azure Webhook/lógica | Uma JSON estrutura consistente para todos os tipos de alerta, que permite que você crie facilmente as integrações entre os diferentes tipos de alerta. |
 
 O novo esquema também habilitará uma experiência mais rica de consumo de alerta no portal do Azure e o aplicativo móvel do Azure em um futuro imediato. 
 
-[Saiba mais sobre as definições de esquema para Webhooks lógicos/aplicativos/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+[Saiba mais sobre as definições de esquema para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> As seguintes ações não dão suporte o esquema comum de alerta: Conector ITSM, Runbook de automação.
+> As seguintes ações não dão suporte o esquema comum de alerta: Conector ITSM.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>Como habilitar o alerta esquema comum?
 
@@ -54,11 +54,10 @@ Você pode aceitar ou recusar no esquema comum do alerta por meio de grupos de a
 
 > [!NOTE]
 > 1. Os seguintes tipos de alertas dão suporte a esquema comum por padrão (sem aceitar necessário):
->     * Alertas de falha de anomalias
+>     * Alertas de detecção inteligente
 > 1. Os seguintes tipos de alerta atualmente não dão suporte a esquema comum:
->     * Alertas de integridade do serviço
->     * Log de atividades – alertas de segurança
 >     * Alertas gerados por [Azure Monitor para VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Alertas gerados por [o gerenciamento de custos do Azure](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>No portal do Azure
 
@@ -69,7 +68,7 @@ Você pode aceitar ou recusar no esquema comum do alerta por meio de grupos de a
 
 ### <a name="through-the-action-groups-rest-api"></a>Por meio de grupos de ação de API REST
 
-Você também pode usar o [API de grupos de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups) para aceitar o esquema de alerta comuns. Utilizando o [criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) chamada à API REST, você pode definir o sinalizador "useCommonAlertSchema" como 'true' (para aceitar) ou 'falso' (a recusa) para qualquer uma das seguintes ações - lógicos/email/webhook aplicativo do Azure/função.
+Você também pode usar o [API de grupos de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups) para aceitar o esquema de alerta comuns. Utilizando o [criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) chamada à API REST, você pode definir o sinalizador "useCommonAlertSchema" como 'true' (para aceitar) ou 'falso' (a recusa) para qualquer uma das seguintes ações - runbook de automação de função/email/webhook/lógica de aplicativo e do Azure.
 
 Por exemplo, a solicitação a seguir corpo feito para o [criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) API REST fará o seguinte:
 
@@ -123,9 +122,9 @@ Por exemplo, a solicitação a seguir corpo feito para o [criar ou atualizar](ht
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Definições de alerta de esquema comuns para Webhooks lógicos/aplicativos/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Definições de alerta de esquema comuns para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

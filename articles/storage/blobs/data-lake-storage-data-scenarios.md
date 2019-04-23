@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889589"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006804"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando o Azure Data Lake Storage Gen2 para exigências de big data
 
@@ -142,7 +142,7 @@ Aqui está uma lista de ferramentas que você pode usar para a ingestão de dado
 |---|--|
 |Apache DistCp | [Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Ferramenta AzCopy | [Transferir dados com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Fábrica de dados do Azure | [Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
+|Fábrica de dados do Azure | [Copiar dados de ou para Gen2 de armazenamento do Azure Data Lake usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dados armazenados localmente ou em clusters Hadoop da IaaS
 

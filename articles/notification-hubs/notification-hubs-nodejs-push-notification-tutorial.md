@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889771"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994989"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
 
@@ -63,25 +63,24 @@ Para usar os Hubs de Notificação do Azure, você precisa baixar e usar o [paco
 > Saiba mais sobre a instalação do NPM no [blog oficial do NPM](https://blog.npmjs.org/post/85484771375/how-to-install-npm).
 
 ### <a name="import-the-module"></a>Importar o módulo
-
 Usando um editor de texto, adicione o seguinte à parte superior do arquivo `server.js` do aplicativo:
 
-    ```javascript
-    var azure = require('azure');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>Configurar uma conexão do Hub de Notificação do Azure
 
 O objeto `NotificationHubService`permite que você trabalhe com os hubs de notificação. O código a seguir cria um objeto `NotificationHubService` para o hub de notificação denominado `hubname`. Adicione-o próximo ao início do arquivo `server.js`, após a instrução de importação do módulo Azure:
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 Obtenha o valor `connectionstring` de conexão do [portal do Azure] executando as seguintes etapas:
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
-2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você poderá consultar o [tutorial Introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda para criar um novo Hub de Notificação.
+2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar a [tutorial guia de Introdução do Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se você precisar de ajuda com a criação de um novo Hub de notificação.
 3. Escolha a opção **Configurações**.
 4. Clique em **Políticas de Acesso**. Você verá as duas cadeias de conexão de acesso compartilhado e completo.
 
@@ -111,18 +110,18 @@ Para saber mais sobre o formato do conteúdo, consulte a seção **Conteúdo** d
 
 O código a seguir usa a instância `GcmService` exposta por `NotificationHubService` para enviar uma notificação por push para todos os clientes registrados.
 
-    ```javascript
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Como: Enviar notificações por push para aplicativos iOS
 
@@ -136,16 +135,16 @@ Para saber mais sobre o formato do conteúdo, veja a seção **Conteúdo de noti
 
 O código a seguir usa a instância `ApnsService` exposta por `NotificationHubService` para enviar uma mensagem de alerta a todos os clientes:
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Como: Enviar notificações por push para aplicativos do Windows Phone
 
@@ -162,14 +161,14 @@ Para obter uma lista válida `TargetName`, `NotificationClass` e opções de cab
 
 O seguinte código de exemplo usa a instância `MpnsService` exposta por `NotificationHubService` para enviar uma notificação por push do sistema:
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Como: Enviar notificações por push para aplicativos da UWP (Plataforma Universal do Windows)
 
@@ -185,14 +184,14 @@ Para obter uma lista de tipos e de cabeçalhos de solicitação válidos, veja [
 
 O código a seguir usa a instância `WnsService` exposta por `NotificationHubService` para enviar uma notificação por push do sistema para um aplicativo UWP:
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

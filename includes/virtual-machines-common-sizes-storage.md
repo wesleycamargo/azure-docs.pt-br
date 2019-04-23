@@ -5,28 +5,33 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551585"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011836"
 ---
 Os tamanhos de VM otimizados para armazenamento oferecem taxa de transferência de disco alta e de E/S e são ideais para bancos de dados Big Data, SQL, NoSQL, armazenamento de dados e grandes dados transacionais.  Exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento local e largura de banda de rede para cada tamanho otimizado.
 
 A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazenamento NVMe no processador [AMD EPYC &trade; 7551](https://www.amd.com/en/products/epyc-7000-series) com um aumento core de 2,55 GHz e aumento máximo de 3,0 GHz. As VMs da série Lsv2 vêm em tamanhos de 8 para vCPU 80 em uma configuração de vários thread simultânea.  Há 8 GiB de memória por vCPU e um dispositivo de NVMe SSD M.2 de 1,92 TB por 8 vCPUs, com até 19,2 TB (10x1.92TB) disponível no L80s v2.
 
 > [!NOTE]
-> As VMs da série Lsv2 são otimizadas para usar o disco local no nó conectado diretamente à VM em vez de usar discos de dados durável. Isso permite maior IOPs / taxa de transferência para suas cargas de trabalho. A série Lsv2 não suporta a criação de um cache local para aumentar o IOPS que pode ser obtido em discos de dados durável. A alta taxa de transferência e IOPS do disco local torna as VMs da série Lsv2 ideal para repositórios NoSQL, como Apache Cassandra e MongoDB que replicam dados entre várias VMs para obter persistência no caso de falha de uma única VM.
+> As VMs da série Lsv2 são otimizadas para usar o disco local no nó conectado diretamente à VM em vez de usar discos de dados durável. Isso permite maior IOPs / taxa de transferência para suas cargas de trabalho. A série Ls e Lsv2 não suporta a criação de um cache local para aumentar o IOPs que pode ser obtido em discos de dados durável.
+>
+> A alta taxa de transferência e IOPs do disco local faz o Lsv2 e VMs da série Ls ideal para repositórios NoSQL, como Apache Cassandra e MongoDB que replicam dados entre várias VMs para obter persistência no caso de falha de uma única VM.
+>
+> Para obter mais informações, consulte [otimizar o desempenho em máquinas virtuais série Lsv2](../articles/virtual-machines/linux/storage-performance.md).  
+
 
 ## <a name="lsv2-series"></a>Série Lsv2
 
 ACU: 150-175
 
-Armazenamento Premium: Suportado
+Armazenamento Premium: Com suporte
 
 Cache de Armazenamento Premium: Sem suporte
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606881"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994768"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemplo do portal do Azure
 
-Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure, especifique-as na página **Configuração** ao criar o contêiner.
+Para definir variáveis de ambiente quando você inicia um contêiner no portal do Azure, especifique-os na **avançado** página quando você criar o contêiner.
 
-Ao implantar usando o portal, atualmente está limitado a três variáveis e é necessário inseri-las neste formato: `"variableName":"value"`
-
-Para ver um exemplo, inicie o [aci-wordcount] [ aci-wordcount] contêiner com o *NumWords* e *MinLength* variáveis.
-
-1. Em **Configuração**, configure a **Política de Reinício** para *Em falha*
-2. Insira `"NumWords":"5"` para a primeira variável, selecione **Sim** em **Adicionar variáveis de ambiente adicionais** e insira `"MinLength":"8"` para a segunda variável. Selecione **OK** para verificar e implantar o contêiner.
+1. Sobre o **avançado** , defina as **política de reinicialização** para *em caso de falha*
+2. Sob **variáveis de ambiente**, insira `NumWords` com um valor de `5` para a primeira variável e insira `MinLength` com um valor de `8` para a segunda variável. 
+1. Selecione **revisar + criar** para verificar e, em seguida, implantar o contêiner.
 
 ![Página do portal mostrando a variável de ambiente Habilitar botão e caixas de texto][portal-env-vars-01]
 
-Para exibir os logs do contêiner, em **CONFIGURAÇÕES** selecione **Contêineres** e, em seguida, **Logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
+Para exibir os logs do contêiner, em **as configurações** selecionar **contêineres**, em seguida, **Logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
 
 ![Portal mostrando a saída do log de contêiner][portal-env-vars-02]
 

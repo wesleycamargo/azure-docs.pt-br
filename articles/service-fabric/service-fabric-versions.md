@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre as versões de cluster do Service Fabric do Azure | Microsoft Docs
-description: Versões de cluster com suporte do Azure Service Fabric
+title: Versões de cluster com suporte no Azure Service Fabric | Microsoft Docs
+description: Saiba mais sobre as versões de cluster no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 75e95737eecb9407a80103d1cad00d4987fe7091
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681600"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998814"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
-Verifique se o cluster sempre executa uma versão do Service Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é marcada para o fim do suporte após um mínimo de 60 dias a partir da data do comunicado. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Verifique se que o cluster sempre está executando uma versão com suporte do Azure Service Fabric. Termina um mínimo de 60 dias depois que anunciamos o lançamento de uma nova versão do Service Fabric, suporte para a versão anterior. Você encontrará os anúncios sobre novos lançamentos a [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
-Consulte os documentos a seguir para obter detalhes sobre como manter o cluster executando uma versão do Service Fabric com suporte.
+Consulte os documentos a seguir para obter detalhes sobre como manter o cluster executando uma versão do Service Fabric com suporte:
 
-- [Atualizar a versão do Service Fabric em um cluster do Azure](service-fabric-cluster-upgrade.md)
-- [Atualizar a versão do Service Fabric em um cluster do windows server autônomo](service-fabric-cluster-upgrade-windows-server.md)
+- [Atualizar um cluster do Service Fabric do Azure](service-fabric-cluster-upgrade.md)
+- [Atualizar a versão de Service Fabric em execução no cluster do Windows Server autônomo](service-fabric-cluster-upgrade-windows-server.md)
 
 ## <a name="supported-versions"></a>Versões com suporte
 
-A tabela a seguir lista as versões do Service Fabric com suporte e suas datas de término do suporte.
+A tabela a seguir lista as versões do Service Fabric e suas datas de término do suporte.
 
-| **Tempo de execução do Service Fabric no cluster** | **Permite a atualização diretamente da versão do cluster** |**Compatível com SDK/versões do pacote NuGet** | **Data de fim do suporte** |
+| Tempo de execução do Service Fabric no cluster | Pode atualizar diretamente da versão do cluster |Versão compatível do pacote do SDK ou NuGet | Fim do suporte |
 | --- | --- |--- | --- |
-| Todas as versões de cluster anteriores a 5.3.121 | 5.1.158* |Menor ou igual à versão 2.3 |20 de janeiro de 2017 |
+| Todas as versões anteriores a 5.3.121 do cluster | 5.1.158.* |Menor ou igual à versão 2.3 |20 de janeiro de 2017 |
 | 5.3.* | 5.1.158.* |Menor ou igual à versão 2.3 |24 de fevereiro de 2017 |
 | 5.4.* | 5.1.158.* |Menor ou igual à versão 2.4 |10 de maio de 2017       |
 | 5.5.* | 5.4.164.* |Menor ou igual à versão 2.5 |10 de agosto de 2017    |
@@ -45,14 +45,14 @@ A tabela a seguir lista as versões do Service Fabric com suporte e suas datas d
 | 6.0.* | 5.6.205.* |Menor ou igual à versão 2.8 |30 de março de 2018     |
 | 6.1.* | 5.7.221.* |Menor ou igual à versão 3.0 |15 de julho de 2018      |
 | 6.2.* | 6.0.232.* |Menor ou igual à versão 3.1 |26 de outubro de 2018   |
-| 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |Março de 31,2019  |
-| 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |Versão atual e, portanto, sem data de término |
+| 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |31 de março de 2019  |
+| 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |A versão atual, portanto, nenhuma data de término |
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
- A tabela a seguir lista os sistemas operacionais com suporte para as versões com suporte do Service Fabric.
+A tabela a seguir lista os sistemas operacionais com suporte para as versões com suporte do Service Fabric.
 
-| **Sistema operacional** | **Versão mais antiga de malha de serviço com suporte** |
+| Sistema operacional | Versão do Service Fabric mais antiga com suporte |
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |

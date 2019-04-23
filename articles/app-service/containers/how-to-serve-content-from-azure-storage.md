@@ -7,18 +7,17 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.author: msangapu-msft
+ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732933"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998593"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servir conteúdo do Armazenamento do Microsoft Azure no Serviço de Aplicativo no Linux
 
-Este guia mostra como exibir conteúdo estático no Serviço de Aplicativo no Linux usando [Armazenamento do Microsoft Azure](/azure/storage/common/storage-introduction). Os benefícios incluem conteúdo seguro, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência. Neste guia, você aprende a exibir conteúdo no Armazenamento do Microsoft Azure [configurando o armazenamento personalizado](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
+Este guia mostra como exibir conteúdo estático no Serviço de Aplicativo no Linux usando [Armazenamento do Microsoft Azure](/azure/storage/common/storage-introduction). Os benefícios incluem conteúdo seguro, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência. Neste guia, você aprenderá como servir conteúdo no armazenamento do Azure por meio da configuração de armazenamento personalizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

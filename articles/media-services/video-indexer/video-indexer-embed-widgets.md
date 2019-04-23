@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784885"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006481"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserir widgets do Video Indexer em seus aplicativos
 
@@ -69,9 +69,9 @@ Se desejar inserir um vídeo **privado**, será necessário passar um token de a
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Use a API [**Obter Widget de Insights**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) para obter o conteúdo do widget de Insights Cognitivos ou use [**Obter token de acesso do vídeo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e adicione-o como um parâmetro de consulta à URL, conforme mostrado acima. Especifique essa URL como o valor **src** do **iframe**.
+Use a API [**Obter Widget de Insights**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) para obter o conteúdo do widget de Insights Cognitivos ou use [**Obter token de acesso do vídeo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e adicione-o como um parâmetro de consulta à URL, conforme mostrado acima. Especifique essa URL como o valor **src** do **iframe**.
 
-Se desejar fornecer recursos de edição de insights (como temos em nosso aplicativo Web) no seu widget inserido, será necessário passar um token de acesso com permissões de edição. Use [**Obter widget de insights**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) ou [**Obter token de acesso do vídeo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) com **&allowEdit=true**. 
+Se desejar fornecer recursos de edição de insights (como temos em nosso aplicativo Web) no seu widget inserido, será necessário passar um token de acesso com permissões de edição. Use [**Obter widget de insights**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [**Obter token de acesso do vídeo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) com **&allowEdit=true**. 
 
 ## <a name="widgets-interaction"></a>Interação de widgets
 

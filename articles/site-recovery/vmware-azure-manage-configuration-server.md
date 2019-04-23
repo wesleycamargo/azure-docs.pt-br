@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049688"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149488"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -185,19 +185,19 @@ Execute o arquivo de instalação da seguinte maneira:
 
 |Nome do Parâmetro| Type | DESCRIÇÃO| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|Necessário|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|Necessário|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Necessário|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|Necessário|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|Necessário|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Necessário|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Necessário|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|Necessário|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Necessário|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -302,6 +302,6 @@ Durante a reprotecção e o failback, o servidor de configuração local deve es
 
 Assegure-se de fazer backups agendados regulares de seu servidor de configuração. Se ocorrer um desastre e o servidor de configuração for perdido, você deve primeiro restaurar o servidor de configuração a partir de uma cópia de backup e garantir que o servidor de configuração restaurado tenha o mesmo endereço IP com o qual foi registrado no vault. O failback não funcionará se um endereço IP diferente for usado para o servidor de configuração restaurado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Analise os tutoriais para configurar a recuperação de desastre de [VMs VMware](vmware-azure-tutorial.md) para o Azure.

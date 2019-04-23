@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677758"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011751"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar contêineres de docker de Análise de Texto
 
@@ -51,9 +51,9 @@ Essa configuração pode ser localizada no seguinte local:
 
 Você precisará adicionar o `text/analytics/v2.0` roteamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir de BILLING_ENDPOINT_URI.
 
-|Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
+|Necessário| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -95,16 +95,16 @@ Você precisará adicionar o `text/analytics/v2.0` roteamento para o URI do pont
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Placeholder | Valor | Formato ou exemplo |
+| Placeholder | Value | Formato ou exemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | A chave do ponto de extremidade do `Cognitive Services` recursos disponíveis no Azure `Cognitive Services` página chaves. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade de cobrança está disponível no Azure `Cognitive Services` página de visão geral.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade de cobrança está disponível no Azure `Cognitive Services` página de visão geral.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](how-tos/text-analytics-how-to-install-containers.md#billing).
 > O valor de ApiKey é o **chave** do Azure `Cognitive Services` página chaves de recurso. 
 
-## <a name="keyphrase-extraction-container-docker-examples"></a>Exemplos de docker de contêiner de extração de frases-chave
+## <a name="key-phrase-extraction-container-docker-examples"></a>Exemplos de docker de contêiner de extração de frases-chave
 
 Os exemplos de docker a seguir são para o contêiner de extração de frases-chave. 
 

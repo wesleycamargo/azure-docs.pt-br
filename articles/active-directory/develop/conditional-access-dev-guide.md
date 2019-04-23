@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543179"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001041"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretriz do desenvolvedor para acesso condicional do Azure Active Directory
 
@@ -104,7 +104,7 @@ As seções a seguir discutem cenários comuns que são mais complexos. O princ�
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: aplicativo executando o fluxo "em nome de"
 
-Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz o fluxo "em nome de" para chamar um serviço downstream. Em nosso caso, aplicamos nossa política de acesso condicional ao serviço downstream (API Web 2) e estamos usando um aplicativo nativo em vez um aplicativo de servidor/daemon. 
+Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz o fluxo de "on-behalf-of" para chamar um serviço downstream. Em nosso caso, aplicamos nossa política de acesso condicional ao serviço downstream (API Web 2) e estamos usando um aplicativo nativo em vez um aplicativo de servidor/daemon. 
 
 ![Diagrama de aplicativo executando o fluxo em nome de](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,7 +145,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Aplicativo acessando vários serviços que solicitam um novo token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso não se aplica quando a solicitação é `AcquireTokenSilentAsync` ou `PromptBehavior.Never`, caso em que o aplicativo precisa executar uma solicitação ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política.
+Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a solicitação é uma `AcquireTokenSilentAsync` ou `PromptBehavior.Never` nesse caso, o aplicativo precisa para executar em interativo ```AcquireToken``` solicitação para fornecer ao usuário final a oportunidade de acordo com a política.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: SPA (aplicativo de página única) usando ADAL.js
 

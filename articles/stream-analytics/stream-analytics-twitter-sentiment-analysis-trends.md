@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994937"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003693"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
+
+> [!IMPORTANT] 
+> Criação do aplicativo Twitter não está mais disponível por meio [apps.twitter.com](https://apps.twitter.com/). Este tutorial está sendo atualizada para incluir a nova API do Twitter.
 
 Aprenda a compilar uma solução de análise de sentimento para análise de mídia social colocando os eventos em tempo real do Twitter nos Hubs de Eventos do Azure. Você pode então gravar uma consulta Azure Stream Analytics para analisar os dados e ou armazenar os resultados para uso posterior ou usar um painel e [Power BI](https://powerbi.com/) para fornecer insights em tempo real.
 
@@ -282,7 +285,7 @@ A tabela a seguir lista os campos que fazem parte do fluxo de dados JSON. Fique 
 |Tópico | O tópico que corresponde à palavra-chave especificada|
 |SentimentScore | A pontuação de sentimento do Sentiment140|
 |Autor | O identificador do Twitter que enviou o tweet|
-|Texto | O corpo completo do tweet|
+|Text | O corpo completo do tweet|
 
 
 ## <a name="create-an-output-sink"></a>Criar um coletor de saída
@@ -369,7 +372,7 @@ Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais d
 6. Clique em **Iniciar** para reiniciar o trabalho usando a nova consulta.
 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas

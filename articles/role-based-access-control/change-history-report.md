@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535539"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997896"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Exibir logs de atividades para alterações de RBAC para recursos do Azure
 
@@ -43,7 +43,7 @@ A maneira mais fácil para começar é exibir os logs de atividade com o portal 
 
 O log de atividades no portal tem vários filtros. Estes são os filtros de RBAC:
 
-|Filter  |Valor  |
+|Filter  |Value  |
 |---------|---------|
 |Categoria de evento     | <ul><li>Administrativo</li></ul>         |
 |Operação     | <ul><li>Criar atribuição de função</li> <li>Excluir atribuição de função</li> <li>Criar ou atualizar definição de função personalizada</li> <li>Excluir definição de função personalizada</li></ul>      |
@@ -66,7 +66,7 @@ Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Act
 Esse comando abaixo lista todas as definição de atribuição de função em um grupo de recursos nos os últimos sete dias:
 
 ```azurepowershell
-Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Esse comando lista todas as alterações de atribuição de função e de definição de função em uma assinatura para os últimos sete dias e exibe os resultados em uma lista:
@@ -88,7 +88,7 @@ EventTimestamp          : 4/20/2018 9:18:05 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
 ```
 
@@ -99,7 +99,7 @@ Para exibir logs de atividade com a CLI do Azure, use o comando [lista de log de
 Esse comando lista os logs de atividade em um grupo de recursos desde a hora de início:
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
+az monitor activity-log list --resource-group pharma-sales --start-time 2018-04-20T00:00:00Z
 ```
 
 Esse comando lista os logs de atividade para um provedor de recursos de autorização desde a hora de início:
@@ -119,7 +119,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Aqui estão as etapas básicas para começar:
 
-1. [Criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+1. [Criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Configurar a solução Análise do Log de Atividades](../azure-monitor/platform/collect-activity-logs.md#configuration) para seu workspace.
 

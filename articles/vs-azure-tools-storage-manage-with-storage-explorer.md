@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225086"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002673"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -99,7 +99,7 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 
 2. Agora o painel à esquerda exibe todas as contas do Azure em que você se conectou. Para conectar-se a outra conta, selecione **Adicionar uma conta**
 
-3. Se você quiser entrar em uma nuvem nacional ou no Azure Stack, clique na lista suspensa **Ambiente do Azure** para selecionar qual nuvem do Azure você deseja usar. Depois de escolher o ambiente, clique no botão **Entrar...**. Se você estiver entrando no Azure Stack, consulte [Conectar o Gerenciador de Armazenamento a uma assinatura do Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md) para obter mais informações.
+3. Se você quiser entrar em uma nuvem nacional ou no Azure Stack, clique na lista suspensa **Ambiente do Azure** para selecionar qual nuvem do Azure você deseja usar. Depois de escolher o ambiente, clique no botão **Entrar...**. Se você estiver entrando no Azure Stack, consulte [Conectar o Gerenciador de Armazenamento a uma assinatura do Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) para obter mais informações.
 
     ![Opção de conexão][2]
 

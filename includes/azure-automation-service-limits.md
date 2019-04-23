@@ -8,20 +8,21 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553261"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012482"
 ---
 #### <a name="process-automation"></a>Automação de processos
 
-| Recurso | Limite máximo |Notes|
+| Recurso | Limite máximo |Observações|
 | --- | --- |---|
 | Número máximo de novos trabalhos podem ser enviados a cada 30 segundos por conta de automação do Azure (trabalhos não agendados) |100 |Quando esse limite for atingido, as solicitações subsequentes para criar um trabalho falharem. O cliente recebe uma resposta de erro.|
 | Número máximo de trabalhos simultâneos em execução na mesma instância do tempo por conta de automação (trabalhos não agendados) |200 |Quando esse limite for atingido, as solicitações subsequentes para criar um trabalho falharem. O cliente recebe uma resposta de erro.|
 | Tamanho máximo de armazenamento de metadados de trabalho por um período de 30 dias sem interrupção | 10 GB (aproximadamente 4 milhões trabalhos)|Quando esse limite for atingido, as solicitações subsequentes para criar um trabalho falharem. |
+| Limite de fluxo de trabalho máximo|1 MB|Um único fluxo não pode ser maior que 1 MB.|
 | Número máximo de módulos que podem ser importados por conta de automação a cada 30 segundos |5 ||
 | Tamanho máximo de um módulo |100 MB ||
 | Trabalho de tempo de execução, camada gratuita |500 minutos por assinatura por mês ||

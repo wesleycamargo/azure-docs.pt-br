@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685694"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010883"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e solucionar problemas ao usar o gatilho do Azure Cosmos DB no Azure Functions
 
@@ -31,7 +31,7 @@ Este artigo sempre fará referência ao Azure Functions V2 sempre que o tempo de
 
 A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho do Azure Cosmos DB e associações. Ele também inclui o [SDK do .NET do Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com o Azure Cosmos DB programaticamente sem usar o gatilho e associações.
 
-Se quiser para usar o SDK do Azure Cosmos DB, certifique-se de que você não adicionar ao seu projeto outra referência de pacote do NuGet. Em vez disso, **permitem que a referência SDK resolver por meio do pacote de extensão do Azure Functions**.
+Se quiser usar o SDK do Azure Cosmos DB, certifique-se de que você não adicionar ao seu projeto outra referência de pacote do NuGet. Em vez disso, **permitem que a referência SDK resolver por meio do pacote de extensão do Azure Functions**.
 
 Além disso, se você estiver criando manualmente sua própria instância das [client SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), você deve seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão de Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Esse processo irá evitar os problemas potenciais de soquete em suas operações.
 

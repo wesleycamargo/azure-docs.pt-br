@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700614"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005495"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Crie uma máquina virtual do Linux em uma zona de disponibilidade com a CLI do Azure
 
 Este artigo aborda usando o CLI do Azure para criar uma máquina virtual do Linux em uma região de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona fisicamente separada em uma região do Azure. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
 
-Para usar uma zona de disponibilidade, crie a máquina virtual em uma [região do Azure com suporte](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Para usar uma zona de disponibilidade, crie a máquina virtual em uma [região do Azure com suporte](../../availability-zones/az-overview.md#services-support-by-region).
 
 Verifique se você instalou a versão mais recente da [CLI do Azure](/cli/azure/install-az-cli2) e entrou em uma conta do Azure com [az login](/cli/azure/reference-index).
 
@@ -102,7 +102,7 @@ A criação da VM pode levar alguns minutos. Depois que a VM tiver sido criada, 
 
 Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado para a VM é criado na mesma zona de disponibilidade. Por padrão, um endereço IP público também é criado nessa região. Para obter informações sobre esses tópicos, consulte os seguintes recursos.
 
-Para verificar se o disco gerenciado da VM está na zona de disponibilidade, use o comando [az vm show](/cli/azure/vm) para retornar a ID do disco. Neste exemplo, o Id do disco é armazenado em uma variável usada em uma etapa posterior. 
+Para verificar se o disco gerenciado da VM está na zona de disponibilidade, use o [show do az vm](/cli/azure/vm) comando para retornar a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável que é usada em uma etapa posterior. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093881"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998270"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor do Banco de Dados SQL do Azure
 
@@ -75,7 +75,7 @@ Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenua
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização de trabalho for devido à contenção de recursos de computação. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Governança de taxa de Log de transação 
-Governança de taxa de log de transações é um processo no banco de dados SQL do Azure usada para limitar as taxas de ingestão de alta para cargas de trabalho como bulk insert, SELECT INTO e compilações de índice. Esses limites são rastreados e aplicados no nível de subsegundos para a taxa de geração de registro de log, limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação aos arquivos de dados.  Taxas de geração de log de transações atualmente aumentam linearmente até um ponto que é dependente de hardware, com o máximo do log de taxa de permissão que está sendo 48 MB/s com o modelo de compra de vCore. 
+Governança de taxa de log de transações é um processo no banco de dados SQL do Azure usada para limitar as taxas de ingestão de alta para cargas de trabalho como bulk insert, SELECT INTO e compilações de índice. Esses limites são rastreados e aplicados no nível de subsegundos para a taxa de geração de registro de log, limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação aos arquivos de dados.  Taxas de geração de log de transações atualmente aumentam linearmente até um ponto que é dependente de hardware, com o máximo do log de taxa de permissão que está sendo 96 MB/s com o modelo de compra de vCore. 
 
 > [!NOTE]
 > O IOs físico real para arquivos de log de transações não é regido ou limitado. 
@@ -98,7 +98,7 @@ Modelagem de tráfego do administrador de taxa de log será exposto por meio dos
 |||
 
 Ao encontrar um limite de taxa de log que está limitando a escalabilidade desejada, considere as seguintes opções:
-- Escalar verticalmente para uma camada maior de fim de obter a taxa máxima de log 48 MB/s. 
+- Escalar verticalmente para uma camada maior de fim de obter a taxa máxima de log 96 MB/s. 
 - Se os dados que está sendo carregados forem transitórios, ou seja, a preparação de dados em um processo ETL, pode ser carregado em tempdb (que é minimamente registrada). 
 - Para cenários analíticos, carregue em uma tabela columnstore clusterizada coberto. Isso reduz a taxa de log necessários devido à compactação. Essa técnica aumente a utilização da CPU e só é aplicável aos conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 

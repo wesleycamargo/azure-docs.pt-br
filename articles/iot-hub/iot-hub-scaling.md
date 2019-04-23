@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571287"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002129"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -83,7 +83,7 @@ A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
 | Enviar eventos de módulo | Sim | Sim |
 | [Atualizar o status de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo em massa](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Sim, exceto pelos recursos do IoT Edge | Sim | 
+| [Operação de dispositivo em massa](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Sim, exceto pelos recursos do IoT Edge | Sim | 
 | [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sim |
 | [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sim |
 | Obter módulo gêmeo |   | Sim |
@@ -131,7 +131,7 @@ Se você está se aproximando o limite permitido de mensagens no Hub IoT, você 
 
 Enquanto um único Hub IoT pode ser dimensionado para milhões de dispositivos, às vezes sua solução exigirá características específicas de desempenho que um único Hub IoT não pode garantir. Nesse caso, você poderá particionar os dispositivos em vários hubs IoT. Vários hubs IoT suavizam picos de tráfego e obtêm a taxa de transferência ou as taxas de operação necessárias.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre os recursos de IoT Hub e detalhes de desempenho, consulte [preços do IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) ou [IoT Hub cotas e limites do](iot-hub-devguide-quotas-throttling.md).
 

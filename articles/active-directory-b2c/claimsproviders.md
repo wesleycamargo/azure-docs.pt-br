@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2d862d07a65c3fb28b49a82692ea575f787b9750
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508803"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008742"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -55,7 +55,7 @@ O elemento **ClaimsProvider** contém os elementos filho a seguir:
 | DisplayName | 0:1 | Uma cadeia de caracteres contendo o nome do provedor de declarações que pode ser exibido aos usuários. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos com suporte pelo provedor de declarações |
 
-O **ClaimsProvider** organiza os perfis técnicos relacionados ao provedor de declarações. O exemplo a seguir mostra o provedor de declarações do Azure Active Directory com os perfis técnicos do Azure Active Directory:
+**ClaimsProvider** organiza como os perfis de técnicos se relacionam com o provedor de declarações. O exemplo a seguir mostra o provedor de declarações do Azure Active Directory com os perfis técnicos do Azure Active Directory:
 
 ```XML
 <ClaimsProvider>

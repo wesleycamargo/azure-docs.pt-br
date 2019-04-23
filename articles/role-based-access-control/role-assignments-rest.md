@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439325"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006436"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST
 
@@ -28,7 +28,7 @@ O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenc
 
 ## <a name="list-access"></a>Relacionar acesso
 
-No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional. Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo especificado. Várias [funções internas para recursos do Azure](built-in-roles.md) recebem acesso a essa operação.
+No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional.
 
 1. Comece com a solicitação a seguir:
 

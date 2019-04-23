@@ -1,24 +1,23 @@
 ---
 title: Gerenciar Reservas do Azure | Microsoft Docs
 description: Saiba como é possível alterar o escopo de assinatura e gerenciar o acesso às Reservas do Azure.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904434"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994926"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -29,7 +28,19 @@ Se você comprou Instâncias de Máquinas Virtuais Reservadas do Azure, poderá 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Alterar o escopo de uma reserva
+## <a name="reservation-order-and-reservation"></a>Reserva e o pedido de reserva
+
+Quando você compra de uma reserva, dois objetos são criados: **Pedido de reserva** e **reserva**.
+
+No momento da compra, um pedido de reserva tem uma reserva sob ele. Ações como a divisão, mesclagem, reembolso parcial ou exchange criam novas reservas sob o **pedido de reserva**.
+
+Para exibir um pedido de reserva, vá para **reservas** > selecione a reserva e, em seguida, clique no **ID do pedido de reserva**.
+
+![Exemplo de detalhes do pedido de reserva que mostra a ID do pedido de reserva ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Uma reserva herda permissões do seu pedido de reserva.
+
+## <a name="change-the-reservation-scope"></a>Alterar o escopo de reserva
 
  O desconto de reserva se aplica a máquinas virtuais, bancos de dados SQL, BD Cosmos do Azure ou outros recursos que correspondem à reserva e executados no escopo de reserva. O contexto de cobrança depende da assinatura usada para comprar a reserva.
 
@@ -47,9 +58,12 @@ O escopo somente aplica-se à oferta Pagamento Conforme o Uso MS-AZR-0003P ou MS
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os usuários que podem gerenciar uma reserva
 
-Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Por padrão, a pessoa que comprou a reserva e o administrador da conta têm a função de Proprietário de reserva.
+Você pode delegar o gerenciamento de reserva adicionando pessoas às funções na ordem de reserva ou a reserva. Por padrão, a pessoa que coloca o pedido de reserva e o administrador da conta tem a função de proprietário na ordem de reserva e a reserva.
 
-Você pode gerenciar o acesso às reservas independentemente das assinaturas que obtêm o desconto de reserva. Ao conceder a alguém permissões para gerenciar uma reserva, isso não lhes dá direitos de gerenciar a assinatura. E se você conceder a alguém permissões para gerenciar uma assinatura no escopo da reserva, isso não lhe concederá direitos de gerenciamento da reserva.
+Você pode gerenciar o acesso aos pedidos de reservas e reservas independentemente das assinaturas que obtêm o desconto de reserva. Quando você conceder a alguém permissões para gerenciar a reserva ou um pedido de reserva, ele não conceder permissão para gerenciar a assinatura. Da mesma forma, se você conceder a alguém permissões para gerenciar uma assinatura no escopo da reserva, ele não dá a eles direitos para gerenciar a ordem de reserva ou a reserva.
+
+Para executar o exchange ou o reembolso, o usuário deve ter acesso ao pedido de reserva. Ao conceder a alguém permissões, é melhor conceder permissões para o pedido de reserva, não a reserva.
+
 
 Para delegar o gerenciamento de acesso de uma reserva:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562072"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148825"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo usando Azure Data Factory (versão prévia)
 
@@ -33,7 +33,7 @@ Você pode copiar dados de um Marketo para qualquer armazenamento de dados de co
 Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, não é necessário instalar manualmente qualquer driver usando esse conector.
 
 >[!NOTE]
->Esse conector do Marketo é criado sobre a API REST do Marketo. Lembre-se de que o Marketo tem [limite de solicitações simultâneas](http://developers.marketo.com/rest-api/) no lado do serviço. Se você encontrar erros informando "Erro ao tentar usar a API REST: Máximo de taxa limite '100' excedido com '20' segundos (606) "ou" Erro ao tentar usar a API REST: Limite de acesso simultâneo '10' atingido (615) ", considere reduzir as execuções de atividade de cópia simultânea para reduzir o número de solicitações para o serviço.
+>Esse conector do Marketo é criado sobre a API REST do Marketo. Lembre-se de que o Marketo tem [limite de solicitações simultâneas](https://developers.marketo.com/rest-api/) no lado do serviço. Se você encontrar erros informando "Erro ao tentar usar a API REST: Máximo de taxa limite '100' excedido com '20' segundos (606) "ou" Erro ao tentar usar a API REST: Limite de acesso simultâneo '10' atingido (615) ", considere reduzir as execuções de atividade de cópia simultânea para reduzir o número de solicitações para o serviço.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -47,7 +47,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Marketo:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Marketo** | Sim |
+| type | A propriedade type deve ser definida como: **Marketo** | Sim |
 | endpoint | O ponto de extremidade do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
 | clientId | A ID do cliente do serviço Marketo.  | Sim |
 | clientSecret | O segredo do cliente do serviço Marketo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -82,7 +82,7 @@ Para copiar dados do Marketo, defina a propriedade type do conjunto de dados com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MarketoObject** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **MarketoObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -111,7 +111,7 @@ Para copiar dados do Marketo, defina o tipo de origem na atividade de cópia com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

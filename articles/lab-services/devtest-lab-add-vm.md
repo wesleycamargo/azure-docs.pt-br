@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c0ce73fa5c29a2d0e49d9c4bb15a855fadc75b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746772"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149562"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM a um laboratório no Azure DevTest Labs
 Se você já tiver [criado sua primeira VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), provavelmente isso foi feito por meio de uma [imagem do Marketplace](devtest-lab-configure-marketplace-images.md) pré-carregada. Agora, se quiser adicionar VMs subsequentes ao laboratório, você também poderá escolher uma *base* que seja uma [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial orienta você pelo Portal do Azure para adicionar uma máquina virtual a um laboratório no DevTest Labs.
@@ -31,15 +31,15 @@ Este artigo também mostra como gerenciar os artefatos para uma VM em seu labora
 1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na seção **DEVOPS**. Se você selecionar * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará **DevTest Labs** ao menu de navegação esquerdo para que você possa acessá-lo facilmente na próxima vez. Em seguida, será possível selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços - selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.  
-2. Na página de **Visão Geral** do laboratório, selecione **+ Adicionar**.  
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.
+2. Na página de **Visão Geral** do laboratório, selecione **+ Adicionar**.
 
     ![Botão Adicionar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 1. Na página **Escolher uma base**, selecione uma imagem do Marketplace para a VM.
-1. Na guia **Configurações Básicas** da **Máquina Virtual**, execute as seguintes ações: 
+1. Na guia **Configurações Básicas** da **Máquina Virtual**, execute as seguintes ações:
     1. Insira um nome para a VM na caixa de texto **nome da Máquina Virtual**. A caixa de texto é previamente preenchida para você, com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário no seu endereço de email, seguido por um número exclusivo de três dígitos. Esse recurso poupa o tempo de pensar em um nome de computador e digitá-lo sempre que você criar um computador. Se desejar, você poderá substituir esse campo preenchido automaticamente por um nome de sua escolha. Para substituir o nome preenchido automaticamente para a VM, insira um nome na caixa de texto **Nome da máquina virtual**.
     2. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual. O **nome de usuário** para o computador é previamente preenchido com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário no seu endereço de email. Esse recurso poupa o tempo de escolher um nome de usuário sempre que você cria um novo computador. Mais uma vez, se quiser, você poderá substituir esse campo preenchido automaticamente por um nome de sua escolha. Para substituir o valor preenchido automaticamente para um nome de usuário, insira um valor na caixa de texto **Nome de Usuário**. Esse usuário recebe privilégios de **administrador** na máquina virtual.
-    3. Se você estiver criando a primeira VM no laboratório, insira uma **senha** para o usuário. Para salvar essa senha como uma senha padrão no Azure Key Vault associado ao laboratório, selecione **Salvar como senha padrão**. A senha padrão é salva no cofre de chaves com o nome: **VmPassword**. Quando você tenta criar VMs subsequentes no laboratório, **VmPassword** é selecionada automaticamente para a **senha**. Para substituir o valor, desmarque a caixa de seleção **Usar um segredo salvo** e digite uma senha. 
+    3. Se você estiver criando a primeira VM no laboratório, insira uma **senha** para o usuário. Para salvar essa senha como uma senha padrão no Azure Key Vault associado ao laboratório, selecione **Salvar como senha padrão**. A senha padrão é salva no cofre de chaves com o nome: **VmPassword**. Quando você tenta criar VMs subsequentes no laboratório, **VmPassword** é selecionada automaticamente para a **senha**. Para substituir o valor, desmarque a caixa de seleção **Usar um segredo salvo** e digite uma senha.
 
         ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
@@ -48,12 +48,12 @@ Este artigo também mostra como gerenciar os artefatos para uma VM em seu labora
     5. Selecione **Adicionar ou Remover Artefatos**. Selecione e configure os artefatos que você quer adicionar à imagem base.
     **Observação:** Se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
 2. Alterne para a guia **Configurações Avançadas** na parte superior e execute as seguintes ações:
-    1. Para alterar a rede virtual na qual está a VM, selecione **Alterar VNet**. 
-    2. Para alterar a sub-rede, selecione **Alterar sub-rede**. 
-    3. Especifique se o endereço IP da VM é **público, privado ou compartilhado**. 
-    4. Para excluir automaticamente a VM, especifique a **data e hora de validade**. 
-    5. Para tornar a VM requisitável por um usuário do laboratório, selecione **Sim** para a opção **Tornar esta máquina requisitável**. 
-    6. Especifique o número de **instâncias da VM** que você quer disponibilizar aos usuários do laboratório. 
+    1. Para alterar a rede virtual na qual está a VM, selecione **Alterar VNet**.
+    2. Para alterar a sub-rede, selecione **Alterar sub-rede**.
+    3. Especifique se o endereço IP da VM é **público, privado ou compartilhado**.
+    4. Para excluir automaticamente a VM, especifique a **data e hora de validade**.
+    5. Para tornar a VM requisitável por um usuário do laboratório, selecione **Sim** para a opção **Tornar esta máquina requisitável**.
+    6. Especifique o número de **instâncias da VM** que você quer disponibilizar aos usuários do laboratório.
 
         ![Escolher uma base](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
 1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
@@ -72,39 +72,41 @@ Para saber como criar artefatos, confira o artigo [Aprenda a criar seus próprio
 
 1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-1. Na lista de laboratórios, selecione o laboratório contendo a VM com a qual você quer trabalhar.  
+1. Na lista de laboratórios, selecione o laboratório contendo a VM com a qual você quer trabalhar.
 1. Selecione **Minhas máquinas virtuais**.
 1. Selecione a VM desejada.
-1. Selecione **Gerenciar artefatos**. 
+1. Selecione **Gerenciar artefatos**.
 1. Selecione **Aplicar artefatos**.
 1. No painel **Aplicar artefatos**, selecione o artefato que você deseja adicionar à VM.
-1. No painel **Adicionar artefatos**, insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.  
+1. No painel **Adicionar artefatos**, insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.
 1. Selecione **Adicionar** para adicionar o artefato e retornar ao painel **Aplicar artefatos**.
 1. Continue adicionando artefatos à sua VM conforme o necessário.
 1. Após adicionar os artefatos, você pode [alterar a ordem em que eles são executados](#change-the-order-in-which-artifacts-are-run). Você pode também voltar e [exibir ou modificar um artefato](#view-or-modify-an-artifact).
 1. Quando você terminar de adicionar artefatos, selecione **Aplicar**
 
 ## <a name="change-the-order-in-which-artifacts-are-run"></a>Alterar a ordem de execução dos artefatos
-Por padrão, as ações dos artefatos são executadas na ordem em que eles são adicionados à VM. As etapas a seguir ilustram como alterar a ordem de execução dos artefatos.
+Por padrão, as ações dos artefatos são executadas na ordem em que eles são adicionados à VM.
+As etapas a seguir ilustram como alterar a ordem de execução dos artefatos.
 
 1. Na parte superior do painel **Aplicar artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
-   
+
     ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. No painel **Artefatos selecionados**, arraste e solte os artefatos na ordem desejada. **Observação:** Se você enfrentar problemas para arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato. 
-1. Selecione **OK** quando tiver concluído.  
+1. No painel **Artefatos selecionados**, arraste e solte os artefatos na ordem desejada. **Observação:** Se você enfrentar problemas para arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato.
+1. Selecione **OK** quando tiver concluído.
 
 ## <a name="view-or-modify-an-artifact"></a>exibir ou modificar um artefato
 As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefato:
 
 1. Na parte superior do painel **Aplicar artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
-   
+
     ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. No painel **Artefatos selecionados**, selecione o artefato que você deseja exibir ou editar.  
+1. No painel **Artefatos selecionados**, selecione o artefato que você deseja exibir ou editar.
 1. No painel **Adicionar artefato**, faça as alterações necessárias e selecione **OK** para fechar o painel **Adicionar artefato**.
 1. Selecione **OK** para fechar o painel **Artefatos selecionados**.
 
 ## <a name="save-azure-resource-manager-template"></a>Salvar modelo do Azure Resource Manager
-Um modelo do Azure Resource Manager é uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo do Azure Resource Manager para a VM que está sendo criada.
+Um modelo do Azure Resource Manager é uma forma declarativa de definir uma implantação repetível.
+As etapas a seguir explicam como salvar o modelo do Azure Resource Manager para a VM que está sendo criada.
 Depois de salvo, você pode usar o modelo do Azure Resource Manager para [implantar novas VMs com o Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 1. No painel **Máquina Virtual**, selecione **Exibir Modelo do Azure Resource Manager**.
@@ -120,4 +122,4 @@ Depois de salvo, você pode usar o modelo do Azure Resource Manager para [implan
 ## <a name="next-steps"></a>Próximas etapas
 * Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** no painel da VM.
 * Saiba como [criar artefatos personalizados para sua VM do DevTest Labs](devtest-lab-artifact-author.md).
-* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

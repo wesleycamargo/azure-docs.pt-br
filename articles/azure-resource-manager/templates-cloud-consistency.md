@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089464"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008199"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
 
@@ -671,7 +671,7 @@ Considere as seguintes dicas para testes e automação:
 * Lembre-se de que alguns testes podem ser executados sem uma conexão com o Azure Resource Manager. Outros, como o teste de implantação de modelo, exigem que o Resource Manager execute determinadas ações que não podem ser executadas offline.
 * O teste de um modelo de implantação na API de validação não é igual a uma implantação real. Além disso, mesmo se você implantar um modelo de um arquivo local, as referências aos modelos aninhados no modelo serão recuperadas pelo Resource Manager diretamente, e os artefatos referenciados pelas extensões de VM serão recuperados pelo agente de VM em execução dentro da VM implantada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Considerações sobre o modelo do Azure Resource Manager](../azure-stack/user/azure-stack-develop-templates.md)
+* [Considerações sobre o modelo do Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
 * [Melhores práticas para modelos do Azure Resource Manager](resource-group-authoring-templates.md)

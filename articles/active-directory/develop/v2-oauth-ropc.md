@@ -1,5 +1,5 @@
 ---
-title: Use plataforma de identidade Microsoft para conectar usuários usando ROPC | Azure
+title: Use plataforma de identidade Microsoft para conectar usuários usando a concessão de credencial (ROPC) de senha de proprietário de recurso | Azure
 description: Suporta fluxos de autenticação sem navegador usando a concessão de credencial de senha do proprietário do recurso.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499930"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004934"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidade da Microsoft e a credencial de senha de proprietário de recurso do OAuth 2.0
 
-Dá suporte à plataforma de identidade do Microsoft as [concessão de credencial de senha de proprietário do recurso (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo para a entrada do usuário manipulando diretamente sua senha. O fluxo de ROPC requer um alto grau de confiança e exposição do usuário, e os desenvolvedores só devem usar esse fluxo quando os outros fluxos, mais seguros, não puderem ser usados.
+Dá suporte à plataforma de identidade do Microsoft as [concessão de credencial de senha de proprietário do recurso (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo para a entrada do usuário manipulando diretamente sua senha. O fluxo ROPC requer um alto grau de exposição de confiança e de usuário e você deve usar esse fluxo apenas quando os fluxos de outros, mais seguros, não podem ser usados.
 
 > [!IMPORTANT]
+>
 > * O ponto de extremidade de plataforma de identidade do Microsoft só dá suporte a ROPC para locatários do Azure AD, contas não pessoais. Isso significa que você deve usar um terminal específico do locatário (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou o terminal `organizations`.
 > * Contas pessoais são convidadas a um locatário Azure AD não é possível usar ROPC.
 > * Contas que não têm senhas não podem entrar por meio de ROPC. Para este cenário, recomendamos que você use um fluxo diferente para seu aplicativo em vez disso.
@@ -38,7 +39,7 @@ Dá suporte à plataforma de identidade do Microsoft as [concessão de credencia
 
 O diagrama a seguir mostra o fluxo do ROPC.
 
-![Fluxo ROPC](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![Fluxo ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Solicitação de autorização
 
@@ -65,15 +66,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
-| `tenant` | Obrigatório | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `grant_type` | Obrigatório | Deve ser definido como `password`. |
-| `username` | Obrigatório | Endereço de email do usuário. |
-| `password` | Obrigatório | A senha do usuário. |
-| `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Esses escopos devem receber consentimento antes do tempo por um administrador ou pelo usuário em um fluxo interativo. |
+| `tenant` | Necessário | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
+| `grant_type` | Necessário | Deve ser definido como `password`. |
+| `username` | Necessário | Endereço de email do usuário. |
+| `password` | Necessário | A senha do usuário. |
+| `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve concordar com esses escopos antecipadamente. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
-O exemplo a seguir mostra um exemplo de uma resposta bem-sucedida de token:
+O exemplo a seguir mostra uma resposta bem-sucedida de token:
 
 ```json
 {
@@ -105,7 +106,7 @@ Se o usuário não tiver fornecido o nome de usuário ou a senha corretos, ou se
 |------ | ----------- | -------------|
 | `invalid_grant` | A autenticação falhou | As credenciais estavam incorretas ou o cliente não tem consentimento para os escopos solicitados. Se os escopos não forem concedidos, um `consent_required` erro será retornado. Se isso ocorrer, o cliente deve enviar o usuário para um prompt interativo usando uma visualização da Web ou um navegador. |
 | `invalid_request` | A solicitação foi mal construída | O tipo de concessão não é suportado na `/common` ou `/consumers` contextos de autenticação.  Use `/organizations` em vez disso. |
-| `invalid_client` | O aplicativo está configurado incorretamente | Isso pode acontecer se o `allowPublicClient` propriedade não está definida como true na [manifesto do aplicativo](reference-app-manifest.md). A propriedade `allowPublicClient` é necessária porque a concessão de ROPC não possui um URI de redirecionamento. O Microsoft Azure Active Directory não pode determinar se o aplicativo é um aplicativo cliente público ou um aplicativo cliente confidencial, a menos que a propriedade esteja definida. Observe que o ROPC é suportado apenas para aplicativos clientes públicos. |
+| `invalid_client` | O aplicativo está configurado incorretamente | Isso pode acontecer se o `allowPublicClient` propriedade não está definida como true na [manifesto do aplicativo](reference-app-manifest.md). A propriedade `allowPublicClient` é necessária porque a concessão de ROPC não possui um URI de redirecionamento. O Microsoft Azure Active Directory não pode determinar se o aplicativo é um aplicativo cliente público ou um aplicativo cliente confidencial, a menos que a propriedade esteja definida. ROPC tem suporte apenas para aplicativos de cliente público. |
 
 ## <a name="learn-more"></a>Saiba mais
 

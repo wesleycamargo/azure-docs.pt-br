@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370290"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000922"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
@@ -106,14 +106,14 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 | Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Polinésia Francesa                                    |                 |                |              |      ✓     |          ✓         |
 | Ilhas Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
-| RAE de Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Índia                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japão                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Coreia do Sul                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macau                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAE de Macau                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malásia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronésia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongólia                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituânia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedônia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macedônia do Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mônaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -301,7 +301,7 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a geocodificação de Mapas do Azure, consulte as páginas de referência [Pesquisa](https://docs.microsoft.com/rest/api/maps/search).
 

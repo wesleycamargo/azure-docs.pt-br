@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525918"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998441"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -92,20 +92,22 @@ Arquivos do Azure oferece dois níveis de desempenho: standard e premium.
 |Norte da Europa  | Não  |
 |Europa Ocidental   | Sim|
 |Sudeste da Ásia       | Sim|
+|Ásia Oriental     | Não  |
 |Leste do Japão    | Não  |
+|Oeste do Japão    | Não  |
 |Coreia Central | Não  |
 |Leste da Austrália| Não  |
 
 ### <a name="provisioned-shares"></a>Compartilhamentos provisionados
 
-Os compartilhamentos de arquivos (versão prévia) Premium são provisionados com base em uma taxa fixa de GiB/IOPS/taxa de transferência. Para cada GiB provisionado, o compartilhamento emitirá um IOPS e uma taxa de transferência de 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB, com um IOPS e uma taxa de transferência mínimos. Tamanho do compartilhamento pode ser aumentado a qualquer momento e reduzido a qualquer momento, mas pode ser reduzido uma vez a cada 24 horas desde o último aumento.
+Os compartilhamentos de arquivos (versão prévia) Premium são provisionados com base em uma taxa fixa de GiB/IOPS/taxa de transferência. Para cada GiB provisionado, o compartilhamento emitirá um IOPS e uma taxa de transferência de 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB, com um IOPS e uma taxa de transferência mínimos.
 
 Com base no melhor esforço, todos os compartilhamentos poderão acumular até três IOPS por GiB de armazenamento provisionado por 60 minutos ou mais, dependendo do tamanho do compartilhamento. Os novos compartilhamentos começam com o crédito de intermitência completa com base na capacidade provisionada.
 
-Todos os compartilhamentos podem chegar até pelo menos 100 IOPS e destino taxa de transferência de 100 MiB/s. Compartilhamentos devem ser provisionados em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, próximo tamanho é GIB 101 e assim por diante.
+Compartilhamentos devem ser provisionados em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, próximo tamanho é GIB 101 e assim por diante.
 
 > [!TIP]
-> Linha de base de IOPS = 100 + 1 * provisionado GiB. (Até um máximo de 100.000 IOPS).
+> Linha de base de IOPS = 1 * provisionado GiB. (Até um máximo de 100.000 IOPS).
 >
 > Limite de intermitência = 3 * IOPS de linha de base. (Até um máximo de 100.000 IOPS).
 >
@@ -113,13 +115,13 @@ Todos os compartilhamentos podem chegar até pelo menos 100 IOPS e destino taxa 
 >
 > taxa de entrada = 40 MiB/s + 0,04 * provisionado GiB
 
-Tamanho do compartilhamento pode ser aumentado a qualquer momento e reduzido a qualquer momento, mas pode ser reduzido uma vez a cada 24 horas desde o último aumento. As alterações de escala IOPS/taxa de transferência entrarão em vigor dentro de 24 horas após a alteração de tamanho.
+Tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser diminuído apenas após 24 horas desde o último aumento. Após aguardar 24 horas sem um aumento de tamanho, você pode diminuir o tamanho do compartilhamento quantas vezes até que você aumentá-lo novamente. As alterações de escala IOPS/taxa de transferência entrarão em vigor em poucos minutos após a alteração de tamanho.
 
 A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos do compartilhamento provisionado:
 
 (Tamanhos indicado por um * estão em visualização pública limitada)
 
-|Capacidade (GiB) | IOPS de linha de base | Limite de intermitência | Saída (MiB/s) | Entrada (MiB/s) |
+|Capacidade (GiB) | IOPS de linha de base | IOPS de intermitente | Saída (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1500   | 90   | 60   |
@@ -136,20 +138,20 @@ Atualmente, tamanhos de compartilhamento de arquivo até 5 TiB estão em visuali
 
 Compartilhamentos de arquivos do Premium podem estourar seu IOPS até um fator de três. Intermitência é automatizado e opera com base em um sistema de crédito. Intermitência funciona em uma base de melhor esforço e o limite de intermitência não é uma garantia, compartilhamentos de arquivos podem estourar *até* o limite.
 
-Os créditos são acumulados em um bucket de intermitente sempre que o tráfego para seus compartilhamentos de arquivos está abaixo da linha de base IOPS. Por exemplo, um compartilhamento de 100 GiB tem a linha de base de 100 IOPS. Se tráfego real no compartilhamento de 40 IOPS para um intervalo específico de 1 segundo, o IOPS não utilizado 60 são creditado para um bucket de intermitente. Esses créditos, em seguida, serão usados posteriormente quando operações excederia a IOPs de linha de base.
+Os créditos são acumulados em um bucket de intermitente sempre que o tráfego para o compartilhamento de arquivos está abaixo da linha de base IOPS. Por exemplo, um compartilhamento de 100 GiB tem a linha de base de 100 IOPS. Se tráfego real no compartilhamento de 40 IOPS para um intervalo específico de 1 segundo, o IOPS não utilizado 60 são creditado para um bucket de intermitente. Esses créditos, em seguida, serão usados posteriormente quando operações excederia a IOPs de linha de base.
 
 > [!TIP]
-> Tamanho do bucket de limite de intermitência = Baseline_IOPS * 3600 * 2.
+> Tamanho do bucket de intermitente = Baseline_IOPS * 3600 * 2.
 
-Sempre que um compartilhamento excede a linha de base IOPS e tem créditos em um bucket de intermitente, ele será intermitente. Compartilhamentos podem continuar a intermitência créditos restantes, desde que, embora os compartilhamentos de menores que 50 tiB apenas permanecerão no limite de intermitência para até uma hora. Compartilhamentos de maiores que 50 TiB tecnicamente podem exceder esse limite de uma hora, backup para duas horas, mas, isso se baseia no número de créditos de intermitente vencidas. Cada e/s, além da linha de base de IOPS consome um crédito e depois que todos os créditos são consumidos o compartilhamento retornaria a IOPS de linha de base.
+Sempre que um compartilhamento excede a linha de base IOPS e tem créditos em um bucket de intermitente, ele será intermitente. Compartilhamentos podem continuar a intermitência créditos restantes, desde que, embora os compartilhamentos de menores que 50 TiB apenas permanecerão no limite de intermitência para até uma hora. Compartilhamentos de maiores que 50 TiB tecnicamente podem exceder esse limite de uma hora, backup para duas horas, mas, isso se baseia no número de créditos de intermitente vencidas. Cada e/s, além da linha de base de IOPS consome um crédito e depois que todos os créditos são consumidos o compartilhamento retornaria a IOPS de linha de base.
 
 Créditos de compartilhamento tem três estados:
 
 - Acúmulo, quando o compartilhamento de arquivos estiver usando menos que a linha de base IOPS.
 - Diminuindo, quando o compartilhamento de arquivos é bursting.
-- IOPS restantes em zero, quando não houver nenhum créditos ou a linha de base estão em uso.
+- IOPS restantes constante, quando não houver nenhum créditos ou a linha de base estão em uso.
 
-Início de compartilhamentos de arquivo novo com o número total de créditos em seu bucket de intermitente.
+Início de compartilhamentos de arquivo novo com o número total de créditos em seu bucket de intermitente. Não serão ser acumulados créditos de intermitente se o compartilhamento de IOPS cair abaixo da linha de base IOPS devido à limitação pelo servidor.
 
 ## <a name="file-share-redundancy"></a>Redundância de compartilhamento de arquivo
 
@@ -203,7 +205,7 @@ Há muitas opções fáceis para transferência de dados em massa de um arquivo 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. Robocopy pode ser usado para transferir dados para arquivos do Azure montando o compartilhamento de arquivos localmente e, em seguida, usando a localização montada como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: O AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal. O AzCopy está disponível para Windows, Mac e Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

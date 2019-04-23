@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371920"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003489"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Visão geral dos agentes de monitoramento do Azure 
 O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados de máquinas virtuais que executam o Microsoft Windows e o Linux hospedados no Azure, no seu datacenter ou em outros provedores de nuvem. Os três tipos de agentes disponíveis para monitorar uma VM são:
@@ -51,7 +51,7 @@ O agente do Azure Diagnostics deve ser usado quando você quiser:
 * Entenda o desempenho de seus aplicativos e identifique proativamente os problemas que os afetam com [Application Insights](../../azure-monitor/overview.md).
 * Configurar o Azure Monitor para importar as métricas e log de dados coletados de serviços de nuvem, VMs clássicas, e nós do Service Fabric são armazenados em uma conta de armazenamento do Azure.
 
-## <a name="log-analytics-agent"></a>Agente do Log Analytics
+## <a name="log-analytics-agent"></a>Agente do log Analytics
 Para o monitoramento avançado em que você precisa coletar mais de um subconjunto de logs e métricas, o agente do Log Analytics para Windows (também conhecido como o agente MMA (Microsoft Monitoring)) e o Linux é necessário. O agente Log Analytics foi desenvolvido para gerenciamento abrangente em máquinas físicas e virtuais no local, computadores monitorados pelo System Center Operations Manager e VMs hospedados em outras nuvens. Os agentes do Windows e Linux se conectar a um espaço de trabalho do Log Analytics no Azure Monitor para coletar dados baseados em soluções de monitoramento, bem como fontes de dados personalizadas que você configurar.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -70,11 +70,11 @@ Anteriormente, os vários serviços do Azure foram agrupados como o *Operations 
 * Serviços do Azure, como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Azure Security Center](https://docs.microsoft.com/azure/security-center/), que armazenam de forma nativa seus dados diretamente no Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agente de dependência
-O agente Dependency foi desenvolvido como parte da solução Service Map, originalmente desenvolvida externamente pela Microsoft. O [Mapa de Serviço](../insights/service-map.md) e o [Monitor do Azure para VMs](../insights/vminsights-overview.md) exigem um Agente de Dependência em máquinas virtuais Windows e Linux e se integram ao agente Log Analytics para coletar dados descobertos sobre processos em execução na máquina virtual e externa dependências do processo. Ele armazena esses dados em um espaço de trabalho do Log Analytics e visualiza os componentes interconectados descobertos.
+O agente de dependência foi desenvolvido como parte da solução Mapa do serviço, que não foi originalmente desenvolvida pela Microsoft. [O mapa do serviço](../insights/service-map.md) e [do Azure Monitor para VMs](../insights/vminsights-overview.md) exige um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics para coletar dados de descobertas sobre processos em execução no virtual máquina e as dependências de processo externo. Ele armazena esses dados em um espaço de trabalho do Log Analytics e visualiza os componentes interconectados descobertos.
 
 Você pode precisar de alguma combinação desses agentes para monitorar sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto, no Linux, o agente do Log Analytics *deve* ser instalado primeiro ou a instalação falhará. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Confira [Visão geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para revisar os requisitos e métodos com suporte para implantar o agente em máquinas hospedadas no Azure, em seu datacenter ou em outro ambiente de nuvem.
 

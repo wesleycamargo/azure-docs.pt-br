@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798939"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003676"
 ---
 # <a name="logs-in-azure-monitor"></a>Logs no Azure Monitor
 
@@ -99,7 +99,7 @@ O Azure Monitor pode coletar dados de log de várias origens no Azure e de recur
 | System Center Operations Manager | Conecte-se o grupo de gerenciamento do Operations Manager para o Azure Monitor para coletar dados de desempenho e eventos de agentes locais nos logs. Ver [conectar o Operations Manager ao Log Analytics](om-agents.md) para obter detalhes sobre essa configuração. |
 
 
-### <a name="applications"></a>APLICATIVOS
+### <a name="applications"></a>Aplicativos
 
 | Dados | DESCRIÇÃO |
 |:---|:---|
@@ -112,7 +112,7 @@ O Azure Monitor pode coletar dados de log de várias origens no Azure e de recur
 
 | Dados | DESCRIÇÃO |
 |:---|:---|
-| O Azure Monitor para contêineres | Dados de inventário e de desempenho coletados pelo [do Azure Monitor para contêineres](../insights/container-insights-overview.md). Ver [detalhes de coleta de dados do contêiner](../insights/container-insights-analyze.md#container-data-collection-details) para obter uma lista das tabelas. |
+| Azure Monitor para contêineres | Dados de inventário e de desempenho coletados pelo [do Azure Monitor para contêineres](../insights/container-insights-overview.md). Ver [detalhes de coleta de dados do contêiner](../insights/container-insights-log-search.md#container-records) para obter uma lista das tabelas. |
 | Azure Monitor para VMs | Mapa e dados de desempenho coletados pelo [do Azure Monitor para VMs](../insights/vminsights-overview.md). Ver [como consultar os logs do Azure Monitor para VMs](../insights/vminsights-log-search.md) para obter detalhes sobre como consultar esses dados. |
 
 ### <a name="custom"></a>Personalizado 
@@ -130,7 +130,7 @@ O Azure Monitor pode coletar dados de log de várias origens no Azure e de recur
 | Azure Sentinel | [Azure sentinela](/azure/sentinel/) armazena dados de fontes de dados em um espaço de trabalho do Log Analytics. Ver [conectar fontes de dados](/azure/sentinel/connect-data-sources).  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [plataforma de dados do Azure Monitor](data-platform.md).
 - Saiba mais sobre [métricas no Azure Monitor](data-platform-metrics.md).

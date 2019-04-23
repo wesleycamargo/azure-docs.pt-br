@@ -1,5 +1,5 @@
 ---
-title: Examine a saída do Video Indexer produzida pela API v2
+title: Examine a saída do indexador de vídeo de serviços de mídia do Azure produzida pela API v2
 titlesuffix: Azure Media Services
 description: Este tópico examina a saída do Video Indexer produzida pela API v2.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280206"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011309"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
 
@@ -37,7 +37,7 @@ Este artigo examina o conteúdo JSON retornado pela **API Get Video Index**.
 |accountId|ID da conta VI da lista de reprodução.|
 |ID|ID. da lista de reprodução.|
 |Nome|Nome da lista de reprodução.|
-|Descrição|Descrição da lista de reprodução.|
+|description|Descrição da lista de reprodução.|
 |userName|O nome do usuário que criou a lista de reprodução.|
 |criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade da lista de reprodução (pública/privada).|
@@ -148,7 +148,7 @@ Os insights são um conjunto de dimensões (por exemplo, linhas transcritas, fac
 
 Um rosto pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
 
-|Versão|A versão do código|
+|Version|A versão do código|
 |---|---|
 |sourceLanguage|O idioma de origem do vídeo (assumindo um idioma mestre). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |Linguagem|A linguagem de insights (traduzida do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
@@ -279,40 +279,24 @@ Exemplo:
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>faces
@@ -322,7 +306,7 @@ Exemplo:
 |ID|A ID da face.|
 |Nome|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
-|Descrição|Uma descrição da celebridade. |
+|description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|Se é uma pessoa conhecida, o seu ID interno.|
 |referenceId|Se for uma celebridade do Bing, o seu ID do Bing.|
@@ -510,7 +494,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |Nome|O nome de marcas.|
 |referenceId | O sufixo do URL da Wikipédia da marca. Por exemplo, "Target_Corporation" é o sufixo de [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | A marca da url da Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|Descrição|A descrição de marcas.|
+|description|A descrição de marcas.|
 |marcas|Uma lista de tags predefinidas associadas a essa marca.|
 |confidence|O valor de confiança do detector de marca indexador de vídeo (0-1).|
 |instances|Uma lista de intervalos de tempo desta marca. Cada instância tem um brandType, que indica se essa marca apareceu na transcrição ou no OCR.|
@@ -576,7 +560,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |NOME|DESCRIÇÃO|
 |---|---|
 |ID|A ID do efeito de áudio.|
-|tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|Tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -818,7 +802,7 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 . . .
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai)
 

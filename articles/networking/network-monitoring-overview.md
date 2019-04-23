@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984043"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006652"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -37,11 +37,11 @@ Monitor de Desempenho de Rede (NPM) é um conjunto de recursos, cada um deles é
 
 O Monitor de Desempenho, Monitor do ExpressRoute e Monitor da Conectividade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
 
-## <a name="performance-monitor"></a>Monitor de Desempenho
+## <a name="performance-monitor"></a>Monitorar Desempenho
 
 Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes locais, híbridos e na nuvem. Você pode monitorar a conectividade de rede em escritórios e filiais remotas, locais de armazenamento, data centers e nuvens. Você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são:
 
-* Monitorar a perda e latência em várias sub-redes e definir alertas
+* Monitorar perda e latência entre várias sub-redes e definir alertas
 * Monitorar todos os caminhos (incluindo caminhos redundantes) na rede
 * Solucionar problemas de rede transitórios e pontuais, que são difíceis de replicar
 * Determinar um segmento específico na rede, que é responsável pelo desempenho degradado
@@ -55,7 +55,7 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Atualizações de produto: [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [de agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>Monitor do ExpressRoute
+## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
 NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para conexões de emparelhamento da Microsoft e conexões de emparelhamento privadas do Azure. Você pode monitorar desempenho e conectividade E2E entre as filiais e o Azure por meio do ExpressRoute. Os principais recursos são:
 
@@ -86,7 +86,7 @@ Com o monitoramento da Conectividade de Serviço, você pode testar a acessibili
 
 Para obter mais informações, consulte os seguintes artigos:
 
-* [Configurar o Monitor de Desempenho de Rede para monitorar pontos de extremidade do serviço](https://aka.ms/applicationconnectivitymonitorguide)
+* [Configurar o Monitor de Desempenho de Rede para monitorar pontos de extremidade do serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Postagem no blog](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Análise de Tráfego

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57849866"
@@ -46,7 +46,7 @@ A [galeria de runbooks de Automação do Azure](https://azure.microsoft.com/blog
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar bancos de dados do SQL Azure, siga estes links para obter mais informações sobre a Automação do Azure.
+Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar bancos de dados SQL do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
 - [Visão geral da Automação](../automation/automation-intro.md)
 - [Meu primeiro runbook](../automation/automation-first-runbook-graphical.md)

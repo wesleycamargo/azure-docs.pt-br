@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370271"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996570"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
@@ -169,7 +169,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Ilhas Cocos (Keeling)   |   | Ø |
 | República Democrática Popular da Coreia |   | Ø |
 | Dokdo e Takeshima       |   | Ø |
-| RAE de Hong Kong                 | ✓ | ✓ |
+| RAE de Hong Kong             | ✓ | ✓ |
 | Índia                     | Ø | ✓ | 
 | Indonésia                 | ✓ | ✓ |
 | Irã                      |   | Ø |
@@ -182,7 +182,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Quirguistão                |   | Ø |
 | República Democrática do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
-| Macau                     | ✓ | ✓ |
+| RAE de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongólia                  |   | Ø |
@@ -276,7 +276,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Liechtenstein             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Macedônia                 | ✓ | ✓ |
+| Macedônia do Norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mônaco                    | ✓ | ✓ |
@@ -301,7 +301,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a renderização de Mapas do Azure, consulte [Níveis de Zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 

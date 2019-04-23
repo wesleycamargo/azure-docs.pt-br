@@ -1,104 +1,154 @@
 ---
-title: Componentes do Gateway de aplicativo do Azure
-description: Este artigo fornece informações sobre os vários componentes no Gateway de aplicativo
+title: Componentes do gateway de aplicativo
+description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicativo
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 44c8b331ebb258c39a003c91e0711e6dfb87cb12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076285"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008062"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
- Um gateway de aplicativo serve como o único ponto de contato para clientes. Ele distribui o tráfego de aplicativo em vários pools de back-end, como VMs do Azure, conjuntos de dimensionamento de máquinas virtuais, serviços de aplicativos ou servidores no local/externa. Para fazer isso, ele usa vários componentes descritos neste artigo.
+ Um gateway de aplicativo serve como o único ponto de contato para clientes. Ele distribui o tráfego de aplicativo em vários pools de back-end, que incluem VMs do Azure, conjuntos de dimensionamento de máquina virtual, serviço de aplicativo do Azure e os servidores no local/externa. Para distribuir o tráfego, um gateway de aplicativo usa vários componentes descritos neste artigo.
 
-![componentes do gateway de aplicativo](./media/application-gateway-components/application-gateway-components.png)
+![Os componentes usados em um gateway de aplicativo](./media/application-gateway-components/application-gateway-components.png)
 
-## <a name="frontend-ip-address"></a>Endereço IP de front-end
+## <a name="frontend-ip-addresses"></a>Endereços IP de frontend
 
-Um endereço IP de front-end é o endereço IP associado com o gateway de aplicativo. Você pode configurar o gateway de aplicativo para ter um endereço IP público ou um endereço IP privado ou ambos. Há suporte para apenas um endereço IP público ou um endereço IP privado. Sua rede virtual e o endereço IP público devem estar no mesmo local que o gateway de aplicativo.
+Um endereço IP de front-end é o endereço IP associado a um gateway de aplicativo. Você pode configurar um gateway de aplicativo para ter um endereço IP público, um endereço IP privado ou ambos. Um gateway de aplicativo dá suporte a um público ou um endereço IP privado. Sua rede virtual e o endereço IP público devem estar no mesmo local que o gateway de aplicativo. Depois que ele é criado, um endereço IP de front-end é associado um ouvinte.
 
-Um endereço IP de Frontend é associado a um *ouvinte* após sua criação. 
+### <a name="static-versus-dynamic-public-ip-address"></a>Estáticos em comparação com o endereço IP público dinâmico
 
-### <a name="static-vs-dynamic-public-ip-address"></a>Portas estáticas vs dinâmico endereço IP
+O SKU do Gateway de aplicativo do Azure v2 oferece suporte a ambos os internos e estáticos endereços IP públicos estáticos, embora a SKU v1 dá suporte a apenas endereços IP internos estáticos. O endereço IP virtual (VIP) pode alterar se um gateway de aplicativo for interrompido e iniciado.
 
-O SKU v1 dá suporte a endereços IP internos estáticos, mas não oferece suporte a endereços IP públicos estáticos. O VIP poderá ser alterado se o Gateway de Aplicativo for interrompido e iniciado. O nome DNS associado ao Gateway de Aplicativo não é alterado ao longo do ciclo de vida do gateway. Por esse motivo, é recomendado usar um alias do CNAME e apontá-lo para o endereço DNS do Gateway de Aplicativo.
-
-O SKU do Gateway de aplicativo v2 dá suporte a endereços IP públicos estáticos, bem como os endereços IP internos estáticos. 
+O nome DNS associado com um gateway de aplicativo não muda durante o ciclo de vida do gateway. Como resultado, você deve usar um alias de CNAME e apontá-lo para o endereço DNS do gateway de aplicativo.
 
 ## <a name="listeners"></a>Ouvintes
 
-Antes de começar a usar o gateway de aplicativo, você deve adicionar um ou mais ouvintes. Um ouvinte é uma entidade lógica que verifica se há solicitações de conexão de entrada e aceita as solicitações se o protocolo, a porta, o host e o endereço IP associado com a correspondência de solicitação com o protocolo, a porta, o host e o endereço IP associado a configuração de ouvinte. Pode haver vários ouvintes anexados a um gateway de aplicativo e elas podem ser usadas para o mesmo protocolo. Depois que o ouvinte detecta solicitações de entrada dos clientes, o Gateway de aplicativo encaminha essas solicitações para os membros no pool de back-end, usando as regras de roteamento de solicitação que você define para o ouvinte que recebeu a solicitação de entrada.
+Um ouvinte é uma entidade lógica que verifica se há solicitações de conexão de entrada. Um ouvinte que aceita uma solicitação se o protocolo, porta, host e endereço IP associado à solicitação correspondem os mesmos elementos associados com a configuração de ouvinte.
 
-Ouvintes dão suporte a portas e protocolos a seguir:
+Antes de usar um gateway de aplicativo, você deve adicionar pelo menos um ouvinte. Pode haver vários ouvintes anexados a um gateway de aplicativo, e eles podem ser usados para o mesmo protocolo.
+
+Depois que um ouvinte detecta solicitações de entrada dos clientes, o gateway de aplicativo encaminha essas solicitações para os membros no pool de back-end. O gateway de aplicativo usa as regras de roteamento de solicitação definidas para o ouvinte que recebeu a solicitação de entrada.
+
+Ouvintes de suportam as seguintes portas e protocolos.
 
 ### <a name="ports"></a>Portas
 
-Isso é a porta na qual o ouvinte está escutando para a solicitação do cliente. Você pode configurar portas, variando de 1 a 65502 para 1 para 65199 e SKU de V1 para V2 SKU.
+Uma porta é onde um ouvinte ouve a solicitação do cliente. Você pode configurar portas, variando de 1 a 65502 para a SKU v1 e 1 para 65199 para a SKU de v2.
 
 ### <a name="protocols"></a>Protocolos
 
-O gateway de aplicativo dá suporte a quatro protocolos a seguir: HTTP, HTTPS, HTTP/2 e WebSocket
+O Gateway de aplicativo dá suporte a quatro protocolos: HTTP, HTTPS, HTTP/2 e WebSocket:
 
-Você especificar explicitamente a escolha entre os protocolos HTTP e HTTPS na configuração de ouvinte. O [suporte para os protocolos de WebSockets e HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) fornecidos de forma nativa. [Suporte ao WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) é habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. Você pode usar WebSockets com ouvintes HTTP e HTTPS. O suporte ao protocolo HTTP/2 está disponível para os clientes que se conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação para pools de servidores back-end é sobre HTTP/1.1. Por padrão, o suporte HTTP/2 está desabilitado. Você pode optar por habilitá-lo.
+- Especifica entre HTTP e HTTPS protocolos na configuração de ouvinte.
+- Suporte para [WebSockets e HTTP/2 protocolos](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) é fornecido de modo nativo, e [suporte ao WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) é habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. Use o WebSockets com ouvintes HTTP e HTTPS.
+- O suporte ao protocolo HTTP/2 está disponível para os clientes que se conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação para pools de servidores back-end é sobre HTTP/1.1. Por padrão, o suporte HTTP/2 está desabilitado. Você pode optar por habilitá-lo.
 
-Você pode usar um ouvinte HTTPS para a terminação SSL. Um ouvinte HTTPS descarrega a criptografia e descriptografia funcionam para o gateway de aplicativo para que seus servidores web não estão sobrecarregados por essa sobrecarga. Seus aplicativos, em seguida, são livres para se concentrar na lógica comercial.
+Use um ouvinte HTTPS para a terminação SSL. Um ouvinte HTTPS descarrega o trabalho de criptografia e descriptografia para seu gateway de aplicativo, de modo seus servidores web não são carregados pela sobrecarga. Seus aplicativos, em seguida, são livres para se concentrar na lógica de negócios.
 
 ### <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
-O gateway de aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada. O Gateway de Aplicativo pode exibir uma página de erro personalizada quando uma solicitação não pode acessar o back-end. Para obter mais informações, consulte [páginas de erro personalizado para seu Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/custom-error).
+O Gateway de aplicativo permite criar páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada. O Gateway de aplicativo exibe uma página de erro personalizada quando uma solicitação não é possível acessar o back-end.
+
+Para obter mais informações, consulte [páginas de erro personalizado para seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
 ### <a name="types-of-listeners"></a>Tipos de ouvintes
 
 Há dois tipos de ouvintes:
 
-- **Básico**: Esse tipo de ouvinte escuta em um site único de domínio em que ele tem um único mapeamento de DNS para o endereço IP do gateway de aplicativo. Essa configuração de ouvinte é necessária quando você estiver hospedando um único site por trás de um gateway de aplicativo.
-- **Multissite**: Essa configuração de ouvinte é necessária quando você configurar mais de um aplicativo web na mesma instância de gateway de aplicativo. Isso permite que você configure a topologia mais eficiente para suas implantações adicionando até 100 sites da Web para um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo:   Para três subdomínios — abc.contoso.com, xyz.contoso.com e pqr.contoso.com apontando para o endereço IP do gateway de aplicativo. Criar três ouvintes do tipo *multissite* e configurar cada ouvinte para a porta do respectiva e de configuração do protocolo. Para obter mais informações, consulte [hospedagem de vários sites](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+- **Básica**. Esse tipo de ouvinte escuta em um site de domínio único, em que ele tem um único mapeamento de DNS para o endereço IP do gateway de aplicativo. Essa configuração de ouvinte é necessária quando você hospeda um único site por trás de um gateway de aplicativo.
 
-Depois de criar um ouvinte, você pode associá-lo com uma regra de roteamento de solicitação que determina como a solicitação recebida no ouvinte deve ser roteada para o back-end.
+- **Multissite**. Essa configuração de ouvinte é necessária quando você configurar mais de um aplicativo web na mesma instância de gateway de aplicativo. Ele permite que você configure a topologia mais eficiente para suas implantações adicionando até 100 sites da Web para um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três subdomínios, abc.contoso.com, xyz.contoso.com e pqr.contoso.com, apontam para o endereço IP do gateway de aplicativo. Crie três ouvintes multissites e configurar cada ouvinte para a configuração de protocolo e porta respectiva.
 
-Os ouvintes são processados na ordem em que eles são mostrados. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada ele a processará primeiro. Ouvintes multissite devem ser configurados antes de um ouvinte básico para assegurar que o tráfego seja roteado para o back-end correto.
+    Para obter mais informações, consulte [hospedagem de vários sites](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
 
-## <a name="request-routing-rule"></a>Regra de roteamento de solicitação
+Depois de criar um ouvinte, você pode associá-lo com uma regra de roteamento de solicitação. Esta regra determina como a solicitação recebida no ouvinte deve ser roteada para o back-end.
 
-Isso é o componente mais importante do gateway de aplicativo e determina como o tráfego em que o ouvinte associado a essa regra é roteado. A regra vincula o ouvinte, pool de servidores de back-end e as configurações de HTTP de back-end. Depois que uma solicitação é aceita por um ouvinte, a regra de roteamento de solicitação determina se a solicitação deve ser encaminhado para o back-end ou redirecionado em outro lugar. Se for determinada que a solicitação ser encaminhada para o back-end, a regra de roteamento de solicitação define qual pool de servidores de back-end deve ser encaminhado para. Além disso, a regra de roteamento de solicitação também determina se os cabeçalhos na solicitação devem ser reescrito. Um ouvinte pode ser anexado a apenas uma regra.
+O Gateway de aplicativo processa ouvintes na ordem mostrada. Se o ouvinte básico corresponder a uma solicitação de entrada, ela é processada primeiro. Para rotear o tráfego para o back-end corretos, configure um ouvinte multissite antes de um ouvinte básico.
 
-Pode haver dois tipos de regras de roteamento de solicitação:
+## <a name="request-routing-rules"></a>As regras de roteamento de solicitação
 
-- **Básica:** Todas as solicitações no ouvinte associado (por exemplo: blog.contoso.com/*) são encaminhadas para o pool de back-end associados usando a configuração de HTTP associada.
-- **Path-based:** Esse tipo de regra permite rotear as solicitações no ouvinte associado a um pool de back-end específico com base na URL na solicitação. Se o caminho da URL em uma solicitação corresponde ao padrão de caminho em uma regra com base em caminho, a solicitação é encaminhada usando essa regra. O padrão de caminho é aplicado somente para o caminho da URL, não para seus parâmetros de consulta. Se o caminho da URL de uma solicitação de um ouvinte não corresponde a nenhuma das regras com base no caminho, a solicitação é encaminhada para o *padrão* pool de back-end e o *padrão* configurações de HTTP. Para obter mais informações, consulte [roteamento baseado em URL](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
+Uma regra de roteamento de solicitação é um componente fundamental de um gateway de aplicativo, pois ela determina como rotear o tráfego no ouvinte. A regra vincula o ouvinte, pool de servidores de back-end e as configurações de HTTP de back-end.
+
+Quando um ouvinte aceita uma solicitação, a regra de roteamento de solicitação encaminha a solicitação para o back-end ou redireciona-o em outro lugar. Se a solicitação é encaminhada para o back-end, a regra de roteamento de solicitação define qual pool de servidores de back-end para encaminhar para. Além disso, a regra de roteamento de solicitação também determina se os cabeçalhos na solicitação devem ser reescrito. Um ouvinte pode ser anexado a uma regra.
+
+Há dois tipos de regras de roteamento de solicitação:
+
+- **Básica**. Todas as solicitações no ouvinte associado (por exemplo, blog.contoso.com/*) são encaminhadas para o pool de back-end associados usando a configuração de HTTP associada.
+
+- **Com base em caminho**. Esta regra de roteamento permite rotear as solicitações no ouvinte associado a um pool de back-end específico, com base na URL na solicitação. Se o caminho da URL em uma solicitação corresponde ao padrão de caminho em uma regra com base em caminho, a regra encaminha essa solicitação. Ele aplica o padrão de caminho somente para o caminho da URL, não para seus parâmetros de consulta. Se o caminho da URL em uma solicitação de ouvinte não corresponder a qualquer uma das regras com base em caminho, ele encaminha a solicitação para o pool de back-end padrão e configurações de HTTP.
+
+Para obter mais informações, consulte [roteamento baseado em URL](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
 ### <a name="redirection-support"></a>Suporte para redirecionamento
 
-A regra de roteamento de solicitação também permite que você redirecione o tráfego no gateway de aplicativo. Esse é um mecanismo de redirecionamento genérico; portanto, você pode redirecionar bidirecionalmente em qualquer porta definida usando regras. Escolha o destino de redirecionamento a ser outro ouvinte (que pode ajudar a habilitar automático de HTTP para redirecionamento a HTTPS) ou um site externo, escolha o redirecionamento temporário ou permanente ou escolha acrescentando a cadeia de caracteres de consulta e o caminho URI à URL redirecionada. Para obter mais informações, consulte [redirecionar o tráfego em seu Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+A regra de roteamento de solicitação também permite que você redirecione o tráfego no gateway de aplicativo. Este é um mecanismo de redirecionamento genérico, portanto, você pode redirecionar para e de qualquer porta que você define usando regras.
 
-#### <a name="rewrite-http-headers"></a>Reescrever cabeçalhos HTTP
+Você pode escolher o destino de redirecionamento a ser outro ouvinte (que pode ajudar a habilitar automático de HTTP para redirecionamento a HTTPS) ou um site externo. Você também pode optar por um redirecionamento a ser temporário ou permanente ou acrescentar a cadeia de caracteres de consulta e o caminho URI à URL redirecionada.
 
-Usando as regras de roteamento de solicitação você pode adicionar, remover ou atualizar HTTP (S) de solicitação e cabeçalhos de resposta enquanto a solicitação e pacotes de resposta se mover entre os pools de back-end e de cliente, por meio do gateway de aplicativo. Os cabeçalhos não só podem ser definidos com valores estáticos, mas também a outros cabeçalhos e as variáveis de servidor importantes. Isso ajudará você a realizar vários casos de uso importante, como extrair o endereço IP de clientes, removendo informações confidenciais sobre o back-end, adicionar medidas de segurança adicionais, etc. Para obter mais informações, consulte [cabeçalhos de HTTP de reescrita em seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para obter mais informações, consulte [redirecionar o tráfego em seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+
+### <a name="rewrite-http-headers"></a>Reescrever cabeçalhos HTTP
+
+Usando as regras de roteamento de solicitação, você pode adicionar, remover ou atualizar a solicitação de HTTP (S) e cabeçalhos de resposta como os pacotes de solicitação e resposta mover entre o cliente e o back-end pools por meio do gateway de aplicativo.
+
+Os cabeçalhos podem ser definidos como valores estáticos ou a outros cabeçalhos e as variáveis de servidor. Isso ajuda com importantes casos de uso, como extração de endereços IP do cliente, removendo informações confidenciais sobre o back-end, adicionando mais segurança e assim por diante.
+
+Para obter mais informações, consulte [cabeçalhos de HTTP de reescrita em seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
 ## <a name="http-settings"></a>Configurações de HTTP
 
-As rotas de gateway de aplicativo do tráfego para o back-end (especificados na regra de roteamento de solicitação para o qual as configurações de HTTP são anexadas) de servidores usando o número da porta, protocolo e outras configurações especificadas neste componente. A porta e protocolo usado nas configurações de HTTP determinam se o tráfego entre os servidores de gateway e o back-end do aplicativo é criptografado, assim a realização de SSL de ponta a ponta, ou sem criptografia. Esse componente também é usado para: determinar se uma sessão de usuário deve ser mantido no mesmo servidor usando o [afinidade de sessão baseada em cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity), realizar a remoção normal de membros do pool de back-end usando [conexão Drenagem](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining), associar a investigação personalizada para monitorar a integridade de back-end, defina o intervalo de tempo limite de solicitação, substitua o nome de host e o caminho na solicitação e fornecer a facilidade de um clique para especificar a configuração de back-end para back-end de serviço de aplicativo. 
+Um gateway de aplicativo roteia o tráfego para os servidores de back-end (especificada na regra de roteamento de solicitação que incluem configurações de HTTP) usando o número da porta, protocolo e outras configurações detalhadas neste componente.
 
-## <a name="backend-pool"></a>Pool de back-end
+A porta e protocolo usado nas configurações de HTTP determinam se o tráfego entre os servidores de gateway e o back-end do aplicativo está criptografado (fornecendo a SSL de ponta a ponta) ou sem criptografia.
 
-O pool de back-end é usado para rotear solicitações para os servidores de back-end, que irá atender à solicitação. Pools de back-end podem ser formados por NICs, dimensionamento de máquinas virtuais conjuntos, pública IP endereços, interno IP endereços, FQDN e multilocatário back-ends, como o serviço de aplicativo do Azure. Membros do pool de back-end de gateway de aplicativo não estão vinculados a um conjunto de disponibilidade. O Gateway de aplicativo pode se comunicar com instâncias fora da rede virtual que está em, portanto, os membros dos pools de back-end podem ser entre clusters, data centers ou fora do Azure, desde que exista conectividade IP. Se você planeja usar IPs internos como membros de pool de back-end, será necessário usar o [Emparelhamento VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou o [Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Emparelhamento VNet tem suporte e pode ser útil para balanceamento de carga de tráfego em outras redes virtuais. O gateway de aplicativo também pode comunicar com a servidores locais quando eles estão conectados por túneis VPN ou ExpressRoute, desde que o tráfego é permitido.
+Esse componente também é usado para:
 
-Você pode criar pools de back-end diferente para diferentes tipos de solicitações. Por exemplo, crie um pool de back-end para solicitações gerais e outro pool de back-end para solicitações para os microsserviços para seu aplicativo.
+- Determinar se uma sessão de usuário deve ser mantido no mesmo servidor usando o [afinidade de sessão baseada em cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
+
+- Normalmente, remover membros do pool de back-end usando [drenagem de conexão](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
+
+- Associe uma investigação personalizada para monitorar a integridade de back-end, defina o intervalo de tempo limite de solicitação, substituir o nome de host e o caminho na solicitação e fornecer a facilidade de um clique para especificar configurações para o back-end do serviço de aplicativo.
+
+## <a name="backend-pools"></a>Pools de back-end
+
+Um pool de back-end encaminha a solicitação para servidores de back-end, que irá atender à solicitação. Pools de back-end podem conter:
+
+- NICs
+- conjuntos de escala de máquina virtual
+- Endereços IP públicos
+- Endereços IP internos
+- FQDN
+- Back-ends multilocatário (como o serviço de aplicativo)
+
+Membros do pool de back-end de Gateway de aplicativo não estão vinculados a um conjunto de disponibilidade. Um gateway de aplicativo pode se comunicar com instâncias fora da rede virtual que está. Como resultado, os membros dos pools de back-end podem ser em clusters, entre data centers ou fora do Azure, desde que exista conectividade IP.
+
+Se você usar IPs internos como membros do pool de back-end, você deve usar [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou um [gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Emparelhamento de rede virtual é suportado e útil para tráfego de balanceamento de carga em outras redes virtuais.
+
+Um gateway de aplicativo também pode comunicar com servidores locais quando eles estão conectados por túneis de VPN ou ExpressRoute do Azure se o tráfego é permitido.
+
+Você pode criar pools de back-end diferente para diferentes tipos de solicitações. Por exemplo, crie um pool de back-end para solicitações gerais e, em seguida, outro pool de back-end para solicitações para os microsserviços para seu aplicativo.
 
 ## <a name="health-probes"></a>Investigações de integridade
 
-Por padrão o gateway de aplicativo monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente qualquer recurso considerado não íntegro do pool. Ele continua a monitorar as instâncias não íntegras e adiciona de volta ao pool de back-end Íntegro depois que eles se tornarem disponíveis e respondem a investigações de integridade. Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Investigações personalizadas permitem que você tenha um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e caminho a testar e quantas respostas com falha devem aceitar antes da instância do pool de back-end é marcada como não íntegra. É altamente recomendável que você configure as investigações personalizadas para monitorar a integridade de cada pool de back-end. Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+Por padrão, um gateway de aplicativo monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente aqueles não íntegro. Em seguida, ele monitora as instâncias não íntegras e adiciona de volta ao pool de back-end Íntegro quando eles se tornarem disponíveis e respondem a investigações de integridade.
 
-## <a name="next-steps"></a>Próximas etapas
+Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Investigações personalizadas permitem que o controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e caminho a testar e quantas respostas com falha devem aceitar antes da instância do pool de back-end é marcada como não íntegra. É recomendável que você configure as investigações personalizadas para monitorar a integridade de cada pool de back-end.
 
-Depois de aprender sobre os componentes do Gateway de aplicativo, você pode:
-* [Criar um Gateway de aplicativo no portal do Azure](quick-create-portal.md)
-* [Criar um Gateway de aplicativo usando o Azure PowerShell](quick-create-powershell.md)
-* [Criar um Gateway de aplicativo usando a CLI do Azure](quick-create-cli.md)
+Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+
+## <a name="next-steps"></a>Próximos passos
+
+Criar um Application Gateway:
+
+* No [portal do Azure](quick-create-portal.md)
+* [Usando o PowerShell do Azure](quick-create-powershell.md)
+* [Usando a CLI do Azure](quick-create-cli.md)

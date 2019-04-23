@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227533"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003438"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implantar o Azure Databricks em sua rede virtual (versão prévia)
 
@@ -188,7 +188,7 @@ Possível causa: Contêiner não pode se comunicar com a instância de hospedage
 
 ### <a name="notebook-command-errors"></a>Erros de comandos do bloco de anotações
 
-**Comando está pendente**
+**Comando não está respondendo**
 
 Possível causa: a comunicação de trabalho para trabalho está bloqueada. Corrigi, certificando-se que as regras de segurança de entrada atender aos requisitos.
 

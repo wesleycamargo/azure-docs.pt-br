@@ -4,17 +4,17 @@ description: Saiba como solucionar problemas do agente de Gerenciamento de Atual
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813102"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150108"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Entenda os resultados da verificação de agente no Gerenciamento de Atualizações do Azure
 
@@ -25,6 +25,9 @@ A lista a seguir é composta pelos três estados de preparação em que um compu
 * **Pronto** - O agente de atualização foi implantado e visto pela última vez há menos de uma hora.
 * **Desconectado** -  O agente de atualização foi implantado e visto pela última vez há mais de uma hora.
 * **Não configurado** -  O agente de atualização não foi localizado ou não concluiu a integração.
+
+> [!NOTE]
+> Pode haver um pequeno atraso entre o que mostra o portal do Azure e o estado atual da máquina.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 

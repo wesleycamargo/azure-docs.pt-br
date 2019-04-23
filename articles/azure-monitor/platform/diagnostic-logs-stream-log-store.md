@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630781"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006787"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Logs de diagnóstico do Azure Stream ao espaço de trabalho do Log Analytics no Azure Monitor
 
@@ -124,7 +124,7 @@ O Azure Data Factory, devido a um conjunto muito detalhado dos logs, é um recur
 - *Parâmetros do usuário definidos em relação a qualquer atividade em seu pipeline*: haverá uma nova coluna criada para cada parâmetro de usuário nomeado exclusivamente em relação a qualquer atividade. 
 - *Atividade de entradas e saídas*: elas variam de atividade para atividade e gerar uma grande quantidade de colunas devido à sua natureza detalhada. 
  
-Como com as mais amplas propostas de solução alternativa abaixo, é recomendável isolar os logs do ADF em seu próprio espaço de trabalho para minimizar a chance desses logs que afetam outros tipos de log que estão sendo coletados em seus espaços de trabalho. Esperamos ter coletado os logs do Azure Data Factory pela abril de 2019.
+Como com as mais amplas propostas de solução alternativa abaixo, é recomendável isolar os logs do ADF em seu próprio espaço de trabalho para minimizar a chance desses logs que afetam outros tipos de log que estão sendo coletados em seus espaços de trabalho. Esperamos ter curadoria logs para o Azure Data Factory disponível em breve.
  
 #### <a name="workarounds"></a>Soluções alternativas
 Curto prazo, até que o limite de 500 coluna será redefinido, é recomendável separar os tipos de dados detalhados em espaços de trabalho separados para reduzir a possibilidade de atingir o limite.

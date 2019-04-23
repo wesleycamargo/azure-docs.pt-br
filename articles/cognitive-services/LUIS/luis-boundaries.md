@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897497"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006821"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -47,16 +47,16 @@ Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere 
 
 *O máximo de caracteres padrão é 50 caracteres. 
 
-## <a name="intent-and-entity-naming"></a>Nomenclatura de intenções e de entidades
-Não use os seguintes caracteres nos nomes de intenções e de entidades:
+<a name="intent-and-entity-naming"></a>
 
-|Character|NOME|
+## <a name="object-naming"></a>Nomeação de objeto
+
+Não use os seguintes caracteres em que os nomes a seguir.
+
+|Object|Excluir caracteres|
 |--|--|
-|`{`|Chave esquerda|
-|`}`|Chave direita|
-|`[`|Colchete esquerdo|
-|`]`|Colchete direito|
-|`\`|Barra invertida|
+|Intenção, entidade e nomes de função|`:`<br>`$`|
+|Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Uso de chave
 

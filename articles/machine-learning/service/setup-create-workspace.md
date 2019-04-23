@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547941"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006991"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar um espaço de trabalho do serviço de Azure Machine Learning
 
@@ -27,7 +27,9 @@ Neste artigo, você aprenderá a criar um espaço de trabalho usando qualquer um
 * Um modelo do Azure Resource Manager
 * O [CLI de aprendizado de máquina do Azure](#cli)
 
-O espaço de trabalho que você criar usando as etapas aqui-in pode ser usado como um pré-requisito para outros tutoriais e artigos de instruções. 
+O espaço de trabalho que você criar usando as etapas aqui-in pode ser usado como um pré-requisito para outros tutoriais e artigos de instruções.
+
+Se você gostaria de usar um script para aprendizado de máquina automatizados em um ambiente de Python local de instalação, consulte o [GitHub do Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obter instruções.  
 
 Quando você cria um espaço de trabalho os seguintes recursos do Azure são adicionados automaticamente (se eles forem regionalmente disponíveis):
  
@@ -192,7 +194,7 @@ Para criar um espaço de trabalho com a CLI, consulte [Use a extensão CLI do se
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Não importa como ele foi criado, você pode exibir em seu espaço de trabalho do [portal do Azure](https://portal.azure.com/).  Ver [exibir um espaço de trabalho](how-to-manage-workspace.md#view) para obter detalhes.
 

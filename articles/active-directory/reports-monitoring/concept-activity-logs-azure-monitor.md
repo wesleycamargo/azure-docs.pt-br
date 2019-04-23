@@ -1,6 +1,6 @@
 ---
-title: Logs de atividades do Azure Active Directory no Azure Monitor (versão prévia) | Microsoft Docs
-description: Introdução aos logs de atividades do Azure Active Directory no Azure Monitor (versão prévia)
+title: Logs de atividades do Active Directory do Azure no Azure Monitor | Microsoft Docs
+description: Introdução à atividade do Azure Active Directory registra em log no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436295"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011394"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Logs de atividades do Azure AD no Azure Monitor (versão prévia)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
-Agora é possível rotear logs de atividades do Azure AD (Azure Active Directory) para vários pontos de extremidade para insights de dados e retenção de longo prazo. A visualização pública dos logs do Azure AD no Azure Monitor permite:
+Você pode rotear os logs de atividade do Azure Active Directory (Azure AD) para vários pontos de extremidade de longo prazo dados e retenção insights. Esse recurso permite que você:
 
 * Arquive os logs de atividades do Azure AD em uma conta de armazenamento do Azure para reter os dados por um longo período.
 * Transmita os logs de atividade do Azure AD para um hub de eventos do Azure para análise, usando ferramentas populares de SIEM (Gerenciamento de Eventos e Informações de Segurança) como Splunk e QRadar.

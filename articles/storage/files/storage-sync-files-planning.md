@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918630"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996349"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -113,7 +113,7 @@ Para exibir os resultados em CSV:
 ### <a name="system-requirements"></a>Requisitos do Sistema
 - Um servidor executando o Windows Server 2012 R2, o Windows Server 2016 ou o Windows Server 2019:
 
-    | Versão | SKUs com suporte | Opções de implantação com suporte |
+    | Version | SKUs com suporte | Opções de implantação com suporte |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
     | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
@@ -292,7 +292,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 * [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)

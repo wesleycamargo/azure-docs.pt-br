@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122868"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011225"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -26,7 +26,7 @@ Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HT
 Lembre-se de que a Análise de Texto é sem estado, portanto não há ativos de dados para gerenciar. O texto é carregado, analisado após o recebimento e os resultados são retornados imediatamente para o aplicativo de chamada.
 
 > [!Tip]
-> Nas chamadas individuais para ver como funciona a API, você pode enviar solicitações POST do **console interno de testes da API**, disponível em qualquer [página de documentação da API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Não há configurações, e os únicos requisitos são colar uma chave de acesso e os documentos JSON na solicitação. 
+> Nas chamadas individuais para ver como funciona a API, você pode enviar solicitações POST do **console interno de testes da API**, disponível em qualquer [página de documentação da API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Não há configurações, e os únicos requisitos são colar uma chave de acesso e os documentos JSON na solicitação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,8 +42,8 @@ No momento, é possível enviar os mesmos documentos para todas as operações d
 
 | Elemento | Valores válidos | Obrigatório? | Uso |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | Obrigatório | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
-|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Obrigatório | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
+|`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | Necessário | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
+|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Necessário | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dois caracteres para um [idioma compatível](../text-analytics-supported-languages.md) | Varia | Obrigatório para análise de sentimento, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Nenhum erro ocorre se você excluí-lo, mas a análise é enfraquecida sem ele. O código de idioma deve corresponder ao `text` fornecido. |
 
 Para saber mais sobre limites, confira [Visão geral da Análise de Texto > Limites de dados](../overview.md#data-limits). 
@@ -60,10 +60,10 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
    Os pontos de extremidade do recurso são assim (sua região pode variar):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Defina os três cabeçalhos de solicitação:
 
@@ -81,10 +81,10 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
 5. Cole alguns documentos JSON em um formato válido para a análise pretendida. Para saber mais sobre uma análise específica nos tópicos a seguir:
 
-   + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
-   + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
-   + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
-   + [Reconhecimento de Entidade (versão prévia)](text-analytics-how-to-entity-linking.md)  
+  + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
+  + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
+  + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md)  
 
 
 6. Clique em **Enviar** para enviar a solicitação. Você pode enviar até 100 solicitações por minuto. 

@@ -1,17 +1,17 @@
 ---
 title: Terminologia do Catálogo de Dados do Azure
 description: Este artigo fornece uma introdução aos conceitos e termos usados na documentação do Catálogo de Dados do Azure.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 9b945057ed0c94fbab7a9114ad1198a0f157fa4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270938"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011377"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados do Azure
 
@@ -84,6 +84,6 @@ Um proprietário é um usuário que tem privilégios adicionais para gerenciar u
 
 Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados e copiá-los no serviço de Catálogo de Dados do Azure. Ativos de dados que foram registrados podem ser anotados e descobertos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Início Rápido: Criar um catálogo de dados do Azure](data-catalog-get-started.md) 

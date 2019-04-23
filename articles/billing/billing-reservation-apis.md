@@ -1,7 +1,6 @@
 ---
 title: APIs para a automação de reserva do Azure | Microsoft Docs
 description: Saiba mais sobre as APIs do Azure que você pode usar para obter programaticamente informações de reserva.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880205"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008198"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automação de reserva do Azure
 
@@ -55,7 +54,7 @@ Se você descobrir que as reservas de sua organização estiverem sendo subutili
 
 - Verifique se as máquinas virtuais que sua organização cria correspondem ao tamanho da VM que está na reserva.
 - Verifique se a flexibilidade de tamanho da instância está ligada. Para obter mais informações, confira [Gerenciar reservas – alterar configuração de otimização para Instâncias de VM Reservadas](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Altere o escopo da reserva para compartilhado de modo que ele se aplique mais amplamente. Para obter mais informações, confira [Gerenciar reservas – altere o escopo para uma reserva](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Altere o escopo da reserva para compartilhado de modo que ele se aplique mais amplamente. Para obter mais informações, confira [Gerenciar reservas – altere o escopo para uma reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Trocar a quantidade não usada. Para obter mais informações, confira [Gerenciar reservas – cancelamentos e trocas](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Dar acesso às reservas
@@ -68,7 +67,7 @@ Obtenha a lista de todas as reservas às quais um usuário tem acesso usando a [
 
 ## <a name="split-or-merge-reservation"></a>Dividir ou mesclar reserva
 
-Depois de comprar mais de uma instância de recurso em uma reserva, é recomendável atribuir instâncias nessa reserva a assinaturas diferentes. Você pode alterar o escopo da reserva de modo que ela se aplique a todas as assinaturas no mesmo contexto de cobrança. Porém, para fins de gerenciamento de custos ou orçamento, você talvez queira manter o escopo como "assinatura única" e atribuir as instâncias de reserva a uma assinatura específica. 
+Depois de comprar mais de uma instância de recurso em uma reserva, é recomendável atribuir instâncias nessa reserva a assinaturas diferentes. Você pode alterar o escopo da reserva de modo que ela se aplique a todas as assinaturas no mesmo contexto de cobrança. Porém, para fins de gerenciamento de custos ou orçamento, você talvez queira manter o escopo como "assinatura única" e atribuir as instâncias de reserva a uma assinatura específica.
 
 Para dividir uma reserva, use a API [Reserva – Dividir](/rest/api/reserved-vm-instances/reservation/split). Você também pode dividir uma reserva usando o PowerShell. Para obter mais informações, confira [Gerenciar reservas – dividir reserva em duas reservas](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Para mesclar duas reservas em uma reserva, use a API [Reserva – Mesclagem](/re
 
 ## <a name="change-scope-for-a-reservation"></a>Alterar o escopo de uma reserva
 
-O escopo de uma reserva pode ser a única assinatura ou todas as assinaturas de seu contexto de cobrança. Se você definir o escopo como assinatura única, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você definir o escopo compartilhado, o Azure corresponderá a reserva de recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura usada para comprar a reserva. Para obter mais informações, confira [Gerenciar Reservas – Alterar o escopo](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+O escopo de uma reserva pode ser a única assinatura ou todas as assinaturas de seu contexto de cobrança. Se você definir o escopo como assinatura única, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você definir o escopo compartilhado, o Azure corresponderá a reserva de recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura usada para comprar a reserva. Para obter mais informações, confira [Gerenciar Reservas – Alterar o escopo](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Para alterar o escopo de modo programático, use a API [Reserva – Atualização](/rest/api/reserved-vm-instances/reservation/update).
 

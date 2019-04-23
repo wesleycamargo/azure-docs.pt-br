@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579148"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149556"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
@@ -23,12 +23,39 @@ Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina d
 + O [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + O [**SDK de Preparação de Dados do Azure Machine Learning**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>SDK v1.1.2 de preparação de dados do Azure Machine Learning
+
+Observação: SDK do Python de preparação de dados não instalará `numpy` e `pandas` pacotes. Ver [atualizadas as instruções de instalação](https://aka.ms/aml-data-prep-installation).
+
++ **Novos recursos**
+  + Agora você pode usar a transformação dinâmica.
+    + Guia de instruções: [Bloco de anotações de Pivot](https://aka.ms/aml-data-prep-pivot-nb)
+  + Agora você pode usar expressões regulares em funções nativas.
+    + Exemplos:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + Agora você pode usar `to_upper`  e `to_lower`  funções na linguagem de expressão.
+  + Agora você pode ver o número de valores exclusivos de cada coluna em um perfil de dados.
+  + Para algumas das etapas leitor comumente usadas, você pode agora passar o `infer_column_types` argumento. Se ele for definido como `True`, preparação de dados tentará detectar e converter automaticamente os tipos de coluna.
+    + `inference_arguments` agora foi preterida.
+  + Agora você pode chamar `Dataflow.shape`.
+
++ **Correções de bugs e melhorias**
+  + `keep_columns` agora aceita um argumento opcional adicional `validate_column_exists`, que verifica se o resultado de `keep_columns` conterá todas as colunas.
+  + Todas as etapas de leitor (que leiam de um arquivo) agora aceita um argumento opcional adicional `verify_exists`.
+  + Melhorar o desempenho de leitura de dados do pandas e obtendo os perfis de dados.
+  + Corrigido um bug em que a divisão de uma única etapa de um fluxo de dados falhou com um único índice.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Portal do Azure
++ **Novos recursos**
   + Agora você pode reenviar um Script existente que execute em um cluster de computação remota existente. 
   + Agora você pode executar um pipeline publicado com novos parâmetros na guia Pipelines. 
   + Detalhes de execução agora dá suporte a um novo Visualizador de arquivo de instantâneo. Quando você tiver enviado uma execução específica, você pode exibir um instantâneo do diretório. Você também pode baixar o notebook que foi enviado para iniciar a execução.
+   + Agora você pode cancelar as execuções de pai do Portal do Azure.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -456,6 +483,6 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre essa versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia a visão geral do [Serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md).

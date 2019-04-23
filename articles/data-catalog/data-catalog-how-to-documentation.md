@@ -2,18 +2,18 @@
 title: Como documentar fontes de dados no Catálogo de Dados do Azure
 description: Artigo de instruções que destaca como documentar ativos de dados no Catálogo de Dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406202"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005258"
 ---
 # <a name="document-data-sources"></a>Fontes de dados de documentos
 ## <a name="introduction"></a>Introdução
@@ -39,9 +39,9 @@ O benefício da documentação do **Catálogo de Dados do Azure** permite que vo
 
 O nível de documentação pode variar desde a descrição das características e do valor de um contêiner de ativos de dados até uma descrição detalhada do esquema de tabela em um contêiner. O nível da documentação fornecido deve ser orientado por suas necessidades comerciais. Porém, em geral, aqui estão alguns prós e contras para a documentação de ativos de dados:
 
-* Documentar apenas um contêiner: todo o conteúdo está em um local, mas talvez não tenha os detalhes necessários para que os usuários a tomem uma decisão embasada.
-* Documentar apenas as tabelas: o conteúdo é específico para o objeto, mas os usuários têm vários lugares para documentos.
-* Documentar tabelas e contêineres: essa é uma abordagem mais abrangente, mas pode exigir mais manutenção dos documentos.
+* Apenas um contêiner de documento: Todo o conteúdo está em um só lugar, mas talvez não tenha os detalhes necessários para os usuários a tomar uma decisão informada.
+* Documente apenas as tabelas: Conteúdo é específico para o objeto, mas os usuários têm vários lugares para documentos.
+* Tabelas e contêineres de documento: Uma abordagem mais abrangente, mas pode exigir mais manutenção dos documentos.
 
 ## <a name="summary"></a>Resumo
 A documentação de fontes de dados com o **Catálogo de Dados do Azure** pode criar uma narrativa sobre seus ativos de dados com todos os detalhes necessários.  Usando links, você pode vincular ao conteúdo armazenado em um repositório de conteúdo existente, que reúne os documentos e os ativos de dados existentes. Depois que os usuários descobrirem ativos de dados apropriados, eles poderão ter um conjunto completo de documentação.

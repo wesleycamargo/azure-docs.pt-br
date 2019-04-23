@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528230"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004050"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -63,7 +63,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Banco de Dados do Azure para MariaDB
 * Banco de Dados do Azure para MySQL
 * Banco de Dados do Azure para PostgreSQL
-* Azure DevOps – as organizações do Azure DevOps com compras de extensão que não são da Microsoft precisam [cancelar suas compras](https://go.microsoft.com/fwlink/?linkid=871160) para que possam mover a conta entre assinaturas.
+* DevOps do Azure – siga as etapas para [alterar a assinatura do Azure usada para cobrança](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Mapas do Azure
 * Logs do Azure Monitor
 * Retransmissão do Azure
@@ -74,7 +74,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * CDN
 * Serviços de Nuvem - veja [Limitações da implantação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
-* Registro de Contêiner - um registro de contêiner não pode ser movido quando a replicação geográfica estiver habilitada.
+* Registro de Contêiner
 * Content Moderator
 * Gerenciamento de Custos
 * Customer Insights
@@ -512,7 +512,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os cmdlets do PowerShell para gerenciar os recursos, consulte [usando o Azure PowerShell com o Resource Manager](manage-resources-powershell.md).
 * Para saber mais sobre os comandos da CLI do Azure para gerenciar os recursos, consulte [usando a CLI do Azure com o Resource Manager](manage-resources-cli.md).

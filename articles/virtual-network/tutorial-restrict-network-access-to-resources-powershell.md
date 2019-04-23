@@ -1,6 +1,6 @@
 ---
 title: Restringir o acesso à rede para recursos PaaS - Azure PowerShell | Microsoft Docs
-description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Microsoft Azure, com pontos de extremidade de serviço de rede virtual usando o Microsoft Azure PowerShell.
+description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando o Microsoft Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial

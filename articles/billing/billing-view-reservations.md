@@ -1,7 +1,6 @@
 ---
 title: Exibir reservas para recursos do Azure | Microsoft Docs
 description: Saiba como exibir as Reservas do Azure no portal do Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650216"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995516"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Exibir reservas do Azure no portal do Azure
 
 Dependendo do tipo de assinatura e permissões, há duas maneiras para exibir as reservas para o Azure.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Exibir reservas como Proprietário ou Leitor
+## <a name="view-purchased-reservations"></a>Exibir as reservas compradas
 
-Por padrão, quando você compra uma reserva, você e o administrador da conta podem exibir a reserva. Você e o administrador da conta obtém automaticamente a função de proprietário na reserva. Para permitir que outras pessoas exibam a reserva, você deve adicioná-las como **Proprietário** ou **Leitor** na reserva. Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Por padrão, quando você compra uma reserva, você e o administrador da conta podem exibir a reserva. Você e o administrador da conta automaticamente recebem a função de proprietário no pedido de reserva e reserva. Para permitir que outras pessoas exibir a reserva, você deve adicioná-los como um **proprietário** ou **leitor** no pedido de reserva ou reserva.
+
+Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Para exibir uma reserva como Proprietário ou Leitor,
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Pesquise em **Reservas**.
-
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. Você verá uma lista das reservas de onde você tem a função Proprietário ou Leitor.
+2. Pesquise em **Reservas**.
+    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)  
+3. A lista mostra todas as reservas em que você tem a função proprietário ou leitor. Cada reserva mostra o último percentual de utilização conhecidos.  
+    ![Exemplo que mostra uma lista de reservas](./media/billing-view-reservation/view-reservations.png)
+4. Selecione uma reserva e ver a tendência de utilização para os últimos cinco dias.  
+    ![Tendência de utilização do exemplo mostrando reserva](./media/billing-view-reservation/reservation-utilization.png)
+5. Você também pode obter o [utilização de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando a API de uso de instância reservada e com o [pacote de conteúdo do Power BI do Microsoft Azure consumo Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
 Se você precisar alterar o escopo de uma reserva, dividir uma reserva ou alterar quem pode gerenciar uma reserva, consulte [Gerenciar as Reservas do Azure](billing-manage-reserved-vm-instance.md).
 

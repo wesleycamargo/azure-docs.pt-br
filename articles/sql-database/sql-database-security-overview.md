@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523682"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001075"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ As regras de firewall de IP permitem acesso a bancos de dados com base no endere
 
 Os [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) estendem a conectividade de rede virtual por meio do backbone do Azure e permitem que o Banco de Dados SQL do Azure identifique a sub-rede de rede virtual da qual o tráfego é originado. Para permitir que o tráfego alcance o Banco de Dados SQL do Azure, use as [marcas de serviço](../virtual-network/security-overview.md) do SQL para permitir o tráfego de saída por meio de Grupos de Segurança de Rede.
 
-As [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) permitem que o Banco de Dados SQL do Azure aceite apenas comunicações enviadas de sub-redes selecionadas dentro de uma rede virtual.
+As [regras da rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) permitem que o Banco de Dados SQL do Azure aceite apenas comunicações enviadas de sub-redes selecionadas dentro de uma rede virtual.
 
 > [!NOTE]
 > O controle do acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para saber mais sobre a configuração de rede necessária, confira [conectar-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md)
@@ -47,7 +47,7 @@ As [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)
 > [!IMPORTANT]
 > O gerenciamento de bancos de dados e de servidores de banco de dados no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O Banco de Dados SQL do Azure dá suporte a dois tipos de autenticação:
 
@@ -88,9 +88,9 @@ O Banco de Dados SQL protege os dados do cliente fornecendo funcionalidades de a
 
 A Auditoria do Banco de Dados SQL rastreia as atividades do banco de dados e ajuda a manter a conformidade com os padrões de segurança registrando eventos de banco de dados em um log de auditoria em uma conta de Armazenamento do Azure de propriedade do cliente. A auditoria permite que os usuários monitorem as atividades do banco de dados em andamento, além de analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira Introdução à [Auditoria do Banco de Dados SQL](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Detecção de ameaças
+### <a name="advanced-threat-protection"></a>Proteção Avançada contra Ameaças
 
-A detecção de ameaças aprimora a auditoria analisando logs de auditoria para ver se há comportamento incomum e tentativas potencialmente prejudiciais de acessar ou explorar bancos de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anormais como ataques de injeção de SQL, potencial infiltração de dados e ataques de senha de força bruta. Os alertas da detecção de ameaças são exibidos na [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/), em que são fornecidos detalhes de atividades suspeitas e recomendações para investigação adicional junto com ações para atenuar a ameaça. A detecção de ameaças custa US$ 15/servidor/mês. É gratuito nos primeiros 60 dias. Para obter mais informações, confira [Introdução à detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
+Proteção avançada contra ameaças está analisando os logs do SQL Server para detectar comportamento incomuns e potencialmente prejudicial tenta acessar ou explorar bancos de dados. Alertas são criados para atividades suspeitas, como ataques de força bruta, infiltração de dados potencial e injeção SQL ou anomalias no acesso de usam padrões para capturar os escalonamentos de privilégio e credenciais de "violado". Alertas são exibidos a partir de [Central de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde os detalhes de atividades suspeitas são fornecidos e recomendações para ainda mais a investigação fornecida junto com ações para atenuar a ameaça. Proteção avançada contra ameaças podem ser habilitada por servidor para uma taxa adicional. Para obter mais informações, consulte [Introdução ao SQL banco de dados do Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

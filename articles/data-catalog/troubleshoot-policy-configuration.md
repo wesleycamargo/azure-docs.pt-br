@@ -1,17 +1,17 @@
 ---
 title: Como configurar a política do Azure Active Directory para o catálogo de dados do Azure
 description: Você pode encontrar uma situação em que você pode entrar no portal do catálogo de dados do Azure, mas quando você tenta fazer logon ferramenta de registro de fonte de dados, você encontrar uma mensagem de erro.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
-ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362929"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996434"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Configuração de política do Azure Active Directory
 
@@ -27,6 +27,6 @@ Com a política de autenticação global, você pode habilitar a autenticação 
 
 Para saber mais, confira [Configurando políticas de autenticação](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486781(v=ws.11)).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

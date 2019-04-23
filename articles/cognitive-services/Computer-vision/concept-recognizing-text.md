@@ -1,5 +1,5 @@
 ---
-title: Reconhecer texto impresso e manuscrito - Pesquisa Visual Computacional
+title: Reconhecer texto impresso/manuscritos, pesquisa Visual computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados ao reconhecimento de texto impresso e manuscrito em imagens usando a API da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588968"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998221"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
-Visão do computador fornece um número de serviços que detecte e extraia textos manuscritos ou impressos que aparece nas imagens. Isso é útil em uma variedade de cenários, como fazer anotações, registros médicos, segurança e transações bancárias. O seguintes três seções detalhes três diferentes reconhecimento de texto APIs, todos otimizados para diferentes casos de uso.
+Visão do computador fornece um número de serviços que detecte e extraia textos manuscritos ou impressos que aparece nas imagens. Isso é útil em uma variedade de cenários, como anotações, registros médicos, segurança e transações bancárias. O seguintes três seções detalhes três diferentes reconhecimento de texto APIs, todos otimizados para diferentes casos de uso.
 
 ## <a name="read-api"></a>API de leitura
 
@@ -45,13 +45,11 @@ Se você estiver usando uma assinatura de camada gratuita, a API de leitura só 
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (reconhecimento óptico de caracteres) API
 
-API de reconhecimento óptico de caracteres (OCR da pesquisa Visual computacional) é semelhante à API de leitura, mas ele executa de forma síncrona e não é otimizado para documentos grandes. Ele usa um modelo de reconhecimento anterior, mas funciona com mais idiomas.
-
-O OCR dá suporte a 25 idiomas: árabe, chinês simplificado, chinês tradicional, tcheco, dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, português, romeno, russo, sérvio (cirílico e latino) eslovaco, espanhol, sueco e turco. O OCR detecta automaticamente o idioma do texto detectado.
+API de reconhecimento óptico de caracteres (OCR da pesquisa Visual computacional) é semelhante à API de leitura, mas ele executa de forma síncrona e não é otimizado para documentos grandes. Ele usa um modelo de reconhecimento anterior, mas funciona com mais linguagens; ver [suporte ao idioma](language-support.md#text-recognition) para obter uma lista completa dos idiomas com suporte.
 
 Se necessário, o OCR corrige a rotação do texto reconhecido, retornando o deslocamento de rotação em graus do eixo horizontal da imagem. OCR também fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração a seguir.
 
-![Um diagrama representando uma imagem sendo rotacionada e o texto sendo lido e delineado](./Images/vision-overview-ocr.png)
+![Uma imagem que está sendo girada e seu texto sendo leia e delineados](./Images/vision-overview-ocr.png)
 
 Consulte a [documentos de referência de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para saber mais.
 

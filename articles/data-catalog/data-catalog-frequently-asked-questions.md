@@ -2,18 +2,18 @@
 title: Perguntas frequentes sobre o Catálogo de Dados do Azure
 description: Perguntas frequentes sobre o Catálogo de Dados do Azure, incluindo recursos para descoberta de fontes de dados, anotação e gerenciamento.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231457"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998438"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -27,10 +27,10 @@ O Catálogo de Dados enfrenta o desafio de descoberta de fonte de dados e os "da
 ## <a name="what-are-its-target-audiences"></a>Quais são seus públicos-alvo?
 O Catálogo de Dados é desenvolvido para usuários técnicos e não técnicos, incluindo:
 
-* Desenvolvedores de dados e profissionais de BI e análises: pessoas responsáveis por produzir dados e conteúdo de análises para outras pessoas consumirem.
-* Administradores de dados: pessoas que têm conhecimento sobre os dados, o que eles significam e como devem ser usado.
-* Consumidores de dados: pessoas que precisam ser capazes de descobrir, entender e conectar-se aos dados necessários com facilidade para fazerem seu trabalho usando a ferramenta de sua preferência.
-* TI central: pessoas que precisam tornar centenas de fontes de dados detectáveis por usuários de negócios e que precisam supervisionar a maneira como os dados estão sendo usados e por quem.
+* Os desenvolvedores de dados e os profissionais de BI e análise: Pessoas que são responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem.
+* Administradores de dados: Pessoas que têm conhecimento sobre os dados, o que significa e como ele se destina a ser usado.
+* Consumidores de dados: As pessoas que precisam ser capazes de descobrir com facilidade, entender e conectar-se aos dados que precisam para realizar seu trabalho, usando a ferramenta de sua preferência.
+* Central IT: Pessoas que precisam tornar centenas de fontes de dados podem ser descobertos por usuários de negócios e que precisam supervisionar a maneira como os dados estão sendo usados e por quem.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual é a disponibilidade por região?
 No momento, os serviços de Catálogo de Dados estão disponíveis nos seguintes datacenters:

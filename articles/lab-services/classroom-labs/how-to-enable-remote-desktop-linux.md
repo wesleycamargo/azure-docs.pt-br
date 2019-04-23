@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659449"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005342"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitar e usar a área de trabalho remota para máquinas virtuais do Linux em um laboratório no Azure Lab Services
 Este artigo mostra como realizar as seguintes tarefas:
@@ -35,6 +35,7 @@ Durante a criação do laboratório, podem habilitar a professores **conexão de
 > [!IMPORTANT] 
 > Habilitando **conexão de área de trabalho remota** abre somente os **RDP** porta em máquinas Linux. Você, como um professor, conecte-se à máquina Linux usando SSH pela primeira vez e instala pacotes RDP e a interface gráfica do usuário para que você pode se conectar à máquina Linux usando o RDP mais tarde. Em seguida, você **publicar** a imagem para que os alunos possam RDP no aluno VMs do Linux. 
 
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 Atualmente, a conexão de área de trabalho remota tem suporte para os seguintes sistemas operacionais:
 
 - openSUSE Leap 42.3

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486311"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011346"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -371,7 +371,7 @@ Para criar o balanceador de carga:
    - **Sub-rede**: a mesma sub-rede que a das máquinas virtuais.
    - **Endereço IP privado**: o mesmo endereço IP que foi atribuído ao recurso de rede de cluster de FCI do SQL Server.
    - **Assinatura**: Sua assinatura do Azure.
-   - **Grupo de Recursos**: use o mesmo grupo de recursos que suas máquinas virtuais.
+   - **Grupo de recursos**: use o mesmo grupo de recursos que suas máquinas virtuais.
    - **Localização**: use a mesma localização do Azure que suas máquinas virtuais.
    Confira a seguinte figura:
 
@@ -399,7 +399,7 @@ Para criar o balanceador de carga:
 
    - **Nome**: um nome para a investigação de integridade.
    - **Protocolo**: TCP.
-   - **Porta**: defina como uma porta TCP disponível. Essa porta exige uma porta de firewall aberta. Use a [mesma porta](#ports) definida para a investigação de integridade no firewall.
+   - **Porta**: Configurar como a porta que você criou no firewall para a investigação de integridade no [esta etapa](#ports). Neste artigo, o exemplo usa a porta TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Limite não íntegro**: duas falhas consecutivas.
 
@@ -421,7 +421,7 @@ Para criar o balanceador de carga:
    - **Investigação de integridade**: use a investigação de integridade que você já configurou.
    - **Persistência de sessão**: Nenhuma.
    - **Tempo limite de ociosidade (minutos)**: 4.
-   - **IP flutuante (retorno de servidor direto)**: habilitado
+   - **IP flutuante (retorno de servidor direto)**: Enabled
 
 1. Clique em **OK**.
 

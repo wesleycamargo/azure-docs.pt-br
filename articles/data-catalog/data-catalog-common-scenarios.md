@@ -2,23 +2,23 @@
 title: Cenários comuns de Catálogo de Dados do Azure
 description: Uma visão geral dos cenários comuns para o Catálogo de Dados do Azure, incluindo o registro e a descoberta de fontes de dados de alto valor, a habilitação de business intelligence de autoatendimento e a captura de conhecimento existente sobre fontes de dados e processos.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405022"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010799"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns de Catálogo de Dados do Azure
 Este artigo apresenta cenários comuns nos quais o Catálogo de Dados do Azure pode ajudar a sua organização a obter mais valor de suas fontes de dados existentes.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Cenário 1 – Registro de fontes de dados centrais
+## <a name="scenario-1-registration-of-central-data-sources"></a>Cenário 1: Registro de fontes de dados central
 As organizações costumam têm várias fontes de dados de alto valor. Essas fontes de dados incluem linha de negócios, sistemas OLTP (processamento de transações online), data warehouses e bancos de dados de business intelligence/análise. O número de sistemas e a sobreposição entre eles geralmente cresce com o tempo conforme as necessidades das empresas evoluem e a empresa em si evolui por meio de, por exemplo, fusões e aquisições.
 
 Pode ser difícil para os membros da organização saber em que ponto localizar os dados dentro dessas fontes de dados. Perguntas como as seguintes são muito comuns:
@@ -34,7 +34,7 @@ Se você estiver começando a usar o Catálogo de Dados do Azure, identificar e 
 
 Este cenário também apresenta uma oportunidade para anotar as fontes de dados de alto valor para torná-las mais fáceis de entender e de acessar. Um aspecto fundamental desse esforço é incluir informações sobre como os usuários podem solicitar acesso à fonte de dados. Com o Catálogo de Dados do Azure, você pode fornecer o endereço de email do usuário ou da equipe responsável pelo controle do acesso à fonte de dados, links para ferramentas ou documentação existentes ou texto livre que descreve o processo de solicitação de acesso. Essas informações ajudam os membros que descobrem fontes de dados registradas, mas ainda não têm permissões para acessar os dados a facilmente solicitar acesso usando os processos definidos e controlados pelos proprietários da fonte de dados.
 
-## <a name="scenario-2-self-service-business-intelligence"></a>Cenário 2 – Business intelligence de autoatendimento
+## <a name="scenario-2-self-service-business-intelligence"></a>Cenário 2: Autoatendimento de business intelligence do
 Embora as soluções corporativas tradicionais de business intelligence continuem sendo uma parte valiosa das paisagens de dados de muitas organizações, a mudança no ritmo dos negócios torna a BI de autoatendimento cada vez mais importante. Usando BI de autoatendimento, operadores e analistas de informações podem criar seus próprios relatórios, pastas de trabalho e painéis sem depender de uma equipe de TI central nem ficar restrito pela programação e pela disponibilidade dessa equipe de TI.
 
 Em cenários de BI de autoatendimento, é comum os usuários combinarem dados de várias fontes, muitas das quais podem não ter sido usadas anteriormente para BI e análise. Embora algumas dessas fontes de dados possam já ser conhecidas, pode ser um desafio descobrir o que fazer para localizar e avaliar as possíveis fontes de dados para uma determinada tarefa.
@@ -47,7 +47,7 @@ Esse crescimento orgânico do conteúdo do catálogo é um complemento natural p
 
 Vale observar que, embora esse cenário se concentre especificamente em BI de autoatendimento, os mesmos padrões e desafios aplicam-se também a projetos de BI corporativos em grande escala. Usando o Catálogo de Dados, sua organização pode melhorar qualquer esforço que envolva um processo manual de descoberta de fonte de dados.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Cenário 3 – Capturando o conhecimento do grupo
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Cenário 3: Capturando o conhecimento tribal
 Como saber quais dados você precisa para fazer seu trabalho e onde encontrá-los?
 
 Se você estiver na sua função por algum tempo, você provavelmente já sabe. Você passou por um processo de aprendizado gradual e aprendeu ao longo do tempo sobre as fontes de dados essenciais para o seu trabalho diário.
