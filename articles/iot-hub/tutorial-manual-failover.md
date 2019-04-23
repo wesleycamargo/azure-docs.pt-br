@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093728"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002894"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Executar failover manual para um hub IoT (versão prévia pública)
 
@@ -49,9 +49,6 @@ Neste tutorial, você executa as seguintes tarefas:
 
     **Região**: selecione uma região perto de você que seja parte da versão prévia. Este tutorial usa `westus2`. Um failover só pode ser executado entre regiões do Azure emparelhadas geograficamente. A região geográfica emparelhada com westus2 é WestCentralUS.
     
-   > [!NOTE]
-   > Atualmente, o failover manual está em versão prévia pública e *não* está disponível nas seguintes regiões do Azure: Leste dos EUA, Oeste dos EUA, Europa Setentrional, Europa Ocidental, Sul do Brasil e Centro-Sul dos EUA.
-
    **Nome do Hub IoT**: especifique um nome para o hub IoT. O nome do hub deve ser globalmente exclusivo. 
 
    ![Captura de tela mostrando o painel Noções básicas para a criação de um hub IoT](./media/tutorial-manual-failover/create-hub-02-basics.png)
