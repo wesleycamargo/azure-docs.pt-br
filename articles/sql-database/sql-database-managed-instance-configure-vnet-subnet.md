@@ -13,11 +13,11 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
 ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358838"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792428"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -55,7 +55,7 @@ O script prepara a sub-rede em três etapas:
 2. Confirmar: Ele mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para a implantação da Instância Gerenciada. Ele também solicita seu consentimento.
 3. Preparar: Ele configura a rede virtual e a sub-rede adequadamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, confira [O que é uma Instância Gerenciada?](sql-database-managed-instance.md).
 - Para um tutorial que mostra como criar uma rede virtual, criar uma Instância Gerenciada e restaurar um banco de dados com base em um backup de banco de dados, confira [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started.md).

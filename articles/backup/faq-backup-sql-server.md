@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876421"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791886"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas Frequentes sobre bancos de dados do SQL Server que estão em execução em um backup de VM do Azure
 
@@ -89,6 +89,6 @@ Um banco de dados que você [adicionar a uma instância de autoprotected](backup
   ![Descobrir manualmente um banco de dados adicionado recentemente](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer backup de um banco de dados do SQL Server](backup-azure-sql-database.md) que é executado em uma VM do Azure.

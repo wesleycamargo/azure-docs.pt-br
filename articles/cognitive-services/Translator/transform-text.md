@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916216"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789345"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
 
@@ -32,7 +32,7 @@ O método é um serviço RESTful usando GET via HTTP. Ele dá suporte a serializ
 |:---|:---|
 | Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Use a chave: “Authorization” e o valor: "Bearer" + " " + token de acesso. Para obter detalhes, clique aqui.|
 | Linguagem | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|
-| categoria | **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
+| category | **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
 | sentence | **Obrigatório** Uma frase que você deseja corrigir. |
 
 ## <a name="return-value"></a>Valor de retorno

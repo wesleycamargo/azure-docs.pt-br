@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005155"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791160"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar pronúncia personalizada
 
@@ -68,6 +68,6 @@ Um formulário de exibição pode ser apenas uma palavra personalizada, um acrô
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do arquivo
 O tamanho do arquivo .txt que contém as entradas de pronúncia é limitado a 1 megabyte (1 KB para chaves de chamada gratuitas). Normalmente, você não precisa carregar grandes quantidades de dados por meio desse arquivo. É provável que a maioria dos arquivos de pronúncia personalizada tenham apenas poucos kilobytes (KBs) de tamanho. A codificação do arquivo. txt para todas as localidades deve ser UTF-8 BOM. Para a localidade inglês, ANSI também é aceitável.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Melhore a precisão do reconhecimento criando um [modelo acústico personalizado](how-to-customize-acoustic-models.md).
 * Melhore a precisão do reconhecimento criando um [modelo de linguagem personalizado](how-to-customize-language-model.md).

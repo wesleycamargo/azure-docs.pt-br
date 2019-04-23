@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362920"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792073"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurar uma política de firewall de aplicativo web usando o Azure PowerShell
 Política de WAF (firewall) de aplicativos web do Azure define inspeções necessárias quando uma solicitação chega na frente.
@@ -106,7 +106,7 @@ O exemplo abaixo usa o nome do Grupo de Recursos *myResourceGroupFD1* supondo qu
 > [!NOTE]
 > Você só precisa definir *WebApplicationFirewallPolicyLink* propriedade uma vez para vincular uma política de segurança a uma porta da frente front-end. Atualizações de política subsequentes são aplicadas automaticamente para o front-end.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [da frente](front-door-overview.md) 
 - Saiba mais sobre [WAF para frente](waf-overview.md)

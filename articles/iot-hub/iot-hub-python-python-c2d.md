@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272862"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789781"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Enviar mensagens da nuvem para dispositivo com o Hub IoT (Python)
 
@@ -298,7 +298,7 @@ Agora você está pronto para executar os aplicativos.
 
     ![Mensagem recebida](./media/iot-hub-python-python-c2d/message-received.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 
