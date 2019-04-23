@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916301"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798002"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
 Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que oferece métodos a serem substituídos, permitindo que você responda a eventos de ciclo de vida. Para funções Web, essa classe é opcional e, portanto, deve ser usada para responder a eventos de ciclo de vida.
@@ -80,6 +80,6 @@ A substituição do método **Run** não é necessária; a implementação padr�
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementando os métodos de ciclo de vida do ASP.NET para uma função Web
 Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecidos pela classe **RoleEntryPoint** para gerenciar sequências de inicialização e de desligamento para uma função Web. Isso poderá ser útil para fins de compatibilidade se você estiver portando um aplicativo ASP.NET existente para o Azure. Os métodos de ciclo de vida do ASP.NET são chamados de dentro dos métodos **RoleEntryPoint** . O método **Application\_Start** é chamado após o término do método **RoleEntryPoint.OnStart**. O método **Application\_End** é chamado antes da chamada ao método **RoleEntryPoint.OnStop**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 

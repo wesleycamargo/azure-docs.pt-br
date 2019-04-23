@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793746"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797202"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Detecção de ameaças do Banco de Dados SQL do Azure para bancos de dados individuais ou em pool
 
@@ -30,7 +30,7 @@ A [detecção de ameaças](sql-database-threat-detection-overview.md) faz parte 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a detecção de ameaças para seu banco de dados no Portal do Azure
 
 1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Navegue para a página de configuração do servidor de Banco de Dados SQL do Azure que você deseja proteger. Nas configurações de segurança, selecione **Segurança de Dados Avançada**.
+2. Navegue para a página de configuração do servidor do Banco de Dados SQL do Azure que você deseja proteger. Nas configurações de segurança, selecione **Segurança de Dados Avançada**.
 3. Na página de configuração **Segurança de Dados Avançada**:
 
    - Habilite a segurança de dados avançada no servidor.

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492678"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799194"
 ---
 # <a name="default-insights-tag"></a>Marcação de insights padrão
 
@@ -421,7 +421,7 @@ O insight DocumentLevelSuggestions fornece uma lista de termos de pesquisa suger
       }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Fazer check-out [uso de insights de exemplos do Bing](bing-insights-usage.md) para ver como o Bing poderá exibir os insights do visual.
 

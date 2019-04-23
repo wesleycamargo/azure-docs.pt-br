@@ -1,6 +1,6 @@
 ---
 title: O que é um banco de dados individual do Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre o banco de dados individual no Banco de Dados SQL
+description: Saiba mais sobre o banco de dados individual no Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -13,18 +13,18 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 034/08/2019
 ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59356871"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799092"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no Banco de Dados SQL do Azure
 
-A opção de implantação de banco de dados individual cria um banco de dados no Banco de Dados SQL com seu próprio conjunto de recursos e é gerenciada por meio de um servidor de Banco de Dados SQL. Com um banco de dados individual, cada banco de dados é portátil e fica isolado uns dos outros, cada qual com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou do [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma garantia de tamanho de computação.
+A opção de implantação de banco de dados individual cria um banco de dados no Banco de Dados SQL com seu próprio conjunto de recursos e é gerenciada por meio de um servidor do Banco de Dados SQL. Com um banco de dados individual, cada banco de dados é portátil e fica isolado uns dos outros, cada qual com sua própria camada de serviço dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou do [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma garantia de tamanho da computação.
 
 > [!IMPORTANT]
-> O banco de dados individual é uma das três opções de implantação para o Banco de Dados SQL. As outras duas são [pools elásticos](sql-database-elastic-pool.md) e [instância gerenciada](sql-database-managed-instance.md).
+> O banco de dados individual é uma das três opções de implantação para o Banco de Dados SQL do Azure. As outras duas são [pools elásticos](sql-database-elastic-pool.md) e [instância gerenciada](sql-database-managed-instance.md).
 > [!NOTE]
 > Para obter um glossário de termos no Banco de Dados SQL do Azure, consulte [Glossário de termos do Banco de Dados SQL](sql-database-glossary-terms.md)
 
@@ -58,7 +58,7 @@ O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e
 > [!IMPORTANT]
 > Azure SQL Database (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar rapidamente com um banco de dados individual, comece com o [Guia de Início Rápido de banco de dados individual](sql-database-single-database-quickstart-guide.md).
 - Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
