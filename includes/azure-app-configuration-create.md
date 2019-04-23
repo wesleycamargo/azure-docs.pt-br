@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227177"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012278"
 ---
 1. Para criar um novo repositório de configurações de aplicativo, entre no [portal do Azure](https://aka.ms/azconfig/portal). No canto superior esquerdo da página, selecione **+ Criar um recurso**. Na caixa **Pesquisar no Marketplace**, insira **Configuração de Aplicativo** e pressione Enter.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227177"
 4. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
 
 5. Após a conclusão da implantação, selecione **Configurações** > **Chaves de acesso**. Anote a cadeia de conexão de chave de leitura/gravação primária ou somente leitura primária. Você usará essa cadeia de conexão posteriormente para configurar o aplicativo a comunicar-se com o repositório de configurações do aplicativo que você criou.
-
-6. Selecione **Explorador de Chave/Valor** > **+ Criar** para adicionar os pares chave-valor a seguir:
-
-    | Chave | Valor |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Branco |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Preto |
-    | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
-
-    Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
