@@ -1,83 +1,76 @@
-items:
 - name: Documentação do Identity Protection
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é o Azure AD Identity Protection?
-    href: overview.md
+    - name: O que é o Azure AD Identity Protection?
+      href: overview.md
 - name: Guia de início rápido
   items:
-  - name: Bloquear acesso quando é detectado um risco da sessão
-    href: quickstart-sign-in-risk-policy.md
+    - name: Bloquear acesso quando é detectado um risco da sessão
+      href: quickstart-sign-in-risk-policy.md
 - name: Conceitos
-  items:
-  - name: O que são vulnerabilidades?
-    href: vulnerabilities.md
-  - name: O que são notificações?
-    href: notifications.md
-  - name: Qual é sua experiência de entrada?
-    href: flows.md
   expanded: false
-- name: Guias de instruções
   items:
-  - name: Identity Protection
-    items:
-    - name: Habilitar o Azure AD Identity Protection
-      href: enable.md
-    - name: Configurar a política de registro de MFA
-      href: howto-mfa-policy.md
-    - name: Configurar a política de risco de entrada
-      href: howto-sign-in-risk-policy.md
-    - name: Configurar a política de risco de usuário
-      href: howto-user-risk-policy.md
-    - name: Fechar eventos de risco ativos
-      href: howto-close-active-risk-events.md
-    - name: Desbloquear usuários
-      href: howto-unblock-user.md
-    - name: Simular eventos de risco
-      href: playbook.md
-    - name: Perguntas frequentes
-      href: faqs.md
-  - name: Identity Protection (atualizada)
-    items:
-    - name: Visão geral
-      href: overview-v2.md
-    - name: Visão geral da segurança
-      href: security-overview.md
-    - name: Investigar entradas e usuários arriscados
-      href: howto-investigate-risky-users-signins.md
-    - name: Configurar políticas de risco
-      href: howto-configure-risk-policies.md
-    - name: Melhorar a precisão da detecção
-      href: howto-improve-detection-accuracy.md
-    - name: Perguntas frequentes e problemas conhecidos
-      href: known-issues.md
+    - name: O que são vulnerabilidades?
+      href: vulnerabilities.md
+    - name: O que são notificações?
+      href: notifications.md
+    - name: Qual é sua experiência de entrada?
+      href: flows.md
+- name: Guias de instruções
   expanded: true
+  items:
+    - name: Identity Protection
+      items:
+        - name: Habilitar o Azure AD Identity Protection
+          href: enable.md
+        - name: Configurar a política de registro de MFA
+          href: howto-mfa-policy.md
+        - name: Configurar a política de risco de entrada
+          href: howto-sign-in-risk-policy.md
+        - name: Configurar a política de risco de usuário
+          href: howto-user-risk-policy.md
+        - name: Fechar eventos de risco ativos
+          href: howto-close-active-risk-events.md
+        - name: Desbloquear usuários
+          href: howto-unblock-user.md
+        - name: Simular eventos de risco
+          href: playbook.md
+        - name: Perguntas frequentes
+          href: faqs.md
+    - name: Identity Protection (atualizada)
+      items:
+        - name: Visão geral
+          href: overview-v2.md
+        - name: Visão geral da segurança
+          href: security-overview.md
+        - name: Investigar entradas e usuários arriscados
+          href: howto-investigate-risky-users-signins.md
+        - name: Configurar políticas de risco
+          href: howto-configure-risk-policies.md
+        - name: Melhorar a precisão da detecção
+          href: howto-improve-detection-accuracy.md
+        - name: Perguntas frequentes e problemas conhecidos
+          href: known-issues.md
 - name: Referência
   items:
-  - name: Usar a API do Microsoft Graph
-    href: graph-get-started.md
-  - name: Eventos de risco
-    href: risk-events-reference.md
-  - name: Glossário
-    href: glossary.md
+    - name: Usar a API do Microsoft Graph
+      href: graph-get-started.md
+    - name: Eventos de risco
+      href: risk-events-reference.md
+    - name: Glossário
+      href: glossary.md
 - name: Recursos
   items:
-  - name: Fórum de comentários do Azure
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Atualizações de serviço
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910939"
+    - name: Fórum de comentários do Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Atualizações de serviço
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

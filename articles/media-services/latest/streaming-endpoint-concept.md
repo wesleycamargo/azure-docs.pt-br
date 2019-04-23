@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881011"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999443"
 ---
 # <a name="streaming-endpoints"></a>Ponto de extremidade de streaming
 
@@ -52,7 +52,6 @@ Recurso|Standard|Premium
 ---|---|---
 Gratuito pelos primeiros 15 dias| Sim |Não 
 Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
-Contrato de Nível de Serviço | 99.9|99,9 (200 Mbps por UA).
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
 Criptografia dinâmica|Sim|Sim
@@ -86,7 +85,7 @@ Esta seção fornece detalhes sobre algumas das propriedades de fluxo contínuo 
 
     A seguir estão as zonas DNS a ser usado no registro de verificação para diferentes regiões do Azure.
   
-  - América do Norte, Europa, Singapura, Hong Kong, Japão:
+  - América do Norte, Europa, Singapura, RAE de Hong Kong, Japão:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

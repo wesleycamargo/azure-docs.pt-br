@@ -1,154 +1,147 @@
-items:
 - name: Documentação do Azure AD Domain Services
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que são os Serviços de Domínio do Azure AD?
-    href: active-directory-ds-overview.md
-  - name: Perguntas frequentes
-    href: active-directory-ds-faqs.md
-  - name: É certo para você?
-    items:
-    - name: Comparar com o Windows Server AD
-      href: active-directory-ds-comparison.md
-    - name: Comparar com a associação do Azure AD
-      href: active-directory-ds-compare-with-azure-ad-join.md
-  - name: O que há de novo?
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-  - name: Recursos
-    href: active-directory-ds-features.md
-  - name: Cenários
-    href: active-directory-ds-scenarios.md
-  - name: Como funciona a sincronização
-    href: active-directory-ds-synchronization.md
-  - name: Software de terceiros compatível
-    href: active-directory-ds-compatible-software.md
+    - name: O que são os Serviços de Domínio do Azure AD?
+      href: active-directory-ds-overview.md
+    - name: Perguntas frequentes
+      href: active-directory-ds-faqs.md
+    - name: É certo para você?
+      items:
+        - name: Comparar com o Windows Server AD
+          href: active-directory-ds-comparison.md
+        - name: Comparar com a associação do Azure AD
+          href: active-directory-ds-compare-with-azure-ad-join.md
+    - name: O que há de novo?
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+    - name: Recursos
+      href: active-directory-ds-features.md
+    - name: Cenários
+      href: active-directory-ds-scenarios.md
+    - name: Como funciona a sincronização
+      href: active-directory-ds-synchronization.md
+    - name: Software de terceiros compatível
+      href: active-directory-ds-compatible-software.md
 - name: Introdução
   items:
-  - name: 'Tarefa 1: definir as configurações básicas'
-    href: active-directory-ds-getting-started.md
-  - name: 'Tarefa 2: definir as configurações de rede'
-    href: active-directory-ds-getting-started-network.md
-  - name: 'Tarefa 3: configurar o grupo de administradores e habilitar os Azure AD Domain Services'
-    href: active-directory-ds-getting-started-admingroup.md
-  - name: 'Tarefa 4: atualizar configurações de DNS para a rede virtual'
-    href: active-directory-ds-getting-started-dns.md
-  - name: 'Tarefa 5: habilitar sincronização de hash de senha'
-    href: active-directory-ds-getting-started-password-sync.md
+    - name: 'Tarefa 1: definir as configurações básicas'
+      href: active-directory-ds-getting-started.md
+    - name: 'Tarefa 2: definir as configurações de rede'
+      href: active-directory-ds-getting-started-network.md
+    - name: 'Tarefa 3: configurar o grupo de administradores e habilitar os Azure AD Domain Services'
+      href: active-directory-ds-getting-started-admingroup.md
+    - name: 'Tarefa 4: atualizar configurações de DNS para a rede virtual'
+      href: active-directory-ds-getting-started-dns.md
+    - name: 'Tarefa 5: habilitar sincronização de hash de senha'
+      href: active-directory-ds-getting-started-password-sync.md
 - name: Como
   items:
-  - name: Verificar integridade de um domínio gerenciado
-    href: active-directory-ds-check-health.md
-  - name: Usar Azure AD Domain Services nas assinaturas do Azure CSP
-    href: active-directory-ds-csp.md
-  - name: Habilitar o Azure AD Domain Services com o PowerShell
-    href: active-directory-ds-enable-using-powershell.md
-  - name: Configurar a sincronização no escopo do Azure AD para um domínio gerenciado
-    href: active-directory-ds-scoped-synchronization.md
-  - name: Proteger domínio gerenciado
-    href: active-directory-ds-secure-your-domain.md
-  - name: Criar uma UO em um domínio gerenciado
-    href: active-directory-ds-admin-guide-create-ou.md
-  - name: Criar uma conta de serviço gerenciado de grupo em um domínio gerenciado
-    href: active-directory-ds-create-gmsa.md
-  - name: Administrar a política de grupo em um domínio gerenciado
-    href: active-directory-ds-admin-guide-administer-group-policy.md
-  - name: Configurar políticas de senha em um domínio gerenciado
-    href: active-directory-ds-password-policy.md
-  - name: Selecione uma rede virtual
-    href: active-directory-ds-networking.md
-  - name: Implantar aplicativos
-    items:
-    - name: Configurar o suporte para sincronização de perfil do SharePoint Server
-      href: active-directory-ds-enable-sharepoint-profile-sync.md
-    - name: Configurar a Delegação Restrita de Kerberos
-      href: active-directory-ds-enable-kcd.md
-    - name: Implantar o Proxy de Aplicativo do Azure AD
-      href: active-directory-ds-deploy-azure-app-proxy.md
-  - name: Excluir um domínio gerenciado
-    href: active-directory-ds-disable-aadds.md
+    - name: Verificar integridade de um domínio gerenciado
+      href: active-directory-ds-check-health.md
+    - name: Usar Azure AD Domain Services nas assinaturas do Azure CSP
+      href: active-directory-ds-csp.md
+    - name: Habilitar o Azure AD Domain Services com o PowerShell
+      href: active-directory-ds-enable-using-powershell.md
+    - name: Configurar a sincronização no escopo do Azure AD para um domínio gerenciado
+      href: active-directory-ds-scoped-synchronization.md
+    - name: Proteger domínio gerenciado
+      href: active-directory-ds-secure-your-domain.md
+    - name: Criar uma UO em um domínio gerenciado
+      href: active-directory-ds-admin-guide-create-ou.md
+    - name: Criar uma conta de serviço gerenciado de grupo em um domínio gerenciado
+      href: active-directory-ds-create-gmsa.md
+    - name: Administrar a política de grupo em um domínio gerenciado
+      href: active-directory-ds-admin-guide-administer-group-policy.md
+    - name: Configurar políticas de senha em um domínio gerenciado
+      href: active-directory-ds-password-policy.md
+    - name: Selecione uma rede virtual
+      href: active-directory-ds-networking.md
+    - name: Implantar aplicativos
+      items:
+        - name: Configurar o suporte para sincronização de perfil do SharePoint Server
+          href: active-directory-ds-enable-sharepoint-profile-sync.md
+        - name: Configurar a Delegação Restrita de Kerberos
+          href: active-directory-ds-enable-kcd.md
+        - name: Implantar o Proxy de Aplicativo do Azure AD
+          href: active-directory-ds-deploy-azure-app-proxy.md
+    - name: Excluir um domínio gerenciado
+      href: active-directory-ds-disable-aadds.md
 - name: Ingressar em um domínio gerenciado
   items:
-  - name: VM do Windows Server
-    href: active-directory-ds-admin-guide-join-windows-vm-portal.md
-  - name: VM do Windows Server com base no modelo
-    href: active-directory-ds-join-windows-vm-template.md
-  - name: CentOS
-    href: active-directory-ds-join-centos-linux-vm.md
-  - name: CoreOS
-    href: active-directory-ds-join-coreos-linux-vm.md
-  - name: Red Hat Enterprise Linux
-    href: active-directory-ds-join-rhel-linux-vm.md
-  - name: Ubuntu Server
-    href: active-directory-ds-join-ubuntu-linux-vm.md
+    - name: VM do Windows Server
+      href: active-directory-ds-admin-guide-join-windows-vm-portal.md
+    - name: VM do Windows Server com base no modelo
+      href: active-directory-ds-join-windows-vm-template.md
+    - name: CentOS
+      href: active-directory-ds-join-centos-linux-vm.md
+    - name: CoreOS
+      href: active-directory-ds-join-coreos-linux-vm.md
+    - name: Red Hat Enterprise Linux
+      href: active-directory-ds-join-rhel-linux-vm.md
+    - name: Ubuntu Server
+      href: active-directory-ds-join-ubuntu-linux-vm.md
 - name: Administrar um domínio gerenciado
   items:
-  - name: Administrar um domínio gerenciado
-    href: active-directory-ds-admin-guide-administer-domain.md
-  - name: Administrar o DNS em um domínio gerenciado
-    href: active-directory-ds-admin-guide-administer-dns.md
-  - name: Atualizar notificações por email
-    href: active-directory-ds-notifications.md
+    - name: Administrar um domínio gerenciado
+      href: active-directory-ds-admin-guide-administer-domain.md
+    - name: Administrar o DNS em um domínio gerenciado
+      href: active-directory-ds-admin-guide-administer-dns.md
+    - name: Atualizar notificações por email
+      href: active-directory-ds-notifications.md
 - name: Configurar LDAP seguro para um domínio gerenciado
   items:
-  - name: 'Tarefa 1: Obter um certificado para LDAP Seguro'
-    href: active-directory-ds-admin-guide-configure-secure-ldap.md
-  - name: 'Tarefa 2: Exportar o certificado LDAP Seguro'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-  - name: 'Tarefa 3: Habilitar o LDAP Seguro para o domínio gerenciado usando o portal do Azure'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-  - name: 'Tarefa 4: Configurar o DNS para acessar o domínio gerenciado pela internet'
-    href: active-directory-ds-ldaps-configure-dns.md
-  - name: 'Tarefa 5: Associar o domínio gerenciado e bloquear o acesso LDAP seguro'
-    href: active-directory-ds-ldaps-bind-lockdown.md
-  - name: Solucionar problemas de LDAP seguro
-    href: active-directory-ds-ldaps-troubleshoot.md
+    - name: 'Tarefa 1: Obter um certificado para LDAP Seguro'
+      href: active-directory-ds-admin-guide-configure-secure-ldap.md
+    - name: 'Tarefa 2: Exportar o certificado LDAP Seguro'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+    - name: 'Tarefa 3: Habilitar o LDAP Seguro para o domínio gerenciado usando o portal do Azure'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+    - name: 'Tarefa 4: Configurar o DNS para acessar o domínio gerenciado pela internet'
+      href: active-directory-ds-ldaps-configure-dns.md
+    - name: 'Tarefa 5: Associar o domínio gerenciado e bloquear o acesso LDAP seguro'
+      href: active-directory-ds-ldaps-bind-lockdown.md
+    - name: Solucionar problemas de LDAP seguro
+      href: active-directory-ds-ldaps-troubleshoot.md
 - name: Solucionar problemas
   items:
-  - name: Guia de Solução de Problemas
-    href: active-directory-ds-troubleshooting.md
-  - name: Solucionar problemas de alertas
-    href: active-directory-ds-troubleshoot-alerts.md
-    items:
-    - name: Corrigir uma configuração de NSG com falha
-      href: active-directory-ds-troubleshoot-nsg.md
-    - name: Restaurar as entidades de serviço ausentes
-      href: active-directory-ds-troubleshoot-service-principals.md
-    - name: Erros de LDAP Seguro
-      href: active-directory-ds-troubleshoot-ldaps.md
-  - name: Resolver erros de locatário incompatíveis
-    href: active-directory-ds-mismatched-tenant-error.md
-  - name: Domínios suspensos
-    href: active-directory-ds-suspension.md
+    - name: Guia de Solução de Problemas
+      href: active-directory-ds-troubleshooting.md
+    - name: Solucionar problemas de alertas
+      href: active-directory-ds-troubleshoot-alerts.md
+      items:
+        - name: Corrigir uma configuração de NSG com falha
+          href: active-directory-ds-troubleshoot-nsg.md
+        - name: Restaurar as entidades de serviço ausentes
+          href: active-directory-ds-troubleshoot-service-principals.md
+        - name: Erros de LDAP Seguro
+          href: active-directory-ds-troubleshoot-ldaps.md
+    - name: Resolver erros de locatário incompatíveis
+      href: active-directory-ds-mismatched-tenant-error.md
+    - name: Domínios suspensos
+      href: active-directory-ds-suspension.md
 - name: Referência
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
 - name: Relacionados
   items:
-  - name: Azure Active Directory
-    href: ../active-directory/fundamentals/active-directory-whatis.md
-  - name: Azure Active Directory B2C
-    href: ../active-directory-b2c/active-directory-b2c-overview.md
-  - name: Autenticação Multifator
-    href: ../active-directory/authentication/multi-factor-authentication.md
+    - name: Azure Active Directory
+      href: ../active-directory/fundamentals/active-directory-whatis.md
+    - name: Azure Active Directory B2C
+      href: ../active-directory-b2c/active-directory-b2c-overview.md
+    - name: Autenticação Multifator
+      href: ../active-directory/authentication/multi-factor-authentication.md
 - name: Recursos
   items:
-  - name: Fórum de comentários do Azure AD
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Fale conosco
-    href: active-directory-ds-contact-us.md
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/active-directory-ds/
-  - name: Calculadora de preço
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-ms.openlocfilehash: 8559569df09bf611286730868f50d0bf1878182b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341111"
+    - name: Fórum de comentários do Azure AD
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Fale conosco
+      href: active-directory-ds-contact-us.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'

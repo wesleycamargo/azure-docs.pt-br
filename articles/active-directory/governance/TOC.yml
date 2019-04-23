@@ -1,60 +1,53 @@
-items:
 - name: Documentação sobre a governança de identidade do Azure AD
   href: index.yml
 - name: Visão geral
-  items:
-  - name: O que é governança de identidade?
-    href: identity-governance-overview.md
-  - name: O que são revisões de acesso?
-    href: access-reviews-overview.md
   expanded: false
+  items:
+    - name: O que é governança de identidade?
+      href: identity-governance-overview.md
+    - name: O que são revisões de acesso?
+      href: access-reviews-overview.md
 - name: Conceitos
-  items:
-  - name: Gerenciar o acesso do convidado com revisões
-    href: manage-guest-access-with-access-reviews.md
-  - name: Gerenciar o acesso do usuário com revisões
-    href: manage-user-access-with-access-reviews.md
-  - name: Gerenciar programas e seus controles
-    href: manage-programs-controls.md
-  - name: Gerenciar usuários excluídos do acesso condicional
-    href: conditional-access-exclusion.md
   expanded: false
-- name: Guias de instruções
   items:
-  - name: Análises de acesso
-    items:
-    - name: Grupos e aplicativos
-      items:
-      - name: Criar uma análise de acesso
-        href: create-access-review.md
-      - name: Examinar acesso
-        href: perform-access-review.md
-      - name: Examinar o acesso para si mesmo
-        href: review-your-access.md
-      - name: Concluir uma revisão de acesso
-        href: complete-access-review.md
-      - name: Recuperar resultados de revisão do acesso
-        href: retrieve-access-review.md
-    - name: Funções do Azure AD
-      items:
-      - name: Examinar minhas funções do Azure AD
-        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Iniciar uma revisão de acesso
-        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Concluir uma revisão de acesso
-        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-    - name: Funções de recurso do Azure
-      items:
-      - name: Examinar minhas funções de recurso do Azure
-        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Iniciar uma revisão de acesso
-        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-      - name: Concluir uma revisão de acesso
-        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Gerenciar o acesso do convidado com revisões
+      href: manage-guest-access-with-access-reviews.md
+    - name: Gerenciar o acesso do usuário com revisões
+      href: manage-user-access-with-access-reviews.md
+    - name: Gerenciar programas e seus controles
+      href: manage-programs-controls.md
+    - name: Gerenciar usuários excluídos do acesso condicional
+      href: conditional-access-exclusion.md
+- name: Guias de instruções
   expanded: true
-ms.openlocfilehash: 888743ac9205c9b524327dd7b1b6631201b52a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791076"
+  items:
+    - name: Análises de acesso
+      items:
+        - name: Grupos e aplicativos
+          items:
+            - name: Criar uma análise de acesso
+              href: create-access-review.md
+            - name: Examinar acesso
+              href: perform-access-review.md
+            - name: Examinar o acesso para si mesmo
+              href: review-your-access.md
+            - name: Concluir uma revisão de acesso
+              href: complete-access-review.md
+            - name: Recuperar resultados de revisão do acesso
+              href: retrieve-access-review.md
+        - name: Funções do Azure AD
+          items:
+            - name: Examinar minhas funções do Azure AD
+              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Iniciar uma revisão de acesso
+              href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Concluir uma revisão de acesso
+              href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        - name: Funções de recurso do Azure
+          items:
+            - name: Examinar minhas funções de recurso do Azure
+              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Iniciar uma revisão de acesso
+              href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Concluir uma revisão de acesso
+              href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json

@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335871"
 documentType: LandingData
 title: Documentação do Gerenciamento de Aplicativos
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: O Azure Active Directory fornece acesso seguro e ininterrupto a aplicativos locais e na nuvem. Além disso, não é necessário gerenciar senhas. Os usuários finais podem entrar uma vez para acessar o Office 365 e milhares de outros aplicativos. Saiba como gerenciar e implantar aplicativos com nossos inícios rápidos, tutoriais e orientações.
+  description: 'O Azure Active Directory fornece acesso seguro e ininterrupto a aplicativos locais e na nuvem. Além disso, não é necessário gerenciar senhas. Os usuários finais podem entrar uma vez para acessar o Office 365 e milhares de outros aplicativos. Saiba como gerenciar e implantar aplicativos com nossos inícios rápidos, tutoriais e orientações.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Proteger o acesso aos seus aplicativos com o Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Proteger o acesso aos seus aplicativos com o Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como adicionar um aplicativo para que os usuários o acessem por meio do Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Adicionar um aplicativo
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Exibir seus aplicativos
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como habilitar um processo de entrada simples e seguro para seus aplicativos.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como adicionar um aplicativo para que os usuários o acessem por meio do Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Adicionar um aplicativo
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Exibir seus aplicativos
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriais de aplicativos SaaS</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurar Logon Único</a>
+      - type: paragraph
+        text: Saiba como habilitar um processo de entrada simples e seguro para seus aplicativos.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriais de aplicativos SaaS</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurar Logon Único</a>

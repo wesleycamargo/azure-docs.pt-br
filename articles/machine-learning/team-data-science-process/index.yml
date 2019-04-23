@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451913"
 documentType: LandingData
 title: Documentação do Processo de Ciência de Dados de Equipe
 metadata:
   title: Documentação do Processo de Ciência de Dados de Equipe
-  description: Saiba como usar o Processo de Ciência de Dados de Equipe, uma metodologia da ciência de dados ágil e iterativa para entregar soluções de análise preditiva e aplicativos inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e o aprendizado em equipe. Ele contém as principais práticas recomendadas e estruturas da Microsoft, e de outras empresas do setor, que facilitam a implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a obter todos os benefícios do programa de análise escolhido.
+  description: 'Saiba como usar o Processo de Ciência de Dados de Equipe, uma metodologia da ciência de dados ágil e iterativa para entregar soluções de análise preditiva e aplicativos inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e o aprendizado em equipe. Ele contém as principais práticas recomendadas e estruturas da Microsoft, e de outras empresas do setor, que facilitam a implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a obter todos os benefícios do programa de análise escolhido.'
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
@@ -20,26 +14,26 @@ metadata:
   ms.date: 01/18/2018
   ms.author: cgronlun
 abstract:
-  description: O Processo de Ciência de Dados de Equipe é uma metodologia de ciência de dados ágil e iterativa que fornece, com eficiência, soluções de análise preditiva e de aplicativos inteligentes. O TDSP ajuda a melhorar a colaboração e o aprendizado em equipe. Ele contém as principais práticas recomendadas e estruturas da Microsoft, e de outras empresas do setor, que facilitam a implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a obter todos os benefícios do programa de análise escolhido.
+  description: 'O Processo de Ciência de Dados de Equipe é uma metodologia de ciência de dados ágil e iterativa que fornece, com eficiência, soluções de análise preditiva e de aplicativos inteligentes. O TDSP ajuda a melhorar a colaboração e o aprendizado em equipe. Ele contém as principais práticas recomendadas e estruturas da Microsoft, e de outras empresas do setor, que facilitam a implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a obter todos os benefícios do programa de análise escolhido.'
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: 'Saiba mais sobre o Processo de Ciência de Dados de Equipe:'
-  - type: list
-    style: unordered
+  - title: Guia de início rápido de 5 minutos
     items:
-    - html: <a href="overview">Visão geral</a>
-    - html: <a href="lifecycle">Ciclo de vida</a>
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como usar o Processo de Ciência de Dados de Equipe em vários cenários:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba mais sobre o Processo de Ciência de Dados de Equipe:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Visão geral</a>
+          - html: <a href="lifecycle">Ciclo de vida</a>
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="walkthroughs-spark">Spark com PySpark e Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive com o HDInsight Hadoop</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL com o Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R, Python e T-SQL com o SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python com SQL DW</a>
+      - type: paragraph
+        text: 'Saiba como usar o Processo de Ciência de Dados de Equipe em vários cenários:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark com PySpark e Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive com o HDInsight Hadoop</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL com o Azure Data Lake</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python e T-SQL com o SQL Server</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python com SQL DW</a>

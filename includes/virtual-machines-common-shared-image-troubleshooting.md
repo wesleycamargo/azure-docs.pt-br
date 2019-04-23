@@ -9,11 +9,11 @@ ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55736265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187663"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-Debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
