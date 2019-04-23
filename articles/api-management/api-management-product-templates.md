@@ -80,9 +80,9 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de produtos.|  
-|Filtragem|Entidade de [filtragem](api-management-template-data-model-reference.md#Filtering).|As informações de filtragem da página de lista de produtos.|  
-|Produtos|Coleção de entidades de [produto](api-management-template-data-model-reference.md#Product).|Os produtos visíveis para o usuário atual.|  
+|Paging|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de produtos.|  
+|Filtering|Entidade de [filtragem](api-management-template-data-model-reference.md#Filtering).|As informações de filtragem da página de lista de produtos.|  
+|Products|Coleção de entidades de [produto](api-management-template-data-model-reference.md#Product).|Os produtos visíveis para o usuário atual.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -205,14 +205,14 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
+|Product|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|booleano|Se o usuário atual assinou esse produto.|  
 |SubscriptionState|número|O estado da assinatura. Os possíveis estados são:<br /><br /> -   `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active` – a assinatura está ativa.<br />-   `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br />-   `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br />-   `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br />-   `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
-|limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
+|Limits|matriz|Essa propriedade foi preterida e não deve ser usada.|  
 |DelegatedSubscriptionEnabled|booleano|Se [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para essa assinatura.|  
 |DelegatedSubscriptionUrl|string|Se delegação estiver habilitada, a URL da assinatura delegada.|  
 |IsAgreed|booleano|Se o produto tiver termos, se o atual usuário concordou com os termos.|  
-|Assinaturas|Coleção de entidades de [Resumo da assinatura](api-management-template-data-model-reference.md#SubscriptionSummary).|As assinaturas para o produto.|  
+|Subscriptions|Coleção de entidades de [Resumo da assinatura](api-management-template-data-model-reference.md#SubscriptionSummary).|As assinaturas para o produto.|  
 |Apis|Coleção de entidades de [API](api-management-template-data-model-reference.md#API).|As APIs nesse produto.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|booleano|Se o usuário atual está qualificado para assinar esse produto com relação ao limite de assinatura.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|booleano|Se o usuário atual está qualificado para assinar esse produto com relação à permissão ou não de várias assinaturas.|  
