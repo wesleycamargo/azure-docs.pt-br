@@ -34,8 +34,8 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | verdadeiro | A data/hora de início do período de tempo validade. |
 | endTime   | DateTime  | verdadeiro |  A data/hora de término do período de tempo de validade. |
-| recurrenceType | cadeia de caracteres | falso |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
-| businessDayOnly | BOOLEAN | falso |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
+| recurrenceType | string | falso |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
+| businessDayOnly | Boolean | falso |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
 
 
 * Todos os valores de coordenadas são representados como [latitude, longitude] `WGS84`.
