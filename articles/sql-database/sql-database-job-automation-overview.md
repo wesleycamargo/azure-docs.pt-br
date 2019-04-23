@@ -34,7 +34,7 @@ Há vários cenários, quando você pode usar a automação de trabalhos:
   - Recompilar índices para melhorar o desempenho da consulta. Configure trabalhos para serem executados em um conjunto de bancos de dados de modo recorrente, por exemplo, fora dos horários de pico.
   - Coletar resultados de consulta de um conjunto de bancos de dados em uma tabela central em uma base contínua. Consultas de desempenho podem ser executadas continuamente e configuradas para disparar tarefas adicionais a serem executadas.
 - Coletar dados para relatórios
-  - Agregar dados de uma coleção de bancos de dados SQL do Azure em apenas uma tabela de destino.
+  - Agregue dados de uma coleção de bancos de dados SQL do Azure em uma tabela de destino único.
   - Executar consultas de processamento de dados mais longas em um grande conjunto de bancos de dados, por exemplo, a coleta de telemetria do cliente. Resultados são coletados em uma única tabela de destino para análise posterior.
 - Movimentações de dados
   - Crie trabalhos que replicam as alterações feitas em seus bancos de dados para outros bancos de dados ou colete atualizações feitas em bancos de dados remotos e aplique o que foi alterado no banco de dados.
@@ -201,7 +201,7 @@ O agente de Trabalho Elástico é gratuito. O banco de dados de trabalhos usa a 
 
 O *banco de dados de trabalhos* é usado para definir os trabalhos e rastrear o status e o histórico das execuções de trabalho. O *banco de dados de trabalhos* também é usado para armazenar metadados de agente, logs, resultados e definições de trabalho. Além disso, ele contém muitos procedimentos armazenados úteis e outros objetos de banco de dados usados para criar, executar e gerenciar trabalhos usando o T-SQL.
 
-Na versão prévia atual, um banco de dados existente do SQL Azure (S0 ou superior) é necessário para criar um agente de Trabalho Elástico.
+Na versão prévia atual, um banco de dados existente SQL do Azure (S0 ou superior) é necessário para criar um agente de Trabalho Elástico.
 
 O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser uma camada limpa, vazia, S0 ou de serviço superior. A camada de serviço recomendada do *Banco de dados de trabalhos* é S1 ou superior, mas isso depende das necessidades de desempenho de seus trabalhos, considerando o número de etapas de trabalho e quantas vezes e com que frequência os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa apenas alguns trabalhos por hora, mas não para um agente que executa um trabalho por minuto; neste caso, seria indicada uma camada de serviço mais alta.
 

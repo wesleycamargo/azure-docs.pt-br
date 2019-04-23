@@ -41,7 +41,7 @@ Para concluir este início rápido, você precisa de:
   |||
 
   > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para uma instância de banco de dados ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
+  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional ou Enterprise Edition.
 

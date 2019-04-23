@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361812"
@@ -101,13 +101,13 @@ A lista a seguir apresenta a principal característica da camada de serviço de 
 
 Para obter mais informações, veja [Camada de armazenamento em Camada de usos gerais](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [práticas recomendadas de desempenho de armazenamento e considerações para instâncias gerenciadas (uso geral)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-Encontre mais informações sobre a diferença entre níveis de serviço em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Encontre mais informações sobre a diferença entre camadas de serviço em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="business-critical-service-tier"></a>Camada de serviço comercialmente crítica
 
 Camada de serviço Comercialmente Crítico desenvolvida para aplicativos com altos requisitos de E/S. Ele oferece maior resiliência a falhas usando várias réplicas isoladas.
 
-A lista a seguir apresenta as características principais da camada Comercialmente Crítico:
+A lista a seguir apresenta as características principais da camada de serviço Comercialmente Crítico:
 
 - Projetada para aplicativos de negócios com requisitos de alta disponibilidade e desempenho mais alto
 - Vem com armazenamento SSD local super rápido (até 1 TB no Gen 4 e até 4 TB no Gen 5)
@@ -115,7 +115,7 @@ A lista a seguir apresenta as características principais da camada Comercialmen
 - [Réplica de banco de dados somente leitura](sql-database-read-scale-out.md) adicional integrada que pode ser usada para relatórios e outras cargas de trabalho somente leitura
 - [OLTP In-Memory](sql-database-in-memory.md) que pode ser usado para carga de trabalho com requisitos de alto desempenho  
 
-Encontre mais informações sobre a diferença entre níveis de serviço em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Encontre mais informações sobre a diferença entre camadas de serviço em [limites de recursos da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 

@@ -12,7 +12,7 @@ ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
 ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54330628"
@@ -99,9 +99,9 @@ Os eventos refletem as informações relevantes para indivíduos e sistemas. Por
 
 Por exemplo, o consumidor SQL monitora os eventos, consome e preenche o banco de dados do SQL com os valores incluídos. A cópia permite que a recriação de uma réplica dos dados em cadeia em um repositório fora de cadeia.
 
-## <a name="azure-sql-database"></a>Banco de Dados SQL Azure
+## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 
-O banco de dados SQL Azure anexado ao Blockchain Workbench armazena as definições de contrato, metadados de configuração e uma réplica SQL acessível dos dados armazenados no blockchain. Esses dados poderão ser facilmente consultados, visualizados ou analisados acessando diretamente o banco de dados. Os desenvolvedores e outros usuários podem usar o banco de dados para relatórios, análise ou outras integrações centradas em dados. Por exemplo, os usuários podem visualizar dados de transações usando o Power BI.
+O banco de dados SQL do Azure anexado ao Blockchain Workbench armazena as definições de contrato, metadados de configuração e uma réplica SQL acessível dos dados armazenados no blockchain. Esses dados poderão ser facilmente consultados, visualizados ou analisados acessando diretamente o banco de dados. Os desenvolvedores e outros usuários podem usar o banco de dados para relatórios, análise ou outras integrações centradas em dados. Por exemplo, os usuários podem visualizar dados de transações usando o Power BI.
 
 Esse armazenamento fora de cadeia fornece a capacidade para empresas para consultar dados no SQL, em vez de em uma razão de blockchain. Além disso, ao padronizar em um esquema padrão que é independente de pilhas de tecnologia blockchain, o armazenamento fora de cadeia permite a reutilização de relatórios e outros artefatos em projetos, cenários e organizações.
 

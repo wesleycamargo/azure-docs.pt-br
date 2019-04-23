@@ -1,6 +1,6 @@
 ---
-title: Limites de recursos do servidor de Banco de Dados SQL do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral dos limites de recursos do servidor de Banco de Dados SQL do Azure para bancos de dados individuais e pools elásticos. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
+title: Limites de recursos do servidor do Banco de Dados SQL do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral dos limites de recursos do servidor do Banco de Dados SQL do Azure para bancos de dados individuais e pools elásticos. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 03/01/2019
 ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58093881"
 ---
-# <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor de Banco de Dados SQL do Azure
+# <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor do Banco de Dados SQL do Azure
 
-Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados SQL para um servidor de Banco de Dados SQL que gerencia bancos de dados individuais e pools elásticos. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
+Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados SQL para um servidor do Banco de Dados SQL que gerencia bancos de dados individuais e pools elásticos. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 
 > [!NOTE]
 > Para limites de Instâncias Gerenciadas, confira [Limites de recursos do Banco de Dados SQL para Instâncias Gerenciadas](sql-database-managed-instance-resource-limits.md).
@@ -41,7 +41,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 > [!NOTE]
 > Para obter mais cotas DTU / eDTU, vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor.
 > [!IMPORTANT]
-> Conforme o número de bancos de dados vai se aproximando do limite por servidor de Banco de Dados SQL, pode ocorrer o seguinte:
+> Conforme o número de bancos de dados vai se aproximando do limite por servidor do Banco de Dados SQL, pode ocorrer o seguinte:
 > - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
 > - Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
 
@@ -52,7 +52,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 Quando a utilização de computação de banco de dados (medida por DTUs e eDTUs ou vCores) torna-se alta, a latência da consulta aumenta e pode até mesmo atingir o tempo limite. Sob essas condições, as consultas poderão ser colocadas em fila pelo serviço e receberão recursos para execução à medida que os recursos forem liberados.
 Ao encontrar uma utilização alta de computação, as opções de atenuação incluem:
 
-- Aumentar o tamanho de computação do banco de dados ou do pool elástico a fim de fornecer ao banco de dados mais recursos de computação. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
+- Aumentar o tamanho da computação do banco de dados ou do pool elástico a fim de fornecer ao banco de dados mais recursos de computação. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Armazenamento
@@ -67,11 +67,11 @@ Ao encontrar uma utilização alta de espaço, as opções de atenuação inclue
 
 ### <a name="sessions-and-workers-requests"></a>Sessões e trabalhos (solicitações)
 
-O número máximo de sessões e trabalhos é determinado pela camada de serviço e tamanho de computação (DTUs e eDTUs). Novas solicitações serão rejeitadas quando os limites de sessão ou de trabalho forem atingidos, e os clientes receberão uma mensagem de erro. Embora o número de conexões disponíveis possa ser controlado pelo aplicativo, o número de trabalhos simultâneos costuma ser mais difícil de ser estimado e controlado. Isso é especialmente verdadeiro durante os períodos de pico de carga, quando os limites de recurso de banco de dados são atingidos e os trabalhos acumulam devido a consultas de execução mais longas.
+O número máximo de sessões e trabalhos é determinado pela camada de serviço e tamanho da computação (DTUs e eDTUs). Novas solicitações serão rejeitadas quando os limites de sessão ou de trabalho forem atingidos, e os clientes receberão uma mensagem de erro. Embora o número de conexões disponíveis possa ser controlado pelo aplicativo, o número de trabalhos simultâneos costuma ser mais difícil de ser estimado e controlado. Isso é especialmente verdadeiro durante os períodos de pico de carga, quando os limites de recurso de banco de dados são atingidos e os trabalhos acumulam devido a consultas de execução mais longas.
 
 Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenuação incluem:
 
-- Aumentar a camada de serviço ou o tamanho de computação do banco de dados ou do pool elástico. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
+- Aumentar a camada de serviço ou o tamanho da computação do banco de dados ou do pool elástico. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização de trabalho for devido à contenção de recursos de computação. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Governança de taxa de Log de transação 

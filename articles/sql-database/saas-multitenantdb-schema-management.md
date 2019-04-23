@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema de Banco de Dados Azure SQL em um aplicativo multilocatário | Microsoft Docs
+title: Gerenciar o esquema de Banco de Dados SQL do Azure em um aplicativo multilocatário | Microsoft Docs
 description: Gerenciar o esquema para vários locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database

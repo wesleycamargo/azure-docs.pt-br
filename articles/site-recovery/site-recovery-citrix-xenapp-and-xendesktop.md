@@ -9,7 +9,7 @@ ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
 ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/12/2018
 ms.locfileid: "53310503"
@@ -43,7 +43,7 @@ Um farm Citrix XenApp e XenDesktop geralmente possui o seguinte padrão de impla
 
 **Padrão de implantação**
 
-A implantação do Citrix XenApp e XenDesktop com servidor DNS AD, servidor de banco de dados SQL, Controlador de entrega Citrix, servidor StoreFront, XenApp Master (VDA), servidor de licenças do Citrix XenApp
+A implantação do Citrix XenApp e XenDesktop com servidor DNS AD, servidor do banco de dados SQL, Controlador de entrega Citrix, servidor StoreFront, XenApp Master (VDA), servidor de licenças do Citrix XenApp
 
 ![Padrão de Implantação 1](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-deployment.png)
 
@@ -81,7 +81,7 @@ Você precisa recriar esses clones usando o provisionamento do Azure RM do Contr
 Os seguintes componentes da implantação do Citrix XenApp precisam ser protegidos para habilitar a replicação e a recuperação.
 
 * Proteção do servidor DNS AD
-* Proteção do servidor de banco de dados SQL
+* Proteção do servidor do banco de dados SQL
 * Proteção do Controlador de entrega do Citrix
 * Proteção do servidor StoreFront.
 * Proteção do XenApp Master (VDA)

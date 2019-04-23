@@ -50,11 +50,11 @@ Realize facilmente alterações de esquema, gerenciamento de credenciais, atuali
 
 ### <a name="reports"></a>Relatórios
 
-Agregar dados de uma coleção de bancos de dados SQL do Azure em apenas uma tabela de destino.
+Agregue dados de uma coleção de bancos de dados SQL do Azure em uma tabela de destino único.
 
 ### <a name="reduce-overhead"></a>Reduzir sobrecarga
 
-Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, atualiza e mantém os scripts T-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
+Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, mantém e persiste scripts T-SQL que serão executados em um grupo de bancos de dados SQL do Azure.
 
 ### <a name="accounting"></a>Contabilidade
 
@@ -62,7 +62,7 @@ Os trabalhos executam o script e registram em log o status de execução para ca
 
 ### <a name="flexibility"></a>Flexibilidade
 
-Definir grupos personalizados de bancos de dados SQL do Azure e agendar as execuções de um trabalho.
+Defina grupos personalizados de bancos de dados SQL do Azure e defina agendas para executar um trabalho.
 
 > [!NOTE]
 > No portal do Azure, apenas um conjunto reduzido de funções limitadas aos pools elásticos do SQL Azure está disponível. Use as APIs do PowerShell para acessar o conjunto completo de funcionalidades atuais.

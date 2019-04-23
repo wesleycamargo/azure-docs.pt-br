@@ -43,7 +43,7 @@ Para implantar esse blueprint, é necessário uma assinatura do Azure. Se você 
 
 ## <a name="architecture-and-components"></a>Arquitetura e componentes
 
-Este blueprint fornece um solução em um ambiente de nuvem do Azure que dá suporte a cargas de trabalho do REINO UNIDO OFICIAL de hospedagem de aplicativos de web. A arquitetura oferece um ambiente seguro que aproveita a plataforma do Azure como recursos de um serviço. Dentro do ambiente, dois aplicativos Web do Serviço de Aplicativo do Azure são implantados (um para os usuários públicos e outro para usuários de back-office), com uma camada de Aplicativo de API para fornecer os serviços de negócios para o front-end da Web. Um banco de dados do SQL Azure é implantado como um repositório de dados relacionados gerenciados para o aplicativo. Conectividade com esses componentes fora da plataforma e entre todos esses componentes é criptografada por meio do protocolo TLS 1.2 para garantir os dados na privacidade de transporte, com acesso autenticado pelo Active Directory do Azure.
+Este blueprint fornece um solução em um ambiente de nuvem do Azure que dá suporte a cargas de trabalho do REINO UNIDO OFICIAL de hospedagem de aplicativos de web. A arquitetura oferece um ambiente seguro que aproveita a plataforma do Azure como recursos de um serviço. Dentro do ambiente, dois aplicativos Web do Serviço de Aplicativo do Azure são implantados (um para os usuários públicos e outro para usuários de back-office), com uma camada de Aplicativo de API para fornecer os serviços de negócios para o front-end da Web. Um banco de dados SQL do Azure é implantado como um repositório de dados relacionados gerenciados para o aplicativo. Conectividade com esses componentes fora da plataforma e entre todos esses componentes é criptografada por meio do protocolo TLS 1.2 para garantir os dados na privacidade de transporte, com acesso autenticado pelo Active Directory do Azure.
 
 ![Hospedagem de aplicativos de Web do PaaS para o diagrama de arquitetura de referência de cargas de trabalho OFICIAL do REINO UNIDO](images/ukofficial-paaswa-architecture.png?raw=true "hospedagem de aplicativos de Web do PaaS para o diagrama de arquitetura de referência de cargas de trabalho OFICIAL do REINO UNIDO")
 
@@ -123,7 +123,7 @@ O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de u
 
 Banco de dados SQL do Azure neste projeto
 
-A instância do Banco de Dados SQL usa as seguintes medidas de segurança de banco de dados:
+A instância do Banco de Dados SQL do Azure usa as seguintes medidas de segurança de banco de dados:
 
 - [Regras de firewall no nível do servidor e o nível de banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), ou através dos [pontos de extremidade de serviço de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regras de Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
 - [Criptografia de dados transparentes](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ajuda a proteger o Banco de Dados SQL do Microsoft Azure e o banco de dados de data warehouse do Azure contra a ameaça de atividade mal-intencionada. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.
@@ -149,7 +149,7 @@ Este modelo usa os seguintes componentes de Armazenamento do Microsoft Azure:
 
 Através da [Criptografia do Serviço de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) todos os dados gravados no Armazenamento do Azure são criptografados por meio da criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis. Use chaves de criptografia gerenciadas pela Microsoft com a SSE ou suas [próprias chaves de criptografia](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
-As contas de armazenamento podem ser protegidas por meio dos [Pontos de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regras de rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+As contas de armazenamento podem ser protegidas por meio dos [Pontos de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regras da rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 Informações detalhadas sobre como proteger o Armazenamento do Microsoft Azure podem ser encontradas na [guia de segurança](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
 

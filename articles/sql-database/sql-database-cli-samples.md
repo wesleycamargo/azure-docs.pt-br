@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
 ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359436"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras da CLI do Azure para o Banco de Dados SQL do Azure
@@ -37,10 +37,10 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para o B
 |---|---|
 |**Criar um banco de dados individual e um pool elástico**||
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI cria um banco de dados SQL do Azure e configura uma regra de firewall no nível do servidor. |
-| [Criar pools elásticos e mover bancos de dados em pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI cria pools elásticos SQL, move os bancos de dados SQL do Azure em pools e altera os tamanhos de computação.|
+| [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI cria pools elásticos SQL, move os bancos de dados SQL do Azure em pools e altera os tamanhos da computação.|
 |**Dimensionar um banco de dados individual e um pool elástico**||
-| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um banco de dados SQL do Azure individual para um tamanho de computação diferente depois de consultar as informações de tamanho do banco de dados. |
-| [Dimensionar um pool elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um pool elástico do SQL para um tamanho de computação diferente.  |
+| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um banco de dados SQL do Azure individual para um tamanho da computação diferente depois de consultar as informações de tamanho do banco de dados. |
+| [Dimensionar um pool elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um pool elástico do SQL para um tamanho da computação diferente.  |
 |||
 
 Saiba mais sobre a [API da CLI do Azure do Banco de Dados Individual](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
@@ -53,7 +53,7 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para o B
 |---|---|
 | [Criar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Esse script de CLI mostra como criar uma Instância Gerenciada. |
 | [Atualizar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Esse script de CLI mostra como atualizar uma Instância Gerenciada. |
-| [Mover um banco de dados para outra Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Esse script de CLI mostra como restaurar um backup de um banco de dados de uma instância para outra. |
+| [Mover um banco de dados para outra instância gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Esse script de CLI mostra como restaurar um backup de um banco de dados de uma instância para outra. |
 |||
 
 Saiba mais sobre o a [API da CLI do Azure de Instância Gerenciada](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) e localize [exemplos adicionais aqui](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

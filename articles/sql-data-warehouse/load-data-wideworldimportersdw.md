@@ -12,7 +12,7 @@ ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55454327"
@@ -114,7 +114,7 @@ O serviço do SQL Data Warehouse cria um firewall no nível do servidor que impe
 
     ![configurações do servidor](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Clique em **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
+5. Clique em **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor do Banco de Dados SQL é aberta. 
 
     ![regra de firewall do servidor](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 

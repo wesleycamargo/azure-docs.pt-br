@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261455"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
@@ -73,7 +73,7 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
     1. Atualiza o ponto de extremidade de identidade do Serviço de Metadados de Instância com o certificado e a ID do cliente da entidade de serviço.
     1. Provisiona a extensão da VM (programada para ser preterida em janeiro de 2019) e adiciona o certificado e a ID de cliente da entidade de serviço. (Esta etapa está programada para reprovação.)
 4. Depois que a máquina virtual ganhar uma identidade, use as informações da entidade de serviço para conceder acesso aos recursos do Microsoft Azure à VM. Para chamar o Azure Resource Manager, use o RBAC (controle de acesso baseado em função) no Azure AD para atribuir a função apropriada à entidade de serviço da VM. Para chamar o Key Vault, conceda o acesso de código para o segredo ou chave específica no Key Vault.
-5. O código em execução na VM pode solicitar um token do ponto de extremidade de serviço de Metadados de Instância do Azure, acessível somente na VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+5. O código que está em execução na VM pode solicitar um token do ponto de extremidade de serviço de Metadados de Instância do Azure, acessível somente a partir da VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro de recurso especifica o serviço ao qual o token é enviado. Para se autenticar no Azure Resource Manager, use `resource=https://management.azure.com/`.
     - O parâmetro de versão de API Especifica a versão IMDS, use a versão da API = 2018-02-01 ou superior.
 
@@ -95,7 +95,7 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
    > [!Note]
    > Você também pode executar essa etapa antes da etapa 3.
 
-5. O código em execução na VM pode solicitar um token do ponto de extremidade de identidade do Serviço de Metadados de Instância do Azure, acessível somente na VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+5. O código que está em execução na VM pode solicitar um token do ponto de extremidade de identidade do Serviço de Metadados de Instância do Azure, acessível somente a partir da VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro de recurso especifica o serviço ao qual o token é enviado. Para se autenticar no Azure Resource Manager, use `resource=https://management.azure.com/`.
     - O parâmetro de ID de cliente especifica a identidade para a qual o token é solicitado. Esse valor é necessário para eliminar a ambiguidade quando mais de uma identidade atribuída pelo usuário está em uma mesma VM.
     - O parâmetro de versão da API especifica a versão do Serviço de Metadados de Instância do Azure. Use `api-version=2018-02-01` ou superior.
@@ -116,7 +116,7 @@ Para saber como usar as identidades gerenciadas para acessar diferentes recursos
 Saiba como usar uma identidade gerenciada com uma VM do Windows:
 
 * [Acessar Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
-* [Acessar Azure Resource Manager](tutorial-windows-vm-access-arm.md)
+* [Acessar o Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Acessar SQL do Azure](tutorial-windows-vm-access-sql.md)
 * [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-windows-vm-access-storage.md)
 * [Acessar o Armazenamento do Azure usando assinaturas de acesso compartilhado](tutorial-windows-vm-access-storage-sas.md)
@@ -125,14 +125,14 @@ Saiba como usar uma identidade gerenciada com uma VM do Windows:
 Saiba como usar uma identidade gerenciada com uma VM do Linux:
 
 * [Acessar Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
-* [Acessar Azure Resource Manager](tutorial-linux-vm-access-arm.md)
+* [Acessar o Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-linux-vm-access-storage.md)
 * [Acessar o Armazenamento do Azure usando assinaturas de acesso compartilhado](tutorial-linux-vm-access-storage-sas.md)
 * [Acessar um recurso que não seja do Azure AD com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
 
 Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 
-* [Serviço de aplicativo do Azure](/azure/app-service/overview-managed-identity)
+* [Serviço de Aplicativo do Azure](/azure/app-service/overview-managed-identity)
 * [Funções do Azure](/azure/app-service/overview-managed-identity)
 * [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
 * [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)

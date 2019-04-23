@@ -1,6 +1,6 @@
 ---
 title: Criar uma regra de firewall no nível do servidor – Banco de Dados SQL do Azure | Microsoft Docs
-description: Criar uma regra de firewall no nível do servidor de Banco de Dados SQL para bancos de dados individuais ou em pool
+description: Criar uma regra de firewall no nível do servidor do Banco de Dados SQL para bancos de dados individuais ou em pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -38,7 +38,7 @@ O serviço de Banco de Dados SQL cria um firewall no nível do servidor de banco
 > [!NOTE]
 > O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 > [!IMPORTANT]
-> Uma regra de firewall igual a 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível do servidor e tentem se conectar a um banco de dados individual ou em pool por meio do servidor. Para saber mais sobre como usar regras de rede virtual, confira [Regras de rede virtual como alternativas às regras de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Uma regra de firewall igual a 0.0.0.0 permite que todos os serviços do Azure passem pela regra de firewall no nível do servidor e tentem se conectar a um banco de dados individual ou em pool por meio do servidor. Para saber mais sobre como usar regras da rede virtual, confira [Regras da rede virtual como alternativas às regras de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
 
 Execute essas etapas para criar uma regra de firewall de IP no nível do servidor para o endereço IP do cliente e habilite a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP.
 

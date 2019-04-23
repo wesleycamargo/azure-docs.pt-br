@@ -19,7 +19,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57835774"
 ---
-# <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo de SaaS usando um banco de dados SQL multilocatário fragmentado do Azure
+# <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo de SaaS usando um banco de dados SQL do Azure multilocatário fragmentado do Azure
 
 Este artigo aborda o provisionamento e a catalogação de novos locatários, em um modelo ou padrão de *banco de dados fragmentado multilocatário*.
 

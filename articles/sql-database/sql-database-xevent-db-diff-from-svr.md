@@ -30,7 +30,7 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 
 *XEvents* é um apelido informal usado às vezes para "eventos estendidos" em blogs e outras fontes de informações.
 
-Informações adicionais sobre eventos estendidos, para Banco de Dados SQL e Microsoft SQL Server, estão disponíveis em:
+Informações adicionais sobre eventos estendidos, para Banco de Dados SQL do Azure e Microsoft SQL Server, estão disponíveis em:
 
 - [Início rápido: Eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx)

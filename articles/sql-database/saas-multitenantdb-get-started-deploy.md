@@ -29,7 +29,7 @@ Esse padrão de banco de dados permite que você armazene um ou mais locatários
 
 ## <a name="app-deploys-quickly"></a>Aplicativo implantado rapidamente
 
-O aplicativo é executado na nuvem do Azure e usa o banco de dados do SQL Azure. A seção de implantação a seguir fornece o botão azul **Implantar no Azure**. Quando o botão é pressionado, o aplicativo é totalmente implantado na assinatura do Azure em cinco minutos. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
+O aplicativo é executado na nuvem do Azure e usa o banco de dados SQL do Azure. A seção de implantação a seguir fornece o botão azul **Implantar no Azure**. Quando o botão é pressionado, o aplicativo é totalmente implantado na assinatura do Azure em cinco minutos. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
 
 O aplicativo é implantado com dados para três locatários de exemplo. Os locatários são armazenados juntos em um banco de dados de vários locatários.
 
@@ -120,7 +120,7 @@ Os valores definidos neste arquivo são usados por todos os scripts, portanto, �
 
 No aplicativo Wingtip, os locatários são locais. Um local pode ser uma sala de concertos, um clube de esportes ou qualquer outro local que receba eventos. Os locais registram-se no Wingtip como clientes, e um identificador de locatário é gerado para cada local. Cada local lista seus próximos eventos no Wingtip, assim, o público pode comprar ingressos para os eventos.
 
-Cada local obtém um aplicativo Web personalizado para listar seus eventos e vender ingressos. Cada aplicativo Web é independente e isolado de outros locatários. Internamente no Azure SQL Database, por padrão, cada dado para cada locatário é armazenado em um banco de dados multilocatário fragmentado. Todos os dados são marcados com o identificador do locatário.
+Cada local obtém um aplicativo Web personalizado para listar seus eventos e vender ingressos. Cada aplicativo Web é independente e isolado de outros locatários. Internamente no Banco de Dados SQL do Azure, por padrão, cada dado para cada locatário é armazenado em um banco de dados multilocatário fragmentado. Todos os dados são marcados com o identificador do locatário.
 
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283606"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
@@ -456,4 +456,4 @@ Neste tutorial, você realizou as seguintes tarefas com sucesso:
 Para saber mais sobre as estruturas das definições de políticas, consulte este artigo:
 
 > [!div class="nextstepaction"]
-> [Estrutura de definição da Política do Azure](../concepts/definition-structure.md)
+> [Estrutura de definição do Azure Policy](../concepts/definition-structure.md)

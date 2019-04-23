@@ -1,5 +1,5 @@
 ---
-title: Proteger o acesso a uma conta do Azure Cosmos DB usando o ponto de extremidade de serviço da Rede Virtual do Azure
+title: Proteger o acesso a uma conta do Azure Cosmos DB usando o ponto de extremidade de serviço de Rede Virtual do Azure
 description: Este documento descreve sobre o controle de acesso à rede virtual e sub-rede para uma conta do Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -24,9 +24,9 @@ Por padrão, uma conta do Azure Cosmos pode ser acessada de qualquer origem se a
 
 Aqui estão algumas perguntas frequentes sobre como configurar o acesso a partir de redes virtuais:
 
-### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Posso especificar o ponto de extremidade do serviço de rede virtual e a política de controle de acesso IP em uma conta do Azure Cosmos? 
+### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Posso especificar o ponto de extremidade de serviço de rede virtual e a política de controle de acesso IP em uma conta do Azure Cosmos? 
 
-Você pode habilitar o ponto de extremidade do serviço de rede virtual e uma diretiva de controle de acesso IP (também chamada de firewall) em sua conta do Azure Cosmos. Esses dois recursos são complementares e coletivamente garantem o isolamento e a segurança da sua conta do Azure Cosmos. Usar o firewall IP garante que os IPs estáticos possam acessar sua conta. 
+Você pode habilitar o ponto de extremidade de serviço de rede virtual e uma diretiva de controle de acesso IP (também chamada de firewall) em sua conta do Azure Cosmos. Esses dois recursos são complementares e coletivamente garantem o isolamento e a segurança da sua conta do Azure Cosmos. Usar o firewall IP garante que os IPs estáticos possam acessar sua conta. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Como fazer para limitar o acesso à sub-rede dentro de uma rede virtual? 
 

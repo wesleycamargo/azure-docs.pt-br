@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
 ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2018
 ms.locfileid: "53651768"
@@ -83,7 +83,7 @@ O coletor de destino ao qual o trabalho grava os resultados deverá ser capaz de
 
 É possível criar coletores idempotentes implementando a lógica que primeiro verifica a existência do resultado recebido no armazenamento de dados. Se o resultado já existir, a gravação deverá aparecer para ter êxito na perspectiva do trabalho do Spark, mas, na realidade, o armazenamento de dados ignorou os dados duplicados. Se o resultado não existir, então, o coletor deverá inserir esse novo resultado no seu armazenamento. 
 
-Por exemplo, é possível usar um procedimento armazenado com Banco de Dados SQL do Microsoft Azure que insere eventos em uma tabela. Esse procedimento armazenado primeiro procura o evento por campos-chave e somente quando nenhum evento correspondente é encontrado, o registro será inserido na tabela.
+Por exemplo, é possível usar um procedimento armazenado com Banco de Dados SQL do Azure que insere eventos em uma tabela. Esse procedimento armazenado primeiro procura o evento por campos-chave e somente quando nenhum evento correspondente é encontrado, o registro será inserido na tabela.
 
 Outro exemplo é usar um sistema de arquivos particionado como blobs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisará verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele simplesmente será substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
 

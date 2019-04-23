@@ -171,7 +171,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | CatalogServerEndpoint | O ponto de extremidade de seu servidor existente de Banco de dados SQL do Azure/Instância Gerenciada para hospedar o SSISDB. |
 | CatalogAdminUserName | O nome de usuário do administrador do seu servidor existente de Banco de dados SQL do Azure/Instância Gerenciada. O serviço Data Factory usa essas informações para preparar e gerenciar o SSISDB por você. |
 | CatalogAdminPassword | A senha do administrador do seu servidor existente de Banco de dados SQL do Azure/Instância Gerenciada. |
-| CatalogPricingTier | O tipo de preço do SSISDB hospedado por seu servidor existente do Banco de dados SQL do Azure.  Não se aplica à Instância Gerenciada de SQL do Azure que hospeda o SSISDB. |
+| CatalogPricingTier | O tipo de preço do SSISDB hospedado por seu servidor existente do Banco de dados SQL do Azure.  Não se aplica à Instância Gerenciada de Banco de Dados SQL do Azure que hospeda o SSISDB. |
 | VNetId | A ID de recursos da rede virtual para o tempo de execução de integração do Azure-SSIS ingressar. |
 | Sub-rede | O nome da sub-rede para o tempo de execução de integração do Azure-SSIS ingressar. |
 | ID | A ID de recursos do seu tempo de execução de integração do Azure-SSIS. |

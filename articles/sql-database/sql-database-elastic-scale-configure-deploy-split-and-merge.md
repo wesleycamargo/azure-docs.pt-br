@@ -204,7 +204,7 @@ Os arquivos de script incluídos são:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Usar o PowerShell para verificar sua implantação
 1. Abra uma nova janela do PowerShell, navegue até o diretório onde baixou o pacote de Divisão-Mesclagem e, em seguida, navegue para o diretório do “powershell”.
-2. Crie um servidor de Banco de Dados SQL do Azure (ou escolha um servidor existente) em que o gerenciador do mapa do fragmento e os fragmentos serão criados.
+2. Crie um servidor do Banco de Dados SQL do Azure (ou escolha um servidor existente) em que o gerenciador do mapa do fragmento e os fragmentos serão criados.
    
    > [!NOTE]
    > O script SetupSampleSplitMergeEnvironment.ps1 cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.

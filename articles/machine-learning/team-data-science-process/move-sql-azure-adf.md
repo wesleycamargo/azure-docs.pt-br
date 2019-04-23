@@ -40,7 +40,7 @@ O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples
 Criamos um pipeline do ADF que compõe duas atividades de migração de dados. Juntas, elas movem dados diariamente entre um banco de dados do SQL local e um banco de dados SQL do Azure na nuvem. As duas atividades são:
 
 * copiar os dados de um banco de dados de SQL Server local para uma conta de Armazenamento de Blobs do Azure
-* copiar dados da conta de armazenamento de blob do Azure para um banco de dados do SQL Azure.
+* copiar dados da conta de armazenamento de blob do Azure para um banco de dados SQL do Azure.
 
 > [!NOTE]
 > As etapas mostradas aqui foram adaptadas do tutorial mais detalhado fornecido pela equipe do ADF: [Copiar dados de um banco de dados do SQL Server local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) Referências às seções relevantes desse tópico são fornecidas quando apropriado.
@@ -52,7 +52,7 @@ Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-account-manage.md#access-keys).
-* Acesso a um **Banco de dados do SQL Azure**. Se você deve configurar um banco de dados SQL, o tópico [Introdução ao banco de dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um banco de dados do SQL Azure.
+* Acesso a um **Banco de dados SQL do Azure**. Se você deve configurar um banco de dados SQL, o tópico [Introdução ao banco de dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um banco de dados do SQL Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 > [!NOTE]
@@ -78,7 +78,7 @@ Um serviço vinculado define as informações necessárias para o Azure Data Fac
 
 1. SQL Server local
 2. Armazenamento do Blobs do Azure
-3. Banco de Dados SQL Azure
+3. Banco de Dados SQL do Azure
 
 O procedimento passo a passo para criar serviços vinculados é fornecido em [Create linked services (Criar serviços vinculados)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 

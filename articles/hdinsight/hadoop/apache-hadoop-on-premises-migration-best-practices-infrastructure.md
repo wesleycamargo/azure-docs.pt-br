@@ -171,7 +171,7 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Visão-geral-de-redes-virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conecte-se com segurança aos serviços do Azure com os ponto de extremidade de serviço da Rede Virtual do Microsoft Azure
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conecte-se com segurança aos serviços do Azure com os pontos de extremidade de serviço de Rede Virtual do Microsoft Azure
 
 Dá suporte ao HDInsight [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md), que permitem que você conecte com segurança a bancos de dados do armazenamento de BLOBs do Azure, Azure Data Lake armazenamento Gen2, Cosmos DB e SQL. Ao habilitar um ponto de extremidade de serviço para o Azure HDInsight, o tráfego flui por meio de uma rota protegida de dentro do data center do Azure. Com este nível aprimorado de segurança na camada de rede, você pode bloquear contas de armazenamento de Big Data para suas VNETs (redes virtuais) especificadas e ainda usar clusters HDInsight diretamente para acessar e processar os dados.
 

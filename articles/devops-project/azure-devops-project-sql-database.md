@@ -21,7 +21,7 @@ ms.locfileid: "57845215"
 O Azure DevOps Projects apresenta uma experiência simplificada na qual é possível trazer o seu código e repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
 O DevOps Projects também:
-* Cria automaticamente os recursos do Azure, como um banco de dados do Azure SQL.
+* Cria automaticamente os recursos do Azure, como um banco de dados SQL do Azure.
 * Cria e configura um pipeline de lançamento no Azure Pipelines que inclui um pipeline de build de CI.
 * Configura um pipeline de lançamento de CD. 
 * Cria um recurso do Azure Application Insights para monitoramento.

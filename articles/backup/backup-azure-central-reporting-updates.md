@@ -10,7 +10,7 @@ ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55293954"
@@ -30,7 +30,7 @@ Conforme mencionado anteriormente, se o pacote de conteúdo for alterado, você 
 
 ## <a name="coming-soon"></a>Em breve
    
-O pacote de conteúdo do Backup do Azure é atualizado para dar suporte a mais cargas de trabalho. As cargas de trabalho incluem o Banco de Dados SQL para backup da VM IaaS e o System Center Data Protection Manager. Esse suporte é adicionado ao suporte atual para backups de VM do Azure e ao backup do Azure. Esse suporte significa que você pode exibir e analisar todos os dados de backup em um local central. [Os relatórios também podem ser personalizados](https://youtu.be/26zyOtyHPJM) para atender às necessidades de sua organização.
+O pacote de conteúdo do Backup do Azure é atualizado para dar suporte a mais cargas de trabalho. As cargas de trabalho incluem o Banco de Dados SQL do Azure para backup da VM IaaS e o System Center Data Protection Manager. Esse suporte é adicionado ao suporte atual para backups de VM do Azure e ao backup do Azure. Esse suporte significa que você pode exibir e analisar todos os dados de backup em um local central. [Os relatórios também podem ser personalizados](https://youtu.be/26zyOtyHPJM) para atender às necessidades de sua organização.
 
 Os relatórios pré-configurados que vêm com o pacote de conteúdo do Backup do Azure estão mudando. As alterações tornam os relatórios mais significativos entre cargas de trabalho. Uma prévia do próximo conjunto de relatórios está disponível aqui.
 

@@ -16,7 +16,7 @@ ms.date: 12/19/2018
 ms.author: barclayn
 ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
 ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/02/2019
 ms.locfileid: "53976504"
@@ -93,7 +93,7 @@ A [criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsofts
 **Melhor prática**: Aplicar a criptografia de disco para ajudar a proteger seus dados.   
 **Detalhe**: Use [Azure Disk Encryption](azure-security-disk-encryption.md). Permite que os administradores de TI criptografem discos de VM IaaS Windows e Linux. O Disk Encryption combina o recurso BitLocker do Windows padrão do setor e o recurso dm-crypt do Linux para fornecer uma criptografia de volume para o sistema operacional e os discos de dados.
 
-Dados em repouso de armazenamento de criptografia do Armazenamento do Microsoft Azure e Banco de Dados SQL do Microsoft Azure por padrão e muitos serviços oferecem criptografia como uma opção. Você pode usar o Azure Key Vault para manter o controle das chaves que acessam e criptografar seus dados. Consulte [suporte ao modelo de criptografia de provedores do recurso do Azure para saber mais](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
+Dados em repouso de armazenamento de criptografia do Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure por padrão e muitos serviços oferecem criptografia como uma opção. Você pode usar o Azure Key Vault para manter o controle das chaves que acessam e criptografar seus dados. Consulte [suporte ao modelo de criptografia de provedores do recurso do Azure para saber mais](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 **Práticas recomendadas**: Usar criptografia para ajudar a atenuar os riscos relacionados ao acesso não autorizado.
 **Detalhe**: Criptografe as unidades antes de gravar dados confidenciais nelas.
@@ -118,7 +118,7 @@ Estas são melhores práticas específicas para o uso de HTTPS, SSL/TLS e o Gate
 **Detalhe**: Use [ExpressRoute](../expressroute/expressroute-introduction.md). Se você optar por usar o ExpressRoute, também poderá criptografar os dados no nível do aplicativo usando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para proteção adicional.
 
 **Melhor prática**: Interagir com o Armazenamento do Azure por meio do portal do Azure.   
-**Detalhe**: Todas as transações ocorrerão via HTTPS. Você também pode usar [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS para interagir com [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/) e [banco de dados SQL](https://azure.microsoft.com/services/sql-database/).
+**Detalhe**: Todas as transações ocorrerão via HTTPS. Você também pode usar [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS para interagir com [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/) e [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
 
 As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e sequestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
 

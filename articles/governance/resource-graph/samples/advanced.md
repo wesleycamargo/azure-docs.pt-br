@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256814"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas do Microsoft Azure Active Directory Graph
@@ -22,9 +22,9 @@ A primeira etapa para consultas de reconhecimento com o Microsoft Azure Resource
 Vamos percorrer as seguintes consultas avançadas:
 
 > [!div class="checklist"]
-> - [Obter a capacidade e o tamanho do VMSS](#vmss-capacity)
+> - [Obter o tamanho e a capacidade VMSS](#vmss-capacity)
 > - [Listar todos os nomes de marca](#list-all-tags)
-> - [Correspondência de máquinas virtuais por regex](#vm-regex)
+> - [Máquinas virtuais correspondidas por regex](#vm-regex)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -75,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Essa consulta procura por máquinas virtuais que correspondem a um [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_).
 O **corresponde ao regex \@** nos permite definir o regex para correspondência, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
 
-- `^` – A correspondência precisa começar no início da cadeia de caracteres.
-- `Contoso` – A cadeia de caracteres que diferencia maiúsculas de minúsculas.
-- `(.*)` – Uma correspondência de subexpressão:
-  - `.` – Corresponde a qualquer caractere único (exceto uma nova linha).
-  - `*` – Corresponde ao elemento anterior nenhuma vez ou mais vezes.
-- `[0-9]` – Correspondência de grupo de caracteres para os números de 0 a 9.
-- `+` – Corresponde ao elemento anterior uma ou mais vezes.
-- `$` – A correspondência do elemento anterior precisa ocorrer no final da cadeia de caracteres.
+- `^` - a correspondência deve começar no início da cadeia de caracteres.
+- `Contoso` - a cadeia de caracteres com diferenciação de maiúsculas e minúsculas.
+- `(.*)` - uma correspondência de subexpressão:
+  - `.` - corresponde a qualquer caractere único (exceto uma nova linha).
+  - `*` - corresponde ao elemento anterior nenhuma ou mais vezes.
+- `[0-9]` - correspondência de grupo de caracteres para os números de 0 a 9.
+- `+` - corresponde ao elemento anterior uma ou mais vezes.
+- `$` - a correspondência do elemento anterior deve ocorrer no final da cadeia de caracteres.
 
 Após a correspondência por nome, a consulta projeta o nome e ordena por nome em ordem crescente.
 

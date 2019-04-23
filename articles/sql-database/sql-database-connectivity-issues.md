@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com erros transitórios - Banco de Dados SQL do Microsoft Azure | Microsoft Docs
-description: Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL.
+title: Trabalhando com erros transitórios - Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL do Azure.
 keywords: conexão do sql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 services: sql-database
 ms.service: sql-database

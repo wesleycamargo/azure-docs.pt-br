@@ -21,7 +21,7 @@ ms.locfileid: "57999128"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 
-Este documento apresenta a experiência do desenvolvedor para a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), ajudando você a executar um aplicativo de exemplo. O aplicativo de exemplo cria um aplicativo fragmentado simples e explora os principais recursos das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Microsoft Azure. Ele se concentra nos casos de uso para [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como para Java. 
+Este documento apresenta a experiência do desenvolvedor para a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), ajudando você a executar um aplicativo de exemplo. O aplicativo de exemplo cria um aplicativo fragmentado simples e explora os principais recursos das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Azure. Ele se concentra nos casos de uso para [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como para Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Ferramentas de Banco de Dados Elástico para Java
 
@@ -29,7 +29,7 @@ Este documento apresenta a experiência do desenvolvedor para a [biblioteca de c
 
 * Um Java Developer Kit (JDK) versão 1.8 ou posterior
 * [Maven](https://maven.apache.org/download.cgi)
-* Um servidor de Banco de Dados SQL no Azure ou uma instância local do SQL Server
+* Um servidor do Banco de Dados SQL no Azure ou uma instância local do SQL Server
 
 ### <a name="download-and-run-the-sample-app"></a>Baixar e executar o aplicativo de amostra
 
@@ -57,7 +57,7 @@ Para criar os arquivos JAR e começar a trabalhar com o projeto de exemplo, siga
 
     ![Progresso de java][5]
     
-Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as Ferramentas de Banco de Dados Elástico no Banco de Dados SQL do Microsoft Azure. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou. 
+Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as Ferramentas de Banco de Dados Elástico no Banco de Dados SQL do Azure. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou. 
 
 Para adicionar a biblioteca de clientes a seu próprio projeto Maven, adicione a seguinte dependência em seu arquivo POM:
 
@@ -86,7 +86,7 @@ Para baixar e executar a amostra, siga estas etapas:
 
 2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* do diretório *C#*.
 
-3. Na solução para o exemplo de projeto, abra o arquivo *app.config*. Siga as instruções no arquivo para adicionar o nome de seu servidor de Banco de Dados SQL do Microsoft Azure e suas informações de entrada (nome de usuário e senha).
+3. Na solução para o exemplo de projeto, abra o arquivo *app.config*. Siga as instruções no arquivo para adicionar o nome de seu servidor do Banco de Dados SQL do Microsoft Azure e suas informações de entrada (nome de usuário e senha).
 
 4. Compile e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
 

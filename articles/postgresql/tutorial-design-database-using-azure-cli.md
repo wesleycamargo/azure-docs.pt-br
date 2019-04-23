@@ -76,7 +76,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 Para restringir o acesso ao seu servidor do Azure PostgreSQL para sua rede apenas, você pode definir a regra de firewall para abranger apenas o intervalo de endereços IP de sua rede corporativa.
 
 > [!NOTE]
-> O servidor PostgreSQL do Azure se comunica pela porta 5432. Ao se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Faça seu departamento de TI abrir a porta 5432 para se conectar ao seu servidor de Banco de Dados SQL do Azure.
+> O servidor PostgreSQL do Azure se comunica pela porta 5432. Ao se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 5432 talvez não seja permitido pelo firewall de sua rede. Faça seu departamento de TI abrir a porta 5432 para se conectar ao seu servidor do Banco de Dados SQL do Azure.
 >
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão

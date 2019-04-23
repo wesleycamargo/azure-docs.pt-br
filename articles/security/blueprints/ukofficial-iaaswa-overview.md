@@ -137,7 +137,7 @@ Armazenamento
 
 **Camada Comercial**: Implementa os processos de negócios e outras lógicas funcionais para o sistema.
 
-**Camada de Banco de Dados**: Fornece armazenamento de dados persistente, usando [Grupos de Disponibilidade Always On do SQL Server](https://msdn.microsoft.com/library/hh510230.aspx) para alta disponibilidade. Os clientes podem utilizar [Banco de Dados do SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) como uma alternativa de PaaS.
+**Camada de Banco de Dados**: Fornece armazenamento de dados persistente, usando [Grupos de Disponibilidade Always On do SQL Server](https://msdn.microsoft.com/library/hh510230.aspx) para alta disponibilidade. Os clientes podem utilizar [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) como uma alternativa de PaaS.
 
 **Gateway**: O [Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) fornece conectividade entre os roteadores na rede local e na VNET de produção.
 

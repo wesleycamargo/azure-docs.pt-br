@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
 ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2019
 ms.locfileid: "55567444"
@@ -104,7 +104,7 @@ O uso de uma consulta elástica para executar tarefas de relatórios em uma cama
 
 > [!NOTE]
 > Consulta de banco de dados Elástico (nó principal) pode ser separado do banco de dados, ou pode ser o mesmo banco de dados que hospeda o mapa do fragmento.
-> Seja qual for a configuração que você escolher, verifique se a camada de serviço e o tamanho de computação do banco de dados é alta o suficiente para lidar com o valor esperado de solicitações de logon/consulta.
+> Seja qual for a configuração que você escolher, verifique se a camada de serviço e o tamanho da computação do banco de dados é alta o suficiente para lidar com o valor esperado de solicitações de logon/consulta.
 
 As seguintes etapas configuram consultas de banco de dados elástico para cenários de particionamento horizontal que exigem o acesso a um conjunto de tabelas que estão localizadas (normalmente) em vários Bancos de Dados SQL remotos:
 
@@ -136,7 +136,7 @@ A consulta elástica está incluída no custo dos bancos de dados do Banco de Da
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* A execução da primeira consulta elástica pode levar alguns minutos na camada de serviço Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica. O desempenho do carregamento melhora com as camadas de serviço e os tamanhos de computação mais altos.
+* A execução da primeira consulta elástica pode levar alguns minutos na camada de serviço Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica. O desempenho do carregamento melhora com as camadas de serviço e os tamanhos da computação mais altos.
 * Ainda não há suporte para scripts de fontes de dados externas ou de tabelas externas do SSMS ou SSDT.
 * A Importação/Exportação do Banco de Dados SQL ainda não dá suporte a tabelas externas e fontes de dados externas. Se precisar usar a função Importação/Exportação, remova esses objetos antes da exportação e depois recrie-os após a importação.
 * Atualmente, a consulta elástica dá suporte apenas ao acesso somente leitura para tabelas externas. Você pode, no entanto, usar a funcionalidade completa do T-SQL no banco de dados no qual a tabela externa é definida. Isso pode ser útil para, por exemplo, manter os resultados temporários usando, por exemplo, SELECT <column_list> INTO <local_table>, ou para definir os procedimentos armazenados no banco de dados de consulta elástica que se referem a tabelas externas.

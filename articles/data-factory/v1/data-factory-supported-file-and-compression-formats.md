@@ -14,7 +14,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9f417bf992dae116c889d3786a609614a6202e1f
 ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57542787"
@@ -498,7 +498,7 @@ A seção **compactação** tem duas propriedades:
 
 Quando você especifica a propriedade `compression` em um conjunto de dados de entrada JSON, o pipeline pode ler os dados compactados da origem e, quando você especifica a propriedade em um conjunto de dados de saída JSON, a atividade de cópia pode gravar dados compactados no destino. Aqui estão alguns exemplos de cenários:
 
-* Ler dados compactados em GZIP de um blob do Azure, descompactá-los e gravar os dados resultantes em um banco de dados do SQL Azure. Você define o conjunto de dados de Blob do Azure de entrada com `compression` `type` a propriedade JSON como GZIP.
+* Ler dados compactados em GZIP de um blob do Azure, descompactá-los e gravar os dados resultantes em um banco de dados SQL do Azure. Você define o conjunto de dados de Blob do Azure de entrada com `compression` `type` a propriedade JSON como GZIP.
 * Ler dados de um arquivo de texto sem formatação do Sistema de arquivos local, compactá-los usando o formato GZip e gravar os dados compactados em um blob do Azure. Você define um conjunto de dados de Blob do Azure de saída com a `compression` `type` propriedade JSON como GZip.
 * Leia o arquivo .zip de servidor FTP, descompacte-o para obter os arquivos contidos nele e inclua-os no Azure Data Lake Store. Você define um conjunto de dados FTP de entrada com a `compression` `type` propriedade JSON como ZipDeflate.
 * Ler dados compactados em GZIP de um blob do Azure, descompactá-los, compactá-los usando BZIP2 e gravar os dados de resultado em um blob do Azure. Você define o conjunto de dados de Blob do Azure entradas com `compression` `type` definido como GZIP e o conjunto de dados de saída com `compression` `type` definido como BZIP2 nesse caso.   

@@ -1,6 +1,6 @@
 ---
-title: Central de Segurança do Azure e serviço do Banco de Dados SQL | Microsoft Docs
-description: Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL.
+title: Central de Segurança do Azure e serviço do Banco de Dados SQL do Azure | Microsoft Docs
+description: Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL do Azure.
 services: sql-database
 documentationcenter: na
 author: rkarlin
@@ -16,15 +16,15 @@ ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56114075"
 ---
-# <a name="azure-security-center-and-azure-sql-database-service"></a>Central de Segurança do Azure e serviço do Banco de Dados SQL
+# <a name="azure-security-center-and-azure-sql-database-service"></a>Central de Segurança do Azure e serviço do Banco de Dados SQL do Azure
 A [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL.
+Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL do Azure.
 
 ## <a name="why-use-security-center"></a>Por que usar a Central de Segurança?
 A Central de Segurança ajuda você a proteger os dados no Banco de Dados SQL, fornecendo visibilidade sobre a segurança de todos os seus servidores e bancos de dados. Com a Central de Segurança, você pode:
@@ -32,7 +32,7 @@ A Central de Segurança ajuda você a proteger os dados no Banco de Dados SQL, f
 * Definir políticas de criptografia e auditoria do Banco de Dados SQL.
 * Monitore a segurança dos recursos de Banco de Dados SQL em todas as suas assinaturas.
 * Identifique e corrija rapidamente problemas de segurança.
-* Integre os alertas da [detecção de ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection.md).
+* Integre os alertas da [detecção de ameaças do Banco de Dados SQL do Azure](../sql-database/sql-database-threat-detection.md).
 
 Além de ajudar a proteger seus recursos de Banco de Dados SQL, a Central de Segurança também fornece monitoramento e gerenciamento de segurança para máquinas virtuais do Azure, Serviços de Nuvem, Serviços de Aplicativos, redes virtuais e muito mais. Saiba mais sobre a Central de Segurança [aqui](security-center-intro.md).
 
@@ -55,7 +55,7 @@ Uma política de segurança define o conjunto de controles recomendados para os 
 Você pode definir uma política para mostrar as recomendações para a auditoria do SQL e TDE (criptografia de dados transparente) do SQL.
 
 * Quando você ativa **Detecção de ameaças e auditoria SQL**, a Central de Segurança recomenda que a auditoria de acesso ao Banco de Dados do Azure esteja habilitada para fins de conformidade, detecção avançada e investigação.
-* Quando você ativa a **Transparent Data Encryption do SQL**, a Central de Segurança recomenda que a criptografia em repouso seja habilitada para o Banco de Dados SQL, backups associados e arquivos do log de transação.
+* Quando você ativa a **Transparent Data Encryption do SQL**, a Central de Segurança recomenda que a criptografia em repouso seja habilitada para o Banco de Dados SQL do Azure, backups associados e arquivos do log de transação.
 
 Para definir uma política de segurança, selecione o bloco **Política** na folha Central de Segurança. Na folha **Política de segurança**, selecione a assinatura na qual você deseja habilitar a política de segurança. Selecione **Política de prevenção** e **Ative** as recomendações de segurança que você deseja usar nesta assinatura.
 ![Política de segurança][3]
@@ -65,7 +65,7 @@ Para saber mais, confira [Definir políticas de segurança](tutorial-security-po
 ## <a name="manage-security-recommendation"></a>Gerenciar recomendações de segurança
 A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. As recomendações o orientam ao longo do processo de configuração dos controles necessários.
 
-Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. Use a tabela a seguir como referência para ajudar você a entender as recomendações disponíveis para o Banco de Dados SQL e o que faz cada recomendação se você aplicá-la. A seleção de uma recomendação leva você até um artigo que explica como implementar a recomendação na Central de Segurança.
+Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. Use a tabela a seguir como referência para ajudar você a entender as recomendações disponíveis para o Banco de Dados SQL do Azure e o que faz cada recomendação se você aplicá-la. A seleção de uma recomendação leva você até um artigo que explica como implementar a recomendação na Central de Segurança.
 
 | Recomendações | DESCRIÇÃO |
 | --- | --- |

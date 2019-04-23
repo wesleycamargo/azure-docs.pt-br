@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257443"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um pool de host com o Azure Marketplace
@@ -125,4 +125,4 @@ Veja os clientes com suporte atuais:
 Agora que você criou um pool de hosts e atribuiu usuários para acessar sua área de trabalho, também poderá popular seu pool de hosts com RemoteApps. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Gerenciar grupos de aplicativos](./manage-app-groups.md)
+> [Tutorial Gerenciar grupos de aplicativos](./manage-app-groups.md)

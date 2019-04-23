@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Girar o protetor de TDE - Banco de Dados SQL do Microsoft Azure| Microsoft Docs
+title: PowerShell - Girar o protetor de TDE - Banco de Dados SQL do Azure| Microsoft Docs
 description: Saiba como girar o protetor de TDE (Transparent Data Encryption) para um servidor SQL do Azure.
 services: sql-database
 ms.service: sql-database

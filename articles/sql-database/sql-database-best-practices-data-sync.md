@@ -46,7 +46,7 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 
 -   **Para desprovisionamento**. Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
-O banco de dados do SQL Azure oferece suporte a apenas um único conjunto de credenciais. Para realizar essas tarefas dentro desta restrição, considere as seguintes opções:
+O banco de dados SQL do Azure oferece suporte a apenas um único conjunto de credenciais. Para realizar essas tarefas dentro desta restrição, considere as seguintes opções:
 
 -   Altere as credenciais para diferentes fases (por exemplo, *credenciais1* para instalação e *credenciais2* para em andamento).  
 -   Altere a permissão das credenciais (ou seja, altere a permissão após a sincronização estar configurada).
@@ -224,7 +224,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL e SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

@@ -115,7 +115,7 @@ Você pode configurar as contas de armazenamento para permitir o acesso somente 
 
 Habilitar um [Ponto de extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) do Armazenamento do Microsoft Azure dentro da VNet. Esse ponto de extremidade fornece o tráfego de uma rota ideal para o serviço de Armazenamento do Microsoft Azure. As identidades de rede virtual e a sub-rede também são transmitidas com cada solicitação. Em seguida, os administradores podem configurar as regras de rede para a conta de armazenamento que as solicitações sejam recebidas de sub-redes específicas na VNet. Os clientes com o acesso concedido por meio dessas regras de rede devem continuar a atender aos requisitos de autorização da conta de armazenamento para acessar os dados.
 
-Cada conta de armazenamento pode dar suporte a até 100 regras de rede virtual que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
+Cada conta de armazenamento pode dar suporte a até 100 regras da rede virtual que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiões de rede virtual disponíveis
 
@@ -128,13 +128,13 @@ Ao planejar a recuperação de desastre durante uma interrupção regional, voc�
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para aplicar uma regra de rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A permissão necessária é *Ingressar o Serviço em uma Sub-rede* e está incluída na função interna *Colaborador da conta de armazenamento*. Também podem ser adicionado às definições de função personalizada.
+Para aplicar uma regra da rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A permissão necessária é *Ingressar o Serviço em uma Sub-rede* e está incluída na função interna *Colaborador da conta de armazenamento*. Também podem ser adicionado às definições de função personalizada.
 
 A conta de armazenamento e o acesso concedido às redes virtuais podem estar em assinaturas diferentes, mas as assinaturas devem fazer parte do mesmo locatário do Azure AD.
 
-### <a name="managing-virtual-network-rules"></a>Gerenciando regras de rede virtual
+### <a name="managing-virtual-network-rules"></a>Gerenciando regras da rede virtual
 
-Você pode gerenciar as regras de rede virtual para contas de armazenamento através do portal do Azure, PowerShell ou CIv2.
+Você pode gerenciar as regras da rede virtual para contas de armazenamento através do portal do Azure, PowerShell ou CIv2.
 
 #### <a name="azure-portal"></a>Portal do Azure
 
@@ -157,7 +157,7 @@ Você pode gerenciar as regras de rede virtual para contas de armazenamento atra
 
 1. Instalar o [Azure PowerShell](/powershell/azure/install-Az-ps) e [entrar](/powershell/azure/authenticate-azureps).
 
-1. Liste as regras de rede virtual.
+1. Liste as regras da rede virtual.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
@@ -190,7 +190,7 @@ Você pode gerenciar as regras de rede virtual para contas de armazenamento atra
 
 1. Instalar a [CLI do Azure](/cli/azure/install-azure-cli) e [entrar](/cli/azure/authenticate-azure-cli).
 
-1. Liste as regras de rede virtual.
+1. Liste as regras da rede virtual.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -235,7 +235,7 @@ As regras de rede de IP são permitidas apenas para endereços IP de **Internet 
 
 Só há suporte para endereços IPV4 no momento.
 
-Cada conta de armazenamento pode dar suporte a até 100 regras de rede virtual de IP que podem ser combinadas com as [regras de rede virtual](#grant-access-from-a-virtual-network).
+Cada conta de armazenamento pode dar suporte a até 100 regras da rede virtual de IP que podem ser combinadas com as [regras da rede virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
 

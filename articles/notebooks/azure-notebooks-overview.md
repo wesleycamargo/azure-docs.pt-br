@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280092"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
 O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
 
-[![E[Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
 
@@ -97,7 +97,7 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Explorar notebooks de amostra](azure-notebooks-samples.md)
+- [Explorar notebooks de exemplo](azure-notebooks-samples.md)
 
 - Inícios Rápidos:
 
@@ -115,8 +115,8 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
   
   - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
   - [Configurar e gerenciar dispositivos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
+  - [Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
   - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
   - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
   - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar os serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

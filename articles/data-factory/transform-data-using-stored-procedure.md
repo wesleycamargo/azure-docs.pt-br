@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a atividade de procedimento armazenado no Azure Data Factory | Microsoft Docs
-description: Explica como usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um Banco de Dados SQL/Data Warehouse do Azure de um pipeline do Data Factory.
+description: Explica como usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um Banco de Dados SQL do Azure/Data Warehouse do Azure de um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory

@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022437"
@@ -67,7 +67,7 @@ Ao longo do tempo, os modelos de previsão nos testes de pontuação do Machine 
 Confira [Usar atividades de Machine Learning](data-factory-azure-ml-batch-execution-activity.md) para obter detalhes sobre essas atividades de Machine Learning. 
 
 ## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Você pode usar a atividade Procedimento Armazenado do SQL Server em um pipeline do Data Factory para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database em sua empresa ou em uma VM do Azure. Confira o artigo [Atividade de procedimento armazenado](data-factory-stored-proc-activity.md) para obter detalhes.  
+Você pode usar a atividade Procedimento Armazenado do SQL Server em um pipeline do Data Factory para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados: Banco de Dados SQL do Azure, Azure SQL Data Warehouse, SQL Server Database em sua empresa ou em uma VM do Azure. Confira o artigo [Atividade de procedimento armazenado](data-factory-stored-proc-activity.md) para obter detalhes.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL do Data Lake Analytics
 A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluster do Azure Data Lake Analytics. Confira o artigo [Atividade de U-SQL do Data Analytics](data-factory-usql-activity.md) para obter detalhes. 

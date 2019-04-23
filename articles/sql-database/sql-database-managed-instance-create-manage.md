@@ -44,10 +44,10 @@ Para criar e gerenciar instâncias gerenciadas com o Azure PowerShell, use os se
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Retorna informações sobre a Instância Gerenciada do SQL do Azure|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Define propriedades para uma Instância Gerenciada do Banco de Dados SQL do Azure|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Remove uma Instância Gerenciada do Banco de Dados SQL do Azure|
-|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Cria um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
-|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Retorna informações sobre o banco de dados da Instância Gerenciada do SQL do Azure|
-|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Remove um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
-|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restaura um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Cria um banco de dados de Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Retorna informações sobre o banco de dados de Instância Gerenciada do SQL do Azure|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Remove um banco de dados de Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restaura um banco de dados de Instância Gerenciada do Banco de Dados SQL do Azure|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>CLI do Azure: Criar e gerenciar instâncias gerenciadas
 
@@ -80,7 +80,7 @@ Para criar e gerenciar o banco de dados de instância após a criação da Inst�
 | Comando | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria um novo banco de dados de instância gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica o banco de dados de uma Instância Gerenciada do SQL do Azure.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica o banco de dados de Instância Gerenciada do SQL do Azure.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Criar e gerenciar instâncias gerenciadas
 

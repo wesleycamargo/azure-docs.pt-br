@@ -156,7 +156,7 @@ Saiba mais sobre [RBAC para recursos do Azure](https://docs.microsoft.com/azure/
 ## <a id="subheading-5"></a>Próximas etapas
 
 - Saiba mais sobre a [segurança de dados avançada](sql-database-advanced-data-security.md).
-- Considere configurar a [Auditoria do Banco de Dados SQL Azure](sql-database-auditing.md) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
+- Considere configurar a [Auditoria do Banco de Dados SQL do Azure](sql-database-auditing.md) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL data discovery & classification overview]: #subheading-1

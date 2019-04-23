@@ -10,12 +10,12 @@ ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
 ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 06/29/2018
 ms.locfileid: "37138058"
 ---
-* Se você estiver usando o banco de dados do SQL do Microsoft Azure, siga as etapas em [Conectar-se ao Banco de Dados SQL do Microsoft Azure](#connect-azure-sql-db). 
+* Se você estiver usando o banco de dados do SQL do Microsoft Azure, siga as etapas em [Conectar-se ao Banco de Dados SQL do Azure](#connect-azure-sql-db). 
 
 * Se você estiver usando o SQL Server, siga as etapas em [Conectar ao SQL Server](#connect-sql-server).
 

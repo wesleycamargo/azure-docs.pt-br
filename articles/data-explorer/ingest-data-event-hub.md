@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/02/2018
 ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048380"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer
@@ -38,7 +38,7 @@ Neste início rápido, você gera dados de amostra e os envia para um hub de eve
 
 1. Para criar um hub de eventos, use o botão a seguir para iniciar a implantação. Clique com o botão direito do mouse e selecione **Abrir em nova janela** para que você possa acompanhar o restante das etapas neste artigo.
 
-    [![D[Implantar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Implantar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     O botão **Implantar no Azure** leva você ao portal do Azure para preencher um formulário de implantação.
 
@@ -57,11 +57,11 @@ Neste início rápido, você gera dados de amostra e os envia para um hub de eve
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Assinatura | Sua assinatura | Selecione a assinatura do Azure que você deseja usar para o seu hub de eventos.|
-    | Grupo de recursos | *test-hub-rg* | Crie um novo grupo de recursos. |
+    | Grupo de recursos | *teste-hub-rg* | Crie um novo grupo de recursos. |
     | Local padrão | *Oeste dos EUA* | Selecione *Oeste dos EUA* para este início rápido. Para um sistema de produção, selecione a região que melhor atenda às suas necessidades. Crie o namespace do hub de eventos na mesma Localização do cluster Kusto para melhor desempenho (mais importante para namespaces do hub de eventos com alta taxa de transferência).
     | Nome do Namespace | Um nome de namespace exclusivo | Escolha um nome exclusivo que identifique seu namespace. Por exemplo, *mytestnamespace*. O nome do domínio *servicebus.windows.net* é anexado ao nome que você fornece. O campo pode conter apenas letras, números e hifens. O nome deve começar com uma letra e terminar com uma letra ou um número. O valor deve ter entre 6 e 50 caracteres.
     | Nome do Hub de Eventos | *test-hub* | O hub de eventos fica sob o namespace, que fornece um contêiner de determinação de escopo exclusivo. O nome do hub de eventos deve ser exclusivo dentro do namespace. |
-    | Nome do grupo de consumidor | *test-group* | Grupos de consumidores permitem que vários aplicativos de consumo tenham uma visão separada do fluxo de eventos. |
+    | Nome do grupo de consumidor | *grupo de teste* | Grupos de consumidores permitem que vários aplicativos de consumo tenham uma visão separada do fluxo de eventos. |
     | | |
 
 1. Selecione **Compra**, que confirma que você está criando recursos na sua assinatura.
@@ -110,10 +110,10 @@ Agora você se conecta ao hub de eventos no Azure Data Explorer. Quando essa con
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Nome da conexão de dados | *test-hub-connection* | O nome da conexão que você deseja criar no Azure Data Explorer.|
+    | Nome da conexão de dados | *teste de hub de conexão* | O nome da conexão que você deseja criar no Azure Data Explorer.|
     | Namespace do Hub de Eventos | Um nome de namespace exclusivo | O nome escolhido anteriormente que identifica seu namespace. |
     | Hub de Eventos | *test-hub* | O hub de eventos que você criou. |
-    | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que você criou. |
+    | Grupo de consumidores | *grupo de teste* | O grupo de consumidores definido no hub de eventos que você criou. |
     | | |
 
     Tabela de destino:
@@ -203,4 +203,4 @@ Se você não planeja usar seu hub de eventos novamente, limpe **test-hub-rg** p
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)
+> [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)

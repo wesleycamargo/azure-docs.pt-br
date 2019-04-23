@@ -14,7 +14,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017456"
@@ -40,7 +40,7 @@ Veja a seguir condições de erro que resultam em uma exceção:
 > Os exemplos a seguir são para o Azure SQL e os Blobs do Azure, mas são aplicáveis a qualquer repositório de dados com suporte a conjuntos de dados retangulares. Ajuste o conjunto de dados e as definições de serviço vinculado nos exemplos para apontar para dados na fonte de dados relevante.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemplo 1 - mapeamento de coluna do SQL Azure para blobs do Azure
-Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL Azure.
+Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL do Azure.
 
 ```json
 {

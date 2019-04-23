@@ -97,7 +97,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-O próximo exemplo mostra a criação de Informações de Conexão para o servidor de banco de dados SQL do Azure chamado SQLAzureTarget usando a autenticação SQL:
+O próximo exemplo mostra a criação de Informações de Conexão para o servidor do banco de dados SQL do Azure chamado SQLAzureTarget usando a autenticação SQL:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

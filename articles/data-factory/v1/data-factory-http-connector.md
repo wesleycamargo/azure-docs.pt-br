@@ -14,7 +14,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017252"
@@ -152,7 +152,7 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Algumas seções de um arquivo JSON do conjunto de dados, como estrutura, disponibilidade e política, são similares para todos os tipos de conjunto de dados (banco de dados SQL, armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure).
+Algumas seções de um arquivo JSON do conjunto de dados, como estrutura, disponibilidade e política, são similares para todos os tipos de conjunto de dados (banco de dados SQL do Azure, armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure).
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira [Criando conjuntos de dados](data-factory-create-datasets.md).
 

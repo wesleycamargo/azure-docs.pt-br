@@ -1,5 +1,5 @@
 ---
-title: Guia de instruções para austar automático as notificações por email – Banco de Dados SQL do Microsoft Azure | Microsoft Docs
+title: Guia de instruções para austar automático as notificações por email – Banco de Dados SQL do Azure | Microsoft Docs
 description: Habilite notificações por email para o ajuste automático de consulta do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -21,7 +21,7 @@ ms.locfileid: "58481154"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
-Recomendações de ajuste do Banco de Dados SQL são geradas pelo [ajuste automático](sql-database-automatic-tuning.md) do Banco de Dados SQL do Microsoft Azure. Essa solução monitora e analisa continuamente as cargas de trabalho de Bancos de Dados SQL fornecendo recomendações personalizadas para cada banco de dados individual relacionadas à criação de índice, exclusão de índice e otimização dos planos de execução de consulta.
+Recomendações de ajuste do Banco de Dados SQL são geradas pelo [ajuste automático](sql-database-automatic-tuning.md) do Banco de Dados SQL do Azure. Essa solução monitora e analisa continuamente as cargas de trabalho de Bancos de Dados SQL fornecendo recomendações personalizadas para cada banco de dados individual relacionadas à criação de índice, exclusão de índice e otimização dos planos de execução de consulta.
 
 As recomendações de ajuste automático do Banco de Dados SQL podem ser exibidas no [portal do Azure](sql-database-advisor-portal.md), recuperados com chamadas da [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou usando comandos de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction). Este artigo se baseia no uso de um script de PowerShell para recuperar as recomendações de ajuste automático.
 
@@ -256,6 +256,6 @@ Você pode personalizar ainda mais a solução para criar notificações por ema
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como o ajuste automático pode ajudar a melhorar o desempenho do banco de dados, consulte [Ajuste automático no Banco de Dados SQL do Microsoft Azure](sql-database-automatic-tuning.md).
+- Saiba mais sobre como o ajuste automático pode ajudar a melhorar o desempenho do banco de dados, consulte [Ajuste automático no Banco de Dados SQL do Azure](sql-database-automatic-tuning.md).
 - Para habilitar o ajuste automático no Banco de Dados SQL do Azure para gerenciar a carga de trabalho, consulte [Habilitar ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para examinar e aplicar recomendações de Ajuste automático manualmente, consulte [Localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).

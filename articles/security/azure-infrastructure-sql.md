@@ -16,7 +16,7 @@ ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56103941"
@@ -36,7 +36,7 @@ Para ajudar a proteger os dados do cliente, o Banco de Dados SQL do Azure inclui
 
 O firewall do gateway pode limitar endereços, o que permite que o controle granular dos clientes especifique intervalos de endereços IP aceitáveis. O firewall concede acesso com base no endereço IP de origem de cada solicitação.
 
-Os clientes podem obter a configuração de firewall usando um portal de gerenciamento ou programaticamente usando a API REST do Azure SQL Database Management. O firewall do gateway do Banco de Dados SQL do Azure, por padrão, impede que todo o acesso do TDS do cliente às instâncias do banco de dados do Azure SQL. Os clientes devem configurar o acesso usando listas de controle de acesso (ACLs) para permitir conexões do banco de dados SQL do Azure por endereços de Internet, protocolos e números de porta de origem e de destino.
+Os clientes podem obter a configuração de firewall usando um portal de gerenciamento ou programaticamente usando a API REST do Banco de Dados SQL do Azure Management. O firewall do gateway do Banco de Dados SQL do Azure, por padrão, impede que todo o acesso do TDS do cliente às instâncias do banco de dados do Azure SQL. Os clientes devem configurar o acesso usando listas de controle de acesso (ACLs) para permitir conexões do banco de dados SQL do Azure por endereços de Internet, protocolos e números de porta de origem e de destino.
 
 ### <a name="dosguard"></a>DoSGuard
 Ataques de negação de serviço (DoS) são reduzidos por um serviço de gateway de banco de dados SQL chamado DoSGuard. O DoSGuard controla ativamente os logons com falha de endereços IP. Se houver vários logons com falha de um endereço IP específico dentro de um período de tempo, o endereço IP é impedido de acessar todos os recursos no serviço por um período de tempo predefinido.

@@ -1,6 +1,6 @@
 ---
 title: Solução de análise de SQL do Azure no Azure Monitor | Microsoft Docs
-description: Solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados do Azure SQL
+description: Solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados SQL do Azure
 services: log-analytics
 ms.service: log-analytics
 ms.custom: ''
@@ -32,7 +32,7 @@ Para uma visão geral prática sobre o uso da solução da Análise de SQL do Az
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-A Análise de SQL do Azure é uma solução de monitoramento somente em nuvem que dá suporte ao streaming de telemetria de diagnóstico para o banco dados SQL do Azure: único, em pool e Instância Gerenciada. Como a solução não usa agentes para se conectar ao Azure Monitor, a solução não dão suporte ao monitoramento do SQL Server hospedado no local ou em máquinas virtuais, consulte a tabela de compatibilidade abaixo.
+A Análise de SQL do Azure é uma solução de monitoramento somente em nuvem que dá suporte ao streaming de telemetria de diagnóstico para o banco dados SQL do Azure: único, em pool e bancos de dados Instância Gerenciada. Como a solução não usa agentes para se conectar ao Azure Monitor, a solução não dão suporte ao monitoramento do SQL Server hospedado no local ou em máquinas virtuais, consulte a tabela de compatibilidade abaixo.
 
 | Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |

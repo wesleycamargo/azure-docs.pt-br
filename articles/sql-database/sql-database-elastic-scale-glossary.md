@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
 ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2019
 ms.locfileid: "55561426"
@@ -82,7 +82,7 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 
 **Dividir**: O ato de movimentar vários shardlets de um fragmento para outro (normalmente novo) fragmento. Uma chave de fragmentação é fornecida pelo usuário como o ponto de divisão.
 
-**Dimensionamento vertical**: O ato de escalar verticalmente (ou reduzir verticalmente) o tamanho de computação de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
+**Dimensionamento vertical**: O ato de escalar verticalmente (ou reduzir verticalmente) o tamanho da computação de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

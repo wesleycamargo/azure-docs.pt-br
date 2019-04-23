@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357126"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Use o Visual Studio Code para conectar e consultar um Banco de Dados SQL do Azure
@@ -40,7 +40,7 @@ O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de códi
   |||
 
   > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para uma instância de banco de dados ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
+  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
 
 ## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
 
@@ -48,7 +48,7 @@ Certifique-se de instalar o [Visual Studio Code](https://code.visualstudio.com/D
 
 ## <a name="configure-visual-studio-code"></a>Configurar o código do Visual Studio
 
-### **<a name="mac-os"></a>Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 
 Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito do .NET Core que a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**.
 
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
 Nenhuma configuração especial é necessária.
 
-### **<a name="windows"></a> Windows**
+### <a name="windows"></a>**Windows**
 
 Nenhuma configuração especial é necessária.
 
@@ -93,7 +93,7 @@ No Visual Studio Code, defina o modo de linguagem como **SQL** para permitir com
 
 ## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
 
-Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
+Use o Visual Studio Code para estabelecer uma conexão com seu servidor do Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
 > Antes de continuar, verifique se o servidor e as informações de entrada estão prontos. Depois de começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil.
@@ -110,7 +110,7 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
    | **Nome do banco de dados** | mySampleDatabase | O banco de dados ao qual se conectar. |
-   | **Authentication** | Logon do SQL| Este tutorial usa a Autenticação do SQL. |
+   | **Autenticação** | Logon do SQL| Este tutorial usa a Autenticação do SQL. |
    | **Nome de usuário** | Nome de usuário | O nome de usuário da conta do administrador de servidor usado para criar o servidor. |
    | **Senha (Logon do SQL)** | Senha | A senha de usuário da conta do administrador de servidor usada para criar o servidor. |
    | **Salvar a Senha?** | Sim ou não | Selecione **Sim** se não desejar inserir a senha toda vez. |

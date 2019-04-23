@@ -89,7 +89,7 @@ Conceda acesso a um usuário, grupo ou aplicativo para executar operações espe
 > As políticas de acesso ao cofre de chaves aplicam-se no nível do cofre. Quando um usuário tem permissão para criar e excluir chaves, ele pode executar essas operações em todas as chaves no cofre de chaves.
 >
 
-Você pode restringir o acesso ao plano de dados usando [pontos de extremidade de serviço de rede virtual no Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). É possível configurar [regras de firewalls e de rede virtual](key-vault-network-security.md) para ter uma camada adicional de segurança.
+Você pode restringir o acesso ao plano de dados usando [pontos de extremidade de serviço de rede virtual no Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). É possível configurar [regras de firewalls e da rede virtual](key-vault-network-security.md) para ter uma camada adicional de segurança.
 
 ## <a name="example"></a>Exemplo
 

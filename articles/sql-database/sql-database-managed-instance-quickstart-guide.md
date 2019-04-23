@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360176"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do Banco de Dados SQL do Azure
@@ -31,7 +31,7 @@ Os inícios rápidos a seguir permitem que você crie rapidamente uma instância
 
 Como uma primeira etapa, você precisaria criar sua primeira Instância Gerenciada com o ambiente de rede em que ela será colocada e habilitar a conexão do computador ou máquina virtual em que você está executando consultas para a Instância Gerenciada. É possível usar as seguintes orientações:
 
-- [Criar uma instância gerenciada usando o portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, você configura os parâmetros necessários (nome de usuário/senha, número de núcleos e quantidade máxima de armazenamento) e cria automaticamente o ambiente de rede do Azure sem precisar conhecer os detalhes da rede e os requisitos de infraestrutura. Verifique se você tem [tipo de assinatura](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tenha, no momento, permissão para criar uma instância gerenciada. Se você tiver sua própria rede que você deseja usar ou quiser personalizar a rede, veja [Configurar uma rede virtual existente para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-configure-vnet-subnet.md) ou [Criar uma rede virtual para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-vnet-subnet.md).
+- [Criar uma instância gerenciada usando o portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, você configura os parâmetros necessários (nome de usuário/senha, número de núcleos e quantidade de armazenamento máxima) e cria automaticamente o ambiente de rede do Azure sem precisar conhecer os detalhes da rede e os requisitos de infraestrutura. Verifique se você tem [tipo de assinatura](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tenha, no momento, permissão para criar uma instância gerenciada. Se você tiver sua própria rede que você deseja usar ou quiser personalizar a rede, veja [Configurar uma rede virtual existente para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-configure-vnet-subnet.md) ou [Criar uma rede virtual para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-vnet-subnet.md).
 - Uma instância gerenciada é criada na própria VNet sem nenhum ponto de extremidade público. Para ter acesso a aplicativos cliente, é possível **criar uma VM na mesma VNet (sub-rede diferente)** ou **criar uma conexão VPN ponto a site com a VNet do computador cliente** usando um desses inícios rápidos:
 
   - Crie uma [máquina virtual do Azure na VNet de instância gerenciada](sql-database-managed-instance-configure-vm.md) para obter conectividade de aplicativo cliente, incluindo o SQL Server Management Studio.
@@ -66,7 +66,7 @@ Se você já tiver uma VNet e uma sub-rede em que você gostaria de implantar su
  Se você não tiver criado o ambiente de rede conforme descrito na etapa anterior, o portal do Azure poderá fazer isso para você – a única desvantagem é o fato de que ele o configura com alguns parâmetros padrão que você não pode alterar posteriormente. Como alternativa, é possível usar:
 
 - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [PowerShell com o modelo do Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
+- [PowerShell com modelo do Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
 - [CLI do Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
 - [Modelo do Resource Manager](sql-database-single-database-get-started-template.md)
 

@@ -36,7 +36,7 @@ Com as Coleções de Workspaces do Power BI, você pode usar o DirectQuery com f
 ## <a name="supported-data-sources"></a>Fontes de dados com suporte
 
 **DirectQuery**
-* Banco de Dados SQL Azure
+* Banco de Dados SQL do Azure
 * SQL Data Warehouse do Azure
 
 **Importaçãoação**

@@ -1,6 +1,6 @@
 ---
-title: Banco de Dados SQL do Microsoft Azure - consultas de leitura em réplicas | Microsoft Docs
-description: O Banco de Dados SQL do Microsoft Azure fornece a capacidade de balancear a carga de cargas de trabalho somente leitura usando a capacidade de réplicas somente leitura - chamadas de Expansão de Leitura.
+title: Banco de Dados SQL do Azure - consultas de leitura em réplicas | Microsoft Docs
+description: O Banco de Dados SQL do Azure fornece a capacidade de balancear a carga de cargas de trabalho somente leitura usando a capacidade de réplicas somente leitura - chamadas de Expansão de Leitura.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out

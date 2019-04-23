@@ -215,7 +215,7 @@ Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que h
 1. Crie um arquivo JSON denominado **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADF\RunSSISPackage** com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;senha&gt; pelos valores do seu banco de dados do SQL Azure Database antes de salvar o arquivo.
+    > Substitua &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;senha&gt; pelos valores do seu banco de dados SQL do Azure Database antes de salvar o arquivo.
 
     ```json
     {

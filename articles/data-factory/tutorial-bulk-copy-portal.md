@@ -126,7 +126,7 @@ Nesta etapa, você criará um serviço vinculado para vincular seu banco de dado
     1. Insira **AzureSqlDatabaseLinkedService** para o **Nome**. 
     1. Selecione o seu SQL Server do Azure para o **Nome do servidor**
     1. Selecione o seu banco de dados SQL do Azure para o **Nome do banco de dados**. 
-    1. Digite **nome do usuário** para se conectar ao banco de dados SQL Azure. 
+    1. Digite **nome do usuário** para se conectar ao banco de dados SQL do Azure. 
     1. Insira a **senha** do usuário. 
     1. Para testar a conexão ao banco de dados SQL do Azure usando as informações especificadas, clique em **Testar conectividade**.
     1. Clique em **Salvar**.
@@ -142,7 +142,7 @@ Nesta etapa, você criará um serviço vinculado para vincular seu banco de dado
     1. Insira **AzureSqlDWLinkedService** para o **Nome**. 
     1. Selecione o seu SQL Server do Azure para o **Nome do servidor**
     1. Selecione o seu banco de dados SQL do Azure para o **Nome do banco de dados**. 
-    1. Digite **nome do usuário** para se conectar ao banco de dados SQL Azure. 
+    1. Digite **nome do usuário** para se conectar ao banco de dados SQL do Azure. 
     1. Insira a **senha** do usuário. 
     1. Para testar a conexão ao banco de dados SQL do Azure usando as informações especificadas, clique em **Testar conectividade**.
     1. Clique em **Salvar**.

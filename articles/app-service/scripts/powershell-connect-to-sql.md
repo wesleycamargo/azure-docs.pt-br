@@ -52,7 +52,7 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um Plano do Serviço de Aplicativo. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo do Serviço de Aplicativo. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de Banco de Dados SQL. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor do Banco de Dados SQL. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um banco de dados ou um banco de dados elástico. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de um aplicativo do Serviço de Aplicativo. |

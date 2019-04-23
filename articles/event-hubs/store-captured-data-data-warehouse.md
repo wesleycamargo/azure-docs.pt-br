@@ -62,7 +62,7 @@ As seções a seguir fornecem comandos da CLI do Azure e do Azure PowerShell a f
 - Hub de Eventos
 - Azure SQL Server
 - Usuário do SQL (e senha)
-- Banco de Dados SQL Azure
+- Banco de Dados SQL do Azure
 - Armazenamento do Azure 
 - Aplicativo do Azure Functions
 

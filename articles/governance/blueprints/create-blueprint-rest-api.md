@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273151"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
@@ -70,8 +70,8 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}` – Substitua pela ID do grupo de gerenciamento
-- `{subscriptionId}` – Substitua pela ID da assinatura
+- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
+- `{subscriptionId}`: substitua por sua ID da assinatura
 
 > [!NOTE]
 > Especificações técnicas também podem ser criadas no nível da assinatura. Para ver um exemplo, consulte [criar um blueprint em um exemplo de assinatura](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -337,8 +337,8 @@ Depois que um blueprint é publicado usando a API REST, ele pode ser atribuído 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
 - `{tenantId}` – Substitua pela ID de locatário
-- `{YourMG}` – Substitua pela ID do grupo de gerenciamento
-- `{subscriptionId}` – Substitua pela ID da assinatura
+- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
+- `{subscriptionId}`: substitua por sua ID da assinatura
 
 1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ele usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 

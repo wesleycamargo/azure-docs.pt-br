@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361796"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
@@ -61,8 +61,8 @@ Use os pontos da tabela para ajudar a descobrir suas necessidades de BCDR.
 **Objetivo** | **Detalhes** | **Comparação**
 --- | --- | ---
 **Backup de dados/retenção** | Os dados de backup podem ser retidos e armazenados por dias, meses ou até anos, se necessário, de uma perspectiva de conformidade. | Soluções de backup, como o Backup do Azure, permitem que você escolha minuciosamente os dados que deseja copiar em backup e ajuste as políticas de backup e retenção.<br/><br/> O Site Recovery não permite o mesmo ajuste fino.
-**RPO (Objetivo de Ponto de Recuperação)** | A quantidade de perda de dados aceitável se uma recuperação precisar ser feita. | Os backups têm um RPO mais variável.<br/><br/> Os backups de VM geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos.<br/><br/> O Site Recovery fornece um RPO baixo, pois a replicação é contínua ou frequente, de modo que o delta entre a cópia de origem e de réplica seja pequeno.
-**RTO (Objetivo de Tempo de Recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo.
+**RPO (objetivo de ponto de recuperação)** | A quantidade de perda de dados aceitável se uma recuperação precisar ser feita. | Os backups têm um RPO mais variável.<br/><br/> Os backups de VM geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos.<br/><br/> O Site Recovery fornece um RPO baixo, pois a replicação é contínua ou frequente, de modo que o delta entre a cópia de origem e de réplica seja pequeno.
+**RTO (objetivo de tempo de recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo.
 
 ## <a name="what-backup-scenarios-are-supported"></a>Há suporte para quais cenários de backup?
 
@@ -105,7 +105,7 @@ Saiba mais sobre [como funciona o backup](backup-architecture.md#architecture-ba
 
 ## <a name="which-backup-agent-should-i-use"></a>Qual agente de backup devo usar?
 
-**Backup** | **Solução** | **Limitações**
+**Backup** | **Solução** | **Limitação**
 --- | --- | ---
 **Desejo fazer backup de toda uma VM do Azure** | Habilite o backup para a VM. A extensão de backup será automaticamente configurada na VM do Azure no Windows ou no Linux. | Toda a VM é copiada em backup <br/><br/> Para VMs Windows, o backup é consistente com aplicativo. para o Linux, o backup é consistente com arquivo. Caso precise de reconhecimento de aplicativo para VMs do Linux, você precisará configurar isso com scripts personalizados.
 **Desejo fazer backup de pastas/arquivos específicos em uma VM do Azure** | Implante o agente do MARS na VM.

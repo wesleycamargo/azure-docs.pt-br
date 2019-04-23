@@ -58,7 +58,7 @@ A equipe de nuvem da Contoso fixou metas para esta migração. Essas metas foram
 - A Contoso não quer investir nesse aplicativo.  É importante para os negócios, mas em sua forma atual, ela simplesmente deseja movê-lo com segurança para a nuvem.
 - O banco de dados local do aplicativo teve problemas de disponibilidade. A Contoso gostaria de implantá-lo no Azure como um cluster de alta disponibilidade, com recursos de failover.
 - A Contoso deseja atualizar de sua plataforma atual do SQL Server 2008 R2 para o SQL Server 2017.
-- A Contoso não deseja usar um banco de dados do SQL Azure para este aplicativo e está procurando alternativas.
+- A Contoso não deseja usar um banco de dados SQL do Azure para este aplicativo e está procurando alternativas.
 
 
 ## <a name="solution-design"></a>Design da solução

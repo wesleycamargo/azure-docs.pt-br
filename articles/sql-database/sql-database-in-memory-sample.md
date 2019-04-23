@@ -21,7 +21,7 @@ ms.locfileid: "58005730"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
 
-As tecnologias in-Memory no Banco de Dados SQL que podem melhorar o desempenho do seu aplicativo e reduzir potencialmente o custo do banco de dados. Ao usar tecnologias In-Memory no Banco de Dados SQL, obtenha melhorias de desempenho com várias cargas de trabalho.
+As tecnologias in-Memory no Banco de Dados SQL do Azure que podem melhorar o desempenho do seu aplicativo e reduzir potencialmente o custo do banco de dados. Ao usar tecnologias In-Memory no Banco de Dados SQL do Azure, obtenha melhorias de desempenho com várias cargas de trabalho.
 
 Neste artigo, você verá dois exemplos que ilustram o uso do OLTP In-Memory, bem como dos índices columnstore, no Banco de Dados SQL do Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Carregar dados do arquivo CSV para o Banco de Dados SQL do Azure (bcp) | Microsoft Docs
-description: Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL.
+description: Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
 ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56100886"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados do CSV para o Banco de Dados SQL do Azure (arquivos simples)
 
-Você pode usar o utilitário de linha de comando bcp para importar dados de um arquivo CSV para o Banco de Dados SQL.
+Você pode usar o utilitário de linha de comando bcp para importar dados de um arquivo CSV para o Banco de Dados SQL do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

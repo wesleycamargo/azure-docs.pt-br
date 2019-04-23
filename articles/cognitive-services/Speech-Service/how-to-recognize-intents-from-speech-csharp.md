@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280529"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer as intenções da fala usando o SDK de Fala para C#
@@ -133,7 +133,7 @@ Agora, importe o modelo do app LUIS usando `LanguageUnderstandingModel.FromAppId
 
 Adicionar intenções requer três argumentos: o modelo de LUIS (que foi criado e chama-se `model`), o nome da intenção e uma ID de intenção. A diferença entre a ID e o nome é a seguinte.
 
-|`AddIntent()` argumento|Finalidade|
+|Argumento `AddIntent()`|Finalidade|
 |--------|-------|
 |intentName |O nome da intenção conforme definido no app LUIS. Precisa corresponder exatamente ao nome de intenção de LUIS.|
 |intentID    |Uma ID atribuída a uma intenção reconhecida pelo SDK de Fala. Ela pode ser o que você desejar, e não precisa corresponder ao nome da intenção definido no app LUIS. Se várias intenções forem tratadas pelo mesmo código, por exemplo, seria possível usar a mesma ID para elas.|

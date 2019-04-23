@@ -17,7 +17,7 @@ ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53718088"
@@ -84,9 +84,9 @@ As instruções a seguir mostram como criar um plano do Serviço de Aplicativo e
     ![][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selecionando o pool de trabalho
-Normalmente no Serviço de Aplicativo do Azure e fora de um Ambiente do Serviço de Aplicativo, há três tamanhos de computação disponíveis com a seleção de um plano de preços dedicado.  De maneira semelhante, para um ASE, você pode definir até três pools de trabalho e especificar o tamanho de computação que é usado para esse pool de trabalho.  O que isso significa para locatários do ASE é que, em vez de selecionar um plano de preços com tamanho de computação para o plano do Serviço de Aplicativo, selecione o que chamamos de um *pool de trabalho*.  
+Normalmente no Serviço de Aplicativo do Azure e fora de um Ambiente do Serviço de Aplicativo, há três tamanhos da computação disponíveis com a seleção de um plano de preços dedicado.  De maneira semelhante, para um ASE, você pode definir até três pools de trabalho e especificar o tamanho da computação que é usado para esse pool de trabalho.  O que isso significa para locatários do ASE é que, em vez de selecionar um plano de preços com tamanho da computação para o plano do Serviço de Aplicativo, selecione o que chamamos de um *pool de trabalho*.  
 
-A interface do usuário de seleção de pool de trabalho mostra o tamanho de computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível se refere a quantas instâncias de computação estão disponíveis para uso no pool.  O pool pode, na realidade, ter mais instâncias que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar o seu ambiente de serviço de aplicativo para adicionar mais recursos de computação, consulte [Configurando seu ambiente de serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
+A interface do usuário de seleção de pool de trabalho mostra o tamanho da computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível se refere a quantas instâncias de computação estão disponíveis para uso no pool.  O pool pode, na realidade, ter mais instâncias que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar o seu ambiente de serviço de aplicativo para adicionar mais recursos de computação, consulte [Configurando seu ambiente de serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
 
 ![][4]
 

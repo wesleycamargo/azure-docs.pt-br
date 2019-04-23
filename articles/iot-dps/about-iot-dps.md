@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051454"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisionando dispositivos com o Serviço de provisionamento de dispositivos no Hub IoT do Azure
@@ -110,7 +110,7 @@ Cada assinatura do Azure tem limites de cota em vigor que podem afetar o escopo 
 
 Para obter mais detalhes sobre os limites de cota:
 
-* [Limites de serviço da assinatura do Azure](../azure-subscription-service-limits.md)
+* [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes relacionados do Azure
 O Serviço de Provisionamento de Dispositivos automatiza o provisionamento de dispositivos com o Hub IoT do Azure. Saiba mais sobre o [Hub IoT](https://docs.microsoft.com/azure/iot-hub/).

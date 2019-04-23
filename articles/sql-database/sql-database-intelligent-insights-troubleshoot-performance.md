@@ -29,7 +29,7 @@ Esta página fornece informações sobre problemas de desempenho do Banco de Dad
 
 ## <a name="detectable-database-performance-patterns"></a>Padrões detectáveis de desempenho do banco de dados
 
-O Intelligent Insights detecta automaticamente os problemas de desempenho do Banco de Dados SQL e das Instâncias Gerenciadas com base em tempos de espera de execução de consulta, erros ou tempos limite. Ele produz padrões de desempenho detectados para o log de diagnóstico. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
+O Intelligent Insights detecta automaticamente os problemas de desempenho do Banco de Dados SQL e de Instâncias Gerenciadas com base em tempos de espera de execução de consulta, erros ou tempos limite. Ele produz padrões de desempenho detectados para o log de diagnóstico. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
 
 | Padrões de desempenho detectáveis | Descrição do Banco de Dados SQL do Azure e dos pools elásticos | Descrição dos bancos de dados na Instância Gerenciada |
 | :------------------- | ------------------- | ------------------- |

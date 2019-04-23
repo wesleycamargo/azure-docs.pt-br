@@ -21,7 +21,7 @@ ms.locfileid: "58103393"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar o Excel a um banco de dados individual no Banco de Dados SQL do Azure e criar um relatório
 
-Conectar o Excel a um banco de dados individual no Banco de Dados SQL e importar dados e criar tabelas e gráficos com base nos valores do banco de dados. Neste tutorial, você irá configurar a conexão entre o Excel e uma tabela do banco de dados, salvar o arquivo que armazena os dados e as informações de conexão para o Excel, em seguida, criar um gráfico dinâmico a partir dos valores do banco de dados.
+Conectar o Excel a um banco de dados individual no Banco de Dados SQL do Azure e importar dados e criar tabelas e gráficos com base nos valores do banco de dados. Neste tutorial, você irá configurar a conexão entre o Excel e uma tabela do banco de dados, salvar o arquivo que armazena os dados e as informações de conexão para o Excel, em seguida, criar um gráfico dinâmico a partir dos valores do banco de dados.
 
 Você precisará de um banco de dados individual antes de começar. Se ainda não tem um, confira [Criar um banco de dados individual](sql-database-single-database-get-started.md) e [Criar um firewall de IP no nível do servidor](sql-database-server-level-firewall-rule.md) para obter um banco de dados individual com dados de exemplo funcionando em alguns minutos.
 
@@ -41,7 +41,7 @@ Você também precisará de uma cópia do Excel. Este artigo usa o [Microsoft Ex
 
    ![server-name.png](media/sql-database-connect-excel/server-name.png)
 
-4. Na caixa de diálogo **Banco de Dados do SQL Server**, selecione **Banco de Dados** à esquerda e, em seguida, insira seu **nome de usuário** e **senha** para o servidor de Banco de Dados SQL ao qual você deseja se conectar. Selecione **Conectar** para abrir o **Navegador**. 
+4. Na caixa de diálogo **Banco de Dados do SQL Server**, selecione **Banco de Dados** à esquerda e, em seguida, insira seu **nome de usuário** e **senha** para o servidor do Banco de Dados SQL ao qual você deseja se conectar. Selecione **Conectar** para abrir o **Navegador**. 
 
    ![Digite as credenciais de logon e nome do servidor](./media/sql-database-connect-excel/connect-to-server.png)
 

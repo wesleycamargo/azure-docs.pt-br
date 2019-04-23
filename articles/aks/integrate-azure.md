@@ -160,7 +160,7 @@ Em seguida, liste as classes de serviço disponíveis. As classes de serviço ex
 ./svcat get classes
 ```
 
-Por fim, liste todos os planos de serviço disponíveis. Planos de serviço são os níveis de serviço para os serviços gerenciados pelo Azure. Por exemplo, para o Banco de Dados do Azure para MySQL, os planos variam de `basic50` nível Básico com 50 Unidades de Transação do Banco de Dados (DTUs), para `standard800` nível Standard com 800 DTUs.
+Por fim, liste todos os planos de serviço disponíveis. Planos de serviço são as camada de serviço para os serviços gerenciados pelo Azure. Por exemplo, para o Banco de Dados do Azure para MySQL, os planos variam de `basic50` nível Básico com 50 Unidades de Transação do Banco de Dados (DTUs), para `standard800` nível Standard com 800 DTUs.
 
 ```azurecli-interactive
 ./svcat get plans

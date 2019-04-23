@@ -28,7 +28,7 @@ Há uma exceção importante para essa restrição. Se um usuário tiver optado 
 Por padrão, é possível configurar [redes virtuais e firewalls do Key Vault](key-vault-network-security.md) para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). É possível conceder acesso ao tráfego de redes virtuais específicas do Azure e intervalos de endereços IP públicos de Internet, permitindo criar um limite de rede seguro para os aplicativos.
 
 > [!NOTE]
-> As regras de rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras de rede virtual) não são afetadas por regras de rede virtual e firewalls.
+> As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras da rede virtual) não são afetadas por regras da rede virtual e firewalls.
 
 Seguem alguns exemplos de como é possível usar pontos de extremidade de serviço:
 
@@ -40,9 +40,9 @@ Seguem alguns exemplos de como é possível usar pontos de extremidade de servi�
 
 Aqui estão as etapas necessárias para configurar redes virtuais e firewalls. Essas etapas se aplicam se você estiver usando o PowerShell, a CLI do Azure ou o portal do Azure.
 
-1. Habilite [registro em log do Key Vault](key-vault-logging.md) para ver os logs de acesso detalhados. Isso ajuda nos diagnósticos, quando as regras de rede virtual e firewalls impedirem o acesso a um cofre de chaves. (Esta etapa é opcional, mas altamente recomendada.)
+1. Habilite [registro em log do Key Vault](key-vault-logging.md) para ver os logs de acesso detalhados. Isso ajuda nos diagnósticos, quando as regras da rede virtual e firewalls impedirem o acesso a um cofre de chaves. (Esta etapa é opcional, mas altamente recomendada.)
 2. Habilite **pontos de extremidade de serviço para o cofre de chaves** para redes virtuais e sub-redes de destino.
-3. Defina regras de rede virtual e firewalls para um cofre de chaves para restringir o acesso a esse cofre de chaves a partir de redes virtuais, sub-redes e intervalos de endereços IPv4 específicos.
+3. Defina regras da rede virtual e firewalls para um cofre de chaves para restringir o acesso a esse cofre de chaves a partir de redes virtuais, sub-redes e intervalos de endereços IPv4 específicos.
 4. Se esse cofre de chaves precisar estar acessível por qualquer serviço confiável da Microsoft, habilite a opção para permitir que **Serviços Confiáveis do Azure** conectem o cofre de chaves.
 
 Para obter mais informações, consulte [Configurar redes virtuais e firewalls do Azure Key Vault](key-vault-network-security.md).
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [Configurar redes virtuais e firewalls d
 
 > [!NOTE]
 > Esteja ciente das seguintes limitações de configuração:
-> * Um máximo de 127 regras de rede virtual e 127 regras de IPv4 são permitidas. 
+> * Um máximo de 127 regras da rede virtual e 127 regras de IPv4 são permitidas. 
 > * Intervalos de endereços pequenos que usam tamanhos de prefixo "/31" ou "/32" não têm suporte. Em vez disso, esses intervalos devem ser configurados usando regras de endereço IP individuais.
 > * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.**, **172.16 31**, e **192.168.**. 
 > * Atualmente, somente há suporte para endereços IPv4.

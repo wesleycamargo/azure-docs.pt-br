@@ -92,17 +92,17 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornece o tamanho de computação para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro de... /.. /.. /.. / S9/S12 são aceitos, o que fazer com que o banco de dados do SQL Azure usar o tamanho da respectiva computação. Para obter mais informações sobre os tamanhos de computação do Banco de Dados SQL, consulte <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Preço e componentes de trabalhos do Banco de Dados Elástico</a>.</td>
+    <td>Fornece o tamanho da computação para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro de... /.. /.. /.. / S9/S12 são aceitos, o que fazer com que o banco de dados do SQL Azure usar o tamanho da respectiva computação. Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, consulte <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Preço e componentes de trabalhos do Banco de Dados Elástico</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorUserName</td>
-    <td>Fornece o nome de usuário do administrador para o servidor de Banco de Dados SQL recém-criado. Quando as credenciais não forem especificadas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
+    <td>Fornece o nome de usuário do administrador para o servidor do Banco de Dados SQL recém-criado. Quando as credenciais não forem especificadas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorPassword</td>
-    <td>Fornece a senha do administrador para o servidor de Banco de Dados SQL recém-criado. Quando as credenciais não forem fornecidas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
+    <td>Fornece a senha do administrador para o servidor do Banco de Dados SQL recém-criado. Quando as credenciais não forem fornecidas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
 </tr>
 </table>
 
@@ -153,7 +153,7 @@ Após a [criação de um pool elástico](sql-database-elastic-pool-manage-portal
 4. No modo de exibição "Instalar serviços", clique em **CREDENCIAIS DO TRABALHO**.
    
     ![Instalando os serviços][1]
-5. Digite um nome de usuário e uma senha para um administrador de banco de dados. Como parte da instalação, um novo servidor de Banco de Dados SQL é criado. Dentro desse novo servidor, um novo banco de dados, conhecido como banco de dados de controle, é criado e usado para conter os metadados para trabalhos de Banco de Dados Elástico. O nome de usuário e senha criados aqui são usados para fins de logon no banco de dados do controle. Uma credencial separada é usada para execução de scripts nos bancos de dados dentro do pool.
+5. Digite um nome de usuário e uma senha para um administrador de banco de dados. Como parte da instalação, um novo servidor do Banco de Dados SQL é criado. Dentro desse novo servidor, um novo banco de dados, conhecido como banco de dados de controle, é criado e usado para conter os metadados para trabalhos de Banco de Dados Elástico. O nome de usuário e senha criados aqui são usados para fins de logon no banco de dados do controle. Uma credencial separada é usada para execução de scripts nos bancos de dados dentro do pool.
    
     ![Criar nome de usuário e senha][2]
 6. Clique no botão OK. Os componentes são criados para você em questão de minutos em um novo [Grupo de recursos](../azure-resource-manager/resource-group-overview.md). O novo grupo de recursos é fixado à tela inicial, conforme mostrado abaixo. Depois de criados, os trabalhos de banco de dados elástico (Serviço de Nuvem, Banco de Dados SQL, Barramento de Serviço e Armazenamento) são criados no grupo.

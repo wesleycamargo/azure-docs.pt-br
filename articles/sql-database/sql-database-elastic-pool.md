@@ -21,7 +21,7 @@ ms.locfileid: "58010244"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
-Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor de Banco de Dados SQL do Azure e compartilham um número definido de recursos por um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados.
+Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor do Banco de Dados SQL do Azure e compartilham um número definido de recursos por um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados.
 
 ## <a name="what-are-sql-elastic-pools"></a>O que são pools elásticos SQL
 
@@ -59,7 +59,7 @@ A figura a seguir mostra um exemplo de um banco de dados que passa muito tempo o
 
    ![um banco de dados individual adequado para um pool](./media/sql-database-elastic-pool/one-database.png)
 
-Para o período de cinco minutos ilustrado, DB1 apresenta picos de até 90 DTUs, mas seu uso geral médio é inferior a cinco DTUs. O tamanho de computação S3 é necessário para executar essa carga de trabalho em um banco de dados individual, mas esse tamanho faz com que a maioria dos recursos fiquem utilizados durante períodos de baixa atividade.
+Para o período de cinco minutos ilustrado, DB1 apresenta picos de até 90 DTUs, mas seu uso geral médio é inferior a cinco DTUs. O tamanho da computação S3 é necessário para executar essa carga de trabalho em um banco de dados individual, mas esse tamanho faz com que a maioria dos recursos fiquem utilizados durante períodos de baixa atividade.
 
 Um pool permite que essas DTUs não utilizadas sejam compartilhadas entre vários bancos de dados, reduzindo as DTUs necessárias e os custos gerais.
 
@@ -69,7 +69,7 @@ Considerando ainda o exemplo anterior, suponha que há outros bancos de dados co
 
    ![vinte bancos de dados com um padrão de utilização adequado para um pool](./media/sql-database-elastic-pool/twenty-databases.png)
 
-A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela linha preta na figura anterior. Ela mostra que a utilização de DTU agregada nunca excede 100 DTUs e indica que os 20 bancos de dados podem compartilhar 100 eDTUs durante esse período de tempo. Isso resulta em uma redução de 20 vezes das DTUs e de 13 vezes do preço em comparação à escolha dos tamanhos de computação S3 para cada banco de dados individual.
+A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela linha preta na figura anterior. Ela mostra que a utilização de DTU agregada nunca excede 100 DTUs e indica que os 20 bancos de dados podem compartilhar 100 eDTUs durante esse período de tempo. Isso resulta em uma redução de 20 vezes das DTUs e de 13 vezes do preço em comparação à escolha dos tamanhos da computação S3 para cada banco de dados individual.
 
 Este exemplo é ideal pelas seguintes razões:
 
@@ -79,14 +79,14 @@ Este exemplo é ideal pelas seguintes razões:
 
 O preço de um pool é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
 
-As seguintes regras básicas relacionadas à contagem de banco de dados e à utilização do banco de dados ajudam a garantir que um pool ofereça um custo reduzido em comparação ao uso de tamanhos de computação para bancos de dados individuais.
+As seguintes regras básicas relacionadas à contagem de banco de dados e à utilização do banco de dados ajudam a garantir que um pool ofereça um custo reduzido em comparação ao uso de tamanhos da computação para bancos de dados individuais.
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bancos de dados
 
 Se a quantidade agregada de recursos para bancos de dados individuais for maior que 1,5x de recursos necessários para o pool, será mais econômico usar um pool elástico.
 
 ***Exemplo de modelo de compra baseado em DTU***<br>
-Pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para que um pool de 100 eDTUs seja mais econômico do que o uso de tamanhos de computação para bancos de dados individuais.
+Pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para que um pool de 100 eDTUs seja mais econômico do que o uso de tamanhos da computação para bancos de dados individuais.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de banco de dados em pico simultaneamente
 
@@ -94,7 +94,7 @@ Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar rec
 
 ***Exemplo de modelo de compra baseado em DTU***
 
- para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos de computação para bancos de dados individuais.
+ para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos da computação para bancos de dados individuais.
 
 Observe que esse exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
@@ -120,13 +120,13 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
    Para modelos de compra baseados em DTU: MAX (<*Número total de bancos de dados* X *utilização média de DTU por banco de dados*>,<br>  
    <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
 
-   Para modelos de compra baseados em vCore: MAX (<*Número total de BDs* X *utilização média de vCore por BD*>,<br>  
+   Para o modelo de compra baseado em vCore: MAX (<*Número total de BDs* X *utilização média de vCore por BD*>,<br>  
    <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
 4. Consulte a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor tamanho de pool que seja maior que a estimativa da Etapa 3.
-5. Compare o preço do pool da Etapa 5 com o preço do uso dos tamanhos de computação apropriados para bancos de dados individuais.
+5. Compare o preço do pool da Etapa 5 com o preço do uso dos tamanhos da computação apropriados para bancos de dados individuais.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Usando outros recursos de Banco de Dados SQL com pools elásticos
 
@@ -138,7 +138,7 @@ Para saber mais sobre outras ferramentas de banco de dados para trabalhar com v�
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opções de continuidade dos negócios para bancos de dados em um pool elástico
 
-Os bancos de dados elásticos normalmente dão suporte aos mesmos [recursos de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para bancos de dados individuais.
+Os bancos de dados em pool normalmente dão suporte aos mesmos [recursos de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para bancos de dados individuais.
 
 - **Restauração pontual**
 

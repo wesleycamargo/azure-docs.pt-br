@@ -1433,7 +1433,7 @@ ms.locfileid: "54425672"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
+                                                    <p>Repositório da Hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2180,7 +2180,7 @@ ms.locfileid: "54425672"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
+                                                    <p>Repositório da Hiperescala para cargas de trabalho de análise de Big Data</p>
                                                 </div>
                                             </div>
                                         </div>

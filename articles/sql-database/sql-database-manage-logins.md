@@ -52,7 +52,7 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - Essas contas inserem bancos de dados de usuário, pois o usuário `dbo` e elas têm todas as permissões nos bancos de dados do usuário. (O proprietário de um banco de dados do usuário também insere o banco de dados como o usuário `dbo`.) 
 - Não insira o banco de dados `master` como o usuário `dbo` e tenha permissões limitadas no mestre. 
 - **Não** são membros da função de servidor fixo do SQL Server padrão `sysadmin`, que não está disponível no Banco de Dados SQL.  
-- É possível criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall mestre e de nível de servidor de IP.
+- É possível criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall de IP mestre e de nível de servidor.
 - Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Podem exibir a tabela do sistema `sys.sql_logins`.
 
@@ -70,7 +70,7 @@ Ao usar uma porta aberta no firewall no nível do servidor, os administradores p
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conectar-se a um banco de dados usando o SQL Server Management Studio
 
-Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall de IP no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-single-database-get-started.md).
+Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall de IP no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores do banco de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

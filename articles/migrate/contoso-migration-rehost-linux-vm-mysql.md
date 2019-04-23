@@ -228,7 +228,7 @@ Os administradores da Contoso provisionam uma instância do banco de dados MySQL
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-3.png)
 
-5. Depois de adicionar a sub-rede, ela cria uma regra de rede virtual que permite o acesso da sub-rede do banco de dados na rede de produção.
+5. Depois de adicionar a sub-rede, ela cria uma regra da rede virtual que permite o acesso da sub-rede do banco de dados na rede de produção.
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-4.png)
 

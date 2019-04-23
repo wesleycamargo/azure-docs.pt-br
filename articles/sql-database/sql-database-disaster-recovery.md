@@ -19,7 +19,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58540475"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL do Azure ou fazer failover para um secundário
 
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
 
@@ -38,14 +38,14 @@ Para saber mais sobre os cenários de continuidade dos negócios e os recursos c
 
 > [!NOTE]
 > Use um ou vários grupos de failover para gerenciar o failover de vários bancos de dados.
-> Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, certifique-se de que o geograficamente secundário esteja configurado com o mesmo nível de serviço e tamanho de computação do primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
+> Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, certifique-se de que o geograficamente secundário esteja configurado com o mesma camada de serviço e tamanho de computação do primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepare-se para o caso de uma interrupção
 
 Para ter êxito com a recuperação para outra região de dados usando a replicação os grupos de failover ou os backups com redundância geográfica, você precisará preparar um servidor em outra interrupção de data center para que ele se torne o novo servidor primário, caso seja necessário, bem como definir as etapas documentadas e testadas para garantir uma recuperação simples. Essas etapas de preparação incluem:
 
-- Identificar o servidor de Banco de Dados SQL em outra região para que ele se torne o novo servidor primário. Para a restauração geográfica, geralmente será um servidor na [região emparelhada](../best-practices-availability-paired-regions.md) para a região na qual o banco de dados está localizado. Isso eliminará o custo de tráfego adicional durante as operações de restauração geográfica.
-- Identificar e, como alternativa, definir as regras de IP do firewall no nível de servidor necessárias para que os usuários acessem o novo banco de dados primário.
+- Identificar o servidor do Banco de Dados SQL em outra região para que ele se torne o novo servidor primário. Para a restauração geográfica, geralmente será um servidor na [região emparelhada](../best-practices-availability-paired-regions.md) para a região na qual o banco de dados está localizado. Isso eliminará o custo de tráfego adicional durante as operações de restauração geográfica.
+- Identificar e, como alternativa, definir as regras de firewall de IP no nível de servidor necessárias para que os usuários acessem o novo banco de dados primário.
 - Determinar como você pretende redirecionar os usuários para o novo servidor primário, como ao alterar as cadeias de conexão ou as entradas DNS.
 - Identificar e, como alternativa, criar os logons que devem estar presentes no banco de dados mestre no novo servidor primário e verificar se esses logons têm permissões apropriadas no banco de dados mestre, se houver. Para obter mais informações, confira [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
 - Identificar as regras de alerta que precisarão ser atualizadas para mapear para o novo banco de dados primário.

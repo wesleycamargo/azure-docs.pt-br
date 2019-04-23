@@ -1,6 +1,6 @@
 ---
 title: Resolvendo diferenças do T-SQL durante migração para o Banco de Dados SQL do Azure | Microsoft Docs
-description: Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL
+description: Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -56,7 +56,7 @@ Além das instruções Transact-SQL relacionadas aos recursos não suportados de
 - Alta disponibilidade: Sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
 - Leitor de logs: sintaxe que se baseia no leitor de logs, que não está disponível no Banco de Dados SQL: replicação push, captura de dados de alterações. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos de computação em vez disso.
+- Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos da computação em vez disso.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomes de quatro partes
 - .NET Framework: integração CLR com o SQL Server

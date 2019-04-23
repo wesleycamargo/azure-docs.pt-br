@@ -29,13 +29,13 @@ Este artigo apresenta as considerações básicas sobre as quais um desenvolvedo
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
 
-Você pode usar várias [plataformas e linguagens de programação](sql-database-connect-query.md) para se conectar ao Banco de Dados SQL e consultá-lo. Você pode encontrar [aplicativos de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que pode usar para se conectar ao Banco de Dados SQL do Azure.
+Você pode usar várias [plataformas e linguagens de programação](sql-database-connect-query.md) para se conectar ao Banco de Dados SQL do Azure e consultá-lo. Você pode encontrar [aplicativos de exemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que pode usar para se conectar ao Banco de Dados SQL do Azure.
 
 Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar o portal do Azure, o PowerShell e APIs REST para obter maior produtividade.
 
 ## <a name="authentication"></a>Authentication
 
-O acesso ao Banco de Dados SQL é protegido por logons e firewalls. O Banco de Dados SQL do Azure dá suporte a usuários e logons da [autenticação do AAD (Azure Active Directory)](sql-database-aad-authentication.md) e do SQL Server. Os logons do AAD estão disponíveis apenas na Instância Gerenciada. 
+O acesso ao Banco de Dados SQL do Azure é protegido por logons e firewalls. O Banco de Dados SQL do Azure dá suporte a usuários e logons da [autenticação do AAD (Azure Active Directory)](sql-database-aad-authentication.md) e do SQL Server. Os logons do AAD estão disponíveis apenas na Instância Gerenciada. 
 
 Saiba mais sobre [como gerenciar o acesso e o logon em banco de dados](sql-database-manage-logins.md).
 
@@ -49,7 +49,7 @@ Evite transações de longa execução, pois qualquer falha de infraestrutura ou
 
 ## <a name="resiliency"></a>Resiliência
 
-O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o Banco de Dados SQL seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
+O Banco de Dados SQL do Azure é um serviço de nuvem, no qual é possível esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o Banco de Dados SQL do Azure seja resiliente em falhas de infraestrutura transitórias, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo. A lógica de repetição depende das [mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
 
 Para obter mais informações sobre como se preparar para eventos de manutenção planejada em seu banco de dados SQL do Azure, consulte [planejamento de eventos de manutenção do Azure no Banco de Dados SQL do Azure](sql-database-planned-maintenance.md).
 

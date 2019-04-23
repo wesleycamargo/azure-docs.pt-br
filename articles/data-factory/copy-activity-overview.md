@@ -61,7 +61,7 @@ Por exemplo, você pode fazer as seguintes atividades de cópia:
 * Copie os dados no SQL Server no local e gravar para o armazenamento do Azure Data Lake Gen2 no formato Parquet.
 * Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
 * Copie os arquivos compactados do sistema de arquivos local e, em seguida, descompacte o terra para o armazenamento do Azure Data Lake Gen2.
-* Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
+* Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL do Azure.
 * E precisam de muitos casos mais com a serialização/desserialização ou compactação/descompactação.
 
 ## <a name="supported-regions"></a>Regiões com suporte

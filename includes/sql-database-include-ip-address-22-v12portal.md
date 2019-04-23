@@ -23,7 +23,7 @@ ms.locfileid: "39117266"
 
 3. Role e selecione **servidores SQL**.
 
-    ![Encontre o seu servidor do Banco de Dados SQL no portal][b21-FindServerInPortal]
+    ![Encontre o seu servidor do Banco de Dados SQL do Azure no portal][b21-FindServerInPortal]
 5. Na caixa de texto de filtro, comece digitando o nome do seu servidor. A linha é exibida.
 
 6. Selecione a linha do servidor. Uma folha do servidor é exibida.

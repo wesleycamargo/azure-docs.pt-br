@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
 ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53100014"
@@ -23,7 +23,7 @@ Este artigo ajuda você a mover uma configuração de emparelhamento público pa
 
 * Para se conectar ao emparelhamento da Microsoft, você precisa configurar e gerenciar o NAT. Seu provedor de conectividade pode configurar e gerenciar o NAT como um serviço gerenciado. Caso você pretenda acessar os serviços de PaaS e SaaS do Azure no emparelhamento do Microsoft, é importante dimensionar o pool IP do NAT corretamente. Para obter mais informações sobre o NAT para o ExpressRoute, consulte os [Requisitos do NAT para o emparelhamento da Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar [armazenamento do Azure](../storage/common/storage-network-security.md) ou [banco de dados do SQL Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), você precisa certificar-se de que o pool de IP de NAT configurado com o emparelhamento Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou a conta do SQL Azure.
+* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar [armazenamento do Azure](../storage/common/storage-network-security.md) ou [banco de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), você precisa certificar-se de que o pool de IP de NAT configurado com o emparelhamento Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou a conta do SQL Azure.
 
 * Para fazer uma movimentação para o emparelhamento da Microsoft sem tempo de inatividade, use as etapas deste artigo na ordem em que são apresentadas.
 

@@ -1,6 +1,6 @@
 ---
-title: Permitindo acesso ao Banco de Dados SQL e ao SQL Data Warehouse do Azure | Microsoft Docs
-description: Saiba mais sobre como permitir acesso ao Banco de Dados SQL e ao SQL Data Warehouse do Microsoft Azure.
+title: Permitindo acesso ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure | Microsoft Docs
+description: Saiba mais sobre como permitir acesso ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
 ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2019
 ms.locfileid: "55729907"
@@ -28,7 +28,7 @@ Para fornecer segurança, o [Banco de Dados SQL](sql-database-technical-overview
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall
 
-O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL](sql-database-firewall-configure.md)
+O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
 
 O serviço de Banco de dados SQL do Azure só está disponível por meio da porta TCP 1433. Para acessar um Banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Se não for necessário a outros aplicativos, bloqueie as conexões de entrada na porta TCP 1433. 
 

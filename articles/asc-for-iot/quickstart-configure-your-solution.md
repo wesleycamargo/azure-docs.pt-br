@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 64a04861b14e48eaa14a369546dd9d54bf59f019
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861914"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Início Rápido: Configure a solução de IoT
@@ -61,4 +61,4 @@ Como parte da solução de IoT, a ASC para IoT agora monitora os recursos recent
 Avance para o próximo artigo para aprender como criar módulos de segurança...
 
 > [!div class="nextstepaction"]
-> [Criar módulos de segurança](quickstart-create-security-twin.md)
+> [Criar Módulos de Segurança](quickstart-create-security-twin.md)

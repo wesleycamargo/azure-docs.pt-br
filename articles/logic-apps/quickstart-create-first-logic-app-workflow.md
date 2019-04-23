@@ -12,10 +12,10 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884221"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógicos do Azure – Portal do Azure
@@ -44,10 +44,10 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
    | Propriedade | Valor | DESCRIÇÃO | 
    |----------|-------|-------------| 
-   | **NOME** | MyFirstLogicApp | O nome do seu aplicativo lógico | 
+   | **Nome** | MyFirstLogicApp | O nome do seu aplicativo lógico | 
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | O nome e a ID da assinatura do Azure | 
    | **Grupo de recursos** | My-First-LA-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados | 
-   | **Local padrão** | Oeste dos EUA | A região onde as informações do seu aplicativo lógico serão armazenadas | 
+   | **Localidade** | Oeste dos EUA | A região onde as informações do seu aplicativo lógico serão armazenadas | 
    | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    |||| 
 
@@ -71,7 +71,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
    | Propriedade | Valor | DESCRIÇÃO | 
    |----------|-------|-------------| 
-   | **A URL do feed RSS** | ```http://feeds.reuters.com/reuters/topNews``` | O link do RSS feed do site que você deseja monitorar | 
+   | **A URL do RSS feed** | ```http://feeds.reuters.com/reuters/topNews``` | O link do RSS feed do site que você deseja monitorar | 
    | **Intervalo** | 1 | O número de intervalos de espera entre as verificações | 
    | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações  | 
    |||| 

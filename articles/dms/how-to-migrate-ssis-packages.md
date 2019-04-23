@@ -19,7 +19,7 @@ ms.lasthandoff: 03/19/2019
 ms.locfileid: "58183417"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Migrar pacotes do SQL Server Integration Services para o Azure
-Se você usa o SSIS (SQL Server Integration Services) e quer migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado pelo SQL Server para o SSISDB de destino hospedado pelo servidor de Banco de Dados SQL do Azure ou pela Instância Gerenciada do Banco de Dados SQL do Azure, é possível reimplantá-los usando o Assistente de Implantação do Integration Services. Você pode iniciar o Assistente de dentro do SSMS (SQL Server Management Studio).
+Se você usa o SSIS (SQL Server Integration Services) e quer migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado pelo SQL Server para o SSISDB de destino hospedado pelo servidor do Banco de Dados SQL do Azure ou pela Instância Gerenciada do Banco de Dados SQL do Azure, é possível reimplantá-los usando o Assistente de Implantação do Integration Services. Você pode iniciar o Assistente de dentro do SSMS (SQL Server Management Studio).
 
 Se a versão do SSIS que você usa for anterior a 2012, antes de reimplantar os projetos/pacotes do SSIS no modelo de implantação de projeto, primeiro será necessário convertê-los usando o 	Assistente de Conversão de Projetos do Integration Services, que também pode ser iniciado pelo SSMS. Para obter mais informações, consulte o artigo [Converter projetos para o modelo de implantação de projeto](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
@@ -38,20 +38,20 @@ Para concluir essas etapas, você precisa:
 - Uma instância de servidor de banco de dados de destino para hospedar o SSISDB.
  
   Se você ainda não tiver uma:
-    - Para um Banco de Dados SQL do Azure, crie um servidor de Banco de Dados SQL do Azure (sem um banco de dados) usando o portal do Azure, navegando até o [formulário](https://ms.portal.azure.com/#create/Microsoft.SQLServer) do SQL Server (somente servidor lógico).
+    - Para um Banco de Dados SQL do Azure, crie um servidor do Banco de Dados SQL do Azure (sem um banco de dados) usando o portal do Azure, navegando até o [formulário](https://ms.portal.azure.com/#create/Microsoft.SQLServer) do SQL Server (somente servidor lógico).
     - Para uma Instância Gerenciada do Banco de Dados SQL do Azure, siga os detalhes no artigo [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 
-- SSIS devem ser provisionados no ADF (Azure Data Factory) contendo o Azure-SSIS IR (Integration Runtime) com o SSISDB de destino hospedado pela instância do servidor de Banco de Dados SQL do Azure (conforme descrito no artigo [Provisionar o Azure-SSIS Integration Runtime no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) ou pela Instância Gerenciada do Banco de Dados SQL do Azure (conforme descrito no artigo [Criar o Azure-SSIS Integration Runtime no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
+- SSIS devem ser provisionados no ADF (Azure Data Factory) contendo o Azure-SSIS IR (Integration Runtime) com o SSISDB de destino hospedado pela instância do servidor do Banco de Dados SQL do Azure (conforme descrito no artigo [Provisionar o Azure-SSIS Integration Runtime no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) ou pela Instância Gerenciada do Banco de Dados SQL do Azure (conforme descrito no artigo [Criar o Azure-SSIS Integration Runtime no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
 
 ## <a name="assess-source-ssis-projectspackages"></a>Avaliar projetos/pacotes do SSIS de origem
-Enquanto a avaliação do SSISDB de origem ainda não tiver sido integrada ao DMA (Assistente de Migração de Banco de Dados) ou ao DMS (Serviço de Migração de Banco de Dados do Azure), os projetos/pacotes do SSIS serão avaliados/validados conforme são reimplantados no SSISDB de destino hospedado no servidor de Banco de Dados SQL do Azure ou na Instância Gerenciada do Banco de Dados SQL do Azure.
+Enquanto a avaliação do SSISDB de origem ainda não tiver sido integrada ao DMA (Assistente de Migração de Banco de Dados) ou ao DMS (Serviço de Migração de Banco de Dados do Azure), os projetos/pacotes do SSIS serão avaliados/validados conforme são reimplantados no SSISDB de destino hospedado no servidor do Banco de Dados SQL do Azure ou na Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="migrate-ssis-projectspackages"></a>Migrar projetos/pacotes do SSIS
-Para migrar projetos/pacotes do SSIS para o servidor de Banco de Dados SQL do Azure ou para a Instância Gerenciada do Banco de Dados SQL do Azure, execute as etapas a seguir.
+Para migrar projetos/pacotes do SSIS para o servidor do Banco de Dados SQL do Azure ou para a Instância Gerenciada do Banco de Dados SQL do Azure, execute as etapas a seguir.
 
 1.  Abra o SSMS e, em seguida, selecione **Opções** para exibir a caixa de diálogo **Conectar ao Servidor**.
 
-2.  Na guia **Logon**, especifique as informações necessárias para conectar ao servidor de Banco de Dados SQL do Azure ou à Instância Gerenciada do Banco de Dados SQL do Azure, hospedando o SSISDB de destino.
+2.  Na guia **Logon**, especifique as informações necessárias para conectar ao servidor do Banco de Dados SQL do Azure ou à Instância Gerenciada do Banco de Dados SQL do Azure, hospedando o SSISDB de destino.
 
     ![Guia Logon do SSIS](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
  

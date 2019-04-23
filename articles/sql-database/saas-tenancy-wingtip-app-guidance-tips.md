@@ -77,7 +77,7 @@ Dicas para explorar e depurar scripts do PowerShell:
 
 Use o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar e procurar os servidores e bancos de dados do aplicativo.
 
-Inicialmente, a implantação tem locatários e servidores de Banco de Dados SQL do catálogo para se conectar. A nomenclatura dos servidores depende do padrão de locação do banco de dados (veja abaixo detalhes específicos). 
+Inicialmente, a implantação tem locatários e servidores do Banco de Dados SQL do catálogo para se conectar. A nomenclatura dos servidores depende do padrão de locação do banco de dados (veja abaixo detalhes específicos). 
 
    - **Aplicativo autônomo:** servidores para cada locatário (ex. servidor *contosoconcerthall-&lt;Usuário&gt;*) e *catalog-sa-&lt;Usuário&gt;*
    - **Banco de dados por locatário:** *tenants1-dpt-&lt;Usuário&gt;*  e servidores *catalog-dpt-&lt;Usuário&gt;*

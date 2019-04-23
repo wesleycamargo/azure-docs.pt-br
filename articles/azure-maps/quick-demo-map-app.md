@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268663"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Criar um mapa de pesquisa interativo usando o Azure Mapas
@@ -73,12 +73,12 @@ Os tutoriais entram em detalhes sobre como usar e configurar o Azure Mapas com s
 Neste início rápido, você criou sua conta do Azure Mapas e criou um aplicativo de demonstração. Confira os seguintes tutoriais para saber mais sobre os Azure Mapas:
 
 > [!div class="nextstepaction"]
-> [Pesquisar pontos de interesse próximos usando os Azure Mapas](tutorial-search-location.md)
+> [Pesquisar pontos de interesse próximos usando o Azure Mapas](tutorial-search-location.md)
 
 Para obter mais exemplos de código e uma experiência interativa de codificação, consulte estes guias:
 
 > [!div class="nextstepaction"]
-> [Encontrar um endereço usando o serviço de pesquisa dos Azure Mapas](how-to-search-for-address.md)
+> [Encontrar um endereço usando o serviço de pesquisa do Azure Mapas](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Use o controle de mapa de mapas do Azure](how-to-use-map-control.md)
+> [Usar o Controle de Mapeamento do Azure Mapas](how-to-use-map-control.md)

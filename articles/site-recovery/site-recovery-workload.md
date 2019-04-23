@@ -9,7 +9,7 @@ ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
 ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54155160"
@@ -146,7 +146,7 @@ O Azure Site Recovery oferece recuperação de desastre replicando os componente
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Proteger o Citrix XenApp e o XenDesktop
 Use o Site Recovery para proteger suas implantações Citrix XenApp e XenDesktop, da seguinte maneira:
 
-* Habilite a proteção da implantação do Citrix XenApp e XenDesktop, replicando diferentes camadas de implantação incluindo (servidor AD DNS, servidor de banco de dados SQL, Citrix Delivery Controller, servidor StoreFront, XenApp Master (VDA), Citrix XenApp License Server) no Azure.
+* Habilite a proteção da implantação do Citrix XenApp e XenDesktop, replicando diferentes camadas de implantação incluindo (servidor AD DNS, servidor do banco de dados SQL, Citrix Delivery Controller, servidor StoreFront, XenApp Master (VDA), Citrix XenApp License Server) no Azure.
 * Simplifique a migração na nuvem usando o Site Recovery para migrar sua implantação do Citrix XenApp e XenDesktop para o Azure.
 * Simplifique o teste do Citrix XenApp/XenDesktop criando uma cópia de produção sob demanda para teste e depuração.
 * Esta solução só é aplicável para áreas de trabalho virtuais do sistema operacional Windows Server e não para áreas de trabalho virtuais de cliente como áreas de trabalho virtuais do cliente ainda não são suportadas para o licenciamento no Azure.

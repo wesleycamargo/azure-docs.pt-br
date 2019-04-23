@@ -1,6 +1,6 @@
 ---
 title: Pontos de extremidade e regras da VNet para bancos de dados únicos e em pool no SQL do Azure | Microsoft Docs
-description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
+description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra da rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -19,18 +19,18 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805186"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço da rede virtual para os servidores do banco de dados
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
-As *regras da rede virtual* são um recurso de segurança do firewall que controla se o servidor do banco de dados para seus bancos de dados individuais e pool elástico no [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou os bancos de dados no [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceitam comunicações enviadas de sub-redes particulares nas redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu Banco de Dados SQL do Azure e com o SQL Data Warehouse.
+As *regras da rede virtual* são um recurso de segurança do firewall que controla se o servidor do banco de dados para seus bancos de dados individuais e pool elástico no [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou os bancos de dados no [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceitam comunicações enviadas de sub-redes particulares nas redes virtuais. Este artigo explica por que o recurso de regra da rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu Banco de Dados SQL do Azure e com o SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
 
 Para criar uma regra de rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
 
-## <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
+## <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra da rede virtual
 
-Se você só criar uma regra de rede virtual, poderá pular para as etapas e explicação [posteriores neste artigo](#anchor-how-to-by-using-firewall-portal-59j).
+Se você só criar uma regra da rede virtual, poderá pular para as etapas e explicação [posteriores neste artigo](#anchor-how-to-by-using-firewall-portal-59j).
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -42,19 +42,19 @@ Se você só criar uma regra de rede virtual, poderá pular para as etapas e exp
 
 **Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL.
 
-**Regra de rede virtual:** uma regra de rede virtual para o servidor de Banco de Dados SQL do Microsoft Azure é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
+**Regra de rede virtual:** uma regra de rede virtual para o servidor do Banco de Dados SQL do Microsoft Azure é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
 
-Uma regra de rede virtual informa o servidor de Banco de dados SQL do Microsoft Azure para aceitar comunicações de cada nó que está na sub-rede.
+Uma regra da rede virtual informa o servidor de Banco de dados SQL do Microsoft Azure para aceitar comunicações de cada nó que está na sub-rede.
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
-## <a name="benefits-of-a-virtual-network-rule"></a>Benefícios de uma regra de rede virtual
+## <a name="benefits-of-a-virtual-network-rule"></a>Benefícios de uma regra da rede virtual
 
-Até que você execute uma ação, as VMs em suas sub-redes não podem se comunicar com seu Banco de dados SQL do Microsoft Azure. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica para escolher a abordagem de regra da VNet requer uma discussão de comparação e contraste que envolve as opções de segurança concorrentes oferecidas pelo firewall.
+Até que você execute uma ação, as VMs em suas sub-redes não podem se comunicar com seu Banco de dados SQL do Microsoft Azure. Uma ação que estabelece a comunicação é a criação de uma regra da rede virtual. A lógica para escolher a abordagem de regra da VNet requer uma discussão de comparação e contraste que envolve as opções de segurança concorrentes oferecidas pelo firewall.
 
 ### <a name="a-allow-access-to-azure-services"></a>a. Permitir o acesso aos serviços do Azure
 
-O painel de firewall tem um botão de **ON/OFF** que é rotulado como **Permitir acesso aos serviços do Azure**. A configuração **ON** permite as comunicações de todos os endereços IP do Azure e todas as sub-redes do Azure. Esses IPs ou sub-redes do Azure não podem pertencer a você. Essa configuração **ON** é provavelmente mais aberta do que você deseja que seu Banco de dados SQL do Microsoft Azure seja. O recurso de regra de rede virtual oferece um maior controle granular.
+O painel de firewall tem um botão de **ON/OFF** que é rotulado como **Permitir acesso aos serviços do Azure**. A configuração **ON** permite as comunicações de todos os endereços IP do Azure e todas as sub-redes do Azure. Esses IPs ou sub-redes do Azure não podem pertencer a você. Essa configuração **ON** é provavelmente mais aberta do que você deseja que seu Banco de dados SQL do Microsoft Azure seja. O recurso de regra da rede virtual oferece um maior controle granular.
 
 ### <a name="b-ip-rules"></a>B. Regras de IP
 
@@ -62,28 +62,28 @@ O firewall do Bnco de dados SQL do Microsoft Azure permite que você especifique
 
 Você pode recuperar a opção de IP obtendo um endereço IP *estático* para a VM. Para obter mais detalhes, consulte [Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
-No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é cara quando realizada em escala. Regras de rede virtual são mais fáceis de estabelecer e gerenciar.
+No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é cara quando realizada em escala. Regras da rede virtual são mais fáceis de estabelecer e gerenciar.
 
 > [!NOTE]
-> Ainda não é possível ter o Banco de Dados SQL em uma sub-rede. Se seu servidor de banco de dados SQL do Azure for um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual podem se comunicar com seu banco de dados SQL. Nesse caso, suas VMs podem se comunicar com o Banco de Dados SQL sem a necessidade de nenhuma regra de rede virtual ou regras de IP.
+> Ainda não é possível ter o Banco de Dados SQL em uma sub-rede. Se seu servidor do banco de dados SQL do Azure for um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual podem se comunicar com seu banco de dados SQL. Nesse caso, suas VMs podem se comunicar com o Banco de Dados SQL sem a necessidade de nenhuma regra da rede virtual ou regras de IP.
 
 No entanto a partir de setembro de 2017, o serviço de banco de dados SQL do Azure ainda não está entre os serviços que podem ser atribuídos a uma sub-rede.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
-## <a name="details-about-virtual-network-rules"></a>Detalhes sobre as regras de rede virtual
+## <a name="details-about-virtual-network-rules"></a>Detalhes sobre as regras da rede virtual
 
-Esta seção descreve vários detalhes sobre as regras de rede virtual.
+Esta seção descreve vários detalhes sobre as regras da rede virtual.
 
 ### <a name="only-one-geographic-region"></a>Apenas uma região geográfica
 
 Cada ponto de extremidade de serviço de rede virtual se aplica a apenas uma região do Azure. O ponto de extremidade não permite que outras regiões aceitem a comunicação da sub-rede.
 
-Qualquer regra de rede virtual é limitada à região à qual seu ponto de extremidade subjacente se aplica.
+Qualquer regra da rede virtual é limitada à região à qual seu ponto de extremidade subjacente se aplica.
 
 ### <a name="server-level-not-database-level"></a>Nível de servidor, não o nível de banco de dados
 
-Cada regra de rede virtual se aplica a todo o seu servidor de banco de dados SQL do Azure, não apenas a um determinado banco de dados no servidor. Em outras palavras, a regra de rede virtual se aplica no nível de servidor, não no nível do banco de dados.
+Cada regra de rede virtual se aplica a todo o seu servidor do banco de dados SQL do Azure, não apenas a um determinado banco de dados no servidor. Em outras palavras, a regra da rede virtual se aplica no nível de servidor, não no nível do banco de dados.
 
 - Por outro lado, as regras de IP podem ser aplicadas em qualquer nível.
 
@@ -96,7 +96,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 
 *Alternativa de RBAC:*
 
-As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras de rede virtual. É necessário apenas um subconjunto de seus recursos.
+As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras da rede virtual. É necessário apenas um subconjunto de seus recursos.
 
 Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tenha apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o Administrador de rede ou o Administrador de banco de dados. A área da superfície da sua exposição de segurança é menor, se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas funções de administrador principal.
 
@@ -108,20 +108,20 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 
 ## <a name="limitations"></a>Limitações
 
-Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
+Para o Banco de Dados SQL do Azure, o recurso de regras da rede virtual tem as seguintes limitações:
 
 - Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor com regras de firewall de VNET, você precisa **Permitir que os serviços do Azure acessem o servidor** no servidor.
 
-- No firewall do Banco de Dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
+- No firewall do Banco de Dados SQL, cada regra da rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
 
-- Cada servidor de banco de dados SQL do Azure pode ter até 128 entradas de ACL para qualquer rede virtual especificada.
+- Cada servidor do banco de dados SQL do Azure pode ter até 128 entradas de ACL para qualquer rede virtual especificada.
 
-- As regras de rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
+- As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
 - A ativação de pontos de extremidade de serviço de rede virtual no Banco de Dados SQL do Azure também habilita os pontos de extremidade para os serviços MySQL e PostgreSQL do Azure. No entanto, com os pontos de extremidade ativados, as tentativas de conexão dos pontos de extremidade com as instâncias do MySQL ou PostgreSQL provavelmente falharão.
-  - O motivo subjacente é que o MySQL e o PostgreSQL provavelmente não têm uma regra de rede virtual configurada. Você precisará configurar uma regra de rede virtual para o Banco de Dados do Azure para MySQL e PostgreSQL e então a conexão será bem-sucedida.
+  - O motivo subjacente é que o MySQL e o PostgreSQL provavelmente não têm uma regra da rede virtual configurada. Você precisará configurar uma regra da rede virtual para o Banco de Dados do Azure para MySQL e PostgreSQL e então a conexão será bem-sucedida.
 
-- No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
+- No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras da rede virtual não:
   - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
   - No local por meio de [ExpressRoute][expressroute-indexmd-744v]
 
@@ -183,7 +183,7 @@ O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure
 3.  É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Confira este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para saber mais.
  
 #### <a name="steps"></a>Etapas
-1. No PowerShell, **registre seu servidor de Banco de Dados SQL** com o AAD (Azure Active Directory):
+1. No PowerShell, **registre seu servidor do Banco de Dados SQL** com o AAD (Azure Active Directory):
 
    ```powershell
    Connect-AzAccount
@@ -244,21 +244,21 @@ Defina o sinalizador **IgnoreMissingVNetServiceEndpoint** usando o PowerShell. P
 
 ## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
 
-O erro de conexão 40914 está relacionado a *regras de rede virtual*, conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
+O erro de conexão 40914 está relacionado a *regras da rede virtual*, conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
 
 ### <a name="error-40914"></a>Erro 40914
 
 *Texto da mensagem:* Não é possível abrir o servidor '*[nome-do-servidor]*' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
 
-*Descrição do erro:* o cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. Mas o servidor de Banco de Dados SQL do Azure não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de se comunicar com o Banco de Dados SQL.
+*Descrição do erro:* o cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. Mas o servidor do Banco de Dados SQL do Azure não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de se comunicar com o Banco de Dados SQL.
 
-*Resolução do erro:* no painel Firewall do Portal do Azure, use o controle de regras de rede virtual para [adicionar uma regra de rede virtual](#anchor-how-to-by-using-firewall-portal-59j) à sub-rede.
+*Resolução do erro:* no painel Firewall do Portal do Azure, use o controle de regras de rede virtual para [adicionar uma regra da rede virtual](#anchor-how-to-by-using-firewall-portal-59j) à sub-rede.
 
 ### <a name="error-40615"></a>Erro 40615
 
 *Texto da mensagem:* Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.
 
-*Descrição do erro:* o cliente está tentando conectar-se de um endereço IP que não está autorizado a se conectar ao servidor de Banco de Dados SQL do Azure. O firewall do servidor não tem nenhuma regra de endereço IP que permita que um cliente se comunique do endereço IP fornecido para o Banco de Dados SQL.
+*Descrição do erro:* o cliente está tentando conectar-se de um endereço IP que não está autorizado a se conectar ao servidor do Banco de Dados SQL do Azure. O firewall do servidor não tem nenhuma regra de endereço IP que permita que um cliente se comunique do endereço IP fornecido para o Banco de Dados SQL.
 
 *Resolução do erro:* digite o endereço IP do cliente como uma regra de IP. Faça isso usando o painel Firewall no Portal do Azure.
 
@@ -266,18 +266,18 @@ Uma lista de várias mensagens de erro de Banco de Dados SQL está documentada [
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra de rede virtual
+## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra da rede virtual
 
-Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* no banco de dados SQL do Azure. A regra informa ao Banco de dados SQL do Microsoft Azure para aceitar a comunicação de uma sub-rede específica que foi marcada como sendo um *ponto de extremidade de serviço de rede virtual*.
+Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra da rede virtual* no banco de dados SQL do Azure. A regra informa ao Banco de dados SQL do Microsoft Azure para aceitar a comunicação de uma sub-rede específica que foi marcada como sendo um *ponto de extremidade de serviço de rede virtual*.
 
 > [!NOTE]
-> Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de VNET do servidor de Banco de Dados SQL do Azure, verifique se os pontos de extremidade de serviço estão Ativados para a sub-rede.
+> Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de VNET do servidor do Banco de Dados SQL do Azure, verifique se os pontos de extremidade de serviço estão Ativados para a sub-rede.
 >
 > Se os pontos de extremidade de serviço não estão ativados para a sub-rede, o portal pede para você habilitá-los. Clique no botão **Habilitar** na mesma folha em que você adicionou a regra.
 
 ## <a name="powershell-alternative"></a>Alternativa do PowerShell
 
-Um script do PowerShell também pode criar regras de rede virtual. O cmdlet crucial **New-AzSqlServerVirtualNetworkRule**. Se tiver interesse, consulte [PowerShell para criar uma regra e um ponto de extremidade do Serviço de rede virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Um script do PowerShell também pode criar regras da rede virtual. O cmdlet crucial **New-AzSqlServerVirtualNetworkRule**. Se tiver interesse, consulte [PowerShell para criar uma regra e um ponto de extremidade de serviço de rede virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>Alternativa de API REST
 
@@ -303,7 +303,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 3. Defina o controle **Permitir acesso aos serviços do Azure** como OFF.
 
     > [!IMPORTANT]
-    > Se você deixar o controle definido como ON, o servidor do Banco de Dados SQL do Azure aceitará comunicação de qualquer sub-rede. Deixar o controle definido como ON pode ocasionar acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço de rede virtual do Microsoft Azure, em conjunto com o recurso de regra de rede virtual do Banco de dados SQL do Microsoft Azure, pode reduzir a área de superfície de segurança.
+    > Se você deixar o controle definido como ON, o servidor do Banco de Dados SQL do Azure aceitará comunicação de qualquer sub-rede. Deixar o controle definido como ON pode ocasionar acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço de rede virtual do Microsoft Azure, em conjunto com o recurso de regra da rede virtual do Banco de dados SQL do Microsoft Azure, pode reduzir a área de superfície de segurança.
 
 4. Clique no controle **+ Adicionar existente**, na seção **Redes virtuais**.
 
@@ -319,7 +319,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 6. Clique no botão **OK** perto da parte inferior do painel.
 
-7. Consulte a regra de rede virtual resultante no painel de firewall.
+7. Consulte a regra da rede virtual resultante no painel de firewall.
 
     ![Consulte a nova regra, no painel de firewall.][image-portal-firewall-vnet-result-rule-30-png]
 
@@ -337,7 +337,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 - [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall de nível do banco de dados e de nível do servidor de banco de dados SQL do Microsoft Azure][sql-db-firewall-rules-config-715d]
 
-O recurso da regra de rede virtual para o Banco de Dados SQL do Azure se tornou disponível no final de setembro de 2017.
+O recurso da regra da rede virtual para o Banco de Dados SQL do Azure se tornou disponível no final de setembro de 2017.
 
 ## <a name="next-steps"></a>Próximas etapas
 

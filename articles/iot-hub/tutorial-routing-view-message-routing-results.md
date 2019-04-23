@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045826"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
@@ -297,7 +297,7 @@ Neste tutorial de duas partes, você aprendeu a usar o roteamento de mensagens p
 > * Crie os recursos – um hub IoT, uma conta de armazenamento, uma fila do Barramento de Serviço e um dispositivo simulado.
 > * Configure os pontos de extremidade e as rotas de mensagem no Hub IoT para a conta de armazenamento e a fila do Barramento de Serviço.
 
-**Parte II: Enviar mensagens ao hub, exibir os resultados roteados**
+**Parte II: Enviar mensagens ao hub, exibir resultados roteados**
 > [!div class="checklist"]
 > * Crie um aplicativo lógico que é disparado e envia e-mail quando uma mensagem é adicionada à fila de Barramento de Serviço.
 > * Baixe e execute um aplicativo que simula um dispositivo IoT enviando mensagens para o hub para as diferentes opções de roteamentos.

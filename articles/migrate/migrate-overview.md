@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275432"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
@@ -37,14 +37,14 @@ As Migrações para Azure ajudam você a:
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 -  Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, isso não restringe sua capacidade de criar avaliações para outros locais do Azure de destino.
 
-    **painel Geografia do app&#39;s selecionado** | **Local de armazenamento**
+    **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov. dos EUA – Virgínia
     Ásia | Sudeste Asiático ou Ásia Oriental
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
-    A geografia associada ao projeto de migração é usada apenas para armazenar os metadados descobertos no ambiente local. Metadados são armazenados em uma das regiões com base na geografia especificada para o projeto de migração. Se você usar a visualização de dependência criando um novo workspace do Log Analytics, ele é criado na mesma região que o projeto.
+    A geografia associada ao projeto de migração é usada apenas para armazenar os metadados descobertos no ambiente local. Metadados são armazenados em uma das regiões com base na geografia especificada para o projeto de migração. Se você usar a visualização de dependência criando um novo espaço de trabalho do Log Analytics, ele é criado na mesma região que o projeto.
 - A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
 
@@ -59,13 +59,13 @@ As configurações de avaliação podem ser personalizadas de acordo com suas ne
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 33 regiões como locais de destino da migração. [Verificar regiões](https://azure.microsoft.com/global-infrastructure/services/). Por padrão, a região de destino é definida como Leste dos EUA.
+**Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 33 regiões como locais de destino da migração. [Verificar regiões](https://azure.microsoft.com/global-infrastructure/services/). Por padrão, a região de destino é definida como Leste dos EUA.
 **Tipo de armazenamento** | O tipo de discos gerenciados que você quer alocar para todas as VMs fazem parte da avaliação. Se o critério de dimensionamento for *como dimensionamento local* você pode especificar o tipo de disco de destino como discos premium (padrão), discos SSD standard ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, você também tem a opção de selecionar Automático, o que garantirá que a recomendação de dimensionamento de disco seja feita automaticamente com base nos dados de desempenho das VMs. Por exemplo, para obter um [SLA de VM de instância única de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), você talvez queira especificar o tipo de armazenamento como discos gerenciados Premium que garantam que todos os discos na avaliação sejam recomendados como discos gerenciados Premium. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
 **Instâncias reservadas** |  Se você tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. As Migrações para Azure calculam o custo de acordo com isso.
 **Critério de dimensionamento** | O dimensionamento pode ser baseado no **histórico de desempenho** das VMs locais (padrão) ou **como local**, sem considerar o histórico de desempenho.
 **Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando o histórico de desempenho do último dia, com um valor de percentil de 95%.
 **Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. A configuração de conforto padrão é de 1.3 x.
-**Série da VM** | A série de VM usada para estimativas de tamanho. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento baseia-se apenas na série selecionada.   
+**Série de VM** | A série de VM usada para estimativas de tamanho. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento baseia-se apenas na série selecionada.   
 **Moeda** | Moeda de cobrança. O padrão é dólares americanos.
 **Desconto (%)** | Qualquer desconto específico da assinatura  recebido por você sobre a oferta do Azure. A configuração padrão é 0%.
 **Tempo de atividade da VM** | Se as VMs não estiverem em execução 24x7 no Azure, será possível especificar a duração da execução (número de dias por mês e número de horas por dia) e as estimativas de custo serão feitas adequadamente. O valor padrão é 31 dias por mês e 24 horas por dia.
@@ -94,7 +94,7 @@ A tabela resume as portas necessárias para as comunicações das Migrações pa
 | --- | --- |--- |
 |Coletor  | Serviço Migrações para Azure | O coletor se conecta ao serviço através da porta SSL 443.|
 |Coletor | vCenter Server | Por padrão, o coletor se conecta ao vCenter Server na porta 443. Se o servidor escutar em uma porta diferente, configure-a como uma porta de saída na VM coletora.|
-|VM local | Workspace do Log Analytics | [O MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) usa porta TCP 443 para conectar logs do Azure Monitor. Você só precisará dessa porta se estiver usando a visualização de dependência, que requer o agente MMA.|
+|VM local | Espaço de Trabalho do Log Analytics | [O MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) usa porta TCP 443 para conectar logs do Azure Monitor. Você só precisará dessa porta se estiver usando a visualização de dependência, que requer o agente MMA.|
 
 
 ## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?

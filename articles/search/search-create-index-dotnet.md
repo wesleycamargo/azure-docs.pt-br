@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269037"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Início Rápido: 1 - Criar um índice de pesquisa do Azure Search em C#
@@ -22,7 +22,7 @@ ms.locfileid: "59269037"
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 >*
 
 Este artigo descreve o processo para criar [um índice do Azure Search](search-what-is-an-index.md) usando C# e o [SDK do .NET](https://aka.ms/search-sdk). Esta é a primeira lição em um exercício de três partes para criar, carregar e consultar um índice. A criação de índice é realizada executando estas tarefas:
@@ -78,7 +78,7 @@ Como alternativa, veja [Como usar o Azure Search em um aplicativo .NET](search-h
 
 ## <a name="2---create-a-client"></a>2 - Criar um cliente
 
-Para começar a usar o SDK do .NET do Azure Search, crie uma instância da classe `SearchServiceClient`. Essa classe tem vários construtores. Aquele que você deseja usa o nome do seu serviço de pesquisa e um objeto `SearchCredentials` como parâmetros. `SearchCredentials` encapsula a api-key.
+Para começar a usar o SDK do .NET do Azure Search, crie uma instância da classe `SearchServiceClient`. Essa classe tem vários construtores. Aquele que você deseja usa o nome do seu serviço de pesquisa e um objeto `SearchCredentials` como parâmetros. `SearchCredentials` encapsula sua api-key.
 
 O código a seguir pode ser encontrado no arquivo Program.cs. Ele cria um novo `SearchServiceClient` usando valores para o nome do serviço de pesquisa e a chave de api armazenados no arquivo de configuração do aplicativo (appsettings.json).
 
@@ -93,7 +93,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 }
 ```
 
-`SearchServiceClient` tem uma propriedade `Indexes`. Essa propriedade fornece todos os métodos necessários para criar, listar, atualizar ou excluir índices de Azure Search.
+O `SearchServiceClient` tem uma propriedade `Indexes`. Essa propriedade fornece todos os métodos necessários para criar, listar, atualizar ou excluir índices do Azure Search.
 
 > [!NOTE]
 > A classe `SearchServiceClient` gerencia conexões para o seu serviço de pesquisa. Para evitar abrir um número excessivo de conexões, você deve tentar compartilhar uma única instância de `SearchServiceClient` em seu aplicativo, se possível. Esses métodos são thread-safe para habilitar esse compartilhamento.

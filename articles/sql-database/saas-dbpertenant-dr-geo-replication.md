@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre para aplicativos SaaS usando Replicação Geográfica do Banco de Dados SQL do Microsoft Azure | Microsoft Docs
+title: Recuperação de desastre para aplicativos SaaS usando Replicação Geográfica do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como usar réplicas geográficas do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -312,7 +312,7 @@ Neste tutorial, você aprendeu a:
 > * Fazer failover dos bancos de dados de aplicativos, catálogos e locatários para a região de recuperação 
 > * Faça failback dos bancos de dados de aplicativos, catálogos e locatários de volta para a região original após a interrupção ter sido resolvida
 
-Você pode aprender mais sobre as tecnologias que o banco de dados do SQL Azure fornece para permitir a continuidade dos negócios na documentação [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
+Você pode aprender mais sobre as tecnologias que o banco de dados SQL do Azure fornece para permitir a continuidade dos negócios na documentação [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

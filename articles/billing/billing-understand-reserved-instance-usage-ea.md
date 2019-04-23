@@ -78,7 +78,7 @@ Filtre em **Informações Adicionais**, digite a **ID de Reserva** e escolha a *
 
 Seu uso de reserva do Azure também é exibido na seção de resumo de uso no Portal Empresarial: ![Resumo de uso do Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
-1. Você não é cobrado o componente de hardware da VM pois ele é coberto pela reserva. Para uma reserva de banco de dados SQL, você ver uma linha com **nome do serviço** banco de dados SQL reservadas a utilização da capacidade.
+1. Você não é cobrado o componente de hardware da VM pois ele é coberto pela reserva. Para uma reserva de banco de dados SQL, você ver uma linha com **nome do serviço** banco de dados SQL do Azure reservadas a utilização da capacidade.
 2. Neste exemplo, você não tem o benefício híbrido do Azure para que você será cobrado para o software do Windows usado com a VM.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.

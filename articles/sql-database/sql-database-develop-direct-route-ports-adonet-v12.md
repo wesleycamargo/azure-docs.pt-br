@@ -37,14 +37,14 @@ A porta 1433 é a única porta que deve estar aberta no computador desktop que h
 
 ### <a name="inside-client-runs-on-azure"></a>*Interno:* O cliente é executado no Azure
 
-Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de *rota direta* para interagir com o servidor de Banco de Dados SQL. Após o estabelecimento de uma conexão, as próximas interações entre o cliente e o banco de dados não envolvem nenhum Gateway de Banco de Dados SQL do Azure.
+Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de *rota direta* para interagir com o servidor do Banco de Dados SQL. Após o estabelecimento de uma conexão, as próximas interações entre o cliente e o banco de dados não envolvem nenhum Gateway de Banco de Dados SQL do Azure.
 
 Esta é a sequência:
 
 1. O ADO.NET 4.5 (ou posterior) inicia uma breve interação com a nuvem do Azure e recebe um número de porta identificado dinamicamente.
 
    * O número da porta identificado dinamicamente está no intervalo de 11000 a 11999.
-2. O ADO.NET conecta-se ao servidor de Banco de Dados SQL diretamente, sem um middleware entre os dois.
+2. O ADO.NET conecta-se ao servidor do Banco de Dados SQL diretamente, sem um middleware entre os dois.
 3. As consultas são enviadas diretamente ao banco de dados, e os resultados são retornados diretamente ao cliente.
 
 Certifique-se de que os intervalos de portas 11000 a 11999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o banco de dados SQL.

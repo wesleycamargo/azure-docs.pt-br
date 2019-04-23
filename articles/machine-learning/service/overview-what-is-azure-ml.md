@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257103"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
@@ -32,7 +32,7 @@ As estimativas ou previsões de aprendizado de máquina podem tornar aplicativos
 
 O Serviço do Azure Machine Learning fornece um ambiente baseado em nuvem que você pode usar para preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de machine learning.
 
-[![AFluxo de trabalho do Serviço do Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Fluxo de trabalho do Serviço do Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 O Serviço do Azure Machine Learning dá suporte total a tecnologias de software livre. Portanto, você pode usar dezenas de milhares de pacotes do Python de software livre com componentes de aprendizado de máquina. Entre os exemplos estão o PyTorch, o TensorFlow e o scikit-learn.
 O suporte para ferramentas avançadas facilita a exploração e a preparação interativas de dados e, em seguida, o desenvolvimento e o teste de modelos. Exemplos são [Jupyter Notebooks](https://jupyter.org) ou a extensão [Azure Machine Learning para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -53,7 +53,7 @@ Usando o <a href="https://aka.ms/aml-sdk" target="_blank">SDK principal do Pytho
 Você pode escolher entre muitos componentes de aprendizado de máquina disponíveis em pacotes do Python de software livre, como os seguintes exemplos:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
-- <a href="https://www.tensorflow.org" target="_blank">TensorFlow</a>
+- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 
@@ -89,7 +89,7 @@ Você recebe créditos para gastar em serviços do Azure. Depois que eles forem 
 - [Crie um workspace de serviço do Machine Learning](setup-create-workspace.md) para começar a usar.
 
 - Siga os tutoriais completos: 
-  + [Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning](tutorial-train-models-with-aml.md) 
+  + [Treinar um modelo de classificação de imagem com o Serviço do Azure Machine Learning](tutorial-train-models-with-aml.md) 
   + [Preparar os dados e usar o aprendizado de máquina automatizado para treinar um modelo de regressão automaticamente](tutorial-data-prep.md)
 
 - Use o [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) para preparar seus dados.

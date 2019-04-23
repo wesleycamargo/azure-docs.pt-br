@@ -74,7 +74,7 @@ Para resolver esse problema, o SQL Server e o Banco de Dados SQL dão suporte a 
 
 A Transparent Data Encryption ajuda a proteger contra a ameaça de atividades mal-intencionadas. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.  
 
-A Transparent Data Encryption criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado de servidor interno é exclusivo para cada servidor de Banco de Dados SQL.
+A Transparent Data Encryption criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado de servidor interno é exclusivo para cada servidor do Banco de Dados SQL.
 
 Se um banco de dados estiver em uma relação de Geo-DR, ele será protegido por outra chave em cada servidor. Se dois bancos de dados estiverem conectados ao mesmo servidor, eles compartilharão o mesmo certificado interno. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. 
 
@@ -106,7 +106,7 @@ A proteção de dados começa com o controle do acesso aos dados. O datacenter q
 
 #### <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall
 
-O [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+O [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação. Para saber mais, veja [Visão geral de regras de firewall do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 O serviço Banco de dados SQL do Azure só está disponível na porta TCP 1433. Para acessar um banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Se as conexões de entrada não forem necessários para outros aplicativos, bloqueie-as na porta TCP 1433.
 
@@ -210,7 +210,7 @@ A [Central de Segurança](https://docs.microsoft.com/azure/security-center/secur
 - Definir políticas de criptografia e auditoria do Banco de Dados SQL.
 - Monitore a segurança dos recursos de Banco de Dados SQL em todas as suas assinaturas.
 - Identifique e corrija rapidamente problemas de segurança.
-- Integre os alertas da [detecção de ameaças do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- Integre os alertas da [detecção de ameaças do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
 A Central de segurança dá suporte ao acesso baseado em função.
 

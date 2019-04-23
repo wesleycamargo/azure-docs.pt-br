@@ -50,7 +50,7 @@ Para capturas de tela dessas caixas de diálogo, consulte [configurar a autentic
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Configurar seu aplicativo C# no portal do Azure
 
-Antes de começar, você deve ter um [servidor de Banco de Dados SQL do Azure](sql-database-get-started-portal.md) criado e disponível.
+Antes de começar, você deve ter um [servidor do Banco de Dados SQL do Azure](sql-database-get-started-portal.md) criado e disponível.
 
 ### <a name="register-your-app-and-set-permissions"></a>Registrar seu aplicativo e definir permissões
 
@@ -80,7 +80,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
     ![Delegar permissões à API para o Banco de Dados SQL do Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
-### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>Definir um administrador do Azure AD para seu servidor de Banco de Dados SQL
+### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>Definir um administrador do Azure AD para seu servidor do Banco de Dados SQL
 
 Para o C# programa para ser executado, um administrador do servidor SQL do Azure precisa atribuir um administrador do AD do Azure para o servidor de banco de dados SQL. 
 
@@ -90,7 +90,7 @@ Para obter mais informações sobre usuários e administradores do Azure AD para
 
 ### <a name="add-a-non-admin-user-to-a-specific-database-optional"></a>Adicionar um usuário não administrador a um banco de dados (opcional)
 
-Um administrador do Azure AD para um servidor de Banco de Dados SQL pode executar o programa C# de exemplo. Um usuário do Azure AD poderá executar o programa se eles estiverem no banco de dados. Um administrador do SQL do Azure AD ou um usuário do Azure AD que já exista no banco de dados e tenha a permissão `ALTER ANY USER` no banco de dados poderá adicionar um usuário.
+Um administrador do Azure AD para um servidor do Banco de Dados SQL pode executar o programa C# de exemplo. Um usuário do Azure AD poderá executar o programa se eles estiverem no banco de dados. Um administrador do SQL do Azure AD ou um usuário do Azure AD que já exista no banco de dados e tenha a permissão `ALTER ANY USER` no banco de dados poderá adicionar um usuário.
 
 Você pode adicionar um usuário de banco de dados com o comando SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql). Um exemplo é `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
@@ -131,7 +131,7 @@ Antes de executar o C# programa, ele é uma boa ideia verificar se o programa de
 
 ### <a name="verify-sql-database-firewall-ip-addresses"></a>Verificar os endereços IP do firewall do Banco de Dados SQL
 
-Execute o SSMS no mesmo computador e no mesmo local em que você planeja executar o programa C#. Para este teste, qualquer **autenticação** modo é Okey. Se não houver nenhuma indicação de que o firewall do servidor de banco de dados não está aceitando seu endereço IP, veja [regras de firewall no nível de servidor de Banco de Dados SQL do Azure e no nível do firewall do banco de dados](sql-database-firewall-configure.md) para obter ajuda.
+Execute o SSMS no mesmo computador e no mesmo local em que você planeja executar o programa C#. Para este teste, qualquer **autenticação** modo é Okey. Se não houver nenhuma indicação de que o firewall do servidor do banco de dados não está aceitando seu endereço IP, veja [regras de firewall no nível de servidor do Banco de Dados SQL do Azure e no nível do firewall do banco de dados](sql-database-firewall-configure.md) para obter ajuda.
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Verifique se a autenticação multifator do Azure Active Directory
 

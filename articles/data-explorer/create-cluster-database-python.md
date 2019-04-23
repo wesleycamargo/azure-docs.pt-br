@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045194"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster e um banco de dados do Azure Data Explorer usando Python
@@ -106,8 +106,8 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
    | cluster_name | *mykustocluster* | O nome do cluster em que o banco de dados será criado.|
    | database_name | *mykustodatabase* | O nome do banco de dados.|
    | resource_group_name | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
-   | soft_delete_period | *3.650 dias, 0:00:00* | O tempo durante o qual os dados serão mantidos disponíveis para consulta. |
-   | hot_cache_period | *3.650 dias, 0:00:00* | O tempo durante o qual os dados serão mantidos no cache. |
+   | soft_delete_period | *3650 dias, 0:00:00* | O tempo durante o qual os dados serão mantidos disponíveis para consulta. |
+   | hot_cache_period | *3650 dias, 0:00:00* | O tempo durante o qual os dados serão mantidos no cache. |
 
 1. Execute o seguinte comando para ver o banco de dados criado:
 

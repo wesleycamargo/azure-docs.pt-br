@@ -207,7 +207,7 @@ Como parte do trabalho do Hive, importe os dados do arquivo. csv em uma tabela d
 
 ## <a name="create-a-sql-database-table"></a>Criar uma tabela do Banco de Dados SQL
 
-Esta seção pressupõe que você já criou um banco de dados SQL do Azure. Se você ainda não tem um Banco de Dados SQL, use as informações em [Criar um banco de dados SQL no Portal do Azure](../sql-database/sql-database-get-started.md) para criar um.
+Esta seção pressupõe que você já criou um banco de dados SQL do Azure. Se você ainda não tem um Banco de Dados SQL, use as informações em [Criar um banco de dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started.md) para criar um.
 
 Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para localizar o nome do servidor no [Portal do Azure](https://portal.azure.com), selecione **Bancos de Dados SQL** e, em seguida, filtre o nome do banco de dados que você deseja usar. O nome do servidor está listado na coluna **Nome do servidor**.
 
@@ -223,7 +223,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Após a conclusão da instalação, use o comando a seguir para conectar-se ao servidor de Banco de Dados SQL. Substitua **serverName** pelo nome do servidor do Banco de Dados SQL. Substitua **adminLogin** e **adminPassword** pelo logon do Banco de Dados SQL. Substitua **databaseName** pelo nome do banco de dados.
+3. Após a conclusão da instalação, use o comando a seguir para conectar-se ao servidor do Banco de Dados SQL. Substitua **serverName** pelo nome do servidor do Banco de Dados SQL. Substitua **adminLogin** e **adminPassword** pelo logon do Banco de Dados SQL. Substitua **databaseName** pelo nome do banco de dados.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>

@@ -107,7 +107,7 @@ O serviço do SQL Data Warehouse cria um firewall no nível do servidor que impe
 
    ![configurações do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Clique em **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
+5. Clique em **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor do Banco de Dados SQL é aberta. 
 
    ![regra de firewall do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 

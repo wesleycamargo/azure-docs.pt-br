@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259415"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço do Azure Blueprints
@@ -85,9 +85,9 @@ Cada **versão** **publicada** de um blueprint pode ser atribuída a uma assinat
 
 Para usar blueprints, você deverá receber permissões por meio do [RBAC](../../role-based-access-control/overview.md) (controle de acesso baseado em função). Para criar planos gráficos, sua conta precisa das seguintes permissões:
 
-- `Microsoft.Blueprint/blueprints/write` – Criar uma definição de blueprint
-- `Microsoft.Blueprint/blueprints/artifacts/write` – Criar artefatos em uma definição de blueprint
-- `Microsoft.Blueprint/blueprints/versions/write` – Publicar um blueprint
+- `Microsoft.Blueprint/blueprints/write` -Criar uma definição de planta
+- `Microsoft.Blueprint/blueprints/artifacts/write` -Criar artefatos em uma definição de planta
+- `Microsoft.Blueprint/blueprints/versions/write` -Publicar um plano gráfico
 
 Para excluir os planos gráficos, sua conta precisa das seguintes permissões:
 
@@ -100,8 +100,8 @@ Para excluir os planos gráficos, sua conta precisa das seguintes permissões:
 
 Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes permissões:
 
-- `Microsoft.Blueprint/blueprintAssignments/write` – Atribuir um blueprint
-- `Microsoft.Blueprint/blueprintAssignments/delete` – Cancelar a atribuição de um blueprint
+- `Microsoft.Blueprint/blueprintAssignments/write` -Atribuir um plano gráfico
+- `Microsoft.Blueprint/blueprintAssignments/delete` -Cancelar a atribuição de um plano gráfico
 
 > [!NOTE]
 > Como as atribuições de especificações técnicas são criadas em uma assinatura, atribua o plano gráfico e cancelar a atribuição de permissões devem ser concedidas em um escopo de assinatura ou ser herdadas para um escopo de assinatura.
@@ -119,5 +119,5 @@ A visão geral a seguir do Azure Blueprints é do Azure Fridays. Para baixar um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um blueprint – Portal](create-blueprint-portal.md)
-- [Criar um blueprint – API REST](create-blueprint-rest-api.md)
+- [Criar um plano gráfico - Portal](create-blueprint-portal.md)
+- [Criar um plano gráfico - API REST](create-blueprint-rest-api.md)

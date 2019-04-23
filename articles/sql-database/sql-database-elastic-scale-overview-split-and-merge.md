@@ -136,7 +136,7 @@ O pacote de serviço de divisão/mesclagem inclui uma função de trabalho e uma
 
 - **Mapa de fragmentos**
 
-  A próxima seção de parâmetros de solicitação abrange as informações sobre o mapa de fragmentos e o banco de dados que hospeda o mapa de fragmentos. Em particular, você precisa fornecer o nome do servidor de Banco de Dados SQL do Azure e do banco de dados que hospeda o mapa do fragmento, credenciais para se conectar ao banco de dados de mapa do fragmento e, finalmente, o nome do mapa do fragmento. Atualmente, a operação aceita apenas um único conjunto de credenciais. Essas credenciais precisam ter permissões suficientes para realizar alterações no mapa de fragmento, bem como para os dados do usuário nos fragmentos.
+  A próxima seção de parâmetros de solicitação abrange as informações sobre o mapa de fragmentos e o banco de dados que hospeda o mapa de fragmentos. Em particular, você precisa fornecer o nome do servidor do Banco de Dados SQL do Azure e do banco de dados que hospeda o mapa do fragmento, credenciais para se conectar ao banco de dados de mapa do fragmento e, finalmente, o nome do mapa do fragmento. Atualmente, a operação aceita apenas um único conjunto de credenciais. Essas credenciais precisam ter permissões suficientes para realizar alterações no mapa de fragmento, bem como para os dados do usuário nos fragmentos.
 
 - **Intervalo de origem (dividir e mesclar)**
 

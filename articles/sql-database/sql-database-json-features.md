@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com dados JSON no Banco de Dados SQL do Microsoft Azure| Microsoft Docs
+title: Trabalhando com dados JSON no Banco de Dados SQL do Azure| Microsoft Docs
 description: O Banco de Dados SQL do Azure permite que você analise, consulte e formate dados na notação JSON (JavaScript Object Notation).
 services: sql-database
 ms.service: sql-database

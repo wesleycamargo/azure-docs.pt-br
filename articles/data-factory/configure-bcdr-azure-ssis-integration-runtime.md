@@ -38,7 +38,7 @@ Esta seção se aplica quando as seguintes condições forem verdadeiras:
 
   E
 
-- O servidor de banco de dados SQL está *não* configurado com a regra de ponto de extremidade de serviço de rede virtual.
+- O servidor do banco de dados SQL está *não* configurado com a regra de ponto de extremidade de serviço de rede virtual.
 
 ### <a name="solution"></a>Solução
 
@@ -54,7 +54,7 @@ Esta seção se aplica quando uma das seguintes condições for verdadeira:
 
   OU
 
-- O servidor do Banco de Dados SQL do Azure é configurado com a regra de ponto de extremidade do serviço de rede virtual.
+- O servidor do Banco de Dados SQL do Azure é configurado com a regra de ponto de extremidade de serviço de rede virtual.
 
   OU
 
@@ -74,7 +74,7 @@ As seções a seguir descrevem essas etapas mais detalhadamente.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que você habilitou a recuperação de desastres para o servidor de banco de dados SQL, caso o servidor tenha uma interrupção ao mesmo tempo. Para obter mais informações, consulte [visão geral da continuidade dos negócios com o banco de dados do Azure SQL](../sql-database/sql-database-business-continuity.md).
+- Certifique-se de que você habilitou a recuperação de desastres para o servidor do banco de dados SQL, caso o servidor tenha uma interrupção ao mesmo tempo. Para obter mais informações, consulte [visão geral da continuidade dos negócios com o banco de dados SQL do Azure](../sql-database/sql-database-business-continuity.md).
 
 - Se você estiver usando uma rede virtual na região atual, você precisa usar outra rede virtual na nova região para conectar seu tempo de execução de integração do Azure-SSIS. Para obter mais informações, consulte [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 

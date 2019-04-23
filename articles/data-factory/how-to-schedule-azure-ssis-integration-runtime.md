@@ -130,7 +130,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
     
 2. Para testar o terceiro pipeline, inicie o SSMS (SQL Server Management Studio). Na janela **Conectar ao Servidor**, execute as seguintes ações. 
 
-    1. Para **Nome do servidor**, insira **&lt;nome do servidor de Banco de Dados SQL do Azure&gt;.database.windows.net**.
+    1. Para **Nome do servidor**, insira **&lt;nome do servidor do Banco de Dados SQL do Azure&gt;.database.windows.net**.
     2. Selecione **Opções >>**.
     3. Para **Conectar um banco de dados**, selecione **SSISDB**.
     4. Selecione **Conectar**. 

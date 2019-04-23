@@ -17,11 +17,11 @@ ms.locfileid: "58084303"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics (versão prévia)
 
-O Azure Stream Analytics dá suporte ao Banco de Dados SQL como uma fonte de entrada para dados de referência. É possível usar o Banco de Dados SQL como dados de referência para o trabalho do Stream Analytics no portal do Azure e no Visual Studio com as ferramentas do Stream Analytics. Este artigo monstra como realizar ambos os métodos.
+O Azure Stream Analytics dá suporte ao Banco de Dados SQL do Azure como uma fonte de entrada para dados de referência. É possível usar o Banco de Dados SQL como dados de referência para o trabalho do Stream Analytics no portal do Azure e no Visual Studio com as ferramentas do Stream Analytics. Este artigo monstra como realizar ambos os métodos.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Siga as etapas abaixo para adicionar o Banco de Dados SQL como uma fonte de entrada de referência usando o portal do Azure:
+Siga as etapas abaixo para adicionar o Banco de Dados SQL do Azure como uma fonte de entrada de referência usando o portal do Azure:
 
 ### <a name="portal-prerequisites"></a>Pré-requisitos do portal
 
@@ -192,7 +192,7 @@ A combinação de ambas as métricas pode ser usada para inferir se o trabalho �
 
 **É necessário um tipo especial de Banco de Dados SQL do Azure?**
 
-O Azure Stream Analytics funciona com qualquer tipo de Banco de Dados SQL. No entanto, é importante entender que a taxa de atualização definida para sua entrada de dados de referência pode afetar sua carga de consulta. Para usar a opção de consulta delta, é recomendável usar tabelas temporais no Banco de Dados SQL do Azure.
+O Azure Stream Analytics funciona com qualquer tipo de Banco de Dados SQL do Azure. No entanto, é importante entender que a taxa de atualização definida para sua entrada de dados de referência pode afetar sua carga de consulta. Para usar a opção de consulta delta, é recomendável usar tabelas temporais no Banco de Dados SQL do Azure.
 
 **É possível obter uma entrada de exemplo da entrada de dados de referência do Banco de Dados SQL?**
 

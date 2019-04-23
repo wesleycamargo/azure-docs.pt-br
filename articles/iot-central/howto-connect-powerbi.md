@@ -9,7 +9,7 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
 ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/16/2019
 ms.locfileid: "56328088"
@@ -27,7 +27,7 @@ Use a solução do Power BI para Azure IoT Central para criar um dashboard avan�
 - Observe as tendências históricas das medições do dispositivo
 - Identificar dispositivos problemáticos que enviam muitos eventos críticos
 
-Esta solução configura o pipeline que usa os dados na sua conta de Armazenamento de Blobs do Azure da [Exportação de dados contínua](howto-export-data.md). Esses dados fluem por meio do Azure Functions, Azure Data Factory e o banco de dados do Azure SQL para processar e transformar os dados. A saída pode ser visualizada e analisada em um relatório do Power BI que você pode baixar como um arquivo PBIX. Todos esses recursos são criados em sua assinatura do Azure, para que você possa personalizar cada componente para atender às suas necessidades.
+Esta solução configura o pipeline que usa os dados na sua conta de Armazenamento de Blobs do Azure da [Exportação de dados contínua](howto-export-data.md). Esses dados fluem por meio do Azure Functions, Azure Data Factory e o banco de dados SQL do Azure para processar e transformar os dados. A saída pode ser visualizada e analisada em um relatório do Power BI que você pode baixar como um arquivo PBIX. Todos esses recursos são criados em sua assinatura do Azure, para que você possa personalizar cada componente para atender às suas necessidades.
 
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obtenha a [solução do Power BI para Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) no Microsoft AppSource.
 

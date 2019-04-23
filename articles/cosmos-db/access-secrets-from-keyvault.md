@@ -11,7 +11,7 @@ ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56242185"
@@ -92,4 +92,4 @@ Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [Suporte de firewall](firewall-support.md).
-* Para configurar o ponto de extremidade do serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).
+* Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).

@@ -32,7 +32,7 @@ Para seguir as instruções neste artigo, você precisará de:
 ### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 Um modelo do Resource Manager torna mais fácil de criar os seguintes recursos para seu aplicativo em uma única operação coordenada:
 * Clusters HDInsight e seus recursos dependentes (como a conta de armazenamento padrão).
-* Outros recursos (como o Banco de Dados SQL do Microsoft Azure para usar o [Apache Sqoop](https://sqoop.apache.org/)).
+* Outros recursos (como o Banco de Dados SQL do Azure para usar o [Apache Sqoop](https://sqoop.apache.org/)).
 
 No modelo, você deve definir os recursos que são necessários para o aplicativo. Você também pode especificar parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que você pode usar para criar valores para sua implantação.
 
