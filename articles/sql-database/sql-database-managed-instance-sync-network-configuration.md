@@ -13,11 +13,11 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
 ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358793"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797257"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizar a configuração de rede ao plano de hospedagem do Serviço de Aplicativo do Azure
 
@@ -45,6 +45,6 @@ Para fazer isso, siga estas etapas:
 
 Agora você está pronto para tentar restabelecer a conexão à Instância Gerenciada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre como configurar sua VNet para Instância Gerenciada, confira [Arquitetura de VNet da Instância Gerenciada](sql-database-managed-instance-connectivity-architecture.md) e [Como configurar a VNet existente](sql-database-managed-instance-configure-vnet-subnet.md).

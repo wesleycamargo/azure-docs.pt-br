@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505644"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796521"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.

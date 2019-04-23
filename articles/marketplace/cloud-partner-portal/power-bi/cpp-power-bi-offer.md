@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f18a1b05e5a38a79945d8df6706dd2147d6b43df
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009709"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798088"
 ---
 # <a name="power-bi-app-offer"></a>Oferta de Aplicativo do Power BI
 
@@ -53,6 +53,6 @@ Aqui está a oferta de aplicativo do Power BI no processo de publicação:
 8. No Power BI, promova o pacote de pré-produção para produção. Para obter mais informações, consulte [gerenciar a versão do modelo de aplicativo](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Antes de criar sua oferta de aplicativo do Power BI e publicá-lo no AppSource, você deve cumprir os [requisitos](./cpp-prerequisites.md) para publicar um aplicativo do Power BI no AppSource.
