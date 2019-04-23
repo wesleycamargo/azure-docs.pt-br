@@ -13,13 +13,13 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793891"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797057"
 ---
-# <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Microsoft Azure
+# <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure
 
 Proteção avançada contra ameaças para [banco de dados SQL](sql-database-technical-overview.md) e [o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta atividades anômalas indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
@@ -75,7 +75,7 @@ Clique em **alerta de proteção avançada contra ameaças** para iniciar a Cent
 
    ![Advanced Threat Protection real2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [proteção avançada de ameaças em bancos de dados únicos e em pool](sql-database-threat-detection.md).
 - Saiba mais sobre [Advanced Threat Protection na instância gerenciada](sql-database-managed-instance-threat-detection.md).

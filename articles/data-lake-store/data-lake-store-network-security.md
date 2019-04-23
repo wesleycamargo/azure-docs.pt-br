@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880586"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798973"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para o Azure Data Lake Storage Gen1
 
@@ -38,7 +38,7 @@ Com a integração de rede virtual do Data Lake Storage Gen1, você pode restrin
 ![Diagrama do cenário de integração de rede virtual do Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> As regras de firewall de IP existentes podem ser usadas além das regras de rede virtual para permitir também o acesso de redes locais. 
+> As regras de firewall de IP existentes podem ser usadas além das regras da rede virtual para permitir também o acesso de redes locais. 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Roteamento ideal com a integração de rede virtual do Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Algumas opções disponíveis:
 
 - Os clusters HDInsight que foram criados antes de o suporte à integração de rede virtual do Data Lake Storage Gen1 ficar disponível precisam ser recriados para dar suporte a esse novo recurso.
  
-- Quando você cria um novo cluster HDInsight e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual habilitada, o processo falha. Primeiro, desabilite a regra de rede virtual. Ou, na folha **Redes virtuais e firewall** da conta do Data Lake Storage, selecione **Permitir o acesso de todas as redes e serviços**. Em seguida, crie o cluster HDInsight antes de, por fim, habilitar novamente a regra de rede virtual ou desmarcar a opção **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, confira a seção [Exceções](#exceptions).
+- Quando você cria um novo cluster HDInsight e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual habilitada, o processo falha. Primeiro, desabilite a regra da rede virtual. Ou, na folha **Redes virtuais e firewall** da conta do Data Lake Storage, selecione **Permitir o acesso de todas as redes e serviços**. Em seguida, crie o cluster HDInsight antes de, por fim, habilitar novamente a regra da rede virtual ou desmarcar a opção **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, confira a seção [Exceções](#exceptions).
 
 - A integração de rede virtual do Data Lake Storage Gen1 não funciona com [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
@@ -116,7 +116,7 @@ Algumas opções disponíveis:
     > [!NOTE]
     > Se você não vir **Firewall e redes virtuais** nas configurações, saia do portal. Feche o navegador e limpe seu cache. Reinicie o computador e tente novamente.
 
-       ![Adicionar uma regra de rede virtual à conta do Data Lake Storage](media/data-lake-store-network-security/config-adls-1.png)
+       ![Adicionar uma regra da rede virtual à conta do Data Lake Storage](media/data-lake-store-network-security/config-adls-1.png)
 
 3.  Selecione **Redes selecionadas**.
  

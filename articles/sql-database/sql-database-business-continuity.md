@@ -14,11 +14,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/04/2019
 ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280954"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797686"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Em seguida, você pode aprender sobre os mecanismos adicionais que podem ser usa
 
 - [Tabelas temporais](sql-database-temporal-tables.md) permitem que você restaure versões de linhas de qualquer ponto no tempo.
 - [Backups automatizados internos](sql-database-automated-backups.md) e [Recuperação Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) permitem que você restaure o banco de dados completo em algum ponto no tempo nos últimos 35 dias.
-- Você poderá [restaurar um banco de dados excluído](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que ele foi excluído se o **servidor de Banco de Dados SQL não tiver sido excluído**.
+- Você poderá [restaurar um banco de dados excluído](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que ele foi excluído se o **servidor do Banco de Dados SQL não tiver sido excluído**.
 - [Retenção de backup de longo prazo](sql-database-long-term-retention.md) permite manter os backups em até 10 anos.
 - [Replicação geográfica ativa](sql-database-active-geo-replication.md) permite que você crie réplicas legíveis e faça o failover manualmente para qualquer réplica no caso de uma atualização de aplicativo ou interrupção do data center.
 - [Grupo de failover automático](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permite que o aplicativo seja automaticamente recuperado em caso de interrupção do data center.
@@ -67,7 +67,7 @@ A tabela a seguir compara o ERT e RPO para cada camada de serviço para os cená
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar um banco de dados para o servidor existente
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados completos semanais, backups de bancos de dados diferenciais geralmente a cada 12 horas e backups de logs de transações a cada 5 a 10 minutos para proteger sua empresa contra perda de dados. Os backups são armazenados no armazenamento RA-GRS por 35 dias para todas as camadas de serviço, exceto camadas de serviço de DTU Básicas, nas quais os backups são armazenados por 7 dias. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md). É possível restaurar um formulário do banco de dados existente, backups automatizados para um ponto anterior no tempo, como um novo banco de dados no mesmo servidor de Banco de Dados SQL, usando o portal do Azure, o PowerShell ou a API REST. Para obter mais informações, consulte [Recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados completos semanais, backups de bancos de dados diferenciais geralmente a cada 12 horas e backups de logs de transações a cada 5 a 10 minutos para proteger sua empresa contra perda de dados. Os backups são armazenados no armazenamento RA-GRS por 35 dias para todas as camadas de serviço, exceto camadas de serviço de DTU Básicas, nas quais os backups são armazenados por 7 dias. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md). É possível restaurar um formulário do banco de dados existente, backups automatizados para um ponto anterior no tempo, como um novo banco de dados no mesmo servidor do Banco de Dados SQL, usando o portal do Azure, o PowerShell ou a API REST. Para obter mais informações, consulte [Recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, confira [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
@@ -112,7 +112,7 @@ As seções a seguir fornecem uma visão geral das etapas para recuperar usando 
 
 Independentemente do recurso de continuidade de negócios usados, você deve:
 
-- Identificar e preparar o servidor de destino, incluindo as regras de firewall do IP no nível do servidor, logons e permissões de nível de banco de dados mestre.
+- Identificar e preparar o servidor de destino, incluindo as regras de firewall de IP no nível do servidor, logons e permissões de nível de banco de dados mestre.
 - Determinar como redirecionar os clientes e aplicativos de cliente para o novo servidor
 - Documentar outras dependências, como as configurações e alertas de auditoria
 

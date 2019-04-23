@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.openlocfilehash: cf454d6504f0433d7ac7ca883982ae317b14f814
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762526"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797816"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Taxa de transferência provisionada para um contêiner é dividida igualmente en
 
 Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Você não pode controlar o tamanho, o posicionamento ou a contagem de partições físicas, e você não pode controlar o mapeamento entre partições lógicas e partições físicas. No entanto, você pode controlar o número de partições lógicas e a distribuição de dados, a carga de trabalho e a taxa de transferência por [escolhendo a chave de partição lógica correta](partitioning-overview.md#choose-partitionkey).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [escolher uma chave de partição](partitioning-overview.md#choose-partitionkey).
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).

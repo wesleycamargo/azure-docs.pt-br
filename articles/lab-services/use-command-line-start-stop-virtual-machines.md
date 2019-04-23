@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051199"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798922"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usar ferramentas de linha de comando para iniciar e parar máquinas de virtuais do Azure DevTest Labs
 Este artigo mostra como usar o Azure PowerShell ou CLI do Azure para iniciar ou parar máquinas virtuais em um laboratório no Azure DevTest Labs. Você pode criar scripts CLI/PowerShell para automatizar essas operações. 
@@ -92,5 +92,5 @@ az lab vm stop --lab-name yourlabname --name vmname --resource-group labResource
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo a seguir para usar o portal do Azure para fazer essas operações: [Reiniciar uma VM](devtest-lab-restart-vm.md).
