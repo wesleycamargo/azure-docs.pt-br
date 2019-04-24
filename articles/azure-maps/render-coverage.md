@@ -117,7 +117,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
-| Ilhas Falkland (Malvinas) | ✓ | ✓ |
+| Ilhas Malvinas | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
 | Groenlândia                 | ✓ | Ø |
 | Granada                   | ✓ | ✓ |

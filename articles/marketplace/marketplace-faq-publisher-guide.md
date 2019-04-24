@@ -163,7 +163,7 @@ Uma oferta de assinatura de "Avaliação Gratuita" é gratuita em caráter perp�
 
 **Eu preciso ter um meio de pagamento (ex.: cartão de crédito) registrado para implantar as ofertas da Camada Gratuita ou BYOL (Traga sua própria licença)?**
 
- Não. Um meio de pagamento não é necessário para implantar as ofertas de Camada Gratuita ou BYOL. Entretanto, as ofertas de Avaliação Gratuita exigem um meio de pagamento. As listagens que incluem os botões **Obter agora** ou **Avaliação gratuita de software** são implantadas na assinatura do Azure selecionada.  Essas listagens são cobradas usando o método de pagamento registrado da conta selecionada. As cobranças de uso do Azure são feitas separadamente dos valores de licença de software.
+Não. Um meio de pagamento não é necessário para implantar as ofertas de Camada Gratuita ou BYOL. Entretanto, as ofertas de Avaliação Gratuita exigem um meio de pagamento. As listagens que incluem os botões **Obter agora** ou **Avaliação gratuita de software** são implantadas na assinatura do Azure selecionada.  Essas listagens são cobradas usando o método de pagamento registrado da conta selecionada. As cobranças de uso do Azure são feitas separadamente dos valores de licença de software.
 
 **Em caso de dúvidas sobre os preços de ofertas vendidas no Azure Marketplace, quem faz um contato com o cliente indireto do EA (Contrato Enterprise)?**
 
@@ -179,7 +179,7 @@ As ofertas específicas do Microsoft Azure Marketplace podem usar créditos de a
 
 **Descontos de Licença por Volume aplicam-se a compras do Azure Marketplace?**
 
- Não. O editor que é proprietário de soluções no Azure Marketplace pode definir preços.  Os descontos de licenciamento por volume Microsoft padrão não se aplicam a compras do Azure Marketplace.
+Não. O editor que é proprietário de soluções no Azure Marketplace pode definir preços.  Os descontos de licenciamento por volume Microsoft padrão não se aplicam a compras do Azure Marketplace.
 
 **Como pago por essas assinaturas? As minhas compras no Azure Marketplace aparecem na fatura do Azure ou existe outra fatura?**
 
@@ -488,7 +488,7 @@ As dependências não são gerenciadas automaticamente para ofertas do Azure Mar
 
 O Azure Marketplace está disponível para clientes Microsoft Azure nos seguintes países:
 
-Argélia, Argentina, Austrália, Áustria, Bahrein, Belarus, Bélgica, Brasil, Bulgária, Canadá, Chile, Colômbia, Costa Rica, Croácia, Chipre, República Tcheca, Dinamarca, República Dominicana, Equador, Egito, El Salvador, Estônia, Finlândia, França, Alemanha, Grécia , Guatemala, Hong Kong, Hungria, Islândia, Índia, Indonésia, Irlanda, Israel, Itália, Japão, Jordânia, Cazaquistão, Quênia, Kuwait, Letônia, Liechtenstein, Lituânia, Luxemburgo, Macedônia Norte, Malásia, Malta, México, Montenegro, Marrocos, países baixos, novo Zelândia, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polônia, Portugal, Porto Rico, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Cingapura, Eslováquia, Eslovênia, África do Sul, Sul da Coreia, Espanha, Sri Lanka, Suécia, Suíça, Taiwan, Tailândia, Trinidad e Tobago, Tunísia, Turquia, Ucrânia, Reino Emirados Árabes Unidos, Reino Unido, Estados Unidos, Uruguai e Venezuela.
+Argélia, Argentina, Austrália, Áustria, Bahrein, Belarus, Bélgica, Brasil, Bulgária, Canadá, Chile, Colômbia, Costa Rica, Croácia, Chipre, República Tcheca, Dinamarca, República Dominicana, Equador, Egito, El Salvador, Estônia, Finlândia, França, Alemanha, Grécia , Guatemala, Hong Kong, Hungria, Islândia, Índia, Indonésia, Irlanda, Israel, Itália, Japão, Jordânia, Cazaquistão, Quênia, Kuwait, Letônia, Liechtenstein, Lituânia, Luxemburgo, Macedônia do Norte, Malásia, Malta, México, Montenegro, Marrocos, Países Baixos, Nova Zelândia, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polônia, Portugal, Porto Rico, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Cingapura, Eslováquia, Eslovênia, África do Sul, Sul da Coreia, Espanha, Sri Lanka, Suécia, Suíça, Taiwan, Tailândia, Trinidad e Tobago, Tunísia, Turquia, Ucrânia, Reino Emirados Árabes Unidos, Reino Unido, Estados Unidos, Uruguai e Venezuela.
 
 **Como posso definir minha disponibilidade geográfica para habilitar a vender em países diferentes?**
 
@@ -556,7 +556,7 @@ Uma oferta de assinatura de Camada Gratuita é perpetuamente gratuita.  Uma ofer
 
 **Eu preciso ter um meio de pagamento (ex.: cartão de crédito) registrado para implantar as ofertas da Camada Gratuita ou BYOL (Traga sua própria licença)?**
 
- Não. Um meio de pagamento não é necessário para implantar as ofertas de Camada Gratuita ou BYOL. Entretanto, as ofertas de Avaliação Gratuita exigem um meio de pagamento.
+Não. Um meio de pagamento não é necessário para implantar as ofertas de Camada Gratuita ou BYOL. Entretanto, as ofertas de Avaliação Gratuita exigem um meio de pagamento.
 
 As listagens com os botões "COMPRAR AGORA" ou "AVALIAÇÃO DE SOFTWARE GRATUITA" são implantadas na sua assinatura do Azure e cobradas usando o método de pagamento registrado da sua conta. As cobranças de uso do Azure são feitas separadamente dos valores de licença de software.
 
@@ -578,7 +578,7 @@ As ofertas específicas do Microsoft Azure Marketplace podem usar créditos de a
 
 **Descontos de Licença por Volume aplicam-se a compras do Azure Marketplace?**
 
- Não. ISVs que são proprietários de soluções no Azure Marketplace podem definir o preço. Os descontos de licenciamento por volume Microsoft padrão não se aplicam a compras do Azure Marketplace.
+Não. ISVs que são proprietários de soluções no Azure Marketplace podem definir o preço. Os descontos de licenciamento por volume Microsoft padrão não se aplicam a compras do Azure Marketplace.
 
 **Como pago por essas assinaturas? As minhas compras no Azure Marketplace aparecem na fatura do Azure ou há outra fatura?**
 

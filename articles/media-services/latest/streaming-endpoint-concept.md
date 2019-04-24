@@ -35,7 +35,7 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}-{Datacenter
 
 ## <a name="types"></a>Tipos  
 
-Há dois tipos de **Ponto de extremidade de streaming**: Standard e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
+Há dois tipos de **Ponto de extremidade de streaming**: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
 
 A tabela descreve os tipos:  
 

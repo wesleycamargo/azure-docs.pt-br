@@ -55,7 +55,7 @@ Um bloco CIDR entre /16-/ 24 para a rede virtual e um bloco CIDR entre /18-/26 p
 
 ### <a name="whitelisting"></a>Inclusão na lista de permissões
 
-Todo o tráfego de entrada e saído entre as sub-redes e o plano de controle do Azure Databricks deve estar na lista branca.
+Todo o tráfego de entrada e saído entre as sub-redes e o plano de controle do Azure Databricks deve estar na lista de permissões.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 

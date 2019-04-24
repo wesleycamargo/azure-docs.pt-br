@@ -168,7 +168,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Chipre                         |        ✓       |                      |             |
 | República Tcheca                 |        ✓       |         ✓            |     ✓      |
 | Dinamarca                        |        ✓       |         ✓            |     ✓      |
-| + Ilhas de Faroés                 |        ✓       |                      |             |
+| + Ilhas Faroe                 |        ✓       |                      |             |
 | Estônia                        |        ✓       |         ✓            |     ✓      |
 | Finlândia                        |        ✓       |         ✓            |     ✓      |
 | França                         |        ✓       |         ✓            |     ✓      | 
