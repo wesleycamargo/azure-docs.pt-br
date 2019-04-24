@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400687"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK do dispositivo IoT do Azure para C – mais sobre o IoTHubClient
 
@@ -235,7 +235,7 @@ Os argumentos para **IoTHubClient\_CreateFromConnectionString** são a cadeia de
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Há quatro tipos de informação nesta cadeia de caracteres: nome do Hub IoT, sufixo do Hub IoT, ID do dispositivo e chave de acesso compartilhado. Você obtém o FQDN (nome de domínio totalmente qualificado) de um Hub IoT quando cria a instância do Hub IoT no portal do Azure — isso fornece o nome do Hub IoT (a primeira parte do FQDN) e o sufixo do Hub IoT (o restante do FQDN). Você obtém a ID do dispositivo e a chave de acesso compartilhado ao registrar seu dispositivo no Hub IoT (como descrito no [artigo anterior](iot-hub-device-sdk-c-intro.md)).
+Há quatro tipos de informações na cadeia de caracteres: Nome do IoT Hub, sufixo do IoT Hub, ID do dispositivo e chave de acesso compartilhado. Você obtém o FQDN (nome de domínio totalmente qualificado) de um Hub IoT quando cria a instância do Hub IoT no portal do Azure — isso fornece o nome do Hub IoT (a primeira parte do FQDN) e o sufixo do Hub IoT (o restante do FQDN). Você obtém a ID do dispositivo e a chave de acesso compartilhado ao registrar seu dispositivo no Hub IoT (como descrito no [artigo anterior](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** oferece uma maneira de inicializar a biblioteca. Se preferir, você poderá criar um novo **IOTHUB\_CLIENT\_HANDLE** usando esses parâmetros individuais em vez da cadeia de conexão do dispositivo. Isso é obtido com o seguinte código:
 

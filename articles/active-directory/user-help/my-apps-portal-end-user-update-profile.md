@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482946"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar suas informações de perfil e conta do portal meus aplicativos
-Você pode usar sua conta corporativa ou de Estudante com baseado na web **meus aplicativos** portal para exibir e iniciar a muitos dos aplicativos da sua organização baseado em nuvem, para atualizar algumas de suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso para o **meus aplicativos** portal, é necessário contatar o suporte técnico para a permissão.
+É possível usar sua conta corporativa ou de estudante com o portal **Meus Aplicativos** baseado na Web para exibir e iniciar muitos aplicativos baseados em nuvem da sua organização, para atualizar algumas informações do perfil e da conta, para ver suas informações de **Grupos** e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário contatar a assistência técnica para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for um administrador, você pode encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [documentação do gerenciamento de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Exibir suas informações de perfil relacionados à organização
 Dependendo do que sua organização tiver optado por incluir em seu **perfil** página do **meus aplicativos** portal, você poderá ver os detalhes específicos relacionados ao trabalho, junto com seus dispositivos e a atividade e qualquer outras organizações ao qual você pertence.

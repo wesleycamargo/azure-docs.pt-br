@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400653"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -160,7 +160,7 @@ Dispositivo de Provisionamento do Azure e SDKs de serviço para Python:
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-python)
 * Baixe a [SDK de Dispositivo](https://pypi.org/project/azure-iot-provisioning-device-client/) e a [SDK de Serviço](https://pypi.org/project/azure-iothub-provisioningserviceclient/) no pip
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-lo com o desenvolvimento:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando de plataforma cruzada para ajudar a diagnosticar problemas relacionados à conexão com o IoT Hub.

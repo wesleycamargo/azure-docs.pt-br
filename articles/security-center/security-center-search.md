@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332549"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa da Central de Segurança do Azure
 Central de segurança do Azure usa [pesquisa de logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. Os logs do Azure Monitor inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Central de segurança, você pode aproveitar a pesquisa de logs do Azure Monitor para construir consultas e analisar os dados coletados.
@@ -47,7 +47,7 @@ A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segur
 
    O resultado mostra todas as contas com falha de logon (evento 4625).
 
-   ![Resultados da pesquisa][3]
+   ![Resultados da Pesquisa][3]
 
 Ver [linguagem de consulta Kusto](../log-analytics/log-analytics-search-reference.md) para obter mais informações sobre como consultar dados no espaço de trabalho selecionado.
 

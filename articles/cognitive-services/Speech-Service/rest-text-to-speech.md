@@ -12,11 +12,11 @@ ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480481"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -70,7 +70,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 | Cabeçalho | DESCRIÇÃO | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessário |
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -161,10 +161,10 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 | Cabeçalho | DESCRIÇÃO | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
-| `User-Agent` | O nome do aplicativo. O valor fornecido deve ser menor que 255 caracteres. | Obrigatório |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessário |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Necessário |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Necessário |
+| `User-Agent` | O nome do aplicativo. O valor fornecido deve ser menor que 255 caracteres. | Necessário |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 

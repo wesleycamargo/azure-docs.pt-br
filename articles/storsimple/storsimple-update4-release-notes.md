@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530986"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão da Atualização 4 para o StorSimple 8000 Series
 
@@ -68,12 +68,12 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atuali
 
 | Não  | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Failover |Na versão anterior, após o failover, houve um problema relacionado à limpeza observada no site do cliente. Esse problema foi corrigido nesta versão. |sim |sim |
-| 2 |Volumes fixados localmente |Na versão anterior, havia um problema para a criação de volume relacionado para volumes localmente fixos que possam resultar em falhas na criação do volume. Esse problema foi causado pela raiz e corrigido nesta versão. |sim |Não  |
-| 3 |Pacote de suporte |Na versão anterior, havia problemas relacionados ao pacote de suporte que resultaria em uma exceção de System.OutOfMemory ou outros erros, resultando em uma falha de criação do pacote de suporte. Esses bugs foram corrigidos nesta versão. |sim |sim |
-| 4 |Monitoramento |Na versão anterior, existe um problema relacionado ao monitoramento de gráficos para localmente fixada volumes onde consumo foi mostrado na Web. Esse bug foi corrigido nesta versão. |sim |sim |
-| 5 |Migração |Na versão anterior, havia vários problemas relacionados à confiabilidade da migração da série 5000-7000 para dispositivos 8000 série. Esses problemas foram resolvidos nesta versão. |sim |sim |
-| 6 |Atualizar |Em versões anteriores, se houvesse uma falha na atualização, os controladores entravam no modo de recuperação e, portanto, o usuário não podia continuar com a atualização e precisaria contatar o Suporte da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o usuário receber uma falha de atualização depois que os dois controladores estiverem executando a mesma versão (Atualização 4), os controladores não entrarão no modo de recuperação. Se o usuário encontrar essa falha, recomendamos que ele aguarde um pouco e tente a atualização novamente. A repetição foi bem-sucedida. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft. |sim |sim |
+| 1 |Failover |Na versão anterior, após o failover, houve um problema relacionado à limpeza observada no site do cliente. Esse problema foi corrigido nesta versão. |Sim |Sim |
+| 2 |Volumes fixados localmente |Na versão anterior, havia um problema para a criação de volume relacionado para volumes localmente fixos que possam resultar em falhas na criação do volume. Esse problema foi causado pela raiz e corrigido nesta versão. |Sim |Não  |
+| 3 |Pacote de suporte |Na versão anterior, havia problemas relacionados ao pacote de suporte que resultaria em uma exceção de System.OutOfMemory ou outros erros, resultando em uma falha de criação do pacote de suporte. Esses bugs foram corrigidos nesta versão. |Sim |Sim |
+| 4 |Monitoramento |Na versão anterior, existe um problema relacionado ao monitoramento de gráficos para localmente fixada volumes onde consumo foi mostrado na Web. Esse bug foi corrigido nesta versão. |Sim |Sim |
+| 5 |Migração |Na versão anterior, havia vários problemas relacionados à confiabilidade da migração da série 5000-7000 para dispositivos 8000 série. Esses problemas foram resolvidos nesta versão. |Sim |Sim |
+| 6 |Atualizar |Em versões anteriores, se houvesse uma falha na atualização, os controladores entravam no modo de recuperação e, portanto, o usuário não podia continuar com a atualização e precisaria contatar o Suporte da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o usuário receber uma falha de atualização depois que os dois controladores estiverem executando a mesma versão (Atualização 4), os controladores não entrarão no modo de recuperação. Se o usuário encontrar essa falha, recomendamos que ele aguarde um pouco e tente a atualização novamente. A repetição foi bem-sucedida. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft. |Sim |Sim |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos na atualização 4 de versões anteriores

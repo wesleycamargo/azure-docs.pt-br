@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324022"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure
 Este artigo lista as descrições detalhadas dos recursos e condições de correspondência disponíveis para o mecanismo de regras da [CDN (Rede de Distribuição de Conteúdo)](cdn-rules-engine.md).
@@ -75,7 +75,7 @@ Espaço | Normalmente, um caractere de espaço é tratado como um caractere lite
 'valor' | Aspas simples são tratadas como caracteres literais. Um conjunto de aspas simples não tem significado especial.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Condições de correspondência do mecanismo de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Expressões condicionais do mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Recursos do mecanismo de regras](cdn-rules-engine-reference-features.md)

@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389437"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integração do Project acústica Unity
 Esse manual explica a integração do plug-in do projeto acústica Unity ao seu projeto do Unity.
 
 Requisitos de software:
-* [Unity 2018.2 +](http://unity3d.com) para Windows
+* [Unity 2018.2+](http://unity3d.com) para Windows
 * [Pacote do projeto Unity acústica](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>O plug-in de importação
@@ -37,9 +37,9 @@ Se você estiver importando o plug-in para um projeto existente, seu projeto já
 ## <a name="enable-the-plugin"></a>Habilitar o plug-in
 A parte de assar do kit de ferramentas de acústica requer a versão de tempo de execução de script do .NET 4.x. A importação de pacotes atualizará as configurações do player do Unity. Reinicialização do Unity para essa configuração tenha efeito.
 
-![Painel de captura de tela de configurações de Player do Unity](media/player-settings.png)
+![Captura de tela do painel Configurações do Player do Unity](media/player-settings.png)
 
-![Painel de captura de tela de configurações de Player do Unity com o .NET 4.5 selecionado](media/net45.png)
+![Captura de tela do painel Configurações do Player do Unity com .NET 4.5 selecionado](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>Configurar DSP de áudio
 Projeto acústica inclui o tempo de execução áudio DSP que se integra a estrutura de spatializer de mecanismo de áudio do Unity. Ele inclui o funcionamento em com base em HRTF e panorâmica. Habilitar o projeto acústica DSP abrindo as configurações de áudio do Unity usando **Editar > configurações do projeto > áudio**, selecionando **projeto acústica** como o **Spatializer plug-in** para seu projeto. Verifique se o **DSP o tamanho do Buffer** é definido como o melhor desempenho.
@@ -60,9 +60,9 @@ Crie uma fonte de áudio. Clique na caixa de seleção na parte inferior do pain
 ## <a name="enable-acoustic-design"></a>Habilitar design acústico
 Anexar o script **AcousticsAdjust** a uma fonte de som na sua cena para habilitar os parâmetros de design de origem adicionais, clicando em **Add Component** e escolhendo **Scripts > Ajustar acústica** :
 
-![Captura de tela do Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Captura de tela do script AcousticsAdjust do Unity](media/acoustics-adjust.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Inserir sua cena com acústica do projeto para Unity](unity-baking.md)
 * [Criar uma conta do lote do Azure](create-azure-account.md) que inserir sua cena na nuvem
 * Explore os [processo de design de projeto acústica Unity](unity-workflow.md).

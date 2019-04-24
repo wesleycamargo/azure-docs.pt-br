@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57894930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487224"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -42,7 +42,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 | Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Confira os [Idiomas compatíveis](language-support.md#speech-to-text). | Obrigatório |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Confira os [Idiomas compatíveis](language-support.md#speech-to-text). | Necessário |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem vários resultados com valores de confiança e quatro representações diferentes. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, o que substitui a profanidade por asteriscos, `removed`, que remove todas as profanações do resultado, ou `raw`, o que inclui a profanidade no resultado. A configuração padrão é `masked`. | Opcional |
 
@@ -54,7 +54,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura de serviços de fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
-| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. Os serviços de fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. Os serviços de fala fornecer resultados em JSON. Algumas estruturas de solicitação da Web fornecem um valor padrão incompatível se você não especificar uma, portanto, é uma boa prática incluir sempre `Accept`. | Opcional, mas recomendado. |
@@ -215,7 +215,7 @@ Essa é uma resposta típica para o reconhecimento`detailed`.
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

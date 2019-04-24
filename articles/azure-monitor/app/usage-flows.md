@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 91274fad4e56c69777333c81ea3b32dccdcf64ff
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60373245"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
 
@@ -94,7 +94,7 @@ Use as opções **Dividir por** no menu **Editar**:
 1. Escolha o evento que você deseja dividir no menu **Evento**.
 2. Escolha uma dimensão no menu **Dimensão**. Por exemplo, se você tiver um evento chamado “Botão clicado”, tente uma propriedade personalizada chamada “Nome do botão.”
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do uso](usage-overview.md)
 * [Usuários, Sessões e Eventos](usage-segmentation.md)

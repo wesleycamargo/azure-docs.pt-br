@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322882"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com um Aprendiz de conversa 
 
@@ -72,7 +72,7 @@ Sempre que você adiciona ou edita uma entidade, ação ou caixa de diálogo de 
 
 Como o treinamento é feito de forma assíncrona, é possível que as edições feitas por você não sejam imediatamente refletidas.  Se a extração de entidade ou seleção da ação não estiverem se comportando conforme o esperado com base nas alterações feitas nos últimos 5 a 10 segundos, essa pode ser a causa.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Limites e valores padrão](./cl-values-and-boundaries.md)

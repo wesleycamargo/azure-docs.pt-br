@@ -10,11 +10,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 03/18/2019
 ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511757"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar o aplicativo lógico com dados fictícios, configurando resultados estáticos
 
@@ -137,12 +137,12 @@ Desativar resultados estáticos não jogar fora os valores de sua última config
 
    ![Desabilitar estáticos resultados](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md)

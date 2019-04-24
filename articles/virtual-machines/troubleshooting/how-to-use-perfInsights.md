@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318270"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -105,37 +105,37 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Análise rápida de desempenho | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
-| Informações de logs de eventos       | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Informações do sistema                | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Mapa de volume                        | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Mapa do disco                          | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Tarefas em execução                     | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Contadores de confiabilidade do armazenamento      | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Informações de armazenamento               | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Saída do fsutil                     | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Informações do driver de filtro                | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Saída de Netstat                    | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Configuração de rede             | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Configuração do firewall            | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Configuração do SQL Server          | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Rastreamentos de diagnóstico de desempenho *  | SIM                        | sim                                | sim                      | sim                  | SIM                  |
-| Rastreamento do contador de desempenho **      |                            |                                    | SIM                      |                      | SIM                  |
-| Rastreamento do contador SMB **              |                            |                                    |                          | SIM                  |                      |
-| Rastreamento do contador do SQL Server **       |                            |                                    | SIM                      |                      | SIM                  |
-| Rastreamento de XPerf                       |                            |                                    |                          |                      | SIM                  |
-| Rastreamento de StorPort                    |                            |                                    |                          |                      | SIM                  |
-| Rastreamento de rede                     |                            |                                    |                          | SIM                  | SIM                  |
-| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | SIM                                |                          |                      |                      |
+| Informações de logs de eventos       | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Informações do sistema                | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Mapa de volume                        | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Mapa do disco                          | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Tarefas em execução                     | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Contadores de confiabilidade do armazenamento      | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Informações de armazenamento               | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Saída do fsutil                     | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Informações do driver de filtro                | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Saída de Netstat                    | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Configuração de rede             | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Configuração do firewall            | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Configuração do SQL Server          | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Rastreamentos de diagnóstico de desempenho *  | Sim                        | sim                                | sim                      | sim                  | Sim                  |
+| Rastreamento do contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreamento do contador SMB **              |                            |                                    |                          | Sim                  |                      |
+| Rastreamento do contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreamento de XPerf                       |                            |                                    |                          |                      | Sim                  |
+| Rastreamento de StorPort                    |                            |                                    |                          |                      | Sim                  |
+| Rastreamento de rede                     |                            |                                    |                          | Sim                  | Sim                  |
+| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | Sim                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Rastreamento de diagnóstico de desempenho (*)
 
 Executa um mecanismo baseado em regras no segundo plano para coletar dados e diagnosticar problemas de desempenho em andamento. No momento, há suporte para regras a seguir:
 
-- Regra de HighCpuUsage: detecta períodos de uso elevado de CPU e mostra os principais consumidores de uso da CPU durante esses períodos.
-- Regra de HighDiskUsage: detecta períodos de uso elevado de disco em discos físicos e mostra os principais consumidores de uso de disco durante esses períodos.
-- Regra de HighResolutionDiskMetric: mostra IOPS, taxa de transferência e métricas de latência de E/S por 50 milissegundos para cada disco físico. Isso ajuda a identificar rapidamente os períodos de limitação de disco.
-- Regra de HighMemoryUsage: detecta os períodos de uso elevado de memória e mostra os principais consumidores de uso de memória durante esses períodos.
+- Regra de HighCpuUsage: Detecta os períodos de uso elevado da CPU e mostra os principais consumidores de uso da CPU durante esses períodos.
+- Regra de HighDiskUsage: Detecta os períodos de uso elevado de disco em discos físicos e mostra o disco principais consumidores de uso durante esses períodos.
+- Regra de HighResolutionDiskMetric: Mostra as métricas de latência IOPS, taxa de transferência e e/s por 50 milissegundos para cada disco físico. Isso ajuda a identificar rapidamente os períodos de limitação de disco.
+- Regra de HighMemoryUsage: Detecta os períodos de uso de memória alta e mostra a memória principais consumidores de uso durante esses períodos.
 
 > [!NOTE] 
 > Atualmente, há suporte para versões do Windows que incluem .NET Framework 4.5 ou versões posteriores.
@@ -167,7 +167,7 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 -  Esta ferramenta deve ser executada na VM que tem o problema de desempenho. 
 
--  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2, Windows Server 2016; Windows 8.1 e Windows 10.
+-  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016; Windows 8.1 e Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
@@ -304,7 +304,7 @@ Diskspd é um gerador de carga de armazenamento e ferramenta de teste de desempe
 
 XPerf é uma ferramenta de linha de comando para capturar rastreamentos do Kit de Ferramentas de Desempenho do Windows. Para obter mais informações, consulte [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para análise. O Suporte poderá solicitar que você transmita a saída que é gerada pelo PerfInsights para auxiliar no processo de solução de problemas.
 

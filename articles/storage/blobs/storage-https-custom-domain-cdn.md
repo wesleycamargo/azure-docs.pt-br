@@ -9,11 +9,11 @@ ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
 ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392511"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS
 
@@ -64,7 +64,7 @@ Por exemplo, digamos que você tenha uma conta de armazenamento no Oeste dos EUA
 
 Na [página de preços da CDN do Azure](https://azure.microsoft.com/pricing/details/cdn/), o suporte ao protocolo HTTPS para nomes de domínio personalizado está disponível para a CDN do Azure apenas dos produtos Verizon Standard e Premium.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs](storage-custom-domain-name.md)
 * [Hospedagem de site estático no Armazenamento do Azure](storage-blob-static-website.md)

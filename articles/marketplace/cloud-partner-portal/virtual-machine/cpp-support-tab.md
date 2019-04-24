@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343199"
 ---
 # <a name="virtual-machine-support-tab"></a>Guia de suporte de máquina virtual
 
-A guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  Ele é dividido em três áreas: **Engenharia**, **Atendimento**, e **URLs de suporte**.
+A guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  Ele é dividido em três áreas: **Engenharia**, **atendimento**, e **dão suporte a URLs**.
 
 ![Guia de Suporte no formulário Nova Oferta para máquinas virtuais](./media/publishvm_012.png)
 

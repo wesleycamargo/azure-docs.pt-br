@@ -3,19 +3,20 @@ title: Contagens de caractere - API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Como a API de Tradução de Texto conta caracteres.
 services: cognitive-services
-author: v-pawal
+author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: v-jansko
+origin.date: 02/01/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513766"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Como a API de Tradução de Texto conta caracteres
 
@@ -41,3 +42,4 @@ Chamadas para os métodos Detect e BreakSentence não são contadas no consumo d
 
 
 Veja mais informações sobre contagens de caracteres em [Perguntas frequentes sobre o Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).
+

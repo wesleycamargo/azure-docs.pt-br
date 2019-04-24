@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542417"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -48,7 +48,7 @@ Azure Red Hat OpenShift é uma oferta totalmente gerenciada do OpenShift em exec
 
 O OKD é um projeto upstream de [software livre](https://www.okd.io/) do OpenShift que tem o suporte da comunidade. O OKD pode ser instalado em CentOS ou RHEL (Red Hat Enterprise Linux).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar pré-requisitos comuns para OpenShift no Azure](./openshift-prerequisites.md)
 - [Implantar o OpenShift Container Platform no Azure](./openshift-container-platform.md)

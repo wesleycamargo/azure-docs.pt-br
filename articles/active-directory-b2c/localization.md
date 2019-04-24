@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401741"
 ---
 # <a name="localization"></a>Localização
 
@@ -39,9 +40,9 @@ O elemento **Localization** permite que você dê suporte a várias localidades 
 
 O elemento **Localization** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| habilitado | Não  | Valores possíveis: `true` ou `false`. |
+| Enabled | Não  | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -54,9 +55,9 @@ O elemento **Localization** contém os seguintes elementos XML
 
 O elemento **SupportedLanguages** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| DefaultLanguage | SIM | O idioma a ser usado como o padrão para recursos localizados. |
+| DefaultLanguage | Sim | O idioma a ser usado como o padrão para recursos localizados. |
 | MergeBehavior | Não  | Valores de enumeração de valores mesclados junto com qualquer ClaimType presente em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` especifica que a coleta de dados presente deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` especifica que a coleta de dados presente deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` especifica que a coleta de dados definida na política pai deve ser ignorada, em vez disso, usando, em vez disso, os dados definidos na política atual. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
@@ -71,9 +72,9 @@ O elemento **SupportedLanguages** contém os seguintes elementos:
 
 O elemento **LocalizedResources** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | SIM | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -94,11 +95,11 @@ O elemento **LocalizedCollections** contém os seguintes elementos:
 
 O elemento **LocalizedCollection** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ElementType | SIM | Faz referência a um elemento ClaimType ou um elemento de interface do usuário no arquivo de política. |
-| ElementId | SIM | Uma cadeia de caracteres que contém uma referência a um tipo de declaração já definido na seção ClaimsSchema usada se **ElementType** está definido como um ClaimType. |
-| TargetCollection | SIM | A coleção de destino. |
+| ElementType | Sim | Faz referência a um elemento ClaimType ou um elemento de interface do usuário no arquivo de política. |
+| ElementId | Sim | Uma cadeia de caracteres que contém uma referência a um tipo de declaração já definido na seção ClaimsSchema usada se **ElementType** está definido como um ClaimType. |
+| TargetCollection | Sim | A coleção de destino. |
 
 O elemento **LocalizedCollection** contém os seguintes elementos:
 
@@ -108,10 +109,10 @@ O elemento **LocalizedCollection** contém os seguintes elementos:
 
 O elemento **Item** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Texto | SIM | A cadeia de caracteres de exibição amigável deve ser mostrada ao usuário na interface do usuário para essa opção. |
-| Valor | SIM | O valor da declaração da cadeia de caracteres associada com essa opção. |
+| Text | Sim | A cadeia de caracteres de exibição amigável deve ser mostrada ao usuário na interface do usuário para essa opção. |
+| Value | Sim | O valor da declaração da cadeia de caracteres associada com essa opção. |
 
 O exemplo a seguir mostra o uso do elemento **LocalizedCollections**. Ele contém dois elementos **LocalizedCollection**, um para inglês e outro para espanhol. Ambos definem a coleção de **Restrição** da declaração `Gender` com uma lista de itens para inglês e espanhol.
 
@@ -144,11 +145,11 @@ O elemento **LocalizedStrings** contém os seguintes elementos:
 
 O elemento **LocalizedString** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ElementType | SIM | Uma referência a um elemento de tipo de declaração ou um elemento de interface do usuário na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage` ou `Predicate`. O valor `ClaimType` é usado para localizar um dos atributos de declaração, conforme especificado em StringId. O valor `UxElement` é usado para localizar um dos elementos de interface do usuário, conforme especificado em StringId. O valor `ErrorMessage` é usado para localizar uma das mensagens de erro do sistema, conforme especificado em StringId. O valor `Predicate` é usado para localizar uma das mensagens de erro [Predicate](predicates.md), conforme especificado em StringId. O valor `InputValidation` é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md), conforme especificado em StringId. |
-| ElementId | SIM | Se **ElementType** for definido como `ClaimType`, `Predicate` ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. | 
-| StringId | SIM | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
+| ElementType | Sim | Uma referência a um elemento de tipo de declaração ou um elemento de interface do usuário na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage` ou `Predicate`. O valor `ClaimType` é usado para localizar um dos atributos de declaração, conforme especificado em StringId. O valor `UxElement` é usado para localizar um dos elementos de interface do usuário, conforme especificado em StringId. O valor `ErrorMessage` é usado para localizar uma das mensagens de erro do sistema, conforme especificado em StringId. O valor `Predicate` é usado para localizar uma das mensagens de erro [Predicate](predicates.md), conforme especificado em StringId. O valor `InputValidation` é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md), conforme especificado em StringId. |
+| ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate` ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. | 
+| StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
 
 
 O exemplo a seguir mostra uma página de inscrição localizada. Os três primeiros valores **LocalizedString** definem o atributo de declaração. O terceiro altera o valor do botão continuar. O último deles altera a mensagem de erro.
@@ -363,6 +364,7 @@ O exemplo a seguir mostra o XML final:
   </Localization>
 </BuildingBlocks>
 ```
+
 
 
 

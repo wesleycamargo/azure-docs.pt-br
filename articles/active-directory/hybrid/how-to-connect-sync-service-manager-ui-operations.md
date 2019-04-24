@@ -4,25 +4,25 @@ description: Entenda como usar a guia Operações no Synchronization Service Man
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381359"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Usando a guia Operações do Synchronization Service Manager
 
@@ -47,7 +47,8 @@ Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os
 
 Para obter mais informações, consulte [Solução de problemas de um objeto que não está sincronizando](tshoot-connect-object-not-syncing.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+

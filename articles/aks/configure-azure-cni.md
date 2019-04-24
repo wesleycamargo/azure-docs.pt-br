@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
 ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466506"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -139,7 +139,7 @@ As perguntas e respostas a seguir se aplicam à configuração da rede **CNI do 
 
 * *Posso implantar VMs na sub-rede do cluster?*
 
-   Não. Não há suporte para a implantação de VMs na sub-rede usada por seu cluster Kubernetes. As VMs podem ser implantadas na mesma rede virtual, mas em uma sub-rede diferente.
+  Não. Não há suporte para a implantação de VMs na sub-rede usada por seu cluster Kubernetes. As VMs podem ser implantadas na mesma rede virtual, mas em uma sub-rede diferente.
 
 * *Posso configurar políticas de rede por pod?*
 

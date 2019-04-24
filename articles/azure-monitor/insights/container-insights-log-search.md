@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494756"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar os logs do Azure Monitor para contêineres
 O Azure Monitor para contêineres coleta métricas de desempenho, dados de inventário e informações de estado de integridade de contêineres e hosts de contêiner e encaminha para o espaço de trabalho do Log Analytics no Azure Monitor. Os dados são coletados a cada três minutos. Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
@@ -61,5 +61,5 @@ Costuma ser útil criar consultas começando com um ou dois exemplos e, em segui
 | **Selecione a opção de exibição Gráfico de linhas**:<br> Perf<br> &#124; em que ObjectName == "K8SContainer" e CounterName == "cpuUsageNanoCores" &#124; resumir AvgCPUUsageNanoCores = avg(CounterValue) por bin(TimeGenerated, 30m), InstanceName | CPU do contêiner | 
 | **Selecione a opção de exibição Gráfico de linhas**:<br> Perf<br> &#124; em que ObjectName == "K8SContainer" e CounterName == "memoryRssBytes" &#124; resumir AvgUsedRssMemoryBytes = avg(CounterValue) por bin(TimeGenerated, 30m), InstanceName | Memória de contêiner |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 O Azure Monitor para contêineres não inclui um conjunto predefinido de alertas. Examine os [criar alertas de desempenho com o Azure Monitor para contêineres](container-insights-alerts.md) para aprender a criar alertas recomendados para alta utilização de CPU e memória dar suporte a suas operações de desenvolvimento ou processos e procedimentos operacionais. 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370833"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do contrato de cliente da Microsoft no Azure
 
@@ -42,7 +42,7 @@ A tabela a seguir descreve as funções de cobrança você usa para gerenciar su
 |Proprietário da seção de fatura|Gerenciar todos os itens na seção de nota fiscal|
 |Colaborador da seção de fatura|Gerenciar tudo, exceto as permissões na seção de nota fiscal|
 |Leitor da seção de fatura|Exibição somente leitura de tudo o que na seção de nota fiscal|
-|Criador da assinatura do Azure|Criar assinaturas do Azure|
+|Criador de assinatura do Azure|Criar assinaturas do Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Funções e tarefas da conta de cobrança
 
@@ -148,7 +148,7 @@ As tabelas a seguir mostram qual função você precisa concluir tarefas no cont
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gerenciar permissões de seção de nota fiscal e propriedades
 
-|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador da assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança | |
+|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador de assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança | |
 |---|---|---|---|---|---|---|---|---|
 |Exibir todas as permissões na seção de nota fiscal|✔|✔|✔|✔|✔|✔|✔| |
 |Conceder a outros usuários permissões para exibir e gerenciar a seção de nota fiscal|✔|✘|✘|✘|✘|✘|✘| |
@@ -157,15 +157,15 @@ As tabelas a seguir mostram qual função você precisa concluir tarefas no cont
 
 ### <a name="manage-products-for-invoice-section"></a>Gerenciar produtos para a seção de nota fiscal
 
-|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador da assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança
+|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador de assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança
 |---|---|---|---|---|---|---|---|
 |Exibir todos os produtos comprados na seção de nota fiscal|✔|✔|✔|✘|✔|✔|✔|
 |Gerenciar a cobrança para os produtos para a seção de nota fiscal, como cancelar, desative a renovação automática e muito mais|✔|✔|✘|✘|✘|✘|✘|
 |Seção de nota fiscal de alteração para os produtos|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Gerenciar assinaturas para a seção de nota fiscal
+### <a name="manage-subscriptions-for-invoice-section"></a>Gerenciar as assinaturas da seção da fatura
 
-|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador da assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança
+|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador de assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança
 |---|---|---|---|---|---|---|---|
 |Exibir todas as assinaturas do Azure para a seção de nota fiscal|✔|✔|✔|✘|✔|✔|✔|
 |Seção de nota fiscal de alteração para as assinaturas|✔|✔|✘|✘|✘|✘|✘|
@@ -175,7 +175,7 @@ As tabelas a seguir mostram qual função você precisa concluir tarefas no cont
 
 A tabela a seguir mostra qual função você precisa concluir tarefas no contexto de uma assinatura.
 
-|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador da assinatura do Azure|
+|Tarefas|Proprietário da seção de fatura|Colaborador da seção de fatura|Leitor da seção de fatura|Criador de assinatura do Azure|
 |---|---|---|---|---|
 |Criar assinaturas do Azure|✔|✔|✘|✔|
 |Centro de custo para a assinatura de atualização|✔|✔|✘|✘|

@@ -3,18 +3,19 @@ title: Saiba como os módulos executam a lógica em seus dispositivos - Azure Io
 description: Módulos do Azure IoT Edge são unidades de lógica em contêineres que podem ser implantadas e gerenciadas remotamente para que você possa executar a lógica comercial em dispositivos IoT Edge
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/21/2019
+ms.author: v-yiso
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445004"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Entenda os módulos do Azure IoT Edge
 
@@ -40,10 +41,9 @@ Na implementação, as imagens de módulos existem como imagens de contêiner em
 As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
 -->
 
-## <a name="module-identities"></a>Identidades do módulo
+## <a name="module-identities"></a>Identidades de módulo
 
 Quando uma nova instância de módulo é criada pelo tempo de execução do IoT Edge, a instância é associada a uma identidade de módulo correspondente. A identidade de módulo é armazenada no Hub IoT e utilizada como o escopo de endereçamento e segurança para todas as comunicações locais e de nuvem dessa instância específica de módulo.
-
 A identidade associada a uma instância de módulo depende da identidade do dispositivo no qual a instância está em execução, e do nome fornecido para esse módulo em sua solução. Por exemplo, se você chamar `insight` um módulo que usa um Azure Stream Analytics e implantá-lo em um dispositivo chamado `Hannover01`, o tempo de execução do IoT Edge criará uma identidade de módulo correspondente chamada `/devices/Hannover01/modules/insight`.
 
 Claramente, em cenários nos quais você precisa implantar uma imagem de módulo várias vezes no mesmo dispositivo, é possível implantar a mesma imagem várias vezes com nomes diferentes.
@@ -79,7 +79,16 @@ Módulos IoT Edge podem estar offline por períodos estentidos por tempo indeter
 * **O hub do IoT Edge tem espaço em disco para armazenar as mensagens**. Por padrão, mensagens são armazenadas no hub do IoT Edge do sistema de arquivos do contêiner. Há uma opção de configuração para especificar um volume montado para armazenar as mensagens. Em qualquer caso, precisa ter espaço disponível para armazenar as mensagens para a entrega designada ao Hub IoT.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  - [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge](module-development.md)
  - [Entenda o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md)
 
+<!-- Images -->
+[1]: ./media/iot-edge-modules/image_instance.png
+[2]: ./media/iot-edge-modules/identity.png
+
+<!-- Links -->
+[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

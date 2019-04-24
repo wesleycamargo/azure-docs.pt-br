@@ -12,11 +12,11 @@ ms.author: mlee3gsd
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: c8e9f3ccdfaee64f75443f6a4eb89a3df7c48b0e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403688"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE AS SELECT (CTAS) no Azure SQL Data Warehouse
 
@@ -431,7 +431,7 @@ Você pode ver que a consistência de tipo e manter as propriedades de nulidade 
 
 CTAS é uma das instruções mais importantes no SQL Data Warehouse. Certifique-se compreendê-la totalmente. Consulte a [documentação de CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvolvimento](sql-data-warehouse-overview-develop.md).
 

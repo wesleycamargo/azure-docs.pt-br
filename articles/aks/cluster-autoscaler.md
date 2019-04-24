@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
 ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467113"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Preview - dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de Kubernetes do Azure (AKS)
 
@@ -161,7 +161,7 @@ az aks update \
 
 Dimensione o cluster manualmente usando o comando [az aks scale][az-aks-scale]. Se você usar o dimensionador automático de pod horizontal, esse recurso continuará sendo executado com o dimensionador automático de cluster desabilitado, mas os pods poderão acabar não conseguindo ser agendados se os recursos do nó estiverem todos em uso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. Você também pode usar o dimensionador automático de pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas de como usar o dimensionador automático de pod horizontal, confira [Dimensionar aplicativos no AKS][aks-scale-apps].
 

@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77f1a6e5b1e8191c1497e437cc26e1caf1255ba7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472359"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gerenciamento de unidades administrativas no Active Directory do Azure (versão prévia pública)
 
@@ -40,5 +40,5 @@ Nesta versão de visualização, você pode criar e gerenciar unidades administr
 
 Para obter mais informações sobre os requisitos de software e a instalação do módulo do Azure AD, além de informações sobre os cmdlets do Módulo do Azure AD para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Edições do Active Directory do Azure](../fundamentals/active-directory-whatis.md)

@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58113866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456895"
 ---
 Se quiser apenas habilitar a inscrição no aplicativo, use um fluxo de usuário de **inscrição**. Esse fluxo de usuário descreve as experiências pelas quais os clientes passam durante a inscrição e o conteúdo dos tokens que o aplicativo recebe em inscrições com êxito.
 
@@ -44,3 +45,4 @@ Clique em **Executar fluxo de usuário**. Uma nova guia do navegador se abre e v
 > [!NOTE]
 > Leva até um minuto para que a criação do fluxo de usuário e as atualizações entrem em vigor.
 >
+

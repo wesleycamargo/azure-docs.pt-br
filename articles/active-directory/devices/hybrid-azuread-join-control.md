@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353101"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controlar ingresso no Azure AD híbrido de seus dispositivos
 
@@ -87,7 +87,7 @@ Para definir o GPO:
 9.  Selecione uma das configurações a seguir e, em seguida, selecione **Aplicar**:
 
     - **Desabilitado**: Para evitar o registro de dispositivos automático.
-    - **Habilitado**: Para habilitar o registro de dispositivos automático.
+    - **Enabled**: Para habilitar o registro de dispositivos automático.
 
 10. Selecione **OK**.
 

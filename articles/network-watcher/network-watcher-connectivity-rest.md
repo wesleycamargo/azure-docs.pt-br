@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
 ms.openlocfilehash: 45fbdac3c099b44f8f12a54f5bde147524f10458
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535738"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a API REST do Azure
 

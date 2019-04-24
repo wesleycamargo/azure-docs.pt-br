@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: ed0d65a0f00bd5ebc3227a249beec6bafd791347
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532558"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrar o SQL Server local para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure PowerShell
 Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2005 ou posterior para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o módulo `Az.DataMigration` no Microsoft Azure PowerShell.

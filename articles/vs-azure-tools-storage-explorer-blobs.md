@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458252"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 ## <a name="overview"></a>Visão geral
@@ -212,7 +212,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      2. Na barra de ferramentas do painel principal, escolha **Excluir**.
      3. Escolha **Sim** na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [criar aplicativos usando os blobs, tabelas, filas e arquivos do Azure](https://azure.microsoft.com/documentation/services/storage/).
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: bdc6c9476529b986f425d56544fd4b1afd8a864e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393208"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
@@ -154,7 +154,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Inicie o serviço e observe a depuração janela saída no Visual Studio. Depois que o serviço é iniciado, você deve começar a ver evidências de que ele está enviando registros para a saída que você configurou. Navegue até a plataforma de análise e visualização de eventos e confirme se os logs começaram a ser mostrados (isso pode levar alguns minutos).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

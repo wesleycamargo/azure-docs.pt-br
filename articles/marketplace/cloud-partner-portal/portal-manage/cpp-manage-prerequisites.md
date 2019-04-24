@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pbutlerm
 ms.openlocfilehash: c2733cd7f2460babaffdf049c5839389f61b31e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528263"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Pré-requisitos para o gerenciamento de contas no Portal do Cloud Partner 
 
@@ -50,6 +50,6 @@ A tabela a seguir lista as etapas necessárias para registrar totalmente como um
 \* Estas etapas são necessárias para o Azure Marketplace transact ofertas, mas altamente recomendadas para todas as ofertas.  Depois de estabelecer uma conta da Microsoft e registrar como um Microsoft Developer, você pode acessar recursos adicionais de cliente e o desenvolvedor da Microsoft, bem como ofertas de parceiros opcional.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de concluir as etapas de registro, você deve ser capaz de entrar a [Portal do Cloud Partner](https://cloudpartner.azure.com/).  Você pode usar este portal para gerenciar perfis de publicador e gerenciar contas de usuário.

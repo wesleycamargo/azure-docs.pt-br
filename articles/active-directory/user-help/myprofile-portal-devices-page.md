@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475814"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gerenciar dispositivos conectados no portal Meu Perfil (versão prévia)
 Você pode gerenciar os dispositivos aos quais está conectado usando sua conta corporativa ou de estudante, além de desabilitar os que não possui mais, na página **Dispositivos** do portal **Meu Perfil**.
@@ -47,6 +47,6 @@ Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é parti
 
 2. Selecione **Sim** para confirmar que você deseja desabilitar o dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Depois de exibir seus dispositivos conectados, você pode selecionar para exibir ou gerenciar seu [informações de segurança](user-help-security-info-overview.md), sua [organizações](myprofile-portal-organizations-page.md), ou o modo de exibição como sua organização [usa os dados](myprofile-portal-privacy-page.md).

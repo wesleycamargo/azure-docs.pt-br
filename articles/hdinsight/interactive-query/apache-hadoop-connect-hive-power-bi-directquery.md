@@ -1,7 +1,6 @@
 ---
 title: Visualizar dados da consulta interativa do Hive com o Power BI no Azure HDInsight
 description: Usar o Microsoft Power BI para visualizar dados da consulta interativa do Hive do Azure HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: d9639a4a116e06e17005ebddbb26379882491b33
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483679"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualize dados do Apache Hive de Consulta Interativa com o Microsoft Power BI usando a consulta direta no Azure HDInsight
 
@@ -48,7 +47,7 @@ O `hivesampletable` tabela Hive vem com todos os clusters do HDInsight.
 
 6. No **consulta interativa do HDInsight** janela, insira as seguintes informações e, em seguida, selecione **Okey**:
 
-    |Propriedade | Valor |
+    |Propriedade | Value |
     |---|---|
     |Servidor |Insira o nome do cluster, por exemplo *myiqcluster.azurehdinsight.net*.|
     |Banco de dados |Insira **padrão** para este artigo.|

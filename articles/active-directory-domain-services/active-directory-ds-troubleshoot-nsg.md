@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416409"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de rede inválida para o domínio gerenciado
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à rede que resultam na seguinte mensagem de alerta:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: 623f95eac029e808746d5d08fa088eba134592dd
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "58115770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459027"
 ---
 Clique no botão **Criar um recurso**. No campo **Pesquisar no Marketplace**, insira `Azure Active Directory B2C`.
 
@@ -25,7 +25,7 @@ Selecione **Criar um novo Locatário Azure AD B2C**. As configurações especifi
 
 ![Azure AD B2C cria locatário com texto de exemplo nos campos disponíveis](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Configuração      | Valor de exemplo  | Descrição                                        |
+| Configuração      | Valor de exemplo  | DESCRIÇÃO                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome da organização** | Contoso | Nome da organização. | 
 | **Nome de domínio inicial** |  ContosoB2CTenant | Nome de domínio para o locatário B2C. Por padrão, o nome de domínio inicial inclui .onmicrosoft.com. Se você está criando um locatário de teste, escolha um nome que não remeta à produção, como ContosoB2CTesting. |

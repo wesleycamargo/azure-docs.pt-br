@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382321"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este artigo descreve as etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas. Para ver como a solução de problemas funciona no Azure Active Directory (Azure AD) Connect, assista a [este breve vídeo](https://aka.ms/AADCTSVideo).
@@ -101,5 +101,5 @@ Além de analisar o objeto, a tarefa de solução de problemas também gera um r
 
 ![](media/tshoot-connect-objectsync/objsynch8.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

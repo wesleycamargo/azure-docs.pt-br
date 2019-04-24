@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507582"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
 
@@ -166,7 +166,7 @@ Se Repetição estiver definida como 1 e o TTL estiver definido como 10 segundos
 
 Durante um desastre, o ponto de extremidade primário é analisado e o status é alterado para **degradado** e o site recuperação de desastre permanece **Online**. Por padrão, o Gerenciador de Tráfego envia todo o tráfego para o ponto de extremidade primário (prioridade mais alta). Se o ponto de extremidade primário aparece como degradado, o Gerenciador de Tráfego roteia o tráfego para o segundo ponto de extremidade desde que ele permaneça íntegro. Existe a opção de configurar mais pontos de extremidade no Gerenciador de Tráfego que podem servir como pontos de extremidade de failover adicionais ou, como balanceadores de carga que compartilham a carga entre os pontos de extremidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre [DNS do Azure](../dns/dns-overview.md).
 

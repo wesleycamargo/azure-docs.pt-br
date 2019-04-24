@@ -11,11 +11,11 @@ ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b8878eccb079bf78c45ff9c1e4040659d109b1ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360142"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
     ![Alternar para o diretório do locatário](./media/tutorial-create-tenant/switch-directories.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a:
 

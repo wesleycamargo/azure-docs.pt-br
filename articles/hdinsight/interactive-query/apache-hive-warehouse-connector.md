@@ -1,7 +1,6 @@
 ---
 title: Integrar o Apache Spark e Apache Hive com o conector de Warehouse do Hive
 description: Saiba como integrar o Apache Spark e Apache Hive com o conector de Warehouse do Hive no HDInsight do Azure.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: f5c4b07326bfd469720ab07b522aefb9ed074cbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484686"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar o Apache Spark e Apache Hive com o conector de Warehouse do Hive
 
@@ -238,7 +237,7 @@ Siga as etapas abaixo para criar um exemplo de conector de Warehouse do Hive que
 
     ![tabela demonstração após a aplicação de política do ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Usar a consulta interativa com o HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Exemplos de interagir com o conector de Warehouse do Hive usando o Zeppelin, Livy, spark-submit e o pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

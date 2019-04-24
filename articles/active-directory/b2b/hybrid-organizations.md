@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a95b9bc6637526ef0d975815cc88dd084360397
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412586"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboração B2B do Azure Active Directory para organizações híbridas
 
@@ -45,7 +45,7 @@ Para ajudar a proteger os dados da sua empresa, você pode controlar o acesso a 
 
 Para obter detalhes sobre a implementação, consulte [Conceder às contas de parceiros gerenciadas localmente acesso a recursos na nuvem utilizando a colaboração B2B do Azure AD](hybrid-on-premises-to-cloud.md).
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais](hybrid-cloud-to-on-premises.md)
 - [Conceder acesso às contas de parceiros gerenciadas localmente para recursos da nuvem usando a colaboração B2B do Microsoft Azure AD](hybrid-on-premises-to-cloud.md)

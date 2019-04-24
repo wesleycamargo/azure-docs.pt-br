@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371301"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua encargos CSV e o uso do Azure para um contrato de cliente da Microsoft
 
@@ -38,10 +38,10 @@ Se você fosse um cliente EA, você observará que os termos no perfil de cobran
 
 | CSV de uso do EA Azure | Uso do Microsoft Azure contrato de cliente e encargos de CSV |
 | --- | --- |
-| Data | data |
-| Mês| data |
-| Dia | data |
-| Ano | data |
+| Data | date |
+| Mês| date |
+| Dia | date |
+| Ano | date |
 | Produto | product |
 | MeterId | meterID |
 | Categoria do Medidor | meterCategory |
@@ -86,7 +86,7 @@ billingPeriodStartDate | A data de início do período de cobrança para o qual 
 billingPeriodEndDate | A data de término do período de cobrança para o qual a fatura é gerada
 servicePeriodStartDate | A data de início do período de classificação que definiu e bloqueada de preço para o serviço consumido ou comprado
 servicePeriodEndDate | A data de término do período de classificação que definiu e bloqueada de preço para o serviço consumido ou comprado
-data | Para os encargos com base no uso do Azure e o Marketplace, esta é a data de classificação. Para compras de uso únicas (reservas, Marketplace) ou encargos recorrentes fixos (ofertas de suporte), essa é a data de compra.
+date | Para os encargos com base no uso do Azure e o Marketplace, esta é a data de classificação. Para compras de uso únicas (reservas, Marketplace) ou encargos recorrentes fixos (ofertas de suporte), essa é a data de compra.
 serviceFamily | Família de serviços que o serviço pertence
 productOrderId | Identificador exclusivo para o pedido do produto
 productOrderName | Nome exclusivo para a ordem de produto
@@ -107,7 +107,7 @@ publisherType | Tipo de publicador (valores: firstParty, thirdPartyReseller, thi
 publisherName | Publicador para os serviços do Marketplace
 resourceGroupId | Identificador exclusivo para o grupo de recursos associado ao recurso
 resourceGroupName | Nome do grupo de recursos associado ao recurso
-ResourceId | Identificador exclusivo para a instância do recurso
+resourceId | Identificador exclusivo para a instância do recurso
 resourceType | Tipo de instância do recurso
 resourceLocation | Identifica o local do data center onde o recurso está em execução.
 location | Normalizado local do recurso se os locais de recursos diferentes são configurados para as regiões do mesmas
@@ -131,7 +131,7 @@ Se há um encargo em seu arquivo de uso detalhado que você deseja obter mais de
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Exibir e baixar sua fatura do Microsoft Azure](billing-download-azure-invoice.md)
 - [Exibir e baixar seus encargos e o uso do Microsoft Azure](billing-download-azure-daily-usage.md)

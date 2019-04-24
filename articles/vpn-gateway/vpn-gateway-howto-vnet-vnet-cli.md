@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411756"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -130,7 +130,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="TestVNet1"></a>Etapa 2: Criar e configurar o TestVNet1
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 
    ```azurecli
    az group create -n TestRG1  -l eastus
@@ -168,7 +168,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="TestVNet4"></a>Etapa 3: criar e configurar TestVNet4
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 
    ```azurecli
    az group create -n TestRG4  -l westus

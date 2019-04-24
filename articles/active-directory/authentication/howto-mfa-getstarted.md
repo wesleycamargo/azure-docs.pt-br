@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359292"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planejamento de uma autenticação de multifator baseado em nuvem do Azure
 
@@ -237,7 +237,7 @@ Se você tiver uma instância NPS implantada e em uso já, referenciar [integrar
 
 Escolha o que acontece quando os usuários que não são registrados com o MFA tentam autenticar. Use a configuração do registro `REQUIRE_USER_MATCH` no caminho do registro `HKLM\Software\Microsoft\AzureMFA` para controlar o comportamento do recurso. Essa configuração tem uma opção de configuração única.
 
-| Chave | Valor | Padrão |
+| Chave | Value | Padrão |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Não definido (equivalente a TRUE) |
 
@@ -312,7 +312,7 @@ Autenticação multifator do Azure fornece relatórios por meio do portal do Azu
 
 Encontre soluções para problemas comuns com o Azure MFA na [artigo de solução de problemas do Azure a autenticação multifator](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) sobre o Microsoft Support Center.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Quais são os métodos de autenticação?](concept-authentication-methods.md)
 * [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)

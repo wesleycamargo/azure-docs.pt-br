@@ -17,11 +17,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1bea455371938ccc4d512bdb7ffddd72eb9508da
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454502"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Perguntas frequentes do Azure Active Directory Identity Protection
 
@@ -35,7 +35,7 @@ Este artigo inclui respostas para perguntas frequentes sobre o Azure Active Dire
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>É necessário ser um administrador global para usar o Identity Protection no portal do Azure?
-**R:**  Não. Você pode ser um leitor de segurança, um Administrador de Segurança ou um Administrador Global para usar o Identity Protection.
+**R:** Não. Você pode ser um leitor de segurança, um Administrador de Segurança ou um Administrador Global para usar o Identity Protection.
 
 ---
 

@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57869805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507853"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer Básico usando o portal do Azure
 
@@ -41,13 +41,13 @@ Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP
     | ---                     | ---                                                |
     | Assinatura               | Selecione sua assinatura.    |    
     | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
-    | Nome                   | *myLoadBalancer*                                   |
+    | NOME                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Digite          | Selecione **Público**.                                        |
+    | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic**.                          |
-    | Endereço IP Público | Selecione **Criar novo**. |
+    | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público              | *MyPublicIP*   |
-    | Atribuição| Static|
+    | Atribuição| estático|
 
 3. Na guia **Revisar + criar**, clique em **Criar**.   
 
@@ -264,7 +264,7 @@ Para ver o balanceador de carga distribuir tráfego entre todas as três VMs que
 
 Para excluir o balanceador de carga e todos os recursos relacionados quando não precisar mais deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, você criou um balanceador de carga de camada básica. Você criou e configurou um grupo de recursos, recursos de rede, servidores de back-end, uma investigação de integridade e as regras para usar com o balanceador de carga. Você instalou o IIS nas VMs e o usou para testar o balanceador de carga. 
 

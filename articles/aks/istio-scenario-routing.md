@@ -2,17 +2,18 @@
 title: Roteamento inteligente e versões canário com Istio no AKS (Serviço de Kubernetes do Azure)
 description: Saiba como usar o Istio para fornecer roteamento inteligente e implantar versões canário em um cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465786"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usar roteamento inteligente e versões canário com Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Se você abrir o aplicativo de votação do AKS em um navegador outra vez, apena
 
 É possível visualizar que agora você está roteado apenas para a versão *1.1* do componente *voting-analytics* como a seguir. Lembre-se de usar o endereço IP do seu próprio gateway de entrada do Istio:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Aguarde até que todos os pods da versão *2.0* estejam em execução. Use o comando [kubectl get pods][kubectl-get] para exibir todos os pods no namespace *voting*:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

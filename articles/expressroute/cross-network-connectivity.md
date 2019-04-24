@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368613"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
 
@@ -115,7 +115,7 @@ A tabela a seguir mostra a tabela de rotas de emparelhamento privado do ExpressR
 
 [![16]][16]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Ver [perguntas Frequentes de rede virtual][VNet-FAQ], para ainda mais dúvidas sobre rede virtual e o emparelhamento de rede virtual. Ver [perguntas frequentes sobre ExpressRoute] [ ER-FAQ] para conectividade de rede mais dúvidas sobre o ExpressRoute e virtuais.
 

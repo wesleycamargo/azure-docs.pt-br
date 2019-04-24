@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443082"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -262,7 +262,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como a autenticação funciona no Azure AD, consulte [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o logon único de usuário consulte [Acesso ao aplicativo e logon único com o Azure Active Directory](configure-single-sign-on-portal.md).
 - Visite o [Guia do desenvolvedor do Active Directory](../develop/v1-overview.md) para obter uma visão geral de todo o conteúdo relacionado a desenvolvedor.

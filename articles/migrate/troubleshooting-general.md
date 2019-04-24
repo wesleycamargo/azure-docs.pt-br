@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652630"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533216"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -82,7 +82,7 @@ Se você não conseguir exportar o relatório de avaliação do portal, tente us
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Dados de desempenho para CPU, memória e discos está aparecendo como zeros
 
-As migrações para Azure perfis continuamente o ambiente local para coletar dados de desempenho das VMs locais. Se você acabou de iniciar a descoberta do seu ambiente, você precisará aguardar pelo menos um dia para a coleta de dados de desempenho a ser feito. Se uma avaliação é criada sem esperar por um dia, as métricas de desempenho mostrará como zeros. Depois de aguardar um dia, você pode criar uma nova avaliação ou atualizar a avaliação existente usando a opção 'Recalculate' no relatório de avaliação.
+As Migrações para Azure analisam continuamente o ambiente local para coletar dados de desempenho das VMs locais. Caso você tenha recém iniciado a descoberta do seu ambiente, precisará aguardar pelo menos um dia para a coleta de dados de desempenho ser feita. Se uma avaliação for criada sem o intervalo de um dia, as métricas de desempenho serão mostradas como zeros. Depois de aguardar um dia, você pode criar uma nova avaliação ou atualizar a avaliação existente usando a opção “Recalcular” no relatório de avaliação.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Especifiquei uma geografia do Azure, durante a criação de um projeto de migração, como descobrir a região do Azure exata em que os metadados descobertos serão armazenados?
 

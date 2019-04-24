@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333665"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Enviar um fluxo de trabalho usando entradas de arquivo FASTQ no Microsoft Genomics
 
@@ -81,5 +81,5 @@ output_storage_account_container: outputs
 
 Envie o arquivo `config.txt` com esta invocação: `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você carregou um par de arquivos FASTQ no Armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre o envio de fluxo de trabalho e outros comandos que você pode usar com o serviço Microsoft Genomics, consulte nosso [perguntas frequentes sobre](frequently-asked-questions-genomics.md). 

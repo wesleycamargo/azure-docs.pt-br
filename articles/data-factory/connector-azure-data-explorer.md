@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394499"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Explorer usando o Azure Data Factory
 
@@ -68,7 +68,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Explor
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida como **AzureDataExplorer** | Sim |
+| Tipo | A propriedade **tipo** deve ser definida como **AzureDataExplorer** | Sim |
 | endpoint | URL de ponto de extremidade do cluster do Azure Data Explorer com o formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
 | Banco de Dados | Nome do banco de dados. | Sim |
 | tenant | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Esse é o que normalmente conhecido como "**identificação da autoridade**" no [cadeia de caracteres de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o focalizando com o mouse no canto superior direito do portal do Azure. | Sim |
@@ -183,7 +183,7 @@ Para copiar dados do Azure Data Explorer, defina a propriedade type no coletor d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink** | Sim |
+| Tipo | A propriedade **type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink** | Sim |
 | ingestionMappingName | Nome do criada previamente **[mapeamento](/azure/kusto/management/mappings#csv-mapping)** em uma tabela do Kusto. Para mapear as colunas de origem para o Azure Data Explorer - aplica-se ao **[todos com suporte/formatos de repositórios de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo em JSON/CSV/Avro formatos etc., você pode usar a atividade de cópia [coluna Mapeando](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente, conforme configurado) e/ou mapeamentos de Gerenciador de dados do Azure. | Não  |
 
 **Exemplo:**
@@ -218,7 +218,7 @@ Para copiar dados do Azure Data Explorer, defina a propriedade type no coletor d
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
