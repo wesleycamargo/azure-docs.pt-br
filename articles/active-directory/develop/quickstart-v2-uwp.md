@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526377"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997590"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Este início rápido contém um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas corporativas, pessoais ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
+Este início rápido contém um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas pessoais, corporativa ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar seu projeto do Visual Studio
 
- - [Baixar o projeto do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
 
@@ -89,7 +89,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 > - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
 >
 > > [!TIP]
-> > Para localizar os valores da *ID do aplicativo*, acesse a página **Visão geral**
+> > Para localizar o valor da *ID do aplicativo*, acesse a seção **Visão geral** no portal
 
 #### <a name="step-4-run-your-application"></a>Etapa 4: Execute seu aplicativo.
 
@@ -97,7 +97,7 @@ Se você quiser testar o guia de início rápido no seu computador Windows:
 
 1. Na barra de ferramentas do Visual Studio, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM).
    > Observe que o dispositivo de destino é alterado de *Dispositivo* para *Computador Local*
-1. Selecione Depurar | **Iniciar sem depuração**
+1. Selecione Depurar | **Iniciar Sem Depuração**
 
 ## <a name="more-information"></a>Mais informações
 
@@ -119,7 +119,7 @@ Você pode adicionar a referência da MSAL adicionando o seguinte código:
 using Microsoft.Identity.Client;
 ```
 
-Em seguida, inicialize a MSAL usando o seguinte código:
+Em seguida, a MSAL é inicializada usando o seguinte código:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,7 +133,7 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Solicitando tokens
 
-A MSAL tem dois métodos usados para adquirir tokens interativamente: `AcquireTokenInteractive` e `AcquireTokenSilent`.
+A MSAL tem dois métodos para adquirir tokens em um aplicativo UWP: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
-Não convém exigir que o usuário valide suas credenciais sempre que precisar acessar um recurso. Na maioria das vezes, você quer aquisições e renovação de tokens sem nenhuma interação do usuário. Você pode usar o método `AcquireTokenSilent` para obter tokens para acessar recursos protegidos após o método `AcquireTokenAsync` inicial:
+Use o método `AcquireTokenSilent` para obter tokens para acessar recursos protegidos após o método inicial `AcquireTokenAsync`. Não convém exigir que o usuário valide suas credenciais sempre que precisar acessar um recurso. Na maioria das vezes, você quer aquisições e renovação de tokens sem nenhuma interação do usuário
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
