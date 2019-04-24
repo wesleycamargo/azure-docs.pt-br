@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420293"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
@@ -85,7 +85,7 @@ O diagrama a seguir mostra como as solicitações de retransmissão de entrada s
 8. O gateway encaminha todas as mensagens do cliente de escuta para o aplicativo cliente. 
 9. O gateway encaminha qualquer mensagem do cliente que enviou para o cliente que está escutando.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução a .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução a Pedidos .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Introdução a Node WebSockets](relay-hybrid-connections-node-get-started.md)

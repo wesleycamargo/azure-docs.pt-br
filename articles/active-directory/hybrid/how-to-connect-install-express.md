@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244570"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect usando configurações expressas
 As **Configurações Expressas** do Azure AD Connect são usadas quando você tem uma topologia de floresta única e a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) para autenticação. **configurações expressas** são a opção padrão e são usadas para o cenário de implantação mais comum. São apenas alguns cliques curtos para estender seu diretório local para a nuvem.
@@ -37,10 +37,10 @@ Você pode ver essas etapas em ação na seção de [vídeos](#videos) .
 3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.  
    ![Bem-vindo ao Azure AD Connect](./media/how-to-connect-install-express/express.png)
-5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Próximo**.  
+5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Avançar**.  
    ![Conecte-se ao Azure AD](./media/how-to-connect-install-express/connectaad.png)  
    Se você encontrar um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
-6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrador ou fabrikam.com\administrador. Clique em **Próximo**.  
+6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrador ou fabrikam.com\administrador. Clique em **Avançar**.  
    ![Conectar-se ao AD DS](./media/how-to-connect-install-express/connectad.png)
 7. A página [**Configuração de entrada do Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) será mostrada somente se você não tiver concluído [verificar seus domínios](../active-directory-domains-add-azure-portal.md) nos [pré-requisitos](how-to-connect-install-prerequisites.md).
    ![Domínios não verificados](./media/how-to-connect-install-express/unverifieddomain.png)  

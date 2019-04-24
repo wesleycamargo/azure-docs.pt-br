@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195804"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerenciar conta e chave de criação
 
@@ -42,7 +42,7 @@ Se a chave de criador estiver comprometida, redefina a chave. A chave é redefin
 
 Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre sua [chave de criador](luis-concept-keys.md#authoring-key).
 

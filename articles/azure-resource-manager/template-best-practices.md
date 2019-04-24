@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389569"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
@@ -44,7 +44,7 @@ Você pode exceder alguns limites de modelo usando um modelo aninhado. Para sabe
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
-Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponível. Os recursos em outras regiões ainda funcionará conforme o esperado, mas não é possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
+Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas não será possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
 
 ## <a name="parameters"></a>parâmetros
 As informações nesta seção podem ser úteis quando você trabalha com [parâmetros](resource-group-authoring-templates.md#parameters).

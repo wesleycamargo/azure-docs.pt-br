@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243232"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -328,6 +328,6 @@ Durante a sincronização de várias florestas do AD, você pode configurar a fi
 * Você tem um usuário em uma floresta que possui um contato correspondente em outra floresta. Além disso, você configurou o Azure AD Connect para vincular o usuário com o contato de correio. Ambos os objetos deverão estar dentro do escopo de filtragem baseada no grupo. Caso contrário, o usuário não será sincronizado com o Azure Active Directory.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre a configuração da [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
 - Saiba mais sobre a [integração de identidades locais com o Azure AD](whatis-hybrid-identity.md).

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196024"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
 O [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridos. Use este guia para entender como migrar para o [ponto de extremidade](https://aka.ms/luis-endpoint-apis) versão 2 e para as APIs de [criação](https://aka.ms/luis-authoring-apis). 
@@ -167,7 +167,7 @@ A V1 permitia que declarações rotuladas incluíssem espaços no início ou fim
 ## <a name="common-reasons-for-http-response-status-codes"></a>Motivos comuns para códigos de status de resposta HTTP
 Confira [LUIS API response codes](luis-reference-response-codes.md) (Códigos de resposta da API do LUIS).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Use a documentação da API v2 atualizar as chamadas REST existentes ao [ponto de extremidade](https://aka.ms/luis-endpoint-apis) do LUIS e às APIs de [criação](https://aka.ms/luis-authoring-apis). 
 

@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237851"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
 > [!NOTE]
@@ -101,7 +101,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 Atributos:
 
-|Atributo  |Type   |Obrigatório| Padrão | DESCRIÇÃO|  
+|Atributo  |Type   |Necessário| Padrão | DESCRIÇÃO|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo no qual o monitor de diagnóstico sonda em busca de alterações de configuração de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |A quantidade total de armazenamento de sistema de arquivos alocado para todos os buffers de registro em log.|  
@@ -208,7 +208,7 @@ Atributos:
 |Atributo|Type|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**path**|cadeia de caracteres|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
-|**expandEnvironment**|booleano|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
+|**expandEnvironment**|boolean|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Define um caminho relativo para um recurso local indicado na definição do serviço.

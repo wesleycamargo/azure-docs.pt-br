@@ -4,24 +4,24 @@ description: Explica as expressões de provisionamento declarativo.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/18/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/18/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245498"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
@@ -33,13 +33,13 @@ Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência d
 Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de função, quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado.
 
 ## <a name="language-definitions-and-identifiers"></a>Identificadores e definições de idioma
-* As funções têm um nome seguido por argumentos entre parênteses: NomeFunção(argumento 1, argumento N).
-* Os atributos são identificados por colchetes, [NomeDoAtributo]
-* Parâmetros são identificados por sinais de porcentagem: %NomeDoParâmetro%
-* Constantes de cadeia de caracteres ficam entre aspas: por exemplo, "Contoso" (observação: deve-se usar aspas normais "", e não inglesas “”)
-* Valores numéricos são expressos sem aspas e espera-se que sejam de tipo decimal. Valores hexadecimais são prefixados com &H. Por exemplo, 98052, &HFF
-* Valores boolianos são expressados com constantes: True, False.
-* Literais e constantes internos são expressados apenas com seu nome: NULL, CRLF, IgnoreThisFlow
+- As funções têm um nome seguido por argumentos entre parênteses: NomeFunção(argumento 1, argumento N).
+- Os atributos são identificados por colchetes, [NomeDoAtributo]
+- Parâmetros são identificados por sinais de porcentagem: %NomeDoParâmetro%
+- Constantes de cadeia de caracteres ficam entre aspas: por exemplo, "Contoso" (observação: deve-se usar aspas normais "", e não inglesas “”)
+- Valores numéricos são expressos sem aspas e espera-se que sejam de tipo decimal. Valores hexadecimais são prefixados com &H. Por exemplo, 98052, &HFF
+- Valores boolianos são expressados com constantes: True, False.
+- Literais e constantes internos são expressados apenas com seu nome: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Funções
 O provisionamento declarativo usa muitas funções para habilitar a possibilidade de transformar valores de atributo. Essas funções podem ser aninhadas para que o resultado de uma função seja passada para outra função.
@@ -71,11 +71,11 @@ Veja um exemplo que preenche o domínio de atributo metaverso com o nome netbios
 ### <a name="operators"></a>Operadores
 Os operadores a seguir podem ser usados:
 
-* **Comparação**: <, <=, <>, =, >, >=
-* **Matemática**: +, -, \*, -
-* **Cadeia de caracteres**: & (concatenado)
-* **Lógica**: && (e), || (ou)
-* **Ordem de avaliação**: ( )
+- **Comparação**: <, <=, <>, =, >, >=
+- **Matemática**: +, -, \*, -
+- **Cadeia de caracteres**: & (concatenado)
+- **Lógica**: && (e), || (ou)
+- **Ordem de avaliação**: ( )
 
 Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Por exemplo, o \* (multiplicador) não é avaliado antes - (subtração). 2\*(5+3) não é o mesmo que 2\*5+3. Os parênteses ( ) são usados para alterar a ordem de avaliação quando a ordem de avaliação da direita à esquerda não é apropriada.
 
@@ -87,17 +87,18 @@ Por exemplo:
 @-sign Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
-## <a name="next-steps"></a>Próximas etapas
-* Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md).
-* Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md).
+## <a name="next-steps"></a>Próximos passos
+- Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
+- Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md).
+- Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md).
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+- [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)
+- [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)
+
 

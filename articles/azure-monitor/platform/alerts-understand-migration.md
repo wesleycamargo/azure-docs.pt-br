@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: a45a0cff606bc854924d5da0841b26e1cb9031bb
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347593"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entender como funciona a ferramenta de migração
 
@@ -111,7 +111,7 @@ Devido a algumas alterações recentes a regras de alerta clássicas em sua assi
 
 Como parte da migração, serão criados novos alertas de métrica e novos grupos de ação e as regras de alerta clássicas serão excluídas (após a criação de novas regras). No entanto, há uma política ou o escopo de bloqueio impedindo a criação de recursos. Dependendo do escopo ou a política de bloqueio, algumas ou todas as regras não pôde ser migradas. Você pode resolver esse problema removendo a bloqueio de escopo/política temporariamente e disparar a migração novamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

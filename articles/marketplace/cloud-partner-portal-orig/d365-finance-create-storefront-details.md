@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397886"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencher o formulário Detalhes da montra
 ===========================================
@@ -42,7 +42,7 @@ Essa descrição aparecerá no AppSource, logo abaixo do **Resumo da oferta**. A
 
 Selecione o setor ao qual seu aplicativo está mais alinhado. Se o seu aplicativo estiver relacionado a vários setores, você poderá deixar isso em branco
 
-### <a name="categories"></a>Categorias
+### <a name="categories"></a>Categories
 
 Selecione as categorias relevantes para seu aplicativo. Selecione pelo menos uma categoria e um máximo de três. Escolha com cuidado, pois os clientes podem pesquisar no AppSource com base nas categorias
 
@@ -64,7 +64,7 @@ Este campo determina os países / regiões em que sua oferta estará disponível
 
 ### <a name="supported-languages"></a>Idiomas com suporte
 
-Selecione os idiomas que dá suporte a seu aplicativo. Se seu aplicativo oferecer suporte a idiomas adicionais que não estão nesta lista, continue a publicar sua oferta e envie-nos um e-mail para <appsource@microsoft.com> para nos informar.
+Selecione os idiomas aos quais o aplicativo dá suporte. Se seu aplicativo oferecer suporte a idiomas adicionais que não estão nesta lista, continue a publicar sua oferta e envie-nos um e-mail para <appsource@microsoft.com> para nos informar.
 
 ### <a name="app-version"></a>Versão do aplicativo
 
@@ -119,7 +119,7 @@ Deve haver uma página de suporte específica que forneça aos clientes diferent
 
 ### <a name="lead-destination"></a>Destino do cliente potencial
 
-Selecione um sistema CRM onde você lidera será armazenado. Selecione \"Azure Table\" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você seleciona aqui é onde escreveremos os detalhes dos usuários finais que experimentam seu aplicativo no AppSource (leads). Dependendo do sistema CRM selecionado, clique no URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos
+Selecione um sistema CRM onde você lidera será armazenado. Selecione \"tabelas do Azure\" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você seleciona aqui é onde escreveremos os detalhes dos usuários finais que experimentam seu aplicativo no AppSource (leads). Dependendo do sistema CRM selecionado, clique no URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos
 
 -   [Tabela do Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198030"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurar a infraestrutura do Azure DevTest Labs em sua empresa
 As empresas estão rapidamente adotando a nuvem devido a sua [benefícios](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) que incluem a agilidade, flexibilidade e economia. Uma primeira etapa comum para os clientes para usar a nuvem é iniciar com cargas de trabalho de desenvolvimento e teste.  O DevTest Labs oferece [recursos](devtest-lab-concepts.md) que se beneficiam empresarial e suporte [principais cenários de desenvolvimento/teste enterprise](devtest-lab-guidance-get-started.md).
@@ -40,5 +40,5 @@ A documentação voltada para enterprise destina-se a planejadores de TI, arquit
 
 Muitos clientes de enterprise DevTest Labs atuais com êxito usarem o DevTest Labs para desenvolvimento e para cargas de trabalho de teste em suas organizações. [Saiba mais](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Arquitetura de referência para uma empresa](devtest-lab-reference-architecture.md)

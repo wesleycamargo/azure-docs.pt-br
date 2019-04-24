@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204257"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
 
@@ -106,11 +106,11 @@ Suas configurações devem se parecer com isto:
 
 - Caso queira garantir que o servidor Web tenha uma cópia limpa do aplicativo Web após cada carregamento (e que nenhum arquivo tenha ficado suspenso de uma implantação anterior), é possível marcar a caixa de seleção **Remover arquivos adicionais no destino** na guia **Configurações**.
 
-- Aviso: publicar com essa configuração exclui todos os arquivos que existem no servidor Web (diretório wwwroot). Verifique se você sabe o estado do computador antes de publicar com essa opção habilitada. 
+- Aviso: Publicar com essa configuração exclui todos os arquivos que existem no servidor web (diretório wwwroot). Verifique se você sabe o estado do computador antes de publicar com essa opção habilitada. 
 
 ![Configurações de publicação – página Configurações]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurar CI/CD para implantação automática à VM do Azure
 

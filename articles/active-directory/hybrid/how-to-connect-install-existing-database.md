@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245243"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect usando um banco de dados ADSync existente
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar sua própria versão completa do SQL. Anteriormente, quando você instalava o Azure AD Connect, um novo banco de dados denominado ADSync era sempre criado. Com o Azure AD Connect versão 1.1.613.0 (ou posterior), você tem a opção de instalar o Azure AD Connect apontando-o para um banco de dados ADSync existente.
@@ -103,7 +103,7 @@ Use a tabela a seguir para verificar as etapas adicionais que são necessárias.
 |Autenticação de passagem e logon único da área de trabalho|Atualize o método de entrada para corresponder à configuração no seu servidor de sincronização ativo.  Se isso não for seguido antes de promover o servidor para primário, a autenticação de passagem junto com o recurso Single Sign Login será desativada e seu locatário poderá ser bloqueado se você não tiver a sincronização de senha como opção de login de backup. Observe também que, quando você ativa a autenticação de passagem no modo de preparação, um novo agente de autenticação será instalado, registrado e executado como um agente de alta disponibilidade que aceitará solicitações de entrada.|
 |Federação com PingFederate|As autenticações do Azure continuarão usando a política PingFederate configurada para o servidor de sincronização ativo.  Opcionalmente, você pode alterar o método de entrada para PingFederate na preparação para o servidor em espera se tornar a instância de sincronização ativa.  Essa etapa pode ser adiada até que você precise federar domínios adicionais com PingFederate.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 - Saiba mais sobre os recursos que foram habilitados com a instalação: [Impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).

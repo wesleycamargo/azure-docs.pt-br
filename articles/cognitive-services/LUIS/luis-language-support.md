@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196211"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -99,7 +99,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 
 As culturas a seguir têm versões de criador de token personalizado:
 
-|Cultura|Versão|Finalidade|
+|Cultura|Version|Finalidade|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-os usando um tokenizer baseada em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário digita `Ich fahre einen krankenwagen` como uma expressão, ele será transformado em `Ich fahre einen kranken wagen`. Permitindo que a marcação da `kranken` e `wagen` independentemente como entidades diferentes.|
 |Alemão<br>`de-de`|1.0.1|Cria tokens palavras dividindo-os em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como uma expressão, ele permanecerá um único token. Portanto, `krankenwagen` está marcado como uma única entidade. |

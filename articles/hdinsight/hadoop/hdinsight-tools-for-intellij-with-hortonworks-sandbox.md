@@ -2,7 +2,6 @@
 title: Usar o Azure Toolkit for IntelliJ com a Área Restrita do Hortonworks
 description: Saiba como usar as ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ com a Área Restrita do Hortonworks.
 keywords: ferramentas do hadoop,consulta do hive,intellij,área restrita do hortonworks,kit de ferramentas do azure para intellij
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343270"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usar ferramentas de HDInsight para IntelliJ com a área restrita do Hortonworks
 
@@ -147,7 +146,7 @@ Para enviar um projeto a um emulador:
 
 3. Selecione **Enviar**. Os logs de envio de trabalho são mostrados na janela da ferramenta de envio Spark.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [usar as Ferramentas do HDInsight no Azure Toolkit for IntelliJ criar aplicativos Apache Spark para um cluster do Linux do HDInsight Spark](../spark/apache-spark-intellij-tool-plugin.md).
 

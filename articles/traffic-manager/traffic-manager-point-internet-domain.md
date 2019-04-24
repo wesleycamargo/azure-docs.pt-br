@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329693"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
 
@@ -30,7 +30,7 @@ Todo o tráfego de solicitações para *www\.contoso.com* são direcionadas para
 > [!IMPORTANT]
 > Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Os padrões de protocolo DNS não permitem registros CNAME para nomes de domínio de segundo nível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 * [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)

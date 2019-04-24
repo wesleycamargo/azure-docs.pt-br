@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
 ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195054"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como revisar as declarações de ponto de extremidade no portal do LUIS para aprendizado ativo
 
@@ -91,6 +91,6 @@ Para excluir várias declarações, selecione cada item e selecione a lixeira à
 ![Excluir vários](./media/label-suggested-utterances/delete-several.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para testar como o desempenho melhora depois que você rotula as declarações sugeridas, você poderá acessar o console de teste selecionando **Teste** no painel superior. Para obter instruções sobre como testar seu aplicativo usando o console de teste, consulte [Treinar e testar seu aplicativo](luis-interactive-test.md).

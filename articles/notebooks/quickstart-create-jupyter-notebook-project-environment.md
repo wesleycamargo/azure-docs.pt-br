@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240656"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Início Rápido: Criar um projeto com um ambiente personalizado
 
@@ -71,7 +71,7 @@ Um projeto no Azure Notebooks é uma coleção de arquivos, como notebooks, arqu
 
 1. Para testar o ambiente, crie e execute um novo notebook e, em seguida, crie uma célula de código com instruções que dependam de um pacote no ambiente como o uso de uma instrução Python`import`. Se a instrução tiver êxito, significa que o pacote necessário foi instalado com êxito no ambiente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Gerenciar e configurar projetos no Azure Notebooks](configure-manage-azure-notebooks-projects.md)

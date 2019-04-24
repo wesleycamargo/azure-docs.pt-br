@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242156"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: Práticas recomendadas para alterar a configuração padrão
 O objetivo deste tópico é descrever as alterações com e sem suporte para a sincronização do Azure AD Connect.
@@ -71,7 +71,7 @@ Selecione **Sim** para criar uma cópia da regra. Então, a regra clonada é abe
 
 Na regra clonada, faça as alterações necessárias no escopo, na associação e nas transformações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)

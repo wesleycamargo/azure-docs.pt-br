@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232787"
 ---
 ## <a name="multi-and-single-instance-vms"></a>VMs de instância única e várias instâncias
 Muitos clientes em execução no Azure consideram essencial poder agendar quando suas VMs terão manutenção planejada devido ao tempo de inatividade, cerca de 15 minutos, que ocorre durante a manutenção. Você pode usar os conjuntos de disponibilidade para ajudar a controlar quando as VMs provisionadas receberão a manutenção planejada.

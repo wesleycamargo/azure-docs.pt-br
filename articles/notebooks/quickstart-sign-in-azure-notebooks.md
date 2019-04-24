@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237920"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início Rápido: Entrar e definir uma ID de usuário
 
@@ -64,7 +64,7 @@ Para sair, selecione seu nome de usuário no canto superior direito da página, 
 
 ![Local do comando de entrada no Azure Notebooks](media/accounts/sign-out-command.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar e compartilhar um notebook](quickstart-create-share-jupyter-notebook.md)

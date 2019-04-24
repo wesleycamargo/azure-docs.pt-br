@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234903"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -281,11 +281,11 @@ O processo para criar o alerta métrico é semelhante para [criar um alerta de r
        
        !["Condição de carga de alerta de métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condição de carga de alerta de métrica")
 
-  1. Na condição **se verdadeiro**, adicione um **Para cada** loop e a ação da Microsoft Teams. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico.
+  2. Na condição **se verdadeiro**, adicione um **Para cada** loop e a ação da Microsoft Teams. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico.
 
       !["Ação posterior da condição verdadeira de alerta de métrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Ação posterior da condição verdadeira de alerta de métrica")
 
-  1. Na condição **Se falso**, defina uma ação do Microsoft Teams que comunica que o alerta de métrica não corresponde às expectativas do aplicativo lógico e inclua o aplicativo lógico. Inclui o conteúdo JSON. Observe como referenciar o `triggerBody` conteúdo dinâmico na `json()` expressão.
+  3. Na condição **Se falso**, defina uma ação do Microsoft Teams que comunica que o alerta de métrica não corresponde às expectativas do aplicativo lógico e inclua o aplicativo lógico. Inclui o conteúdo JSON. Observe como referenciar o `triggerBody` conteúdo dinâmico na `json()` expressão.
 
       !["Ação posterior da condição falsa de alerta de métrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Ação posterior da condição falsa de alerta de métrica")
 
@@ -298,4 +298,3 @@ Aplicativos Lógicos têm um número de diferentes conectores que permitem dispa
 * Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
-

@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240718"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Como usar a API REST de QnA Maker com Python
 <a name="HOLTop"></a>
@@ -1149,7 +1149,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

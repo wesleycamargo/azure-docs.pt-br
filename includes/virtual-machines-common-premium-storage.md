@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232755"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 
@@ -229,7 +229,7 @@ Se um disco estiver anexado a uma VM, algumas operações de API no disco não s
 
 Os seguintes limites a se aplicam a instantâneos de blob de Armazenamento Premium:
 
-| Limite de armazenamento Premium | Valor |
+| Limite de armazenamento Premium | Value |
 | --- | --- |
 | Número máximo de instantâneos por blob | 100 |
 | Capacidade de conta de armazenamento de instantâneos<br>(Inclui dados em apenas instantâneos. Não inclui dados no blob de base.) | 10 TB |
@@ -259,7 +259,7 @@ Para atingir as metas de escalabilidade no Armazenamento Premium, para todos os 
 
 As seguintes distribuições Linux foram validadas para o armazenamento do Azure Premium. Para obter o melhor desempenho e estabilidade com o Armazenamento Premium, recomendamos que você atualize suas VMs para uma dessas versões, no mínimo (ou uma versão posterior). Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 para Azure mais recente. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Podemos adicionar imagens à lista à medida que concluímos a validação. Observe que nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende da carga de trabalho e das configurações de imagem. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
 
-| Distribuição | Versão | Kernel com suporte | Detalhes |
+| Distribuição | Version | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

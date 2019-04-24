@@ -1,7 +1,6 @@
 ---
 title: Uso estendido de servidor de histórico do Spark para depurar e diagnosticar aplicativos do Spark - Microsoft Azure HDInsight
 description: Uso estendido de servidor de histórico do Spark para depurar e diagnosticar aplicativos do Spark – Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484097"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Use o Apache Spark History Server estendido para depurar e diagnosticar aplicativos do Apache Spark
 
@@ -324,7 +323,7 @@ Se você quiser atualizar com o hotfix, use o script a seguir, que atualizará e
 
 2.  Dados de entrada/saída usando o RDD não serão exibidos na guia de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
 * [Definir as configurações do Apache Spark](apache-spark-settings.md)
