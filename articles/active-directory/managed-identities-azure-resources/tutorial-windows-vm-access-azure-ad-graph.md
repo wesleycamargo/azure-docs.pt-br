@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523351"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997777"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar a API do Azure AD Graph
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Windows para acessar a API do Microsoft Graph para recuperar as associações de grupo. As identidades gerenciadas para recursos do Azure são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código.  Neste tutorial, você consultará a associação da sua identidade da VM em grupos do Microsoft Azure AD. As informações de grupo geralmente são usadas em decisões de autorização, por exemplo. Nos bastidores, a identidade gerenciada da sua VM é representada por uma **Entidade de Serviço** no Microsoft Azure AD. Antes de fazer a consulta de grupo, adicione a entidade de serviço que representa a identidade da VM a um grupo no Azure AD. Você pode fazer isso usando o Azure PowerShell, o PowerShell do Azure AD ou a CLI do Azure.
+Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Windows para acessar a API do Graph do Azure AD a fim de recuperar as respectivas associações a um grupo. As identidades gerenciadas para recursos do Azure são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código.  Neste tutorial, você consultará a associação da sua identidade da VM em grupos do Microsoft Azure AD. As informações de grupo geralmente são usadas em decisões de autorização, por exemplo. Nos bastidores, a identidade gerenciada da sua VM é representada por uma **Entidade de Serviço** no Microsoft Azure AD. Antes de fazer a consulta de grupo, adicione a entidade de serviço que representa a identidade da VM a um grupo no Azure AD. Você pode fazer isso usando o Azure PowerShell, o PowerShell do Azure AD ou a CLI do Azure.
 
 > [!div class="checklist"]
 > * Conecte-se ao AD do Azure

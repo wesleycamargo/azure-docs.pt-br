@@ -1,28 +1,21 @@
-items:
 - name: Documentação do OpenShift
   href: index.md
 - name: Guia de início rápido
-  items:
-  - name: 'OpenShift: modelo da comunidade'
-    href: https://azure.microsoft.com/resources/templates/openshift-origin-rhel/
   expanded: true
+  items:
+    - name: 'OpenShift:  Modelo da comunidade'
+      href: 'https://azure.microsoft.com/resources/templates/openshift-origin-rhel/'
 - name: Tutoriais
   items:
-  - name: Implantar máquinas virtuais do Azure
-    href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Implantar máquinas virtuais do Azure
+      href: /azure/virtual-machines/linux/openshift-get-started
 - name: Recursos
   items:
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Modelo de contêiner do OpenShift
-    href: https://github.com/Microsoft/openshift-container-platform
-  - name: Origem do OpenShift
-    href: https://docs.openshift.org/latest/getting_started/index.html
-  - name: Site do OpenShift
-    href: https://docs.openshift.org/latest/welcome/index.html
-ms.openlocfilehash: d0339ac640f7f4f554d99bbff26ca258ed3620c6
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362000"
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelo de contêiner do OpenShift
+      href: 'https://github.com/Microsoft/openshift-container-platform'
+    - name: Origem do OpenShift
+      href: 'https://docs.openshift.org/latest/getting_started/index.html'
+    - name: Site do OpenShift
+      href: 'https://docs.openshift.org/latest/welcome/index.html'

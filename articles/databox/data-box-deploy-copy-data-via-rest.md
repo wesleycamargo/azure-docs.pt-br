@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527975"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995737"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST  
 
@@ -39,9 +39,14 @@ Antes de começar, verifique se:
 5. [Baixe o AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) no computador host. Você usará o AzCopy para copiar dados para o Armazenamento de Blobs do Azure Data Box do computador host.
 
 
-## <a name="connect-to-data-box-blob-storage"></a>Conectar-se ao Armazenamento de Blobs do Data Box
+## <a name="connect-via-http-or-https"></a>Conectar-se via HTTP ou HTTPS
 
-Conecte-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*. Em geral, *HTTPS* é a maneira segura e recomendada de se conectar ao Armazenamento de Blobs do Data Box. *HTTP* é usado para a conexão em redes confiáveis. Dependendo se você estiver se conectando ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*, as etapas poderão ser diferentes.
+Conecte-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*.
+
+- *HTTPS* é a maneira segura e recomendada de se conectar ao Armazenamento de Blobs do Data Box.
+- *HTTP* é usado para a conexão em redes confiáveis.
+
+As etapas para se conectar ao Armazenamento de Blobs do Data Box por *HTTP* ou *HTTPS* são diferentes.
 
 ## <a name="connect-via-http"></a>Conectar-se via HTTP
 
@@ -52,11 +57,11 @@ A conexão às APIs REST do Armazenamento de Blobs do Data Box via *HTTP* exige 
 
 Cada uma dessas etapas é descrita nas seções a seguir.
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Adicionar o endereço IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Adicionar o endereço IP do dispositivo e o ponto de extremidade de serviço Blob
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>Configurar o software parceiro e verificar a conexão
+### <a name="configure-partner-software-and-verify-connection"></a>Configurar o software parceiro e verificar a conexão
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ Cada uma dessas etapas é descrita nas seções a seguir.
 A conexão às APIs REST do Armazenamento de Blobs do Azure via HTTPS exige as seguintes etapas:
 
 - Baixar o certificado no portal do Azure
-- Preparar o computador host para gerenciamento remoto
-- Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto
+- Importar o certificado no host remoto ou do cliente
+- Adicionar o IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto ou do cliente
 - Configurar software de terceiros e verificar a conexão
 
 Cada uma dessas etapas é descrita nas seções a seguir.
@@ -83,20 +88,15 @@ Use o portal do Azure para baixar o certificado.
 
     ![Baixar o certificado no portal do Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>Preparar o host para gerenciamento remoto
+### <a name="import-certificate"></a>Importar certificado 
 
-Siga estas etapas para preparar o cliente Windows para uma conexão remota que usa uma sessão *HTTPS*:
+Acessar o Armazenamento de Blobs do Data Box via HTTPS requer um certificado SSL para o dispositivo. A maneira na qual esse certificado é disponibilizado para o aplicativo cliente varia de acordo com o aplicativo e entre sistemas operacionais e distribuições. Alguns aplicativos podem acessar o certificado depois que ele é importado no repositório de certificados do sistema, enquanto outros aplicativos não fazem uso desse mecanismo.
 
-- Importe o arquivo .cer para o repositório raiz do cliente ou do host remoto.
-- Adicione o endereço IP do dispositivo e o ponto de extremidade de serviço Blob ao arquivo de hosts no cliente Windows.
+Informações específicas para alguns aplicativos são mencionadas nesta seção. Para obter mais informações sobre outros aplicativos, consulte a documentação para o aplicativo e o sistema operacional usados.
 
-Cada um dos procedimentos acima é descrito abaixo.
+Siga estas etapas para importar o arquivo `.cer` para o repositório raiz de um cliente Windows ou Linux. Em um sistema Windows, você pode usar o Windows PowerShell ou a interface do usuário do Windows Server para importar e instalar o certificado no sistema.
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>Importe o certificado no host remoto
-
-Use o Windows PowerShell ou a interface do usuário do Windows Server para importar e instalar o certificado no sistema host.
-
-**Como usar o PowerShell**
+#### <a name="use-windows-powershell"></a>Usar o Windows PowerShell
 
 1. Inicie uma sessão do Windows PowerShell como administrador.
 2. No prompt de comando, digite:
@@ -105,9 +105,9 @@ Use o Windows PowerShell ou a interface do usuário do Windows Server para impor
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Usando a interface do usuário do Windows Server**
+#### <a name="use-windows-server-ui"></a>Usar a interface do usuário do Windows Server
 
-1.  Clique com o botão direito do mouse no arquivo .cer e selecione **Instalar certificado**. Isso inicia o Assistente para importação de certificados.
+1.  Clique com o botão direito do mouse no arquivo `.cer` e selecione **Instalar certificado**. Essa ação inicia o Assistente para Importação de Certificados.
 2.  Em **Localização do repositório**, selecione **Computador Local** e, em seguida, clique em **Próximo**.
 
     ![Importar o certificado usando o PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ Use o Windows PowerShell ou a interface do usuário do Windows Server para impor
 
     ![Importar o certificado usando o PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Para adicionar o endereço IP do dispositivo e o ponto de extremidade de serviço Blob ao host remoto
+#### <a name="use-a-linux-system"></a>Usar um sistema Linux
 
-As etapas a serem seguidas são idênticas ao que você usou ao se conectar via *HTTP*.
+O método para importar um certificado varia de acordo com a distribuição.
 
-### <a name="configure-partner-software-to-establish-connection"></a>Configurar o software parceiro para estabelecer a conexão
+Várias delas, tais como Ubuntu e Debian, usam o comando `update-ca-certificates`.  
 
-As etapas a serem seguidas são idênticas ao que você usou ao se conectar via *HTTP*. A única diferença é que você deve deixar a *opção Usar HTTP* desmarcada.
+- Renomeie o arquivo de certificado codificado em Base64 para ter uma extensão `.crt` e copie-o para o `/usr/local/share/ca-certificates directory`.
+- Execute o comando `update-ca-certificates`.
+
+Versões recentes do RHEL, Fedora e CentOS usam o comando `update-ca-trust`.
+
+- Copie o arquivo de certificado para o diretório `/etc/pki/ca-trust/source/anchors`.
+- Execute `update-ca-trust`.
+
+Consulte a documentação específica para a sua distribuição para obter detalhes.
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Adicionar o endereço IP do dispositivo e o ponto de extremidade de serviço Blob 
+
+Siga as mesmas etapas para [adicionar endereço IP do dispositivo e ponto de extremidade de serviço Blob ao se conectar via *HTTP*](#add-device-ip-address-and-blob-service-endpoint).
+
+### <a name="configure-partner-software-and-verify-connection"></a>Configurar o software parceiro e verificar a conexão
+
+Siga as etapas para [configurar o software de parceiro que você usou ao se conectar via *HTTP*](#configure-partner-software-and-verify-connection). A única diferença é que você deve deixar a *opção Usar HTTP* desmarcada.
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para caixa de dados
 
@@ -199,7 +215,6 @@ Se você quiser copiar apenas os recursos de origem que não existem no destino,
 #### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 A próxima etapa é preparar seu dispositivo para envio.
 

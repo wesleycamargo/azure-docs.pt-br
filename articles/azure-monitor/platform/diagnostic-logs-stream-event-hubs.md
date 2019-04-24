@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237692"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](diagnostic-logs-overview.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -182,9 +182,9 @@ Aqui está um exemplo de dados de saída dos Hubs de Eventos:
 | Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | records |Uma matriz de todos os eventos de log nessa carga. |
-| tempo real |A hora na qual o evento ocorreu. |
-| categoria |Categoria do log desse evento. |
-| ResourceId |ID de recurso do recurso que gerou esse evento. |
+| time |A hora na qual o evento ocorreu. |
+| category |Categoria do log desse evento. |
+| resourceId |ID de recurso do recurso que gerou esse evento. |
 | operationName |Nome da operação. |
 | level |Opcional. Indica o nível do evento de log. |
 | propriedades |Propriedades do evento. |
@@ -195,7 +195,7 @@ Aqui está um exemplo de dados de saída dos Hubs de Eventos:
 
 Também é possível transmitir logs de diagnóstico de recursos de Computação usando o agente do Diagnóstico do Azure. [Consulte este artigo](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) para saber como configurar isso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Transmitir logs do Azure Active Directory com o Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](diagnostic-logs-overview.md)

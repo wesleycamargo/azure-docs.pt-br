@@ -108,8 +108,6 @@
         - name: Excluir um cluster AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: AKS habilitado para Azure AD
-          href: aad-integration.md
         - name: Criar nós virtuais (versão prévia)
           items:
             - name: CLI do Azure
@@ -172,8 +170,18 @@
           href: control-kubeconfig-access.md
         - name: Proteger o tráfego de pod com políticas de rede (versão prévia)
           href: use-network-policies.md
+        - name: Usar políticas de segurança de pod (versão prévia)
+          href: use-pod-security-policies.md
         - name: Atualizar as credenciais da entidade de serviço de cluster
           href: update-credentials.md
+        - name: Habilitar integração do Azure Active Directory
+          items:
+            - name: Usar a CLI do Azure
+              href: azure-ad-integration-cli.md
+            - name: Use o Portal do Azure
+              href: azure-ad-integration.md
+        - name: Usar o RBAC do Kubernetes com a integração do Azure AD
+          href: azure-ad-rbac.md
         - name: Autenticar com o ACR
           href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true

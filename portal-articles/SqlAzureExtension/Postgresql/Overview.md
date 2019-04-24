@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 6282acaf165d2f31a1a1ac525dad75ebc64a2a7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113945"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Banco de dados do Azure para obter a documentação do PostgreSQL
 
@@ -30,7 +30,7 @@ Saiba como criar um Banco de Dados PostgreSQL com:
 
 Saiba como:
 
-- Projete um banco de dados: [portal do Azure](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [CLI do Azure](/azure/postgresql/tutorial-design-database-using-azure-cli)
+- Criar um banco de dados: [Portal do Azure](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [CLI do Azure](/azure/postgresql/tutorial-design-database-using-azure-cli)
 - [Criar um aplicativo Web usando o Python e a CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>Exemplos 

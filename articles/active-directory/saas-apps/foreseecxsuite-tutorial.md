@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 14732b02e56d56baa032b8a3728ca892f4ad7d2f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563566"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Azure Active Directory com o ForeSee CX Suite
 
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o ForeSee CX Suite, execute as se
 
      a. Na caixa de texto **URL de Logon**, digite uma URL: `https://cxsuite.foresee.com/`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: https://www.okta.com/saml2/service-provider/<UniqueID>
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: https:\//www.okta.com/saml2/service-provider/<UniqueID>
 
     > [!Note]
     > Se o valor de **Identificador** não for populado automaticamente, preencha o valor manualmente de acordo com o padrão acima. O valor do Identificador não é real. Atualize esse valor com o Identificador real. Entre em contato com a [equipe de suporte ao cliente do ForeSee CX Suite](mailto:support@foresee.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

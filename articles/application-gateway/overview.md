@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546843"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003353"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -51,7 +51,7 @@ O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o t
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versão prévia do controlador de entrada do AKS (Serviço de Kubernetes do Azure) 
 
-O controlador de entrada do Gateway de Aplicativo é executado como um pod no cluster do AKS e permite que o Gateway de Aplicativo atue como entrada para um cluster do AKS. 
+O controlador de entrada do Gateway de Aplicativo é executado como um pod no cluster do AKS e permite que o Gateway de Aplicativo atue como entrada para um cluster do AKS. Isso é compatível somente com o Gateway de Aplicativo v2.
 
 Para obter mais informações, confira [Controlador de ingresso do Gateway de Aplicativo do Azure](https://azure.github.io/application-gateway-kubernetes-ingress/).
 

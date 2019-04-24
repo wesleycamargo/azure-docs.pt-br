@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496787"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678132"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -45,7 +45,13 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página de análise de custo, clique em **Exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **Agendar exportação**. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página de análise de custo, clique em **Exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **Agendar exportação**.  
+
+> [!NOTE]
+> Além de assinaturas, você pode criar exportações em registros, contas, departamentos e grupos de recursos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+> 
+> 
+
 
 Clique em **Adicionar**, digite um nome para a exportação e, em seguida, selecione a **exportação diária da opção de custos desde o início do mês**. Clique em **Próximo**.
 
